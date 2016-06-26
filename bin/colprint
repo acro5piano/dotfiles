@@ -1,0 +1,15 @@
+#!/bin/bash
+
+options=''
+while getopts F: OPT; do
+    options="$options -$OPT $OPTARG"
+done
+
+shift $((OPTIND - 1))
+
+command=''
+for str in $@; do
+    command=`echo $command '$'$str, `
+done
+
+awk $options "{print `echo $command | sed 's/,$//g'`}"
