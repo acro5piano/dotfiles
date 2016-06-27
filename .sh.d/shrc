@@ -44,3 +44,6 @@ fi
 
 # Set fabric env
 export FAB_ENV=development
+
+export SCREENDIR=/Users/works/tmp/screen
+
