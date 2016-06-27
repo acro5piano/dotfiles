@@ -11,6 +11,9 @@
 !/.screen
 !/.screen/*
 
+!/.sh.d
+!/.sh.d/*
+
 # My scripts
 !/bin
 !/bin/*
