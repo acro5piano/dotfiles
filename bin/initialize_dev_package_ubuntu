@@ -17,6 +17,7 @@ sudo apt-get install -y emacs-mozc mozc-utils-gui
 # Development tools
 sudo apt-get install -y vim net-tools bc gcc g++ make git screen ssh emacs tree colordiff curl jq
 sudo apt-get install -y software-properties-common python-software-properties
+sudo apt-get install -y man
 
 # Emacs cask
 curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
@@ -24,12 +25,6 @@ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 # vim vundle
 mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# Maintenance tools
-sudo apt-get install -y man
-
-# Multimedia
-sudo apt-get install -y vlc ubuntu-restricted-extras
 
 # Install nodejs
 sudo apt-get install -y build-essential
@@ -70,28 +65,8 @@ sudo apt-get install -y openjdk-7-jdk
 # Script for easily accessing gitignore boilerplates
 sudo wget https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo -O /usr/bin/gibo
 
-# Install golang
+# Install golang 1.6
 sudo wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 tar xzvf go1.6.linux-amd64.tar.gz && rm -rf go1.6.linux-amd64.tar.gz
 sudo mv go /usr/local
-# Or using apt
-#sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
-#sudo apt-get update
-#sudo apt-get install golang
 
-
-############## ############## ############## ##############
-# GUI tools (deprecated...?)
-sudo apt-get install -y fonts-takao fcitx fcitx-mozc language-pack-ja im-config fonts-wqy-zenhei terminator eog
-im-config -n fcitx
-
-# Browser
-sudo apt-get install chromium-browser
-
-# Maintenance
-sudo apt-get install -y gparted
-
-# UX utilities
-sudo apt-get install -y touchegg xsel
-
-############## ############## ############## ##############
