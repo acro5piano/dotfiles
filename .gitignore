@@ -5,3 +5,23 @@ elpa
 kkcrc
 url
 .cask
+
+# XFCE4
+/.config/*
+!/.config/Xmodmap
+!/.config/wallpapers
+!/.config/fcitx
+/.config/fcitx/data/
+/.config/fcitx/dbus/
+/.config/fcitx/clipboard/
+/.config/fcitx/cached_layout
+/.config/fcitx/log
+!/.config/touchegg
+!/.config/touchegg/touchegg.conf
+!/.config/autostart
+!/.config/autostart/touch.sh
+!/.config/xfce4!/.config/xfce4/xfconf
+!/.config/xfce4/xfconf/xfce-perchannel-xml
+!/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+!/.config/terminator
+
