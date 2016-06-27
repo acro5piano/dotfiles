@@ -1,0 +1,9 @@
+! Change Fn => Ctrl
+remove lock = Super_L
+keycode 133 = Control_L
+add control = Control_L
+
+! Change Ctrl => Fn (Doesn't work)
+!remove mod4 = Control_L
+!keycode 37 = Super_L
+!add mod4 = Super_L
