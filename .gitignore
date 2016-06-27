@@ -4,13 +4,13 @@
 !/.gitconfig
 
 !/.vimrc
-!/.bashrc
-!/.bash_aliases
 
 !/.screenrc
 !/.screen
 !/.screen/*
 
+# Bash compatiable
+!/.bashrc
 !/.sh.d
 !/.sh.d/*
 
