@@ -1,27 +1,46 @@
-# Emacs
-ac-comphist.dat
-auto-save-list
-elpa
-kkcrc
-url
-.cask
+*
 
-# XFCE4
-/.config/*
+!/.gitignore
+!/.gitconfig
+
+!/.vimrc
+!/.bashrc
+!/.bash_aliases
+
+!/.screenrc
+!/.screen
+!/.screen/*
+
+# My scripts
+!/bin
+!/bin/*
+
+# Emacs
+!/.emacs.d
+!/.emacs.d/init.el
+!/.emacs.d/Cask
+!/.emacs.d/lisp
+!/.emacs.d/lisp/*
+
+# Xfce4
+!/.config
 !/.config/Xmodmap
 !/.config/wallpapers
+!/.config/wallpapers/*
 !/.config/fcitx
-/.config/fcitx/data/
-/.config/fcitx/dbus/
-/.config/fcitx/clipboard/
-/.config/fcitx/cached_layout
-/.config/fcitx/log
+!/.config/fcitx/config
 !/.config/touchegg
 !/.config/touchegg/touchegg.conf
 !/.config/autostart
 !/.config/autostart/touch.sh
-!/.config/xfce4!/.config/xfce4/xfconf
+!/.config/xfce4
+!/.config/xfce4/xfconf
 !/.config/xfce4/xfconf/xfce-perchannel-xml
 !/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 !/.config/terminator
+!/.config/terminator/config
+
+# Dictionary
+!/.mozc
+!/.mozc/user_dictionary.db
 
