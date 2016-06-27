@@ -10,6 +10,7 @@
 !/.screen/*
 
 # Bash compatiable
+# Write here for *sh file
 !/.bashrc
 !/.sh.d
 !/.sh.d/*
