@@ -249,5 +249,9 @@ set ambiwidth=double
 
 vmap <C-c> :w !xsel -ib<CR><CR>
 
+if expand("%") =~ "sql"
+    set filetype=sql
+endif
+
 
 
