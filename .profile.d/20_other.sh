@@ -30,8 +30,9 @@ stty stop undef
 
 # Setting for chromebook
 if [ $USER = 'kazuya' ]; then
-    :
-    xmodmap ~/.config/Xmodmap
+    if [ -e ~/config/Xmodmap ]; then
+        xmodmap ~/.config/Xmodmap
+    fi
     # Open jupyter notebook if not running
     #if [ `ps aux | grep jupyter-notebook | wc -l` -eq 1 ]; then
     #    #nohup jupyter-notebook > /dev/null &

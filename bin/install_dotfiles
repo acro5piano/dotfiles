@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DOTPATH=~/.dotfiles
 
 for f in .??*
@@ -12,4 +14,6 @@ do
 done
 
 ln -snfv "$DOTPATH/bin" "$HOME/bin"
+
+exec $SHELL
 
