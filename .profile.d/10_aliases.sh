@@ -1,12 +1,21 @@
 # Define my commands alias or function
 
-alias sr='screen -xR'
-alias em='emacs -nw'
-alias memo='em ~/memo/memo.org'
 alias P='cat /tmp/clipboard'
-alias tree='tree --charset XXX'
-alias less='less -R'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cl='xsel -ib'
+alias egrep='egrep --color=auto'
+alias em='emacs -nw'
+alias fgrep='fgrep --color=auto'
+alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias less='less -R'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+alias memo='em ~/memo/memo.org'
+alias sr='screen -xR'
+alias tree='tree --charset XXX'
 
 mozc(){
     if [ $1 = 'dict' ]; then
