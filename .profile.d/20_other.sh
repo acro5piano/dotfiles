@@ -30,10 +30,11 @@ stty stop undef
 
 # Setting for chromebook
 if [ $USER = 'kazuya' ]; then
+    :
     # Open jupyter notebook if not running
-    if [ `ps aux | grep jupyter-notebook | wc -l` -eq 1 ]; then
-        nohup jupyter-notebook > /dev/null &
-    fi
+    #if [ `ps aux | grep jupyter-notebook | wc -l` -eq 1 ]; then
+    #    #nohup jupyter-notebook > /dev/null &
+    #fi
 fi
 
 # Setting for my Office
@@ -45,5 +46,5 @@ fi
 # Set fabric env
 export FAB_ENV=development
 
-export SCREENDIR=/Users/works/tmp/screen
+export SCREENDIR=~/.screen
 
