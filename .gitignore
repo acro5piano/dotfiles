@@ -9,11 +9,13 @@
 !/.screen
 !/.screen/*
 
-# Bash compatiable
-# Write here for *sh file
+# Write here for bash and zsh file
+!/.profile.d
+!/.profile.d/*
+
 !/.bashrc
-!/.sh.d
-!/.sh.d/*
+!/.bash
+!/.bash/*
 
 !/.zshrc
 !/.zsh

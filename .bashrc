@@ -1,3 +1,8 @@
-. $HOME/.dotfiles/.sh.d/aliases
-. $HOME/.dotfiles/.sh.d/shrc
-. $HOME/.dotfiles/.sh.d/shrc-default
+for f in ~/.profile.d/[0-9]*.sh
+do
+    source "$f"
+done
+for f in ~/.bash/[0-9]*.sh
+do
+    source "$f"
+done
