@@ -1,8 +1,6 @@
 [user]
 	email = ketsume0211@gmail.com
 	name = gosho-kazuya
-[push]
-	default = simple
 [alias]
     st = status
     c = commit
