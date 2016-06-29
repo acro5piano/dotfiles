@@ -25,6 +25,11 @@
 !/bin
 !/bin/*
 
+# Libraries
+!/lib
+!/lib/*
+!/lib/*/*
+
 # Emacs
 !/.emacs.d
 !/.emacs.d/init.el
