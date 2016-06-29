@@ -20,11 +20,6 @@ export LANG=en_US.utf8
 # Emacs cask
 export PATH="~/.cask/bin:$PATH"
 
-# Screen
-sudo mkdir /var/run/screen 2>/dev/null
-sudo chmod 0777 /var/run/screen
-screen -xR
-
 # Enable C-s -> I-search
 stty stop undef
 
@@ -49,4 +44,7 @@ fi
 export FAB_ENV=development
 
 export SCREENDIR=~/.screen
+
+# Exec screen
+screen -xR
 
