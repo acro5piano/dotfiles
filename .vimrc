@@ -25,10 +25,24 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'osyo-manga/vim-anzu'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'vim-scripts/YankRing.vim'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+"----------------------------------------------------
+" yankring.vim
+"----------------------------------------------------
+let g:yankring_history_dir = '/tmp'
+
+"----------------------------------------------------
+" Yggdroot/indentLine
+"----------------------------------------------------
+let g:indentLine_color_term = 5
+
+
+
 
 "----------------------------------------------------
 " incsearch.vim
@@ -186,9 +200,9 @@ set expandtab
 " オートコマンド
 "----------------------------------------------------
 if has("autocmd")
- " ファイルタイプ別インデント、プラグインを有効にする
+    " ファイルタイプ別インデント、プラグインを有効にする
     filetype plugin indent on
- " カーソル位置を記憶する
+    " カーソル位置を記憶する
     autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal g`\"" |
@@ -252,6 +266,8 @@ vmap <C-c> :w !xsel -ib<CR><CR>
 if expand("%") =~ "sql"
     set filetype=sql
 endif
+
+
 
 
 
