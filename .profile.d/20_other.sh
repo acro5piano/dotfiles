@@ -8,7 +8,9 @@ export PATH="$HOME/bin:$PATH"
 
 # ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -e $HOME/.rbenv/bin ]; then
+    eval "$(rbenv init -)"
+fi
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
@@ -28,10 +30,6 @@ if [ $USER = 'kazuya' ]; then
     if [ -e ~/config/Xmodmap ]; then
         xmodmap ~/.config/Xmodmap
     fi
-    # Open jupyter notebook if not running
-    #if [ `ps aux | grep jupyter-notebook | wc -l` -eq 1 ]; then
-    #    #nohup jupyter-notebook > /dev/null &
-    #fi
 fi
 
 # Setting for my Office
