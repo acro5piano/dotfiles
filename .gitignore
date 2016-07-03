@@ -1,5 +1,21 @@
 *
 
+# My scripts
+!/bin
+!/bin/*
+
+# Libraries
+!/lib
+!/lib/*
+!/lib/*/*
+!/lib/*/*/*
+!/lib/*/*/*/*
+
+# Config and init scripts
+!/etc
+!/etc/*
+!/etc/*/*
+
 !/.gitignore
 !/.gitconfig
 
@@ -22,15 +38,6 @@
 !/.zshrc
 !/.zsh
 !/.zsh/*
-
-# My scripts
-!/bin
-!/bin/*
-
-# Libraries
-!/lib
-!/lib/*
-!/lib/*/*
 
 # Emacs
 !/.emacs.d
