@@ -27,7 +27,7 @@ stty stop undef
 
 # Setting for chromebook
 if [ $USER = 'kazuya' ]; then
-    if [ -e ~/config/Xmodmap ]; then
+    if [ -e ~/.config/Xmodmap ]; then
         xmodmap ~/.config/Xmodmap
     fi
 fi
