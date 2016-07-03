@@ -13,7 +13,7 @@ alias la='ls -A'
 alias less='less -R'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
-alias memo='em ~/memo/memo.org'
+alias memo='em ~/mynote/memo.org'
 alias sr='screen -xR'
 alias tree='tree --charset XXX'
 

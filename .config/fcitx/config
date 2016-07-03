@@ -48,7 +48,7 @@ InactivateKey=SUPER_LSUPER MUHENKAN
 # ALT_SHIFT
 # CTRL_SUPER
 # ALT_SUPER
-#IMSwitchHotkey=CTRL_SHIFT
+IMSwitchHotkey=ALT_SUPER
 # Reload configuration
 ReloadConfig=
 # Interval of Two Key Input

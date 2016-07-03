@@ -32,9 +32,9 @@
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Enable evil
-;(require 'evil)
-;(evil-mode 0)
+; Enable evil
+(require 'evil)
+(evil-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
@@ -121,11 +121,11 @@
 
 (require 'edit-server)
 (edit-server-start)
-(setq edit-server-edit-mode-hook (
-    lambda()
-        (interactive)
-        (org-mode)))
-
+;(setq edit-server-edit-mode-hook (
+;    lambda()
+;        (interactive)
+;        (org-mode)))
+;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
