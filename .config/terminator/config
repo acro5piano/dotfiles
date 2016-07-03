@@ -1,9 +1,11 @@
 [global_config]
 [keybindings]
+  full_screen = <Shift><Alt>l
 [profiles]
   [[default]]
+    scrollbar_position = hidden
     use_system_font = False
-    font = Monospace 11
+    font = Monospace 10
     background_image = None
     foreground_color = "#ffffff"
     scroll_on_output = False

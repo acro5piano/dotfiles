@@ -213,21 +213,21 @@ endif
 " fcitxで日本語入力の自動切り替えを実現
 "----------------------------------------------------
 "
-"autocmd InsertEnter * call CheckIm()
-"autocmd InsertLeave * call DeactIm()
-"
-"function DeactIm()
-"    let imstatus=system('fcitx-remote')
-"    call writefile([imstatus],'/tmp/imstate')
-"    call system('fcitx-remote -c')
-"endfunction
-"
-"function CheckIm()
-"    let imstatus=readfile('/tmp/imstate')[0]
-"    if imstatus=="2\n"
-"        call system('fcitx-remote -o')
-"    endif
-"endfunction
+autocmd InsertEnter * call CheckIm()
+autocmd InsertLeave * call DeactIm()
+
+function DeactIm()
+    let imstatus=system('fcitx-remote')
+    call writefile([imstatus],$HOME.'/.vim/imstate')
+    call system('fcitx-remote -c')
+endfunction
+
+function CheckIm()
+    let imstatus=readfile($HOME.'/.vim/imstate')[0]
+    if imstatus=="2\n"
+        call system('fcitx-remote -o')
+    endif
+endfunction
 
 
 "----------------------------------------------------
@@ -266,6 +266,9 @@ vmap <C-c> :w !xsel -ib<CR><CR>
 if expand("%") =~ "sql"
     set filetype=sql
 endif
+
+set ttimeoutlen=1
+
 
 
 

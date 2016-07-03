@@ -27,9 +27,7 @@ stty stop undef
 
 # Setting for chromebook
 if [ $USER = 'kazuya' ]; then
-    if [ -e ~/.config/Xmodmap ]; then
-        xmodmap ~/.config/Xmodmap
-    fi
+    xmodmap ~/.xmodmap
 fi
 
 # Setting for my Office
@@ -44,5 +42,5 @@ export FAB_ENV=development
 export SCREENDIR=~/.screen
 
 # Exec screen
-screen -xR
+#screen -xR
 
