@@ -27,7 +27,9 @@ stty stop undef
 
 # Setting for chromebook
 if [ $USER = 'kazuya' ]; then
-    xmodmap ~/.xmodmap
+    if [ $DISPLAY ]; then
+        xmodmap ~/.xmodmap
+    fi
 fi
 
 # Setting for my Office
