@@ -1,6 +1,0 @@
-#!/bin/bash
-if [ `ps aux | grep clipboard-server | wc -l` -eq 1 ]; then
-    cd $HOME/.dotfiles/lib/clipboard-share/server && nohup bundle exec ruby clipboard-server.rb > /tmp/clipboard-server.log &
-    cd
-fi
-

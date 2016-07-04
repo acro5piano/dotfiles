@@ -16,6 +16,9 @@
 !/etc
 !/etc/*
 !/etc/*/*
+!/etc/*/*/*
+!/etc/*/*/*/*
+!/etc/*/*/*/*/*
 
 !/.gitignore
 !/.gitconfig
