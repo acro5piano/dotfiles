@@ -64,7 +64,7 @@ windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,
 windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 
 caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
-hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n'
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w '
 
 
 
