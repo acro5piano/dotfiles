@@ -1,1 +1,0 @@
-alias cdb='cd-bookmark'
