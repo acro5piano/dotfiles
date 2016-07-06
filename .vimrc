@@ -212,9 +212,13 @@ endif
 "----------------------------------------------------
 " fcitxで日本語入力の自動切り替えを実現
 "----------------------------------------------------
-"
-autocmd InsertEnter * call CheckIm()
-autocmd InsertLeave * call DeactIm()
+
+try
+    call system('fcitx-remote -c')
+    autocmd InsertEnter * call CheckIm()
+    autocmd InsertLeave * call DeactIm()
+catch
+endtry
 
 function DeactIm()
     let imstatus=system('fcitx-remote')
