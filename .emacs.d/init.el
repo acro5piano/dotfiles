@@ -20,13 +20,13 @@
 
 ; Markdown Table
 (defun cleanup-org-tables ()
-  (save-excursion
-    (goto-char (point-min))
-    (while (search-forward "-+-" nil t) (replace-match "-|-"))))
+    (save-excursion
+        (goto-char (point-min))
+        (while (search-forward "-+-" nil t) (replace-match "-|-"))))
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
     #'(lambda()
-      (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+        (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
@@ -57,7 +57,6 @@
 ; Not use auto indent
 (setq-default indent-tabs-mode nil)
 (electric-indent-mode 0)
-
 
 
 
@@ -136,4 +135,7 @@
 (setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
+
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
