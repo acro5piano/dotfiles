@@ -25,8 +25,8 @@
     (while (search-forward "-+-" nil t) (replace-match "-|-"))))
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
-          #'(lambda()
-          (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+    #'(lambda()
+      (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
@@ -80,12 +80,11 @@
 ;; Other tools
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'org)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Japanese input using Mozc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'org)
 
 (require 'mozc)
 (set-language-environment "Japanese")
@@ -112,7 +111,11 @@
 (require 'ac-mozc)
 (define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc)
 
-(require 'org)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ac-mozc
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (add-to-list 'ac-modes 'org-mode)
 
 (defun my-ac-mozc-setup ()
@@ -121,14 +124,12 @@
     (set (make-local-variable 'ac-auto-show-menu) 0.2)
     (bind-key* "C-n" (ac-next)))
 
-
-
 (add-hook 'org-mode-hook 'my-ac-mozc-setup)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
