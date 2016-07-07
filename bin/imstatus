@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ `fcitx-remote` -eq 2 ]; then
+    echo 'Mozc'
+else
+    echo '--'
+fi
+

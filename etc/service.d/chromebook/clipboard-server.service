@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $HOME/.dotfiles/lib/clipboard-share/server && nohup bundle exec ruby clipboard-server.rb > /tmp/clipboard-server.log &
+

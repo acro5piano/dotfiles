@@ -16,6 +16,7 @@ alias ls='ls --color=auto'
 alias memo='em ~/mynote/memo.org'
 alias sr='screen -xR'
 alias tree='tree --charset XXX'
+alias ycal='cal `date +%Y`'
 
 mozc(){
     if [ $1 = 'dict' ]; then
@@ -50,5 +51,9 @@ cleanse(){
         grep -v ダミー  | grep -v ※  |
         han | nkf -w |
         tr "[:lower:]" "[:upper:]"
+}
+
+to_dos(){
+    iconv -f utf8 -t sjis | perl -pe 's/\n/\r\n/' < /dev/stdin
 }
 

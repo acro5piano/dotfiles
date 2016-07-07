@@ -32,16 +32,12 @@
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Enable evil
-;(require 'evil)
-;(evil-mode 1)
+(keyboard-translate ?\C-h ?\C-?)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; Dired
-(require 'dired-toggle)
 
 ;; Do not create backup file
 (setq make-backup-files nil)
@@ -49,9 +45,6 @@
 
 ;; Do not show welcome message
 (setq inhibit-startup-message t)
-
-;;; Multi tab mode
-;(require 'evil-tab-page)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
@@ -66,26 +59,18 @@
 (electric-indent-mode 0)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Key settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;; Enable evil
-;(require 'evil)
-;(evil-mode 1)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(line-number-mode 1)
+;(line-number-mode 1)
 
 ;; Hilight ()
-(show-paren-mode 1)
-(setq show-paren-style 'mixed)
-(set-face-background 'show-paren-match-face "grey")
-(set-face-foreground 'show-paren-match-face "black")
+;(show-paren-mode 1)
+;(setq show-paren-style 'mixed)
+;(set-face-background 'show-paren-match-face "grey")
+;(set-face-foreground 'show-paren-match-face "black")
 
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
@@ -99,6 +84,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Japanese input using Mozc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'org)
 
 (require 'mozc)
 (set-language-environment "Japanese")
@@ -121,11 +108,22 @@
 
 (require 'edit-server)
 (edit-server-start)
-;(setq edit-server-edit-mode-hook (
-;    lambda()
-;        (interactive)
-;        (org-mode)))
-;
+
+(require 'ac-mozc)
+(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc)
+
+(require 'org)
+(add-to-list 'ac-modes 'org-mode)
+
+(defun my-ac-mozc-setup ()
+    (setq ac-sources
+        '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
+    (set (make-local-variable 'ac-auto-show-menu) 0.2)
+    (bind-key* "C-n" (ac-next)))
+
+
+
+(add-hook 'org-mode-hook 'my-ac-mozc-setup)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
