@@ -33,7 +33,7 @@ if [ $USER = 'kazuya' ]; then
 fi
 
 # Setting for my Office
-if [ `hostname` = 'kgosho-ubuntu' ]; then
+if [ -e "~/.quick_dotfiles" ]; then
     . ~/.quick_dotfiles/.bash_profile
     . ~/.quick_dotfiles/.bash_aliases
 fi
