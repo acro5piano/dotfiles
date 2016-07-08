@@ -104,16 +104,12 @@
         (inactivate-input-method)
         (keyboard-quit)))
 
-(require 'edit-server)
-(edit-server-start)
-
-(require 'ac-mozc)
-(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc)
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; ac-mozc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'ac-mozc)
+(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc)
 
 (add-to-list 'ac-modes 'org-mode)
 
@@ -124,6 +120,13 @@
     (bind-key* "C-n" (ac-next)))
 
 (add-hook 'org-mode-hook 'my-ac-mozc-setup)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Edit-server
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'edit-server)
+(edit-server-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default

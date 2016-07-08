@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-mixer" version="1.0">
+  <property name="sound-card" type="string" value="PlaybackBuiltinAudioAnalogStereoPulseAudioMixer"/>
+  <property name="sound-cards" type="empty">
+    <property name="PlaybackcrasPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="CaptureMonitorofcrasPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="CapturecrasPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="HDAIntelPCHAlsamixer" type="array">
+      <value type="string" value="Headphone"/>
+      <value type="string" value="Speaker"/>
+      <value type="string" value="Speaker+LO"/>
+    </property>
+    <property name="PlaybackPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="PlaybackDigitalStereoHDMIPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="HDAIntelHDMIAlsamixer" type="array">
+    </property>
+    <property name="PlaybackBuiltinAudioDigitalStereoHDMIPulseAudioMixer" type="array">
+    </property>
+    <property name="PlaybackBuiltinAudioAnalogStereoPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="CaptureBuiltinAudioAnalogStereoPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="CaptureMonitorofBuiltinAudioAnalogStereoPulseAudioMixer" type="array">
+      <value type="string" value="Master"/>
+    </property>
+    <property name="CaptureMonitorofBuiltinAudioDigitalStereoHDMIPulseAudioMixer" type="array">
+    </property>
+  </property>
+  <property name="window-height" type="int" value="299"/>
+  <property name="window-width" type="int" value="875"/>
+</channel>
