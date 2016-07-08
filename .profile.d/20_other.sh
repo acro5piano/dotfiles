@@ -34,8 +34,8 @@ fi
 
 # Setting for my Office
 if [ `hostname` = 'kgosho-ubuntu' ]; then
-    . ~/.bash_quick.d/.bash_profile
-    . ~/.bash_quick.d/.bash_aliases
+    . ~/.quick_dotfiles/.bash_profile
+    . ~/.quick_dotfiles/.bash_aliases
 fi
 
 # Set fabric env

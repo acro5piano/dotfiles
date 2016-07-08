@@ -15,7 +15,7 @@ rm -rf ~/.netsurf
 sudo apt-get install -y emacs-mozc mozc-utils-gui
 
 # Development tools
-sudo apt-get install -y vim net-tools bc gcc g++ make git screen ssh emacs tree colordiff curl jq
+sudo apt-get install -y vim net-tools bc gcc g++ make git screen tmux ssh emacs tree colordiff curl jq
 sudo apt-get install -y software-properties-common python-software-properties
 sudo apt-get install -y man
 
@@ -41,9 +41,6 @@ sudo apt-get install -y git-core libreadline6 libreadline6-dev libmysqlclient-de
 # Install ruby using rbenv + Ruby-build
 if [ `which ruby | wc -l` -eq 0 ]; then
     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-    echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-    exec $SHELL -l
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     rbenv install -v 2.2.0
     rbenv rehash
@@ -68,4 +65,9 @@ sudo wget https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo -O /u
 sudo wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 tar xzvf go1.6.linux-amd64.tar.gz && rm -rf go1.6.linux-amd64.tar.gz
 sudo mv go /usr/local
+
+# Install peco
+wget https://github.com/peco/peco/releases/download/v0.3.6/peco_linux_amd64.tar.gz
+tar xzvf peco_linux_amd64.tar.gz && rm peco_linux_amd64.tar.gz
+cp peco_linux_amd64/peco ~/bin
 
