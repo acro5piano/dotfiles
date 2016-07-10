@@ -6,6 +6,8 @@
     scrollbar_position = hidden
     use_system_font = False
     font = Monospace 10
+    background_darkness = 0.83
+    background_type = transparent
     background_image = None
     foreground_color = "#ffffff"
     scroll_on_output = False

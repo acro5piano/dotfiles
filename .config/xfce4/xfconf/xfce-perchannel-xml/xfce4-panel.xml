@@ -54,6 +54,7 @@
         <value type="string" value="networkmanager アプレット"/>
         <value type="string" value="ibus-ui-gtk3"/>
         <value type="string" value="chromium-browser"/>
+        <value type="string" value="blueman-applet"/>
         <value type="string" value="petaclone"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="update-notifier"/>

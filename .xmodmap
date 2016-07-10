@@ -1,8 +1,8 @@
 ! Change Fn => Ctrl
-remove lock = Super_L
-keycode 133 = Control_L
-add control = Control_L
-
+!remove lock = Eisu_toggle
+!keycode 66 = Control_R
+!add control = Control_R
+!
 ! Change Ctrl => Fn (Doesn't work)
 !remove mod4 = Control_L
 !keycode 37 = Super_L
