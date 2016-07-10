@@ -31,9 +31,9 @@ TriggerKey=ALT_`
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=SUPER_RSUPER HENKANMODE
+ActivateKey=SUPER_RSUPER HANGUL
 # Inactivate Input Method
-InactivateKey=SUPER_LSUPER MUHENKAN
+InactivateKey=SUPER_LSUPER HANGULHANJA
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
