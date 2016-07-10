@@ -1,9 +1,5 @@
-! Change Fn => Ctrl
+! Change Capslock => Ctrl
 remove lock = Control_L
 keycode 66 = Control_R
 add control = Control_R
-!
-! Change Ctrl => Fn (Doesn't work)
-!remove lock = Control_L
-!keycode 66 = Control_R
-!add control = Control_R
+
