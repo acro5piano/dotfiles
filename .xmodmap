@@ -1,9 +1,9 @@
 ! Change Fn => Ctrl
-remove lock = Control_R
-keycode 66 = Control_L
-add control = Control_L
-!
-! Change Ctrl => Fn (Doesn't work)
 remove lock = Control_L
 keycode 66 = Control_R
 add control = Control_R
+!
+! Change Ctrl => Fn (Doesn't work)
+!remove lock = Control_L
+!keycode 66 = Control_R
+!add control = Control_R

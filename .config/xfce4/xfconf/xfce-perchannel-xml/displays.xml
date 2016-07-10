@@ -74,6 +74,9 @@
         <property name="Y" type="int" value="0"/>
       </property>
     </property>
+    <property name="LVDS-1" type="string" value="Laptop">
+      <property name="Active" type="bool" value="false"/>
+    </property>
   </property>
   <property name="Notify" type="bool" value="false"/>
 </channel>
