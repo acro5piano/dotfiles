@@ -71,3 +71,7 @@ wget https://github.com/peco/peco/releases/download/v0.3.6/peco_linux_amd64.tar.
 tar xzvf peco_linux_amd64.tar.gz && rm peco_linux_amd64.tar.gz
 cp peco_linux_amd64/peco ~/bin
 
+# Change shell for zsh
+sudo apt-get -y install zsh
+chsh -s /bin/zsh
+
