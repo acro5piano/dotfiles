@@ -105,23 +105,6 @@
         (keyboard-quit)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-; ac-mozc
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'ac-mozc)
-(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc)
-
-(add-to-list 'ac-modes 'org-mode)
-
-(defun my-ac-mozc-setup ()
-    (setq ac-sources
-        '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
-    (set (make-local-variable 'ac-auto-show-menu) 0.2)
-    (bind-key* "C-n" (ac-next)))
-
-(add-hook 'org-mode-hook 'my-ac-mozc-setup)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Edit-server
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
