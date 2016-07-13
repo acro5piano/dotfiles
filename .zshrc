@@ -1,9 +1,5 @@
 # Set up the prompt
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -47,4 +43,10 @@ for f in ~/.zsh/[0-9]*.(sh|zsh)
 do
     source "$f"
 done
+
+local HOSTCOLOR=$'\e[30;48;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c2-3))"'m'
+local COLOR_RESET=$'\e[0m'
+PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}] %# "
+RPROMPT='[%d]'
+
 

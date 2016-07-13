@@ -8,7 +8,7 @@
       <property name="position" type="string" value="p=8;x=2560;y=1010"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="30"/>
+      <property name="size" type="uint" value="33"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="2"/>
@@ -20,11 +20,11 @@
       <property name="mode" type="uint" value="0"/>
       <property name="span-monitors" type="bool" value="false"/>
       <property name="disable-struts" type="bool" value="false"/>
-      <property name="background-style" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="1"/>
       <property name="background-color" type="array">
-        <value type="uint" value="52322"/>
-        <value type="uint" value="52322"/>
-        <value type="uint" value="52322"/>
+        <value type="uint" value="5295"/>
+        <value type="uint" value="1047"/>
+        <value type="uint" value="1047"/>
         <value type="uint" value="65535"/>
       </property>
     </property>
@@ -32,7 +32,7 @@
   <property name="plugins" type="empty">
     <property name="plugin-1" type="string" value="applicationsmenu">
       <property name="button-title" type="string" value=""/>
-      <property name="button-icon" type="string" value="view-list-symbolic"/>
+      <property name="button-icon" type="string" value="open-menu-symbolic"/>
       <property name="custom-menu" type="bool" value="false"/>
       <property name="show-tooltips" type="bool" value="true"/>
       <property name="show-generic-names" type="bool" value="false"/>
@@ -54,7 +54,6 @@
         <value type="string" value="networkmanager アプレット"/>
         <value type="string" value="ibus-ui-gtk3"/>
         <value type="string" value="chromium-browser"/>
-        <value type="string" value="blueman-applet"/>
         <value type="string" value="petaclone"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="update-notifier"/>

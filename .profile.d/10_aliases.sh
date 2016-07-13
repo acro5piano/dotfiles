@@ -3,6 +3,7 @@
 alias P='cat /tmp/clipboard'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias cl='xsel -ib'
+alias clp='xsel -ob'
 alias egrep='egrep --color=auto'
 alias em='emacs -nw'
 alias fgrep='fgrep --color=auto'
@@ -17,6 +18,7 @@ alias memo='em ~/mynote/memo.org'
 alias sr='screen -xR'
 alias tree='tree --charset XXX'
 alias ycal='cal `date +%Y`'
+alias now='date +%Y%m%d_%H%M%S'
 
 mozc(){
     if [ $1 = 'dict' ]; then
