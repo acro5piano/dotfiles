@@ -27,6 +27,7 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
       <property name="&lt;Primary&gt;Escape" type="string" value="xfce4-appfinder --collapsed"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="thunar"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;F4" type="string" value="suspend"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>
     </property>
   </property>
