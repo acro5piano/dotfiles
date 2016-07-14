@@ -25,13 +25,6 @@ export PATH="~/.cask/bin:$PATH"
 # Enable C-s -> I-search
 stty stop undef
 
-# Setting for chromebook
-if [ $USER = 'kazuya' ]; then
-    if [ $DISPLAY ]; then
-        xmodmap ~/.xmodmap*
-    fi
-fi
-
 # Setting for my Office
 if [ -e ~/.quick_dotfiles ]; then
     . ~/.quick_dotfiles/.bash_profile
@@ -45,4 +38,5 @@ export SCREENDIR=~/.screen
 
 # Exec screen
 #screen -xR
+
 

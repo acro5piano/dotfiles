@@ -20,6 +20,8 @@ alias tree='tree --charset XXX'
 alias ycal='cal `date +%Y`'
 alias now='date +%Y%m%d_%H%M%S'
 
+alias svnco--='svn st | grep ^M | tr -d M | xargs svn revert'
+
 mozc(){
     if [ $1 = 'dict' ]; then
         /usr/lib/mozc/mozc_tool --mode=dictionary_tool
