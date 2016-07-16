@@ -25,21 +25,15 @@ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 # vim vundle
 ~/.dotfiles/bin/install_vundle
 
-# Install nodejs
-sudo apt-get install -y build-essential
-https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz
-tar xvf node-v4.4.5-linux-x64.tar.xz && rm node-v4.4.5-linux-x64.tar.xz
-sudo cp node-v4.4.5-linux-x64/bin/* ~/bin && node-v4.4.5-linux-x64
-
-# For ruby installation
-sudo apt-get install -y libreadline-dev libssl-dev libsqlite3-dev zlib1g-dev libyaml-dev libssl-dev libsqlite3-dev
-sudo apt-get install -y sqlite3 libsqlite3-dev
-sudo apt-get install -y imagemagick # MiniMagick RMagick
-sudo apt-get install -y libxslt-dev libxml2-dev # Nokogiri
-sudo apt-get install -y git-core libreadline6 libreadline6-dev libmysqlclient-dev libffi-dev
-
 # Install ruby using rbenv + Ruby-build
 if [ `which ruby | wc -l` -eq 0 ]; then
+    # For ruby installation
+    sudo apt-get install -y libreadline-dev libssl-dev libsqlite3-dev zlib1g-dev libyaml-dev libssl-dev libsqlite3-dev
+    sudo apt-get install -y sqlite3 libsqlite3-dev
+    sudo apt-get install -y imagemagick # MiniMagick RMagick
+    sudo apt-get install -y libxslt-dev libxml2-dev # Nokogiri
+    sudo apt-get install -y git-core libreadline6 libreadline6-dev libmysqlclient-dev libffi-dev
+
     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     rbenv install -v 2.2.0
@@ -61,15 +55,20 @@ sudo apt-get install -y openjdk-7-jdk
 # Script for easily accessing gitignore boilerplates
 sudo wget https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo -O /usr/bin/gibo
 
-# Install golang 1.6
-sudo wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
-tar xzvf go1.6.linux-amd64.tar.gz && rm -rf go1.6.linux-amd64.tar.gz
-sudo mv go /usr/local && rm -rf go
+if [ `which go | wc -l` -eq 0 ]; then
+    # Install golang 1.6
+    sudo wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+    tar xzvf go1.6.linux-amd64.tar.gz && rm -rf go1.6.linux-amd64.tar.gz
+    sudo mv go /usr/local && rm -rf go
+fi
 
-# Install peco
-wget https://github.com/peco/peco/releases/download/v0.3.6/peco_linux_amd64.tar.gz
-tar xzvf peco_linux_amd64.tar.gz && rm peco_linux_amd64.tar.gz
-cp peco_linux_amd64/peco ~/bin && rm -rf peco_linux_amd64
+if [ `which node | wc -l` -eq 0 ]; then
+    # Install nodejs
+    sudo apt-get install -y build-essential
+    wget https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz
+    tar xvf node-v4.4.5.tar.gz && rm node-v4.4.5.tar.gz
+    sudo cp node-v4.4.5/bin/* /usr/local/bin && rm -rf node-v4.4.5
+fi
 
 # Change shell for zsh
 sudo apt-get -y install zsh
