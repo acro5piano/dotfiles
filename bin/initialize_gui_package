@@ -26,5 +26,5 @@ sudo apt-get install -y gparted
 sudo apt-get install -y touchegg xsel
 
 # Multimedia
-sudo apt-get install -y vlc ubuntu-restricted-extras eog pinta
+sudo apt-get install -y vlc ubuntu-restricted-extras eog pinta moc
 

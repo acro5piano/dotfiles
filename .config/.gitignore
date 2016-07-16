@@ -21,3 +21,4 @@ user-dirs.dirs
 user-dirs.locale
 fcitx/*
 !fcitx/config
+totem

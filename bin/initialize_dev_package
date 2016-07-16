@@ -29,7 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 sudo apt-get install -y build-essential
 https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz
 tar xvf node-v4.4.5-linux-x64.tar.xz && rm node-v4.4.5-linux-x64.tar.xz
-sudo cp node-v4.4.5-linux-x64/bin/* ~/bin
+sudo cp node-v4.4.5-linux-x64/bin/* ~/bin && node-v4.4.5-linux-x64
 
 # For ruby installation
 sudo apt-get install -y libreadline-dev libssl-dev libsqlite3-dev zlib1g-dev libyaml-dev libssl-dev libsqlite3-dev
@@ -64,12 +64,12 @@ sudo wget https://raw.githubusercontent.com/simonwhitaker/gibo/master/gibo -O /u
 # Install golang 1.6
 sudo wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 tar xzvf go1.6.linux-amd64.tar.gz && rm -rf go1.6.linux-amd64.tar.gz
-sudo mv go /usr/local
+sudo mv go /usr/local && rm -rf go
 
 # Install peco
 wget https://github.com/peco/peco/releases/download/v0.3.6/peco_linux_amd64.tar.gz
 tar xzvf peco_linux_amd64.tar.gz && rm peco_linux_amd64.tar.gz
-cp peco_linux_amd64/peco ~/bin
+cp peco_linux_amd64/peco ~/bin && rm -rf peco_linux_amd64
 
 # Change shell for zsh
 sudo apt-get -y install zsh

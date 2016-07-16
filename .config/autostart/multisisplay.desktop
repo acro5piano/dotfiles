@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=multidisplay
+xrandr --output VGA1 --above LVDS1
+Type=Application
