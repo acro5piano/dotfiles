@@ -269,6 +269,15 @@
         <command>terminator</command>
       </action>
     </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>lock</name>
+        </startupnotify>
+        <command>sudo pm-suspend</command>
+      </action>
+    </keybind>
     <keybind key="W-l">
       <action name="Execute">
         <startupnotify>
