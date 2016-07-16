@@ -66,19 +66,9 @@ windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w '
 
-
-
 # encoding should be always utf8
 defencoding utf8
 encoding utf8 utf8
-
-# multiwindow
-bind s eval 'screen' 'screen' 'screen' 'source $HOME/.screen/4xWindow.layout'
-bind r eval 'source $HOME/.screen/4xWindow.layout'
-bind ^r eval 'source $HOME/.screen/4xWindow.layout'
-
-bind o only
-bind ^o only
 
 #move current window
 bind j focus down
