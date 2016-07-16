@@ -8,3 +8,4 @@ xmodmap ~/.xmodmap*
 
 feh  --bg-fill ~/.config/wallpapers/taipei.jpg
 
+xscreensaver &
