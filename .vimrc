@@ -187,6 +187,10 @@ augroup END
 "----------------------------------------------------
 " オートインデントを有効にする
 set autoindent
+
+" set indent width to each filetype
+filetype plugin indent on
+
 " タブが対応する空白の数
 set tabstop=4
 " タブが対応する空白の数
