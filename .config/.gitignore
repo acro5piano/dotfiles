@@ -22,3 +22,5 @@ user-dirs.locale
 fcitx/*
 !fcitx/config
 totem
+gedit
+xfce4

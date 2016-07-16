@@ -269,6 +269,15 @@
         <command>terminator</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>lock</name>
+        </startupnotify>
+        <command>xflock4</command>
+      </action>
+    </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
