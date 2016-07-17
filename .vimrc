@@ -217,24 +217,11 @@ endif
 " fcitxで日本語入力の自動切り替えを実現
 "----------------------------------------------------
 
-if system('fcitx-remote') != ''
-    autocmd InsertEnter * call CheckIm()
-    autocmd InsertLeave * call DeactIm()
-endif
+autocmd InsertLeave * call DeactIm()
 
 function DeactIm()
-    let imstatus=system('fcitx-remote')
-    call writefile([imstatus],$HOME.'/.vim/imstate')
     call system('fcitx-remote -c')
 endfunction
-
-function CheckIm()
-    let imstatus=readfile($HOME.'/.vim/imstate')[0]
-    if imstatus=="2\n"
-        call system('fcitx-remote -o')
-    endif
-endfunction
-
 
 "----------------------------------------------------
 " Always show auto complete
