@@ -7,7 +7,7 @@ do
     [ "$f" = ".git" ] && continue
 
     if [ -e "$HOME/$f" ]; then
-        rm -r "$HOME/$f"
+        rm -rf "$HOME/$f"
     fi
 
     ln -snfv "$DOTPATH/$f" "$HOME/$f"
