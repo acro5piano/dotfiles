@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-fill '/home/kazuya/.config/wallpapers/taipei.jpg' 
+feh  --image-bg black --bg-center '/home/k-gosho/.config/wallpapers/stock-photo-163746759.jpg'

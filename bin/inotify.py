@@ -5,15 +5,15 @@ import sys
 
 import pyinotify
 
-class EventHandler(pyinotify.ProcessEvent):
-    def process_IN_MODIFY(self, event):
-        print("Modified:", event.pathname)
-        os.system("echo 'A Message has come' | cowsay | wall")
-
 def check_args():
     if len(sys.argv) < 2:
         print('Please specify a file')
         exit(1)
+
+class EventHandler(pyinotify.ProcessEvent):
+    def process_IN_MODIFY(self, event):
+        print("Modified:", event.pathname)
+        os.system("tail -30 {} | cowsay | wall".format(event.pathname))
 
 def main():
     check_args()
