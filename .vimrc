@@ -51,17 +51,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" :h g:incsearch#auto_nohlsearch
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
-
 "----------------------------------------------------
 " expand region
 "----------------------------------------------------
@@ -72,8 +61,8 @@ map #   <Plug>(asterisk-#)
 "----------------------------------------------------
 " anzu
 "----------------------------------------------------
-nmap n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)
-nmap N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 set statusline=%{anzu#search_status()}
