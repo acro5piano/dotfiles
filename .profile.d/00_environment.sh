@@ -24,3 +24,7 @@ export PATH="$HOME/.cask/bin:$PATH"
 # Set fabric env
 export FAB_ENV=development
 
+# Composer
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+
