@@ -1,0 +1,16 @@
+#!/bin/bash
+# example:
+#    echo '(株)アアaaＡ' | cleanse
+#    => アアAAA
+
+cat "$1" |
+    sed -s 's/(.*)//g' |
+    sed -s 's/（.*）//g' |
+    sed -s 's/<.*>//g' |
+    sed -s 's/＜.*＞//g' |
+    sed -s 's/\[.*\]//g' |
+    sed -s 's/【.*】//g' |
+    sed -s 's/株式会社//g' |
+    grep -v ダミー  | grep -v ※ |
+    han | nkf -w |
+    tr "[:lower:]" "[:upper:]"
