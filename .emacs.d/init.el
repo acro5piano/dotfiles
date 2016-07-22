@@ -1,13 +1,60 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Package.el
+;; Basic path and Cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
 ; Add path for elisp from not MELPA
 (add-to-list 'load-path "~/.emacs.d/lisp")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Key settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(keyboard-translate ?\C-h ?\C-?)
+(setq kill-whole-line t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; File
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Do not create backup file
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+;; Do not show welcome message
+(setq inhibit-startup-message t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Edit
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Not use auto indent
+(setq-default indent-tabs-mode nil)
+(electric-indent-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; View
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Don't show tool-bar and menu-bar
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(bind-key* "C-c C-o"
+        (interactive)
+        (org-mode))
+
+(add-hook 'after-init-hook
+    (lambda()
+        (interactive)
+        (org-mode)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
@@ -25,67 +72,17 @@
         (while (search-forward "-+-" nil t) (replace-match "-|-"))))
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
-    #'(lambda()
+    '(lambda()
         (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Key settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(keyboard-translate ?\C-h ?\C-?)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; File
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Do not create backup file
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-
-;; Do not show welcome message
-(setq inhibit-startup-message t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Edit
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq kill-whole-line t)
-
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
-; Not use auto indent
-(setq-default indent-tabs-mode nil)
-(electric-indent-mode 0)
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; View settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(line-number-mode 1)
-
-;; Hilight ()
-;(show-paren-mode 1)
-;(setq show-paren-style 'mixed)
-;(set-face-background 'show-paren-match-face "grey")
-;(set-face-foreground 'show-paren-match-face "black")
-
-; Don't show tool-bar and menu-bar
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Other tools
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'org)
+(bind-key* "C-c C-d"
+        (interactive)
+        (markdown-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Japanese input using Mozc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'mozc)
 (set-language-environment "Japanese")
 (setq default-input-method "japanese-mozc")
 
@@ -105,13 +102,6 @@
         (keyboard-quit)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Edit-server
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'edit-server)
-(edit-server-start)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -121,6 +111,9 @@
 (setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; X server integration
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)

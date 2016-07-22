@@ -1,12 +1,11 @@
 (source gnu)
 (source melpa)
 
+(depends-on "auto-complete")
 (depends-on "bind-key")
 (depends-on "cask")
-(depends-on "auto-complete")
-(depends-on "mozc")
-(depends-on "ac-mozc")
-(depends-on "popup")
-(depends-on "mozc-popup")
 (depends-on "markdown-mode")
+(depends-on "mozc")
+(depends-on "mozc-popup")
+(depends-on "popup")
 

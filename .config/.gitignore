@@ -21,6 +21,7 @@ mono.addins
 nautilus
 openbox
 pulse
+psysh
 terminator
 Thunar
 totem
@@ -35,7 +36,6 @@ user-dirs.locale
 vivaldi
 VirtualBox
 vlc
-wallpapers
 xfce4
 xfce4-session
 yelp
