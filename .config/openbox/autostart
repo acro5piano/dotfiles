@@ -17,3 +17,7 @@ feh  --bg-fill $HOME/.config/wallpapers/taipei.jpg
 # change Caps -> Ctrl
 xmodmap $HOME/.xmodmap*
 
+if [ -e $HOME/src/petaclone/petaclone ]; then
+    $HOME/src/petaclone/petaclone
+fi
+

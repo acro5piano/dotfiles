@@ -122,8 +122,8 @@ set isk+=-
 "----------------------------------------------------
 " タイトルをウインドウ枠に表示する
 set title
-" 行番号を表示
-set number
+" 行番号を表示しない
+set nonumber
 " カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
