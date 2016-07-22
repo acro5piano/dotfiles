@@ -50,3 +50,5 @@ PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}] %# "
 RPROMPT='[%d]'
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
