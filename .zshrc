@@ -51,4 +51,3 @@ RPROMPT='[%d]'
 
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

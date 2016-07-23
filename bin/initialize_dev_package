@@ -3,6 +3,16 @@
 # Move to home directory
 cd ~
 
+# Safe rm
+if [ `which trash | wc -l` -eq 0 ]; then
+    git clone https://github.com/andreafrancia/trash-cli.git
+    cd trash-cli
+    sudo python setup.py install
+    cd ../
+    trash -r trash-cli
+fi
+
+
 # General update
 sudo apt -y update
 sudo apt -y upgrade

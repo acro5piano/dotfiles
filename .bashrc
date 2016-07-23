@@ -7,4 +7,3 @@ do
     source "$f"
 done
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
