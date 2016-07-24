@@ -27,4 +27,6 @@ export FAB_ENV=development
 # Composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+# pip (???)
+export PATH="$HOME/.local/bin:$PATH"
 

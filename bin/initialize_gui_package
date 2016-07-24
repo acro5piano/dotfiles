@@ -6,28 +6,30 @@
 cd ~
 
 # General update
-sudo apt-get -y update
-sudo apt-get -y upgrade
+sudo apt -y update
+sudo apt -y upgrade
+
+# Hardware
+sudo apt -y install xbacklight
 
 # Basic
-sudo apt-get install -y openbox
-
+sudo apt install -y openbox
 
 # Language & input
-sudo apt-get install -y fonts-takao fcitx fcitx-mozc language-pack-ja fonts-wqy-zenhei
+sudo apt install -y fonts-takao fcitx fcitx-mozc mozc-utils-gui language-pack-ja fonts-wqy-zenhei
 
 # Terminal
-sudo apt-get install -y terminator
+sudo apt install -y terminator
 
 # Browser
-sudo apt-get install chromium-browser
+sudo apt install -y chromium-browser
 
 # Maintenance
-sudo apt-get install -y gparted
+sudo apt install -y gparted pcmanfm
 
 # UX utilities
-sudo apt-get install -y touchegg xsel xfce4-screenshooter
+sudo apt install -y touchegg xsel xfce4-screenshooter
 
 # Multimedia
-sudo apt-get install -y vlc ubuntu-restricted-extras eog pinta moc
+sudo apt install -y vlc ubuntu-restricted-extras feh pinta moc eog
 

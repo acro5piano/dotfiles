@@ -50,3 +50,4 @@ PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}] %# "
 RPROMPT='[%d]'
 
 
+

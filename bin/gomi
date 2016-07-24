@@ -1,0 +1,284 @@
+#!/bin/zsh
+
+GOMI_DIR=${GOMI_DIR:-~/.gomi}
+GOMI_BOX="$GOMI_DIR/$(date +%Y/%m/%d)"
+GOMI_LOG="$GOMI_DIR/log"
+
+# delimiter
+DELIM=$'\t'
+
+gomi::usage()
+{
+    case "$1" in
+        HELP)
+            cat <<HELP >&2
+usage: gomi [OPTIONS] files...
+  gomi delete files like rm command
+  but unlike rm, files are moved to trash box
+
+options:
+  -h, --help     show this help message
+  -r, --restore  restore discarded files
+  -s, --system   remove files to system trash box
+HELP
+            ;;
+        KEYBIND)
+            cat <<KEYBIND
+keybind:
+  ctrl-v  show the discarded files
+  ctrl-x  remove the selected files from gomi by using rm command
+          safety, being remove really when ctrl-x is pressed twice
+KEYBIND
+            ;;
+    esac
+
+    return 1
+}
+
+gomi::init()
+{
+    [[ -d $GOMI_DIR ]] || mkdir -p "$GOMI_DIR"
+    [[ -f $GOMI_LOG ]] || touch "$GOMI_LOG"
+    [[ -d $GOMI_BOX ]] || mkdir -p "$GOMI_BOX"
+}
+
+gomi::system()
+{
+    local -a files
+    local i cwd
+
+    for i in "$@"
+    do
+        if [[ ! -e $i ]]; then
+            echo "$i: no such file or directory" >&2
+            return 1
+        fi
+        files+=("$i")
+    done
+
+    cwd="$(pwd | sed -E -e 's/\\\\/\\\\\\\\/g' -e 's/"/\\\\"/g')"
+    osascript - "${files[@]}" <<EOF >/dev/null
+    on run argv
+        set itemArray to {}
+
+        repeat with i in argv
+            if first character of i is not "/" then
+                set i to "$cwd" & "/" & i
+            end if
+            set itemArray to itemArray & (i as POSIX file as Unicode text)
+        end repeat
+
+        tell application "Finder"
+            delete itemArray
+        end tell
+    end run
+EOF
+    for i in "${files[@]}"
+    do
+        echo "${i:A}$DELIM$HOME/.Trash/${i:t}"
+    done | gomi::logging
+}
+
+gomi::restore()
+{
+    local -a arr
+    arr=(${(@f)"$(<$GOMI_LOG)"})
+    if (( $+commands[pygmentize] && $+commands[python] )); then
+        local get_styles styles style lessopen_query
+        get_styles="from pygments.styles import get_all_styles
+        styles = list(get_all_styles())
+        print('\n'.join(styles))"
+        styles=($(sed -e 's/^  *//g' <<<"$get_styles" | python))
+        style=${${(M)styles:#solarized}:-default}
+        # for subshell
+        lessopen_query="| pygmentize -O style=$style -f console256 -g 2>/dev/null %s"
+    fi
+    LESS='-R -f -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+
+    local list i tmp
+
+    log_list() {
+    for ((i=1; i<=$#arr; i++)); do
+        tmp=("${(pws:\x09:)arr[i]}")
+        if [[ -e ${tmp[4]} ]]; then
+            if [[ -d ${tmp[4]} ]]; then
+                echo -e "${tmp[1]} ${tmp[2]} \033[34m${tmp[3]}\033[m"
+            elif [[ -f ${tmp[4]} && -x ${tmp[4]} ]]; then
+                echo -e "${tmp[1]} ${tmp[2]} ${tmp[3]:h}/\033[31m${tmp[3]:t}\033[m"
+            else
+                echo "${tmp[1]} ${tmp[2]} ${tmp[3]}"
+            fi
+        fi
+    done
+    }
+
+    # check if log_list returns gomi list
+    if [[ -z $(log_list) ]]; then
+        echo "gomi: $GOMI_LOG: Is empty" >&2
+        return 1
+    fi
+
+    # fzf loop
+    local out q k res ok
+    while ok=("${ok[@]:-dummy_$RANDOM}"); out=$(
+        log_list \
+            | perl -pe 's/(\d+-\d+-\d+ \d\d:\d\d:\d\d)/\033[33m$1\033[m/' \
+            | fzf --ansi --multi --tac --query="$q" --print-query \
+            --no-sort --expect=ctrl-v,ctrl-x,"?" --exit-0 --prompt="gomi> "); do
+        q="$(head -1 <<< "$out")"
+        k="$(head -2 <<< "$out" | tail -1)"
+        res="$(sed '1,2d;/^$/d' <<< "$out")"
+        [ -z "$res" ] && continue
+        case "$k" in
+            "?")
+                gomi::usage KEYBIND
+                return $status
+                ;;
+
+            ctrl-v)
+                # quicklook view
+                tmp=(${(pws:\x09:)${(M)arr:#${${(M)res##*:[0-9][0-9] }// /$DELIM}${res##*:[0-9][0-9] }*}})
+                if [[ -d ${tmp[4]} ]]; then
+                    {
+                        ls -dl \"${tmp[4]}\"
+                        ls -l \"${tmp[4]}\"
+                    } | less
+                else
+                    LESSOPEN="$lessopen_query" less "${tmp[4]}"
+                fi
+                ;;
+
+            ctrl-x)
+                tmp=("$(
+                    for i in ${(@f)res}
+                    do
+                        echo ${${(M)${arr}:#${i// /$DELIM}*}##*$DELIM}
+                    done
+                )")
+                if [[ ${(j: :)ok} == ${(j: :)${(@f)tmp}} ]]; then
+                    command rm -rf "${(@f)tmp}" 2>/dev/null
+                    ok=()
+                else
+                    ok=("${(@f)tmp}")
+                fi
+                ;;
+
+            *)
+                # restore multiple selected files by fzf
+                res=(${(@f)res})
+                local src dest ret=0 c=1 for_grep
+                # multiple files
+                for i in "${res[@]}"
+                do
+                    # restruct with tab
+                    for_grep="$(perl -pe 's/^(\d+-\d+-\d+) (\d+:\d+:\d+) (\/.+)$/$1\t$2\t$3/' <<<"$i")"
+                    src="$(echo  "${(F)arr}" | command grep "^$for_grep	'" | cut -f3- | cut -f2)"
+                    dest="$(echo "${(F)arr}" | command grep "^$for_grep	'" | cut -f3- | cut -f1)"
+
+                    # dest
+                    if [[ -n $1 ]]; then
+                        # trim extension
+                        if [[ -d $1 ]]; then
+                            dest="$1/${src:t:r}"
+                        else
+                            dest="$1"
+                        fi
+                    fi
+
+                    # check if dest is available
+                    if [[ -f $dest ]]; then
+                        if (( $#res > 1 )); then
+                            # case of multiple files selected
+                            dest="$dest.$((c++))"
+                            if [[ -f $dest ]]; then
+                                echo "$dest: already exists" >&2
+                                ret=1; continue
+                            fi
+                        else
+                            # single file (under the cursor)
+                            echo "$dest: already exists" >&2
+                            ret=1; continue
+                        fi
+                    fi
+
+                    # put back
+                    command mv -f "$src" "$dest"
+                done
+
+                return $ret
+                ;;
+        esac
+    done
+}
+
+gomi::delete()
+{
+    local f t ret=0
+
+    for f in "$@"
+    do
+        if [[ -e $f ]]; then
+            t="$GOMI_BOX/${f:t}.$(date '+%H_%M_%S')"
+            command mv -f "$f" "$t" 2>/dev/null
+            if [[ $status -eq 0 ]]; then
+                echo "${f:A}$DELIM$t" | gomi::logging
+            else
+                echo "$f: could not move to $GOMI_BOX" >&2
+                ret=1
+            fi
+        else
+            echo "$f: not exist" >&2
+            ret=1
+        fi
+    done
+
+    return $ret
+}
+
+gomi::logging()
+{
+    local line
+    while read line
+    do
+        [[ -n $line ]] && echo "$(date '+%Y-%m-%d')$DELIM$(date '+%H:%M:%S')$DELIM$line"
+    done >>"$GOMI_LOG"
+}
+
+# Initialize for gomi
+gomi::init
+
+# Support stdin
+if [[ -p /dev/stdin ]]; then
+    gomi::delete "${(z)$(<&0)}"
+    exit $status
+fi
+
+# main
+case "$1" in
+    -h|--help)
+        gomi::usage HELP
+        exit $status
+        ;;
+
+    -r|--restore)
+        shift; gomi::restore "$@"
+        ;;
+
+    -s|--system)
+        shift; gomi::system "$@"
+        ;;
+
+    -*|--*)
+        echo "$1: unknown option" >&2
+        exit 1
+        ;;
+
+    "")
+        echo "gomi: too few arguments" >&2
+        exit 1
+        ;;
+
+    *)
+        gomi::delete "$@"
+        ;;
+esac

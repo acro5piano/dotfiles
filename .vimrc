@@ -17,13 +17,14 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'scrooloose/syntastic'
 Plugin 'chrisbra/csv.vim'
-Plugin 'terryma/vim-expand-region'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
-Plugin 'osyo-manga/vim-anzu'
 Plugin 'haya14busa/vim-asterisk'
+Plugin 'justinmk/vim-dirvish'
+Plugin 'osyo-manga/vim-anzu'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-expand-region'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Yggdroot/indentLine'
 
@@ -254,5 +255,9 @@ set ttimeoutlen=1
 
 
 
+"----------------------------------------------------
+" FZF shows mostly recent files
+"----------------------------------------------------
 
+set rtp+=~/.fzf
 

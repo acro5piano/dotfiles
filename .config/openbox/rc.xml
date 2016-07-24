@@ -319,7 +319,6 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <!-- Take a screenshot of the current window with scrot when Alt+Print are pressed -->
     <keybind key="Print">
       <action name="Execute">
         <command>xfce4-screenshooter</command>
@@ -344,15 +343,15 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
+    <!-- Keybindings for hardware controll -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>xbacklight +10</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>xbacklight -10</command>
       </action>
     </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
@@ -377,21 +376,6 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
-    </keybind>
-    <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot</command>
-      </action>
-    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
