@@ -1,2 +1,3 @@
-alias cdb='cd-bookmark'
 alias tmc='tmux loadb -'
+alias rm='echo "This is not the command you are looking for. use trash instead."; false'
+
