@@ -5,10 +5,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
 if [ -e $HOME/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+
 
 # Go
 export PATH=$PATH:/usr/local/go/bin

@@ -8,7 +8,7 @@ sudo apt -y update
 sudo apt -y upgrade
 
 # Safe rm
-if [ ! `which trash | wc -l` -eq 0 ]; then
+if [ ! `which trash` ]; then
     git clone https://github.com/andreafrancia/trash-cli.git
     cd trash-cli
     sudo python setup.py install
@@ -41,7 +41,6 @@ sudo apt install -y software-properties-common python-software-properties man
 
 # vim vundle
 [ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
-
 
 # Install ruby using rbenv + Ruby-build
 if [ ! `which ruby` ]; then
