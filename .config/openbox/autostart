@@ -8,7 +8,7 @@ xset r rate 250
 
 xscreensaver -no-splash &
 
-sleep 3
+sleep 1
 
 # Multi display
 xrandr --output VGA1 --above LVDS1 --mode 1920x1080
