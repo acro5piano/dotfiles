@@ -3,7 +3,7 @@
 #    echo '(株)アアaaＡ' | cleanse
 #    => アアAAA
 
-cat "$1" |
+cat < /dev/stdin |
     sed -s 's/(.*)//g' |
     sed -s 's/（.*）//g' |
     sed -s 's/<.*>//g' |
@@ -11,6 +11,7 @@ cat "$1" |
     sed -s 's/\[.*\]//g' |
     sed -s 's/【.*】//g' |
     sed -s 's/株式会社//g' |
-    grep -v ダミー  | grep -v ※ |
+    sed -s 's/※.*$//g' |
+    grep -v ダミー |
     han | nkf -w |
-    tr "[:lower:]" "[:upper:]"
+    tr "[:upper:]" "[:lower:]"
