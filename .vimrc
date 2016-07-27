@@ -27,6 +27,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/unite.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -252,12 +254,4 @@ endif
 
 set ttimeoutlen=1
 
-
-
-
-"----------------------------------------------------
-" FZF shows mostly recent files
-"----------------------------------------------------
-
-set rtp+=~/.fzf
 
