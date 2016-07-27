@@ -270,6 +270,34 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "----------------------------------------------------
+" Emacs-like keybinding in insert-mode
+"----------------------------------------------------
+" コマンド入力中断
+imap <silent> <C-g> <ESC><ESC><ESC>li
+
+" 消去、編集
+imap <C-k> <ESC>d$di
+imap <C-y> <ESC>pi
+imap <C-d> <ESC>xli
+
+" 移動
+imap <C-a>  <Home>
+imap <C-e>  <End>
+imap <C-b>  <Left>
+imap <C-f>  <Right>
+imap <C-n>  <Down>
+imap <C-p>  <UP>
+
+" ファイル
+imap <C-c><C-c>  <ESC>:qa<CR>
+imap <C-x><C-c>  <ESC>:qa!<CR>
+imap <C-w><C-w>  <ESC>:w<CR>
+imap <C-x><C-w>  <ESC>:w!<CR>
+imap <C-x><C-f>  <ESC>:e 
+
+imap <C-/> <ESC>ui
+
+"----------------------------------------------------
 " その他
 "----------------------------------------------------
 " バッファを切替えてもundoの効力を失わない

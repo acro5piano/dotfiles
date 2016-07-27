@@ -3,3 +3,5 @@ auto-save-list
 lisp
 url
 .cask
+prelude
+projectile-bookmarks.eld
