@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PRELUDE_INSTALL_DIR="$HOME/.emacs.d/prelude" && curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
+
