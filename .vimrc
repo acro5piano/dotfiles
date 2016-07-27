@@ -23,12 +23,16 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'justinmk/vim-dirvish'
 Plugin 'osyo-manga/vim-anzu'
+Plugin 'osyo-manga/vim-over'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +48,12 @@ let g:yankring_history_dir = '/tmp'
 "----------------------------------------------------
 let g:indentLine_color_term = 5
 
+
+"----------------------------------------------------
+" vim-over
+"----------------------------------------------------
+nmap <C-h> :OverCommandLine<CR>s/
+nmap <ESC>h :OverCommandLine<CR>%s/
 
 
 
@@ -230,8 +240,31 @@ imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 " Remap keys
 "----------------------------------------------------
 
-" ノーマルモード時だけ ; と : を入れ替える
+" ; と : を入れ替える
 nnoremap ; :
+vmap ; :
+
+" Emacs-like key binding when command_mode
+
+cnoremap <C-a> <Home>
+" 一文字戻る
+cnoremap <C-b> <Left>
+" カーソルの下の文字を削除
+cnoremap <C-d> <Del>
+" 行末へ移動
+cnoremap <C-e> <End>
+" 一文字進む
+cnoremap <C-f> <Right>
+" コマンドライン履歴を一つ進む
+cnoremap <C-n> <Down>
+" コマンドライン履歴を一つ戻る
+cnoremap <C-p> <Up>
+" 前の単語へ移動
+cnoremap <M-b> <S-Left>
+" 次の単語へ移動
+cnoremap <M-f> <S-Right>
+
+cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 "----------------------------------------------------
 " その他
