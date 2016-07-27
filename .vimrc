@@ -53,7 +53,7 @@ let g:indentLine_color_term = 5
 " vim-over
 "----------------------------------------------------
 nmap <C-h> :OverCommandLine<CR>s/
-nmap <ESC>h :OverCommandLine<CR>%s/
+nmap <ESC><C-h> :OverCommandLine<CR>%s/
 
 
 
@@ -265,6 +265,9 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
+
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "----------------------------------------------------
 " その他
