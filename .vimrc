@@ -23,12 +23,16 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'justinmk/vim-dirvish'
 Plugin 'osyo-manga/vim-anzu'
+Plugin 'osyo-manga/vim-over'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +48,11 @@ let g:yankring_history_dir = '/tmp'
 "----------------------------------------------------
 let g:indentLine_color_term = 5
 
+
+"----------------------------------------------------
+" vim-over
+"----------------------------------------------------
+nmap <C-h> :OverCommandLine<CR>%s/
 
 
 
@@ -230,8 +239,9 @@ imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 " Remap keys
 "----------------------------------------------------
 
-" ノーマルモード時だけ ; と : を入れ替える
+" ; と : を入れ替える
 nnoremap ; :
+vmap ; :
 
 "----------------------------------------------------
 " その他
