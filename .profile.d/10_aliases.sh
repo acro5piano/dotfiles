@@ -29,6 +29,7 @@ mozc(){
     case $1 in
         'dict') /usr/lib/mozc/mozc_tool --mode=dictionary_tool ;;
         'word') /usr/lib/mozc/mozc_tool --mode=word_register_dialog ;;
+        'config') /usr/lib/mozc/mozc_tool --mode=config_dialog ;;
         *) echo 'mozc [dict|word]' ;;
     esac
 }
