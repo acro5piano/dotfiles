@@ -2,7 +2,7 @@
 
 DOTPATH=~/.dotfiles
 
-for f in .??*
+for f in $DOTPATH/.??*
 do
     [ "$f" = ".git" ] && continue
 
