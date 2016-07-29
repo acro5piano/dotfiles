@@ -21,40 +21,43 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
-Plugin 'justinmk/vim-dirvish'
+Plugin 'haya13busa/vim-migemo'
+Plugin 'kien/ctrlp.vim'
+Plugin 'LeafCage/yankround.vim'
 Plugin 'osyo-manga/vim-anzu'
-Plugin 'osyo-manga/vim-over'
+Plugin 'osyo-manga/vim-over.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 "----------------------------------------------------
-" yankring.vim
+" yankround.vim
 "----------------------------------------------------
-let g:yankring_history_dir = '/tmp'
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-k> <Plug>(yankround-prev)
+nmap <C-j> <Plug>(yankround-next)
 
 "----------------------------------------------------
 " Yggdroot/indentLine
 "----------------------------------------------------
 let g:indentLine_color_term = 5
 
-
 "----------------------------------------------------
 " vim-over
 "----------------------------------------------------
 nmap <C-h> :OverCommandLine<CR>s/
 nmap <ESC><C-h> :OverCommandLine<CR>%s/
-
 
 
 "----------------------------------------------------
@@ -244,7 +247,7 @@ imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 nnoremap ; :
 vmap ; :
 
-" Emacs-like key binding when command_mode
+" Emacs-like key binding when command-mode
 
 cnoremap <C-a> <Home>
 " 一文字戻る
@@ -268,34 +271,6 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-"----------------------------------------------------
-" Emacs-like keybinding in insert-mode
-"----------------------------------------------------
-" コマンド入力中断
-imap <silent> <C-g> <ESC><ESC><ESC>li
-
-" 消去、編集
-imap <C-k> <ESC>d$di
-imap <C-y> <ESC>pi
-imap <C-d> <ESC>xli
-
-" 移動
-imap <C-a>  <Home>
-imap <C-e>  <End>
-imap <C-b>  <Left>
-imap <C-f>  <Right>
-imap <C-n>  <Down>
-imap <C-p>  <UP>
-
-" ファイル
-imap <C-c><C-c>  <ESC>:qa<CR>
-imap <C-x><C-c>  <ESC>:qa!<CR>
-imap <C-w><C-w>  <ESC>:w<CR>
-imap <C-x><C-w>  <ESC>:w!<CR>
-imap <C-x><C-f>  <ESC>:e 
-
-imap <C-/> <ESC>ui
 
 "----------------------------------------------------
 " その他

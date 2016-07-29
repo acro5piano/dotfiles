@@ -70,7 +70,7 @@ fi
 sudo apt install -y lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
 
 # For Elasticsearch
-sudo apt install -y openjdk-7-jdk
+sudo apt install -y openjdk-8-jdk
 
 if [ ! `which go` ]; then
     # Install golang 1.6
