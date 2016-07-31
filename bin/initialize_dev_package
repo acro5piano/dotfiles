@@ -30,7 +30,7 @@ sudo apt remove --purge -y netsurf*
 rm -rf ~/.netsurf
 
 # Language and inputs
-sudo apt install -y emacs-mozc
+sudo apt install -y emacs-mozc migemo vim-migemo
 
 # Development tools
 sudo apt install -y vim net-tools bc gcc g++ make git screen tmux ssh emacs tree curl jq

@@ -21,7 +21,6 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
-Plugin 'haya13busa/vim-migemo'
 Plugin 'kien/ctrlp.vim'
 Plugin 'LeafCage/yankround.vim'
 Plugin 'osyo-manga/vim-anzu'
@@ -66,12 +65,6 @@ nmap <ESC><C-h> :OverCommandLine<CR>%s/
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
-"----------------------------------------------------
-" expand region
-"----------------------------------------------------
-map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
 
 
 "----------------------------------------------------
