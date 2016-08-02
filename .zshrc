@@ -46,6 +46,6 @@ done
 
 local HOSTCOLOR=$'\e[30;48;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c2-3))"'m'
 local COLOR_RESET=$'\e[0m'
-PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%} %d] %# "
+PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}:%~] %# "
 
 
