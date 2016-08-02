@@ -21,8 +21,6 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
-Plugin 'haya13busa/vim-migemo'
-Plugin 'kien/ctrlp.vim'
 Plugin 'LeafCage/yankround.vim'
 Plugin 'osyo-manga/vim-anzu'
 Plugin 'osyo-manga/vim-over'
@@ -84,7 +82,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 set statusline=%{anzu#search_status()}
 
 "----------------------------------------------------
-" 文字コード
+" Charcode
 "----------------------------------------------------
 " 文字コードの自動認識
 set encoding=utf-8
@@ -93,7 +91,7 @@ set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
 set fileformats=unix,dos,mac
 
 "----------------------------------------------------
-" 基本的な設定
+" Basic
 "----------------------------------------------------
 " viとの互換性をとらない(vimの独自拡張機能を使う為)
 set nocompatible
@@ -106,7 +104,7 @@ set vb t_vb=
 set backspace=indent,eol,start
 
 "----------------------------------------------------
-" バックアップ関係
+" Backup
 "----------------------------------------------------
 " バックアップをとらない
 set nobackup
@@ -119,7 +117,7 @@ set writebackup
 set directory=/tmp
 
 "----------------------------------------------------
-" 検索関係
+" Search
 "----------------------------------------------------
 " コマンド、検索パターンを100個まで履歴に残す
 set history=100
@@ -131,6 +129,8 @@ set smartcase
 set wrapscan
 " Regard a-b as one word
 set isk+=-
+" Automatically show Quickfix window after vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
 
 
 "----------------------------------------------------
@@ -143,8 +143,6 @@ set nonumber
 " カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
-" ルーラーを表示
-set ruler
 " タブ文字を CTRL-I で表示し、行末に $ で表示する
 "set list
 " 入力中のコマンドをステータスに表示する
@@ -153,8 +151,6 @@ set showcmd
 set laststatus=2
 " 括弧入力時の対応する括弧を表示
 set showmatch
-" 対応する括弧の表示時間を2にする
-" set matchtime=2
 " シンタックスハイライトを有効にする
 syntax on
 " 検索文字列のハイライトを有効にする
@@ -204,22 +200,11 @@ set softtabstop=4
 set shiftwidth=4
 " タブを挿入するとき、代わりに空白を使う
 set expandtab
+" ファイルタイプ別インデント、プラグインを有効にする
+filetype plugin indent on
 
 "----------------------------------------------------
-" オートコマンド
-"----------------------------------------------------
-if has("autocmd")
-    " ファイルタイプ別インデント、プラグインを有効にする
-    filetype plugin indent on
-    " カーソル位置を記憶する
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-endif
-
-"----------------------------------------------------
-" fcitxで日本語入力の自動切り替えを実現
+" Using fcitx
 "----------------------------------------------------
 
 autocmd InsertLeave * call DeactIm()
@@ -277,6 +262,13 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "----------------------------------------------------
 " バッファを切替えてもundoの効力を失わない
 set hidden
+
+" カーソル位置を記憶する
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
 " 起動時のメッセージを表示しない
 set shortmess+=I
 " 罫線の表示をしない
@@ -292,4 +284,6 @@ if expand("%") =~ "sql"
 endif
 
 set ttimeoutlen=1
+
+
 
