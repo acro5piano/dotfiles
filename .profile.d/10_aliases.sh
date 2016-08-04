@@ -22,7 +22,6 @@ alias sr='screen -xR'
 alias svnco--='svn st | grep ^M | tr -d M | xargs svn revert'
 alias tree='tree --charset XXX'
 alias tra='trash -rf'
-alias vimf='vim $(fzf)'
 alias ycal='cal `date +%Y`'
 
 mozc(){

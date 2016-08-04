@@ -13,7 +13,7 @@
 ; Prelude
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(load-file "~/.emacs.d/prelude/init.el")
+;(load-file "~/.emacs.d/prelude/init.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
