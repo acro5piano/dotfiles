@@ -9,3 +9,4 @@
 (depends-on "mozc-popup")
 (depends-on "popup")
 (depends-on "color-theme-solarized")
+(depends-on "htmlize")
