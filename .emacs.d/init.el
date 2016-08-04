@@ -48,19 +48,19 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(custom-set-faces
-  '(default ((t
-               (:background "black" :foreground "#55FF55")
-               ))))
-'(cursor ((((class color)
-            (background dark))
-           (:background "#00AA00"))
-          (((class color)
-            (background light))
-           (:background "#999999"))
-          (t ())
-          ))
-
+;(custom-set-faces
+;  '(default ((t
+;               (:background "black" :foreground "#55FF55")
+;               ))))
+;'(cursor ((((class color)
+;            (background dark))
+;           (:background "#00AA00"))
+;          (((class color)
+;            (background light))
+;           (:background "#999999"))
+;          (t ())
+;          ))
+;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,6 +75,8 @@
     (lambda()
         (interactive)
         (org-mode)))
+
+(setq org-src-fontify-natively t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -131,6 +133,10 @@
 (set-buffer-file-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
+(prefer-coding-system 'utf-8)
+(setq coding-system-for-read 'utf-8)
+(setq coding-system-for-write 'utf-8)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; X server integration
