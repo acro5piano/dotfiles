@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ `fcitx-remote` -eq 2 ]; then
-    echo 'Mozc'
+    echo 'あ'
 else
-    echo '--'
+    echo 'a'
 fi
 
