@@ -5,9 +5,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias cl='xsel -ib'
 alias clp='xsel -ob'
 alias egrep='egrep --color=auto'
-alias e='emacsclient -t'
+alias e='emacs -nw'
 alias em='emacs'
-alias ec='emacsclient -c'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
 alias grep='grep --color=auto'
@@ -22,7 +21,6 @@ alias sr='screen -xR'
 alias svnco--='svn st | grep ^M | tr -d M | xargs svn revert'
 alias tree='tree --charset XXX'
 alias tra='trash -rf'
-alias vimf='vim $(fzf)'
 alias ycal='cal `date +%Y`'
 
 mozc(){

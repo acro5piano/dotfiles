@@ -13,7 +13,7 @@
 ; Prelude
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(load-file "~/.emacs.d/prelude/init.el")
+;(load-file "~/.emacs.d/prelude/init.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
@@ -48,19 +48,19 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-;(custom-set-faces
-;  '(default ((t
-;               (:background "black" :foreground "#55FF55")
-;               ))))
-;'(cursor ((((class color)
-;            (background dark))
-;           (:background "#00AA00"))
-;          (((class color)
-;            (background light))
-;           (:background "#999999"))
-;          (t ())
-;          ))
-;
+(custom-set-faces
+  '(default ((t
+               (:background "black" :foreground "#55FF55")
+               ))))
+'(cursor ((((class color)
+            (background dark))
+           (:background "#00AA00"))
+          (((class color)
+            (background light))
+           (:background "#999999"))
+          (t ())
+          ))
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
