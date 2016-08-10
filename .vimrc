@@ -17,7 +17,6 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
-Plugin 'chrisbra/csv.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
