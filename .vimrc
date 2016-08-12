@@ -17,7 +17,6 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
-Plugin 'chrisbra/csv.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
@@ -265,6 +264,8 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+nnoremap <ESC>a :a!<CR>
+
 "----------------------------------------------------
 " その他
 "----------------------------------------------------
@@ -293,5 +294,9 @@ endif
 
 set ttimeoutlen=1
 
-
+" Ignore whitespace in diff
+if &diff
+    " diff mode
+    set diffopt+=iwhite
+endif
 
