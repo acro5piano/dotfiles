@@ -2,6 +2,7 @@
 " vundle
 "----------------------------------------------------
 filetype off                  " required
+filetype plugin indent off    " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,15 +26,13 @@ Plugin 'osyo-manga/vim-anzu'
 Plugin 'osyo-manga/vim-over'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-
 
 "----------------------------------------------------
 " vim-asterisk
@@ -299,4 +298,6 @@ if &diff
     " diff mode
     set diffopt+=iwhite
 endif
+
+filetype plugin indent on    " required
 
