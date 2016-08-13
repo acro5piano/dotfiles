@@ -195,9 +195,6 @@ augroup END
 " オートインデントを有効にする
 set autoindent
 
-" set indent width to each filetype
-filetype plugin indent on
-
 " タブが対応する空白の数
 set tabstop=4
 " タブが対応する空白の数
@@ -206,8 +203,6 @@ set softtabstop=4
 set shiftwidth=4
 " タブを挿入するとき、代わりに空白を使う
 set expandtab
-" ファイルタイプ別インデント、プラグインを有効にする
-filetype plugin indent on
 
 "----------------------------------------------------
 " Using fcitx
@@ -228,7 +223,7 @@ for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap " . k . " " . k . "<C-N><C-P>"
 endfor
 
-imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
+" imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 
 "----------------------------------------------------
 " Remap keys
@@ -257,8 +252,13 @@ cnoremap <C-p> <Up>
 cnoremap <M-b> <S-Left>
 " 次の単語へ移動
 cnoremap <M-f> <S-Right>
-
+" Kill-ring
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
+" C-g => Escape
+cmap <C-g> <ESC>
+imap <C-g> <ESC>
+vmap <C-g> <ESC>
+
 
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
@@ -300,4 +300,3 @@ if &diff
 endif
 
 filetype plugin indent on    " required
-

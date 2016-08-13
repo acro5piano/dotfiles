@@ -305,6 +305,15 @@
         <command>dm-tool lock</command>
       </action>
     </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>reconfigure openbox settings</name>
+        </startupnotify>
+        <command>~/.config/openbox/autostart</command>
+      </action>
+    </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
