@@ -102,27 +102,27 @@
         (interactive)
         (markdown-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Japanese input using Mozc
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(set-language-environment "Japanese")
-(setq default-input-method "japanese-mozc")
-
-(require 'mozc-popup)
-(setq mozc-candidate-style 'popup) ; select popup style.
-
-;; Change IME ON/OFF key
-(bind-key* "C-j"
-    (lambda()
-        (interactive)
-        (if current-input-method (inactivate-input-method))
-            (toggle-input-method)))
-(bind-key* "C-g"
-    (lambda()
-        (interactive)
-        (inactivate-input-method)
-        (keyboard-quit)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Japanese input using Mozc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;(set-language-environment "Japanese")
+;(setq default-input-method "japanese-mozc")
+;
+;(require 'mozc-popup)
+;(setq mozc-candidate-style 'popup) ; select popup style.
+;
+;;; Change IME ON/OFF key
+;(bind-key* "C-j"
+;    (lambda()
+;        (interactive)
+;        (if current-input-method (inactivate-input-method))
+;            (toggle-input-method)))
+;(bind-key* "C-g"
+;    (lambda()
+;        (interactive)
+;        (inactivate-input-method)
+;        (keyboard-quit)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
