@@ -263,7 +263,8 @@ vmap <C-g> <ESC>
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-nnoremap <ESC>a :a!<CR>
+" Clipboard paste
+nnoremap <ESC>a :.!xsel -bo<CR>
 
 "----------------------------------------------------
 " その他
