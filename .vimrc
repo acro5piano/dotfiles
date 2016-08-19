@@ -266,6 +266,8 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " Clipboard paste
 nnoremap gp :.!xsel -bo<CR>
 
+" Insert newline
+nnoremap go A<CR><ESC>k
 
 "----------------------------------------------------
 " その他
