@@ -23,6 +23,9 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'bsdelf/bufferhint'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'valloric/youcompleteme'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -219,10 +222,12 @@ endfunction
 " Always show auto complete
 "----------------------------------------------------
 
-set completeopt=menuone
-for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-  exec "imap " . k . " " . k . "<C-N><C-P>"
-endfor
+if !executable('YcmCompleter')
+    set completeopt=menuone
+    for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+        exec "imap " . k . " " . k . "<C-N><C-P>"
+    endfor
+endif
 
 " imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 
@@ -296,6 +301,7 @@ if expand("%") =~ "sql"
     set filetype=sql
 endif
 
+" もっさり感を無くす
 set ttimeoutlen=1
 
 " Ignore whitespace in diff
