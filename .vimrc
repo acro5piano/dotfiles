@@ -24,7 +24,6 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'bsdelf/bufferhint'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-Plugin 'valloric/youcompleteme'
 Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
@@ -222,12 +221,10 @@ endfunction
 " Always show auto complete
 "----------------------------------------------------
 
-if !has('YcmCompleter')
-    set completeopt=menuone
-    for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-        exec "imap " . k . " " . k . "<C-N><C-P>"
-    endfor
-endif
+set completeopt=menuone
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+    exec "imap " . k . " " . k . "<C-N><C-P>"
+endfor
 
 " imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 
