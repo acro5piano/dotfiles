@@ -18,7 +18,6 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'LeafCage/yankround.vim'
@@ -26,13 +25,21 @@ Plugin 'osyo-manga/vim-anzu'
 Plugin 'osyo-manga/vim-over'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'bsdelf/bufferhint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+"----------------------------------------------------
+" bufferhint
+"----------------------------------------------------
+nnoremap <ESC>w :call bufferhint#Popup()<CR>
+nnoremap <ESC>r :call bufferhint#LoadPrevious()<CR>
+let g:bufferhint_SortMode = 1
+
 
 "----------------------------------------------------
 " vim-asterisk
