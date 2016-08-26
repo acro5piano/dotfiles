@@ -36,10 +36,11 @@ alarm(){
     echo "echo $1 | cowsay | wall" | at $2
 }
 
-
-
-
 to_dos(){
     iconv -f utf8 -t sjis | perl -pe 's/\n/\r\n/' < /dev/stdin
 }
 
+mcd(){
+   mkdir $1
+   cd $1
+}
