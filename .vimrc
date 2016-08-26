@@ -222,7 +222,7 @@ endfunction
 " Always show auto complete
 "----------------------------------------------------
 
-if !executable('YcmCompleter')
+if !has('YcmCompleter')
     set completeopt=menuone
     for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
         exec "imap " . k . " " . k . "<C-N><C-P>"
