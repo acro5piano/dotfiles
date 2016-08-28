@@ -21,21 +21,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'bsdelf/bufferhint'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-
-"----------------------------------------------------
-" bufferhint
-"----------------------------------------------------
-nnoremap <ESC>w :call bufferhint#Popup()<CR>
-nnoremap <ESC>r :call bufferhint#LoadPrevious()<CR>
-let g:bufferhint_SortMode = 1
-
 
 "----------------------------------------------------
 " vim-asterisk
