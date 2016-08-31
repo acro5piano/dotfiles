@@ -21,3 +21,6 @@ if [ -e $HOME/src/petaclone/petaclone ]; then
     $HOME/src/petaclone/petaclone
 fi
 
+# Start applications
+chromium-browser &
+terminator &
