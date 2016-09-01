@@ -47,8 +47,8 @@ done
 local HOSTCOLOR=$'\e[30;48;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c2-3))"'m'
 local COLOR_RESET=$'\e[0m'
 local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}ToT ))%#'
-PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}:%~] ${LAST_STATUS}
-"
+PROMPT="[%{${HOSTCOLOR}%}%n@%m%{${COLOR_RESET}%}:%~]
+${LAST_STATUS} "
 
 ######################
 # show current branch

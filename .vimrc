@@ -262,6 +262,10 @@ nnoremap gp :.!xsel -bo<CR>
 " Insert newline
 nnoremap go A<CR><ESC>k
 
+" Delete EOL Whitespace
+nnoremap gwh :%s/\s\+$//<CR>
+
+
 "----------------------------------------------------
 " その他
 "----------------------------------------------------
