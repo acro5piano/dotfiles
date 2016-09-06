@@ -1,0 +1,61 @@
+#!/bin/bash
+
+declare -a array=()
+
+array+=( '' )
+array+=( '北海道' )
+array+=( '青森県' )
+array+=( '岩手県' )
+array+=( '宮城県' )
+array+=( '秋田県' )
+array+=( '山形県' )
+array+=( '福島県' )
+array+=( '群馬県' )
+array+=( '栃木県' )
+array+=( '茨城県' )
+array+=( '埼玉県' )
+array+=( '千葉県' )
+array+=( '東京都' )
+array+=( '神奈川県' )
+array+=( '新潟県' )
+array+=( '富山県' )
+array+=( '石川県' )
+array+=( '福井県' )
+array+=( '山梨県' )
+array+=( '長野県' )
+array+=( '岐阜県' )
+array+=( '静岡県' )
+array+=( '愛知県' )
+array+=( '三重県' )
+array+=( '滋賀県' )
+array+=( '京都府' )
+array+=( '大阪府' )
+array+=( '兵庫県' )
+array+=( '奈良県' )
+array+=( '和歌山県' )
+array+=( '鳥取県' )
+array+=( '島根県' )
+array+=( '岡山県' )
+array+=( '広島県' )
+array+=( '山口県' )
+array+=( '徳島県' )
+array+=( '香川県' )
+array+=( '愛媛県' )
+array+=( '高知県' )
+array+=( '福岡県' )
+array+=( '佐賀県' )
+array+=( '長崎県' )
+array+=( '熊本県' )
+array+=( '大分県' )
+array+=( '宮崎県' )
+array+=( '鹿児島県' )
+array+=( '沖縄県' )
+
+cat < /dev/stdin | while read -r pref; do
+    for i in `seq 1 47`; do
+        [ $pref == ${array[$i]} ] && echo $i
+    done
+done
+
+exit 0
+
