@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/vim-asterisk'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'LeafCage/yankround.vim'
 Plugin 'osyo-manga/vim-anzu'
 Plugin 'osyo-manga/vim-over'
@@ -26,6 +27,17 @@ Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+"----------------------------------------------------
+" vim-easymotion
+"----------------------------------------------------
+" smartcase
+let g:EasyMotion_smartcase = 1
+" ホームポジションに近いキーを使う
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" 「;」 + 何かにマッピング
+let g:EasyMotion_leader_key="<Space>"
+let g:EasyMotion_startofline=0
 
 "----------------------------------------------------
 " vim-asterisk
