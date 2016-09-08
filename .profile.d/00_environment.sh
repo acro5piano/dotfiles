@@ -12,7 +12,9 @@ fi
 
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/go/bin
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # LANG
 export LC_ALL=en_US.utf8

@@ -3,27 +3,9 @@
 # Move to home directory
 cd ~
 
-# General update
+# General updates
 sudo apt -y update
 sudo apt -y upgrade
-
-# Safe rm
-if [ ! `which trash` ]; then
-    git clone https://github.com/andreafrancia/trash-cli.git
-    cd trash-cli
-    sudo python setup.py install
-    cd ../
-    trash -r trash-cli
-fi
-
-# mysql cli plus
-if [ ! `which mycli` ]; then
-    git clone https://github.com/acro5piano/mycli
-    cd mycli
-    sudo python setup.py install
-    cd ../
-    trash -r mycli
-fi
 
 # Remove unnecessary items
 sudo apt remove --purge -y netsurf*
@@ -56,6 +38,8 @@ if [ ! `which ruby` ]; then
     rbenv install -v 2.3.1
     rbenv rehash
     rbenv global 2.3.1
+
+    gem install bundler
 fi
 
 # For python
@@ -86,6 +70,16 @@ if [ ! `which node` ]; then
     tar xvf node-v4.4.5.tar.gz && rm node-v4.4.5.tar.gz
     sudo cp node-v4.4.5/bin/* /usr/local/bin && rm -rf node-v4.4.5
 fi
+
+# Safe rm
+sudo pip install trash-cli
+
+# mysql cli plus
+sudo pip3 install mycli
+
+# Data science tools
+go get github.com/jehiah/json2csv
+sudo pip3 install csvkit
 
 # Change shell for zsh
 if [ $SHELL != /bin/zsh ]; then
