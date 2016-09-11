@@ -8,5 +8,5 @@ select-pane -t 1
 split-window -v
 
 # 横幅調整
-resize-pane -x 80
+resize-pane -x 100
 

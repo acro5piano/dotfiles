@@ -36,7 +36,7 @@ mozc(){
 }
 
 alarm(){
-    echo "echo $1 | cowsay | wall" | at $2
+    echo "tmux detach-client; sleep 2; cowsay_to_single_pts $1" | at $2
 }
 
 to_dos(){
