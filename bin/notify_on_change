@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while [ 1 ]; do
+    inotifywait "$1" || exit
+    tmux detach-client
+    sleep 1
+    cowsay_to_single_pts "$1"
+done
+
