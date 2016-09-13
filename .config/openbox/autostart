@@ -17,10 +17,6 @@ feh  --bg-fill $HOME/.config/wallpapers/stock-photo-164016583.jpg
 # change Caps -> Ctrl
 xmodmap $HOME/.xmodmap*
 
-if [ -e $HOME/src/petaclone/petaclone ]; then
-    $HOME/src/petaclone/petaclone
-fi
-
 # Start applications
 chromium-browser &
 terminator &

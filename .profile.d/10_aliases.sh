@@ -8,7 +8,6 @@ alias clp='xsel -ob'
 alias dc='docker-compose'
 alias egrep='egrep --color=auto'
 alias e='emacs -nw'
-alias em='emacs'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
 alias gitbrowse='git remote && git remote -v | head -1 | cut -d@ -f 2 | tr ':' '/' | cut -d' ' -f 1 | xargs chromium-browser'
@@ -25,7 +24,7 @@ alias seishin-to-tokinoheya='cd $(mktemp -d)'
 alias svnco--='svn st | grep ^M | tr -d M | xargs svn revert'
 alias tree='tree --charset XXX'
 alias tra='trash -rf'
-alias ycal='cal `date +%Y`'
+alias ycal='\cal `date +%Y`'
 
 mozc(){
     case $1 in
@@ -37,7 +36,7 @@ mozc(){
 }
 
 alarm(){
-    echo "tmux detach-client; sleep 2; cowsay_to_single_pts $1" | at $2
+    echo "tmux detach-client; sleep 1; cowsay_to_single_pts $1" | at $2
 }
 
 to_dos(){
