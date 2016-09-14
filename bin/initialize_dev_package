@@ -68,8 +68,11 @@ if [ ! `which node` ]; then
     sudo apt install -y build-essential
     wget https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz
     tar xvf node-v4.4.5.tar.gz && rm node-v4.4.5.tar.gz
-    sudo cp node-v4.4.5/bin/* /usr/local/bin && rm -rf node-v4.4.5
+    cd node-v4.4.5/
+    ./configure && make && sudo make install
+    cd ~
 fi
+sudo npm install -g livedown
 
 # Safe rm
 sudo pip install trash-cli
