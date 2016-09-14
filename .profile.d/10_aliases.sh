@@ -6,6 +6,7 @@ which concal > /dev/null && alias cal=concal
 alias cl='xsel -ib'
 alias clp='xsel -ob'
 alias dc='docker-compose'
+alias de='docker exec -it'
 alias egrep='egrep --color=auto'
 alias e='emacs -nw'
 alias fgrep='fgrep --color=auto'
