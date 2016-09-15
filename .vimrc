@@ -140,6 +140,10 @@ set smartcase
 set wrapscan
 " Regard a-b as one word
 set isk+=-
+
+"----------------------------------------------------
+" Quickfix
+"----------------------------------------------------
 " Automatically show Quickfix window after vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -312,5 +316,8 @@ if &diff
     " diff mode
     set diffopt+=iwhite
 endif
+
+
+
 
 filetype plugin indent on    " required
