@@ -18,5 +18,5 @@ feh  --bg-fill $HOME/.config/wallpapers/stock-photo-172937471.jpg
 xmodmap $HOME/.xmodmap*
 
 # Start applications
-chromium-browser &
-terminator &
+ps aux | grep -q chromium-browser || chromium-browser &
+ps aux | grep -q terminator || terminator &
