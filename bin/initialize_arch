@@ -36,7 +36,7 @@ sudo pacman -S --needed \
     xorg-xbacklight openbox \
     fcitx fcitx-im fcitx-mozc fcitx-configtool \
     terminator chromium pcmanfm \
-    xsel xfce4-screenshooter \
+    xsel xfce4-screenshooter xscreensaver acpi pm-utils \
     vlc feh pinta moc eog
 
 yaourt -S --needed adobe-source-han-sans-jp-fonts
