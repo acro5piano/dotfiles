@@ -18,5 +18,11 @@ feh  --bg-fill $HOME/.config/wallpapers/stock-photo-172937471.jpg
 xmodmap $HOME/.xmodmap*
 
 # Start applications
-pgrep chromium-browse > /dev/null || chromium-browser &
+if ! pgrep chromium-browse > /dev/null; then
+    if [ -e /etc/arch-release ]; then
+        chromium
+    else
+        chromium-browser
+    fi
+fi
 pgrep terminator > /dev/null || terminator &
