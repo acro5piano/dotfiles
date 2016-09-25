@@ -34,10 +34,10 @@ fi
 # GUI packages
 sudo pacman -S --needed \
     xorg-xbacklight openbox \
-    fcitx fcitx-mozc fcitx-configtool \
+    fcitx fcitx-im fcitx-mozc fcitx-configtool \
     terminator chromium pcmanfm \
     xsel xfce4-screenshooter \
     vlc feh pinta moc eog
 
-sudo yaourt -S --needed adobe-source-han-sans-jp-fonts
+yaourt -S --needed adobe-source-han-sans-jp-fonts
 

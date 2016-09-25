@@ -31,4 +31,4 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # set vim as my normal editor
-export visual=vim
+export VISUAL=vim
