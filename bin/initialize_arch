@@ -33,7 +33,7 @@ fi
 
 # GUI packages
 sudo pacman -S --needed \
-    xorg-xbacklight openbox \
+    xorg xorg-xinit lightdm synaptics xorg-xbacklight openbox \
     fcitx fcitx-im fcitx-mozc fcitx-configtool \
     terminator chromium pcmanfm \
     xsel xfce4-screenshooter xscreensaver acpi pm-utils \
