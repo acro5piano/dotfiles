@@ -11,7 +11,7 @@ alias e='emacs -nw'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
 alias glook='cd $(ghq root)/$(ghq list | peco)'
-alias gitbrowse='git remote && git remote -v | head -1 | cut -d@ -f 2 | tr ':' '/' | cut -d' ' -f 1 | xargs chromium-browser'
+alias gitbrowse="git remote && git remote -v | head -1 | cut -d@ -f 2 | tr ':' '/' | cut -d' ' -f 1 | xargs chromium-browser"
 alias grep='grep --color=auto'
 alias l='ls -CF'
 alias la='ls -A'
