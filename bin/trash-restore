@@ -1,0 +1,13 @@
+#!/bin/bash
+
+TRASH_DIR="$HOME/.trash"
+
+target=$(find $TRASH_DIR | peco)
+
+if [ "$target" ]; then
+    mv $target .
+else
+    exit 1
+fi
+
+
