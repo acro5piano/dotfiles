@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TRASH_DIR="$HOME/.trash"
+TRASH_DIR="$HOME/.trash/`date +%Y%m%d_%H%M%S`"
 
 [ -e $TRASH_DIR ] || mkdir $TRASH_DIR
 
