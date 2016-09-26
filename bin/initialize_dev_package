@@ -25,7 +25,7 @@ sudo apt install -y software-properties-common python-software-properties man
 [ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
 
 # Install ruby using rbenv + Ruby-build
-if [ ! `which ruby` ]; then
+if [ ! `which rbenv` ]; then
     # For ruby installation
     sudo apt install -y libreadline-dev libssl-dev libsqlite3-dev zlib1g-dev libyaml-dev libssl-dev libsqlite3-dev
     sudo apt install -y sqlite3 libsqlite3-dev
