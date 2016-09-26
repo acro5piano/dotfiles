@@ -20,7 +20,7 @@ go get \
     github.com/jehiah/json2csv \
     github.com/motemen/ghq
 [ `which bundle` ] || gem install bundler
-sudo pip install virtualenv ipython mycli csvkit
+sudo pip install virtualenv ipython mycli csvkit jcal
 sudo npm install --global --no-if-present livedown
 
 # Change defalut shell for zsh
