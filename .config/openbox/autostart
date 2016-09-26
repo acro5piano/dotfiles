@@ -12,7 +12,7 @@ sleep 1
 
 # Multi display
 xrandr --output VGA1 --above LVDS1 --mode 1920x1080
-feh  --bg-fill $HOME/.config/wallpapers/stock-photo-172937471.jpg
+feh  --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
 
 # change Caps -> Ctrl
 xmodmap $HOME/.xmodmap*

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xsel -bo | sed 's;/mnt;;' | tr / '\\' | sed 's/^/\\/'
+
