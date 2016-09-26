@@ -20,11 +20,8 @@ alias ll='ls -al'
 alias ls='ls --color=auto'
 alias memo='emacs -nw ~/mynote/memo.org'
 alias now='date +%Y%m%d_%H%M%S'
-alias sr='screen -xR'
 alias seishin-to-tokinoheya='cd $(mktemp -d)'
-alias svnco--='svn st | grep ^M | tr -d M | xargs svn revert'
 alias tree='tree --charset XXX'
-alias tra='trash -rf'
 alias ycal='cal `date +%Y`'
 
 mozc(){

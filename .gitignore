@@ -1,0 +1,7 @@
+.config/*
+!.config/fcitx/config
+!.config/openbox
+!.config/pcmanfm
+!.config/terminator
+!.config/touchegg
+!.config/wallpapers
