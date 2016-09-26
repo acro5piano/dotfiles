@@ -16,9 +16,10 @@
     background_image = None
     background_type = transparent
     copy_on_selection = True
-    font = Ubuntu Mono 10
+    font = Noto Mono 10
     foreground_color = "#ffffff"
     icon_bell = False
     scroll_on_output = False
     scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False

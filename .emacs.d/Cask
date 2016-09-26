@@ -5,8 +5,4 @@
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "markdown-mode")
-;(depends-on "mozc")
-;(depends-on "mozc-popup")
-(depends-on "popup")
-(depends-on "color-theme-solarized")
 (depends-on "htmlize")

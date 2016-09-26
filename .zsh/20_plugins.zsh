@@ -7,6 +7,7 @@ antigen bundle m4i/cdd
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle acro5piano/exec_on_change
 
 # Load the theme.
 antigen theme robbyrussell

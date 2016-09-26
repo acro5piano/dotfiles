@@ -2,6 +2,13 @@
 ;; Basic path and Cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
@@ -102,28 +109,6 @@
         (interactive)
         (markdown-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Japanese input using Mozc
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-;(set-language-environment "Japanese")
-;(setq default-input-method "japanese-mozc")
-;
-;(require 'mozc-popup)
-;(setq mozc-candidate-style 'popup) ; select popup style.
-;
-;;; Change IME ON/OFF key
-;(bind-key* "C-j"
-;    (lambda()
-;        (interactive)
-;        (if current-input-method (inactivate-input-method))
-;            (toggle-input-method)))
-;(bind-key* "C-g"
-;    (lambda()
-;        (interactive)
-;        (inactivate-input-method)
-;        (keyboard-quit)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -144,3 +129,9 @@
 
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Livedown markdown preview with browser
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'livedown)

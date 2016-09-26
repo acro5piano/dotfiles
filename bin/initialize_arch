@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Move to home directory
+cd ~
+
+# General updates
+# sudo pacman -Syy
+
+# Development tools
+sudo pacman -S --needed \
+    zsh vim net-tools bc make git screen tmux openssh emacs tree curl jq man \
+    ruby \
+    python3 python-pip gcc-fortran lapack libpng \
+    go \
+    php \
+    nodejs npm \
+    jdk8-openjdk
+
+go get \
+    github.com/jehiah/json2csv \
+    github.com/motemen/ghq
+[ `which bundle` ] || gem install bundler
+sudo pip install virtualenv ipython mycli csvkit
+sudo npm install --global --no-if-present livedown
+
+# Change defalut shell for zsh
+if [ $SHELL != /bin/zsh ]; then
+    chsh -s /bin/zsh
+fi
+
+[ `which cask` ] || curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+[ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
+
+# GUI packages
+sudo pacman -S --needed \
+    xorg-xbacklight openbox \
+    fcitx fcitx-im fcitx-mozc fcitx-configtool \
+    terminator chromium pcmanfm \
+    xsel xfce4-screenshooter xscreensaver acpi pm-utils \
+    vlc feh pinta moc eog
+
+yaourt -S --needed adobe-source-han-sans-jp-fonts
+
