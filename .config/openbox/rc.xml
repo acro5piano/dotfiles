@@ -269,7 +269,7 @@
         <command>terminator</command>
       </action>
     </keybind>
-    <keybind key="W-f">
+    <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -278,13 +278,13 @@
         <command>pcmanfm</command>
       </action>
     </keybind>
-    <keybind key="W-e">
+    <keybind key="W-c">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>lock</name>
         </startupnotify>
-        <command>emacs</command>
+        <command>chromium</command>
       </action>
     </keybind>
     <keybind key="W-s">
@@ -302,7 +302,7 @@
           <enabled>true</enabled>
           <name>lock</name>
         </startupnotify>
-        <command>dm-tool lock</command>
+        <command>xscreensaver-command -lock</command>
       </action>
     </keybind>
     <keybind key="W-r">

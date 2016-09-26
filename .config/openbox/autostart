@@ -18,5 +18,16 @@ feh  --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
 xmodmap $HOME/.xmodmap*
 
 # Start applications
-chromium-browser &
-terminator &
+if ! pgrep chromium > /dev/null; then
+    if [ -e /etc/arch-release ]; then
+        chromium &
+    else
+        chromium-browser &
+    fi
+fi
+pgrep terminator > /dev/null || terminator &
+
+synclient TapButton1=1
+synclient TapButton2=1
+synclient TapButton3=1
+synclient CircularScrolling=1
