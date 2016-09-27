@@ -57,57 +57,57 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>TakaoPGothic</name>
+      <name>IPAexGothic</name>
       <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>TakaoPGothic</name>
+      <name>IPAexGothic</name>
       <size>10</size>
+      <!-- font size in points -->
+      <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="MenuHeader">
+      <name>IPAexGothic</name>
+      <size>9</size>
+      <!-- font size in points -->
+      <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="MenuItem">
+      <name>IPAexGothic</name>
+      <size>9</size>
+      <!-- font size in points -->
+      <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
+    </font>
+    <font place="ActiveOnScreenDisplay">
+      <name>IPAexGothic</name>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="MenuHeader">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
-    <font place="MenuItem">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>normal</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
-    <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
-    </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
+      <name>IPAexGothic</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
@@ -458,7 +458,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleMaximize"/>
+        <action name="ToggleMaximizeFull"/>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">
