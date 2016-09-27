@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$HOME/lib/firefox/firefox
+
