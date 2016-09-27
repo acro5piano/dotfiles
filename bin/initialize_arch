@@ -2,7 +2,7 @@
 
 install-dev-package(){
     sudo pacman -S --needed \
-        zsh vim net-tools inotify-tools bc make git screen tmux openssh emacs tree curl jq man \
+        zsh vim net-tools inotify-tools bc make git screen tmux openssh emacs tree curl jq man at \
         yaourt docker \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
@@ -31,9 +31,22 @@ install-gui-package(){
         xorg xorg-xinit lightdm synaptics xorg-xbacklight openbox \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator chromium pcmanfm gmrun \
-        xsel xfce4-screenshooter xscreensaver acpi pm-utils \
+        xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack
     yaourt -S --needed otf-ipaexfont
+}
+
+change-service(){
+    start_and_enable(){
+        sudo systemctl enable $1
+        sudo systemctl start $1
+    }
+    start_and_enable dhcpcd
+    start_and_enable cups-browsed.service
+
+    sudo gpasswd -a $USER docker
+    sudo gpasswd -a $USER sys
+    sudo gpasswd -a $USER lp
 }
 
 change-shell(){
@@ -42,17 +55,10 @@ change-shell(){
     fi
 }
 
-change-service(){
-    sudo systemctl enable docker
-    sudo systemctl start docker
-    sudo gpasswd -a $USER docker
-    sudo systemctl enable dhcpcd
-    sudo systemctl start dhcpcd
-}
-
 install-dev-package
 install-termianl-tool
 install-editor-plugin
 install-gui-package
 change-service
 change-shell
+
