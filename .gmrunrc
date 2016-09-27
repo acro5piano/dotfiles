@@ -16,7 +16,7 @@ Left = 450
 History = 256
 
 # Shows last history line selected when invoked
-ShowLast = 1
+ShowLast = 0
 
 # Show files starting with '.'
 # Default is 0 (off), set it to 1 if you want "hidden" files to show up
@@ -51,3 +51,6 @@ EXT:mpeg,mpg,avi,mkv,flv = vlc %s
 EXT:mp3,ogg,m4a,wmv,wma = deadbeef %s
 EXT:ps = evince %s
 EXT:pdf = evince %s
+
+URL_g = chromium 'http://www.google.com/search?q=%s'
+

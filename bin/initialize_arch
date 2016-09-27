@@ -46,6 +46,7 @@ change-service(){
     sudo systemctl enable docker
     sudo systemctl start docker
     sudo gpasswd -a $USER docker
+    sudo gpasswd -a $USER audio
     sudo systemctl enable dhcpcd
     sudo systemctl start dhcpcd
 }

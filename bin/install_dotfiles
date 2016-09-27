@@ -16,5 +16,5 @@ done
 
 ln -snfv "$DOTPATH/bin" "$HOME/bin"
 
-exec $SHELL -l
+exec $SHELL
 
