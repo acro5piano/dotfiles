@@ -2,7 +2,7 @@
 
 install-dev-package(){
     sudo pacman -S --needed \
-        zsh vim net-tools bc make git screen tmux openssh emacs tree curl jq man \
+        zsh vim net-tools inotify-tools bc make git screen tmux openssh emacs tree curl jq man \
         yaourt docker \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
