@@ -32,7 +32,7 @@ install-gui-package(){
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator chromium pcmanfm gmrun \
         xsel xfce4-screenshooter xscreensaver acpi pm-utils \
-        vlc feh pinta moc eog evince libreoffice-fresh
+        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack
     yaourt -S --needed otf-ipaexfont
 }
 
@@ -46,7 +46,6 @@ change-service(){
     sudo systemctl enable docker
     sudo systemctl start docker
     sudo gpasswd -a $USER docker
-    sudo gpasswd -a $USER audio
     sudo systemctl enable dhcpcd
     sudo systemctl start dhcpcd
 }
