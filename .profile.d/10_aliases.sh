@@ -21,6 +21,7 @@ alias ls='ls --color=auto'
 alias memo='emacs -nw ~/mynote/memo.org'
 alias now='date +%Y%m%d_%H%M%S'
 alias seishin-to-tokinoheya='cd $(mktemp -d)'
+alias sum="awk '{a+=\$1}END{print a}'"
 alias tree='tree --charset XXX'
 alias ycal='cal `date +%Y`'
 
