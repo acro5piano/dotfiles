@@ -27,7 +27,6 @@
 
 (keyboard-translate ?\C-h ?\C-?)
 (setq kill-whole-line t)
-(global-set-key "\C-x\C-b" 'buffer-menu)
 (global-set-key (kbd "M-y") 'browse-kill-ring)
 
 ;; I never use C-x C-c
@@ -37,6 +36,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;smart buffer
+(global-set-key "\C-x\C-b" 'ibuffer)
 
 ;; Do not create backup file
 (setq make-backup-files nil)
