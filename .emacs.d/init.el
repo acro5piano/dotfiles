@@ -2,7 +2,6 @@
 ;; Basic path and Cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -124,6 +123,19 @@
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; auto-complete
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
+(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'yatex-mode)
+(setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -131,10 +143,11 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+    (## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
