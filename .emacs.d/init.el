@@ -136,7 +136,7 @@
 ; Livedown markdown preview with browser
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; (require 'livedown)
+(require 'livedown)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
