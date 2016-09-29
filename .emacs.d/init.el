@@ -31,6 +31,10 @@
 (global-set-key "\C-x\C-b" 'buffer-menu)
 (global-set-key (kbd "M-y") 'browse-kill-ring)
 
+;; I never use C-x C-c
+(global-set-key (kbd "C-x C-c") 'helm-M-x)
+(global-set-key (kbd "C-x C-q") 'save-buffers-kill-emacs)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -43,9 +47,12 @@
 (setq inhibit-startup-message t)
 
 ; save command history
-(setq desktop-globals-to-save '(extended-command-history))
-(setq desktop-files-not-to-save "")
-(desktop-save-mode 1)
+;(setq desktop-globals-to-save '(extended-command-history))
+;(setq desktop-files-not-to-save "")
+;(desktop-save-mode 1)
+
+; do not insert magic comments
+(setq ruby-insert-encoding-magic-comment nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
@@ -62,20 +69,6 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-;(custom-set-faces
-;  '(default ((t
-;               (:foreground "#55FF55")
-;               ))))
-;'(cursor ((((class color)
-;            (background dark))
-;           (:background "#00AA00"))
-;          (((class color)
-;            (background light))
-;           (:background "#999999"))
-;          (t ())
-;          ))
-;
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
@@ -92,7 +85,6 @@
     (lambda()
         (interactive)
         (org-mode)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
@@ -131,12 +123,6 @@
 
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Livedown markdown preview with browser
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'livedown)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
