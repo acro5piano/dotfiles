@@ -1,4 +1,4 @@
 #!/bin/bash
 
-$HOME/lib/firefox/firefox
+$HOME/usr/lib/firefox/firefox
 
