@@ -1,7 +1,5 @@
-ac-comphist.dat
-auto-save-list
-lisp
-url
-.cask
-prelude
-projectile-bookmarks.eld
+/*
+!Cask
+!init.el
+!lisp
+

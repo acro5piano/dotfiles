@@ -28,6 +28,8 @@
 
 (keyboard-translate ?\C-h ?\C-?)
 (setq kill-whole-line t)
+(global-set-key "\C-x\C-b" 'buffer-menu)
+(global-set-key (kbd "M-y") 'browse-kill-ring)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
@@ -39,6 +41,11 @@
 
 ;; Do not show welcome message
 (setq inhibit-startup-message t)
+
+; save command history
+(setq desktop-globals-to-save '(extended-command-history))
+(setq desktop-files-not-to-save "")
+(desktop-save-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
@@ -55,19 +62,19 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(custom-set-faces
-  '(default ((t
-               (:foreground "#55FF55")
-               ))))
-'(cursor ((((class color)
-            (background dark))
-           (:background "#00AA00"))
-          (((class color)
-            (background light))
-           (:background "#999999"))
-          (t ())
-          ))
-
+;(custom-set-faces
+;  '(default ((t
+;               (:foreground "#55FF55")
+;               ))))
+;'(cursor ((((class color)
+;            (background dark))
+;           (:background "#00AA00"))
+;          (((class color)
+;            (background light))
+;           (:background "#999999"))
+;          (t ())
+;          ))
+;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,20 +85,19 @@
         (interactive)
         (org-mode))
 
+(setq org-src-fontify-natively t)
+
+; Start with org-mode
 (add-hook 'after-init-hook
     (lambda()
         (interactive)
         (org-mode)))
-
-(setq org-src-fontify-natively t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Qiita markdown
-(require 'ox-qmd)
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
@@ -104,10 +110,6 @@
 (add-hook 'markdown-mode-hook
     '(lambda()
         (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
-
-(bind-key* "C-c C-d"
-        (interactive)
-        (markdown-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
@@ -135,3 +137,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; (require 'livedown)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
