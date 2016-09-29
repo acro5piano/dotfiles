@@ -1,8 +1,21 @@
 ! Change Capslock => Ctrl
-remove lock = Control_L
-keycode 66 = Control_R
-add control = Control_R
+! remove lock = Control_L
+! keycode 66 = Control_R
+! add control = Control_R
 
-keycode 97 = Shift_R
-add shift = Shift_R
+! keycode 97 = Shift_R
+! add shift = Shift_R
+!
+! remove mod4 = Super_L
+! remove mod4 = Super_R
+! keycode 133 = Control_R
+! add control = Control_R
+
+clear lock
+clear control
+clear mod4
+
+add control = Caps_Lock Control_L Control_R
+keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol
+keycode 133 = Control_L Caps_Lock NoSymbol NoSymbol
 
