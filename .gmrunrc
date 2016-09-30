@@ -5,7 +5,7 @@
 # Set terminal
 Terminal = terminator
 TermExec = ${Terminal} -e
-AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man
+AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man e emacs
 
 # Set window geometry (except height)
 Width = 400

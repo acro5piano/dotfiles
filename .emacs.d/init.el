@@ -60,6 +60,11 @@
 ; do not insert magic comments
 (setq ruby-insert-encoding-magic-comment nil)
 
+;; シンボリックリンクの読み込みを許可
+(setq vc-follow-symlinks t)
+;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
+(setq auto-revert-check-vc-info t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
