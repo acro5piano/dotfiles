@@ -27,11 +27,11 @@ TriggerKey=ALT_`
 # Super+Right Ctrl
 # Disabled
 # Custom
-#SwitchKey=L_SHIFT
+SwitchKey=ALT_R_SHIFT
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=SUPER_RSUPER HENKANMODE
+ActivateKey=SUPER_RSUPER SUPER_LSUPER
 # Inactivate Input Method
 InactivateKey=SUPER_LSUPER MUHENKAN
 # Enable Hotkey to scroll Between Input Method

@@ -30,5 +30,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # pip (???)
 export PATH="$HOME/.local/bin:$PATH"
 
-# set vim as my normal editor
-export VISUAL=vim
+# set emacs (yeah!) as my normal editor
+export VISUAL=emacs
+export EDITOR=emacs

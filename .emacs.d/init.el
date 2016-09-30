@@ -33,6 +33,11 @@
 (global-set-key (kbd "C-x C-c") 'helm-M-x)
 (global-set-key (kbd "C-x C-q") 'save-buffers-kill-emacs)
 
+;; vim 't' compatible
+(require 'misc)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
