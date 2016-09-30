@@ -115,6 +115,14 @@
         (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+; filetype mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; php-mode
+(require 'php-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 

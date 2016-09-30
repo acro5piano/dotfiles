@@ -7,3 +7,4 @@
 (depends-on "cask")
 (depends-on "markdown-mode")
 (depends-on "htmlize")
+(depends-on "php-mode")
