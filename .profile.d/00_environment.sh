@@ -31,5 +31,5 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # set emacs (yeah!) as my normal editor
-export VISUAL=emacs
-export EDITOR=emacs
+export VISUAL=e
+export EDITOR=e

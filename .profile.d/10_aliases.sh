@@ -5,13 +5,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias cl='xsel -ib'
 alias clp='xsel -ob'
 alias dc='docker-compose'
+alias dce='docker-compose exec -it'
 alias de='docker exec -it'
 alias egrep='egrep --color=auto'
-alias e='emacs -nw'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
 alias glook='cd $(ghq root)/$(ghq list | peco)'
-alias gitbrowse="git remote && git remote -v | head -1 | cut -d@ -f 2 | tr ':' '/' | cut -d' ' -f 1 | xargs chromium-browser"
 alias grep='grep --color=auto'
 alias l='ls -CF'
 alias la='ls -A'
@@ -21,8 +20,9 @@ alias ls='ls --color=auto'
 alias memo='emacs -nw ~/mynote/memo.org'
 alias now='date +%Y%m%d_%H%M%S'
 alias seishin-to-tokinoheya='cd $(mktemp -d)'
+alias seishin='cd $(mktemp -d)'
 alias sum="awk '{a+=\$1}END{print a}'"
-alias tree='tree --charset XXX'
+alias tree='tree --charset XXX -I .git -I vendor'
 alias winpath='source $HOME/bin/winpath'
 alias ycal='cal `date +%Y`'
 
@@ -31,7 +31,7 @@ mozc(){
         'dict') /usr/lib/mozc/mozc_tool --mode=dictionary_tool ;;
         'word') /usr/lib/mozc/mozc_tool --mode=word_register_dialog ;;
         'config') /usr/lib/mozc/mozc_tool --mode=config_dialog ;;
-        *) echo 'mozc [dict|word]' ;;
+        *) echo 'mozc [dict|word|config]' ;;
     esac
 }
 
