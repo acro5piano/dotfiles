@@ -19,7 +19,6 @@ install-termianl-tool(){
         github.com/motemen/ghq
     [ `which bundle` ]   || gem install bundler
     [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
-    [ `which livedown` ] || sudo npm install --global --no-if-present livedown
 }
 
 install-editor-plugin(){
