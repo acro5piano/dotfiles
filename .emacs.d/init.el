@@ -35,9 +35,6 @@
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;smart buffer
-(global-set-key "\C-x\C-b" 'ibuffer)
-
 ;; Do not create backup file
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -45,10 +42,11 @@
 ;; Do not show welcome message
 (setq inhibit-startup-message t)
 
-;; save command history
-;;(setq desktop-globals-to-save '(extended-command-history))
-;;(setq desktop-files-not-to-save "")
-;;(desktop-save-mode 1)
+;; Smart buffer
+(global-set-key "\C-x\C-b" 'ibuffer)
+
+;; Auto start server
+(server-start)
 
 ;; do not insert magic comments
 (setq ruby-insert-encoding-magic-comment nil)
