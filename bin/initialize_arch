@@ -2,7 +2,7 @@
 
 install-dev-package(){
     sudo pacman -S --needed \
-        zsh vim net-tools inotify-tools bc make git screen tmux openssh emacs atom \
+        zsh vim net-tools inotify-tools bc make git screen tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher \
         yaourt docker \
         ruby \
@@ -11,8 +11,6 @@ install-dev-package(){
         php \
         nodejs npm \
         jdk8-openjdk
-
-    apm install atomic-emacs
 }
 
 install-termianl-tool(){
