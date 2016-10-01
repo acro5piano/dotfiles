@@ -14,13 +14,6 @@
 ; Add path for elisp from not MELPA
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Prelude
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;(load-file "~/.emacs.d/prelude/init.el")
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -33,7 +26,7 @@
 (global-set-key (kbd "C-x C-c") 'helm-M-x)
 (global-set-key (kbd "C-x C-q") 'save-buffers-kill-emacs)
 
-;; vim 't' compatible
+;; vim 'd t' compatible
 (require 'misc)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
@@ -52,12 +45,12 @@
 ;; Do not show welcome message
 (setq inhibit-startup-message t)
 
-; save command history
-;(setq desktop-globals-to-save '(extended-command-history))
-;(setq desktop-files-not-to-save "")
-;(desktop-save-mode 1)
+;; save command history
+;;(setq desktop-globals-to-save '(extended-command-history))
+;;(setq desktop-files-not-to-save "")
+;;(desktop-save-mode 1)
 
-; do not insert magic comments
+;; do not insert magic comments
 (setq ruby-insert-encoding-magic-comment nil)
 
 ;; シンボリックリンクの読み込みを許可
@@ -69,7 +62,7 @@
 ;; Edit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Not use auto indent
+;; Not use auto indent
 (setq-default indent-tabs-mode nil)
 (electric-indent-mode 1)
 
@@ -135,13 +128,6 @@
 (setq coding-system-for-read 'utf-8)
 (setq coding-system-for-write 'utf-8)
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-; X server integration
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(setq x-select-enable-clipboard t)
-(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; auto-complete
