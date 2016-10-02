@@ -19,6 +19,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (keyboard-translate ?\C-h ?\C-?)
+(add-hook 'after-make-frame-functions
+          (lambda (f) (with-selected-frame f
+                        (keyboard-translate ?\C-h ?\C-?)
+                        )))
+
 (setq kill-whole-line t)
 (global-set-key (kbd "M-y") 'browse-kill-ring)
 
@@ -30,6 +35,35 @@
 (require 'misc)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
+;; expand region
+(require 'expand-region)
+(bind-key "C-c ," 'er/expand-region)
+(bind-key "C-c i" 'iedit-mode)
+
+;; anzu周りの設定
+(require 'anzu)
+
+(global-anzu-mode +1)
+(setq anzu-use-migemo nil)
+(setq anzu-search-threshold 1000)
+(setq anzu-minimum-input-length 3)
+
+(global-set-key (kbd "M-%") 'anzu-query-replace)
+(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+
+;; 選択範囲をisearch
+(defadvice isearch-mode
+    (around isearch-mode-default-string (forward &optional regexp op-fun recursive-edit word-p) activate)
+  (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
+      (progn
+        (isearch-update-ring (buffer-substring-no-properties (mark) (point)))
+        (deactivate-mark)
+        ad-do-it
+        (if (not forward)
+            (isearch-repeat-backward)
+          (goto-char (mark))
+          (isearch-repeat-forward)))
+    ad-do-it))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
@@ -46,7 +80,9 @@
 (global-set-key "\C-x\C-b" 'ibuffer)
 
 ;; Auto start server
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; do not insert magic comments
 (setq ruby-insert-encoding-magic-comment nil)
@@ -76,17 +112,7 @@
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(bind-key* "C-c C-o"
-        (interactive)
-        (org-mode))
-
 (setq org-src-fontify-natively t)
-
-; Start with org-mode
-(add-hook 'after-init-hook
-    (lambda()
-        (interactive)
-        (org-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
@@ -147,7 +173,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+    (iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
