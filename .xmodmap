@@ -18,3 +18,4 @@ keycode 113 = Left Left Home Home
 keycode 114 = Right Right End End
 keycode 116 = Down Down Page_Down Page_Down
 keycode 97 = Shift_L Shift_L Shift_L Shift_L
+keycode 22 = BackSpace BackSpace Delete Delete
