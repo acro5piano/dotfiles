@@ -77,7 +77,7 @@
 (setq inhibit-startup-message t)
 
 ;; Smart buffer
-(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key "\C-x\C-b" 'helm-mini)
 
 ;; Auto start server
 (require 'server)
