@@ -130,7 +130,7 @@
 (set-face-attribute 'linum nil
                     :foreground "#ccc"
                     :background "Gray23")
-(set-face-background 'hl-line "Gray23")
+;;(set-face-background 'hl-line "Gray23")
 (set-face-foreground 'highlight nil)
 
 

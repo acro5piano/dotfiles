@@ -8,6 +8,7 @@
 (depends-on "cask")
 (depends-on "expand-region")
 (depends-on "htmlize")
+(depends-on "helm")
 (depends-on "iedit")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
