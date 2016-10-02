@@ -125,8 +125,13 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(global-linum-mode)
+(global-linum-mode t)
 (setq linum-format "%4d ")
+(set-face-attribute 'linum nil
+                    :foreground "#ccc"
+                    :background "Gray23")
+(set-face-background 'hl-line "Gray23")
+(set-face-foreground 'highlight nil)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
