@@ -115,6 +115,7 @@
         (message "%s" (shell-command-to-string "cat /tmp/clipboard")))
     (progn
       (message "no region"))))
+
 (bind-key "C-c C-c" 'xclip-add-region)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
