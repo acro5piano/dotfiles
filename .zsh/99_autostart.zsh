@@ -1,6 +1,9 @@
 # Start tmux if x is running and no tmux is running
 [ "$DISPLAY" ] && [ `pgrep -c tmux` -eq 0 ] && tmux
 
+# Start emacs server. Use emacs with `emacsclient`
+ps aux | grep -q 'emacs --daemon' || emacs --daemon
+
 if [ ! "$DISPLAY" ]; then
     startx
 #    read start_x

@@ -25,15 +25,15 @@
                         )))
 
 (setq kill-whole-line t)
-(global-set-key (kbd "M-y") 'browse-kill-ring)
+(bind-key "M-y" 'browse-kill-ring)
 
 ;; I never use C-x C-c
-(global-set-key (kbd "C-x C-c") 'helm-M-x)
-(global-set-key (kbd "C-x C-q") 'save-buffers-kill-emacs)
+(bind-key "C-x C-c" 'helm-M-x)
+(bind-key "C-x C-q" 'save-buffers-kill-emacs)
 
 ;; vim 'd t' compatible
 (require 'misc)
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+(bind-key "M-z" 'zap-up-to-char)
 
 ;; expand region
 (require 'expand-region)
@@ -48,8 +48,8 @@
 (setq anzu-search-threshold 1000)
 (setq anzu-minimum-input-length 3)
 
-(global-set-key (kbd "M-%") 'anzu-query-replace)
-(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+(bind-key "M-%" 'anzu-query-replace)
+(bind-key "C-M-%" 'anzu-query-replace-regexp)
 
 ;; 選択範囲をisearch
 (defadvice isearch-mode
