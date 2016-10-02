@@ -125,6 +125,9 @@
 ; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(global-linum-mode)
+(setq linum-format "%4d ")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
