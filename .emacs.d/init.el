@@ -116,7 +116,7 @@
     (progn
       (message "no region"))))
 
-(bind-key "C-c C-c" 'xclip-add-region)
+(bind-key* "C-c C-c" 'xclip-add-region)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
