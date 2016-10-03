@@ -40,6 +40,10 @@
 (bind-key "C-c ," 'er/expand-region)
 (bind-key "C-c i" 'iedit-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Search settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; anzu周りの設定
 (require 'anzu)
 
@@ -91,6 +95,9 @@
 (setq vc-follow-symlinks t)
 ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
 (setq auto-revert-check-vc-info t)
+
+;; Diredを使いやすくする
+(ffap-bindings)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit

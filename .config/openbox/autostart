@@ -33,3 +33,11 @@ synclient TapButton1=1
 synclient TapButton2=1
 synclient TapButton3=1
 synclient CircularScrolling=1
+
+
+# Set default applications
+# Also see .dotfiles/bin/xdg-open
+xdg-mime default pcmanfm.desktop inode/directory
+xdg-mime default chromium.desktop text/html
+
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp "$1" ~/tmp
+echo "to restore, run:"
+echo "    cp $HOME/tmp/$1 $PWD"
