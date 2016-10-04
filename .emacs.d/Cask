@@ -11,6 +11,8 @@
 (depends-on "helm")
 (depends-on "iedit")
 (depends-on "markdown-mode")
+(depends-on "mozc")
+(depends-on "mozc-popup")
 (depends-on "multiple-cursors")
 (depends-on "php-mode")
 (depends-on "smartrep")

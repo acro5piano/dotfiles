@@ -142,12 +142,15 @@
                     :background "Gray23")
 
 ;; Hilight current line
-(setq global-hl-line-mode t)
+(global-hl-line-mode)
 (set-face-background 'hl-line "Gray23")
 (set-face-foreground 'highlight nil)
 
 ;; カーソル位置の桁数をモードライン行に表示する
 (column-number-mode 1)
+
+;; スクロールバー非表示
+(scroll-bar-mode 0)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -224,3 +227,17 @@
  )
 
 (put 'upcase-region 'disabled nil)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+; mozc
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Mozc settings
+(require 'mozc)
+(set-language-environment "Japanese")
+(setq default-input-method "japanese-mozc")
+
+(require 'mozc-popup)
+(setq mozc-candidate-style 'popup)
+
