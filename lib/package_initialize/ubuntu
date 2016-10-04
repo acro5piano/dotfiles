@@ -22,7 +22,10 @@ sudo apt install -y software-properties-common python-software-properties man
 [ `which cask` ] || curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 
 # vim vundle
-[ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
+if [ -e $HOME/.vim/bundle ]; then
+    mkdir -p ~/.vim/bundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
 # Install ruby using rbenv + Ruby-build
 if [ ! `which rbenv` ]; then

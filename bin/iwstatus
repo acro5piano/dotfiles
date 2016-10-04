@@ -1,2 +1,0 @@
-#!/bin/bash
-iwconfig  2>/dev/null | grep Quality | perl -pe 's/^.*=([0-9]+)\/70.*$/\1/' | perl -npe 'print $_/0.7' | perl -pe 's/\..+$//g'
