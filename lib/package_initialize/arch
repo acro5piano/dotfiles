@@ -44,9 +44,12 @@ change-service(){
     start_and_enable dhcpcd
     start_and_enable cups-browsed.service
 
-    sudo gpasswd -a $USER docker
-    sudo gpasswd -a $USER sys
-    sudo gpasswd -a $USER lp
+    add_user_to_group(){
+        id | grep -q $1 || sudo gpasswd -a $USER $1
+    }
+    add_user_to_group docker
+    add_user_to_group sys
+    add_user_to_group lp
 }
 
 change-shell(){
@@ -61,4 +64,3 @@ install-editor-plugin
 install-gui-package
 change-service
 change-shell
-

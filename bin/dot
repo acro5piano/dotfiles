@@ -5,12 +5,11 @@ DOTPATH="$HOME/.dotfiles"
 pull(){
     git pull origin master
     link
-    exec -l $SHELL
 }
 
 push(){
     git add .
-    git commit -m $2
+    [ "$2" ] && git commit -m "$2"
     git push origin master
 }
 
@@ -31,10 +30,12 @@ link(){
     done
 
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
+    exec -l $SHELL
 }
 
 install(){
     $DOTPATH/lib/package_initialize/`platform`
+    exec -l $SHELL
 }
 
 platform(){
