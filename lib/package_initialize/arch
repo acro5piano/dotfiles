@@ -32,7 +32,8 @@ install-gui-package(){
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator chromium pcmanfm gmrun \
         xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
-        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack
+        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack \
+        pacman -S adobe-source-code-pro-fonts
     yaourt -S --needed otf-ipaexfont
 }
 
