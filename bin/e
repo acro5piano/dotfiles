@@ -1,7 +1,4 @@
 #!/bin/bash
 
-if [ `ps aux | grep  'emacs --daemon' | wc -l` -gt 1 ]; then
-    emacsclient -nw $@
-else
-    emacs -nw $@
-fi
+emacsclient -nw $@ || emacs -nw $@
+

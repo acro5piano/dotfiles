@@ -1,5 +1,16 @@
-Emacs.FontBackend: xft
-Emacs.font: Noto Mono-10
+XTerm*utf8              : 1
+XTerm*locale            : true
+XTerm*selectToClipboard : true
+XTerm*termName          : xterm-256color
+XTerm*faceSize          : 10
+xterm*faceName          : Noto Mono
+xterm*faceNameDoublesize: IPAexGothic
+XTerm*cjkWidth          : true
+XTerm*background        : black
+XTerm*foreground        : white
+XTerm*saveLines         : 2000
+XTerm*geometry          : 100x30+300+100
+XTerm.VT100.EightBitInput: false
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
@@ -7,4 +18,7 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+Emacs.FontBackend: xft
+Emacs.font: Noto Mono-10
 
