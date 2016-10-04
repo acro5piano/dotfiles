@@ -14,3 +14,4 @@
 (depends-on "multiple-cursors")
 (depends-on "php-mode")
 (depends-on "smartrep")
+(depends-on "undo-tree")

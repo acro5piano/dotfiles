@@ -125,6 +125,9 @@
 
 (bind-key* "C-c C-c" 'xclip-add-region)
 
+(require 'multiple-cursors)
+(bind-key* "C-c C-r" 'mc/mark-next-like-this)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -137,8 +140,14 @@
 (set-face-attribute 'linum nil
                     :foreground "#ccc"
                     :background "Gray23")
-;;(set-face-background 'hl-line "Gray23")
+
+;; Hilight current line
+(setq global-hl-line-mode t)
+(set-face-background 'hl-line "Gray23")
 (set-face-foreground 'highlight nil)
+
+;; カーソル位置の桁数をモードライン行に表示する
+(column-number-mode 1)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -206,7 +215,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+    (undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
