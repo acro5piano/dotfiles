@@ -2,7 +2,7 @@
 [ "$DISPLAY" ] && [ `pgrep -c tmux` -eq 0 ] && tmux
 
 # Start emacs server. Use emacs with `emacsclient`
-[ `ps aux | grep  'emacs --daemon' | wc -l` -lt 2 ] && emacs --daemon
+[ "$DISPLAY" ] && [ `ps aux | grep  'emacs' | wc -l` -lt 4 ] && emacs --reverse &
 
 if [ ! "$DISPLAY" ]; then
     startx
