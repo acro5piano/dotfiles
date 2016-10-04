@@ -1,0 +1,63 @@
+#!/bin/bash
+
+DOTPATH="$HOME/.dotfiles"
+
+pull(){
+    git pull origin master
+    link
+    exec -l $SHELL
+}
+
+push(){
+    git add .
+    git commit -m $2
+    git push origin master
+}
+
+st(){
+    git status
+}
+
+link(){
+    for f in .??*
+    do
+        [ "$f" = ".git" ] && continue
+
+        if [ -e "$HOME/$f" ]; then
+            rm -rf "$HOME/$f"
+        fi
+
+        ln -snfv "$DOTPATH/$f" "$HOME/$f"
+    done
+
+    ln -snfv "$DOTPATH/bin" "$HOME/bin"
+}
+
+install(){
+    $DOTPATH/lib/package_initialize/`platform`
+}
+
+platform(){
+    [ -e /etc/arch-release ] && echo 'arch'
+    [ -e /etc/lsb-release ] && echo 'ubuntu'
+    [ -e /etc/redhat-release ] && echo 'centos'
+}
+
+usage(){
+    echo 'dot: sync and manage dot files'
+    exit 1
+}
+
+cd $DOTPATH
+
+case $1 in
+    'pull') pull ;;
+    'push') push $2 ;;
+    'install') install ;;
+    'link') link ;;
+    'st') st ;;
+    *) usage ;;
+esac
+
+cd $OLD_PWD
+
