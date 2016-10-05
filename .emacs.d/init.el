@@ -124,7 +124,7 @@
   (with-temp-buffer
     (insert data)
     (write-file "/tmp/clipboard")))
-  
+
 (defun xclip-add-region()
   (interactive)
   (if (region-active-p)
