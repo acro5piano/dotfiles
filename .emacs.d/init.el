@@ -28,7 +28,8 @@
 (bind-key "M-y" 'browse-kill-ring)
 
 ;; I never use C-x C-c
-(bind-key "C-x C-c" 'helm-M-x)
+(bind-key "C-x C-c" 'nil)
+(bind-key "M-x" 'helm-M-x)
 (bind-key "C-x C-q" 'save-buffers-kill-emacs)
 
 ;; vim 'd t' compatible
@@ -52,8 +53,8 @@
 (setq anzu-search-threshold 1000)
 (setq anzu-minimum-input-length 3)
 
-(bind-key "M-%" 'anzu-query-replace)
-(bind-key "C-M-%" 'anzu-query-replace-regexp)
+(bind-key* "C-]" 'anzu-query-replace)
+(bind-key* "M-5" 'anzu-query-replace-regexp)
 
 ;; 選択範囲をisearch
 (defadvice isearch-mode
@@ -98,6 +99,17 @@
 
 ;; Diredを使いやすくする
 (ffap-bindings)
+
+;; バッファ自動再読み込み
+(global-auto-revert-mode 1)
+
+;;file名の補完で大文字小文字を区別しない
+(setq completion-ignore-case t)
+
+
+;; undo tree always load
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit

@@ -37,7 +37,7 @@ InactivateKey=SUPER_LSUPER MUHENKAN
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
-#IMSwitchKey=True
+IMSwitchKey=False
 # Include Inactivate when scrolling between Input Method
 # Available Value:
 # True False
@@ -84,7 +84,7 @@ ReloadConfig=
 # No
 # All
 # PerProgram
-ShareStateAmongWindow=All
+ShareStateAmongWindow=PerProgram
 # Default Input Method State
 # Available Value:
 # Inactive
