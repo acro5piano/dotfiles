@@ -1,0 +1,6 @@
+#!/bin/bash
+
+docker run -i -t --rm \
+-e DISPLAY=$DISPLAY \
+-v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+--name="rdev" ubuntu:16.04 bash

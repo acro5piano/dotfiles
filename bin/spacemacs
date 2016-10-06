@@ -1,3 +1,16 @@
 #!/bin/bash
 
-HOME=$HOME/etc/spacemacs emacs --insecure
+CONTAINER_USER=arch
+CONTAINER_HOME=/home/$CONTAINER_USER
+
+sudo systemd-nspawn \
+     --setenv=DISPLAY=$DISPLAY \
+     --setenv=SHELL=/bin/bash \
+     --setenv=HOME=$CONTAINER_HOME/etc/spacemacs \
+     --bind=$HOME/etc/spacemacs:$CONTAINER_HOME/etc/spacemacs \
+     --bind=$HOME:$CONTAINER_HOME/host_home \
+     --bind=/tmp/.X11-unix \
+     -D ~/var/container/arch \
+     -u $CONTAINER_USER \
+     emacs
+     # HOME=$HOME/etc/spacemacs emacs --insecure
