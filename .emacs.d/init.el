@@ -44,16 +44,8 @@
 ;; Dired
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; C-x C-jがあるからいらないかも？
-(bind-key* "C-x C-d" 'dired-jump)
-
 ;; dired-find-alternate-file の有効化
 (put 'dired-find-alternate-file 'disabled nil)
-;; RET 標準の dired-find-file では dired バッファが複数作られるので
-;; dired-find-alternate-file を代わりに使う
-(bind-keys :map dired-mode-map
-	   ("RET" . dired-open-in-accordance-with-situation)
-	   ("a" . dired-find-file))
 
 ;; ファイルなら別バッファで、ディレクトリなら同じバッファで開く
 (defun dired-open-in-accordance-with-situation ()
@@ -62,6 +54,13 @@
     (if (file-directory-p file)
         (dired-find-alternate-file)
       (dired-find-file))))
+
+;; RET 標準の dired-find-file では dired バッファが複数作られるので
+;; dired-find-alternate-file を代わりに使う
+(require 'dired )
+(bind-keys :map dired-mode-map
+           ("RET" . dired-open-in-accordance-with-situation)
+           ("a" . dired-find-file))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search settings
