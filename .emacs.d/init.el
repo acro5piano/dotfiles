@@ -156,7 +156,7 @@
     (progn
       (message "no region"))))
 
-(bind-key* "C-c C-c" 'xclip-add-region)
+(bind-key* "C-c C-x" 'xclip-add-region)
 
 (require 'multiple-cursors)
 (bind-key* "C-c C-r" 'mc/mark-next-like-this)
