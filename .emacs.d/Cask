@@ -7,6 +7,7 @@
 (depends-on "browse-kill-ring")
 (depends-on "cask")
 (depends-on "expand-region")
+(depends-on "flycheck")
 (depends-on "htmlize")
 (depends-on "helm")
 (depends-on "iedit")

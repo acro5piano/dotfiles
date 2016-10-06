@@ -219,6 +219,9 @@
 ;; php-mode
 (require 'php-mode)
 
+;; Flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
