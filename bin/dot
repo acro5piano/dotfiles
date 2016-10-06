@@ -30,12 +30,10 @@ link(){
     done
 
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
-    exec -l $SHELL
 }
 
 install(){
     $DOTPATH/lib/package_initialize/`platform`
-    exec -l $SHELL
 }
 
 platform(){

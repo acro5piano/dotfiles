@@ -33,7 +33,7 @@ install-gui-package(){
         terminator chromium pcmanfm gmrun \
         xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack \
-        pacman -S adobe-source-code-pro-fonts
+        adobe-source-code-pro-fonts
     yaourt -S --needed otf-ipaexfont
 }
 

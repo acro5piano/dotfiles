@@ -19,6 +19,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Emacs.FontBackend: xft
-Emacs.font: Noto Mono-10
-
+Emacs*FontBackend: xft
+Emacs*font: Noto Mono-10
+Emacs*useXIM: true

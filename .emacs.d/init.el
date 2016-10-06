@@ -11,7 +11,7 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-; Add path for elisp from not MELPA
+;; Add path for elisp not from MELPA
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -39,7 +39,28 @@
 ;; expand region
 (require 'expand-region)
 (bind-key "C-c ," 'er/expand-region)
-(bind-key "C-c i" 'iedit-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Dired
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; C-x C-jがあるからいらないかも？
+(bind-key* "C-x C-d" 'dired-jump)
+
+;; dired-find-alternate-file の有効化
+(put 'dired-find-alternate-file 'disabled nil)
+;; RET 標準の dired-find-file では dired バッファが複数作られるので
+;; dired-find-alternate-file を代わりに使う
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+(define-key dired-mode-map (kbd "a") 'dired-find-file)
+
+;; ファイルなら別バッファで、ディレクトリなら同じバッファで開く
+(defun dired-open-in-accordance-with-situation ()
+  (interactive)
+  (let ((file (dired-get-filename)))
+    (if (file-directory-p file)
+        (dired-find-alternate-file)
+      (dired-find-file))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search settings
@@ -74,11 +95,11 @@
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Do not create backup file
+;; Do not create a backup file
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; Do not show welcome message
+;; Do not show the welcome message
 (setq inhibit-startup-message t)
 
 ;; Smart buffer
@@ -139,6 +160,9 @@
 
 (require 'multiple-cursors)
 (bind-key* "C-c C-r" 'mc/mark-next-like-this)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
@@ -214,6 +238,7 @@
 ; auto-complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)       ;; これで常にac-modeになる？
@@ -223,6 +248,9 @@
 (add-to-list 'ac-modes 'yatex-mode)
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
 
+;; end of my init.el
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -230,7 +258,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+    (magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -239,17 +267,3 @@
  )
 
 (put 'upcase-region 'disabled nil)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-; mozc
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-; Mozc settings
-(require 'mozc)
-(set-language-environment "Japanese")
-(setq default-input-method "japanese-mozc")
-
-(require 'mozc-popup)
-(setq mozc-candidate-style 'popup)
-
