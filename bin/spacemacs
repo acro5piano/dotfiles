@@ -3,6 +3,8 @@
 CONTAINER_USER=arch
 CONTAINER_HOME=/home/$CONTAINER_USER
 
+xhost +local:
+
 sudo systemd-nspawn \
      --setenv=DISPLAY=$DISPLAY \
      --setenv=SHELL=/bin/bash \
@@ -13,4 +15,3 @@ sudo systemd-nspawn \
      -D ~/var/container/arch \
      -u $CONTAINER_USER \
      emacs
-     # HOME=$HOME/etc/spacemacs emacs --insecure
