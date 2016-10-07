@@ -8,8 +8,7 @@ xhost +local:
 sudo systemd-nspawn \
      --setenv=DISPLAY=$DISPLAY \
      --setenv=SHELL=/bin/bash \
-     --setenv=HOME=$CONTAINER_HOME/etc/spacemacs \
-     --bind=$HOME/etc/spacemacs:$CONTAINER_HOME/etc/spacemacs \
+     --bind=$HOME/.dotfiles/etc/arch-spacemacs:$CONTAINER_HOME \
      --bind=$HOME:$CONTAINER_HOME/host_home \
      --bind=/tmp/.X11-unix \
      -D ~/var/container/arch \
