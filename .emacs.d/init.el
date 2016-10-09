@@ -1,3 +1,6 @@
+;; package --- dotfiles
+;; Commentary: this is init.el for kazuya-gosho
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic path and Cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
