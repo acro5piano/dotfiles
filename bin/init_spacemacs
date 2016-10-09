@@ -8,9 +8,10 @@ cat << 'EOF' >> /etc/pacman.conf
 SigLevel = Optional TrustAll
 Server = http://downloads.sourceforge.net/project/pnsft-aur/pur/$arch
 EOF
+
 pacman -Syy
-pacman -S git emacs emacs-mozc
+pacman -S --needed git emacs emacs-mozc adobe-source-code-pro-fonts
+
 useradd -u $UID arch
 mkdir /home/arch
-
-
+chown -R arch: /home/arch

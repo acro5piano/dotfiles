@@ -47,9 +47,6 @@ values."
      html
      markdown
      ;; org
-    ;;mozc
-    ;;auto-complete-config
-    ;;multiple-cursors
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -321,12 +318,12 @@ you should place your code here."
 
   ;; I never use C-x C-c
   (bind-key "C-x C-c" 'nil)
-  (bind-key "M-x" 'helm-M-x)
-  (bind-key "C-x C-q" 'save-buffers-kill-emacs)
+  (bind-key* "M-x" 'helm-M-x)
+  (bind-key* "C-x C-q" 'save-buffers-kill-emacs)
 
   ;; vim 'd t' compatible
   (require 'misc)
-  (bind-key "M-z" 'zap-up-to-char)
+  (bind-key* "M-z" 'zap-up-to-char)
 
   ;; c-h is backspace
   (keyboard-translate ?\C-h ?\C-?)
@@ -384,20 +381,31 @@ you should place your code here."
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
+  (bind-key* "C-j"
+            (lambda()
+              (interactive)
+              (mozc-mode 1)))
 
-  ;;(require 'mozc-popup)
-  ;;(setq mozc-candidate-style 'popup)
+  (add-hook 'helm-mini (lambda()
+                         (mozc-mode -1)))
 
-  ;; (when (require 'skk nil t)
-  ;;   (global-set-key (kbd "C-x j") 'skk-auto-fill-mode) ;;良い感じに改行を自動入力してくれる機能
-  ;;   (setq default-input-method "japanese-skk")         ;;emacs上での日本語入力にskkをつかう
-  ;;   (require 'skk-study))                              ;;変換学習機能の追加
+  (add-hook 'helm-M-x (lambda()
+                         (mozc-mode -1)))
+
+  (add-hook 'mozc-mode-hook (lambda()
+                              (bind-key "C-g"
+                                        (lambda()
+                                          (interactive)
+                                          (mozc-mode -1)))))
 
 
-  )
+
+            )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
