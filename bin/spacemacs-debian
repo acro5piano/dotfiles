@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xhost +local:
+docker run -it --rm \
+       -v /tmp:/tmp \
+       -v $HOME:/home/emacs/host_home \
+       -e DISPLAY=$DISPLAY \
+       --user 1000 \
+       emacs

@@ -21,4 +21,4 @@ Xft.rgba: rgb
 
 Emacs*FontBackend: xft
 Emacs*font: Noto Mono-10
-Emacs*useXIM: false
+Emacs*useXIM: true

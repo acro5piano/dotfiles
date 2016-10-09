@@ -189,12 +189,18 @@
 ;; スクロールバー非表示
 (scroll-bar-mode 0)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Org mode
+;; eww
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq org-src-fontify-natively t)
+(setq eww-search-prefix "http://www.google.co.jp/search?q=")
+
+
+(add-hook 'eww-mode-hook (lambda ()
+                           (linum-mode -1)
+                           (rename-buffer "eww" t)))
+
+;; (add-hook ‘eww-mode-hook ‘eww-mode-hook–rename-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
@@ -245,7 +251,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(global-auto-complete-mode t)       ;; これで常にac-modeになる？
+(global-auto-complete-mode)       ;; これで常にac-modeになる？
 (add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
 (add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
 (add-to-list 'ac-modes 'org-mode)

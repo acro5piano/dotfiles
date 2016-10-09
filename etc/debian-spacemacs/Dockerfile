@@ -1,5 +1,13 @@
-FROM debian:wheezy
+FROM debian
 
-RUN echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/backports.list
 RUN apt-get update
-RUN apt-get -t wheezy-backports --yes install emacs24
+RUN apt-get -y install emacs24
+
+RUN useradd -G sudo -u 1000 emacs
+RUN mkdir -p /home/emacs/host_home
+RUN chown -R emacs:emacs /home/emacs
+
+ENV HOME /home/emacs
+WORKDIR /home/emacs/host_home
+
+CMD /usr/bin/emacs --reverse
