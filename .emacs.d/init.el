@@ -222,7 +222,8 @@
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-; Markdown Table
+;; Markdown Table
+(require 'org)
 (defun cleanup-org-tables ()
     (save-excursion
         (goto-char (point-min))
@@ -230,7 +231,9 @@
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
     '(lambda()
-        (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+       (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+
+(require 'markdown-to-reveal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; filetype mode
