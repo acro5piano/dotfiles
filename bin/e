@@ -1,4 +1,4 @@
 #!/bin/bash
 
-emacsclient -t -a ''
+emacsclient -t -a '' $@
 
