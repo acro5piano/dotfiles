@@ -73,7 +73,7 @@
 </html>
 ")
 
-(defun paste-to-tmp-file(data)
+(defun reveal-paste-to-tmp-file(data)
   (with-temp-buffer
     (insert data)
     (write-file "/tmp/reveal.html")))
