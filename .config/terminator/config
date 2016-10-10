@@ -1,5 +1,8 @@
 [global_config]
+  broadcast_default = off
   enabled_plugins = ,
+  geometry_hinting = False
+  scroll_tabbar = True
 [keybindings]
   broadcast_all = None
   broadcast_group = None
@@ -17,6 +20,7 @@
 [plugins]
 [profiles]
   [[default]]
+    alternate_screen_scroll = False
     background_darkness = 0.83
     background_image = None
     background_type = transparent
@@ -24,7 +28,10 @@
     font = Noto Mono 10
     foreground_color = "#ffffff"
     icon_bell = False
+    scroll_on_keystroke = False
     scroll_on_output = False
     scrollbar_position = hidden
     show_titlebar = False
+    update_records = False
     use_system_font = False
+    word_chars = "-A-Za-z0-9./?%&#_"
