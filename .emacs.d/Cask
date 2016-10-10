@@ -18,9 +18,10 @@
 (depends-on "smartrep")
 (depends-on "undo-tree")
 (depends-on "yaml-mode")
+(depends-on "web-mode")
 
 
-;; Japanese input (inpossible)
+;; Japanese input (impossible)
 ;(depends-on "ddskk")
 ;(depends-on "mozc")
 ;(depends-on "mozc-popup")
