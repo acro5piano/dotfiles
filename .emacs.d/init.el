@@ -180,6 +180,30 @@
 
 (setq comment-style 'multi-line)
 
+(defun xah-copy-file-path (&optional *dir-path-only-p)
+  "Copy the current buffer's file path or dired path to `kill-ring'.
+Argument: DIR-PATH-ONLY-P
+Result is full path.
+If `universal-argument' is called first, copy only the dir path.
+URL `http://ergoemacs.org/emacs/emacs_copy_file_path.html'
+Version 2016-07-17"
+  (interactive "P")
+  (let ((-fpath
+         (if (equal major-mode 'dired-mode)
+             (expand-file-name default-directory)
+           (if (null (buffer-file-name))
+               (user-error "Current buffer is not associated with a file")
+             (buffer-file-name)))))
+    (kill-new
+     (if (null *dir-path-only-p)
+         (progn
+           (message "File path copied: 「%s」" -fpath)
+           -fpath
+           )
+       (progn
+         (message "Directory path copied: 「%s」" (file-name-directory -fpath))
+         (file-name-directory -fpath))))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; View
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -268,9 +292,13 @@
 (ac-config-default)
 (global-auto-complete-mode)       ;; これで常にac-modeになる？
 (add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
+(add-to-list 'ac-modes 'shell-script-mode)         ;; text-modeでも自動的に有効にする
 (add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'yatex-mode)
+(add-to-list 'ac-modes 'markdown-mode)
+(add-to-list 'ac-modes 'lisp-interaction-mode)
+
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
 
 ;; end of my init.el

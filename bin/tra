@@ -2,7 +2,7 @@
 
 TRASH_DIR="$HOME/.trash/`date +%Y%m%d_%H%M%S`"
 
-[ -e "$HOME/.trash" ] || mkdir $HOME/.trash
+[ -e "$HOME/.trash" ] || mkdir "$HOME/.trash"
 
-mv $@ "$TRASH_DIR"
-
+mkdir "$TRASH_DIR"
+mv "$@" "$TRASH_DIR"
