@@ -4,7 +4,7 @@ install-dev-package(){
     sudo pacman -S --needed \
         zsh vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher \
-        yaourt docker \
+        yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
         go \
@@ -30,9 +30,10 @@ install-gui-package(){
     sudo pacman -S --needed \
         xorg xorg-xinit lightdm synaptics xorg-xbacklight openbox \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
-        terminator chromium pcmanfm gmrun \
+        terminator chromium pcmanfm dmenu \
         xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack \
+        xterm \
         adobe-source-code-pro-fonts
     yaourt -S --needed otf-ipaexfont
 }

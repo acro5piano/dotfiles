@@ -1,3 +1,11 @@
+;;; init.el --- dotfiles of kazuya
+
+;;; Commentary:
+
+;; this is init.el for kazuya-gosho
+
+;;; Code:
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic path and Cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -6,6 +14,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+
 (package-initialize)
 
 (require 'cask "~/.cask/cask.el")
@@ -29,8 +39,11 @@
 
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
-(bind-key "M-x" 'helm-M-x)
 (bind-key "C-x C-q" 'save-buffers-kill-emacs)
+
+;; helm
+(bind-key* "M-x" 'helm-M-x)
+(bind-key* "C-x C-d" 'helm-find-files)
 
 ;; vim 'd t' compatible
 (require 'misc)
@@ -62,6 +75,14 @@
            ("RET" . dired-open-in-accordance-with-situation)
            ("a" . dired-find-file))
 
+
+;; Diredを使いやすくする
+(ffap-bindings)
+
+;;file名の補完で大文字小文字を区別しない
+(custom-set-variables
+ '(read-file-name-completion-ignore-case t))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,6 +112,7 @@
           (isearch-repeat-forward)))
     ad-do-it))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -118,15 +140,8 @@
 ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
 (setq auto-revert-check-vc-info t)
 
-;; Diredを使いやすくする
-(ffap-bindings)
-
 ;; バッファ自動再読み込み
 (global-auto-revert-mode 1)
-
-;;file名の補完で大文字小文字を区別しない
-(setq completion-ignore-case t)
-
 
 ;; undo tree always load
 (require 'undo-tree)
@@ -189,12 +204,16 @@
 ;; スクロールバー非表示
 (scroll-bar-mode 0)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Org mode
+;; eww
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq org-src-fontify-natively t)
+(setq eww-search-prefix "http://www.google.co.jp/search?q=")
+
+
+(add-hook 'eww-mode-hook (lambda ()
+                           (linum-mode -1)
+                           (rename-buffer "eww" t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
@@ -203,7 +222,8 @@
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-; Markdown Table
+;; Markdown Table
+(require 'org)
 (defun cleanup-org-tables ()
     (save-excursion
         (goto-char (point-min))
@@ -211,7 +231,9 @@
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
     '(lambda()
-        (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+       (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+
+(require 'markdown-to-reveal)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; filetype mode
@@ -222,7 +244,6 @@
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
@@ -245,7 +266,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(global-auto-complete-mode t)       ;; これで常にac-modeになる？
+(global-auto-complete-mode)       ;; これで常にac-modeになる？
 (add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
 (add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
 (add-to-list 'ac-modes 'org-mode)

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo systemd-nspawn -D /home/kazuya/var/container/mozc_emacs_helper mozc_emacs_helper
