@@ -3,8 +3,8 @@ XTerm*locale            : true
 XTerm*selectToClipboard : true
 XTerm*termName          : xterm-256color
 XTerm*faceSize          : 10
-xterm*faceName          : Noto Mono
-xterm*faceNameDoublesize: IPAexGothic
+Xterm*faceName          : Noto Mono
+Xterm*faceNameDoublesize: IPAexGothic
 XTerm*cjkWidth          : true
 XTerm*background        : black
 XTerm*foreground        : white
@@ -21,4 +21,5 @@ Xft.rgba: rgb
 
 Emacs*FontBackend: xft
 Emacs*font: Noto Mono-10
+Emacs*faceNameDoublesize: IPAexGothic
 Emacs*useXIM: true

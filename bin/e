@@ -1,5 +1,4 @@
 #!/bin/bash
 
-#emacsclient -nw $@ || emacs -nw $@
-emacs -nw $@
+emacsclient -t -a ''
 

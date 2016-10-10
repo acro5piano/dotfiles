@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# change Caps -> Ctrl
-xmodmap $HOME/.xmodmap*
-
 # Keyboard repeat fre.
 xset r rate 250
 
@@ -40,4 +37,5 @@ synclient CircularScrolling=1
 xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default chromium.desktop text/html
 
-
+# change Caps -> Ctrl
+xmodmap $HOME/.xmodmap

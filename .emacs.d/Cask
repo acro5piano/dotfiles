@@ -12,6 +12,7 @@
 (depends-on "helm")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "mozc")
 (depends-on "multiple-cursors")
 (depends-on "php-mode")
 (depends-on "smartrep")

@@ -1,5 +1,10 @@
-;; package --- dotfiles
-;; Commentary: this is init.el for kazuya-gosho
+;;; init.el --- dotfiles of kazuya
+
+;;; Commentary:
+
+;; this is init.el for kazuya-gosho
+
+;;; Code:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic path and Cask
@@ -9,6 +14,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+
 (package-initialize)
 
 (require 'cask "~/.cask/cask.el")
@@ -32,8 +39,11 @@
 
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
-(bind-key "M-x" 'helm-M-x)
 (bind-key "C-x C-q" 'save-buffers-kill-emacs)
+
+;; helm
+(bind-key* "M-x" 'helm-M-x)
+(bind-key* "C-x C-d" 'helm-find-files)
 
 ;; vim 'd t' compatible
 (require 'misc)
@@ -128,7 +138,8 @@
 (global-auto-revert-mode 1)
 
 ;;file名の補完で大文字小文字を区別しない
-(setq completion-ignore-case t)
+(custom-set-variables
+ '(read-file-name-completion-ignore-case t))
 
 
 ;; undo tree always load
@@ -260,6 +271,11 @@
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'yatex-mode)
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
+
+;; mozc tried
+
+(require 'mozc)
+
 
 ;; end of my init.el
 
