@@ -75,6 +75,14 @@
            ("RET" . dired-open-in-accordance-with-situation)
            ("a" . dired-find-file))
 
+
+;; Diredを使いやすくする
+(ffap-bindings)
+
+;;file名の補完で大文字小文字を区別しない
+(custom-set-variables
+ '(read-file-name-completion-ignore-case t))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Search settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -104,6 +112,7 @@
           (isearch-repeat-forward)))
     ad-do-it))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; File
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -131,16 +140,8 @@
 ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
 (setq auto-revert-check-vc-info t)
 
-;; Diredを使いやすくする
-(ffap-bindings)
-
 ;; バッファ自動再読み込み
 (global-auto-revert-mode 1)
-
-;;file名の補完で大文字小文字を区別しない
-(custom-set-variables
- '(read-file-name-completion-ignore-case t))
-
 
 ;; undo tree always load
 (require 'undo-tree)
@@ -214,8 +215,6 @@
                            (linum-mode -1)
                            (rename-buffer "eww" t)))
 
-;; (add-hook ‘eww-mode-hook ‘eww-mode-hook–rename-buffer)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -242,7 +241,6 @@
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Set UTF-8 to default
@@ -271,11 +269,6 @@
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'yatex-mode)
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-
-;; mozc tried
-
-(require 'mozc)
-
 
 ;; end of my init.el
 
