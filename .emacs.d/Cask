@@ -17,6 +17,7 @@
 (depends-on "php-mode")
 (depends-on "smartrep")
 (depends-on "undo-tree")
+(depends-on "yaml-mode")
 
 
 ;; Japanese input (inpossible)
