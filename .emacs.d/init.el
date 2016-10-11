@@ -87,7 +87,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
+    (ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
  '(read-file-name-completion-ignore-case t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -248,6 +248,12 @@ Version 2016-07-17"
 (add-hook 'eww-mode-hook (lambda ()
                            (linum-mode -1)
                            (rename-buffer "eww" t)))
+
+(require 'helm-eww)
+
+(require 'ace-link)
+(eval-after-load 'eww '(define-key eww-mode-map "f" 'ace-link-eww))
+(ace-link-setup-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown

@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "ace-link")
 (depends-on "auto-complete")
 (depends-on "anzu")
 (depends-on "bind-key")
