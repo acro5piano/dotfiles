@@ -106,6 +106,13 @@
 
 ;;file名の補完で大文字小文字を区別しない
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
  '(read-file-name-completion-ignore-case t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -267,6 +274,12 @@ Version 2016-07-17"
                            (linum-mode -1)
                            (rename-buffer "eww" t)))
 
+(require 'helm-eww)
+
+(require 'ace-link)
+(eval-after-load 'eww '(define-key eww-mode-map "f" 'ace-link-eww))
+(ace-link-setup-default)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -293,6 +306,9 @@ Version 2016-07-17"
 
 ;; php-mode
 (require 'php-mode)
+
+;; yaml-mode
+(require 'yaml-mode)
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -345,14 +361,7 @@ Version 2016-07-17"
 ;; end of my init.el
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

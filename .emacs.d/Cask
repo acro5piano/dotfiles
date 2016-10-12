@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "ace-link")
 (depends-on "auto-complete")
 (depends-on "anzu")
 (depends-on "bind-key")
@@ -17,6 +18,7 @@
 (depends-on "php-mode")
 (depends-on "smartrep")
 (depends-on "undo-tree")
+(depends-on "yaml-mode")
 (depends-on "web-mode")
 
 
