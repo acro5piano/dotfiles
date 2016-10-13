@@ -56,28 +56,6 @@
 (require 'expand-region)
 (bind-key "C-c ," 'er/expand-region)
 
-;; これらの変数については後述
-(defvar last-search-char nil)
-(defvar last-search-direction 'forward)
-
-;; 一文字検索（順方向）
-(defun search-forward-with-char (char)
-  (interactive "cMove to Char: ")
-  (if (eq (char-after (point)) char) (forward-char))
-  (and (search-forward (char-to-string char) nil t)
-       (backward-char))
-  (setq last-search-char char
-        last-search-direction 'forward))
-
-;; 一文字検索（逆方向）
-(defun search-backward-with-char (char)
-  (interactive "cMove backward to Char: ")
-  (search-backward (char-to-string char) nil t)
-  (setq last-search-char char
-        last-search-direction 'backward))
-(bind-key* "M-." 'search-forward-with-char)
-(bind-key* "M-," 'search-backward-with-char)
-
 (defun copy-whole-line (&optional arg)
   "Copy current line."
   (interactive "p")
@@ -214,6 +192,12 @@
 
 ;; start scratch buffer without the initial message
 (setq initial-scratch-message "")
+
+(require 'open-junk-file)
+(setq open-junk-file-format "~/tmp/%Y-%m-%d-%H%M%S.")
+
+;; open-junk
+(global-set-key (kbd "C-x j") 'open-junk-file)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
