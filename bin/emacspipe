@@ -1,0 +1,8 @@
+#!/bin/bash
+
+TMP=$(mktemp).$1
+cat > $TMP
+emacsclient --tty $TMP
+
+echo 'You edited:'
+echo $TMP

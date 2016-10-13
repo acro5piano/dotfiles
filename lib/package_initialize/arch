@@ -19,6 +19,7 @@ install-termianl-tool(){
         github.com/motemen/ghq
     [ `which bundle` ]   || gem install bundler
     [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
+    [ `which generate-md` ] || sudo npm install -g markdown-styles
 }
 
 install-editor-plugin(){

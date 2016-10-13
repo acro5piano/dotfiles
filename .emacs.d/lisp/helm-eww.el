@@ -2,7 +2,7 @@
 (defvar eww-data)
 (defun eww-current-url ()
   (if (boundp 'eww-current-url)
-    (plist-get eww-data :url)))         ;emacs25
+    (plist-get eww-data :url)))
 (defun eww-current-title ()
   (if (boundp 'eww-current-title)
     (plist-get eww-data :title)))

@@ -40,4 +40,6 @@ xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default chromium.desktop text/html
 
 # change Caps -> Ctrl
-xmodmap $HOME/.xmodmap
+if ! (lsusb | grep -q HHKB;) then
+   xmodmap $HOME/.xmodmap.d/jp
+fi
