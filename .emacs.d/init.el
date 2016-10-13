@@ -87,6 +87,8 @@
 (bind-key* "C-x C-q" 'delete-frame)
 (defalias 'exit 'save-buffers-kill-emacs)
 
+(bind-key* "C-x g" 'magit-status)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Dired
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -365,6 +367,9 @@ Version 2016-07-17"
 (add-to-list 'ac-modes 'yatex-mode)
 (add-to-list 'ac-modes 'markdown-mode)
 (add-to-list 'ac-modes 'lisp-interaction-mode)
+(add-to-list 'ac-modes 'php-mode)
+(add-to-list 'ac-modes 'sql-mode)
+(add-to-list 'ac-modes 'lisp-mode)
 
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
 
