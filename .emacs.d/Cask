@@ -10,7 +10,10 @@
 (depends-on "expand-region")
 (depends-on "flycheck")
 (depends-on "htmlize")
+
 (depends-on "helm")
+(depends-on "helm-ag")
+
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "mozc")

@@ -43,3 +43,5 @@
         :buffer "*helm eww*"))
 
 (define-key eww-mode-map (kbd "H") 'helm-eww-history)
+
+(provide 'helm-eww)

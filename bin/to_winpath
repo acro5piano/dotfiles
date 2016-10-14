@@ -1,4 +1,3 @@
 #!/bin/bash
 
-xsel -bo | sed 's;/mnt;;' | tr / '\\' | sed 's/^/\\/'
-
+pwd | sed 's;/mnt;;' | tr / '\\' | sed 's/^/\\/'

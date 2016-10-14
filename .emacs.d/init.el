@@ -48,6 +48,14 @@
 (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x C-d" 'helm-find-files)
 
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (require 'helm-config)
+   (require 'helm-ag)
+   (helm-mode 1)))
+
+
 ;; vim 'd t' compatible
 (require 'misc)
 (bind-key "M-z" 'zap-up-to-char)
@@ -199,6 +207,11 @@
 ;; open-junk
 (global-set-key (kbd "C-x j") 'open-junk-file)
 
+(when (require 'saveplace nil t)
+  (setq-default save-place t)
+  (setq save-place-file "~/.emacs.d/saved-places"))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Edit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -292,10 +305,8 @@ Version 2016-07-17"
                            (rename-buffer "eww" t)))
 
 (require 'helm-eww)
-
 (require 'ace-link)
 (ace-link-setup-default)
-
 (define-key eww-mode-map "f" 'ace-link-eww)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -379,6 +390,16 @@ Version 2016-07-17"
 (add-to-list 'ac-modes 'ruby-mode)
 
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; for ctags.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'ctags nil t)
+(setq tags-revert-without-query t)
+(setq ctags-command "ctags -R --fields=\"+afikKlmnsSzt\" ")
+(global-set-key (kbd "<f5>") 'ctags-create-or-update-tags-table)
+(global-set-key (kbd "M-.") 'ctags-search)
 
 ;; end of my init.el
 
