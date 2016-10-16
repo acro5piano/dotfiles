@@ -16,4 +16,6 @@ xdg-mime default evince.desktop application/pdf
 
 xdg-settings set default-web-browser browser.desktop
 
+# Concat openbox settings
+cat ~/.config/openbox/rc.d/* > ~/.config/openbox/rc.xml
 exec openbox-session
