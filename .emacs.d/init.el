@@ -333,9 +333,6 @@ Version 2016-07-17"
 ; filetype mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; php-mode
-(require 'php-mode)
-
 ;; yaml-mode
 (require 'yaml-mode)
 
@@ -384,7 +381,6 @@ Version 2016-07-17"
 (add-to-list 'ac-modes 'yatex-mode)
 (add-to-list 'ac-modes 'markdown-mode)
 (add-to-list 'ac-modes 'lisp-interaction-mode)
-(add-to-list 'ac-modes 'php-mode)
 (add-to-list 'ac-modes 'sql-mode)
 (add-to-list 'ac-modes 'lisp-mode)
 (add-to-list 'ac-modes 'ruby-mode)

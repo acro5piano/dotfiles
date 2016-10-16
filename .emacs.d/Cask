@@ -18,7 +18,6 @@
 (depends-on "markdown-mode")
 (depends-on "mozc")
 (depends-on "multiple-cursors")
-(depends-on "php-mode")
 (depends-on "open-junk-file")
 (depends-on "smartrep")
 (depends-on "undo-tree")
