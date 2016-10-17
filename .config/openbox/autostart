@@ -42,4 +42,5 @@ xdg-mime default chromium.desktop text/html
 # change Caps -> Ctrl
 if ! (lsusb | grep -q HHKB); then
    xmodmap $HOME/.xmodmap.d/jp
+   xmodmap $HOME/.xmodmap
 fi
