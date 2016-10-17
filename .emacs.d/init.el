@@ -46,7 +46,6 @@
 
 ;; helm
 (bind-key* "M-x" 'helm-M-x)
-(bind-key* "C-x C-d" 'helm-find-files)
 
 (add-hook
  'after-init-hook
@@ -310,6 +309,13 @@ Version 2016-07-17"
 (define-key eww-mode-map "f" 'ace-link-eww)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; tramp
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(eval-after-load 'tramp-mode
+  (setenv "SHELL" "bash"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -325,7 +331,7 @@ Version 2016-07-17"
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 (add-hook 'markdown-mode-hook
     '(lambda()
-       (add-hook 'after-save-hook 'cleanup-org-tables  nil 'make-it-local)))
+       (add-hook 'before-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
 (require 'markdown-to-reveal)
 
