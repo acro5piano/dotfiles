@@ -29,8 +29,5 @@
 
 (setq open-junk-file-format "~/tmp/%Y-%m-%d-%H%M%S.")
 
-(setq-default save-place t)
-(setq save-place-file "~/.emacs.d/saved-places"))
-
 ;; undo tree always load
 (global-undo-tree-mode)
