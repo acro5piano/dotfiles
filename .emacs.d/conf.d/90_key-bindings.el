@@ -26,8 +26,10 @@
 
 (bind-key* "C-x g" 'magit-status)
 
-;; Smart buffer
+;; helm
 (bind-key* "C-x C-b" 'helm-mini)
+(bind-key* "M-x" 'helm-M-x)
+(bind-key* "C-x C-a" 'helm-do-ag-project-root)
 
 (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/mark-next-like-this)
