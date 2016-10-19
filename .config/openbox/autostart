@@ -13,19 +13,6 @@ xrandr --output VGA1 --above LVDS1 --mode 1920x1080
 xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 feh  --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
 
-# change Caps -> Ctrl
-xmodmap $HOME/.xmodmap*
-
-# Start applications
-# Currently disabled because I use eww
-#
-# if ! pgrep chromium > /dev/null; then
-#     if [ -e /etc/arch-release ]; then
-#         chromium &
-#     else
-#         chromium-browser &
-#     fi
-# fi
 pgrep terminator > /dev/null || terminator &
 
 synclient TapButton1=1
