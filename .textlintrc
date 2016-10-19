@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "max-ten": {
+      "max": 3
+    },
+    "spellcheck-tech-word": true,
+    "no-mix-dearu-desumasu": true,
+    "prh": {
+      "rulePaths": [
+         "~/.dotfiles/lib/prh/web-db-press.yml"
+      ]
+    }
+  }
+}
