@@ -2,7 +2,7 @@
     "Keymap": {
         "M-v": "peco.ScrollPageUp",
         "C-v": "peco.ScrollPageDown",
-        "C-x,C-c": "peco.Cancel"
+        "C-g": "peco.Cancel"
     },
     "Layout": "bottom-up"
 }
