@@ -3,7 +3,7 @@
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         zsh vim net-tools inotify-tools bc make git tmux openssh emacs \
-        rsync tree curl jq man at the_silver_searcher ctags \
+        rsync tree curl jq man at the_silver_searcher ctags zip unzip \
         yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
