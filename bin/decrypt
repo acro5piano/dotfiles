@@ -1,0 +1,5 @@
+#!/bin/bash
+
+file_name="$1"
+
+openssl aes-256-cbc -d -in "$file_name"
