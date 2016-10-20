@@ -17,9 +17,13 @@ install-termianl-tool(){
     go get \
         github.com/jehiah/json2csv \
         github.com/motemen/ghq
-    [ `which bundle` ]   || gem install bundler
+    [ `which bundle` ]   || gem install bundler pry
     [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
-    [ `which generate-md` ] || sudo npm install -g markdown-styles
+    [ `which generate-md` ] || sudo npm install -g markdown-styles \
+                                    textlint textlint-preset-japanese \
+                                    textlint-rule-prh textlint-rule-max-ten \
+                                    textlint-rule-spellcheck-tech-word \
+                                    textlint-rule-no-mix-dearu-desumasu
 }
 
 install-editor-plugin(){
