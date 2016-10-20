@@ -19,8 +19,8 @@ install-termianl-tool(){
         github.com/motemen/ghq
     [ `which bundle` ]   || gem install bundler pry
     [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
-    [ `which generate-md` ] || sudo npm install -g markdown-styles \
-                                    textlint textlint-preset-japanese \
+    [ `which generate-md` ] || sudo npm install -g markdown-styles
+    [ `which texlint` ] || sudo npm install -g textlint \
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
