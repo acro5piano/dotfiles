@@ -21,6 +21,7 @@
 (depends-on "multiple-cursors")
 (depends-on "open-junk-file")
 (depends-on "smartrep")
+(depends-on "twittering-mode")
 (depends-on "undo-tree")
 (depends-on "yaml-mode")
 (depends-on "web-mode")

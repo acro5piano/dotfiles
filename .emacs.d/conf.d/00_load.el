@@ -21,4 +21,6 @@
 
 (require 'saveplace nil t)
 
+(require 'twittering-mode)
+
 (require 'server)
