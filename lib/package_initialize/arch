@@ -24,6 +24,7 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
+    sudo pacman -S --needed --noconfirm wmctrl
 }
 
 install-editor-plugin(){

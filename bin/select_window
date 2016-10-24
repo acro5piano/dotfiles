@@ -1,6 +1,6 @@
 #!/bin/bash
 
-target=`cat <(wmctrl -l | cut -d ' ' -f 5-) | dmenu -i -b -l 30`
+target=`wmctrl -l | cut -d ' ' -f 5- | dmenu -i -b -l 30`
 
 if [[ "$target" =~ ^$ ]]; then
    exit 1
