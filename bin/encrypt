@@ -1,5 +1,5 @@
 #!/bin/bash
 
 file_name="$1"
-openssl aes-256-cbc -e -in "$file_name" -out encripted-"$file_name"
+openssl aes-256-cbc -e -in "$file_name" -out encrypted-"$file_name"
 echo "encrypted: encrypted-${file_name}"
