@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -35,7 +36,7 @@
 (bind-key* "C-x a" 'helm-do-ag)
 
 (bind-key* "C-c C-x" 'xclip-add-region)
-(bind-key* "C-c C-r" 'mc/mark-next-like-this)
+(bind-key* "C-c C-r" 'mc/edit-lines)
 
 ;; open-junk
 (bind-key (kbd "C-x j") 'open-junk-file)
