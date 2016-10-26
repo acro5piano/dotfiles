@@ -58,6 +58,6 @@ gup(){
         return 0
     else
         cd ..
-        gap
+        gup
     fi
 }
