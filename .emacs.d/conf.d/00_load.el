@@ -12,6 +12,8 @@
 ;; yaml-mode
 (require 'yaml-mode)
 (require 'web-mode)
+(require 'haml-mode)
+(require 'coffee-mode)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
