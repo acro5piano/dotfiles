@@ -12,6 +12,8 @@
 (setq kill-whole-line t)
 (bind-key "M-y" 'browse-kill-ring)
 
+(bind-key "C-x C-k" 'kill-buffer)
+
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
 (defalias 'exit 'save-buffers-kill-emacs)
