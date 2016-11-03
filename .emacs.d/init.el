@@ -47,5 +47,6 @@
  '(desktop-save-mode t)
  '(package-selected-packages
    (quote
-    (twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
+    (haml-mode twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
  '(read-file-name-completion-ignore-case t))
+(put 'downcase-region 'disabled nil)

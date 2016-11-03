@@ -24,6 +24,8 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
+    sudo pacman -S --needed --noconfirm \
+         graphviz
 }
 
 install-editor-plugin(){

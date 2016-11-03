@@ -9,9 +9,10 @@
 
 (require 'org)
 (require 'markdown-to-reveal)
-;; yaml-mode
 (require 'yaml-mode)
 (require 'web-mode)
+(require 'scss-mode)
+(require 'coffee-mode)
 
 (require 'auto-complete)
 (require 'auto-complete-config)

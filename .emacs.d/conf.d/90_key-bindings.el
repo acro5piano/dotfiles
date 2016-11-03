@@ -22,7 +22,7 @@
 (bind-key "M-z" 'zap-up-to-char)
 (bind-key "C-c ," 'er/expand-region)
 
-(bind-key (kbd "M-k") 'copy-whole-line)
+(bind-key "M-k" 'copy-whole-line)
 
 (bind-key* "C-x g" 'magit-status)
 
@@ -32,7 +32,7 @@
 (bind-key* "C-x C-a" 'helm-do-ag-project-root)
 
 (bind-key* "C-c C-x" 'xclip-add-region)
-(bind-key* "C-c C-r" 'mc/mark-next-like-this)
+(bind-key* "C-c C-r" 'mc/edit-lines)
 
 ;; open-junk
 (bind-key (kbd "C-x j") 'open-junk-file)
