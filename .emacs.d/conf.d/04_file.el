@@ -28,6 +28,7 @@
 (setq initial-scratch-message "")
 
 (setq open-junk-file-format "~/tmp/%Y-%m-%d-%H%M%S.")
+(setq open-junk-file-find-file-function 'find-file)
 
 ;; undo tree always load
 (global-undo-tree-mode)

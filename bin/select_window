@@ -1,0 +1,9 @@
+#!/bin/bash
+
+target=`wmctrl -l | cut -d ' ' -f 5- | perl -pe 's;^\s*N/A\s;;g' | dmenu -i -b -l 30`
+
+if [[ "$target" =~ ^$ ]]; then
+   exit 1
+else
+    wmctrl -a "$target"
+fi

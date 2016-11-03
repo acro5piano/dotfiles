@@ -49,3 +49,15 @@ mcd(){
    mkdir $1
    cd $1
 }
+
+gup(){
+    echo $PWD
+    if [ $PWD = '/' ]; then
+        return 1
+    elif ls -a | grep -q '^.git$'; then
+        return 0
+    else
+        cd ..
+        gup
+    fi
+}

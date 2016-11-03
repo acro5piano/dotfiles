@@ -8,7 +8,12 @@
   broadcast_group = None
   broadcast_off = None
   close_term = None
+  close_window = None
+  copy = None
+  cycle_next = None
+  cycle_prev = None
   full_screen = <Shift><Alt>l
+  group_all = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -25,6 +30,7 @@
     background_image = None
     background_type = transparent
     copy_on_selection = True
+    custom_command = wmctrl -a $(wmctrl -l | cut -d ' ' -f 5- | peco)
     font = Noto Mono 10
     foreground_color = "#ffffff"
     icon_bell = False

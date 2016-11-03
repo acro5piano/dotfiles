@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -10,6 +11,8 @@
 
 (setq kill-whole-line t)
 (bind-key "M-y" 'browse-kill-ring)
+
+(bind-key "C-x C-k" 'kill-buffer)
 
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
@@ -29,7 +32,10 @@
 ;; helm
 (bind-key* "C-x C-b" 'helm-mini)
 (bind-key* "M-x" 'helm-M-x)
-(bind-key* "C-x C-a" 'helm-do-ag-project-root)
+(bind-key* "C-x p" 'helm-do-ag-project-root)
+(bind-key* "C-x b" 'helm-do-ag-buffers)
+(bind-key* "C-x f" 'helm-do-ag-this-file)
+(bind-key* "C-x a" 'helm-do-ag)
 
 (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/edit-lines)

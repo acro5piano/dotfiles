@@ -201,5 +201,16 @@
         <direction>down</direction>
       </action>
     </keybind>
+
+    <keybind key="W-x">
+      <action name="Execute">
+        <command>dmenu_run</command>
+      </action>
+    </keybind>
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>select_window</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
   </keyboard>

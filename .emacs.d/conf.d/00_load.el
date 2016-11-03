@@ -12,6 +12,7 @@
 (require 'yaml-mode)
 (require 'web-mode)
 (require 'scss-mode)
+(require 'haml-mode)
 (require 'coffee-mode)
 
 (require 'auto-complete)
