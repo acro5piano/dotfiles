@@ -31,9 +31,9 @@ SwitchKey=ALT_R_SHIFT
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=SUPER_RSUPER HENKANMODE
+ActivateKey=SUPER_RSUPER ALT_RALT
 # Inactivate Input Method
-InactivateKey=SUPER_LSUPER MUHENKAN
+InactivateKey=SUPER_LSUPER ALT_LALT
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
