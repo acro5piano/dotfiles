@@ -30,5 +30,7 @@ if ! (lsusb | grep -q HHKB); then
         xmodmap $HOME/.xmodmap.d/jp
     elif [ `hostname` = 'chromebook' ]; then
         xmodmap $HOME/.xmodmap.d/chromebook
+    elif [ `hostname` = 'thinkpad' ]; then
+        xmodmap $HOME/.xmodmap.d/us
     fi
 fi
