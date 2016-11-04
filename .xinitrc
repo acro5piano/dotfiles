@@ -18,4 +18,5 @@ xdg-settings set default-web-browser browser.desktop
 
 # Concat openbox settings
 cat ~/.config/openbox/rc.d/* > ~/.config/openbox/rc.xml
-exec openbox-session
+#exec openbox-session
+exec awesome

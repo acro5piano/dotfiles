@@ -18,6 +18,8 @@
 (depends-on "helm-ag")
 (depends-on "init-loader")
 
+(depends-on "lua-mode")
+
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "mozc")

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-target=`wmctrl -l | cut -d ' ' -f 5- | perl -pe 's;^\s*N/A\s;;g' | dmenu -i -b -l 30`
+target=`wmctrl -l | perl -pe 's/  / /g' | cut -d ' ' -f 4- | perl -pe 's;^\s*N/A\s;;g' | dmenu -i -b -l 30`
 
 if [[ "$target" =~ ^$ ]]; then
    exit 1
