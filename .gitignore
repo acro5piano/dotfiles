@@ -1,6 +1,7 @@
 .config/*
 !.config/fcitx/config
 !.config/openbox
+!.config/awesome
 !.config/pcmanfm
 !.config/terminator
 !.config/touchegg
