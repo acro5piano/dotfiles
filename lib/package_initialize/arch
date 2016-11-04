@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install-dev-package(){
-    sudo pacman -S --needed --noconfirm \
+    sudo pacman -S --needed \
         zsh vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ctags zip unzip \
         yaourt docker arch-install-scripts \
@@ -24,7 +24,8 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
-    sudo pacman -S --needed --noconfirm wmctrl
+    sudo pacman -S --needed --noconfirm \
+         graphviz wmctrl transmission-cli
 }
 
 install-editor-plugin(){
@@ -34,7 +35,7 @@ install-editor-plugin(){
 }
 
 install-gui-package(){
-    sudo pacman -S --needed --noconfirm \
+    sudo pacman -S --needed  \
         xorg xorg-xinit lightdm synaptics xorg-xbacklight openbox \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator chromium pcmanfm dmenu \

@@ -25,7 +25,7 @@
 (bind-key "M-z" 'zap-up-to-char)
 (bind-key "C-c ," 'er/expand-region)
 
-(bind-key (kbd "M-k") 'copy-whole-line)
+(bind-key "M-k" 'copy-whole-line)
 
 (bind-key* "C-x g" 'magit-status)
 
