@@ -27,6 +27,7 @@ xscreensaver -no-splash &
 # Multi display
 
 xrandr --output HDMI1 --above eDP1 --mode 1920x1080
+xrandr --output DP2 --above eDP1 --mode 1920x1080
 xrandr --output VGA1 --above LVDS1 --mode 1920x1080
 xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 feh  --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
