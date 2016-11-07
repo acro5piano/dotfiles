@@ -54,5 +54,5 @@ if ! (lsusb | grep -q HHKB); then
     fi
 fi
 
-#exec openbox-session
-exec awesome
+exec openbox-session
+#exec awesome
