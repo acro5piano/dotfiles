@@ -6,7 +6,7 @@
     </keybind>
 
     <!-- Keybindings for running applications -->
-    <keybind key="C-A-t">
+    <keybind key="W-t">
       <action name="Execute">
         <command>terminator</command>
       </action>
@@ -33,7 +33,7 @@
     </keybind>
 
     <!-- Keybindings for windows -->
-    <keybind key="W-C-k">
+    <keybind key="W-S-k">
       <action name="Close"/>
     </keybind>
     <keybind key="Print">
@@ -46,8 +46,33 @@
         <command>dmenu_run</command>
       </action>
     </keybind>
+    <keybind key="W-f">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
+
+    <keybind key="W-m">
+      <action name="ToggleShade"/>
+    </keybind>
 
     <!-- Keybindings for window switching -->
+    <keybind key="W-n">
+      <action name="NextWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
+    <keybind key="W-p">
+      <action name="PreviousWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
     <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
