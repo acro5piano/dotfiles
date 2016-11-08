@@ -37,6 +37,8 @@
 (bind-key* "C-x f" 'helm-do-ag-this-file)
 (bind-key* "C-x a" 'helm-do-ag)
 
+(global-undo-tree-mode t)
+(bind-key* "M-/" 'undo-tree-redo)
 (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/edit-lines)
 

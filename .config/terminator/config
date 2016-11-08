@@ -31,7 +31,7 @@
     background_type = transparent
     copy_on_selection = True
     custom_command = wmctrl -a $(wmctrl -l | cut -d ' ' -f 5- | peco)
-    font = Noto Mono 10
+    font = Source Code Pro 10
     foreground_color = "#ffffff"
     icon_bell = False
     scroll_on_keystroke = False
