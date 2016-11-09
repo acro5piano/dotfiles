@@ -1,16 +1,15 @@
-XTerm*utf8              : 1
-XTerm*locale            : true
-XTerm*selectToClipboard : true
-XTerm*termName          : xterm-256color
-XTerm*faceSize          : 10
-Xterm*faceName          : Noto Mono
-Xterm*faceNameDoublesize: IPAexGothic
-XTerm*cjkWidth          : true
-XTerm*background        : black
-XTerm*foreground        : white
-XTerm*saveLines         : 2000
-XTerm*geometry          : 100x30+300+100
-XTerm.VT100.EightBitInput: false
+xterm*reverseVideo: on
+xterm*utf8              : 1
+xterm*locale            : true
+xterm*selectToClipboard : true
+xterm*termName          : screen-256color
+xterm*faceSize          : 10
+xterm*faceName          : Noto Mono:antialias=true
+xterm*faceNameDoublesize: Source Han Sans JP
+xterm*cjkWidth          : true
+xterm*saveLines         : 2000
+xterm*geometry          : 100x30+300+100
+xterm.VT100.EightBitInput: false
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
@@ -20,6 +19,5 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 Emacs*FontBackend: xft
-Emacs*font: Noto Mono-10
-Emacs*faceNameDoublesize: IPAexGothic
-Emacs*useXIM: true
+Emacs*font: Source Code Pro
+Emacs25*useXIM: true
