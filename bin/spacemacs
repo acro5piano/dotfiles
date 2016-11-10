@@ -10,6 +10,7 @@ sudo systemd-nspawn \
      --setenv=SHELL=/bin/bash \
      --bind=$HOME/.dotfiles/etc/arch-spacemacs:$CONTAINER_HOME \
      --bind=$HOME:$CONTAINER_HOME/host_home \
+     --bind=$HOME/.mozc:$CONTAINER_HOME/.mozc \
      --bind=/tmp/.X11-unix \
      -D ~/var/container/arch \
      -u $CONTAINER_USER \

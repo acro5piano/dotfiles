@@ -44,3 +44,5 @@
 
 ;; open-junk
 (bind-key (kbd "C-x j") 'open-junk-file)
+
+(bind-key "C-c 0" 'org-shiftright)
