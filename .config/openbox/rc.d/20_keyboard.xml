@@ -54,6 +54,39 @@
       <action name="ToggleShade"/>
     </keybind>
 
+    <keybind key="W-1">
+      <action name="MoveResizeTo">
+        <monitor>1</monitor>
+      </action>
+    </keybind>
+    <keybind key="W-2">
+      <action name="MoveResizeTo">
+        <monitor>2</monitor>
+      </action>
+    </keybind>
+
+    <!-- Resize Window -->
+    <keybind key="W-C-h">
+      <action name="Undecorate"/>
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>100%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-C-l">
+      <action name="Undecorate"/>
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>100%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-C-k">
+      <action name="Undecorate"/>
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+    </keybind>
+    <keybind key="W-C-j">
+      <action name="Undecorate"/>
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+    </keybind>
+
     <!-- Keybindings for window switching -->
     <keybind key="W-n">
       <action name="NextWindow">
