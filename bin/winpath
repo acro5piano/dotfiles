@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd $(xsel -bo | sed 's;\\;/;g' | sed 's;//qjc4d;/mnt/qjc4d;i' | sed 's;//172\.16\.24\.100;/mnt/qjc4d;')
-
