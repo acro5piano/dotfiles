@@ -21,6 +21,7 @@
 (depends-on "lua-mode")
 
 (depends-on "magit")
+(depends-on "migemo")
 (depends-on "markdown-mode")
 (depends-on "mozc")
 (depends-on "multiple-cursors")

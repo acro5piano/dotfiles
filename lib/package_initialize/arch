@@ -26,12 +26,15 @@ install-termianl-tool(){
                                     textlint-rule-no-mix-dearu-desumasu
     sudo pacman -S --needed --noconfirm \
          graphviz wmctrl transmission-cli
+
+    yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
 install-editor-plugin(){
     [ `which cask` ] || \
         curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
-    [ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
+    # I became emacs user
+    #[ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
 }
 
 install-gui-package(){

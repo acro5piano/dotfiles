@@ -27,3 +27,4 @@
 (require 'twittering-mode)
 
 (require 'server)
+(require 'migemo)
