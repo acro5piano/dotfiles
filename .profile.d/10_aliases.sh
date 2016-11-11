@@ -25,7 +25,6 @@ alias seishin-to-tokinoheya='cd $(mktemp -d)'
 alias seishin='cd $(mktemp -d)'
 alias sum="awk '{a+=\$1}END{print a}'"
 alias tree='tree --charset XXX -I .git -I vendor'
-alias winpath='source $HOME/bin/winpath'
 alias ycal='cal `date +%Y`'
 
 mozc(){
