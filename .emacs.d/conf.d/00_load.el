@@ -15,6 +15,7 @@
 (require 'haml-mode)
 (require 'coffee-mode)
 (require 'lua-mode)
+(require 'go-mode)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
