@@ -8,6 +8,8 @@
 (add-hook 'helm-M-x (lambda()
                       (mozc-mode -1)))
 
+(setq mozc-candidate-style 'overlay)
+
 (defun mozc-start()
   (interactive)
   (set-cursor-color "blue")
