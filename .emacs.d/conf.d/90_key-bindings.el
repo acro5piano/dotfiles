@@ -27,7 +27,6 @@
 ;; Japanese input
 (bind-key* "C-j" 'mozc-start)
 (bind-key* "M-j" 'mozc-end)
-(bind-key* "C-G" 'mozc-end)
 (bind-key* "C-x C-s" 'save-buffer)
 
 ;; Application
