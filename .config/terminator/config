@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
   broadcast_default = off
   enabled_plugins = ,
   geometry_hinting = False
