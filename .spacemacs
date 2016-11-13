@@ -46,7 +46,7 @@ values."
      javascript
      html
      markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -75,6 +75,8 @@ values."
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
    dotspacemacs-install-packages 'used-only))
+
+
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -109,7 +111,10 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   ;; これは悩ましい・・・！全部捨てがたい！！
+   ;; dotspacemacs-editing-style 'emacs
+   ;; dotspacemacs-editing-style 'hybrid
+
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -312,59 +317,24 @@ you should place your code here."
   ;; バッファ自動再読み込み
   (global-auto-revert-mode 1)
 
-  ;; Not use auto indent
+  ;; Use auto indent
   (setq-default indent-tabs-mode nil)
   (electric-indent-mode 1)
 
   ;; I never use C-x C-c
   (bind-key "C-x C-c" 'nil)
-  (bind-key* "M-x" 'helm-M-x)
-  (bind-key* "C-x C-q" 'save-buffers-kill-emacs)
 
-  ;; vim 'd t' compatible
-  (require 'misc)
-  (bind-key* "M-z" 'zap-up-to-char)
-
-  ;; c-h is backspace
   (keyboard-translate ?\C-h ?\C-?)
   (add-hook 'after-make-frame-functions
             (lambda (f) (with-selected-frame f
                           (keyboard-translate ?\C-h ?\C-?)
                           )))
 
-
-  ;; Smart buffer
-  (bind-key* "C-x C-d" 'dired)
-  (bind-key* "C-x d" 'dired)
-  (bind-key* "C-x C-b" 'helm-mini)
-  (setq kill-whole-line t)
-
   (setq anzu-use-migemo nil)
   (setq anzu-search-threshold 1000)
   (setq anzu-minimum-input-length 3)
-
   (bind-key* "M-%" 'anzu-query-replace)
   (bind-key* "C-M-%" 'anzu-query-replace-regexp)
-
-  ;; 選択範囲をisearch
-  (defadvice isearch-mode
-      (around isearch-mode-default-string (forward &optional regexp op-fun recursive-edit word-p) activate)
-    (if (and transient-mark-mode mark-active (not (eq (mark) (point))))
-        (progn
-          (isearch-update-ring (buffer-substring-no-properties (mark) (point)))
-          (deactivate-mark)
-          ad-do-it
-          (if (not forward)
-              (isearch-repeat-backward)
-            (goto-char (mark))
-            (isearch-repeat-forward)))
-      ad-do-it))
-
-  (require 'multiple-cursors)
-  (bind-key* "C-c C-r" 'mc/mark-next-like-this)
-
-  (require 'evil)
-  (evil-mode 0)
 
   ;; Set UTF-8 to default
 
@@ -381,10 +351,15 @@ you should place your code here."
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
-  (bind-key* "C-j"
+  (bind-key* "C-."
             (lambda()
               (interactive)
               (mozc-mode 1)))
+
+  (bind-key* "C-,"
+            (lambda()
+              (interactive)
+              (mozc-mode -1)) 'mozc-mode)
 
   (add-hook 'helm-mini (lambda()
                          (mozc-mode -1)))
@@ -392,15 +367,7 @@ you should place your code here."
   (add-hook 'helm-M-x (lambda()
                          (mozc-mode -1)))
 
-  (add-hook 'mozc-mode-hook (lambda()
-                              (bind-key "C-g"
-                                        (lambda()
-                                          (interactive)
-                                          (mozc-mode -1)))))
-
-
-
-            )
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -413,7 +380,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

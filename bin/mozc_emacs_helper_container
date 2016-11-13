@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo systemd-nspawn --quiet -D $HOME/var/container/mozc_emacs_helper -u arch mozc_emacs_helper
