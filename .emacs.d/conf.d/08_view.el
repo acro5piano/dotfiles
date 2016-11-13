@@ -2,7 +2,7 @@
 ;; View
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; Don't show tool-bar and menu-bar
+;; Don't show tool-bar and menu-bar
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (global-linum-mode t)
@@ -21,3 +21,20 @@
 
 ;; スクロールバー非表示
 (scroll-bar-mode 0)
+
+(set-face-attribute 'mode-line nil
+                    :foreground "#fff"
+                    :background "#4B0082"
+                    :box nil)
+
+(set-face-attribute 'powerline-active1 nil
+                    :foreground "#fff"
+                    :background "#800080"
+                    :inherit 'mode-line)
+
+(set-face-attribute 'powerline-active2 nil
+                    :foreground "#000"
+                    :background "#C0C0C0"
+                    :inherit 'mode-line)
+
+(powerline-default-theme)
