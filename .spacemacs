@@ -114,6 +114,7 @@ values."
    ;; これは悩ましい・・・！全部捨てがたい！！
    ;; dotspacemacs-editing-style 'emacs
    ;; dotspacemacs-editing-style 'hybrid
+   dotspacemacs-editing-style 'hybrid
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -359,10 +360,19 @@ you should place your code here."
             (lambda()
               (interactive)
               (mozc-mode 1)))
-  (bind-key* "C-,"
-            (lambda()
-              (interactive)
-              (mozc-mode -1)) 'mozc-mode)
+  (bind-keys* :map 'mozc-mode-map
+              ("C-," .
+              (lambda()
+                (interactive)
+                (mozc-mode -1)))
+              ("C-n" 'mozc-handle-event)
+              ("C-p" 'mozc-handle-event))
+  (add-hook 'mozc-mode-hook
+            (lambda ()
+              (message "hello, mozc world")
+              (keyboard-translate (kbd "C-n") (kbd "<Down>"))
+              ))
+
   (add-hook 'helm-mini (lambda()
                          (mozc-mode -1)))
   (add-hook 'helm-M-x (lambda()

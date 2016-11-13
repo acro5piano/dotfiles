@@ -1,4 +1,3 @@
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,7 +22,10 @@
 
 ;; vim 'd t' compatible
 (bind-key "M-z" 'zap-up-to-char)
+(bind-key "C-c C-," 'er/expand-region)
 (bind-key "C-c ," 'er/expand-region)
+
+(bind-key* "C-M-h" 'ido-delete-backward-word-updir)
 
 (bind-key "M-k" 'copy-whole-line)
 
