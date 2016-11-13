@@ -5,5 +5,5 @@ clear control
 
 add control = Caps_Lock Control_L Control_R
 keycode 66 = Control_L Control_L NoSymbol NoSymbol
-keycode 105 = Super_R Super_R NoSymbol NoSymbol
-keycode 107 = Super_R Super_R NoSymbol NoSymbol
+keycode 105 = Alt_R Alt_R NoSymbol NoSymbol
+keycode 107 = Alt_R Alt_R NoSymbol NoSymbol
