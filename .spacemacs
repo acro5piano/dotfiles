@@ -316,6 +316,10 @@ you should place your code here."
 
   ;; バッファ自動再読み込み
   (global-auto-revert-mode 1)
+  ;; シンボリックリンクの読み込みを許可
+  (setq vc-follow-symlinks t)
+  ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
+  (setq auto-revert-check-vc-info t)
 
   ;; Use auto indent
   (setq-default indent-tabs-mode nil)
@@ -355,15 +359,12 @@ you should place your code here."
             (lambda()
               (interactive)
               (mozc-mode 1)))
-
   (bind-key* "C-,"
             (lambda()
               (interactive)
               (mozc-mode -1)) 'mozc-mode)
-
   (add-hook 'helm-mini (lambda()
                          (mozc-mode -1)))
-
   (add-hook 'helm-M-x (lambda()
                          (mozc-mode -1)))
 

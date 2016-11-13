@@ -24,9 +24,10 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
-    sudo pacman -S --needed --noconfirm \
-         graphviz wmctrl transmission-cli
+    [ -e $HOME/.emacs.d ]   || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
+    sudo pacman -S --needed --noconfirm \
+         graphviz transmission-cli
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
@@ -39,13 +40,13 @@ install-editor-plugin(){
 
 install-gui-package(){
     sudo pacman -S --needed  \
-        xorg xorg-xinit lightdm synaptics xorg-xbacklight openbox \
-        fcitx fcitx-im fcitx-mozc fcitx-configtool \
-        terminator chromium pcmanfm dmenu \
-        xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
-        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack \
-        xterm \
-        adobe-source-code-pro-fonts
+         xorg xorg-xinit lightdm wmctrl synaptics xorg-xbacklight openbox \
+         fcitx fcitx-im fcitx-mozc fcitx-configtool \
+         terminator chromium pcmanfm dmenu \
+         xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
+         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack \
+         xterm \
+         adobe-source-code-pro-fonts
     yaourt -S --needed otf-ipaexfont
 }
 
