@@ -9,6 +9,7 @@
                         )))
 
 (setq kill-whole-line t)
+(bind-key "M-k" 'copy-whole-line)
 (bind-key "M-y" 'browse-kill-ring)
 
 (bind-key "C-x C-k" 'kill-buffer)
@@ -22,15 +23,16 @@
 
 ;; vim 'd t' compatible
 (bind-key "M-z" 'zap-up-to-char)
+
 (bind-key "C-c ," 'er/expand-region)
 
-(bind-key "M-k" 'copy-whole-line)
 
 (bind-key* "C-x g" 'magit-status)
 
 ;; Japanese input
 (bind-key* "C-j" 'mozc-start)
 (bind-key* "M-j" 'mozc-end)
+(bind-key* "C-x C-s" 'save-buffer)
 
 ;; Helm
 (bind-key* "C-x C-b" 'helm-mini)
@@ -41,7 +43,7 @@
 (bind-key* "C-x a" 'helm-do-ag)
 
 ;; anzu
-(bind-key* "C-]" 'anzu-query-replace)
+(bind-key* "C-]" 'anzu-query-replace)   ;; C-5 compatible
 (bind-key* "M-5" 'anzu-query-replace-regexp)
 
 
