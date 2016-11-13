@@ -1,5 +1,4 @@
 .config/*
-!.config/fcitx/config
 !.config/openbox
 !.config/awesome
 !.config/pcmanfm

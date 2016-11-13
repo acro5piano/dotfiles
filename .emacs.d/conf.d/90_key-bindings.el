@@ -23,11 +23,12 @@
 ;; vim 'd t' compatible
 (bind-key "M-z" 'zap-up-to-char)
 (bind-key "C-c ," 'er/expand-region)
+(bind-key "M-j" 'join-line)
 
 ;; Japanese input
-(bind-key* "C-j" 'mozc-start)
-(bind-key* "M-j" 'mozc-end)
-(bind-key* "C-x C-s" 'save-buffer)
+;; (bind-key* "C-j" 'mozc-start)
+;; (bind-key* "M-j" 'mozc-end)
+;; (bind-key* "C-x C-s" 'save-buffer)
 
 ;; Application
 (bind-key* "C-x g" 'magit-status)
