@@ -33,7 +33,7 @@ SwitchKey=ALT_R_SHIFT
 # Activate input method
 ActivateKey=SUPER_RSUPER SHIFT_SUPER_RSHIFT
 # Inactivate Input Method
-InactivateKey=SUPER_LSUPER SHIFT_SUPER_LSHIFT
+InactivateKey=SUPER_LSUPER ALT_LALT
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False

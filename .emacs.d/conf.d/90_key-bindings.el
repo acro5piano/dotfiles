@@ -22,22 +22,28 @@
 
 ;; vim 'd t' compatible
 (bind-key "M-z" 'zap-up-to-char)
-(bind-key "C-c C-," 'er/expand-region)
 (bind-key "C-c ," 'er/expand-region)
-
-(bind-key* "C-M-h" 'ido-delete-backward-word-updir)
 
 (bind-key "M-k" 'copy-whole-line)
 
 (bind-key* "C-x g" 'magit-status)
 
-;; helm
+;; Japanese input
+(bind-key* "C-j" 'mozc-start)
+(bind-key* "M-j" 'mozc-end)
+
+;; Helm
 (bind-key* "C-x C-b" 'helm-mini)
 (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x p" 'helm-do-ag-project-root)
 (bind-key* "C-x b" 'helm-do-ag-buffers)
 (bind-key* "C-x f" 'helm-do-ag-this-file)
 (bind-key* "C-x a" 'helm-do-ag)
+
+;; anzu
+(bind-key* "C-]" 'anzu-query-replace)
+(bind-key* "M-5" 'anzu-query-replace-regexp)
+
 
 (global-undo-tree-mode t)
 (bind-key* "M-/" 'undo-tree-redo)
@@ -48,3 +54,8 @@
 (bind-key (kbd "C-x j") 'open-junk-file)
 
 (bind-key "C-c 0" 'org-shiftright)
+
+;; for GUI, additional keys
+(bind-key* "C-M-h" 'ido-delete-backward-word-updir)
+(bind-key* "M-%" 'anzu-query-replace)
+(bind-key* "C-M-%" 'anzu-query-replace-regexp)

@@ -7,9 +7,6 @@
 (setq anzu-search-threshold 1000)
 (setq anzu-minimum-input-length 3)
 
-(bind-key* "C-]" 'anzu-query-replace)
-(bind-key* "M-5" 'anzu-query-replace-regexp)
-
 ;; 選択範囲をisearch
 (defadvice isearch-mode
     (around isearch-mode-default-string (forward &optional regexp op-fun recursive-edit word-p) activate)
