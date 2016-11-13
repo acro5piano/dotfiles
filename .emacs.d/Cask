@@ -11,16 +11,14 @@
 (depends-on "expand-region")
 (depends-on "editorconfig")
 (depends-on "flycheck")
+(depends-on "go-mode")
 (depends-on "htmlize")
 (depends-on "haml-mode")
-(depends-on "go-mode")
-
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "helm-ghq")
 (depends-on "init-loader")
-
 (depends-on "lua-mode")
-
 (depends-on "magit")
 (depends-on "migemo")
 (depends-on "markdown-mode")
@@ -33,9 +31,4 @@
 (depends-on "undo-tree")
 (depends-on "yaml-mode")
 (depends-on "web-mode")
-
-
-;; Japanese input (impossible)
-;(depends-on "ddskk")
-;(depends-on "mozc")
-;(depends-on "mozc-popup")
+(depends-on "mozc")
