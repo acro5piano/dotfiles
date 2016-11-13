@@ -19,5 +19,5 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 Emacs*FontBackend: xft
-Emacs*font: Source Code Pro
-Emacs25*useXIM: true
+Emacs*font: Source Code Pro 10
+Emacs25*useXIM: false
