@@ -10,7 +10,6 @@
 
 (setq kill-whole-line t)
 (bind-key "M-k" 'copy-whole-line)
-(bind-key "M-y" 'browse-kill-ring)
 
 (bind-key "C-x C-k" 'kill-buffer)
 
@@ -23,16 +22,17 @@
 
 ;; vim 'd t' compatible
 (bind-key "M-z" 'zap-up-to-char)
-
 (bind-key "C-c ," 'er/expand-region)
-
-
-(bind-key* "C-x g" 'magit-status)
 
 ;; Japanese input
 (bind-key* "C-j" 'mozc-start)
 (bind-key* "M-j" 'mozc-end)
+(bind-key* "C-G" 'mozc-end)
 (bind-key* "C-x C-s" 'save-buffer)
+
+;; Application
+(bind-key* "C-x g" 'magit-status)
+(bind-key "M-y" 'browse-kill-ring)
 
 ;; Helm
 (bind-key* "C-x C-b" 'helm-mini)
@@ -53,7 +53,7 @@
 (bind-key* "C-c C-r" 'mc/edit-lines)
 
 ;; open-junk
-(bind-key (kbd "C-x j") 'open-junk-file)
+(bind-key "C-x j" 'open-junk-file)
 
 (bind-key "C-c 0" 'org-shiftright)
 
