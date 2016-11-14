@@ -9,3 +9,14 @@
 (setq web-mode-engines-alist
 '(("php"    . "\\.phtml\\'")
   ("blade"  . "\\.blade\\.")))
+
+
+(defun strip-html (start end)
+  "strip html with regular expression"
+  (interactive "r")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region start end)
+      (goto-char (point-min))
+      (while (re-search-forward "<.+?>" nil t)
+        (replace-match "")))))
