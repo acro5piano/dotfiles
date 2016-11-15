@@ -2,6 +2,7 @@
 
 alias ave="awk '{a+=\$1}END{print a/NR}'"
 alias bc='bc -l'
+alias blook='cd ~/.bhq/$(bhq list | peco | cut -d " " -f 1)'
 alias cl='xsel -ib'
 alias clp='xsel -ob'
 alias dc='docker-compose'
