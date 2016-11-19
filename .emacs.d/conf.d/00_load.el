@@ -19,6 +19,7 @@
 (require 'saveplace nil t)
 (require 'scss-mode)
 (require 'server)
+(require 'summarye)
 (require 'twittering-mode)
 (require 'undo-tree)
 (require 'web-mode)

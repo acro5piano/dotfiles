@@ -28,6 +28,7 @@
 (depends-on "powerline")
 (depends-on "scss-mode")
 (depends-on "smartrep")
+(depends-on "summarye")
 (depends-on "twittering-mode")
 (depends-on "undo-tree")
 (depends-on "yaml-mode")

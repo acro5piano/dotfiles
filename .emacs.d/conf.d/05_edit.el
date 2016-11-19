@@ -7,3 +7,4 @@
 (electric-indent-mode 1)
 
 (setq comment-style 'multi-line)
+(setq backward-delete-char-untabify-method 'hungry)
