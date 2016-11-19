@@ -7,6 +7,7 @@
 (depends-on "bind-key")
 (depends-on "browse-kill-ring")
 (depends-on "cask")
+(depends-on "chatwork")
 (depends-on "coffee-mode")
 (depends-on "expand-region")
 (depends-on "editorconfig")

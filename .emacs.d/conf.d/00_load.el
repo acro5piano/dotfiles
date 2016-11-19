@@ -3,7 +3,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'coffee-mode)
-(require 'ctags nil t)
+(require 'chatwork)
 (require 'expand-region)
 (require 'go-mode)
 (require 'haml-mode)
