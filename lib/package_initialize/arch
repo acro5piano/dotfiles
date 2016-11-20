@@ -27,7 +27,7 @@ install-termianl-tool(){
     [ -e $HOME/.emacs.d ]   || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli
+         graphviz transmission-cli rlwrap
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
