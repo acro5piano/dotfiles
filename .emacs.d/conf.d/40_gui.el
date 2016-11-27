@@ -40,7 +40,6 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
       (set-face-attribute 'mode-line nil
                           :foreground "#fff"
                           :background "#4B0082")
-;;                          :BOX nil)
 
       (set-face-attribute 'powerline-active1 nil
                           :foreground "#fff"
@@ -63,4 +62,12 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
       (add-hook 'scss-mode-hook 'rainbow-mode)
       (add-hook 'php-mode-hook 'rainbow-mode)
       (add-hook 'html-mode-hook 'rainbow-mode)
+
+      (custom-set-faces
+       ;; custom-set-faces was added by Custom.
+       ;; If you edit it by hand, you could mess it up, so be careful.
+       ;; Your init file should contain only one such instance.
+       ;; If there is more than one, they won't work right.
+       '(helm-selection ((t (:background "dark red" :distant-foreground "black")))))
+
       ))
