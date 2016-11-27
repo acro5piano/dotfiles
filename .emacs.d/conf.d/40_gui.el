@@ -49,7 +49,7 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
 
       (set-face-attribute 'powerline-active2 nil
                           :foreground "#000"
-                          :background "#C0C0C0"
+                          :background "#fff"
                           :inherit 'mode-line)
 
       (powerline-default-theme)
