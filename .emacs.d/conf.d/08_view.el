@@ -19,4 +19,7 @@
 ;; スクロールバー非表示
 (scroll-bar-mode 0)
 
+;; カーソルの色
+(set-cursor-color "gray")
+
 (show-paren-mode t)

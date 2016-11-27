@@ -18,6 +18,6 @@
 
 (defun mozc-end()
   (interactive)
-  (set-cursor-color "black")
+  (set-cursor-color "gray")
   (message "Mozc end")
   (mozc-mode -1))

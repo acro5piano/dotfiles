@@ -29,7 +29,9 @@
 ;; Japanese input
 (bind-key* "C-j" 'mozc-start)
 (bind-key "q" 'mozc-end mozc-mode-map)
+(bind-key "C-g" 'mozc-end mozc-mode-map)
 (bind-key* "C-x C-s" 'save-buffer)
+
 
 ;; Application
 (bind-key* "C-x g" 'magit-status)
