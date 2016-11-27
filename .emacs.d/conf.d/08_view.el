@@ -7,9 +7,6 @@
 (menu-bar-mode -1)
 (global-linum-mode t)
 (setq linum-format "%4d ")
-(set-face-attribute 'linum nil
-                    :foreground "#ccc"
-                    :background "Gray23")
 
 ;; Hilight current line
 (global-hl-line-mode)
@@ -23,24 +20,3 @@
 (scroll-bar-mode 0)
 
 (show-paren-mode t)
-
-;; テーマやPowerlineを有効化すると、CUIでEmacsが使い物にならなくなる
-;; そのため、CUIではVimを使うこと
-(color-theme-solarized)
-
-(set-face-attribute 'mode-line nil
-                    :foreground "#fff"
-                    :background "#4B0082"
-                    :box nil)
-
-(set-face-attribute 'powerline-active1 nil
-                    :foreground "#fff"
-                    :background "#800080"
-                    :inherit 'mode-line)
-
-(set-face-attribute 'powerline-active2 nil
-                    :foreground "#000"
-                    :background "#C0C0C0"
-                    :inherit 'mode-line)
-
-(powerline-default-theme)
