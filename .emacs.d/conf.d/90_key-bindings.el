@@ -40,7 +40,7 @@
 (bind-key* "C-x C-b" 'helm-mini)
 (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x p" 'helm-grep-do-git-grep)
-(bind-key* "C-RET" 'helm-jump)
+(bind-key* "C-u C-s" 'helm-swoop)
 
 ;; ido
 (bind-key* "C-x b" 'ido-switch-buffer)
