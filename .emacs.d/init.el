@@ -31,7 +31,6 @@
 
 ;; end of my init.el
 
-
 (put 'upcase-region 'disabled nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -41,6 +40,12 @@
  '(desktop-save-mode t)
  '(package-selected-packages
    (quote
-    (rainbow-mode dashboard color-theme-modern color-theme-solarized color-theme chatwork summarye haml-mode lua-mode twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
+    (helm-swoop rainbow-mode dashboard color-theme-modern color-theme-solarized color-theme chatwork summarye haml-mode lua-mode twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
  '(read-file-name-completion-ignore-case t))
 (put 'downcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(helm-selection ((t (:background "Gray23" :distant-foreground "black")))))

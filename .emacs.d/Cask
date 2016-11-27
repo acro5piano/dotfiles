@@ -16,9 +16,9 @@
 (depends-on "go-mode")
 (depends-on "htmlize")
 (depends-on "haml-mode")
-(depends-on "helm")
-(depends-on "helm-ag")
+(depends-on "helm") ;; helm-agはhelm-git-do-grepで代用可能。
 (depends-on "helm-ghq")
+(depends-on "helm-swoop") ;; これ半端ない。C-sからM-iで移行できる！
 (depends-on "init-loader")
 (depends-on "lua-mode")
 (depends-on "magit")
