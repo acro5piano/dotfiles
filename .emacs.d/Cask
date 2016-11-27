@@ -28,6 +28,7 @@
 (depends-on "multiple-cursors")
 (depends-on "open-junk-file")
 (depends-on "powerline")
+(depends-on "rainbow-mode")
 (depends-on "request")
 (depends-on "scss-mode")
 (depends-on "smartrep")

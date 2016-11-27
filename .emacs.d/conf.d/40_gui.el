@@ -33,16 +33,18 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
 
       ;; テーマやPowerlineを有効化すると、CUIでEmacsが使い物にならなくなる
       ;; そのため、CUIではVimを使うこと
+
+      ;; これ無くてもなぜか動作するから、外す
       ;; (color-theme-solarized)
 
       (set-face-attribute 'mode-line nil
                           :foreground "#fff"
-                          :background "#4B0082"
-                          :box nil)
+                          :background "#4B0082")
+;;                          :BOX nil)
 
       (set-face-attribute 'powerline-active1 nil
                           :foreground "#fff"
-                          :background "#800080"
+                          :background "#006400"
                           :inherit 'mode-line)
 
       (set-face-attribute 'powerline-active2 nil
@@ -52,4 +54,13 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
 
       (powerline-default-theme)
 
+      ;; 色文字列に色をつける rainbow-mode
+      (setq rainbow-html-colors t)
+      (setq rainbow-x-colors t)
+      (setq rainbow-latex-colors t)
+      (setq rainbow-ansi-colors t)
+      (add-hook 'css-mode-hook 'rainbow-mode)
+      (add-hook 'scss-mode-hook 'rainbow-mode)
+      (add-hook 'php-mode-hook 'rainbow-mode)
+      (add-hook 'html-mode-hook 'rainbow-mode)
       ))
