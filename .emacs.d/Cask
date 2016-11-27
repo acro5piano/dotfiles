@@ -9,6 +9,7 @@
 (depends-on "cask")
 (depends-on "chatwork")
 (depends-on "coffee-mode")
+(depends-on "color-theme")
 (depends-on "expand-region")
 (depends-on "editorconfig")
 (depends-on "flycheck")

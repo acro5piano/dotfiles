@@ -24,8 +24,10 @@
 
 (show-paren-mode t)
 
+;; テーマやPowerlineを有効化すると、CUIでEmacsが使い物にならなくなる
+;; そのため、CUIではVimを使うこと
+(color-theme-solarized)
 
-;; powerline winからSSH環境でつぶれるので一旦無効に
 (set-face-attribute 'mode-line nil
                     :foreground "#fff"
                     :background "#4B0082"

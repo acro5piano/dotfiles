@@ -42,10 +42,6 @@
 (bind-key* "C-x f" 'helm-do-ag-this-file)
 (bind-key* "C-x a" 'helm-do-ag)
 
-;; anzu
-(bind-key* "C-]" 'anzu-query-replace)   ;; C-5 compatible
-(bind-key* "M-5" 'anzu-query-replace-regexp)
-
 
 (global-undo-tree-mode t)
 (bind-key* "M-/" 'undo-tree-redo)
@@ -56,8 +52,3 @@
 (bind-key "C-x j" 'open-junk-file)
 
 (bind-key "C-c 0" 'org-shiftright)
-
-;; for GUI, additional keys
-(bind-key* "C-M-h" 'ido-delete-backward-word-updir)
-(bind-key* "M-%" 'anzu-query-replace)
-(bind-key* "C-M-%" 'anzu-query-replace-regexp)
