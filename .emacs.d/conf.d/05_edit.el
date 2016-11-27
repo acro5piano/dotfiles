@@ -8,3 +8,6 @@
 
 (setq comment-style 'multi-line)
 (setq backward-delete-char-untabify-method 'hungry)
+
+;;; スクロールを一行ずつにする
+(setq scroll-step 1)

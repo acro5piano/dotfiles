@@ -11,7 +11,8 @@
 (setq kill-whole-line t)
 (bind-key "M-k" 'copy-whole-line)
 
-(bind-key "C-x C-k" 'kill-buffer)
+(bind-key "C-x C-k" 'kill-this-buffer)
+(bind-key "C-x k" 'kill-this-buffer)
 
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
