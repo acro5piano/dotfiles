@@ -26,19 +26,19 @@
 
 
 ;; powerline winからSSH環境でつぶれるので一旦無効に
-;; (set-face-attribute 'mode-line nil
-;;                     :foreground "#fff"
-;;                     :background "#4B0082"
-;;                     :box nil)
+(set-face-attribute 'mode-line nil
+                    :foreground "#fff"
+                    :background "#4B0082"
+                    :box nil)
 
-;; (set-face-attribute 'powerline-active1 nil
-;;                     :foreground "#fff"
-;;                     :background "#800080"
-;;                     :inherit 'mode-line)
+(set-face-attribute 'powerline-active1 nil
+                    :foreground "#fff"
+                    :background "#800080"
+                    :inherit 'mode-line)
 
-;; (set-face-attribute 'powerline-active2 nil
-;;                     :foreground "#000"
-;;                     :background "#C0C0C0"
-;;                     :inherit 'mode-line)
+(set-face-attribute 'powerline-active2 nil
+                    :foreground "#000"
+                    :background "#C0C0C0"
+                    :inherit 'mode-line)
 
-;; (powerline-default-theme)
+(powerline-default-theme)
