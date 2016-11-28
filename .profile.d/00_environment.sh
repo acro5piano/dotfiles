@@ -30,6 +30,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # pip (???)
 export PATH="$HOME/.local/bin:$PATH"
 
-# set emacs (yeah!) as my normal editor
-export VISUAL=e
-export EDITOR=e
+# terminal emulator cannot run emacs so use vim
+export VISUAL=vim
+export EDITOR=vim
