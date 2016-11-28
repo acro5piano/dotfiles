@@ -50,7 +50,8 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
 
       (powerline-default-theme)
 
-      (color-theme-solarized)
+      ;; これ有効にすると、powerlineと競合してうまく動作しない
+      ;;(color-theme-solarized)
 
       (powerline-default-theme)
 
