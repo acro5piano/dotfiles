@@ -16,6 +16,8 @@
 (bind-key* "C-x C-o" 'other-window)
 (bind-key* "C-x o" 'other-window)
 
+(bind-key* "C-u C-f" 'other-frame)
+
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
 (defalias 'exit 'save-buffers-kill-emacs)
