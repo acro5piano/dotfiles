@@ -44,10 +44,6 @@ do
     source "$f"
 done
 
-local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
-PROMPT="%n@%m:%~
-${LAST_STATUS} "
-
 ######################
 # show current branch
 #
@@ -72,3 +68,7 @@ vcs_info_wrapper() {
   fi
 }
 #RPROMPT=$'$(vcs_info_wrapper)'
+
+local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
+PROMPT="%n@%m:%~$ $(vcs_info_wrapper)
+${LAST_STATUS} "
