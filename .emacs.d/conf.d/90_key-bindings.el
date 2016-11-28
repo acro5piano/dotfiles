@@ -11,7 +11,8 @@
 (setq kill-whole-line t)
 (bind-key "M-k" 'copy-whole-line)
 
-(bind-key "C-x C-k" 'kill-buffer)
+(bind-key "C-x C-k" 'kill-this-buffer)
+(bind-key "C-x k" 'kill-this-buffer)
 
 ;; I never use C-x C-c
 (bind-key "C-x C-c" 'nil)
@@ -26,9 +27,10 @@
 (bind-key "M-j" 'join-line)
 
 ;; Japanese input
-;; (bind-key* "C-j" 'mozc-start)
-;; (bind-key* "M-j" 'mozc-end)
-;; (bind-key* "C-x C-s" 'save-buffer)
+(bind-key* "C-;" 'mozc-start)
+(bind-key "q" 'mozc-end mozc-mode-map)
+(bind-key "C-g" 'mozc-end mozc-mode-map)
+(bind-key* "C-x C-s" 'save-buffer)
 
 ;; Application
 (bind-key* "C-x g" 'magit-status)
@@ -37,15 +39,13 @@
 ;; Helm
 (bind-key* "C-x C-b" 'helm-mini)
 (bind-key* "M-x" 'helm-M-x)
-(bind-key* "C-x p" 'helm-do-ag-project-root)
-(bind-key* "C-x b" 'helm-do-ag-buffers)
-(bind-key* "C-x f" 'helm-do-ag-this-file)
-(bind-key* "C-x a" 'helm-do-ag)
+(bind-key* "M-." 'xref-find-definitions-other-window)
+(bind-key* "C-x p" 'helm-grep-do-git-grep)
+(bind-key* "C-u C-s" 'helm-swoop)
 
-;; anzu
-(bind-key* "C-]" 'anzu-query-replace)   ;; C-5 compatible
-(bind-key* "M-5" 'anzu-query-replace-regexp)
-
+;; ido
+(bind-key* "C-x b" 'ido-switch-buffer)
+(bind-key* "C-x f" 'ido-find-file)
 
 (global-undo-tree-mode t)
 (bind-key* "M-/" 'undo-tree-redo)
@@ -56,8 +56,3 @@
 (bind-key "C-x j" 'open-junk-file)
 
 (bind-key "C-c 0" 'org-shiftright)
-
-;; for GUI, additional keys
-(bind-key* "C-M-h" 'ido-delete-backward-word-updir)
-(bind-key* "M-%" 'anzu-query-replace)
-(bind-key* "C-M-%" 'anzu-query-replace-regexp)

@@ -7,9 +7,6 @@
 (menu-bar-mode -1)
 (global-linum-mode t)
 (setq linum-format "%4d ")
-(set-face-attribute 'linum nil
-                    :foreground "#ccc"
-                    :background "Gray23")
 
 ;; Hilight current line
 (global-hl-line-mode)
@@ -22,23 +19,7 @@
 ;; スクロールバー非表示
 (scroll-bar-mode 0)
 
+;; カーソルの色
+(set-cursor-color "gray")
+
 (show-paren-mode t)
-
-
-;; powerline winからSSH環境でつぶれるので一旦無効に
-;; (set-face-attribute 'mode-line nil
-;;                     :foreground "#fff"
-;;                     :background "#4B0082"
-;;                     :box nil)
-
-;; (set-face-attribute 'powerline-active1 nil
-;;                     :foreground "#fff"
-;;                     :background "#800080"
-;;                     :inherit 'mode-line)
-
-;; (set-face-attribute 'powerline-active2 nil
-;;                     :foreground "#000"
-;;                     :background "#C0C0C0"
-;;                     :inherit 'mode-line)
-
-;; (powerline-default-theme)
