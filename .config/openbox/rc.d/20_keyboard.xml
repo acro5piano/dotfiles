@@ -8,17 +8,17 @@
     <!-- Keybindings for running applications -->
     <keybind key="W-t">
       <action name="Execute">
-        <command>terminator</command>
+        <command>select_window tmux</command>
       </action>
     </keybind>
     <keybind key="W-e">
       <action name="Execute">
-        <command>pcmanfm</command>
+        <command>select_window emacs</command>
       </action>
     </keybind>
     <keybind key="W-c">
       <action name="Execute">
-        <command>chromium</command>
+        <command>select_window chromium</command>
       </action>
     </keybind>
     <keybind key="W-s">

@@ -68,7 +68,8 @@ vcs_info_wrapper() {
   fi
 }
 #RPROMPT=$'$(vcs_info_wrapper)'
+VCS=$'$(vcs_info_wrapper)'
 
 local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
-PROMPT="%n@%m:%~$ $(vcs_info_wrapper)
+PROMPT="%n@%m:%~$ ${VCS}
 ${LAST_STATUS} "
