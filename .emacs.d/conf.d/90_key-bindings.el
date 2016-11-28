@@ -39,6 +39,7 @@
 ;; Helm
 (bind-key* "C-x C-b" 'helm-mini)
 (bind-key* "M-x" 'helm-M-x)
+(bind-key* "M-." 'xref-find-definitions-other-window)
 (bind-key* "C-x p" 'helm-grep-do-git-grep)
 (bind-key* "C-u C-s" 'helm-swoop)
 
