@@ -34,9 +34,6 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
       ;; テーマやPowerlineを有効化すると、CUIでEmacsが使い物にならなくなる
       ;; そのため、CUIではVimを使うこと
 
-      ;; これ無くてもなぜか動作するから、外す
-      ;; (color-theme-solarized)
-
       (set-face-attribute 'mode-line nil
                           :foreground "#FFF"
                           :background "#4B0082")
@@ -50,6 +47,10 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
                           :foreground "#000"
                           :background "#FFF"
                           :inherit 'mode-line)
+
+      (powerline-default-theme)
+
+      (color-theme-solarized)
 
       (powerline-default-theme)
 
