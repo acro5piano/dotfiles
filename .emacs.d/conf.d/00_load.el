@@ -21,6 +21,7 @@
 (require 'powerline)
 (require 'rainbow-mode)
 (require 'recentf)
+(require 'recentf-ext)
 (require 'saveplace nil t)
 (require 'scss-mode)
 (require 'server)

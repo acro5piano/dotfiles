@@ -51,6 +51,7 @@
 (bind-key* "C-x f" 'ido-find-file)
 (bind-key* "C-x d" 'ido-dired)
 (bind-key* "C-x C-r" 'ido-recentf)
+(bind-key* "C-x C-p" 'ido-git-grep)
 (bind-key* "C-x C-b" 'ido-switch-buffer)
 (bind-key* "M-x" 'smex)
 
