@@ -21,9 +21,9 @@ Xft.rgba: rgb
 Emacs*FontBackend: xft
 Emacs*font: Source Code Pro 10
 
-# no need?
-#Emacs25*useXIM: false
+! no need?
+!Emacs25*useXIM: false
 Emacs*useXIM: false
 
-# disabled for color-theme
-#Emacs*reverseVideo: on 
+! disabled for color-theme
+!Emacs*reverseVideo: on 

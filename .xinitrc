@@ -19,6 +19,9 @@ xdg-settings set default-web-browser browser.desktop
 # Concat openbox settings
 cat ~/.config/openbox/rc.d/* > ~/.config/openbox/rc.xml
 
+# Emacs gui setting
+xrdb ~/.Xresources
+
 # Keyboard repeat fre.
 xset r rate 250
 
