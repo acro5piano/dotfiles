@@ -23,3 +23,5 @@
 (set-cursor-color "gray")
 
 (show-paren-mode t)
+
+(display-time-mode)

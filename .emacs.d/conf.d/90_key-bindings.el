@@ -41,22 +41,26 @@
 (bind-key "M-y" 'browse-kill-ring)
 
 ;; Helm
-(bind-key* "C-x C-b" 'helm-mini)
-(bind-key* "M-x" 'helm-M-x)
-(bind-key* "M-." 'xref-find-definitions-other-window)
+;; (bind-key* "C-x C-b" 'helm-mini)
+;; (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x p" 'helm-grep-do-git-grep)
 (bind-key* "C-u C-s" 'helm-swoop)
 
 ;; ido
 (bind-key* "C-x b" 'ido-switch-buffer)
 (bind-key* "C-x f" 'ido-find-file)
+(bind-key* "C-x d" 'ido-dired)
+(bind-key* "C-x C-r" 'ido-recentf)
+(bind-key* "C-x C-b" 'ido-switch-buffer)
+(bind-key* "M-x" 'smex)
 
-(global-undo-tree-mode t)
-(bind-key* "M-/" 'undo-tree-redo)
-(bind-key* "C-c C-x" 'xclip-add-region)
+(bind-key* "M-/" 'undo-tree-visualize)
+;; (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/edit-lines)
 
 ;; open-junk
 (bind-key "C-x j" 'open-junk-file)
 
 (bind-key "C-c 0" 'org-shiftright)
+
+(bind-key* "M-." 'xref-find-definitions-other-window)
