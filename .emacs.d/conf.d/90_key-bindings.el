@@ -13,6 +13,7 @@
 
 (bind-key "C-x C-k" 'kill-this-buffer)
 (bind-key "C-x k" 'kill-this-buffer)
+(bind-key* "C-x C-j" 'dired-jump)
 (bind-key* "C-x C-o" 'other-window)
 (bind-key* "C-x o" 'other-window)
 
