@@ -250,6 +250,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
