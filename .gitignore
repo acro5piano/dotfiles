@@ -5,3 +5,9 @@
 !.config/terminator
 !.config/touchegg
 !.config/wallpapers
+
+
+.emacs.d/*
+!.emacs.d/Cask
+!.emacs.d/conf.d
+!.emacs.d/lisp

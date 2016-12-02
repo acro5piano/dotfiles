@@ -24,7 +24,8 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
-    [ -e $HOME/.emacs.d ]   || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+    # I use my .emacs.d
+    #[ -e $HOME/.emacs.d ]   || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap
