@@ -40,7 +40,7 @@
  '(desktop-save-mode t)
  '(package-selected-packages
    (quote
-    (ido-ubiquitous smex ido-vertical-mode helm-swoop rainbow-mode dashboard color-theme-modern color-theme-solarized color-theme chatwork summarye haml-mode lua-mode twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
+    (find-file-in-project ido-ubiquitous smex ido-vertical-mode helm-swoop rainbow-mode dashboard color-theme-modern color-theme-solarized color-theme chatwork summarye haml-mode lua-mode twittering-mode ace-link yaml-mode magit undo-tree iedit ## browse-kill-ring markdown-mode htmlize cask bind-key auto-complete)))
  '(read-file-name-completion-ignore-case t))
 (put 'downcase-region 'disabled nil)
 (custom-set-faces

@@ -7,6 +7,7 @@
 (require 'color-theme)
 (require 'color-theme-solarized)
 (require 'expand-region)
+(require 'find-file-in-project)
 (require 'go-mode)
 (require 'haml-mode)
 (require 'helm-eww)

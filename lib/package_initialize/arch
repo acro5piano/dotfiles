@@ -56,8 +56,11 @@ change-service(){
         sudo systemctl enable $1
         sudo systemctl start $1
     }
-    start_and_enable dhcpcd
-    start_and_enable cups-browsed.service
+    start_and_enable docker
+
+    # Sometimes use static IP
+    #start_and_enable dhcpcd
+    #start_and_enable cups-browsed.service
 
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1

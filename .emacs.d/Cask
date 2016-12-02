@@ -13,6 +13,7 @@
 (depends-on "color-theme-solarized")
 (depends-on "editorconfig")
 (depends-on "expand-region")
+(depends-on "find-file-in-project") ;; depends on ivy
 (depends-on "flycheck")
 (depends-on "go-mode")
 (depends-on "haml-mode")
