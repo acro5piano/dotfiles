@@ -56,6 +56,10 @@
 (bind-key* "C-x C-b" 'ido-switch-buffer)
 (bind-key* "M-x" 'smex)
 
+;; ivy
+(bind-key "C-u C-x C-f" 'find-file-in-project)
+
+
 (bind-key* "M-/" 'undo-tree-visualize)
 ;; (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/edit-lines)
