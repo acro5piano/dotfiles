@@ -44,24 +44,22 @@
 ;; Helm
 ;; (bind-key* "C-x C-b" 'helm-mini)
 ;; (bind-key* "M-x" 'helm-M-x)
-(bind-key* "C-x p" 'helm-grep-do-git-grep)
-(bind-key* "C-u C-s" 'helm-swoop)
-
-;; ido
-(bind-key* "C-x b" 'ido-switch-buffer)
-(bind-key* "C-x f" 'ido-find-file)
-(bind-key* "C-x d" 'ido-dired)
-(bind-key* "C-x C-r" 'ido-recentf)
-(bind-key* "C-x C-p" 'ido-git-grep)
-(bind-key* "C-x C-b" 'ido-switch-buffer)
-(bind-key* "M-x" 'smex)
+;;(bind-key* "C-x p" 'helm-grep-do-git-grep)
+;;(bind-key* "C-u C-s" 'helm-swoop)
 
 ;; ivy
-(bind-key "C-u C-x C-f" 'find-file-in-project)
+(bind-key* "C-x b" 'ivy-switch-buffer)
+(bind-key* "C-x C-b" 'ivy-switch-buffer)
+(bind-key* "M-x" 'counsel-M-x)
+(bind-key* "C-u C-f" 'counsel-git)
+(bind-key* "C-u C-s" 'swiper)
+(bind-key* "C-x c i" 'ivy-resume)
+(bind-key* "C-x f" 'counsel-find-file)
+(bind-key* "C-x p" 'counsel-git-grep)
+(bind-key* "C-x C-r" 'counsel-recentf)
 
 
 (bind-key* "M-/" 'undo-tree-visualize)
-;; (bind-key* "C-c C-x" 'xclip-add-region)
 (bind-key* "C-c C-r" 'mc/edit-lines)
 
 ;; open-junk

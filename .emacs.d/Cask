@@ -7,6 +7,8 @@
 (depends-on "bind-key")
 (depends-on "browse-kill-ring")
 (depends-on "cask")
+(depends-on "counsel")
+(depends-on "ivy")
 (depends-on "chatwork")
 (depends-on "coffee-mode")
 (depends-on "color-theme")
@@ -21,8 +23,7 @@
 (depends-on "helm-ghq")
 (depends-on "helm-swoop") ;; これ半端ない。C-sからM-iで移行できる！
 (depends-on "htmlize")
-(depends-on "ido-ubiquitous")
-(depends-on "ido-vertical-mode")
+;; (depends-on "ido-vertical-mode") ;; ivy使うからいらね
 (depends-on "init-loader")
 (depends-on "lua-mode")
 (depends-on "magit")
@@ -38,7 +39,6 @@
 (depends-on "request")
 (depends-on "scss-mode")
 (depends-on "smartrep")
-(depends-on "smex")
 (depends-on "summarye")
 (depends-on "twittering-mode")
 (depends-on "undo-tree")
