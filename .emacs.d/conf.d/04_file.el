@@ -32,3 +32,5 @@
 
 ;; undo tree always load
 (global-undo-tree-mode)
+
+(global-git-gutter-mode +1)

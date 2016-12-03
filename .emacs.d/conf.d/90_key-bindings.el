@@ -46,6 +46,7 @@
 ;; (bind-key* "M-x" 'helm-M-x)
 ;;(bind-key* "C-x p" 'helm-grep-do-git-grep)
 ;;(bind-key* "C-u C-s" 'helm-swoop)
+(bind-key* "C-u C-SPC" 'helm-mark-ring)
 
 ;; ivy
 (bind-key* "C-x b" 'ivy-switch-buffer)

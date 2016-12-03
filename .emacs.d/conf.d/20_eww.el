@@ -10,4 +10,3 @@
                            (rename-buffer "eww" t)))
 
 (ace-link-setup-default)
-(define-key eww-mode-map "f" 'ace-link-eww)
