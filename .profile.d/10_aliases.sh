@@ -61,3 +61,9 @@ gup(){
         gup
     fi
 }
+
+compress_pdf(){
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 \
+       -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH \
+       -sOutputFile="$1.minified.pdf" $1
+}
