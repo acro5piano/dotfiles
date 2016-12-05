@@ -50,3 +50,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "Source Code Pro" :family "Source Code Pro"))))
  '(helm-selection ((t (:background "Gray23" :distant-foreground "black")))))
+
+(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPAExGothic"))

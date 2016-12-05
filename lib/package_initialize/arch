@@ -59,7 +59,7 @@ change-service(){
     start_and_enable docker
 
     # Sometimes use static IP
-    #start_and_enable dhcpcd
+    start_and_enable dhcpcd
     #start_and_enable cups-browsed.service
 
     add_user_to_group(){

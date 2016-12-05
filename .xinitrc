@@ -47,14 +47,14 @@ xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default chromium.desktop text/html
 
 # change Caps -> Ctrl
-if ! (lsusb | grep -q HHKB); then
-    if [ `hostname` = 'lets_note' ]; then
-        xmodmap $HOME/.xmodmap.d/jp
-    elif [ `hostname` = 'chromebook' ]; then
-        xmodmap $HOME/.xmodmap.d/chromebook
-    elif [ `hostname` = 'thinkpad' ]; then
-        xmodmap $HOME/.xmodmap.d/us
-    fi
+if [ `hostname` = 'lets_note' ]; then
+    xmodmap $HOME/.xmodmap.d/jp
+elif [ `hostname` = 'chromebook' ]; then
+    xmodmap $HOME/.xmodmap.d/chromebook
+elif [ `hostname` = 'thinkpad' ]; then
+    xmodmap $HOME/.xmodmap.d/us
+elif [ `hostname` = 'office' ]; then
+    xmodmap $HOME/.xmodmap.d/hhkb
 fi
 
 #exec openbox-session
