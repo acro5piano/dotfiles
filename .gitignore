@@ -1,7 +1,6 @@
 .config/*
 !.config/openbox
 !.config/awesome
-!.config/pcmanfm
 !.config/terminator
 !.config/touchegg
 !.config/wallpapers
