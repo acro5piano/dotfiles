@@ -41,8 +41,10 @@ install-editor-plugin(){
 }
 
 install-gui-package(){
+    # I become awesome user
+    #sudo pacman -S --needed openbox
     sudo pacman -S --needed  \
-         xorg xorg-xinit wmctrl synaptics xorg-xbacklight openbox \
+         xorg xorg-xinit wmctrl synaptics xorg-xbacklight  awesome \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
          terminator chromium pcmanfm dmenu  \
          xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
