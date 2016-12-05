@@ -11,7 +11,7 @@ Http://stackoverflow.com/questions/13901955/how-to-avoid-pop-up-of-async-shell-c
       (bind-key* "C-M-h" 'ido-delete-backward-word-updir)
       (bind-key* "M-%" 'anzu-query-replace)
       (bind-key* "C-M-%" 'anzu-query-replace-regexp)
-      (bind-key* "C-t" 'open-terminator)
+      (bind-key* "C-t" 'mozc-start)
 
       (setq ns-use-srgb-colorspace nil)
 
