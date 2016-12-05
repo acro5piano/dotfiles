@@ -1,6 +1,6 @@
 # Install
 
-Run the following commands:
+Run the following commands as root:
 
 ```sh
 # add user
@@ -18,7 +18,6 @@ apt-get install git
 gpasswd -a kazuya wheel
 pacman -S git
 
-# exit
 exit
 ```
 
