@@ -54,7 +54,7 @@ elif [ `hostname` = 'chromebook' ]; then
 elif [ `hostname` = 'thinkpad' ]; then
     xmodmap $HOME/.xmodmap.d/us
 elif [ `hostname` = 'office' ]; then
-    xmodmap $HOME/.xmodmap.d/hhkb
+    xmodmap $HOME/.xmodmap.d/realforce
 fi
 
 #exec openbox-session
