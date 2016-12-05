@@ -12,11 +12,11 @@ visudo
 
 # Ubuntu, Debian
 gpasswd -a kazuya sudo
-apt-get install git
+apt-get install git curl
 
 # Arch
 gpasswd -a kazuya wheel
-pacman -S git
+pacman -S git curl
 
 exit
 ```
