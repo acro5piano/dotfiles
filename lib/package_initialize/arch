@@ -20,6 +20,7 @@ install-termianl-tool(){
     [ `which bundle` ]   || gem install bundler pry
     [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
     [ `which generate-md` ] || sudo npm install -g markdown-styles
+    [ `which gulp` ] || sudo npm install -g gulp
     [ `which texlint` ] || sudo npm install -g textlint \
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
@@ -43,12 +44,12 @@ install-gui-package(){
     sudo pacman -S --needed  \
          xorg xorg-xinit wmctrl synaptics xorg-xbacklight openbox \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
-         terminator chromium pcmanfm dmenu \
+         terminator chromium pcmanfm dmenu  \
          xsel xfce4-screenshooter xscreensaver acpi pm-utils cups \
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
          xterm \
          adobe-source-code-pro-fonts
-    yaourt -S --needed otf-ipaexfont
+    yaourt -S --needed otf-ipaexfont pepper-flash
 }
 
 change-service(){
