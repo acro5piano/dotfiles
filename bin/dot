@@ -7,12 +7,6 @@ pull(){
     link
 }
 
-push(){
-    git add .
-    [ "$2" ] && git commit -m "$2"
-    git push origin master
-}
-
 st(){
     git status
 }
@@ -49,9 +43,12 @@ usage(){
 
 cd $DOTPATH
 
+if ! [ "$1" ]; then
+    exec $SHELL
+fi
+
 case $1 in
     'pull') pull ;;
-    'push') push $2 ;;
     'install') install ;;
     'link') link ;;
     'st') st ;;
@@ -59,4 +56,3 @@ case $1 in
 esac
 
 cd $OLD_PWD
-
