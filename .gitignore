@@ -4,6 +4,7 @@
 !.config/terminator
 !.config/touchegg
 !.config/wallpapers
+!.config/fish
 
 
 .emacs.d/*
