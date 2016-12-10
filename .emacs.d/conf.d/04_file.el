@@ -6,6 +6,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+
+ '(desktop-save-mode t)
+
 ;; Do not show the welcome message
 (setq inhibit-startup-message t)
 
@@ -20,6 +23,9 @@
 (setq vc-follow-symlinks t)
 ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
 (setq auto-revert-check-vc-info t)
+
+;; Ignore file path case
+'(read-file-name-completion-ignore-case t)
 
 ;; バッファ自動再読み込み
 (global-auto-revert-mode 1)
