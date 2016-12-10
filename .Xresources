@@ -18,12 +18,12 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Emacs*FontBackend: xft
-Emacs*font: Source Code Pro 10
-
-! no need?
-!Emacs25*useXIM: false
-Emacs*useXIM: false
+!Emacs*FontBackend: xft
+!Emacs*font: Source Code Pro 10
+!
+!! no need?
+!!Emacs25*useXIM: false
+!Emacs*useXIM: false
 
 ! disabled for color-theme
 !Emacs*reverseVideo: on 
