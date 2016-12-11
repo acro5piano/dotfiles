@@ -50,3 +50,19 @@
 
 (set-fontset-font t 'japanese-jisx0208
                   (font-spec :family "IPAExGothic"))
+
+
+(defun my/increase-font-size()
+  (interactive)
+  (custom-set-faces
+   '(default
+      ((t (:height 160))))))
+
+(defun my/decrease-font-size()
+  (interactive)
+  (custom-set-faces
+   '(default
+      ((t (:height 105))))))
+
+(bind-key "C--" 'my/decrease-font-size)
+(bind-key "C-+" 'my/increase-font-size)

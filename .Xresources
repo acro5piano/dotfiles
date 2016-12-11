@@ -20,7 +20,10 @@ Xft.rgba: rgb
 
 !Emacs*FontBackend: xft
 !Emacs*font: Source Code Pro 10
-!
+!Emacs*font: Monospace 16
+!Emacs25*font: Monospace 16
+!Emacs*font: Source Code Pro 16
+
 !! no need?
 !!Emacs25*useXIM: false
 !Emacs*useXIM: false
