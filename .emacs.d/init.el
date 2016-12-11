@@ -21,9 +21,9 @@
 ;; Add path for elisp not from MELPA
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
-;; Set init-loader
-(require 'init-loader)
-(init-loader-load "~/.emacs.d/conf.d")
+;; Disable init-loader
+;; (require 'init-loader)
+;; (init-loader-load "~/.emacs.d/conf.d")
 
 ;;; Load libraries
 
