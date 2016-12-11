@@ -8,20 +8,15 @@
 
 ;;; Basic path and Cask
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-
 (package-initialize)
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-;; Add path for elisp not from MELPA
+;; Add path for my elisps
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
-;; Disable init-loader
+;; Load init-loader (disabled)
 ;; (require 'init-loader)
 ;; (init-loader-load "~/.emacs.d/conf.d")
 
@@ -185,7 +180,7 @@ Version 2016-07-17"
          (message "Directory path copied: 「%s」" (file-name-directory -fpath))
          (file-name-directory -fpath))))))
 
-;;; View
+;;; Face
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
