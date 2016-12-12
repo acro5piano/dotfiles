@@ -20,9 +20,6 @@
 (depends-on "git-gutter")
 (depends-on "go-mode")
 (depends-on "haml-mode")
-;; 脱Helm
-;; helm-ag => counsel-git-grep
-;; helm-swoop => swiper
 (depends-on "helm")
 (depends-on "helm-ghq")
 (depends-on "htmlize")
@@ -45,3 +42,15 @@
 (depends-on "undo-tree")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
+
+
+;;; Cheet sheet
+;; Helm alternative
+;;     helm-ag => counsel-git-grep
+;;     helm-swoop => swiper
+;; Vim's *
+;;     M-s .
+;; Hilight symbol
+;;     M-s h .
+;; Narrowing
+;;     C-x n n, C-x n w

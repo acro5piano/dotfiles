@@ -121,6 +121,7 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Use auto indent
 (setq-default indent-tabs-mode nil)
@@ -474,7 +475,7 @@ Version 2016-07-17"
   (bind-key* "C-x C-q" 'delete-frame)
   (bind-key* "M-g" 'goto-line)
   (bind-key "M-z" 'zap-up-to-char)
-  (bind-key "C-c ," 'er/expand-region)
+  (bind-key "C-c ." 'er/expand-region)
   (bind-key "M-j" 'join-line)
   (bind-key "q" 'mozc-end mozc-mode-map)
   (bind-key "C-g" 'mozc-end mozc-mode-map)
@@ -500,7 +501,8 @@ Version 2016-07-17"
   (bind-key "C-x j" 'open-junk-file)
   (bind-key "C-c 0" 'org-shiftright)
   (bind-key* "M-." 'xref-find-definitions-other-window)
-  (bind-key* "M-." 'ctags-search))
+  ;; (bind-key* "M-." 'ctags-search)
+  )
 
 ;;; Set UTF-8 to default
 
