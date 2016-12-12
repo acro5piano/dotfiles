@@ -231,18 +231,6 @@ Version 2016-07-17"
                   (font-spec :family "IPAExGothic"))
 
 
-(defun my/increase-font-size()
-  (interactive)
-  (custom-set-faces
-   '(default
-      ((t (:height 160))))))
-
-(defun my/decrease-font-size()
-  (interactive)
-  (custom-set-faces
-   '(default
-      ((t (:height 105))))))
-
 ;;; ctags
 
 (setq tags-revert-without-query t)
@@ -512,8 +500,6 @@ Version 2016-07-17"
   (bind-key "C-x j" 'open-junk-file)
   (bind-key "C-c 0" 'org-shiftright)
   (bind-key* "M-." 'xref-find-definitions-other-window)
-  (bind-key* "C--" 'my/decrease-font-size)
-  (bind-key* "C-+" 'my/increase-font-size)
   (bind-key* "M-." 'ctags-search))
 
 ;;; Set UTF-8 to default
