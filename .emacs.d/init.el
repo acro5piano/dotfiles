@@ -51,6 +51,7 @@
 (require 'scss-mode)
 (require 'server)
 (require 'summarye)
+(require 'typescript-mode)
 (require 'twittering-mode)
 (require 'undo-tree)
 (require 'web-mode)
@@ -66,6 +67,13 @@
 
 ;;file名の補完で大文字小文字を区別しない
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode git-gutter flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 ;;; Search
@@ -207,26 +215,12 @@ Version 2016-07-17"
 
 ;; font, font-size, etc
 (custom-set-faces
- '(default
-    ((t (:inherit nil
-                  :stipple nil
-                  ;; :background "#002b36"
-                  ;; :foreground "#839496"
-                  :inverse-video nil
-                  :box nil
-                  :strike-through nil
-                  :overline nil
-                  :underline nil
-                  :slant normal
-                  :weight normal
-                  :height 105
-                  :width normal
-                  :foundry "Source Code Pro"
-                  :family "Source Code Pro"
-                  ))))
- '(helm-selection
-   ((t (:background "Gray23"
-                    :distant-foreground "black")))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "Source Code Pro" :family "Source Code Pro"))))
+ '(helm-selection ((t (:background "Gray23" :distant-foreground "black")))))
 
 (set-fontset-font t 'japanese-jisx0208
                   (font-spec :family "IPAExGothic"))
