@@ -466,6 +466,7 @@ Version 2016-07-17"
   (bind-key* "C-x o" 'other-window)
   (bind-key* "C-u C-f" 'other-frame)
   (bind-key "C-x C-c" 'nil)
+  (bind-key "C-z" 'nil)
   (bind-key* "C-x C-q" 'delete-frame)
   (bind-key* "M-g" 'goto-line)
   (bind-key "M-z" 'zap-up-to-char)
