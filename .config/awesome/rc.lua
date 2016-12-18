@@ -243,6 +243,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
+    -- Hardware config
+    awful.key({}, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight +5") end),
+    awful.key({}, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
+
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),

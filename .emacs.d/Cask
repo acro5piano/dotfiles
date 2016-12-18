@@ -20,17 +20,14 @@
 (depends-on "git-gutter")
 (depends-on "go-mode")
 (depends-on "haml-mode")
-(depends-on "helm") ;; helm-agはhelm-git-do-grepで代用可能。
+(depends-on "helm")
 (depends-on "helm-ghq")
-(depends-on "helm-swoop") ;; これ半端ない。C-sからM-iで移行できる！
 (depends-on "htmlize")
-;; (depends-on "ido-vertical-mode") ;; ivy使うからいらね
 (depends-on "init-loader")
 (depends-on "lua-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "migemo")
-(depends-on "mozc")
 (depends-on "mozc")
 (depends-on "multiple-cursors")
 (depends-on "open-junk-file")
@@ -42,6 +39,19 @@
 (depends-on "smartrep")
 (depends-on "summarye")
 (depends-on "twittering-mode")
+(depends-on "typescript-mode")
 (depends-on "undo-tree")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
+
+
+;;; Cheet sheet
+;; Helm alternative
+;;     helm-ag => counsel-git-grep
+;;     helm-swoop => swiper
+;; Vim's *
+;;     M-s .
+;; Hilight symbol
+;;     M-s h .
+;; Narrowing
+;;     C-x n n, C-x n w

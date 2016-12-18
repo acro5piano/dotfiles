@@ -13,3 +13,9 @@
 (setq scroll-step 1)
 
 (global-undo-tree-mode t)
+
+;; C-x C-l => downcase
+(put 'downcase-region 'disabled nil)
+
+;; M-u => upcase
+(put 'upcase-region 'disabled nil)
