@@ -7,3 +7,4 @@ add control = Caps_Lock Control_L Control_R
 keycode 66 = Control_L Control_L NoSymbol NoSymbol
 keycode 105 = Alt_R Alt_R NoSymbol NoSymbol
 keycode 107 = Alt_R Alt_R NoSymbol NoSymbol
+keycode 118 = End End NoSymbol NoSymbol
