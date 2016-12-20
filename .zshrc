@@ -73,3 +73,41 @@ VCS=$'$(vcs_info_wrapper)'
 local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
 PROMPT="%n@%m:%~$ ${VCS}
 ${LAST_STATUS} "
+
+alias rm='echo "This is not the command you are looking for. use trash instead."; false'
+
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+function backward-kill-word-or-region() {
+    if [ $REGION_ACTIVE -eq 0 ]; then
+        zle backward-kill-word
+    else
+        zle kill-region
+    fi
+}
+zle -N backward-kill-word-or-region
+
+bindkey "^w" backward-kill-word-or-region
+bindkey '^r' peco-select-history
+
+if [ "$DISPLAY" ]; then
+    # Start tmux if x is running and no tmux is running
+    # disable because gui emacs is my new standard
+    # => revert this because emacs term-mode is terrible
+    #[ `pgrep -c tmux` -eq 0 ] && tmux
+
+    # Start emacs server with GUI. Use emacs with `emacsclient`
+    # [ `ps aux | grep  'emacs' | wc -l` -lt 2 ] && nohup emacs --reverse > /dev/null &
+fi

@@ -68,3 +68,11 @@ compress_pdf(){
        -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH \
        -sOutputFile="$1.minified.pdf" $1
 }
+
+datecal(){
+    if [ "$1" ]; then
+        ruby -r date -e "puts $1"
+    else
+        pry -r date
+    fi
+}
