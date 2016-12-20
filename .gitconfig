@@ -22,3 +22,5 @@
 	default = matching
 [core]
 	quotepath = false
+[http]
+	postBuffer = 1048576000
