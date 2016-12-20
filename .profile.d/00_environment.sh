@@ -34,8 +34,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # terminal emulator cannot run emacs so use vim
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=eq
+export EDITOR=eq
 
 
 set -s escape-time 0
