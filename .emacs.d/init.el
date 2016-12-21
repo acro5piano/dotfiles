@@ -479,7 +479,7 @@ Version 2016-07-17"
   (bind-key "M-z" 'zap-up-to-char)
   (bind-key "C-c ." 'er/expand-region)
   (bind-key "M-j" 'join-line)
-  (bind-key* "C-J" 'mozc-start) ; use C-z to チラ見
+  (bind-key* "<menu>" 'mozc-start) ; use C-z to チラ見
   (bind-key "q" 'mozc-end mozc-mode-map)
   (bind-key "C-g" 'mozc-end mozc-mode-map)
   (bind-key "C-x h" 'mark-whole-buffer mozc-mode-map)
