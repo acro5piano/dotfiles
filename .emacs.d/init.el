@@ -73,7 +73,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode git-gutter flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
+    (term+key-intercept term+ typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode git-gutter flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 ;;; Search
@@ -130,6 +130,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (put 'narrow-to-region 'disabled nil)
+(editorconfig-mode 1)
 
 ;; Use auto indent
 (setq-default indent-tabs-mode nil)
@@ -252,6 +253,12 @@ Version 2016-07-17"
                            (linum-mode -1)
                            (rename-buffer "eww" t)))
 (ace-link-setup-default)
+
+;;; term+
+
+(require 'term+)
+(require 'xterm-256color)
+(require 'term+key-intercept)
 
 ;;; Markdown
 
@@ -446,6 +453,7 @@ Version 2016-07-17"
           (lambda ()
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
+
 
 ;;; Key bindings
 

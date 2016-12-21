@@ -18,6 +18,15 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+URxvt*font: xft:Source Code Pro:size=10:antialias=true
+URxvt*shading: 20
+URxvt*inheritPixmap: true
+URxvt*reverseVideo: on
+URxvt*letterSpace: -1
+URxvt*scrollBar:  false
+
+
+
 !Emacs*FontBackend: xft
 !Emacs*font: Source Code Pro 10
 !Emacs*font: Monospace 16
@@ -29,4 +38,4 @@ Xft.rgba: rgb
 !Emacs*useXIM: false
 
 ! disabled for color-theme
-!Emacs*reverseVideo: on 
+!Emacs*reverseVideo: on

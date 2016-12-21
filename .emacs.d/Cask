@@ -38,6 +38,8 @@
 (depends-on "scss-mode")
 (depends-on "smartrep")
 (depends-on "summarye")
+(depends-on "term+")
+(depends-on "term+key-intercept")
 (depends-on "twittering-mode")
 (depends-on "typescript-mode")
 (depends-on "undo-tree")
