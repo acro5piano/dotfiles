@@ -11,3 +11,5 @@
 !.emacs.d/Cask
 !.emacs.d/conf.d
 !.emacs.d/lisp
+
+.subversion
