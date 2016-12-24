@@ -480,6 +480,7 @@ Version 2016-07-17"
   (bind-key "C-c ." 'er/expand-region)
   (bind-key "M-j" 'join-line)
   (bind-key* "<menu>" 'mozc-start)
+  (bind-key* "<henkan>" 'mozc-start)
   (bind-key "q" 'mozc-end mozc-mode-map)
   (bind-key "C-g" 'mozc-end mozc-mode-map)
   (bind-key "C-x h" 'mark-whole-buffer mozc-mode-map)
