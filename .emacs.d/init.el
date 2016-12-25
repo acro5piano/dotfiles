@@ -34,7 +34,7 @@
 (require 'expand-region)
 (require 'go-mode)
 (require 'haml-mode)
-(require 'ido)
+;(require 'ido)
 (require 'ivy)
 (require 'lua-mode)
 (require 'migemo)
@@ -76,6 +76,17 @@
     (typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
+(defun dired-my-append-buffer-name-hint ()
+  "Append a auxiliary string to a name of dired buffer."
+  (when (eq major-mode 'dired-mode)
+    (let* ((dir (expand-file-name list-buffers-directory))
+           (drive (if (and (eq 'system-type 'windows-nt) ;; Windows の場合はドライブレターを追加
+                           (string-match "^\\([a-zA-Z]:\\)/" dir))
+                      (match-string 1 dir) "")))
+      (rename-buffer (concat (buffer-name) " [" drive "Dired]") t))))
+(add-hook 'dired-mode-hook 'dired-my-append-buffer-name-hint)
+
+
 ;;; Search
 
 (global-anzu-mode +1)
@@ -102,8 +113,9 @@
 (setq recentf-max-saved-items 1000)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-(desktop-save-mode t)
+;;(desktop-save-mode t)
 (setq inhibit-startup-message t)
+(fset 'yes-or-no-p 'y-or-n-p)          ; (yes/no) -> (y/n)
 
 ;; Auto start server
 (unless (server-running-p)
@@ -219,29 +231,29 @@ Version 2016-07-17"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "Source Code Pro" :family "Source Code Pro"))))
- '(helm-selection ((t (:background "Gray23" :distant-foreground "black")))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "Source Code Pro" :family "Source Code Pro")))))
+;; '(helm-selection ((t (:background "Gray23" :distant-foreground "Gray23")))))
 
 (set-fontset-font t 'japanese-jisx0208
                   (font-spec :family "IPAExGothic"))
-
 
 ;;; ctags
 
 (setq tags-revert-without-query t)
 ;;(setq ctags-command "ctags -R --fields=\"+afikKlmnsSzt\" ")
 
+;;; ido
+
+;;(ido-vertical-mode 1)
+;;(setq ido-enable-flex-matching t) ;; 中間/あいまい一致
+;;(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
 ;;; helm
-(add-hook
- 'after-init-hook
- (lambda ()
-   (require 'helm-config)
-   ))
-
-(fset 'yes-or-no-p 'y-or-n-p)          ; (yes/no) -> (y/n)
-
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+;;(add-hook
+;; 'after-init-hook
+;; (lambda ()
+;;   (require 'helm-config) ; キーバインドなどを読み込む
+;;   ))
 
 ;;; eww
 
@@ -386,6 +398,8 @@ Version 2016-07-17"
 
       (setq ns-use-srgb-colorspace nil)
 
+      (color-theme-solarized)
+
       ;; (defun eww-disable-images ()
       ;;   "ewwで画像表示させない"
       ;;   (interactive)
@@ -402,24 +416,19 @@ Version 2016-07-17"
       ;; テーマやPowerlineを有効化すると、CUIでEmacsが使い物にならなくなる
       ;; そのため、CUIではVimを使うこと
 
-      (set-face-attribute 'mode-line nil
-                          :foreground "#FFF"
-                          :background "#4B0082")
+      ;; (set-face-attribute 'mode-line nil
+      ;;                     :foreground "#FFF"
+      ;;                     :background "#4B0082")
 
-      (set-face-attribute 'powerline-active1 nil
-                          :foreground "#fff"
-                          :background "#006400"
-                          :inherit 'mode-line)
+      ;; (set-face-attribute 'powerline-active1 nil
+      ;;                     :foreground "#fff"
+      ;;                     :background "#006400"
+      ;;                     :inherit 'mode-line)
 
-      (set-face-attribute 'powerline-active2 nil
-                          :foreground "#000"
-                          :background "#FFF"
-                          :inherit 'mode-line)
-
-      (powerline-default-theme)
-
-      ;; これ有効にすると、powerlineと競合してうまく動作しない
-      ;;(color-theme-solarized)
+      ;; (set-face-attribute 'powerline-active2 nil
+      ;;                     :foreground "#000"
+      ;;                     :background "#FFF"
+      ;;                     :inherit 'mode-line)
 
       (powerline-default-theme)
 
@@ -460,67 +469,55 @@ Version 2016-07-17"
         (find-alternate-file (concat "/sudo::" file-name))
       (error "Cannot get a file name"))))
 
+(defalias 'exit 'save-buffers-kill-emacs)
+
 ;;; Key bindings
 
 (keyboard-translate ?\C-h ?\C-?)
 (add-hook 'after-make-frame-functions
           (lambda (f) (with-selected-frame f
-                        (keyboard-translate ?\C-h ?\C-?)
-                        )))
-
-(defalias 'exit 'save-buffers-kill-emacs)
+                        (keyboard-translate ?\C-h ?\C-?))))
 
 (progn
-  (bind-key "C-x C-k" 'kill-this-buffer)
-  (bind-key "C-x k" 'kill-this-buffer)
+  (global-set-key (kbd "C-z") nil)
+  (global-set-key (kbd "C-x C-c") nil)
   (bind-key* "C-x C-j" 'dired-jump)
   (bind-key* "C-u C-x C-j" 'dired-jump-other-window)
-  (bind-key* "C-x C-o" 'other-window)
   (bind-key* "C-x o" 'other-window)
-  (bind-key* "C-u C-f" 'other-frame)
-  (bind-key "C-x C-c" 'nil)
-  (bind-key "C-z" 'nil)
-  (bind-key* "C-x C-q" 'delete-frame)
+  (bind-key* "C-x C-o" 'other-window)
   (bind-key* "M-g" 'goto-line)
-  (bind-key "M-z" 'zap-up-to-char)
-  (bind-key "C-c ." 'er/expand-region)
-  (bind-key "M-j" 'join-line)
   (bind-key* "<menu>" 'mozc-start)
   (bind-key* "<henkan>" 'mozc-start)
-  (bind-key "q" 'mozc-end mozc-mode-map)
-  (bind-key "C-g" 'mozc-end mozc-mode-map)
-  (bind-key "C-x h" 'mark-whole-buffer mozc-mode-map)
-  (bind-key "C-x C-s" 'save-buffer mozc-mode-map)
   (bind-key* "C-x g" 'magit-status)
-  (bind-key "M-y" 'browse-kill-ring)
-  (bind-key* "C-x b" 'helm-mini)
   (bind-key* "C-x C-b" 'helm-mini)
   (bind-key* "M-x" 'helm-M-x)
   (bind-key* "C-x p" 'helm-grep-do-git-grep)
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
-  ;;(bind-key* "C-x b" 'ivy-switch-buffer)
-  ;;(bind-key* "C-x C-b" 'ivy-switch-buffer)
-  ;;(bind-key* "M-x" 'counsel-M-x)
   (bind-key* "C-u C-f" 'counsel-git)
-  ;;(bind-key* "C-u C-s" 'swiper)
   (bind-key* "C-x c i" 'ivy-resume)
-  (bind-key* "C-x f" 'counsel-find-file)
-  ;;(bind-key* "C-x p" 'counsel-git-grep)
-  ;;(bind-key* "C-x C-r" 'counsel-recentf)
+  (bind-key* "C-x f" 'helm-find-files)
   (bind-key* "C-c C-r" 'mc/edit-lines)
-  (bind-key "C-x j" 'open-junk-file)
-  (bind-key "C-c 0" 'org-shiftright org-mode-map)
   (bind-key* "M-." 'xref-find-definitions-other-window)
-  ;; (bind-key* "M-." 'ctags-search)
-  )
+  (bind-key* "C-x j" 'open-junk-file)
+  (bind-key* "C-x C-k" 'kill-this-buffer)
+  (bind-key* "C-x k" 'kill-this-buffer)
+  (bind-key* "M-z" 'zap-up-to-char)
+  (bind-key* "M-y" 'browse-kill-ring)
+  (bind-key "C-c ." 'er/expand-region)
+  (bind-key "M-j" 'join-line)
+  (bind-key "q" 'mozc-end mozc-mode-map)
+  (bind-key "C-g" 'mozc-end mozc-mode-map)
+  (bind-key "C-x h" 'mark-whole-buffer mozc-mode-map)
+  (bind-key "C-x C-s" 'save-buffer mozc-mode-map)
+  (bind-key "C-c 0" 'org-shiftright org-mode-map))
 
 ;;; Set UTF-8 to default
 
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
+;;(setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8)

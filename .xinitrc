@@ -45,11 +45,7 @@ synclient TapButton3=1
 #synclient CircularScrolling=1
 
 # keyboard layout customize
-if [ `hostname` = 'thinkpad' ]; then
-    xmodmap $HOME/.xmodmap.d/thinkpad
-elif [ `hostname` = 'office' ]; then
-    xmodmap $HOME/.xmodmap.d/realforce
-fi
+xmodmap $HOME/.xmodmap.d/thinkpad
 
 #exec openbox-session
 exec awesome
