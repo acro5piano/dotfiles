@@ -123,7 +123,6 @@
 
 (global-auto-revert-mode 1)
 (global-undo-tree-mode)
-(global-git-gutter-mode +1)
 
 ;;; Edit
 

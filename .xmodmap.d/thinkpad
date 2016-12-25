@@ -10,7 +10,8 @@ keycode 66 = Control_L Control_L NoSymbol NoSymbol
 
 ! missing Alt_L => Alt_L
 add mod1 = Alt_L
-keycode 64 = Alt_L Alt_L Alt_L Alt_L
+!keycode 64 = Alt_L Alt_L Alt_L Alt_L
+keycode 64 = Meta_L Meta_L Meta_L Meta_L
 
 ! Alt_R => Henkan
 ! Set Henkan to Fcitx & Emacs IME activation key
