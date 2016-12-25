@@ -453,6 +453,14 @@ Version 2016-07-17"
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
 
+;;; others
+(defun reopen-with-sudo ()
+  "Reopen current buffer-file with sudo using tramp."
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (if file-name
+        (find-alternate-file (concat "/sudo::" file-name))
+      (error "Cannot get a file name"))))
 
 ;;; Key bindings
 

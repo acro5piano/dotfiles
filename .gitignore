@@ -5,6 +5,7 @@
 !.config/touchegg
 !.config/wallpapers
 !.config/fish
+!.config/nvim
 
 
 .emacs.d/*
