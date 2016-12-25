@@ -47,7 +47,7 @@
 (require 'rainbow-mode)
 (require 'recentf)
 (require 'recentf-ext)
-(require 'saveplace nil t)
+(require 'saveplace)
 (require 'scss-mode)
 (require 'server)
 (require 'summarye)
@@ -73,7 +73,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (term+key-intercept term+ typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode git-gutter flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
+    (typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 ;;; Search
@@ -194,19 +194,19 @@ Version 2016-07-17"
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (global-linum-mode t)
+(scroll-bar-mode -1)
+
 (setq linum-format "%4d ")
 
 ;; Hilight current line
 (global-hl-line-mode)
 (set-face-background 'hl-line "Gray23")
 (set-face-foreground 'highlight nil)
+(set-cursor-color "gray")
 
 ;; カーソル位置の桁数をモードライン行に表示する
 (column-number-mode 1)
 
-(scroll-bar-mode 1)
-
-(set-cursor-color "gray")
 
 ;; Hilight ()
 (show-paren-mode t)
@@ -247,17 +247,15 @@ Version 2016-07-17"
 
 (setq eww-search-prefix "http://www.google.co.jp/search?q=")
 
-
 (add-hook 'eww-mode-hook (lambda ()
                            (linum-mode -1)
                            (rename-buffer "eww" t)))
-(ace-link-setup-default)
 
 ;;; term+
-
-(require 'term+)
-(require 'xterm-256color)
-(require 'term+key-intercept)
+;; Currently disabled some key bindings not work
+;;(require 'term+)
+;;(require 'xterm-256color)
+;;(require 'term+key-intercept)
 
 ;;; Markdown
 
@@ -338,12 +336,13 @@ Version 2016-07-17"
 (setq twittering-use-master-password t)
 ;; パスワード暗号ファイル保存先変更 (デフォはホームディレクトリ)
 (setq twittering-private-info-file "~/.emacs.d/twittering-mode.gpg")
+
+;;; coffee-mode
 (defun coffee-custom ()
   "coffee-mode-hook"
   (and (set (make-local-variable 'tab-width) 2)
        (set (make-local-variable 'coffee-tab-width) 2)))
 
-;;; coffee-mode
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
 

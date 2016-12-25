@@ -30,7 +30,6 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
@@ -50,29 +49,29 @@ done
 # @see
 # http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
 
-setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-
-zstyle ':vcs_info:*' enable git cvs svn
-
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
-#RPROMPT=$'$(vcs_info_wrapper)'
-VCS=$'$(vcs_info_wrapper)'
-
-local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
-PROMPT="%n@%m:%~$ ${VCS}
-${LAST_STATUS} "
+# setopt prompt_subst
+# autoload -Uz vcs_info
+# zstyle ':vcs_info:*' actionformats \
+#     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+# zstyle ':vcs_info:*' formats       \
+#     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+#
+# zstyle ':vcs_info:*' enable git cvs svn
+#
+# # or use pre_cmd, see man zshcontrib
+# vcs_info_wrapper() {
+#   vcs_info
+#   if [ -n "$vcs_info_msg_0_" ]; then
+#     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+#   fi
+# }
+# #RPROMPT=$'$(vcs_info_wrapper)'
+# VCS=$'$(vcs_info_wrapper)'
+#
+# local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
+# PROMPT="%n@%m:%~$ ${VCS}
+# ${LAST_STATUS} "
 
 alias rm='echo "This is not the command you are looking for. use trash instead."; false'
 
@@ -90,6 +89,7 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
+
 function backward-kill-word-or-region() {
     if [ $REGION_ACTIVE -eq 0 ]; then
         zle backward-kill-word
@@ -106,8 +106,8 @@ if [ "$DISPLAY" ]; then
     # Start tmux if x is running and no tmux is running
     # disable because gui emacs is my new standard
     # => revert this because emacs term-mode is terrible
-    #[ `pgrep -c tmux` -eq 0 ] && tmux
+    [ `pgrep -c tmux` -eq 0 ] && tmux
 
     # Start emacs server with GUI. Use emacs with `emacsclient`
-    # [ `ps aux | grep  'emacs' | wc -l` -lt 2 ] && nohup emacs --reverse > /dev/null &
+    [ `pgrep -c emacs` -eq 0 ] && emacs
 fi

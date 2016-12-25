@@ -5,4 +5,6 @@ antigen bundle acro5piano/fd
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle paulirish/git-open
 
+antigen theme candy
+
 antigen apply
