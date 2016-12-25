@@ -434,7 +434,7 @@ Version 2016-07-17"
       (add-hook 'php-mode-hook 'rainbow-mode)
       (add-hook 'html-mode-hook 'rainbow-mode)))
 
-;; CUI only settings
+;;; CUI only settings
 (if (not window-system)
     (progn
       ;; anzu
