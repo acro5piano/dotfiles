@@ -18,12 +18,13 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt*font: xft:Source Code Pro:size=10:antialias=true
-URxvt*shading: 20
-URxvt*inheritPixmap: true
-URxvt*reverseVideo: on
-URxvt*letterSpace: -1
-URxvt*scrollBar:  false
+! I use terminator
+!URxvt*font: xft:Source Code Pro:size=10:antialias=true
+!URxvt*shading: 20
+!URxvt*inheritPixmap: true
+!URxvt*reverseVideo: on
+!URxvt*letterSpace: -1
+!URxvt*scrollBar:  false
 
 
 
