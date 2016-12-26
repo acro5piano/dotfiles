@@ -245,12 +245,12 @@ Version 2016-07-17"
 ;;(setq ido-enable-flex-matching t) ;; 中間/あいまい一致
 ;;(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
-;;; helm
-;;(add-hook
-;; 'after-init-hook
-;; (lambda ()
-;;   (require 'helm-config) ; キーバインドなどを読み込む
-;;   ))
+; helm
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (require 'helm-config) ; キーバインドなどを読み込む
+   ))
 
 ;;; eww
 
