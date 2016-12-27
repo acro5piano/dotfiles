@@ -309,6 +309,7 @@ Version 2016-07-17"
 
 (ac-config-default)
 (global-auto-complete-mode)       ;; これで常にac-modeになる？
+(setq ac-use-fuzzy t)             ;; 曖昧マッチ
 (add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
 (add-to-list 'ac-modes 'shell-script-mode)         ;; text-modeでも自動的に有効にする
 (add-to-list 'ac-modes 'org-mode)
@@ -489,6 +490,7 @@ Version 2016-07-17"
   (bind-key* "C-x C-b" 'helm-mini)
   (bind-key* "M-x" 'helm-M-x)
   (bind-key* "C-x p" 'helm-grep-do-git-grep)
+  (bind-key* "C-M-/" 'helm-dabbrev)
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
   (bind-key* "C-u C-f" 'counsel-git)
