@@ -2,28 +2,27 @@
 
 alias ave="awk '{a+=\$1}END{print a/NR}'"
 alias bc='bc -l'
-alias blook='cd ~/.bhq/$(bhq list | peco | cut -d " " -f 1)'
 alias cl='xsel -ib'
 alias clp='xsel -ob'
+alias d='cd $(dirs -v | peco | cut -f 2)'
 alias dc='docker-compose'
 alias dce='docker-compose exec -it'
 alias de='docker exec -it'
+alias g='git status'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
-alias glook='cd $(ghq root)/$(ghq list | peco)'
+alias gl='cd $(ghq root)/$(ghq list | peco)'
 alias grep='grep --color=auto'
 alias l='ls -CF'
 alias la='ls -A'
 alias less='less -R'
 alias ll='ls -al'
 alias ls='ls --color=auto'
-alias memo='emacs -nw ~/mynote/memo.org'
 alias now='date +%Y%m%d_%H%M%S'
-alias seishin-to-tokinoheya='cd $(mktemp -d)'
 alias seishin='cd $(mktemp -d)'
 alias sum="awk '{a+=\$1}END{print a}'"
-alias tree='tree --charset XXX -I .git -I vendor'
+alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias ycal='cal `date +%Y`'
 
 mozc(){
