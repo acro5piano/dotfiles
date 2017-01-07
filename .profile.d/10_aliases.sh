@@ -8,7 +8,6 @@ alias d='cd $(dirs -v | peco | cut -f 2)'
 alias dc='docker-compose'
 alias dce='docker-compose exec -it'
 alias de='docker exec -it'
-alias g='git status'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gita='git add -A . ; git commit -m "ALL Update" ; git push'
@@ -72,3 +71,12 @@ datecal(){
         pry -r date
     fi
 }
+
+g(){
+    if [ "$1" ]; then
+        git $@
+    else
+        git status
+    fi
+}
+
