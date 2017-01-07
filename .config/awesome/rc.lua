@@ -235,6 +235,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
+    awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
     awful.key({ modkey,           }, "s", function () awful.util.spawn("sudo pm-suspend") end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
     -- awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
