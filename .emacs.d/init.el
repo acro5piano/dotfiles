@@ -34,7 +34,9 @@
 (require 'expand-region)
 (require 'go-mode)
 (require 'haml-mode)
-;(require 'ido)
+(require 'ido)
+(require 'ido-vertical-mode)
+(require 'ido-ubiquitous)
 (require 'ivy)
 (require 'lua-mode)
 (require 'migemo)
@@ -50,6 +52,7 @@
 (require 'saveplace)
 (require 'scss-mode)
 (require 'server)
+(require 'smex)
 (require 'summarye)
 (require 'typescript-mode)
 (require 'twittering-mode)
@@ -239,11 +242,23 @@ Version 2016-07-17"
 
 ;;; ido
 
-;;(ido-vertical-mode 1)
-;;(setq ido-enable-flex-matching t) ;; 中間/あいまい一致
-;;(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(ido-mode)
+(ido-everywhere)
+(ido-vertical-mode 1)
+(ido-ubiquitous-mode 1)
+(setq ido-enable-flex-matching t) ;; 中間/あいまい一致
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq ido-use-filename-at-point 'guess)
+(defun ido-recentf-open ()
+  "Use `ido-completing-read' to \\[find-file] a recent file"
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
 
-; helm
+; TODO: create a command equivalent to counsel-git
+
+;;; helm
 (add-hook
  'after-init-hook
  (lambda ()
@@ -478,30 +493,32 @@ Version 2016-07-17"
 (progn
   (global-set-key (kbd "C-z") nil)
   (global-set-key (kbd "C-x C-c") nil)
-  (bind-key* "C-x C-j" 'dired-jump)
-  (bind-key* "C-u C-x C-j" 'dired-jump-other-window)
-  (bind-key* "C-x o" 'other-window)
-  (bind-key* "C-x C-o" 'other-window)
-  (bind-key* "M-g" 'goto-line)
-  (bind-key* "<menu>" 'mozc-start)
-  (bind-key* "<henkan>" 'mozc-start)
-  (bind-key* "C-x g" 'magit-status)
-  (bind-key* "C-x C-b" 'helm-mini)
-  (bind-key* "M-x" 'helm-M-x)
-  (bind-key* "C-x p" 'helm-grep-do-git-grep)
-  (bind-key* "C-M-/" 'helm-dabbrev)
+  (bind-key* "C-u C-j" 'dired-jump-other-window)
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
   (bind-key* "C-u C-f" 'counsel-git)
+  (bind-key* "C-x C-j" 'dired-jump)
+  (bind-key* "C-x o" 'other-window)
+  (bind-key* "C-x C-o" 'other-window)
+  (bind-key* "C-x g" 'magit-status)
+  (bind-key* "C-x C-b" 'ido-switch-buffer)
+  (bind-key* "C-x C-r" 'ido-recentf-open)
+  (bind-key* "C-x p" 'helm-grep-do-git-grep)
   (bind-key* "C-x c i" 'ivy-resume)
-  (bind-key* "C-x f" 'helm-find-files)
-  (bind-key* "C-c C-r" 'mc/edit-lines)
-  (bind-key* "M-." 'xref-find-definitions-other-window)
+  (bind-key* "C-x d" 'ido-dired)
+  (bind-key* "C-x f" 'ido-find-file)
   (bind-key* "C-x j" 'open-junk-file)
   (bind-key* "C-x C-k" 'kill-this-buffer)
   (bind-key* "C-x k" 'kill-this-buffer)
+  (bind-key* "C-c C-r" 'mc/edit-lines)
+  (bind-key* "M-." 'xref-find-definitions-other-window)
+  (bind-key* "M-g" 'goto-line)
+  (bind-key* "M-x" 'smex)
   (bind-key* "M-z" 'zap-up-to-char)
   (bind-key* "M-y" 'browse-kill-ring)
+  (bind-key* "<menu>" 'mozc-start)
+  (bind-key* "<henkan>" 'mozc-start)
+
   (bind-key "C-c ." 'er/expand-region)
   (bind-key "M-j" 'join-line)
   (bind-key "q" 'mozc-end mozc-mode-map)

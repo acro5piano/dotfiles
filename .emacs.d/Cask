@@ -21,6 +21,8 @@
 (depends-on "helm")
 (depends-on "helm-ghq")
 (depends-on "htmlize")
+(depends-on "ido-vertical-mode")
+(depends-on "ido-ubiquitous")
 (depends-on "lua-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
