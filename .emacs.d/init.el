@@ -220,8 +220,6 @@ Version 2016-07-17"
 ;; Hilight ()
 (show-paren-mode t)
 
-(display-time-mode)
-
 ;; font, font-size, etc
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -290,10 +288,11 @@ Version 2016-07-17"
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
 (setq web-mode-engines-alist
 '(("php"    . "\\.phtml\\'")
   ("blade"  . "\\.blade\\.")))
-
+(setq web-mode-markup-indent-offset 2)
 
 (defun strip-html (start end)
   "Strip html with regular expression between region START and END."
