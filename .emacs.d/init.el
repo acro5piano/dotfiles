@@ -46,6 +46,7 @@
 (require 'open-junk-file)
 (require 'org)
 (require 'powerline)
+(require 'projectile)
 (require 'rainbow-mode)
 (require 'recentf)
 (require 'recentf-ext)
@@ -76,7 +77,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
+    (helm-projectile helm-ag-r icicles projectile typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 (defun dired-my-append-buffer-name-hint ()
@@ -262,6 +263,7 @@ Version 2016-07-17"
 (add-hook
  'after-init-hook
  (lambda ()
+   (require 'helm-projectile)
    (require 'helm-config) ; キーバインドなどを読み込む
    ))
 
@@ -496,14 +498,14 @@ Version 2016-07-17"
   (bind-key* "C-u C-j" 'dired-jump-other-window)
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
-  (bind-key* "C-u C-f" 'counsel-git)
+  (bind-key* "C-u C-f" 'projectile-find-file)
   (bind-key* "C-x C-j" 'dired-jump)
   (bind-key* "C-x o" 'other-window)
   (bind-key* "C-x C-o" 'other-window)
   (bind-key* "C-x g" 'magit-status)
   (bind-key* "C-x C-b" 'ido-switch-buffer)
   (bind-key* "C-x C-r" 'ido-recentf-open)
-  (bind-key* "C-x p" 'helm-grep-do-git-grep)
+  (bind-key* "C-x p" 'helm-projectile-grep)
   (bind-key* "C-x c i" 'ivy-resume)
   (bind-key* "C-x d" 'ido-dired)
   (bind-key* "C-x f" 'ido-find-file)

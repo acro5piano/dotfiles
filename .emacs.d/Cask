@@ -31,6 +31,8 @@
 (depends-on "multiple-cursors")
 (depends-on "open-junk-file")
 (depends-on "powerline")
+(depends-on "projectile")
+(depends-on "helm-projectile")
 (depends-on "rainbow-mode")
 (depends-on "recentf-ext")
 (depends-on "request")
@@ -45,9 +47,6 @@
 
 
 ;;; Cheet sheet
-;; Helm alternative
-;;     helm-ag => counsel-git-grep
-;;     helm-swoop => swiper
 ;; Vim's *
 ;;     M-s .
 ;; Hilight symbol
