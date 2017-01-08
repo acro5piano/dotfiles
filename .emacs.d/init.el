@@ -30,14 +30,12 @@
 (require 'coffee-mode)
 (require 'color-theme)
 (require 'color-theme-solarized)
-(require 'counsel)
 (require 'expand-region)
 (require 'go-mode)
 (require 'haml-mode)
 (require 'ido)
 (require 'ido-vertical-mode)
 (require 'ido-ubiquitous)
-(require 'ivy)
 (require 'lua-mode)
 (require 'migemo)
 (require 'misc)
@@ -77,7 +75,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-projectile helm-ag-r icicles projectile typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags counsel company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
+    (helm-projectile helm-ag-r icicles projectile typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 (defun dired-my-append-buffer-name-hint ()
@@ -256,8 +254,6 @@ Version 2016-07-17"
   (if (find-file (ido-completing-read "Find recent file: " recentf-list))
       (message "Opening file...")
     (message "Aborting")))
-
-; TODO: create a command equivalent to counsel-git
 
 ;;; helm
 (add-hook
@@ -506,7 +502,6 @@ Version 2016-07-17"
   (bind-key* "C-x C-b" 'ido-switch-buffer)
   (bind-key* "C-x C-r" 'ido-recentf-open)
   (bind-key* "C-x p" 'helm-projectile-grep)
-  (bind-key* "C-x c i" 'ivy-resume)
   (bind-key* "C-x d" 'ido-dired)
   (bind-key* "C-x f" 'ido-find-file)
   (bind-key* "C-x j" 'open-junk-file)
