@@ -399,8 +399,11 @@ Version 2016-07-17"
                         (keyboard-translate ?\C-h ?\C-?))))
 
 (progn
+  (define-key global-map (kbd "C--") 'text-scale-decrease)
   (global-set-key (kbd "C-z") nil)
   (global-set-key (kbd "C-x C-c") nil)
+  (bind-key* "C-+" 'text-scale-increase)
+  (bind-key* "C--" 'text-scale-decrease)
   (bind-key* "C-u C-j" 'dired-jump-other-window)
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
