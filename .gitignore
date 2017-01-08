@@ -10,6 +10,7 @@
 
 .emacs.d/*
 !.emacs.d/Cask
+!.emacs.d/conf.el
 !.emacs.d/conf.d
 !.emacs.d/lisp
 
