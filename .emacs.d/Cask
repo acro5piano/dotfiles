@@ -17,7 +17,6 @@
 (depends-on "haml-mode")
 (depends-on "helm")
 (depends-on "helm-ghq")
-(depends-on "helm-projectile")
 (depends-on "htmlize")
 (depends-on "ido-vertical-mode")
 (depends-on "ido-ubiquitous")

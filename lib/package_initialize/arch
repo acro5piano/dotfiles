@@ -3,12 +3,12 @@
 install-dev-package(){
     sudo pacman -S --needed \
         zsh fish vim net-tools inotify-tools bc make git tmux openssh emacs \
-        rsync tree curl jq man at the_silver_searcher ctags zip unzip \
+        rsync tree curl jq man at ripgrep ctags zip unzip \
         yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
         go \
-        php \
+        php composer \
         nodejs npm \
         jdk8-openjdk
 }
@@ -59,15 +59,11 @@ change-service(){
         sudo systemctl enable $1
         sudo systemctl start $1
     }
-    start_and_enable docker
-
-    # Sometimes use static IP
-    start_and_enable dhcpcd
-    #start_and_enable cups-browsed.service
-
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
+    start_and_enable docker
+    start_and_enable dhcpcd
     add_user_to_group docker
     add_user_to_group sys
     add_user_to_group lp
@@ -79,9 +75,9 @@ change-shell(){
     fi
 }
 
-install-dev-package
-install-termianl-tool
-install-editor-plugin
-install-gui-package
-change-service
+install-dev-package && \
+install-termianl-tool && \
+install-editor-plugin && \
+install-gui-package && \
+change-service && \
 change-shell

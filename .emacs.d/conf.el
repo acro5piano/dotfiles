@@ -70,6 +70,7 @@
 (setq anzu-use-migemo nil)
 (setq anzu-search-threshold 1000)
 (setq anzu-minimum-input-length 3)
+(setq helm-ag-base-command "rg --vimgrep --no-heading")
 
 ;; 選択範囲をisearch
 (defadvice isearch-mode
@@ -221,6 +222,7 @@ Version 2016-07-17"
  'after-init-hook
  (lambda ()
    (require 'helm-projectile)
+   (require 'helm-ag)
    (require 'helm-config) ; キーバインドなどを読み込む
    ))
 
@@ -399,7 +401,6 @@ Version 2016-07-17"
                         (keyboard-translate ?\C-h ?\C-?))))
 
 (progn
-  (define-key global-map (kbd "C--") 'text-scale-decrease)
   (global-set-key (kbd "C-z") nil)
   (global-set-key (kbd "C-x C-c") nil)
   (bind-key* "C-+" 'text-scale-increase)
@@ -408,18 +409,18 @@ Version 2016-07-17"
   (bind-key* "C-u C-s" 'helm-swoop)
   (bind-key* "C-u C-SPC" 'helm-mark-ring)
   (bind-key* "C-u C-f" 'projectile-find-file)
-  (bind-key* "C-x C-j" 'dired-jump)
-  (bind-key* "C-x o" 'other-window)
-  (bind-key* "C-x C-o" 'other-window)
-  (bind-key* "C-x g" 'magit-status)
   (bind-key* "C-x C-b" 'ido-switch-buffer)
-  (bind-key* "C-x C-r" 'ido-recentf-open)
-  (bind-key* "C-x p" 'helm-projectile-grep)
   (bind-key* "C-x d" 'ido-dired)
   (bind-key* "C-x f" 'ido-find-file)
+  (bind-key* "C-x g" 'magit-status)
   (bind-key* "C-x j" 'open-junk-file)
   (bind-key* "C-x C-k" 'kill-this-buffer)
   (bind-key* "C-x k" 'kill-this-buffer)
+  (bind-key* "C-x C-j" 'dired-jump)
+  (bind-key* "C-x o" 'other-window)
+  (bind-key* "C-x C-o" 'other-window)
+  (bind-key* "C-x p" 'helm-do-ag-project-root)
+  (bind-key* "C-x C-r" 'ido-recentf-open)
   (bind-key* "C-c m a" 'mc/mark-all-dwim)
   (bind-key* "C-c m l" 'mc/edit-lines)
   (bind-key* "C-c ." 'er/expand-region)
