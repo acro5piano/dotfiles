@@ -2,7 +2,7 @@
 
 TMP=$(mktemp).$1
 cat > $TMP
-emacsclient --tty $TMP
+e $TMP
 
 echo 'You edited:'
 echo $TMP
