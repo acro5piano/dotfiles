@@ -67,6 +67,9 @@ change-service(){
     add_user_to_group docker
     add_user_to_group sys
     add_user_to_group lp
+
+    sudo systemctl --user enable xremap
+    sudo systemctl --user start xremap
 }
 
 change-shell(){
