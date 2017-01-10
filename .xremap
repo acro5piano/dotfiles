@@ -1,0 +1,38 @@
+# mode: ruby
+
+window class_only: 'chromium' do
+  remap 'C-b', to: 'Left'
+  remap 'C-f', to: 'Right'
+  remap 'C-p', to: 'Up'
+  remap 'C-n', to: 'Down'
+
+  remap 'C-a', to: 'Home'
+  remap 'C-e', to: 'End'
+  remap 'C-M-a', to: 'Ctrl-Home'
+  remap 'C-M-e', to: 'Ctrl-End'
+
+  remap 'C-v', to: 'Page_Down'
+  remap 'M-v', to: 'Page_Up'
+
+  remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+  remap 'M-w', to: 'Ctrl-c'
+  remap 'C-y', to: 'Ctrl-v'
+  remap 'C-g', to: 'Escape'
+
+  remap 'C-s', to: 'Ctrl-g'
+  remap 'C-r', to: 'Ctrl-Shift-g'
+
+  remap 'M-b', to: 'Ctrl-Left'
+  remap 'M-f', to: 'Ctrl-Right'
+
+  remap 'C-h', to: 'BackSpace'
+  remap 'C-d', to: 'Delete'
+  remap 'M-d', to: 'Ctrl-Delete'
+
+  # Alternative
+  remap 'M-n', to: 'Ctrl-n'
+  remap 'M-a', to: 'Ctrl-a'
+
+  # Slack
+  remap 'M-x', to: 'Ctrl-k'
+end

@@ -6,7 +6,7 @@
 !.config/wallpapers
 !.config/fish
 !.config/nvim
-
+!.config/systemd
 
 .emacs.d/*
 !.emacs.d/Cask
