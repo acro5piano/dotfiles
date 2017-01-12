@@ -203,10 +203,10 @@ Version 2016-07-17"
 
 ;;; ido
 
-(ido-mode)
-(ido-everywhere)
-(ido-vertical-mode 1)
-(ido-ubiquitous-mode 1)
+(ido-mode t)
+(ido-everywhere t)
+(ido-vertical-mode t)
+(ido-ubiquitous-mode t)
 (setq ido-enable-flex-matching t) ;; 中間/あいまい一致
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 (setq ido-use-filename-at-point 'guess)
@@ -332,7 +332,8 @@ Version 2016-07-17"
 ;;; Mozc settings
 (set-language-environment "Japanese")
 (setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'overlay)
+;; (setq mozc-candidate-style 'overlay)
+(setq mozc-candidate-style 'echo-area)
 
 (defun mozc-start()
   (interactive)
