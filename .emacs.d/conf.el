@@ -8,11 +8,9 @@
 
 ;;; Load libraries
 
-(require 'ace-link)
 (require 'anzu)
 (require 'auto-complete)
 (require 'auto-complete-config)
-(require 'chatwork)
 (require 'coffee-mode)
 (require 'color-theme)
 (require 'color-theme-solarized)

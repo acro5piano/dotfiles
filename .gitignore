@@ -9,8 +9,10 @@
 !.config/systemd
 
 .emacs.d/*
+!.emacs.d/init.el
 !.emacs.d/Cask
 !.emacs.d/conf.el
+!.emacs.d/terminal.el
 !.emacs.d/conf.d
 !.emacs.d/lisp
 

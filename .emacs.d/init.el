@@ -38,7 +38,8 @@
 (cask-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(load "~/.emacs.d/conf.el")
+;;(load "~/.emacs.d/conf.el")
+(load "~/.emacs.d/terminal.el")
 
 
 ;;; init.el ends here
