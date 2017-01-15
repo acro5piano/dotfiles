@@ -133,8 +133,6 @@ set nonumber
 " カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
-" タブ文字を CTRL-I で表示し、行末に $ で表示する
-"set list
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " ステータスラインを常に表示
@@ -145,8 +143,6 @@ set showmatch
 syntax on
 " 検索文字列のハイライトを有効にする
 set hlsearch
-" コメント文の色を変更
-highlight Comment ctermfg=DarkCyan
 " コマンドライン補完を拡張モードにする
 set wildmenu
 
@@ -162,8 +158,6 @@ match ZenkakuSpace /　/
 
 " ステータスラインに表示する情報の指定
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
-" ステータスラインの色
-highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 " 行末のスペースを強調表示
 augroup HighlightTrailingSpaces
@@ -249,8 +243,16 @@ nnoremap go A<CR><ESC>k
 " Delete EOL Whitespace
 nnoremap gwh :%s/\s\+$//<CR>
 
+" Unite
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+
+let mapleader = "\<Space>"
+nnoremap <Leader>b :Unite buffer<CR>
+
 "----------------------------------------------------
-" その他
+" Others
 "----------------------------------------------------
 " バッファを切替えてもundoの効力を失わない
 set hidden
