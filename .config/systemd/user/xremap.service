@@ -6,7 +6,7 @@ Description=xremap
 
 [Service]
 KillMode=process
-ExecStart=/usr/local/bin/xremap /home/k-gosho/.xremap
+ExecStart=/usr/local/bin/xremap /etc/xremap
 ExecStop=/usr/bin/killall xremap
 Restart=always
 Environment=DISPLAY=:0.0

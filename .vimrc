@@ -165,8 +165,7 @@ nnoremap <Leader>r :FZFMru<CR>
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>k :bd<CR>
 
-nnoremap <Leader>t :tag <C-r><C-w>
-" nnoremap <Leader>t :tag
+nnoremap <Leader>t :tag<Space><C-r><C-w>
 
 "---------------------------------------------------
 " Others
