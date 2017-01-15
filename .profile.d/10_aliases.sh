@@ -23,6 +23,7 @@ alias seishin='cd $(mktemp -d)'
 alias sum="awk '{a+=\$1}END{print a}'"
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias ycal='cal `date +%Y`'
+alias wi='sudo wifi-menu'
 
 mozc(){
     case $1 in

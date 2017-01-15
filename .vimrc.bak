@@ -18,10 +18,9 @@ Plugin 'osyo-manga/vim-anzu'
 Plugin 'osyo-manga/vim-over'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-expand-region'
+Plugin 'Shougo/unite.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
@@ -38,18 +37,6 @@ map z*  <Plug>(asterisk-z*)
 map gz* <Plug>(asterisk-gz*)
 map z#  <Plug>(asterisk-z#)
 map gz# <Plug>(asterisk-gz#)
-
-"----------------------------------------------------
-" yankround.vim
-"----------------------------------------------------
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-k> <Plug>(yankround-prev)
-nmap <C-j> <Plug>(yankround-next)
 
 "----------------------------------------------------
 " Yggdroot/indentLine
@@ -137,7 +124,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 
 "----------------------------------------------------
-" 表示関係
+" Display
 "----------------------------------------------------
 " タイトルをウインドウ枠に表示する
 set title
@@ -186,8 +173,11 @@ augroup HighlightTrailingSpaces
 augroup END
 
 
+set t_Co=256
+
+
 "----------------------------------------------------
-" インデント
+" Indent
 "----------------------------------------------------
 " オートインデントを有効にする
 set autoindent
@@ -202,7 +192,7 @@ set shiftwidth=4
 set expandtab
 
 "----------------------------------------------------
-" Using fcitx
+" Using X11
 "----------------------------------------------------
 
 autocmd InsertLeave * call DeactIm()
@@ -210,6 +200,10 @@ autocmd InsertLeave * call DeactIm()
 function DeactIm()
     call system('fcitx-remote -c')
 endfunction
+
+" Clipboard paste
+nnoremap gp :.!xsel -bo<CR>
+vmap <C-c> :w !xsel -ib<CR><CR>
 
 "----------------------------------------------------
 " Always show auto complete
@@ -220,15 +214,9 @@ for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
     exec "imap " . k . " " . k . "<C-N><C-P>"
 endfor
 
-" imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
-
 "----------------------------------------------------
 " Remap keys
 "----------------------------------------------------
-
-" ; と : を入れ替える
-nnoremap ; :
-vmap ; :
 
 " Emacs-like key binding when command-mode
 
@@ -251,24 +239,15 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 " Kill-ring
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
-" C-g => Escape
-cmap <C-g> <ESC>
-imap <C-g> <ESC>
-vmap <C-g> <ESC>
-
 
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-" Clipboard paste
-nnoremap gp :.!xsel -bo<CR>
 
 " Insert newline
 nnoremap go A<CR><ESC>k
 
 " Delete EOL Whitespace
 nnoremap gwh :%s/\s\+$//<CR>
-
 
 "----------------------------------------------------
 " その他
@@ -284,17 +263,9 @@ autocmd BufReadPost *
 
 " 起動時のメッセージを表示しない
 set shortmess+=I
-" 罫線の表示をしない
-set nocursorline
-set nocursorcolumn
+
 " 全角記号崩れの対策
 set ambiwidth=double
-
-vmap <C-c> :w !xsel -ib<CR><CR>
-
-if expand("%") =~ "sql"
-    set filetype=sql
-endif
 
 " もっさり感を無くす
 set ttimeoutlen=1
@@ -304,8 +275,6 @@ if &diff
     " diff mode
     set diffopt+=iwhite
 endif
-
-
 
 
 filetype plugin indent on    " required

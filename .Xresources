@@ -19,12 +19,33 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! I use terminator
-!URxvt*font: xft:Source Code Pro:size=10:antialias=true
-!URxvt*shading: 20
-!URxvt*inheritPixmap: true
-!URxvt*reverseVideo: on
-!URxvt*letterSpace: -1
-!URxvt*scrollBar:  false
+URxvt*font: xft:Source Code Pro:size=10:antialias=true
+URxvt*shading: 20
+URxvt*inheritPixmap: true
+URxvt*reverseVideo: on
+URxvt*letterSpace: -1
+URxvt*scrollBar:  false
+
+URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+
+URxvt*color0:  #000000 // black
+URxvt*color1:  #B40000 // red
+URxvt*color2:  #00AA00 // green
+URxvt*color3:  #AAAA00 // yellow
+URxvt*color4:  #5555AA // blue
+URxvt*color5:  #AA00AA // magenta
+URxvt*color6:  #00AAAA // cyan
+URxvt*color7:  #AAAAAA // white
+URxvt*color8:  #555555 // black (now and below: bright)
+URxvt*color9:  #FF0000 // red
+URxvt*color10: #00FF00 // green
+URxvt*color11: #FFFF00 // yellow
+URxvt*color12: #6464FF // blue
+URxvt*color13: #FF00FF // magenta
+URxvt*color14: #00FFFF // cyan
+URxvt*color15: #FFFFFF // white
+
 
 
 
