@@ -5,27 +5,25 @@ filetype off                  " required
 filetype plugin indent off    " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
+
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'L9'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/vim-asterisk'
-Plugin 'LeafCage/yankround.vim'
-Plugin 'osyo-manga/vim-anzu'
-Plugin 'osyo-manga/vim-over'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-expand-region'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'VundleVim/Vundle.vim'
+Plug 'L9'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
+Plug 'LeafCage/yankround.vim'
+Plug 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-over'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'junegunn/fzf.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+" Initialize plugin system
+call plug#end()
 
 "----------------------------------------------------
 " vim-asterisk
@@ -38,18 +36,6 @@ map z*  <Plug>(asterisk-z*)
 map gz* <Plug>(asterisk-gz*)
 map z#  <Plug>(asterisk-z#)
 map gz# <Plug>(asterisk-gz#)
-
-"----------------------------------------------------
-" yankround.vim
-"----------------------------------------------------
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-k> <Plug>(yankround-prev)
-nmap <C-j> <Plug>(yankround-next)
 
 "----------------------------------------------------
 " Yggdroot/indentLine
@@ -137,7 +123,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 
 "----------------------------------------------------
-" 表示関係
+" Display
 "----------------------------------------------------
 " タイトルをウインドウ枠に表示する
 set title
@@ -156,8 +142,6 @@ set showmatch
 syntax on
 " 検索文字列のハイライトを有効にする
 set hlsearch
-" コメント文の色を変更
-highlight Comment ctermfg=DarkCyan
 " コマンドライン補完を拡張モードにする
 set wildmenu
 
@@ -173,8 +157,6 @@ match ZenkakuSpace /　/
 
 " ステータスラインに表示する情報の指定
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
-" ステータスラインの色
-highlight StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 
 " 行末のスペースを強調表示
 augroup HighlightTrailingSpaces
@@ -184,8 +166,11 @@ augroup HighlightTrailingSpaces
 augroup END
 
 
+set t_Co=256
+
+
 "----------------------------------------------------
-" インデント
+" Indent
 "----------------------------------------------------
 " オートインデントを有効にする
 set autoindent
@@ -200,7 +185,7 @@ set shiftwidth=4
 set expandtab
 
 "----------------------------------------------------
-" Using fcitx
+" Using X11
 "----------------------------------------------------
 
 autocmd InsertLeave * call DeactIm()
@@ -208,6 +193,10 @@ autocmd InsertLeave * call DeactIm()
 function DeactIm()
     call system('fcitx-remote -c')
 endfunction
+
+" Clipboard paste
+nnoremap gp :.!xsel -bo<CR>
+vmap <C-c> :w !xsel -ib<CR><CR>
 
 "----------------------------------------------------
 " Always show auto complete
@@ -217,8 +206,6 @@ set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
     exec "imap " . k . " " . k . "<C-N><C-P>"
 endfor
-
-" imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 
 "----------------------------------------------------
 " Remap keys
@@ -249,17 +236,22 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" Clipboard paste
-nnoremap gp :.!xsel -bo<CR>
-
 " Insert newline
 nnoremap go A<CR><ESC>k
 
 " Delete EOL Whitespace
 nnoremap gwh :%s/\s\+$//<CR>
 
+" Unite
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+
+let mapleader = "\<Space>"
+nnoremap <Leader>b :Unite buffer<CR>
+
 "----------------------------------------------------
-" その他
+" Others
 "----------------------------------------------------
 " バッファを切替えてもundoの効力を失わない
 set hidden
@@ -270,10 +262,11 @@ autocmd BufReadPost *
             \   exe "normal g`\"" |
             \ endif
 
+" 起動時のメッセージを表示しない
+set shortmess+=I
+
 " 全角記号崩れの対策
 set ambiwidth=double
-
-vmap <C-c> :w !xsel -ib<CR><CR>
 
 " もっさり感を無くす
 set ttimeoutlen=1

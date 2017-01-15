@@ -18,31 +18,31 @@ install-termianl-tool(){
         github.com/jehiah/json2csv \
         github.com/motemen/ghq
     [ `which bundle` ]   || gem install bundler pry
-    [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit jcal
+    [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit
     [ `which generate-md` ] || sudo npm install -g markdown-styles
     [ `which gulp` ] || sudo npm install -g gulp
     [ `which textlint` ] || sudo npm install -g textlint \
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
-    # I use my .emacs.d
-    #[ -e $HOME/.emacs.d ]   || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli rlwrap
+         graphviz transmission-cli rlwrap fzf
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
 install-editor-plugin(){
     [ `which cask` ] || \
         curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
-    # I became emacs user
-    #[ -e $HOME/.vim/bundle ] || ~/.dotfiles/bin/install_vundle
+    [ -e $HOME/.vim/bundle ] ||
+        git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
+    [ -e $HOME/.vim/plugged ] ||
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 }
 
 install-gui-package(){
-    # I become awesome user
-    #sudo pacman -S --needed openbox
     sudo pacman -S --needed  \
          xorg xorg-xinit wmctrl synaptics xorg-xbacklight  awesome \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
@@ -59,6 +59,10 @@ change-service(){
         sudo systemctl enable $1
         sudo systemctl start $1
     }
+    start_and_enable_user(){
+        sudo systemctl --user enable $1
+        sudo systemctl --user start $1
+    }
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
@@ -68,8 +72,7 @@ change-service(){
     add_user_to_group sys
     add_user_to_group lp
 
-    sudo systemctl --user enable xremap
-    sudo systemctl --user start xremap
+    start_and_enable_user xremap
 }
 
 change-shell(){

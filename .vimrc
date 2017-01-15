@@ -5,30 +5,27 @@ filetype off                  " required
 filetype plugin indent off    " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'L9'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/vim-asterisk'
-Plugin 'LeafCage/yankround.vim'
-Plugin 'osyo-manga/vim-anzu'
-Plugin 'osyo-manga/vim-over'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'vim-airline/vim-airline'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
+Plug 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-over'
+Plug 'scrooloose/syntastic'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+" Initialize plugin system
+call plug#end()
 
 "----------------------------------------------------
+" Plugins
+"----------------------------------------------------
+
 " vim-asterisk
-"----------------------------------------------------
 map *   <Plug>(asterisk-*)
 map #   <Plug>(asterisk-#)
 map g*  <Plug>(asterisk-g*)
@@ -38,29 +35,19 @@ map gz* <Plug>(asterisk-gz*)
 map z#  <Plug>(asterisk-z#)
 map gz# <Plug>(asterisk-gz#)
 
-"----------------------------------------------------
 " Yggdroot/indentLine
-"----------------------------------------------------
 let g:indentLine_color_term = 5
 
-"----------------------------------------------------
 " vim-over
-"----------------------------------------------------
 nmap <C-h> :OverCommandLine<CR>s/
 nmap <ESC><C-h> :OverCommandLine<CR>%s/
 
-
-"----------------------------------------------------
 " incsearch.vim
-"----------------------------------------------------
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-
-"----------------------------------------------------
 " anzu
-"----------------------------------------------------
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
@@ -70,36 +57,15 @@ set statusline=%{anzu#search_status()}
 "----------------------------------------------------
 " Charcode
 "----------------------------------------------------
-" 文字コードの自動認識
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
-" 改行コードの自動認識
 set fileformats=unix,dos,mac
-
-"----------------------------------------------------
-" Basic
-"----------------------------------------------------
-" viとの互換性をとらない(vimの独自拡張機能を使う為)
-set nocompatible
-" ビープ音を鳴らさない
-set vb t_vb=
-" バックスペースキーで削除できるものを指定
-" indent  : 行頭の空白
-" eol     : 改行
-" start   : 挿入モード開始位置より手前の文字
-set backspace=indent,eol,start
 
 "----------------------------------------------------
 " Backup
 "----------------------------------------------------
-" バックアップをとらない
 set nobackup
-" ファイルの上書きの前にバックアップする
-" (ただし、backup がオンでない限り、バックアップは上書きに成功した後削除される)
 set writebackup
-" バックアップをとるディレクトリ
-"set backupdir=~/backup
-" スワップファイルを作るディレクトリ
 set directory=/tmp
 
 "----------------------------------------------------
@@ -126,46 +92,22 @@ autocmd QuickFixCmdPost *grep* cwindow
 "----------------------------------------------------
 " Display
 "----------------------------------------------------
-" タイトルをウインドウ枠に表示する
 set title
-" 行番号を表示しない
-set nonumber
-" カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
-" 入力中のコマンドをステータスに表示する
 set showcmd
-" ステータスラインを常に表示
 set laststatus=2
-" 括弧入力時の対応する括弧を表示
 set showmatch
-" シンタックスハイライトを有効にする
 syntax on
-" 検索文字列のハイライトを有効にする
 set hlsearch
-" コマンドライン補完を拡張モードにする
 set wildmenu
 
-" 入力されているテキストの最大幅
-" (行がそれより長くなると、この幅を超えないように空白の後で改行される)を無効にする
 set textwidth=0
-" ウィンドウの幅より長い行は折り返さない
 set nowrap
 
 " 全角スペースの表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
-
-" ステータスラインに表示する情報の指定
-set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
-
-" 行末のスペースを強調表示
-augroup HighlightTrailingSpaces
-    autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
-
 
 set t_Co=256
 
@@ -173,27 +115,17 @@ set t_Co=256
 "----------------------------------------------------
 " Indent
 "----------------------------------------------------
-" オートインデントを有効にする
 set autoindent
-
-" タブが対応する空白の数
 set tabstop=4
-" タブが対応する空白の数
 set softtabstop=4
-" インデントの各段階に使われる空白の数
 set shiftwidth=4
-" タブを挿入するとき、代わりに空白を使う
 set expandtab
 
 "----------------------------------------------------
 " Using X11
 "----------------------------------------------------
 
-autocmd InsertLeave * call DeactIm()
-
-function DeactIm()
-    call system('fcitx-remote -c')
-endfunction
+autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
 nnoremap gp :.!xsel -bo<CR>
@@ -213,70 +145,54 @@ endfor
 "----------------------------------------------------
 
 " Emacs-like key binding when command-mode
-
 cnoremap <C-a> <Home>
-" 一文字戻る
 cnoremap <C-b> <Left>
-" カーソルの下の文字を削除
 cnoremap <C-d> <Del>
-" 行末へ移動
 cnoremap <C-e> <End>
-" 一文字進む
 cnoremap <C-f> <Right>
-" コマンドライン履歴を一つ進む
 cnoremap <C-n> <Down>
-" コマンドライン履歴を一つ戻る
 cnoremap <C-p> <Up>
-" 前の単語へ移動
 cnoremap <M-b> <S-Left>
-" 次の単語へ移動
 cnoremap <M-f> <S-Right>
-" Kill-ring
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
-" NERDTree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" Insert newline
-nnoremap go A<CR><ESC>k
-
-" Delete EOL Whitespace
-nnoremap gwh :%s/\s\+$//<CR>
-
-" Unite
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-
+" like Spacemacs
 let mapleader = "\<Space>"
-nnoremap <Leader>b :Unite buffer<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>x :Commands<CR>
+nnoremap <Leader>f :GFiles<CR>
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+nnoremap <Leader>r :FZFMru<CR>
+nnoremap <Leader>a :Ag<CR>
+nnoremap <Leader>k :bd<CR>
 
-"----------------------------------------------------
+"---------------------------------------------------
 " Others
 "----------------------------------------------------
-" バッファを切替えてもundoの効力を失わない
-set hidden
+set nocompatible
+set vb t_vb= " do not beep
+set hidden " not discard undo after buffers were killed
+autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
-" カーソル位置を記憶する
+" remember cursor position
 autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal g`\"" |
-            \ endif
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
-" 起動時のメッセージを表示しない
-set shortmess+=I
+set ambiwidth=double " for full width problem
 
-" 全角記号崩れの対策
-set ambiwidth=double
+set ttimeoutlen=1 " fast move
 
-" もっさり感を無くす
-set ttimeoutlen=1
-
-" Ignore whitespace in diff
+" Ignore whitespace in diff mode
 if &diff
     " diff mode
     set diffopt+=iwhite
 endif
-
 
 filetype plugin indent on    " required

@@ -42,53 +42,15 @@ for f in ~/.zsh/[0-9]*.(sh|zsh)
 do
     source "$f"
 done
-
-######################
-# show current branch
-#
-# @see
-# http://stackoverflow.com/questions/1128496/to-get-a-prompt-which-indicates-git-branch-in-zsh
-
-# setopt prompt_subst
-# autoload -Uz vcs_info
-# zstyle ':vcs_info:*' actionformats \
-#     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-# zstyle ':vcs_info:*' formats       \
-#     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-#
-# zstyle ':vcs_info:*' enable git cvs svn
-#
-# # or use pre_cmd, see man zshcontrib
-# vcs_info_wrapper() {
-#   vcs_info
-#   if [ -n "$vcs_info_msg_0_" ]; then
-#     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-#   fi
-# }
-# #RPROMPT=$'$(vcs_info_wrapper)'
-# VCS=$'$(vcs_info_wrapper)'
-#
-# local LAST_STATUS=$'%0(?||%18(?||%{\e[31m%}:( ))%#'
-# PROMPT="%n@%m:%~$ ${VCS}
-# ${LAST_STATUS} "
-
 alias rm='echo "This is not the command you are looking for. use trash instead."; false'
 
 function fzf-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        fzf --query "$LBUFFER")
+    BUFFER=$(\history -n 1 | fzf --tac --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
 zle -N fzf-select-history
+bindkey '^r' fzf-select-history
 
 function backward-kill-word-or-region() {
     if [ $REGION_ACTIVE -eq 0 ]; then
@@ -98,11 +60,33 @@ function backward-kill-word-or-region() {
     fi
 }
 zle -N backward-kill-word-or-region
-
 bindkey "^w" backward-kill-word-or-region
-bindkey '^r' fzf-select-history
+
+tig() {
+  local out shas sha q k
+  while out=$(
+      git log --graph --color=always \
+          --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+      fzf --ansi --multi --no-sort --reverse --query="$q" \
+          --print-query --expect=ctrl-d); do
+    q=$(head -1 <<< "$out")
+    k=$(head -2 <<< "$out" | tail -1)
+    shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+    [ -z "$shas" ] && continue
+    if [ "$k" = ctrl-d ]; then
+      git diff --color=always $shas | less -R
+    else
+      for sha in $shas; do
+        git show --color=always $sha | less -R
+      done
+    fi
+  done
+}
 
 if [ "$DISPLAY" ]; then
     # Start tmux if x is running and no tmux is running
     [ `pgrep -c tmux` -eq 0 ] && tmux
 fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
