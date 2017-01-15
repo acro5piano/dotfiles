@@ -3,7 +3,7 @@
 install-dev-package(){
     sudo pacman -S --needed \
         zsh fish vim net-tools inotify-tools bc make git tmux openssh emacs \
-        rsync tree curl jq man at ripgrep ctags zip unzip \
+        rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
         yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
@@ -34,8 +34,6 @@ install-termianl-tool(){
 install-editor-plugin(){
     [ `which cask` ] || \
         curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
-    [ -e $HOME/.vim/bundle ] ||
-        git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
     [ -e $HOME/.vim/plugged ] ||
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
