@@ -14,4 +14,6 @@
 !.emacs.d/conf.d
 !.emacs.d/lisp
 
+.vim/bundle
+
 .subversion
