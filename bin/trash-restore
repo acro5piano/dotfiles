@@ -5,7 +5,7 @@ TRASH_DIR="$HOME/.trash"
 # delete files trashed before 15 days
 find ~/.trash -maxdepth 1 -mtime +15 | xargs rm -rf
 
-target=$(find $TRASH_DIR -maxdepth 3 | peco)
+target=$(find $TRASH_DIR -maxdepth 3 | fzf)
 
 if [ "$target" ]; then
     mv $target .

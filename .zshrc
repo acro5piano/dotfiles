@@ -75,7 +75,7 @@ done
 
 alias rm='echo "This is not the command you are looking for. use trash instead."; false'
 
-function peco-select-history() {
+function fzf-select-history() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -84,11 +84,11 @@ function peco-select-history() {
     fi
     BUFFER=$(\history -n 1 | \
         eval $tac | \
-        peco --query "$LBUFFER")
+        fzf --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-select-history
+zle -N fzf-select-history
 
 function backward-kill-word-or-region() {
     if [ $REGION_ACTIVE -eq 0 ]; then
@@ -100,7 +100,7 @@ function backward-kill-word-or-region() {
 zle -N backward-kill-word-or-region
 
 bindkey "^w" backward-kill-word-or-region
-bindkey '^r' peco-select-history
+bindkey '^r' fzf-select-history
 
 if [ "$DISPLAY" ]; then
     # Start tmux if x is running and no tmux is running
