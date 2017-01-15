@@ -82,12 +82,6 @@ set wrapscan
 " Regard a-b as one word
 set isk+=-
 
-"----------------------------------------------------
-" Quickfix
-"----------------------------------------------------
-" Automatically show Quickfix window after vimgrep
-autocmd QuickFixCmdPost *grep* cwindow
-
 
 "----------------------------------------------------
 " Display
@@ -171,6 +165,9 @@ nnoremap <Leader>r :FZFMru<CR>
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>k :bd<CR>
 
+nnoremap <Leader>t :tag <C-r><C-w>
+" nnoremap <Leader>t :tag
+
 "---------------------------------------------------
 " Others
 "----------------------------------------------------
@@ -194,5 +191,9 @@ if &diff
     " diff mode
     set diffopt+=iwhite
 endif
+
+" Automatically show Quickfix window after vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
+
 
 filetype plugin indent on    " required
