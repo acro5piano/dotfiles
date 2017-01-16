@@ -236,6 +236,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
+    awful.key({ modkey,           }, "p", function () awful.util.spawn("xfce4-screenshooter") end),
     awful.key({ modkey,           }, "s", function () awful.util.spawn("sudo pm-suspend") end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
     -- awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
@@ -276,7 +277,7 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, "z",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
