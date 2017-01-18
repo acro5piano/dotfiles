@@ -52,6 +52,14 @@ install-gui-package(){
     yaourt -S --needed otf-ipaexfont pepper-flash
 }
 
+install-remap(){
+    cd /tmp
+    git clone https://github.com/k0kubun/xremap
+    cd xremap
+    make
+    sudo make install
+}
+
 change-service(){
     start_and_enable(){
         sudo systemctl enable $1
@@ -88,5 +96,6 @@ install-dev-package && \
 install-termianl-tool && \
 install-editor-plugin && \
 install-gui-package && \
+install-xremap && \
 change-service && \
 change-shell
