@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install-dev-package(){
-    sudo pacman -S --needed \
+    sudo pacman -S --needed --noconfirm \
         zsh fish vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
         yaourt docker arch-install-scripts \
