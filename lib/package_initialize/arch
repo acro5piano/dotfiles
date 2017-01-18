@@ -64,12 +64,17 @@ change-service(){
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
-    start_and_enable docker
-    start_and_enable dhcpcd
     add_user_to_group docker
     add_user_to_group sys
     add_user_to_group lp
 
+    sudo systemctl daemon-reload
+    start_and_enable docker
+    start_and_enable dhcpcd
+
+    systemctl --user daemon-reload
+    sudo ln -s $HOME/.xremap /etc/xremap
+    start_and_enable_user xremap
     start_and_enable_user xremap
 }
 
