@@ -15,6 +15,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
@@ -162,7 +163,7 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 nnoremap <Leader>r :FZFMru<CR>
-nnoremap <Leader>a :Ag<CR>
+nnoremap <Leader>a :Ag<Space>
 nnoremap <Leader>k :bd<CR>
 
 nnoremap <Leader>t :tag<Space><C-r><C-w>
