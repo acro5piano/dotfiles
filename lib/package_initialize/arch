@@ -52,7 +52,7 @@ install-gui-package(){
     yaourt -S --needed otf-ipaexfont pepper-flash
 }
 
-install-remap(){
+install-xremap(){
     cd /tmp
     git clone https://github.com/k0kubun/xremap
     cd xremap
