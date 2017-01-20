@@ -400,7 +400,7 @@ Version 2016-07-17"
                         (keyboard-translate ?\C-h ?\C-?))))
 
 (progn
-  (global-set-key (kbd "C-z") nil)
+  (global-set-key (kbd "C-z") 'undo)
   (global-set-key (kbd "C-x C-c") nil)
   (bind-key* "C-+" 'text-scale-increase)
   (bind-key* "C--" 'text-scale-decrease)
