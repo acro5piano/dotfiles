@@ -175,6 +175,13 @@ set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
+autocmd BufWritePre * call s:remove_line_in_last_line()
+
+function! s:remove_line_in_last_line()
+  if getline('$') == ""
+    $delete _
+  endif
+endfunction
 
 " remember cursor position
 autocmd BufReadPost *
