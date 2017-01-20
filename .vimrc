@@ -163,7 +163,7 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 nnoremap <Leader>r :FZFMru<CR>
-nnoremap <Leader>a :Ag<Space>
+nnoremap <Leader>a :Ag<Space><C-r><C-w>
 nnoremap <Leader>k :bd<CR>
 
 nnoremap <Leader>t :tag<Space><C-r><C-w>
