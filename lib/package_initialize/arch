@@ -53,6 +53,7 @@ install-gui-package(){
 }
 
 install-xremap(){
+    which xremap && return
     cd /tmp
     git clone https://github.com/k0kubun/xremap
     cd xremap
@@ -81,7 +82,7 @@ change-service(){
     start_and_enable dhcpcd
 
     systemctl --user daemon-reload
-    sudo ln -s $HOME/.xremap /etc/xremap
+    sudo ln -sf $HOME/.xremap /etc/xremap
     start_and_enable_user xremap
     start_and_enable_user xremap
 }
