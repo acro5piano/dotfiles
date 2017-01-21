@@ -2,7 +2,6 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMModule':<'fcitx'>}"
-
 fcitx-autostart
 
 # Set mime type, or default applications
@@ -16,12 +15,6 @@ xdg-mime default evince.desktop application/pdf
 xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default chromium.desktop text/html
 
-# Concat openbox settings
-#cat ~/.config/openbox/rc.d/* > ~/.config/openbox/rc.xml
-
-# Emacs gui setting
-xrdb ~/.Xresources
-
 # Keyboard repeat frequency
 xset r rate 250
 
@@ -34,7 +27,10 @@ xrandr --output VGA1 --above LVDS1 --mode 1920x1080
 xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 
 # wallpaper
-feh  --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
+feh --bg-fill $HOME/.config/wallpapers/stock-photo-22857547.jpg
+
+# Transparent
+xcompmgr -c &
 
 # Run terminal when not run
 pgrep terminator > /dev/null || terminator &
@@ -47,6 +43,9 @@ synclient TapButton3=1
 
 # keyboard layout customize
 xmodmap $HOME/.xmodmap.d/thinkpad
+
+# Emacs gui setting
+xrdb ~/.Xresources
 
 #exec openbox-session
 exec awesome
