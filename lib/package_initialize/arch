@@ -47,7 +47,6 @@ install-gui-package(){
          terminator chromium pcmanfm dmenu  \
          xsel xfce4-screenshooter xscreensaver acpi pm-utils cups xcompmgr \
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
-         xterm \
          adobe-source-code-pro-fonts
     yaourt -S --needed otf-ipaexfont pepper-flash
 }
