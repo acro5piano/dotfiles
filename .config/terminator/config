@@ -3,15 +3,18 @@
   broadcast_default = off
   enabled_plugins = ,
   scroll_tabbar = True
+  smart_copy = False
 [keybindings]
   broadcast_all = None
   broadcast_group = None
   broadcast_off = None
   close_term = None
   close_window = None
-  copy = None
+  copy = <Primary><Shift>c
   cycle_next = None
   cycle_prev = None
+  edit_tab_title = None
+  edit_terminal_title = None
   edit_window_title = None
   full_screen = None
   go_down = None
@@ -67,7 +70,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.81
+    background_darkness = 0.78
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#ffffff"
