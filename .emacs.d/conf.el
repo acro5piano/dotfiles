@@ -413,6 +413,7 @@ Version 2016-07-17"
   (bind-key* "C-x f" 'ido-find-file)
   (bind-key* "C-x g" 'magit-status)
   (bind-key* "C-x j" 'open-junk-file)
+  (bind-key* "C-x C-q" 'delete-frame)
   (bind-key* "C-x C-k" 'kill-this-buffer)
   (bind-key* "C-x k" 'kill-this-buffer)
   (bind-key* "C-x C-j" 'dired-jump)
