@@ -149,14 +149,20 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-k> <ESC>lc$
 inoremap <M-b> <ESC>lc$
+inoremap <C-d> <ESC>ls
+inoremap <M-d> <ESC>ls
 
 set <M-F>=f
-imap f <M-F>
+map f <M-F>
 inoremap <M-F> <S-Right>
 
 set <M-B>=b
-imap b <M-B>
+map b <M-B>
 inoremap <M-B> <S-Left>
+
+set <M-D>=d
+map d <M-D>
+inoremap <M-D> <ESC>
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
