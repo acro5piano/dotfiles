@@ -10,6 +10,8 @@ xterm*cjkWidth          : true
 xterm*saveLines         : 2000
 xterm*geometry          : 100x30+300+100
 xterm.VT100.EightBitInput: false
+XTerm*metaSendsEscape: true
+
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault

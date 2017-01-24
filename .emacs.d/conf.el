@@ -424,6 +424,7 @@ Version 2016-07-17"
   (bind-key* "C-c m a" 'mc/mark-all-dwim)
   (bind-key* "C-c m l" 'mc/edit-lines)
   (bind-key* "C-c C-." 'er/expand-region)
+  (bind-key* "C-c C-x" 'xclip-add-region)
   (bind-key* "M-." 'xref-find-definitions-other-window)
   (bind-key* "M-g" 'goto-line)
   (bind-key* "M-j" 'join-line)

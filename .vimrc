@@ -140,6 +140,24 @@ endfor
 "----------------------------------------------------
 
 " Emacs-like key binding when command-mode
+" Mainly for japanese input
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-k> <ESC>lc$
+inoremap <M-b> <ESC>lc$
+
+set <M-F>=f
+imap f <M-F>
+inoremap <M-F> <S-Right>
+
+set <M-B>=b
+imap b <M-B>
+inoremap <M-B> <S-Left>
+
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
 cnoremap <C-d> <Del>
@@ -150,7 +168,6 @@ cnoremap <C-p> <Up>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
-
 
 " like Spacemacs
 let mapleader = "\<Space>"
@@ -165,8 +182,9 @@ command! FZFMru call fzf#run({
 nnoremap <Leader>r :FZFMru<CR>
 nnoremap <Leader>a :Ag<Space><C-r><C-w>
 nnoremap <Leader>k :bd<CR>
-
 nnoremap <Leader>t :tag<Space><C-r><C-w>
+nnoremap <Leader>1 <C-w><C-w>:q<CR>
+
 
 "---------------------------------------------------
 " Others
