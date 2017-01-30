@@ -68,7 +68,7 @@
 (setq anzu-use-migemo nil)
 (setq anzu-search-threshold 1000)
 (setq anzu-minimum-input-length 3)
-(setq helm-ag-base-command "rg --vimgrep --no-heading")
+(setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
 ;; 選択範囲をisearch
 (defadvice isearch-mode
