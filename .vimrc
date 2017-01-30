@@ -9,44 +9,21 @@ call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/vim-asterisk'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 " Initialize plugin system
 call plug#end()
 
-"----------------------------------------------------
-" Plugins
-"----------------------------------------------------
-
-" vim-asterisk
-map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
-map g*  <Plug>(asterisk-g*)
-map g#  <Plug>(asterisk-g#)
-map z*  <Plug>(asterisk-z*)
-map gz* <Plug>(asterisk-gz*)
-map z#  <Plug>(asterisk-z#)
-map gz# <Plug>(asterisk-gz#)
-
 " Yggdroot/indentLine
 let g:indentLine_color_term = 5
 
-" vim-over
-nmap <C-h> :OverCommandLine<CR>s/
-nmap <ESC><C-h> :OverCommandLine<CR>%s/
-
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " anzu
 nmap n <Plug>(anzu-n-with-echo)
@@ -83,6 +60,16 @@ set wrapscan
 " Regard a-b as one word
 set isk+=-
 
+let g:ackprg = 'rg --vimgrep --smart-case'
+
+" vim-over
+nmap <C-h> :OverCommandLine<CR>s/
+nmap <ESC><C-h> :OverCommandLine<CR>%s/
+
+" incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 "----------------------------------------------------
 " Display
@@ -186,7 +173,7 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 nnoremap <Leader>r :FZFMru<CR>
-nnoremap <Leader>a :Ag<Space><C-r><C-w>
+nnoremap <Leader>a :Ack<Space><C-r><C-w>
 nnoremap <Leader>k :bd<CR>
 nnoremap <Leader>t :tag<Space><C-r><C-w>
 nnoremap <Leader>1 <C-w><C-w>:q<CR>
@@ -199,13 +186,6 @@ set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
-autocmd BufWritePre * call s:remove_line_in_last_line()
-
-function! s:remove_line_in_last_line()
-  if getline('$') == ""
-    $delete _
-  endif
-endfunction
 
 " remember cursor position
 autocmd BufReadPost *
@@ -217,14 +197,7 @@ set ambiwidth=double " for full width problem
 
 set ttimeoutlen=1 " fast move
 
-" Ignore whitespace in diff mode
-if &diff
-    " diff mode
-    set diffopt+=iwhite
-endif
-
 " Automatically show Quickfix window after vimgrep
-autocmd QuickFixCmdPost *grep* cwindow
-
+" autocmd QuickFixCmdPost *grep* cwindow
 
 filetype plugin indent on    " required
