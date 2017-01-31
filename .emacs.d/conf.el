@@ -354,11 +354,6 @@ Version 2016-07-17"
 ;;; GUI only settings
 (if window-system
     (progn
-
-      (bind-key* "C-M-h" 'ido-delete-backward-word-updir)
-      (bind-key* "M-%" 'anzu-query-replace)
-      (bind-key* "C-M-%" 'anzu-query-replace-regexp)
-
       (setq ns-use-srgb-colorspace nil)
 
       (color-theme-solarized)
@@ -375,9 +370,6 @@ Version 2016-07-17"
 
 (if (not window-system)
     (progn
-      ;; anzu
-      (bind-key* "C-]" 'anzu-query-replace)   ;; C-5 compatible
-      (bind-key* "M-5" 'anzu-query-replace-regexp)
 
       ;; linum style
       (set-face-attribute 'linum nil
@@ -393,56 +385,77 @@ Version 2016-07-17"
           (lambda (f) (with-selected-frame f
                         (keyboard-translate ?\C-h ?\C-?))))
 
-(progn
-  (global-set-key (kbd "C-z") 'undo)
-  (global-set-key (kbd "C-x C-c") nil)
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-x C-c") nil)
 
-  (bind-keys*
-   ("C-u C-j" . dired-jump-other-window)
-   ("C-u C-s" . helm-swoop)
-   ("C-u C-SPC" . helm-mark-ring)
-   ("C-u C-f" . projectile-find-file)
-   ("C-x C-b" . ido-switch-buffer)
-   ("C-x f" . ido-find-file)
-   ("C-x g" . magit-status)
-   ("C-x j" . open-junk-file)
-   ("C-x C-q" . delete-frame)
-   ("C-x C-k" . kill-this-buffer)
-   ("C-x k" . kill-this-buffer)
-   ("C-x C-j" . dired-jump)
-   ("C-x o" . other-window)
-   ("C-x C-o" . other-window)
-   ("C-x p" . helm-do-ag-project-root)
-   ("C-x C-r" . ido-recentf-open)
-   ("C-c m a" . mc/mark-all-dwim)
-   ("C-c m l" . mc/edit-lines)
-   ("C-c C-." . er/expand-region)
-   ("C-c C-x" . xclip-add-region)
-   ("M-." . xref-find-definitions-other-window)
-   ("M-g" . goto-line)
-   ("M-j" . join-line)
-   ("M-x" . smex)
-   ("M-y" . browse-kill-ring)
-   ("M-z" . zap-up-to-char))
+(bind-keys*
+ ("C-u C-s" . helm-swoop)
+ ("C-u C-SPC" . helm-mark-ring)
+ ("C-x g" . magit-status)
+ ("C-x j" . open-junk-file)
+ ("C-x o" . other-window)
+ ("C-x C-o" . other-window)
+ ("C-c m a" . mc/mark-all-dwim)
+ ("C-c m l" . mc/edit-lines)
+ ("C-c m s" . mc/mark-all-words-like-this)
+ ("C-c C-x" . xclip-add-region)
+ ("C-x f" . ido-find-file))
 
-  (bind-keys :map evil-normal-state-map
-            ("TAB" . indent-for-tab-command)
-            ("SPC f" . projectile-find-file)
-            ("SPC a" . helm-do-ag-project-root)
-            ("SPC b" . ido-switch-buffer))
-  (bind-keys :map evil-insert-state-map
-            ("C-g" . evil-normal-state))
+(if (evil-mode)
+    (progn
+      (bind-keys :map evil-visual-state-map
+                 ("TAB" . indent-for-tab-command))
+      (bind-keys :map evil-normal-state-map
+                 ("SPC b" . ido-switch-buffer)
+                 ("SPC f" . projectile-find-file)
+                 ("SPC a" . helm-do-ag-project-root)
+                 ("SPC x" . smex)
+                 ("SPC s" . save-buffer)
+                 ("SPC d" . dired-jump)
+                 ("SPC k" . kill-this-buffer)
+                 ("SPC r" . ido-recentf-open)
+                 ("SPC 1" . delete-other-windows)
+                 ("SPC 0" . delete-window)
+                 ("SPC q" . delete-frame)
+                 ("SPC t" . xref-find-definitions-other-window)
+                 ("SPC y" . browse-kill-ring)
+                 ("SPC u" . undo-tree)
+                 ("TAB" . indent-for-tab-command))
+      (bind-keys :map evil-insert-state-map
+                 ("C-g" . evil-normal-state)))
+  (progn
+      (bind-keys*
+       ("C-u C-j" . dired-jump-other-window)
+       ("C-u C-SPC" . helm-mark-ring)
+       ("C-x C-q" . delete-frame)
+       ("C-x C-k" . kill-this-buffer)
+       ("C-x k" . kill-this-buffer)
+       ("C-x C-j" . dired-jump)
+       ("C-x p" . helm-do-ag-project-root)
+       ("C-x C-r" . ido-recentf-open)
+       ("C-c C-." . er/expand-region)
+       ("M-." . xref-find-definitions-other-window)
+       ("M-g" . goto-line)
+       ("M-j" . join-line)
+       ("M-x" . smex)
+       ("M-y" . browse-kill-ring)
+       ("M-z" . zap-up-to-char))))
 
-  (bind-keys :map mozc-mode-map
-             ("q" . mozc-end)
-             ("C-g" . mozc-end)
-             ("C-x h" . mark-whole-buffer)
-             ("C-x C-s" . save-buffer))
 
-  (bind-keys*
-   ("<henkan>" . mozc-start)
-   ("C-+" . text-scale-increase)
-   ("C--" . text-scale-decrease)))
+(if window-system
+    (progn
+      (bind-keys :map mozc-mode-map
+                 ("q" . mozc-end)
+                 ("C-g" . mozc-end)
+                 ("C-x h" . mark-whole-buffer)
+                 ("C-x C-s" . save-buffer))
+      (bind-keys*
+       ("<henkan>" . mozc-start)
+       ("C-+" . text-scale-increase)
+       ("C--" . text-scale-decrease)
+       ("C-M-h" . ido-delete-backward-word-updir)
+       ("M-%" . anzu-query-replace)
+       ("C-M-%" . anzu-query-replace-regexp))))
 
 ;;; Set UTF-8 to default
 
