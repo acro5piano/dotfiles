@@ -21,6 +21,7 @@
 
 .vim/*
 !.vim/after
+!.vim/indent
 !.vim/ftplugin
 !.vim/filetype.vim
 
