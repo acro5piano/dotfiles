@@ -23,7 +23,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ripgrep helm-projectile helm-ag-r icicles projectile typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
+    (evil ripgrep helm-projectile helm-ag-r icicles projectile typescript-mode yaml-mode websocket web-mode undo-tree twittering-mode summarye smex smartrep scss-mode request recentf-ext rainbow-mode powerline php-mode open-junk-file multiple-cursors mozc migemo markdown-mode magit lua-mode js2-mode init-loader iedit ido-vertical-mode ido-ubiquitous htmlize helm-swoop helm-ghq helm-ag haml-mode goto-chg go-mode flycheck find-file-in-project expand-region editorconfig dashboard ctags-update ctags company color-theme-solarized coffee-mode chatwork cask browse-kill-ring bind-key auto-complete anzu ace-link)))
  '(read-file-name-completion-ignore-case t))
 
 ;; font, font-size, etc

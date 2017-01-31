@@ -15,6 +15,7 @@
 (require 'color-theme)
 (require 'color-theme-solarized)
 (require 'expand-region)
+(require 'evil)
 (require 'go-mode)
 (require 'haml-mode)
 (require 'ido)
@@ -111,6 +112,8 @@
 (global-undo-tree-mode)
 
 ;;; Edit
+
+(evil-mode 1)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -381,15 +384,6 @@ Version 2016-07-17"
                           :foreground "#ccc"
                           :background "Gray23")))
 
-;;; others
-(defun reopen-with-sudo ()
-  "Reopen current buffer-file with sudo using tramp."
-  (interactive)
-  (let ((file-name (buffer-file-name)))
-    (if file-name
-        (find-alternate-file (concat "/sudo::" file-name))
-      (error "Cannot get a file name"))))
-
 (defalias 'exit 'save-buffers-kill-emacs)
 
 ;;; Key bindings
@@ -402,42 +396,53 @@ Version 2016-07-17"
 (progn
   (global-set-key (kbd "C-z") 'undo)
   (global-set-key (kbd "C-x C-c") nil)
-  (bind-key* "C-+" 'text-scale-increase)
-  (bind-key* "C--" 'text-scale-decrease)
-  (bind-key* "C-u C-j" 'dired-jump-other-window)
-  (bind-key* "C-u C-s" 'helm-swoop)
-  (bind-key* "C-u C-SPC" 'helm-mark-ring)
-  (bind-key* "C-u C-f" 'projectile-find-file)
-  (bind-key* "C-x C-b" 'ido-switch-buffer)
-  (bind-key* "C-x d" 'ido-dired)
-  (bind-key* "C-x f" 'ido-find-file)
-  (bind-key* "C-x g" 'magit-status)
-  (bind-key* "C-x j" 'open-junk-file)
-  (bind-key* "C-x C-q" 'delete-frame)
-  (bind-key* "C-x C-k" 'kill-this-buffer)
-  (bind-key* "C-x k" 'kill-this-buffer)
-  (bind-key* "C-x C-j" 'dired-jump)
-  (bind-key* "C-x o" 'other-window)
-  (bind-key* "C-x C-o" 'other-window)
-  (bind-key* "C-x p" 'helm-do-ag-project-root)
-  (bind-key* "C-x C-r" 'ido-recentf-open)
-  (bind-key* "C-c m a" 'mc/mark-all-dwim)
-  (bind-key* "C-c m l" 'mc/edit-lines)
-  (bind-key* "C-c C-." 'er/expand-region)
-  (bind-key* "C-c C-x" 'xclip-add-region)
-  (bind-key* "M-." 'xref-find-definitions-other-window)
-  (bind-key* "M-g" 'goto-line)
-  (bind-key* "M-j" 'join-line)
-  (bind-key* "M-x" 'smex)
-  (bind-key* "M-y" 'browse-kill-ring)
-  (bind-key* "M-z" 'zap-up-to-char)
-  (bind-key* "<menu>" 'mozc-start)
-  (bind-key* "<henkan>" 'mozc-start)
 
-  (bind-key "q" 'mozc-end mozc-mode-map)
-  (bind-key "C-g" 'mozc-end mozc-mode-map)
-  (bind-key "C-x h" 'mark-whole-buffer mozc-mode-map)
-  (bind-key "C-x C-s" 'save-buffer mozc-mode-map))
+  (bind-keys*
+   ("C-u C-j" . dired-jump-other-window)
+   ("C-u C-s" . helm-swoop)
+   ("C-u C-SPC" . helm-mark-ring)
+   ("C-u C-f" . projectile-find-file)
+   ("C-x C-b" . ido-switch-buffer)
+   ("C-x f" . ido-find-file)
+   ("C-x g" . magit-status)
+   ("C-x j" . open-junk-file)
+   ("C-x C-q" . delete-frame)
+   ("C-x C-k" . kill-this-buffer)
+   ("C-x k" . kill-this-buffer)
+   ("C-x C-j" . dired-jump)
+   ("C-x o" . other-window)
+   ("C-x C-o" . other-window)
+   ("C-x p" . helm-do-ag-project-root)
+   ("C-x C-r" . ido-recentf-open)
+   ("C-c m a" . mc/mark-all-dwim)
+   ("C-c m l" . mc/edit-lines)
+   ("C-c C-." . er/expand-region)
+   ("C-c C-x" . xclip-add-region)
+   ("M-." . xref-find-definitions-other-window)
+   ("M-g" . goto-line)
+   ("M-j" . join-line)
+   ("M-x" . smex)
+   ("M-y" . browse-kill-ring)
+   ("M-z" . zap-up-to-char))
+
+  (bind-keys :map evil-normal-state-map
+            ("TAB" . indent-for-tab-command)
+            ("SPC f" . projectile-find-file)
+            ("SPC a" . helm-do-ag-project-root)
+            ("SPC b" . ido-switch-buffer))
+  (bind-keys :map evil-insert-state-map
+            ("C-g" . evil-normal-state))
+
+  (bind-keys :map mozc-mode-map
+             ("q" . mozc-end)
+             ("C-g" . mozc-end)
+             ("C-x h" . mark-whole-buffer)
+             ("C-x C-s" . save-buffer))
+
+  (bind-keys*
+   ("<henkan>" . mozc-start)
+   ("C-+" . text-scale-increase)
+   ("C--" . text-scale-decrease)))
 
 ;;; Set UTF-8 to default
 
