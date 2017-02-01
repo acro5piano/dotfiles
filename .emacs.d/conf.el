@@ -15,7 +15,6 @@
 (require 'color-theme)
 (require 'color-theme-solarized)
 (require 'expand-region)
-(require 'evil)
 (require 'go-mode)
 (require 'haml-mode)
 (require 'ido)
@@ -33,11 +32,9 @@
 (require 'rainbow-mode)
 (require 'recentf)
 (require 'recentf-ext)
-(require 'saveplace)
 (require 'scss-mode)
 (require 'server)
 (require 'smex)
-(require 'summarye)
 (require 'typescript-mode)
 (require 'twittering-mode)
 (require 'undo-tree)
@@ -113,7 +110,6 @@
 
 ;;; Edit
 
-(evil-mode 1)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -391,6 +387,10 @@ Version 2016-07-17"
 (bind-keys*
  ("C-u C-s" . helm-swoop)
  ("C-u C-SPC" . helm-mark-ring)
+ ("C-x b" . ido-switch-buffer)
+ ("C-x C-b" . ido-switch-buffer)
+ ("C-x b" . smex)
+ ("M-x" . smex)
  ("C-x g" . magit-status)
  ("C-x j" . open-junk-file)
  ("C-x o" . other-window)
@@ -399,47 +399,21 @@ Version 2016-07-17"
  ("C-c m l" . mc/edit-lines)
  ("C-c m s" . mc/mark-all-words-like-this)
  ("C-c C-x" . xclip-add-region)
- ("C-x f" . ido-find-file))
-
-(if (evil-mode)
-    (progn
-      (bind-keys :map evil-visual-state-map
-                 ("TAB" . indent-for-tab-command))
-      (bind-keys :map evil-normal-state-map
-                 ("SPC b" . ido-switch-buffer)
-                 ("SPC f" . projectile-find-file)
-                 ("SPC a" . helm-do-ag-project-root)
-                 ("SPC x" . smex)
-                 ("SPC s" . save-buffer)
-                 ("SPC d" . dired-jump)
-                 ("SPC k" . kill-this-buffer)
-                 ("SPC r" . ido-recentf-open)
-                 ("SPC 1" . delete-other-windows)
-                 ("SPC 0" . delete-window)
-                 ("SPC q" . delete-frame)
-                 ("SPC t" . xref-find-definitions-other-window)
-                 ("SPC y" . browse-kill-ring)
-                 ("SPC u" . undo-tree)
-                 ("TAB" . indent-for-tab-command))
-      (bind-keys :map evil-insert-state-map
-                 ("C-g" . evil-normal-state)))
-  (progn
-      (bind-keys*
-       ("C-u C-j" . dired-jump-other-window)
-       ("C-u C-SPC" . helm-mark-ring)
-       ("C-x C-q" . delete-frame)
-       ("C-x C-k" . kill-this-buffer)
-       ("C-x k" . kill-this-buffer)
-       ("C-x C-j" . dired-jump)
-       ("C-x p" . helm-do-ag-project-root)
-       ("C-x C-r" . ido-recentf-open)
-       ("C-c C-." . er/expand-region)
-       ("M-." . xref-find-definitions-other-window)
-       ("M-g" . goto-line)
-       ("M-j" . join-line)
-       ("M-x" . smex)
-       ("M-y" . browse-kill-ring)
-       ("M-z" . zap-up-to-char))))
+ ("C-x f" . ido-find-file)
+ ("C-u C-j" . dired-jump-other-window)
+ ("C-x C-q" . delete-frame)
+ ("C-x C-k" . kill-this-buffer)
+ ("C-x k" . kill-this-buffer)
+ ("C-x C-j" . dired-jump)
+ ("C-x p" . helm-do-ag-project-root)
+ ("C-x C-r" . ido-recentf-open)
+ ("C-c C-." . er/expand-region)
+ ("M-." . xref-find-definitions-other-window)
+ ("M-g" . goto-line)
+ ("M-j" . join-line)
+ ("M-x" . smex)
+ ("M-y" . browse-kill-ring)
+ ("M-z" . zap-up-to-char))
 
 
 (if window-system
