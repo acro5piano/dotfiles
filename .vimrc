@@ -1,5 +1,5 @@
 "----------------------------------------------------
-" vundle
+" vim-plug
 "----------------------------------------------------
 filetype off                  " required
 filetype plugin indent off    " required
@@ -130,8 +130,8 @@ set completeopt=menuone
 " Mainly for japanese input
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
+" inoremap <C-n> <Down>
+" inoremap <C-p> <Up>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-k> <ESC>lc$
@@ -177,6 +177,10 @@ nnoremap <Leader>a :Ack<Space><C-r><C-w>
 nnoremap <Leader>k :bd<CR>
 nnoremap <Leader>t :tag<Space><C-r><C-w>
 nnoremap <Leader>1 <C-w><C-w>:q<CR>
+nnoremap <Leader>0 :q<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :qa<CR>
+nnoremap <Leader><Leader>q :qa!<CR>
 
 
 "---------------------------------------------------

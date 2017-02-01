@@ -386,6 +386,7 @@ Version 2016-07-17"
 
 (bind-keys*
  ("C-u C-s" . helm-swoop)
+ ("C-u C-f" . projectile-find-file)
  ("C-u C-SPC" . helm-mark-ring)
  ("C-x b" . ido-switch-buffer)
  ("C-x C-b" . ido-switch-buffer)
