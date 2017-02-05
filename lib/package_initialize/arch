@@ -37,14 +37,13 @@ install-editor-plugin(){
     [ -e $HOME/.vim/plugged ] ||
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 }
 
 install-gui-package(){
     sudo pacman -S --needed  \
          xorg xorg-xinit wmctrl synaptics xorg-xbacklight  awesome \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
-         terminator chromium pcmanfm dmenu  \
+         terminator chromium pcmanfm dmenu volumeicon \
          xsel xfce4-screenshooter xscreensaver acpi pm-utils cups xcompmgr \
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
          adobe-source-code-pro-fonts
@@ -82,7 +81,6 @@ change-service(){
 
     systemctl --user daemon-reload
     sudo ln -sf $HOME/.xremap /etc/xremap
-    start_and_enable_user xremap
     start_and_enable_user xremap
 }
 

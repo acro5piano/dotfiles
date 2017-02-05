@@ -350,8 +350,6 @@ Version 2016-07-17"
 ;;; GUI only settings
 (if window-system
     (progn
-      (setq ns-use-srgb-colorspace nil)
-
       (color-theme-solarized)
       (powerline-default-theme)
 
