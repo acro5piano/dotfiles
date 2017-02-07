@@ -129,16 +129,6 @@ endfor
 "----------------------------------------------------
 
 " Emacs-like key binding when command-mode
-" Mainly for japanese input
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-" inoremap <C-n> <Down>
-" inoremap <C-p> <Up>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-k> <ESC>lc$
-inoremap <C-d> <ESC>ls
-
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
 cnoremap <C-d> <Del>
@@ -168,6 +158,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader><Leader>q :qa!<CR>
 nnoremap <Leader>o <C-w><C-w>
+
+nnoremap go o<ESC>k
+
 
 "---------------------------------------------------
 " Others
