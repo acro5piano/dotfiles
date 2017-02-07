@@ -147,7 +147,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -232,7 +232,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -312,71 +312,51 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; show line number
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
   (global-linum-mode t)
+  (scroll-bar-mode -1)
+  (global-hl-line-mode)
 
-  ;; バッファ自動再読み込み
-  (global-auto-revert-mode 1)
-  ;; シンボリックリンクの読み込みを許可
-  (setq vc-follow-symlinks t)
-  ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
-  (setq auto-revert-check-vc-info t)
+;;; Mozc settings
+  (set-language-environment "Japanese")
+  (setq default-input-method "japanese-mozc")
+  ;; (setq mozc-candidate-style 'overlay)
+  (setq mozc-candidate-style 'echo-area)
 
-  ;; Use auto indent
-  (setq-default indent-tabs-mode nil)
-  (electric-indent-mode 1)
+  (defun mozc-start()
+    (interactive)
+    (set-cursor-color "blue")
+    (message "Mozc start")
+    (mozc-mode 1))
 
-  ;; I never use C-x C-c
-  (bind-key "C-x C-c" 'nil)
+  (defun mozc-end()
+    (interactive)
+    (set-cursor-color "gray")
+    (message "Mozc end")
+    (mozc-mode -1))
 
   (keyboard-translate ?\C-h ?\C-?)
   (add-hook 'after-make-frame-functions
             (lambda (f) (with-selected-frame f
-                          (keyboard-translate ?\C-h ?\C-?)
-                          )))
+                          (keyboard-translate ?\C-h ?\C-?))))
 
-  (setq anzu-use-migemo nil)
-  (setq anzu-search-threshold 1000)
-  (setq anzu-minimum-input-length 3)
-  (bind-key* "M-%" 'anzu-query-replace)
-  (bind-key* "C-M-%" 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-z") 'undo)
+  (global-set-key (kbd "C-x C-c") nil)
+  (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
-  ;; Set UTF-8 to default
-
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-buffer-file-coding-system 'utf-8)
-  (setq default-buffer-file-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (prefer-coding-system 'utf-8)
-  (setq coding-system-for-read 'utf-8)
-  (setq coding-system-for-write 'utf-8)
-
-  ;; Mozc settings
-  (require 'mozc)
-  (set-language-environment "Japanese")
-  (setq default-input-method "japanese-mozc")
-  (bind-key* "C-."
-            (lambda()
-              (interactive)
-              (mozc-mode 1)))
-  (bind-keys* :map 'mozc-mode-map
-              ("C-," .
-              (lambda()
-                (interactive)
-                (mozc-mode -1)))
-              ("C-n" 'mozc-handle-event)
-              ("C-p" 'mozc-handle-event))
-  (add-hook 'mozc-mode-hook
-            (lambda ()
-              (message "hello, mozc world")
-              (keyboard-translate (kbd "C-n") (kbd "<Down>"))
-              ))
-
-  (add-hook 'helm-mini (lambda()
-                         (mozc-mode -1)))
-  (add-hook 'helm-M-x (lambda()
-                         (mozc-mode -1)))
+  (bind-keys :map mozc-mode-map
+             ("q" . mozc-end)
+             ("C-g" . mozc-end)
+             ("C-x h" . mark-whole-buffer)
+             ("C-x C-s" . save-buffer))
+  (bind-keys*
+   ("<henkan>" . mozc-start)
+   ("C-+" . text-scale-increase)
+   ("C--" . text-scale-decrease)
+   ("C-M-h" . ido-delete-backward-word-updir)
+   ("M-%" . anzu-query-replace)
+   ("C-M-%" . anzu-query-replace-regexp))
 
   )
 
