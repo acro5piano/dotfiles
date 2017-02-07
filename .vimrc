@@ -72,7 +72,7 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 "----------------------------------------------------
-" Display
+" Face
 "----------------------------------------------------
 set title
 nnoremap j gj
@@ -92,6 +92,8 @@ highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
 set t_Co=256
+
+colorscheme elflord
 
 
 "----------------------------------------------------
