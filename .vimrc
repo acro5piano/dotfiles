@@ -163,7 +163,6 @@ nnoremap <Leader>t :tag<Space><C-r><C-w>
 nnoremap <Leader>1 <C-w><C-w>:q<CR>
 nnoremap <Leader>0 :q<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader><Leader>q :qa!<CR>
 nnoremap <Leader>o <C-w><C-w>
