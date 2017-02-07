@@ -118,9 +118,9 @@ vmap <C-c> :w !xsel -ib<CR><CR>
 "----------------------------------------------------
 
 set completeopt=menuone
-"for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-"    exec "imap " . k . " " . k . "<C-N><C-P>"
-"endfor
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+   exec "imap " . k . " " . k . "<C-n><C-p>"
+endfor
 
 "----------------------------------------------------
 " Remap keys
@@ -135,21 +135,7 @@ inoremap <C-e> <End>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-k> <ESC>lc$
-inoremap <M-b> <ESC>lc$
 inoremap <C-d> <ESC>ls
-inoremap <M-d> <ESC>ls
-
-set <M-F>=f
-map f <M-F>
-inoremap <M-F> <S-Right>
-
-set <M-B>=b
-map b <M-B>
-inoremap <M-B> <S-Left>
-
-set <M-D>=d
-map d <M-D>
-inoremap <M-D> <ESC>
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
@@ -158,8 +144,6 @@ cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
@@ -179,9 +163,10 @@ nnoremap <Leader>t :tag<Space><C-r><C-w>
 nnoremap <Leader>1 <C-w><C-w>:q<CR>
 nnoremap <Leader>0 :q<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader><Leader>q :qa!<CR>
-
+nnoremap <Leader>o <C-w><C-w>
 
 "---------------------------------------------------
 " Others
@@ -201,7 +186,3 @@ set ambiwidth=double " for full width problem
 
 set ttimeoutlen=1 " fast move
 
-" Automatically show Quickfix window after vimgrep
-" autocmd QuickFixCmdPost *grep* cwindow
-
-filetype plugin indent on    " required
