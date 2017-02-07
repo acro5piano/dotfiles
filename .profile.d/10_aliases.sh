@@ -24,6 +24,7 @@ alias sum="awk '{a+=\$1}END{print a}'"
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias ycal='cal `date +%Y`'
 alias wi='sudo wifi-menu'
+alias trim_empty_line="perl -pe 's/^\n$//g'"
 
 mozc(){
     case $1 in
