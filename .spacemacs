@@ -32,6 +32,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     vimscript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -111,7 +112,6 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   ;; これは悩ましい・・・！全部捨てがたい！！
    ;; dotspacemacs-editing-style 'emacs
    ;; dotspacemacs-editing-style 'hybrid
    dotspacemacs-editing-style 'hybrid
@@ -147,7 +147,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -232,7 +232,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -282,7 +282,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -312,71 +312,49 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; show line number
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
   (global-linum-mode t)
+  (scroll-bar-mode -1)
+  (global-hl-line-mode)
 
-  ;; バッファ自動再読み込み
-  (global-auto-revert-mode 1)
-  ;; シンボリックリンクの読み込みを許可
-  (setq vc-follow-symlinks t)
-  ;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
-  (setq auto-revert-check-vc-info t)
+  ;; Mozc settings
+  (set-language-environment "Japanese")
+  (setq default-input-method "japanese-mozc")
+  (setq mozc-candidate-style 'echo-area)
 
-  ;; Use auto indent
-  (setq-default indent-tabs-mode nil)
-  (electric-indent-mode 1)
+  (defun mozc-start()
+    (interactive)
+    (set-cursor-color "blue")
+    (message "Mozc start")
+    (mozc-mode 1))
 
-  ;; I never use C-x C-c
-  (bind-key "C-x C-c" 'nil)
+  (defun mozc-end()
+    (interactive)
+    (set-cursor-color "gray")
+    (message "Mozc end")
+    (mozc-mode -1))
 
   (keyboard-translate ?\C-h ?\C-?)
   (add-hook 'after-make-frame-functions
             (lambda (f) (with-selected-frame f
-                          (keyboard-translate ?\C-h ?\C-?)
-                          )))
+                          (keyboard-translate ?\C-h ?\C-?))))
 
-  (setq anzu-use-migemo nil)
-  (setq anzu-search-threshold 1000)
-  (setq anzu-minimum-input-length 3)
-  (bind-key* "M-%" 'anzu-query-replace)
-  (bind-key* "C-M-%" 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-x C-c") nil)
+  (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
-  ;; Set UTF-8 to default
-
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-buffer-file-coding-system 'utf-8)
-  (setq default-buffer-file-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (prefer-coding-system 'utf-8)
-  (setq coding-system-for-read 'utf-8)
-  (setq coding-system-for-write 'utf-8)
-
-  ;; Mozc settings
-  (require 'mozc)
-  (set-language-environment "Japanese")
-  (setq default-input-method "japanese-mozc")
-  (bind-key* "C-."
-            (lambda()
-              (interactive)
-              (mozc-mode 1)))
-  (bind-keys* :map 'mozc-mode-map
-              ("C-," .
-              (lambda()
-                (interactive)
-                (mozc-mode -1)))
-              ("C-n" 'mozc-handle-event)
-              ("C-p" 'mozc-handle-event))
-  (add-hook 'mozc-mode-hook
-            (lambda ()
-              (message "hello, mozc world")
-              (keyboard-translate (kbd "C-n") (kbd "<Down>"))
-              ))
-
-  (add-hook 'helm-mini (lambda()
-                         (mozc-mode -1)))
-  (add-hook 'helm-M-x (lambda()
-                         (mozc-mode -1)))
+  (bind-keys :map mozc-mode-map
+             ("q" . mozc-end)
+             ("C-g" . mozc-end)
+             ("C-x h" . mark-whole-buffer)
+             ("C-x C-s" . save-buffer))
+  (bind-keys*
+   ("<henkan>" . mozc-start)
+   ("C-+" . text-scale-increase)
+   ("C--" . text-scale-decrease)
+   ("C-M-h" . ido-delete-backward-word-updir)
+   ("M-%" . anzu-query-replace)
+   ("C-M-%" . anzu-query-replace-regexp))
 
   )
 
@@ -391,7 +369,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

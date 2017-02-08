@@ -11,6 +11,7 @@
 (depends-on "color-theme-solarized")
 (depends-on "editorconfig")
 (depends-on "expand-region")
+(depends-on "evil")
 (depends-on "flycheck")
 (depends-on "fuzzy")
 (depends-on "go-mode")
@@ -38,6 +39,7 @@
 (depends-on "typescript-mode")
 (depends-on "undo-tree")
 (depends-on "web-mode")
+(depends-on "which-key")
 (depends-on "yaml-mode")
 
 

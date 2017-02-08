@@ -19,6 +19,14 @@
 !.emacs.d/conf.d
 !.emacs.d/lisp
 
+.emacs.d.bak/*
+!.emacs.d.bak/init.el
+!.emacs.d.bak/Cask
+!.emacs.d.bak/conf.el
+!.emacs.d.bak/terminal.el
+!.emacs.d.bak/conf.d
+!.emacs.d.bak/lisp
+
 .vim/*
 !.vim/after
 !.vim/indent
@@ -28,3 +36,4 @@
 tags
 TAGS
 .subversion
+/.cache
