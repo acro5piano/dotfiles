@@ -112,7 +112,6 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   ;; これは悩ましい・・・！全部捨てがたい！！
    ;; dotspacemacs-editing-style 'emacs
    ;; dotspacemacs-editing-style 'hybrid
    dotspacemacs-editing-style 'hybrid
@@ -283,7 +282,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -341,7 +340,6 @@ you should place your code here."
             (lambda (f) (with-selected-frame f
                           (keyboard-translate ?\C-h ?\C-?))))
 
-  (global-set-key (kbd "C-z") 'undo)
   (global-set-key (kbd "C-x C-c") nil)
   (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
