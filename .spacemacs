@@ -32,6 +32,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     vimscript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -318,10 +319,9 @@ you should place your code here."
   (scroll-bar-mode -1)
   (global-hl-line-mode)
 
-;;; Mozc settings
+  ;; Mozc settings
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
-  ;; (setq mozc-candidate-style 'overlay)
   (setq mozc-candidate-style 'echo-area)
 
   (defun mozc-start()
@@ -371,7 +371,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -39,6 +39,7 @@
 (require 'twittering-mode)
 (require 'undo-tree)
 (require 'web-mode)
+(require 'which-key)
 (require 'yaml-mode)
 
 ;;; Dired
@@ -373,6 +374,8 @@ Version 2016-07-17"
 (defalias 'exit 'save-buffers-kill-emacs)
 
 ;;; Key bindings
+
+(which-key-mode t)
 
 (keyboard-translate ?\C-h ?\C-?)
 (add-hook 'after-make-frame-functions
