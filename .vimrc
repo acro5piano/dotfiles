@@ -128,7 +128,14 @@ endfor
 " Remap keys
 "----------------------------------------------------
 
-" Emacs-like key binding when command-mode
+" Emacs-like key binding
+inoremap <C-a> <Home>
+inoremap <C-b> <Left>
+inoremap <C-d> <Del>
+inoremap <C-e> <End>
+inoremap <C-f> <Right>
+inoremap <C-k> <ESC>lc$
+
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
 cnoremap <C-d> <Del>
