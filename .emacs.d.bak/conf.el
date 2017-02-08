@@ -15,6 +15,7 @@
 (require 'color-theme)
 (require 'color-theme-solarized)
 (require 'expand-region)
+(require 'evil)
 (require 'go-mode)
 (require 'haml-mode)
 (require 'ido)
@@ -373,6 +374,9 @@ Version 2016-07-17"
 
 (defalias 'exit 'save-buffers-kill-emacs)
 
+;;; evil
+(defalias 'evil-insert-state 'evil-emacs-state)
+
 ;;; Key bindings
 
 (which-key-mode t)
@@ -417,6 +421,26 @@ Version 2016-07-17"
  ("M-y" . browse-kill-ring)
  ("M-z" . zap-up-to-char))
 
+(bind-keys :map evil-visual-state-map
+           ("TAB" . indent-for-tab-command))
+(bind-keys :map evil-normal-state-map
+           ("SPC b" . ido-switch-buffer)
+           ("SPC f" . projectile-find-file)
+           ("SPC a" . helm-do-ag-project-root)
+           ("SPC x" . smex)
+           ("SPC s" . save-buffer)
+           ("SPC d" . dired-jump)
+           ("SPC k" . kill-this-buffer)
+           ("SPC r" . ido-recentf-open)
+           ("SPC 1" . delete-other-windows)
+           ("SPC 0" . delete-window)
+           ("SPC q" . delete-frame)
+           ("SPC t" . xref-find-definitions-other-window)
+           ("SPC y" . browse-kill-ring)
+           ("SPC u" . undo-tree)
+           ("TAB" . indent-for-tab-command))
+
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
 
 (if window-system
     (progn
