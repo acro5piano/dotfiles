@@ -390,7 +390,6 @@ you should place your code here."
   (global-set-key (kbd "C-x C-c") nil)
 
   (bind-keys*
-   ("C-." . other-window)               ; for term-mode
    ("<henkan>" . mozc-start)
    ("C-+" . text-scale-increase)
    ("C--" . text-scale-decrease)
@@ -402,9 +401,6 @@ you should place your code here."
              ("C-g" . mozc-end)
              ("C-x h" . mark-whole-buffer)
              ("C-x C-s" . save-buffer))
-
-  (bind-keys :map evil-normal-state-map
-             ("C-." . other-window))
 
   )
 
