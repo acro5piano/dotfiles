@@ -147,24 +147,27 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>x :Commands<CR>
-nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader><Leader> :Commands<CR>
+nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>q! :qa!<CR>
+nnoremap <Leader>qq :qa<CR>
+nnoremap <Leader>sap :Ack<Space><C-r><C-w>
+nnoremap <Leader>t :tag<Space><C-r><C-w>
+nnoremap <Leader>wd :q<CR>
+nnoremap <Leader>wm <C-w><C-w>:q<CR>
+nnoremap <Leader>w- :new<CR><C-w><C-w>
+nnoremap <Leader>w/ :vs<CR>
+nnoremap <Leader>ww <C-w><C-w>
+
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
 \  'sink':    'e',
 \  'options': '-m -x +s',
 \  'down':    '40%'})
-nnoremap <Leader>r :FZFMru<CR>
-nnoremap <Leader>a :Ack<Space><C-r><C-w>
-nnoremap <Leader>k :bd<CR>
-nnoremap <Leader>t :tag<Space><C-r><C-w>
-nnoremap <Leader>1 <C-w><C-w>:q<CR>
-nnoremap <Leader>0 :q<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :qa<CR>
-nnoremap <Leader><Leader>q :qa!<CR>
-nnoremap <Leader>o <C-w><C-w>
 
 nnoremap go o<ESC>k
 
