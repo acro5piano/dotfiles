@@ -32,6 +32,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     sql
      yaml
      ruby
      python
@@ -266,7 +267,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -276,7 +277,7 @@ values."
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -297,7 +298,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -318,12 +319,17 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; edit
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (eval-after-load 'smartparens
+    '(progn
+       (sp-pair "(" nil :actions :rem)
+       (sp-pair "[" nil :actions :rem)
+       (sp-pair "'" nil :actions :rem)
+       (sp-pair "`" nil :actions :rem)
+       (sp-pair "\"" nil :actions :rem)))
 
   ;; face
   (tool-bar-mode -1)
   (menu-bar-mode -1)
-  (global-linum-mode t)
   (scroll-bar-mode -1)
   (global-hl-line-mode)
   (global-undo-tree-mode)
@@ -341,7 +347,6 @@ you should place your code here."
   (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
   ;; symlink
-
   (setq vc-follow-symlinks t)
   (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1)
@@ -353,15 +358,15 @@ you should place your code here."
 
   (defun mozc-start()
     (interactive)
-    (set-cursor-color "blue")
     (message "Mozc start")
     (mozc-mode 1))
 
   (defun mozc-end()
     (interactive)
-    (set-cursor-color "gray")
     (message "Mozc end")
     (mozc-mode -1))
+
+  (add-hook 'evil-normal-state-entry-hook 'mozc-end)
 
   ;; utf-8
   (set-terminal-coding-system 'utf-8)
@@ -371,6 +376,8 @@ you should place your code here."
   (prefer-coding-system 'utf-8)
   (setq coding-system-for-read 'utf-8)
   (setq coding-system-for-write 'utf-8)
+
+  (flycheck-pos-tip-mode nil)
 
   ;; migemo
   (setq migemo-command "cmigemo")
@@ -402,7 +409,13 @@ you should place your code here."
              ("q" . mozc-end)
              ("C-g" . mozc-end)
              ("C-x h" . mark-whole-buffer)
+             ("M-b" . backward-word)
+             ("M-f" . forward-word)
              ("C-x C-s" . save-buffer))
+
+  (bind-keys :map evil-normal-state-map
+             ("SPC F" . helm-imenu))
+
 
   )
 
@@ -415,9 +428,12 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (yaml-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic helm-ghq migemo vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (color-theme-euphoria-theme browse-kill-ring sql-indent yaml-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic helm-ghq migemo vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
