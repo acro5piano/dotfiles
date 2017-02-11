@@ -341,12 +341,11 @@ you should place your code here."
   (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
 
   ;; symlink
-
   (setq vc-follow-symlinks t)
   (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1)
 
-  ;; Mozc settings
+  ;; mozc
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (setq mozc-candidate-style 'echo-area)
