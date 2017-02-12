@@ -43,7 +43,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -64,6 +63,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      company
+                                      company-flx
                                       multiple-cursors
                                       mozc
                                       migemo
@@ -73,7 +74,9 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    flycheck-pos-tip
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -327,6 +330,14 @@ you should place your code here."
        (sp-pair "`" nil :actions :rem)
        (sp-pair "\"" nil :actions :rem)))
 
+  (global-company-mode t)
+  (company-flx-mode t)
+  (with-eval-after-load 'company (company-flx-mode +1))
+
+
+  ;; C-sで絞り込む
+  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+
   ;; face
   (tool-bar-mode -1)
   (menu-bar-mode -1)
@@ -377,8 +388,6 @@ you should place your code here."
   (setq coding-system-for-read 'utf-8)
   (setq coding-system-for-write 'utf-8)
 
-  (flycheck-pos-tip-mode nil)
-
   ;; migemo
   (setq migemo-command "cmigemo")
   (setq migemo-options '("-q" "--emacs"))
@@ -414,6 +423,7 @@ you should place your code here."
              ("C-x C-s" . save-buffer))
 
   (bind-keys :map evil-normal-state-map
+             ("SPC g h" . helm-ghq)
              ("SPC F" . helm-imenu))
 
 
@@ -433,7 +443,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (color-theme-euphoria-theme browse-kill-ring sql-indent yaml-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic helm-ghq migemo vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (company-flx color-theme-euphoria-theme browse-kill-ring sql-indent yaml-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic helm-ghq migemo vimrc-mode dactyl-mode org-projectile pcache org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot powerline pug-mode spinner hydra parent-mode hide-comnt projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f diminish s bind-map bind-key packed dash avy async popup package-build flycheck-pos-tip pos-tip flycheck cdb ccc ddskk orgit web-mode web-beautify tagedit smeargle slim-mode scss-mode sass-mode phpunit phpcbf php-extras php-auto-yasnippets org mmm-mode markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jade-mode helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md evil-magit magit magit-popup git-commit with-editor emmet-mode drupal-mode php-mode company-web web-completion-data company-tern dash-functional tern coffee-mode helm helm-core helm-company helm-c-yasnippet company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete multiple-cursors mozc helm-bind-key ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
