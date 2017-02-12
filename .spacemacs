@@ -334,6 +334,7 @@ you should place your code here."
   (company-flx-mode t)
   (with-eval-after-load 'company (company-flx-mode +1))
 
+  (setq ruby-insert-encoding-magic-comment nil)
 
   ;; C-sで絞り込む
   (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
