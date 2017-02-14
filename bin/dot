@@ -27,7 +27,7 @@ link(){
 }
 
 install(){
-    $DOTPATH/lib/package_initialize/`platform`
+    $DOTPATH/pkg_init/`platform`
 }
 
 platform(){

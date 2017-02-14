@@ -80,6 +80,8 @@ change-service(){
     start_and_enable docker
     start_and_enable dhcpcd
 
+    sudo loginctl enable-linger kazuya
+
     systemctl --user daemon-reload
     sudo rm /etc/xremap
     sudo ln -sf $HOME/.xremap /etc/xremap
