@@ -378,7 +378,11 @@ you should place your code here."
     (message "Mozc end")
     (mozc-mode -1))
 
+  ;; evil and IME
   (add-hook 'evil-normal-state-entry-hook 'mozc-end)
+  (add-hook 'evil-normal-state-entry-hook
+            (lambda()
+            (shell-command "fcitx-remote -c")))
 
   ;; utf-8
   (set-terminal-coding-system 'utf-8)
@@ -399,6 +403,22 @@ you should place your code here."
   (load-library "migemo")
   (migemo-init)
 
+  ;; Region to X clipboard
+  (defun paste-to-tmp-file(data)
+    (with-temp-buffer
+      (insert data)
+      (write-file "/tmp/clipboard")))
+
+  (defun xclip-add-region()
+    (interactive)
+    (if (region-active-p)
+        (progn
+          (paste-to-tmp-file (buffer-substring-no-properties (region-beginning) (region-end)))
+          (shell-command "xsel -ib < /tmp/clipboard")
+          (message "%s" (shell-command-to-string "cat /tmp/clipboard")))
+      (progn
+        (message "no region"))))
+
   ;; keyboard
   (keyboard-translate ?\C-h ?\C-?)
   (add-hook 'after-make-frame-functions
@@ -411,6 +431,7 @@ you should place your code here."
    ("<henkan>" . mozc-start)
    ("C-+" . text-scale-increase)
    ("C--" . text-scale-decrease)
+   ("C-c C-x" . xclip-add-region)
    ("M-%" . anzu-query-replace)
    ("C-M-h" . ido-delete-backward-word-updir)
    ("C-M-%" . anzu-query-replace-regexp))
