@@ -17,7 +17,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'jceb/vim-orgmode'
 " Initialize plugin system
 call plug#end()
 
@@ -62,10 +63,6 @@ set isk+=-
 
 let g:ackprg = 'rg --vimgrep --smart-case'
 
-" vim-over
-nmap <C-h> :OverCommandLine<CR>s/
-nmap <ESC><C-h> :OverCommandLine<CR>%s/
-
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -95,6 +92,9 @@ set t_Co=256
 
 colorscheme elflord
 
+let g:lightline = {
+      \ 'colorscheme': 'solarized'
+      \ }
 
 "----------------------------------------------------
 " Indent
@@ -104,6 +104,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
 
 "----------------------------------------------------
 " Using X11
@@ -162,6 +163,10 @@ nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>w/ :vs<CR>
 nnoremap <Leader>ww <C-w><C-w>
+
+nnoremap <Leader>rl :OverCommandLine<CR>s/
+nnoremap <Leader>rf :OverCommandLine<CR>%s/
+
 
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
