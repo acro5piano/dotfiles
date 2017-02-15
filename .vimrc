@@ -19,6 +19,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'jceb/vim-orgmode'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " Initialize plugin system
 call plug#end()
 
