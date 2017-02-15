@@ -1,13 +1,12 @@
 "----------------------------------------------------
 " vim-plug
 "----------------------------------------------------
-filetype off                  " required
-filetype plugin indent off    " required
+" filetype off                  " required
+" filetype plugin indent off    " required
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
 Plug 'haya14busa/incsearch.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
@@ -35,6 +34,9 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 set statusline=%{anzu#search_status()}
 
+" not fold in markdown
+let g:vim_markdown_folding_disabled = 1
+
 "----------------------------------------------------
 " Charcode
 "----------------------------------------------------
@@ -52,15 +54,13 @@ set directory=/tmp
 "----------------------------------------------------
 " Search
 "----------------------------------------------------
-" コマンド、検索パターンを100個まで履歴に残す
 set history=100
-" 検索の時に大文字小文字を区別しない
 set ignorecase
-" 検索の時に大文字を検索する
 set smartcase
-" 最後まで検索したら先頭に戻る
 set wrapscan
-" Regard a-b as one word
+
+" Regard hypen separete word as as one word
+" e.g) a-b
 set isk+=-
 
 let g:ackprg = 'rg --vimgrep --smart-case'
@@ -86,7 +86,7 @@ set wildmenu
 set textwidth=0
 set nowrap
 
-" 全角スペースの表示
+" Show Full width
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
@@ -188,10 +188,10 @@ set hidden " not discard undo after buffers were killed
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 " remember cursor position
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+" autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal g`\"" |
+"     \ endif
 
 set ambiwidth=double " for full width problem
 
