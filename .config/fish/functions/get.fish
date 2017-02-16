@@ -1,0 +1,1 @@
+/home/k-gosho/.config/fisherman/get/functions/get.fish

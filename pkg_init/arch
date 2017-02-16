@@ -4,7 +4,7 @@ set -eu
 
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
-        zsh fish vim net-tools inotify-tools bc make git tmux openssh emacs \
+        fish vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
         yaourt docker arch-install-scripts \
         ruby \
@@ -27,6 +27,12 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
+
+    [ `which fisher` ] ||
+        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
+    fisher install fzf
+    fisher install fish-ghq
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap fzf
@@ -91,8 +97,9 @@ change-service(){
 }
 
 change-shell(){
-    if [ $SHELL != /bin/zsh ]; then
-        chsh -s /bin/zsh
+    grep -q fish /etc/shells || echo /usr/bin/fish | sudo tee -a /etc/shells
+    if [ $SHELL != /usr/bin/fish ]; then
+        chsh -s /usr/bin/fish
     fi
 }
 

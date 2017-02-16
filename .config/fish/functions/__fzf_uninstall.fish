@@ -1,0 +1,1 @@
+/home/k-gosho/.config/fisherman/fzf/functions/__fzf_uninstall.fish

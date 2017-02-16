@@ -7,9 +7,13 @@
 !.config/fish
 !.config/nvim
 !.config/systemd
+!.config/fish
+fishd.*
+
 !.config/fcitx
 .config/fcitx/*
 !.config/fcitx/config
+
 
 # Spacemacs things
 .emacs.d
