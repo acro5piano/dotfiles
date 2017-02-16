@@ -345,17 +345,18 @@ you should place your code here."
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
+  (global-linum-mode -1)
+  ;; (setq linum-format "%4d ")
   (global-hl-line-mode)
   (global-undo-tree-mode)
-  (setq linum-format "%4d ")
   (if (not window-system)
       (progn
         (set-face-background 'hl-line "Gray23")
-        (set-face-foreground 'highlight nil)
-        ;; linum style
-        (set-face-attribute 'linum nil
-                            :foreground "#ccc"
-                            :background "Gray23")))
+        (set-face-foreground 'highlight nil)))
+        ;; ;; linum style
+        ;; (set-face-attribute 'linum nil
+        ;;                     :foreground "#ccc"
+        ;;                     :background "Gray23")))
 
   ;; search
   (setq helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
