@@ -13,9 +13,15 @@ function gl
   end
 end
 
-function fish_user_key_bindings
-  #bind \cr fzf_select_history
-end
+# function fish_user_key_bindings
+#   bind \cr fzf_select_history
+# end
 
-alias g=git
+function g
+  if [ "$argv" ]
+    git $argv
+  else
+    git status
+  end
+end
 
