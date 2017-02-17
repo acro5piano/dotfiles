@@ -11,27 +11,20 @@ window class_only: 'chromium' do
   remap 'C-M-a', to: 'Ctrl-Home'
   remap 'C-M-e', to: 'Ctrl-End'
 
-  remap 'C-v', to: 'Page_Down'
-  remap 'M-v', to: 'Page_Up'
-
-  remap 'C-k', to: ['Shift-End', 'Ctrl-x']
-  remap 'C-w', to: 'Ctrl-x'
-  remap 'C-M-k', to: 'Ctrl-w'
-  remap 'C-M-w', to: 'Ctrl-w'
-  remap 'M-w', to: 'Ctrl-c'
-  remap 'C-y', to: 'Ctrl-v'
-  remap 'C-g', to: 'Escape'
-
-  remap 'C-s', to: 'Ctrl-g'
-  remap 'C-r', to: 'Ctrl-Shift-g'
-
-  remap 'M-b', to: 'Ctrl-Left'
-  remap 'M-f', to: 'Ctrl-Right'
-
   remap 'C-h', to: 'BackSpace'
   remap 'C-d', to: 'Delete'
   remap 'M-d', to: 'Ctrl-Delete'
   remap 'C-M-h', to: 'Ctrl-BackSpace'
+  remap 'C-y', to: 'Ctrl-v'
+
+  remap 'M-b', to: 'Ctrl-Left'
+  remap 'M-f', to: 'Ctrl-Right'
+
+  remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+  remap 'C-g', to: 'Escape'
+
+  remap 'C-s', to: 'Ctrl-g'
+  remap 'C-r', to: 'Ctrl-Shift-g'
 
   # Alternative
   remap 'M-n', to: 'Ctrl-n'

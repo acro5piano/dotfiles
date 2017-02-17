@@ -31,11 +31,9 @@ install-termianl-tool(){
     [ `which fisher` ] ||
         curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
-    fisher install fzf
-    fisher install fish-ghq
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli rlwrap fzf
+         graphviz transmission-cli rlwrap fzf tig
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
