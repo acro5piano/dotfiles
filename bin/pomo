@@ -1,0 +1,13 @@
+#!/bin/bash
+
+count=0
+
+while true; do
+    notify-send -u critical -i appointment -t 10000 "pomodoro start!"
+    sleep 1500
+    (( $count++ ))
+    echo "done: $count"
+    echo "rest 5 minutes"
+    notify-send -u critical -i appointment -t 300000 "pomodoro end..."
+    sleep 300
+done
