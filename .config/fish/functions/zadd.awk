@@ -1,1 +1,0 @@
-/home/k-gosho/.config/fisherman/z/functions/zadd.awk

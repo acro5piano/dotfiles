@@ -28,8 +28,12 @@ install-termianl-tool(){
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
 
-    [ `which fisher` ] ||
-        curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+    # [ `which fisher` ] ||
+    #     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+    [ `which omf` ] ||
+        curl -L http://get.oh-my.fish | fish
+    omf install fzf
+
 
 
     sudo pacman -S --needed --noconfirm \
