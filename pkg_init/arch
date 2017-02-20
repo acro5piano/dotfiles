@@ -32,9 +32,6 @@ install-termianl-tool(){
     #     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
     [ `which omf` ] ||
         curl -L http://get.oh-my.fish | fish
-    omf install fzf
-
-
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap fzf tig

@@ -188,17 +188,16 @@ nnoremap go o<ESC>k
 set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
-autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
+set ambiwidth=double " for full width problem
+set ttimeoutlen=1 " fast move
+set modeline
 
+autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 " remember cursor position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-set ambiwidth=double " for full width problem
-
-set ttimeoutlen=1 " fast move
 
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
