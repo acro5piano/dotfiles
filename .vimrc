@@ -152,25 +152,25 @@ cnoremap <C-p> <Up>
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
-let mapleader = "\<Space>"
-nnoremap <Leader>bb :Buffers<CR>
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>fr :FZFMru<CR>
-nnoremap <Leader>fs :w<CR>
-nnoremap <Leader><Leader> :
-nnoremap <Leader>pf :GFiles<CR>
-nnoremap <Leader>q! :qa!<CR>
-nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>sap :Ack<Space><C-r><C-w>
-nnoremap <Leader>t :tag<Space><C-r><C-w>
-nnoremap <Leader>wd :q<CR>
-nnoremap <Leader>wm <C-w><C-w>:q<CR>
-nnoremap <Leader>w- :new<CR><C-w><C-w>
-nnoremap <Leader>w/ :vs<CR>
-nnoremap <Leader>ww <C-w><C-w>
-
-nnoremap <Leader>rl :OverCommandLine<CR>s/
-nnoremap <Leader>rf :OverCommandLine<CR>%s/
+"let mapleader = "\<Space>"
+nnoremap <Space>a :exe("Ack ".expand('<cword>'))<CR>
+nnoremap <Space>bb :Buffers<CR>
+nnoremap <Space>bd :bd<CR>
+nnoremap <Space>fr :FZFMru<CR>
+nnoremap <Space>fs :w<CR>
+nnoremap <Space>gf :GFiles<CR>
+nnoremap <Space>q! :qa!<CR>
+nnoremap <Space>qq :qa<CR>
+nnoremap <Space>rf :OverCommandLine<CR>%s/
+nnoremap <Space>rl :OverCommandLine<CR>s/
+nnoremap <Space><Space> :
+nnoremap <Space>tj :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Space>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Space>wd :q<CR>
+nnoremap <Space>wm <C-w><C-w>:q<CR>
+nnoremap <Space>w- :new<CR><C-w><C-w>
+nnoremap <Space>w/ :vs<CR>
+nnoremap <Space>ww <C-w><C-w>
 
 
 command! FZFMru call fzf#run({
