@@ -21,6 +21,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'Shougo/neocomplete.vim'
+Plug 'scrooloose/nerdtree'
 " Initialize plugin system
 call plug#end()
 
@@ -103,10 +104,12 @@ let g:lightline = {
 " Indent
 "----------------------------------------------------
 set autoindent
+set smartindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+filetype indent on
 
 
 "----------------------------------------------------
@@ -118,15 +121,6 @@ autocmd InsertLeave * call system('fcitx-remote -c')
 " Clipboard paste
 nnoremap gp :.!xsel -bo<CR>
 vmap <C-c> :w !xsel -ib<CR><CR>
-
-"----------------------------------------------------
-" Always show auto complete
-"----------------------------------------------------
-
-" set completeopt=menuone
-" for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-"    exec "imap " . k . " " . k . "<C-n><C-p>"
-" endfor
 
 "----------------------------------------------------
 " Remap keys
@@ -171,6 +165,7 @@ nnoremap <Space>wm <C-w><C-w>:q<CR>
 nnoremap <Space>w- :new<CR><C-w><C-w>
 nnoremap <Space>w/ :vs<CR>
 nnoremap <Space>ww <C-w><C-w>
+nnoremap <Space>jd :NERDTreeFind<CR>
 
 
 command! FZFMru call fzf#run({
