@@ -22,6 +22,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'editorconfig/editorconfig-vim'
 " Initialize plugin system
 call plug#end()
 
@@ -157,7 +158,7 @@ nnoremap <Space>q! :qa!<CR>
 nnoremap <Space>qq :qa<CR>
 nnoremap <Space>rf :OverCommandLine<CR>%s/
 nnoremap <Space>rl :OverCommandLine<CR>s/
-nnoremap <Space><Space> :
+nnoremap <Space><Space> :<C-p>
 nnoremap <Space>tj :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Space>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Space>wd :q<CR>
