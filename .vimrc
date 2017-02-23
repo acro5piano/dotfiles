@@ -7,22 +7,23 @@
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-Plug 'osyo-manga/vim-anzu'
-Plug 'osyo-manga/vim-over'
-Plug 'scrooloose/syntastic'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
-Plug 'tomtom/tcomment_vim'
-Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'jceb/vim-orgmode'
-Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'mileszs/ack.vim'
+Plug 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
-Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/neocomplete.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'Yggdroot/indentLine'
 " Initialize plugin system
 call plug#end()
 
@@ -40,161 +41,7 @@ set statusline=%{anzu#search_status()}
 " not fold in markdown
 let g:vim_markdown_folding_disabled = 1
 
-"----------------------------------------------------
-" Charcode
-"----------------------------------------------------
-set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
-set fileformats=unix,dos,mac
-
-"----------------------------------------------------
-" Backup
-"----------------------------------------------------
-set nobackup
-set writebackup
-set directory=/tmp
-
-"----------------------------------------------------
-" Search
-"----------------------------------------------------
-set history=100
-set ignorecase
-set smartcase
-set wrapscan
-
-" Regard hypen separete word as as one word
-" e.g) a-b
-set isk+=-
-
-let g:ackprg = 'rg --vimgrep --smart-case'
-
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-"----------------------------------------------------
-" Face
-"----------------------------------------------------
-set title
-nnoremap j gj
-nnoremap k gk
-set showcmd
-set laststatus=2
-set showmatch
-syntax on
-set hlsearch
-set wildmenu
-
-set textwidth=0
-set nowrap
-
-" Show Full width
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
-
-set t_Co=256
-
-colorscheme elflord
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized'
-      \ }
-
-"----------------------------------------------------
-" Indent
-"----------------------------------------------------
-set autoindent
-set smartindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-filetype indent on
-
-
-"----------------------------------------------------
-" Using X11
-"----------------------------------------------------
-
-autocmd InsertLeave * call system('fcitx-remote -c')
-
-" Clipboard paste
-nnoremap gp :.!xsel -bo<CR>
-vmap <C-c> :w !xsel -ib<CR><CR>
-
-"----------------------------------------------------
-" Remap keys
-"----------------------------------------------------
-
-" Emacs-like key binding
-inoremap <C-a> <Home>
-inoremap <C-b> <Left>
-inoremap <C-d> <Del>
-inoremap <C-e> <End>
-inoremap <C-f> <Right>
-inoremap <C-k> <ESC>lc$
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-
-cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
-cnoremap <C-e> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-n> <Down>
-cnoremap <C-p> <Up>
-cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
-
-" like Spacemacs
-"let mapleader = "\<Space>"
-nnoremap <Space>a :exe("Ack ".expand('<cword>'))<CR>
-nnoremap <Space>bb :Buffers<CR>
-nnoremap <Space>bd :bd<CR>
-nnoremap <Space>fr :FZFMru<CR>
-nnoremap <Space>fs :w<CR>
-nnoremap <Space>gf :GFiles<CR>
-nnoremap <Space>q! :qa!<CR>
-nnoremap <Space>qq :qa<CR>
-nnoremap <Space>rf :OverCommandLine<CR>%s/
-nnoremap <Space>rl :OverCommandLine<CR>s/
-nnoremap <Space><Space> :<C-p>
-nnoremap <Space>tj :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <Space>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <Space>wd :q<CR>
-nnoremap <Space>wm <C-w><C-w>:q<CR>
-nnoremap <Space>w- :new<CR><C-w><C-w>
-nnoremap <Space>w/ :vs<CR>
-nnoremap <Space>ww <C-w><C-w>
-nnoremap <Space>jd :NERDTreeFind<CR>
-
-
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
-
-nnoremap go o<ESC>k
-
-
-"---------------------------------------------------
-" Others
-"----------------------------------------------------
-set nocompatible
-set vb t_vb= " do not beep
-set hidden " not discard undo after buffers were killed
-set ambiwidth=double " for full width problem
-set ttimeoutlen=1 " fast move
-set modeline
-
-autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
-" remember cursor position
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
+" Neocomplete
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -265,4 +112,163 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+"----------------------------------------------------
+" Charcode
+"----------------------------------------------------
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
+set fileformats=unix,dos,mac
+
+"----------------------------------------------------
+" Backup
+"----------------------------------------------------
+set nobackup
+set writebackup
+set directory=/tmp
+
+"----------------------------------------------------
+" Search
+"----------------------------------------------------
+set history=100
+set ignorecase
+set smartcase
+set wrapscan
+
+" Regard hypen separete word as as one word
+" e.g) a-b
+set isk+=-
+
+let g:ackprg = 'rg --vimgrep --smart-case'
+
+" incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+"----------------------------------------------------
+" Face
+"----------------------------------------------------
+set title
+nnoremap j gj
+nnoremap k gk
+set laststatus=2
+set showmatch
+syntax on
+set hlsearch
+set wildmenu
+
+set textwidth=0
+set nowrap
+
+" Show Full width
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+match ZenkakuSpace /　/
+
+set t_Co=256
+
+colorscheme elflord
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized'
+      \ }
+
+"----------------------------------------------------
+" Indent
+"----------------------------------------------------
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+filetype indent on
+
+
+"----------------------------------------------------
+" Using X11
+"----------------------------------------------------
+
+autocmd InsertLeave * call system('fcitx-remote -c')
+
+" Clipboard paste
+nnoremap gp :.!xsel -bo<CR>
+vmap <C-c> :w !xsel -ib<CR><CR>
+
+"----------------------------------------------------
+" Remap keys
+"----------------------------------------------------
+
+" Emacs-like key binding
+inoremap <C-a> <Home>
+inoremap <C-b> <Left>
+inoremap <C-d> <Del>
+inoremap <C-e> <End>
+inoremap <C-f> <Right>
+inoremap <C-k> <ESC>lc$
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
+
+" like Spacemacs
+let mapleader = "\<Space>"
+nnoremap <Leader>a :exe("Ack ".expand('<cword>'))<CR>
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>fd :e $MYVIMRC<CR>
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>q! :qa!<CR>
+nnoremap <Leader>qq :qa<CR>
+nnoremap <Leader>rf :OverCommandLine<CR>%s/
+nnoremap <Leader>rl :OverCommandLine<CR>s/
+nnoremap <Leader><Leader> :<C-p>
+vnoremap <Leader><Leader> :<C-p>
+nnoremap <Leader>tj :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>wd :q<CR>
+nnoremap <Leader>wm <C-w><C-w>:q<CR>
+nnoremap <Leader>w- :new<CR><C-w><C-w>
+nnoremap <Leader>w/ :vs<CR>
+nnoremap <Leader>ww <C-w><C-w>
+nnoremap <Leader>jd :NERDTreeFind<CR>
+
+
+
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
+nnoremap go o<ESC>k
+
+
+"---------------------------------------------------
+" Others
+"----------------------------------------------------
+set nocompatible
+set vb t_vb= " do not beep
+set hidden " not discard undo after buffers were killed
+set ambiwidth=double " for full width problem
+set ttimeoutlen=1 " fast move
+set modeline
+
+autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
+" remember cursor position
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+set showcmd
 
