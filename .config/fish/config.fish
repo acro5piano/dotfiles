@@ -17,6 +17,7 @@ end
 
 function fish_user_key_bindings
   bind \cr __fzf_history
+  bind \e\ch backward-kill-path-component
 end
 
 function __fzf_history
