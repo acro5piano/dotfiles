@@ -1,5 +1,8 @@
 # vim:set ft=bash ts=2 sts=2 sw=2
 
+set -x GOPATH $HOME/.go
+set -x PATH $HOME/.go/bin/ $HOME/bin /usr/local/bin $PATH
+
 function gl
   set -l query (commandline)
 

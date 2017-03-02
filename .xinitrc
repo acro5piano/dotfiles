@@ -49,5 +49,7 @@ volumeicon &
 # Emacs gui setting
 xrdb ~/.Xresources
 
+systemctl --user restart xremap
+
 #exec openbox-session
 exec awesome
