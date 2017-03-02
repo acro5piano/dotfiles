@@ -34,6 +34,18 @@ function g
   end
 end
 
+function gup
+  echo $PWD
+  if [ $PWD = '/' ]
+    return 1
+  else if ls -a | grep -q '^.git$'
+    return 0
+  else
+    cd ..
+    gup
+  end
+end
+
 alias -='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
