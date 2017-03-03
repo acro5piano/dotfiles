@@ -244,7 +244,7 @@ nnoremap <Leader>jd :NERDTreeFind<CR>
 
 nnoremap <Leader>d. :.!date +\%Y-\%m-\%d<CR>
 nnoremap <Leader>dt o<ESC>:.!date +\%H:\%M<CR>kJ
-nnoremap <Leader>df :.!date +\%Y-\%m-\%dT\%H:\%M<CR>
+nnoremap <Leader>dt A<Space><C-r>=strftime("%H:%M")<CR><ESC>
 
 
 command! FZFMru call fzf#run({
