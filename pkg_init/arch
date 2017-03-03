@@ -9,7 +9,7 @@ install-dev-package(){
         yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
-        go \
+        go lua \
         php composer \
         nodejs npm \
         jdk8-openjdk

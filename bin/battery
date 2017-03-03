@@ -1,4 +1,6 @@
-if [ `acpi -b | grep -oE Discharging` = "Discharging" ] ; then
+#!/bin/bash
+
+if acpi -b | grep -q Discharging; then
   echo -n \#\[fg=yellow,bold\]
 else
   echo -n \#\[fg=green,bold\]
