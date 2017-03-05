@@ -6,17 +6,13 @@ install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         fish vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
-        yaourt docker arch-install-scripts \
+        yaourt docker docker-compose arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
         go lua \
         php composer \
         nodejs npm \
         jdk8-openjdk
-
-    curl -L "https://github.com/docker/compose/releases/download/1.11.1/docker-compose-$(uname -s)-$(uname -m)" \
-        -o /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
 }
 
 install-termianl-tool(){
@@ -31,11 +27,6 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
-
-    # [ `which fisher` ] ||
-    #     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-    # [ `which omf` ] ||
-    #     curl -L http://get.oh-my.fish | fish
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap fzf tig

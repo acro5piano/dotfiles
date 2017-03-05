@@ -37,8 +37,8 @@ pgrep terminator > /dev/null || terminator &
 
 # touchpad
 synclient TapButton1=1
-synclient TapButton2=1
-synclient TapButton3=1
+synclient TapButton2=3
+synclient TapButton3=2
 #synclient CircularScrolling=1
 
 # keyboard layout customize
@@ -49,7 +49,8 @@ volumeicon &
 # Emacs gui setting
 xrdb ~/.Xresources
 
-systemctl --user restart xremap
+xremap ~/.xremap &
+bash -c 'while true; do xsel -o | xsel -bi; sleep 0.5; done'  &
 
-#exec openbox-session
+
 exec awesome

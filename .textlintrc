@@ -7,7 +7,7 @@
     "no-mix-dearu-desumasu": true,
     "prh": {
       "rulePaths": [
-         "~/.dotfiles/lib/prh/web-db-press.yml"
+         "~/.textlint/web-db-press.yml"
       ]
     }
   }
