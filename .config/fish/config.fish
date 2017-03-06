@@ -77,3 +77,15 @@ alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null' &
 
+function mozc
+    switch $argv
+    case 'dict'
+        /usr/lib/mozc/mozc_tool --mode=dictionary_tool
+    case 'word'
+        /usr/lib/mozc/mozc_tool --mode=word_register_dialog
+    case 'config'
+        /usr/lib/mozc/mozc_tool --mode=config_dialog
+    case '*'
+        echo 'mozc [dict|word|config]'
+    end
+end
