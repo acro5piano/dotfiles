@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'posva/vim-vue'
 Plug 'Yggdroot/indentLine'
 " Initialize plugin system
 call plug#end()
@@ -192,8 +193,8 @@ filetype indent on
 autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
-nnoremap gp :.!xsel -bo<CR>
-vmap <C-c> :w !xsel -ib<CR><CR>
+nnoremap gp :.!xsel -o<CR>
+vmap <C-c> :w !xsel -i<CR><CR>
 
 "----------------------------------------------------
 " Remap keys
