@@ -89,3 +89,5 @@ function mozc
         echo 'mozc [dict|word|config]'
     end
 end
+
+source ~/.traimmu_dotfiles/aliases
