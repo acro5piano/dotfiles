@@ -221,7 +221,8 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
-nnoremap <Leader>a :exe("Ack ".expand('<cword>'))<CR>
+nnoremap <Leader>aw :exe("Ack ".expand('<cword>'))<CR>
+nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>fr :FZFMru<CR>
@@ -244,9 +245,14 @@ nnoremap <Leader>ww <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 
 nnoremap <Leader>d. :.!date +\%Y-\%m-\%d<CR>
-nnoremap <Leader>dt o<ESC>:.!date +\%H:\%M<CR>kJ
 nnoremap <Leader>dt a<Space><C-r>=strftime("%H:%M")<CR><ESC>
 
+vnoremap <Leader>ea :EasyAlign *\|<CR>
+nnoremap <Leader>ea vip:EasyAlign *\|<CR>
+nnoremap <Leader>et :TableFormat
+nmap <F1> <ESC>
+imap <F1> <ESC>
+vmap <F1> <ESC>
 
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
