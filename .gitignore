@@ -13,6 +13,9 @@ fishd.*
 !.config/fcitx
 .config/fcitx/*
 !.config/fcitx/config
+!.config/fcitx/conf
+.config/fcitx/conf/*
+!.config/fcitx/conf/fcitx-clipboard.config
 
 
 # Spacemacs things
