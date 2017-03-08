@@ -5,6 +5,7 @@ set -x PATH $PATH \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
             $HOME/bin \
+            $HOME/.gem/ruby/2.4.0/bin \
             /usr/local/bin \
             /bin
 
