@@ -1,7 +1,12 @@
 # vim:set ft=bash ts=2 sts=2 sw=2
 
 set -x GOPATH $HOME/.go
-set -x PATH $HOME/.local/bin $HOME/.go/bin/ $HOME/bin /usr/local/bin /bin $PATH
+set -x PATH $PATH \
+            $HOME/.local/bin \
+            $HOME/.go/bin/ \
+            $HOME/bin \
+            /usr/local/bin \
+            /bin
 
 function gl
   set -l query (commandline)
@@ -16,11 +21,6 @@ function gl
     cd $line
     commandline -f repaint
   end
-end
-
-function fish_user_key_bindings
-  bind \cr __fzf_history
-  bind \e\ch backward-kill-path-component
 end
 
 function __fzf_history
