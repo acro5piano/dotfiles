@@ -2,28 +2,36 @@
 
 set -eu
 
+export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
+
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         fish vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
-        yaourt docker docker-compose arch-install-scripts \
+        yaourt docker arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
         go lua \
         php composer \
         nodejs npm \
         jdk8-openjdk
+
+    if ! which docker-compose; then
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" \
+            -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    fi
 }
 
 install-termianl-tool(){
     go get \
         github.com/jehiah/json2csv \
         github.com/motemen/ghq
-    [ `which bundle` ]   || gem install bundler pry
-    [ `which mycli` ]    || sudo pip install virtualenv ipython mycli csvkit
-    [ `which generate-md` ] || sudo npm install -g markdown-styles
-    [ `which gulp` ] || sudo npm install -g gulp
-    [ `which textlint` ] || sudo npm install -g textlint \
+    which bundle   || gem install bundler pry
+    which mycli    || pip install --user --upgrade virtualenv ipython mycli csvkit
+    which eb       || pip install --user --upgrade awsebcli
+    which gulp     || sudo npm install -g gulp
+    which textlint || sudo npm install -g textlint \
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
@@ -68,10 +76,6 @@ change-service(){
         sudo systemctl enable $1
         sudo systemctl start $1
     }
-    start_and_enable_user(){
-        sudo systemctl --user enable $1
-        sudo systemctl --user start $1
-    }
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
@@ -83,11 +87,6 @@ change-service(){
     start_and_enable dhcpcd
 
     sudo loginctl enable-linger kazuya
-
-    systemctl --user daemon-reload
-    sudo rm /etc/xremap
-    sudo ln -sf $HOME/.xremap /etc/xremap
-    start_and_enable_user xremap
 }
 
 change-shell(){
