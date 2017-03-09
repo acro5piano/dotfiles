@@ -53,7 +53,7 @@ volumeicon &
 # Emacs gui setting
 xrdb ~/.Xresources
 
-bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log' &
-bash -c 'while true; do xsel -o | xsel -bi; sleep 0.5; done'  &
+bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
+bash -c 'while true; do xsel -o | xsel -bi; sleep 0.5; done &'
 
 exec awesome
