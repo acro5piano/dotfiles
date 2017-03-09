@@ -31,7 +31,7 @@ TriggerKey=ALT_`
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=HENKANMODE
+ActivateKey=HENKANMODE ALT_RALT
 # Inactivate Input Method
 InactivateKey=ALT_LALT
 # Enable Hotkey to scroll Between Input Method

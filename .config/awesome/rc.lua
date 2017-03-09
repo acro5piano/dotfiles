@@ -163,25 +163,21 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "p",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "n",  awful.tag.viewnext       ),
+    -- Layout
+    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
 
-    -- Layout manipulation
+    -- Switch
+    awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "n", awful.tag.viewnext       ),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
 
     -- Standard program
     awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
     awful.key({ modkey,           }, "s", function () awful.util.spawn("xfce4-screenshooter") end),
-    awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium") end),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
@@ -191,9 +187,6 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
-
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
 
     -- Prompt
     awful.key({ modkey },            "x",     function () awful.util.spawn("dmenu_run") end)
