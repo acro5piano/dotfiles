@@ -1,3 +1,5 @@
+# vim:set mode=sh
+
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
@@ -27,7 +29,7 @@ xrandr --output VGA1 --above LVDS1 --mode 1920x1080
 xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 
 # wallpaper
-feh --bg-fill $HOME/.config/wallpapers/stock-photo-172993395.jpg
+#feh --bg-fill $HOME/.config/wallpapers/stock-photo-172993395.jpg
 
 # Transparent
 xcompmgr -c &
@@ -42,7 +44,7 @@ synclient TapButton3=2
 #synclient CircularScrolling=1
 
 # keyboard layout customize
-xmodmap $HOME/.xmodmap.d/thinkpad
+xmodmap $HOME/.xmodmap.d/us
 
 volumeicon &
 
