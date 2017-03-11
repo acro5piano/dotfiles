@@ -164,8 +164,8 @@ end
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- Layout
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "Left",     function () awful.tag.incmwfact(-0.05)    end),
 
     -- Switch
     awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
