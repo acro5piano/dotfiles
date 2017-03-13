@@ -25,7 +25,7 @@ function gl
 end
 
 function __fzf_history
-  history | fzf-tmux -d40% +s +m --tiebreak=index --query=(commandline -b) \
+  history | fzf-tmux -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
