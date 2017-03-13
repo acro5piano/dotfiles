@@ -8,19 +8,13 @@ install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         fish vim net-tools inotify-tools bc make git tmux openssh emacs \
         rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
-        yaourt docker arch-install-scripts \
+        yaourt docker docker-compose arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
         go lua \
         php composer \
         nodejs npm \
         jdk8-openjdk
-
-    if ! which docker-compose; then
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" \
-            -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-    fi
 }
 
 install-termianl-tool(){
@@ -37,7 +31,7 @@ install-termianl-tool(){
                                     textlint-rule-no-mix-dearu-desumasu
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli rlwrap fzf tig
+         graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
@@ -74,17 +68,24 @@ install-xremap(){
 change-service(){
     start_and_enable(){
         sudo systemctl enable $1
-        sudo systemctl start $1
+        sudo systemctl restart $1
     }
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
-    add_user_to_group docker
     add_user_to_group sys
 
+    # Docker setting
     sudo systemctl daemon-reload
+    add_user_to_group docker
     start_and_enable docker
-    start_and_enable dhcpcd
+
+    # Enable auto-connect wifi network
+    sudo systemctl disable dhcpcd
+    start_and_enable netctl
+    start_and_enable netctl-auto@wlp3s0.service
+    sudo netctl enable wlp3s0-Traimmu-AP
+    sudo netctl enable redmi2
 
     sudo loginctl enable-linger kazuya
 }
