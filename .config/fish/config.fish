@@ -92,3 +92,11 @@ function mozc
 end
 
 source ~/.traimmu_dotfiles/aliases
+
+function diffw
+    colordiff -yW (tput cols) $argv
+end
+
+function diffc
+    colordiff -U3 $argv
+end

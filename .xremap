@@ -27,6 +27,8 @@ window class_only: 'chromium' do
   remap 'C-r', to: 'Ctrl-Shift-g'
 
   # Alternative
+  remap 'C-M-s', to: 'Ctrl-f'
+  remap 'M-s', to: 'Ctrl-s'
   remap 'M-n', to: 'Ctrl-n'
   remap 'M-a', to: 'Ctrl-a'
 
