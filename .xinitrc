@@ -41,7 +41,9 @@ pgrep terminator > /dev/null || terminator &
 synclient TapButton1=1
 synclient TapButton2=3
 synclient TapButton3=2
-synclient  HorizTwoFingerScroll=1
+synclient HorizTwoFingerScroll=1
+synclient VertScrollDelta=-111
+synclient HorizScrollDelta=-111
 
 #synclient CircularScrolling=1
 

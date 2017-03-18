@@ -1,0 +1,19 @@
+#!/bin/bash
+# record [capture_cursor=false]
+
+if [ "$1" == 'true' ]; then
+    capture_cursor=''
+else
+    capture_cursor='--no-cursor'
+fi
+
+window_id=$(xwininfo | grep 'Window id' | perl -pe 's/ /\n/g' | grep 0x)
+
+cd $(mktemp -d)
+
+recordmydesktop --windowid $window_id --no-sound --no-wm-check --no-frame --delay 2 $capture_cursor
+
+ffmpeg -i out.ogv out.gif
+
+echo Saved at:
+echo $PWD
