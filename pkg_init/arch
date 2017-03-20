@@ -29,6 +29,8 @@ install-termianl-tool(){
                                     textlint-rule-prh textlint-rule-max-ten \
                                     textlint-rule-spellcheck-tech-word \
                                     textlint-rule-no-mix-dearu-desumasu
+    which php-cs-fixer || composer global require friendsofphp/php-cs-fixer
+    which psysh || composer global require psy/psysh
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond
