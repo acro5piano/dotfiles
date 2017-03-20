@@ -101,3 +101,7 @@ end
 function diffc
     colordiff -U3 $argv
 end
+
+function git-open
+    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+:(.+)\.git;https://github.com/\1;g' | xargs chromium
+end
