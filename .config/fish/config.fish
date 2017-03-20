@@ -6,6 +6,7 @@ set -x PATH $PATH \
             $HOME/.go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
+            $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin
 
