@@ -77,8 +77,6 @@ alias wether='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 
-pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
-
 function mozc
     switch $argv
     case 'dict'
@@ -105,3 +103,24 @@ end
 function git-open
     git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+:(.+)\.git;https://github.com/\1;g' | xargs chromium
 end
+
+function grg
+    rg --heading --color always $argv | less
+end
+
+function nippo
+    cd ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
+    set yesterday (ls | egrep '[0-9]+.md' | sort -n | tail -1)
+    set today (date +%d).md
+    cp $yesterday $today
+
+    set yesterday_exp (date -d '1 days ago' +%Y/%m/%d)
+    set today_exp (date +%Y/%m/%d)
+    perl -i -pe "s;$yesterday_exp;$today_exp;" $today
+    vim $today
+end
+
+pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
+pgrep tmux > /dev/null; or tmux
+
+
