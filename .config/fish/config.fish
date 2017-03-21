@@ -120,6 +120,14 @@ function nippo
     vim $today
 end
 
+function dot
+    cd ~/.dotfiles
+end
+
+function replace
+    git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
+end
+
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 pgrep tmux > /dev/null; or tmux
 
