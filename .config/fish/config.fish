@@ -1,5 +1,8 @@
 # vim:set ft=bash ts=2 sts=2 sw=2
 
+
+# {{{ Env vars
+
 set -x GOPATH $HOME/.go
 set -x PATH $PATH \
             $HOME/.local/bin \
@@ -9,6 +12,18 @@ set -x PATH $PATH \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin
+set -x EDITOR vim
+set -x VISUAL vim
+
+# }}}
+
+# {{{ functions
+
+function __fzf_history
+  history | fzf-tmux -d40% +s +m --query=(commandline -b) \
+    > /tmp/fzf
+  and commandline (cat /tmp/fzf)
+end
 
 function gl
   set -l query (commandline)
@@ -23,12 +38,6 @@ function gl
     cd $line
     commandline -f repaint
   end
-end
-
-function __fzf_history
-  history | fzf-tmux -d40% +s +m --query=(commandline -b) \
-    > /tmp/fzf
-  and commandline (cat /tmp/fzf)
 end
 
 function g
@@ -51,7 +60,72 @@ function gup
   end
 end
 
-# alias -='cd -'
+function mozc
+    switch $argv
+    case 'dict'
+        /usr/lib/mozc/mozc_tool --mode=dictionary_tool
+    case 'word'
+        /usr/lib/mozc/mozc_tool --mode=word_register_dialog
+    case 'config'
+        /usr/lib/mozc/mozc_tool --mode=config_dialog
+    case '*'
+        echo 'mozc [dict|word|config]'
+    end
+end
+
+function diffw
+    colordiff -yW (tput cols) $argv
+end
+
+function diffc
+    colordiff -U3 $argv
+end
+
+function git-open
+    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+:(.+)\.git;https://github.com/\1;g' | xargs chromium
+end
+
+function nippo
+    cd ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
+    set yesterday (ls | egrep '[0-9]+.md' | sort -n | tail -1)
+    set today (date +%d).md
+    cp $yesterday $today
+
+    set yesterday_exp (date -d '1 days ago' +%Y/%m/%d)
+    set today_exp (date +%Y/%m/%d)
+    perl -i -pe "s;$yesterday_exp;$today_exp;" $today
+    vim $today
+end
+
+function dot
+    cd ~/.dotfiles
+end
+
+function seek
+    echo $argv | perl -pe 's/ +/.+/g' | \
+    xargs rg --heading --color never | fzf --tac
+end
+
+function grg
+    rg --heading --color always $argv | less
+end
+
+function replace
+    git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
+end
+
+function sub
+    perl -pe "s#$argv[1]#$argv[2]#"
+end
+
+function gsub
+    perl -pe "s#$argv[1]#$argv[2]#g"
+end
+
+# }}}
+
+# {{{ aliases
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -77,70 +151,19 @@ alias wether='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 
-function mozc
-    switch $argv
-    case 'dict'
-        /usr/lib/mozc/mozc_tool --mode=dictionary_tool
-    case 'word'
-        /usr/lib/mozc/mozc_tool --mode=word_register_dialog
-    case 'config'
-        /usr/lib/mozc/mozc_tool --mode=config_dialog
-    case '*'
-        echo 'mozc [dict|word|config]'
-    end
-end
+# }}}
+
+# {{{ init
 
 source ~/.traimmu_dotfiles/aliases
 
-function diffw
-    colordiff -yW (tput cols) $argv
-end
-
-function diffc
-    colordiff -U3 $argv
-end
-
-function git-open
-    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+:(.+)\.git;https://github.com/\1;g' | xargs chromium
-end
-
-function grg
-    rg --heading --color always $argv | less
-end
-
-function nippo
-    cd ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
-    set yesterday (ls | egrep '[0-9]+.md' | sort -n | tail -1)
-    set today (date +%d).md
-    cp $yesterday $today
-
-    set yesterday_exp (date -d '1 days ago' +%Y/%m/%d)
-    set today_exp (date +%Y/%m/%d)
-    perl -i -pe "s;$yesterday_exp;$today_exp;" $today
-    vim $today
-end
-
-function dot
-    cd ~/.dotfiles
-end
-
-function replace
-    git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
-end
-
-function sub
-    perl -pe "s/$argv[1]/$argv[2]/"
-end
-
-function gsub
-    perl -pe "s/$argv[1]/$argv[2]/g"
-end
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 if pgrep tmux > /dev/null
-    tmux a ^ /dev/null; or echo 'fish started inside tmux session'
+    tmux a ^ /dev/null
 else
     tmux
 end
 
+# }}}
 
