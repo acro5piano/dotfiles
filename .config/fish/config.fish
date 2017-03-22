@@ -128,9 +128,17 @@ function replace
     git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
 end
 
+function sub
+    perl -pe "s/$argv[1]/$argv[2]/"
+end
+
+function gsub
+    perl -pe "s/$argv[1]/$argv[2]/g"
+end
+
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 if pgrep tmux > /dev/null
-    tmux a
+    tmux a ^ /dev/null; or echo 'fish started inside tmux session'
 else
     tmux
 end
