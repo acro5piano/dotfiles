@@ -129,6 +129,10 @@ function replace
 end
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
-pgrep tmux > /dev/null; or tmux
+if pgrep tmux > /dev/null
+    tmux a
+else
+    tmux
+end
 
 
