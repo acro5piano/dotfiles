@@ -134,14 +134,13 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias bc='bc -l'
-alias clp='xsel -o'
 alias cl='xsel -i'
+alias clp='xsel -o'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
 alias la='ls -A'
 alias less='less -R'
-alias ll='ls -al'
-alias l='ls -CF'
+alias ll='ls -alh'
 alias ls='ls --color=auto'
 alias now='date +%Y%m%d_%H%M%S'
 alias seishin='cd (mktemp -d)'
@@ -157,12 +156,14 @@ alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 
 source ~/.traimmu_dotfiles/aliases
 
-
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
-if pgrep tmux > /dev/null
-    tmux a ^ /dev/null
-else
-    tmux
+
+if [ "$DISPLAY" ]
+    if pgrep tmux > /dev/null
+        tmux a ^ /dev/null
+    else
+        tmux
+    end
 end
 
 # }}}
