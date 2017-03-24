@@ -2,22 +2,23 @@
 	email = gosho-kazuya@919.jp
 	name = gosho-kazuya
 [alias]
-    st = status
-    c = commit
     a = add
-    ca = commit -a
+    alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+    br = branch
     cam = commit -am
+    co = checkout
+    col = !git checkout $(git branch | fzf-tmux)
+    cor = !git checkout $(git branch --remote | grep -v HEAD | perl -pe "s@origin/@@" | fzf-tmux)
     d = diff
     dh = diff HEAD
     dw = diff -w --word-diff
-    br = branch
-    today = log --oneline --since='12 hour ago'
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
-    ls = ls-files
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    co = checkout
-    brclean = !git branch --merged | grep -v \\* | xargs git branch -d
+    ls = ls-files
+    pushthis = !git push origin $(git branch --contains=HEAD | awk '{print $2}')
+    st = status
+    remote = remote -v
+    today = log --oneline --since='12 hour ago'
 
 [push]
 	default = matching
