@@ -15,7 +15,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
-Plug 'metakirby5/codi.vim'
+Plug 'mattn/emmet-vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
@@ -221,7 +221,7 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
-nnoremap <Leader>aw :exe("Ack ".expand('<cword>'))<CR>
+nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
@@ -233,8 +233,8 @@ nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rf :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
-nnoremap <Leader><Leader> :<C-p>
-vnoremap <Leader><Leader> :<C-p>
+nnoremap <Leader><Leader> :<C-p><HOME>
+vnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>tj :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>wd :q<CR>
@@ -247,12 +247,12 @@ nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>d. :.!date +\%Y-\%m-\%d<CR>
 nnoremap <Leader>dt a<Space><C-r>=strftime("%H:%M")<CR><ESC>
 
-vnoremap <Leader>ea :EasyAlign *\|<CR>
-nnoremap <Leader>ea vip:EasyAlign *\|<CR>
-nnoremap <Leader>et :TableFormat
 nmap <F1> <ESC>
 imap <F1> <ESC>
 vmap <F1> <ESC>
+
+inoremap zl ->
+inoremap zh <-
 
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
