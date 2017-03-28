@@ -3,11 +3,11 @@
 	<entry name="style" mtime="1490666438" type="string">
 		<stringvalue>Source Code Pro 10</stringvalue>
 	</entry>
-	<entry name="palette_name" mtime="1490667127" type="string">
-		<stringvalue>Tango</stringvalue>
+	<entry name="palette_name" mtime="1490667396" type="string">
+		<stringvalue>Broadcast</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1490667127" type="string">
-		<stringvalue>#000000000000:#cccc00000000:#4e4e9a9a0606:#c4c4a0a00000:#34346565a4a4:#757550507b7b:#060698209a9a:#d3d3d7d7cfcf:#555557575353:#efef29292929:#8a8ae2e23434:#fcfce9e94f4f:#72729f9fcfcf:#adad7f7fa8a8:#3434e2e2e2e2:#eeeeeeeeecec:#ffffffffffff:#000000000000</stringvalue>
+	<entry name="palette" mtime="1490667396" type="string">
+		<stringvalue>#000000000000:#DADA49493939:#51519F9F5050:#FFFFD2D24A4A:#6D6D9C9CBEBE:#D0D0D0D0FFFF:#6E6E9C9CBEBE:#FFFFFFFFFFFF:#323232323232:#FFFF7B7B6B6B:#8383D1D18282:#FFFFFFFF7C7C:#9F9FCECEF0F0:#FFFFFFFFFFFF:#A0A0CECEF0F0:#FFFFFFFFFFFF:#E6E6E1E1DCDC:#2B2B2B2B2B2B</stringvalue>
 	</entry>
-	<entry name="allow_bold" mtime="1490667127" type="bool" value="true"/>
+	<entry name="allow_bold" mtime="1490667389" type="bool" value="true"/>
 </gconf>
