@@ -35,7 +35,7 @@ xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 # xcompmgr -c &
 
 # Run terminal when not run
-pgrep terminator > /dev/null || terminator &
+pgrep guake > /dev/null || guake &
 
 # touchpad
 synclient TapButton1=1
