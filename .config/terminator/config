@@ -70,9 +70,8 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.78
+    background_darkness = 0.84
     background_type = transparent
-    copy_on_selection = False
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
     foreground_color = "#ffffff"

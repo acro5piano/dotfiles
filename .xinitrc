@@ -50,8 +50,6 @@ synclient HorizScrollDelta=-111
 # keyboard layout customize
 xmodmap $HOME/.xmodmap.d/us
 
-volumeicon &
-
 # Emacs gui setting
 xrdb ~/.Xresources
 
