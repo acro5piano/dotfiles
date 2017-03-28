@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="rename_current_tab" mtime="1490666401" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1490666400" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="new_tab" mtime="1490666397" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="quit" mtime="1490666393" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="toggle_hide_on_lose_focus" mtime="1490666392" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+	<entry name="toggle_fullscreen" mtime="1490666389" type="string">
+		<stringvalue>disabled</stringvalue>
+	</entry>
+</gconf>

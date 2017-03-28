@@ -32,7 +32,7 @@ xrandr --output DP1 --right-of VGA1 --mode 1920x1080
 #feh --bg-fill $HOME/.config/wallpapers/stock-photo-172993395.jpg
 
 # Transparent
-xcompmgr -c &
+# xcompmgr -c &
 
 # Run terminal when not run
 pgrep terminator > /dev/null || terminator &
