@@ -2,7 +2,7 @@
 !.config/openbox
 !.config/awesome
 !.config/terminator
-!.config/gconf
+# !.config/gconf
 !.config/touchegg
 !.config/wallpapers
 !.config/fish

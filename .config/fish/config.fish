@@ -155,8 +155,8 @@ alias wi='sudo wifi-menu'
 alias wether='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
-alias killer='ps aux | fzf --tac | awk "{print $2}" | xargs kill'
-alias murder='ps aux | fzf --tac | awk "{print $2}" | xargs kill -9'
+alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
+alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 
 # }}}
 

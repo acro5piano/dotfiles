@@ -43,8 +43,8 @@ end
 beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "guake"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "terminator"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
