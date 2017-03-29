@@ -202,6 +202,8 @@ vmap <C-c> :w !xsel -bi<CR><CR>
 inoremap {<CR> {<CR>}<Up><End><CR>
 inoremap II if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap FE foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+inoremap zl ->
+inoremap zh <-
 
 "----------------------------------------------------
 " Remap keys
@@ -255,12 +257,11 @@ nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>d. :.!date +\%Y-\%m-\%d<CR>
 nnoremap <Leader>dt a<Space><C-r>=strftime("%H:%M")<CR><ESC>
 
+nnoremap <ESC><ESC> :nohl<CR>
+
 nmap <F1> <ESC>
 imap <F1> <ESC>
 vmap <F1> <ESC>
-
-inoremap zl ->
-inoremap zh <-
 
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
@@ -280,6 +281,7 @@ set hidden " not discard undo after buffers were killed
 set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
+setlocal iskeyword+=-
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 " remember cursor position
