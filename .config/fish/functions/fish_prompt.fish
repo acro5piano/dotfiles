@@ -1,19 +1,18 @@
 # vim:set ft=bash
 
 set git_dirty_color red
-set git_not_dirty_color green
+set git_clean_color green
 
 function parse_git_branch
-    set -l git_dir (git rev-parse --git-dir 2> /dev/null)
-    [ $status -ne 0 ]; and return
+    git rev-parse --git-dir ^/dev/null >/dev/null; or return
 
     set -l branch (git branch --contains=HEAD | awk '{print $2}')
-    set -l git_diff (git diff)
+    set -l git_changed_files_count (git status -s -uall | wc -l)
 
-    if test -n "$git_diff"
-        echo (set_color $git_dirty_color)$branch(set_color normal)
+    if [ "$git_changed_files_count" -eq 0 ]
+        echo (set_color $git_clean_color)$branch(set_color normal)
     else
-        echo (set_color $git_not_dirty_color)$branch(set_color normal)
+        echo (set_color $git_dirty_color)$branch(set_color normal)
     end
 end
 

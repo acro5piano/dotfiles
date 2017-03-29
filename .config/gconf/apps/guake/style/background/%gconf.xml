@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="image" mtime="1490668927" type="string">
+	<entry name="image" mtime="1490684558" type="string">
 		<stringvalue>/home/kazuya/.config/wallpapers/stock-photo-194028835.jpg</stringvalue>
 	</entry>
-	<entry name="transparency" mtime="1490668927" type="int" value="36"/>
+	<entry name="transparency" mtime="1490684558" type="int" value="36"/>
 </gconf>

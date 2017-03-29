@@ -189,7 +189,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
 
     -- Prompt
-    awful.key({ modkey },            "x",     function () awful.util.spawn("dmenu_run") end)
+    awful.key({ modkey },            "x",     function () awful.util.spawn("dmenu_run_vertical") end)
 )
 
 clientkeys = awful.util.table.join(

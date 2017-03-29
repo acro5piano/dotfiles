@@ -16,7 +16,7 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     ls = ls-files
     pushthis = !git push origin $(git branch --contains=HEAD | awk '{print $2}')
-    st = status
+    st = status -uall
     remote = remote -v
     today = log --oneline --since='12 hour ago'
 

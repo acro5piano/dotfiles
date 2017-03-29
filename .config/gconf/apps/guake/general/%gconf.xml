@@ -1,34 +1,34 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="window_height_f" mtime="1490668927" type="float" value="92.602699999999999"/>
-	<entry name="window_height" mtime="1490668927" type="int" value="92"/>
+	<entry name="window_height_f" mtime="1490684558" type="float" value="92.602699999999999"/>
+	<entry name="window_height" mtime="1490684558" type="int" value="92"/>
 	<entry name="use_vte_titles" mtime="1490666739" type="bool" value="true"/>
-	<entry name="tab_ontop" mtime="1490668927" type="bool" value="true"/>
-	<entry name="window_ontop" mtime="1490668927" type="bool" value="false"/>
-	<entry name="start_fullscreen" mtime="1490668927" type="bool" value="true"/>
-	<entry name="compat_delete" mtime="1490668927" type="string">
+	<entry name="tab_ontop" mtime="1490684558" type="bool" value="true"/>
+	<entry name="window_ontop" mtime="1490684558" type="bool" value="false"/>
+	<entry name="start_fullscreen" mtime="1490684558" type="bool" value="true"/>
+	<entry name="compat_delete" mtime="1490684558" type="string">
 		<stringvalue>delete-sequence</stringvalue>
 	</entry>
-	<entry name="compat_backspace" mtime="1490668927" type="string">
+	<entry name="compat_backspace" mtime="1490684558" type="string">
 		<stringvalue>ascii-delete</stringvalue>
 	</entry>
-	<entry name="use_palette_font_and_background_color" mtime="1490668927" type="bool" value="true"/>
+	<entry name="use_palette_font_and_background_color" mtime="1490684558" type="bool" value="true"/>
 	<entry name="use_default_font" mtime="1490666431" type="bool" value="false"/>
-	<entry name="scroll_keystroke" mtime="1490668927" type="bool" value="true"/>
-	<entry name="history_size" mtime="1490668927" type="int" value="1024"/>
+	<entry name="scroll_keystroke" mtime="1490684558" type="bool" value="true"/>
+	<entry name="history_size" mtime="1490684558" type="int" value="1024"/>
 	<entry name="use_scrollbar" mtime="1490666507" type="bool" value="false"/>
 	<entry name="mouse_display" mtime="1490666558" type="bool" value="false"/>
-	<entry name="display_n" mtime="1490668927" type="int" value="0"/>
-	<entry name="quick_open_command_line" mtime="1490668927" type="string">
+	<entry name="display_n" mtime="1490684558" type="int" value="0"/>
+	<entry name="quick_open_command_line" mtime="1490684558" type="string">
 		<stringvalue>gedit %(file_path)s</stringvalue>
 	</entry>
 	<entry name="window_tabbar" mtime="1490666703" type="bool" value="false"/>
-	<entry name="window_halignment" mtime="1490668927" type="int" value="0"/>
-	<entry name="window_width_f" mtime="1490668927" type="float" value="100"/>
-	<entry name="window_width" mtime="1490668927" type="int" value="100"/>
-	<entry name="abbreviate_tab_names" mtime="1490668927" type="bool" value="false"/>
-	<entry name="window_losefocus" mtime="1490668927" type="bool" value="false"/>
-	<entry name="prompt_on_close_tab" mtime="1490668927" type="int" value="0"/>
+	<entry name="window_halignment" mtime="1490684558" type="int" value="0"/>
+	<entry name="window_width_f" mtime="1490684558" type="float" value="100"/>
+	<entry name="window_width" mtime="1490684558" type="int" value="100"/>
+	<entry name="abbreviate_tab_names" mtime="1490684558" type="bool" value="false"/>
+	<entry name="window_losefocus" mtime="1490684558" type="bool" value="false"/>
+	<entry name="prompt_on_close_tab" mtime="1490684558" type="int" value="0"/>
 	<entry name="prompt_on_quit" mtime="1490666518" type="bool" value="false"/>
 	<entry name="use_popup" mtime="1490666730" type="bool" value="false"/>
 	<entry name="use_trayicon" mtime="1490666699" type="bool" value="false"/>
