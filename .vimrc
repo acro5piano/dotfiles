@@ -193,7 +193,9 @@ filetype indent on
 autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
+nnoremap gp :.!xsel -o<CR>
 nnoremap gp :.!xsel -bo<CR>
+vmap <C-c> :w !xsel -i<CR><CR>
 vmap <C-c> :w !xsel -bi<CR><CR>
 
 "----------------------------------------------------
