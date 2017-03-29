@@ -197,6 +197,13 @@ nnoremap gp :.!xsel -bo<CR>
 vmap <C-c> :w !xsel -bi<CR><CR>
 
 "----------------------------------------------------
+" Code autocomplete
+"----------------------------------------------------
+inoremap {<CR> {<CR>}<Up><End><CR>
+inoremap II if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+inoremap FE foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+
+"----------------------------------------------------
 " Remap keys
 "----------------------------------------------------
 
@@ -206,7 +213,8 @@ inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
-inoremap <C-k> <ESC>lc$
+inoremap <C-k> <C-c>lc$
+" キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 
