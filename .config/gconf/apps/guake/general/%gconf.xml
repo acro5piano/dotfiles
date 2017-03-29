@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <gconf>
 	<entry name="window_height_f" mtime="1490751647" type="float" value="92.602699999999999"/>
-	<entry name="window_height" mtime="1490751647" type="int" value="92"/>
+	<entry name="window_height" mtime="1490764741" type="int" value="94"/>
 	<entry name="use_vte_titles" mtime="1490666739" type="bool" value="true"/>
 	<entry name="tab_ontop" mtime="1490751647" type="bool" value="true"/>
 	<entry name="window_ontop" mtime="1490751647" type="bool" value="false"/>

@@ -27,5 +27,5 @@ function fish_prompt -d 'Write out the prompt'
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) \
         [(parse_git_branch)] \
         (date +%Y-%m-%d.%H:%M:%S) \
-        "\n ~> "
+        "\n~> "
 end
