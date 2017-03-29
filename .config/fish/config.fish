@@ -1,6 +1,3 @@
-# vim:set ft=bash ts=2 sts=2 sw=2
-
-
 # {{{ Env vars
 
 set -x GOPATH $HOME/.go
@@ -24,6 +21,11 @@ function __fzf_history
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
+
+function __copy_command
+  echo (commandline -b) | xsel -ib
+end
+
 
 function gl
   set -l query (commandline)
@@ -153,6 +155,8 @@ alias wi='sudo wifi-menu'
 alias wether='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
+alias killer='ps aux | fzf --tac | awk "{print $2}" | xargs kill'
+alias murder='ps aux | fzf --tac | awk "{print $2}" | xargs kill -9'
 
 # }}}
 
@@ -172,3 +176,5 @@ end
 
 # }}}
 
+# vim:set ft=bash ts=2 sts=2 sw=2
+# vim:set foldmethod=marker:

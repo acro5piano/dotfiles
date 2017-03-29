@@ -244,6 +244,7 @@ nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rf :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
+vnoremap <Leader>r :OverCommandLine<CR>%s/
 nnoremap <Leader><Leader> :<C-p><HOME>
 vnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>tj :exe("tjump ".expand('<cword>'))<CR>
