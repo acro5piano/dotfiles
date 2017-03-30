@@ -70,12 +70,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
-    background_darkness = 0.84
+    background_color = "#300a24"
+    background_darkness = 0.93
     background_type = transparent
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
-    foreground_color = "#839496"
+    foreground_color = "#ffffff"
     icon_bell = False
     scroll_on_keystroke = False
     scrollbar_position = hidden
