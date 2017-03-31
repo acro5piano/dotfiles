@@ -46,7 +46,7 @@ function g
   if [ "$argv" ]
     git $argv
   else
-    git status
+    git status -uall
   end
 end
 

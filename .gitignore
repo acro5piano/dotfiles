@@ -20,15 +20,17 @@ fishd.*
 
 
 # Spacemacs things
-.emacs.d
+# I never use it
+# .emacs.d
 
-.emacs.d.bak/*
-!.emacs.d.bak/init.el
-!.emacs.d.bak/Cask
-!.emacs.d.bak/conf.el
-!.emacs.d.bak/terminal.el
-!.emacs.d.bak/conf.d
-!.emacs.d.bak/lisp
+.emacs.d/*
+!.emacs.d/init.el
+!.emacs.d/Cask
+!.emacs.d/conf.el
+!.emacs.d/japanese.el
+!.emacs.d/terminal.el
+!.emacs.d/conf.d
+!.emacs.d/lisp
 
 .vim/*
 !.vim/after

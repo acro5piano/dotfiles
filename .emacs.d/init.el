@@ -34,12 +34,15 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "Source Code Pro" :family "Source Code Pro")))))
 
+
+;; My things
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/lisp")
-(load "~/.emacs.d/conf.el")
+;;(add-to-list 'load-path "~/.emacs.d/lisp")
+;;(load "~/.emacs.d/conf.el")
 ;;(load "~/.emacs.d/terminal.el")
+(load "~/.emacs.d/japanese.el")
 
 
 ;;; init.el ends here
