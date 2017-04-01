@@ -244,7 +244,7 @@ nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rf :OverCommandLine<CR>%s/
+nnoremap <Leader>rf :OverCommandLine<CR>s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 vnoremap <Leader>r :OverCommandLine<CR>%s/
 nnoremap <Leader><Leader> :<C-p><HOME>
