@@ -128,6 +128,10 @@ function vimf
     vim (git ls-files | fzf-tmux)
 end
 
+function sp
+    bash -c "$argv &"
+end
+
 # }}}
 
 # {{{ aliases
@@ -140,8 +144,8 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias bc='bc -l'
-alias cl='xsel -bi'
-alias clp='xsel -bo'
+alias cl='xsel -i'
+alias clp='xsel -o'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'

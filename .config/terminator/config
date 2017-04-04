@@ -2,6 +2,7 @@
   borderless = True
   broadcast_default = off
   enabled_plugins = ,
+  extra_styling = False
   scroll_tabbar = True
   smart_copy = False
 [keybindings]
@@ -71,7 +72,6 @@
 [profiles]
   [[default]]
     background_color = "#300a24"
-    background_darkness = 0.93
     background_type = transparent
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
