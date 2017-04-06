@@ -124,6 +124,18 @@ function gsub
     perl -pe "s#$argv[1]#$argv[2]#g"
 end
 
+function insert
+    perl -pe "s#^#$argv[1]#g"
+end
+
+function append
+    perl -pe "s#\$#$argv[1]#"
+end
+
+function delete
+    perl -pe "s#$argv[1]##g"
+end
+
 function vimf
     vim (git ls-files | fzf-tmux)
 end

@@ -3,6 +3,7 @@
 TRASH_DIR="$HOME/.trash"
 
 # delete files trashed before 15 days
+sudo chown -R $USER: ~/.trash
 find ~/.trash -maxdepth 1 -mtime +15 | xargs rm -rf
 
 target=$(find $TRASH_DIR -maxdepth 3 | fzf)
