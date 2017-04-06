@@ -23,7 +23,8 @@ function __fzf_history
 end
 
 function __copy_command
-  echo (commandline -b) | xsel -ib
+  echo (commandline -b) | xsel -i
+  echo (commandline -b) | xsel -b
 end
 
 
