@@ -145,6 +145,10 @@ function sp
     bash -c "$argv &"
 end
 
+function addone
+    ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
+end
+
 # }}}
 
 # {{{ aliases

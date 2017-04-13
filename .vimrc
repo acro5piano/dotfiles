@@ -135,6 +135,7 @@ inoremap FE foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zl ->
 inoremap zh <-
 inoremap </ </<C-x><C-o>
+inoremap clg console.log()<Left>
 
 "----------------------------------------------------
 " Remap keys
