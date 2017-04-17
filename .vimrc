@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
+Plug 'pelodelfuego/vim-swoop'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
@@ -151,6 +152,8 @@ inoremap <C-k> <C-c>lc$
 " キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
+inoremap <Down> <C-n>
+inoremap <Up> <C-p>
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>

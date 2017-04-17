@@ -5,6 +5,7 @@
     a = add
     alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
     br = branch
+    brd = !git branch | fzf | xargs git branch -D
     cam = commit -am
     co = checkout
     col = !git checkout $(git branch | fzf-tmux)

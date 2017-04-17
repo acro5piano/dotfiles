@@ -11,13 +11,14 @@ set -x PATH $PATH \
             /bin
 set -x EDITOR vim
 set -x VISUAL vim
+set -x CHROME_BIN chromium
 
 # }}}
 
 # {{{ functions
 
 function __fzf_history
-  history | fzf-tmux -d40% +s +m --query=(commandline -b) \
+  history | perl -nle 'print if length($_) < 80' | fzf-tmux -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -85,7 +86,7 @@ function diffc
 end
 
 function git-open
-    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+:(.+)\.git;https://github.com/\1;g' | xargs chromium
+    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+git@(.+)\.git;https://\1;g' | xargs chromium
 end
 
 function nippo
