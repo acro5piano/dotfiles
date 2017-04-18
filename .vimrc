@@ -142,6 +142,8 @@ inoremap clg console.log()<Left>
 " Remap keys
 "----------------------------------------------------
 
+inoremap <S-TAB> <C-d>
+inoremap <TAB> <C-t>
 " Emacs-like key binding
 inoremap <C-a> <Home>
 inoremap <C-b> <Left>
