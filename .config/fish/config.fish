@@ -106,8 +106,14 @@ function dot
 end
 
 function seek
-    echo $argv | perl -pe 's/ +/.+/g' | \
-    xargs rg --heading --color never | fzf --tac
+    set dir $argv[-1]
+    if [ -e $dir ]
+        set expression (echo $argv | perl -pe "s#$dir##" | perl -pe 's# +#.+#g')
+        rg --color always $expression $dir | perl -nle 'print if length($_) < 200'
+    else
+        set expression (echo $argv | perl -pe 's# +#.+#g')
+        rg --color always $expression | perl -nle 'print if length($_) < 200'
+    end
 end
 
 function grg
