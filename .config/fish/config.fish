@@ -116,11 +116,7 @@ function seek
     end
 end
 
-function grg
-    rg --heading --color always $argv | less
-end
-
-function replace
+function grep-replace
     git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
 end
 
