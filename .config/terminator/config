@@ -58,7 +58,7 @@
   ungroup_all = None
   ungroup_tab = None
   zoom_in = None
-  zoom_normal = None
+  zoom_normal = <Primary>0
   zoom_out = None
 [layouts]
   [[default]]

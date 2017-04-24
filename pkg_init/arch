@@ -51,7 +51,10 @@ install-gui-package(){
          xsel xdotool xfce4-screenshooter xscreensaver acpi pm-utils xcompmgr \
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
          adobe-source-code-pro-fonts
-    yaourt -S --needed otf-ipaexfont pepper-flash
+    yaourt -S --needed \
+        otf-ipaexfont
+    # Flash 有効化しているとChromiumが重くっぽいのでいったん削除
+    # pepper-flash
 }
 
 install-xremap(){

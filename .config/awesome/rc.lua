@@ -187,6 +187,9 @@ globalkeys = awful.util.table.join(
     -- Hardware config
     awful.key({                   }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight +5") end),
     awful.key({                   }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
+    awful.key({                   }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer sset Master 5+") end),
+    awful.key({                   }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer sset Master 5-") end),
+    awful.key({                   }, "XF86AudioMute",           function () awful.util.spawn("amixer sset Master mute") end),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
 

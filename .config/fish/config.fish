@@ -18,7 +18,7 @@ set -x CHROME_BIN chromium
 # {{{ functions
 
 function __fzf_history
-  history | perl -nle 'print if length($_) < 80' | fzf-tmux -d40% +s +m --query=(commandline -b) \
+  history | perl -nle 'print if length($_) < 120' | fzf-tmux -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -191,13 +191,13 @@ source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
-if [ "$DISPLAY" ]
-    if pgrep tmux > /dev/null
-        tmux a ^ /dev/null
-    else
-        tmux
-    end
-end
+# if [ "$DISPLAY" ]
+#     if pgrep tmux > /dev/null
+#         tmux a ^ /dev/null
+#     else
+#         tmux
+#     end
+# end
 
 # }}}
 
