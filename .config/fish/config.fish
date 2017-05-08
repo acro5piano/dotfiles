@@ -90,7 +90,10 @@ function git-open
 end
 
 function nippo
-    cd ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
+    set dir ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
+    [ -d $dir ]; or mkdir $dir
+    cd $dir
+
     set yesterday (ls | egrep '[0-9]+.md' | sort -n | tail -1)
     set today (date +%d).md
     cp $yesterday $today
@@ -191,13 +194,13 @@ source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
-# if [ "$DISPLAY" ]
-#     if pgrep tmux > /dev/null
-#         tmux a ^ /dev/null
-#     else
-#         tmux
-#     end
-# end
+if [ "$DISPLAY" ]
+    if pgrep tmux > /dev/null
+        tmux a ^ /dev/null
+    else
+        tmux
+    end
+end
 
 # }}}
 

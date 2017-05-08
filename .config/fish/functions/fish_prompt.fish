@@ -4,7 +4,7 @@ set git_dirty_color red
 set git_clean_color green
 
 function parse_git_branch
-    git rev-parse --git-dir ^/dev/null >/dev/null; or return
+    git rev-parse --git-dir >/dev/null ^&1; or return
 
     set -l branch (git branch --contains=HEAD | awk '{print $2}')
     set -l git_changed_files_count (git status -s -uall | wc -l)

@@ -29,7 +29,7 @@ install-termianl-tool(){
     which psysh || composer global require psy/psysh
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond
+         graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
