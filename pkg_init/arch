@@ -52,7 +52,7 @@ install-gui-package(){
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
          adobe-source-code-pro-fonts
     yaourt -S --needed \
-        otf-ipaexfont
+        otf-ipaexfont gscreenshot maim
     # Flash 有効化しているとChromiumが重くっぽいのでいったん削除
     # pepper-flash
 }
