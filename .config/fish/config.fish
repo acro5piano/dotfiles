@@ -24,8 +24,7 @@ function __fzf_history
 end
 
 function __copy_command
-  echo (commandline -b) | xsel -i
-  echo (commandline -b) | xsel -b
+  echo (commandline -b) | xsel -bi
 end
 
 
@@ -179,8 +178,8 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias bc='bc -l'
-alias cl='xsel -i'
-alias clp='xsel -o'
+alias cl='xsel -ib'
+alias clp='xsel -ob'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
