@@ -112,10 +112,10 @@ function seek
     set dir $argv[-1]
     if [ -e $dir ]
         set expression (echo $argv | perl -pe "s#$dir##" | perl -pe 's# +#.+#g')
-        rg --color always $expression $dir | perl -nle 'print if length($_) < 200'
+        rg --color always --heading $expression $dir | perl -nle 'print if length($_) < 200'
     else
         set expression (echo $argv | perl -pe 's# +#.+#g')
-        rg --color always $expression | perl -nle 'print if length($_) < 200'
+        rg --color always --heading $expression | perl -nle 'print if length($_) < 200'
     end
 end
 
@@ -131,6 +131,14 @@ function gsub
     perl -pe "s#$argv[1]#$argv[2]#g"
 end
 
+function snakecase
+    perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'
+end
+
+function camelcase
+    perl -pe 's#(_|^)(.)#\u$2#g'
+end
+
 function insert
     perl -pe "s#^#$argv[1]#g"
 end
@@ -141,6 +149,10 @@ end
 
 function delete
     perl -pe "s#$argv[1]##g"
+end
+
+function delete_html_tags
+    perl -pe "s#<.*?>##g"
 end
 
 function vimf
@@ -185,6 +197,7 @@ alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
 alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
+alias dev2master="git co develop; and git pull; and hub pull-request -b master"
 
 # }}}
 
