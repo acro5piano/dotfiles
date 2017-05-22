@@ -17,6 +17,15 @@ set -x CHROME_BIN chromium
 
 # {{{ functions
 
+function delete-all-tables
+    echo 'if it is ok, press ^d'
+    cat
+    mysqldump -u homestead -psecret \
+      --add-drop-table --no-data -P 33060 homestead -h 127.0.0.1 | \
+      grep -e '^DROP \| FOREIGN_KEY_CHECKS' | \
+      mysql -u homestead -psecret -P 33060 -h 127.0.0.1 homestead
+end
+
 function __fzf_history
   history | perl -nle 'print if length($_) < 120' | fzf-tmux -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
@@ -166,6 +175,7 @@ function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
 end
 
+
 # }}}
 
 # {{{ aliases
@@ -198,6 +208,9 @@ alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
 alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 alias dev2master="git co develop; and git pull; and hub pull-request -b master"
 
+alias v="vagrant up; vagrant ssh"
+alias vr="vagrant reload; vagrant ssh"
+alias vs="vagrant suspend"
 # }}}
 
 # {{{ init

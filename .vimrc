@@ -25,6 +25,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
+Plug 'digitaltoad/vim-pug'
 Plug 'Yggdroot/indentLine'
 " Initialize plugin system
 call plug#end()

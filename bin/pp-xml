@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'rexml/document'
+require 'rexml/formatters/pretty'
+
+doc = REXML::Document.new(STDIN.gets)
+
+pretty_formatter = REXML::Formatters::Pretty.new
+output = StringIO.new
+pretty_formatter.write(doc, output)
+puts output.string
