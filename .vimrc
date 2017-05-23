@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/vim-asterisk'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -65,16 +67,14 @@ set ignorecase
 set smartcase
 set wrapscan
 
-" Regard hypen separete word as as one word
-" e.g) a-b
-set isk+=-
-
 let g:ackprg = 'rg --vimgrep --smart-case'
 
 " incsearch.vim
-map /  <Plug>(incsearch-forward)
+map / <Plug>(incsearch-fuzzy-/)
 map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+map g/  <Plug>(incsearch-forward)
+map z/ <Plug>(incsearch-stay)
+vmap *  <Plug>(asterisk-g*)
 
 "----------------------------------------------------
 " Face
@@ -219,7 +219,6 @@ set hidden " not discard undo after buffers were killed
 set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
-setlocal iskeyword+=-
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 " remember cursor position
