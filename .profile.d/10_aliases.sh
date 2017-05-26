@@ -2,8 +2,8 @@
 
 alias ave="awk '{a+=\$1}END{print a/NR}'"
 alias bc='bc -l'
-alias cl='xsel -ib'
-alias clp='xsel -ob'
+alias cl='xclip -i -selection clipboard'
+alias clp='xclip -o -selection clipboard'
 alias d='cd $(dirs -v | fzf | cut -f 2)'
 alias dc='docker-compose'
 alias dce='docker-compose exec -it'

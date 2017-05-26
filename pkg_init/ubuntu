@@ -126,7 +126,7 @@ sudo apt install -y chromium-browser
 sudo apt install -y gparted pcmanfm
 
 # UX utilities
-sudo apt install -y xsel xfce4-screenshooter
+sudo apt install -y xclip maim
 
 # Multimedia
 sudo apt install -y vlc ubuntu-restricted-extras feh pinta moc eog

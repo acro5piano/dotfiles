@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
+Plug 'jwalton512/vim-blade'
 Plug 'pelodelfuego/vim-swoop'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
@@ -123,9 +124,9 @@ filetype indent on
 autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
-nnoremap <Space>pb :.!xsel -bo<CR>
-nnoremap <Space>pp :.!xsel -o<CR>
-map <C-c> :w !xsel -bi<CR><CR>
+nnoremap <Space>pb :.!xclip -o -selection clipboard<CR>
+nnoremap <Space>pp :.!xclip -o -selection primary<CR>
+map <C-c> :w !xclip -i -selection clipboard<CR><CR>
 
 "----------------------------------------------------
 " Code autocomplete

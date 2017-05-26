@@ -33,7 +33,7 @@ function __fzf_history
 end
 
 function __copy_command
-  echo (commandline -b) | xsel -bi
+  echo (commandline -b) | xclip -i -selection clipboard
 end
 
 
@@ -187,9 +187,10 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias 1='cd -'
 
+alias ag='rg'
 alias bc='bc -l'
-alias cl='xsel -ib'
-alias clp='xsel -ob'
+alias cl='xclip -i -selection clipboard'
+alias clp='xclip -o -selection clipboard'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
@@ -219,13 +220,13 @@ source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
-if [ "$DISPLAY" ]
-    if pgrep tmux > /dev/null
-        tmux a ^ /dev/null
-    else
-        tmux
-    end
-end
+# if [ ! -n "$DISPLAY" ]
+#     if pgrep tmux > /dev/null
+#         tmux a ^ /dev/null
+#     else
+#         tmux
+#     end
+# end
 
 # }}}
 
