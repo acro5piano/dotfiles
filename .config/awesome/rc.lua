@@ -165,37 +165,27 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    -- Layout
-    awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "Left",     function () awful.tag.incmwfact(-0.05)    end),
-
-    -- Switch
-    awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "n", awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey, "Control" }, "r", awesome.restart),
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium") end),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-
-    -- Standard program
-    awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
-    -- awful.key({ modkey,           }, "s", function () awful.util.spawn("xfce4-screenshooter") end),
-    awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
-    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium") end),
+    awful.key({ modkey,           }, "Left",     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey,           }, "n", awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-
-    -- Hardware config
-    awful.key({                   }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight +5") end),
-    awful.key({                   }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
-    awful.key({                   }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer sset Master 5+") end),
+    awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
+    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "v", function () awful.util.spawn("dmenu_paste") end),
+    awful.key({ modkey,           }, "x",     function () awful.util.spawn("dmenu_run_vertical") end),
     awful.key({                   }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer sset Master 5-") end),
     awful.key({                   }, "XF86AudioMute",           function () awful.util.spawn("amixer sset Master mute") end),
-    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
-
-    -- Prompt
-    awful.key({ modkey },            "x",     function () awful.util.spawn("dmenu_run_vertical") end)
+    awful.key({                   }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer sset Master 5+") end),
+    awful.key({                   }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
+    awful.key({                   }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight +5") end)
 )
 
 clientkeys = awful.util.table.join(

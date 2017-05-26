@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xdotool type -- "$(cat ~/.xclip-history | tac | dmenu -b -l 15 -p '>')"
