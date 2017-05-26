@@ -220,13 +220,13 @@ source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
-# if [ ! -n "$DISPLAY" ]
-#     if pgrep tmux > /dev/null
-#         tmux a ^ /dev/null
-#     else
-#         tmux
-#     end
-# end
+if [ "$TERM" = 'xterm-256color' ]
+    if pgrep tmux > /dev/null
+        tmux a ^ /dev/null
+    else
+        tmux
+    end
+end
 
 # }}}
 
