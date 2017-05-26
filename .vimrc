@@ -134,8 +134,10 @@ map <C-c> :w !xclip -i -selection clipboard<CR><CR>
 inoremap {<CR> {<CR>}<Up><End><CR>
 inoremap II if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap FE foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+inoremap psy extract(\Psy\Shell::debug(get_defined_vars()));
 inoremap zl ->
 inoremap zh <-
+inoremap zzl =>
 inoremap </ </<C-x><C-o>
 inoremap clg console.log()<Left>
 
