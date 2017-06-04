@@ -148,11 +148,11 @@ function camelcase
 end
 
 function insert
-    perl -pe "s#^#$argv[1]#g"
+    perl -pe "s#^#$argv[1] #g"
 end
 
 function append
-    perl -pe "s#\$#$argv[1]#"
+    perl -pe "s#\$# $argv[1]#"
 end
 
 function delete
