@@ -97,21 +97,6 @@ function git-open
     git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+git@(.+)\.git;https://\1;g' | xargs chromium
 end
 
-function nippo
-    set dir ~/.ghq/bitbucket.org/Kazuya-Gosho/mynote/mytasks/(date +%Y%m)
-    [ -d $dir ]; or mkdir $dir
-    cd $dir
-
-    set yesterday (ls | egrep '[0-9]+.md' | sort -n | tail -1)
-    set today (date +%d).md
-    cp $yesterday $today
-
-    set yesterday_exp (date -d '1 days ago' +%Y/%m/%d)
-    set today_exp (date +%Y/%m/%d)
-    perl -i -pe "s;$yesterday_exp;$today_exp;" $today
-    vim $today
-end
-
 function dot
     cd ~/.dotfiles
 end

@@ -27,6 +27,7 @@ install-termianl-tool(){
     which vue     || sudo yarn install -g vue-cli
     which electron     || sudo yarn install -g electron
     which psysh || composer global require psy/psysh
+    which phpunit || composer global require phpunit/phpunit
 
     sudo pacman -S --needed --noconfirm \
          graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect
