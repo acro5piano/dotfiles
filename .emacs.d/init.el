@@ -41,8 +41,8 @@
 
 ;;(add-to-list 'load-path "~/.emacs.d/lisp")
 ;;(load "~/.emacs.d/conf.el")
-;;(load "~/.emacs.d/terminal.el")
-(load "~/.emacs.d/japanese.el")
+(load "~/.emacs.d/terminal.el")
+;;(load "~/.emacs.d/japanese.el")
 
 
 ;;; init.el ends here
