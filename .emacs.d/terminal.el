@@ -17,12 +17,15 @@
 (require 'ido-ubiquitous)
 (require 'migemo)
 (require 'misc)
+(require 'scss-mode)
 (require 'open-junk-file)
 (require 'org)
 (require 'projectile)
 (require 'recentf)
 (require 'recentf-ext)
 (require 'smex)
+(require 'undo-tree)
+(require 'web-mode)
 (require 'which-key)
 
 ;;; Dired
@@ -77,11 +80,14 @@
 (setq open-junk-file-format "~/tmp/%Y-%m-%d-%H%M%S.")
 (setq open-junk-file-find-file-function 'find-file)
 
+(global-auto-revert-mode 1)
+(global-undo-tree-mode)
+
 ;;; Edit
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; 行末の空白を削除
-;(put 'narrow-to-region 'disabled nil)
-;(editorconfig-mode 1)
+(editorconfig-mode 1)
 
 ;; Use auto indent
 (setq-default indent-tabs-mode nil)
@@ -120,6 +126,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+(toggle-truncate-lines)
 
 ;; カーソル位置の桁数をモードライン行に表示する
 (column-number-mode 1)
@@ -173,6 +180,21 @@
     '(lambda()
        (add-hook 'before-save-hook 'cleanup-org-tables  nil 'make-it-local)))
 
+;;; Web mode
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
+(setq web-mode-engines-alist
+'(("php"    . "\\.phtml\\'")
+  ("blade"  . "\\.blade\\.")))
+(setq web-mode-markup-indent-offset 2)
+
 (defun strip-html (start end)
   "Strip html with regular expression between region START and END."
   (interactive "r")
@@ -186,10 +208,22 @@
 ;;; auto-complete
 
 (ac-config-default)
+(global-auto-complete-mode)       ;; これで常にac-modeになる？
+(setq ac-use-fuzzy t)             ;; 曖昧マッチ
 (add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
+(add-to-list 'ac-modes 'shell-script-mode)
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'yatex-mode)
+(add-to-list 'ac-modes 'markdown-mode)
+(add-to-list 'ac-modes 'lisp-interaction-mode)
+(add-to-list 'ac-modes 'sql-mode)
+(add-to-list 'ac-modes 'lisp-mode)
+(add-to-list 'ac-modes 'ruby-mode)
+(add-to-list 'ac-modes 'web-mode)
+(add-to-list 'ac-modes 'haml-mode)
+(add-to-list 'ac-modes 'ruby-mode)
 
 (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-
 
 ;;; migemo
 (setq migemo-command "cmigemo")
@@ -201,6 +235,23 @@
 (load-library "migemo")
 (migemo-init)
 
+;;; scss-mode
+
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+
+(defun scss-custom ()
+  "Set scss-mode-hook."
+  (and
+   (set (make-local-variable 'css-indent-offset) 2)
+   (set (make-local-variable 'scss-compile-at-save) nil)))
+(add-hook 'scss-mode-hook
+          '(lambda() (scss-custom)))
+
+;;; JavaScript
+(add-hook 'js-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
 
 ;;; Key bindings
 
