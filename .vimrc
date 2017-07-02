@@ -131,16 +131,18 @@ map <C-c> :w !xclip -i -selection clipboard<CR><CR>
 "----------------------------------------------------
 " Code autocomplete
 "----------------------------------------------------
+
 inoremap {<CR> {<CR>}<Up><End><CR>
-inoremap II if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
-inoremap FE foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
-inoremap psy extract(\Psy\Shell::debug(get_defined_vars()));
-inoremap ddv dd(get_defined_vars());
-inoremap zl ->
+inoremap z. =>
+inoremap zc console.log()<Left>
+inoremap zf foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zh <-
-inoremap zzl =>
+inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+inoremap zl ->
+inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
 inoremap </ </<C-x><C-o>
-inoremap clg console.log()<Left>
+inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
+inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
 
 "----------------------------------------------------
 " Remap keys
@@ -182,22 +184,17 @@ nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rf :OverCommandLine<CR>s/
+nnoremap <Leader>rf :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
-vnoremap <Leader>r :OverCommandLine<CR>s/
 nnoremap <Leader><Leader> :<C-p><HOME>
-vnoremap <Leader><Leader> :<C-p><HOME>
-nnoremap <Leader>tj :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>w/ :vs<CR>
 nnoremap <Leader>ww <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
-
-nnoremap <Leader>d. :.!date +\%Y-\%m-\%d<CR>
-nnoremap <Leader>dt a<Space><C-r>=strftime("%H:%M")<CR><ESC>
 
 nnoremap <ESC><ESC> :nohl<CR>
 

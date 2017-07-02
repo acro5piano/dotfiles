@@ -53,6 +53,7 @@ xmodmap $HOME/.xmodmap.d/us
 # xrdb ~/.Xresources
 
 bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
-save-xclip-history &
+# 熱がやばいため
+# save-xclip-history &
 
 exec awesome
