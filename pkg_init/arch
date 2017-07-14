@@ -48,7 +48,7 @@ install-gui-package(){
     sudo pacman -S --needed  \
          xorg xorg-xinit wmctrl synaptics xorg-xbacklight  awesome \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
-         terminator chromium pcmanfm dmenu volumeicon \
+         terminator chromium pcmanfm dmenu \
          xclip xdotool xscreensaver acpi pm-utils xcompmgr \
          vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
          adobe-source-code-pro-fonts
