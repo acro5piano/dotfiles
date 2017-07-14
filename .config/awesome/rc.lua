@@ -181,6 +181,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "x",     function () awful.util.spawn("dmenu_run_vertical") end),
     awful.key({ modkey,           }, "w", function () awful.client.swap.byidx(1) end),
+    awful.key({ modkey,           }, "Tab",
+        function ()
+            awful.client.focus.byidx( 1)
+            if client.focus then client.focus:raise() end
+        end),
+
     awful.key({                   }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer sset Master 5-") end),
     awful.key({                   }, "XF86AudioMute",           function () awful.util.spawn("amixer sset Master mute") end),
     awful.key({                   }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer sset Master 5+") end),
