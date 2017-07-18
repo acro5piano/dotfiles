@@ -30,6 +30,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'Yggdroot/indentLine'
+Plug 'wsdjeg/FlyGrep.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -232,4 +233,3 @@ autocmd BufReadPost * syntax sync fromstart
 autocmd FileType vue syntax sync fromstart
 
 set showcmd
-
