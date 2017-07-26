@@ -165,6 +165,7 @@ inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <Down> <C-n>
 inoremap <Up> <C-p>
+
 inoremap <C-k> <C-o>:call setline(line('.'), col('.') == 1 ? '' : getline('.')[:col('.') - 2])<CR>
 
 cnoremap <C-a> <Home>
@@ -198,8 +199,11 @@ nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>w/ :vs<CR>
-nnoremap <C-w>/ :vs<CR>
-nnoremap <Leader>o <C-w><C-w>
+nnoremap <Leader>wh <C-w>h
+nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>wj <C-w>j
+nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
