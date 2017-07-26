@@ -13,6 +13,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-scripts/taglist.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -72,9 +73,9 @@ set wrapscan
 let g:ackprg = 'rg --vimgrep --smart-case'
 
 " incsearch.vim
-map / <Plug>(incsearch-fuzzy-/)
+map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
-map g/  <Plug>(incsearch-forward)
+map g/ <Plug>(incsearch-fuzzy-/)
 map z/ <Plug>(incsearch-stay)
 vmap *  <Plug>(asterisk-g*)
 
@@ -105,6 +106,8 @@ colorscheme elflord
 let g:lightline = {
       \ 'colorscheme': 'solarized'
       \ }
+
+set breakindent
 
 "----------------------------------------------------
 " Indent
@@ -157,12 +160,12 @@ inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
-inoremap <C-k> <C-c>lc$
 " キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <Down> <C-n>
 inoremap <Up> <C-p>
+inoremap <C-k> <C-o>:call setline(line('.'), col('.') == 1 ? '' : getline('.')[:col('.') - 2])<CR>
 
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
@@ -175,6 +178,7 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
+nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>bb :Buffers<CR>
@@ -185,16 +189,17 @@ nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rf :OverCommandLine<CR>%s/
+nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
-nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>tl :Tlist<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>w/ :vs<CR>
-nnoremap <Leader>ww <C-w><C-w>
+nnoremap <C-w>/ :vs<CR>
+nnoremap <Leader>o <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
@@ -210,6 +215,7 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 nnoremap go o<ESC>k
+
 
 
 "---------------------------------------------------
