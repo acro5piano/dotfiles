@@ -30,7 +30,8 @@ install-termianl-tool(){
     which phpunit || composer global require phpunit/phpunit
 
     sudo pacman -S --needed --noconfirm \
-         graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect
+        graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect \
+        nmap traceroute openssl
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
