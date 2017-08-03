@@ -27,3 +27,5 @@
 	quotepath = false
 [http]
 	postBuffer = 1048576000
+[ghq]
+    root = ghq
