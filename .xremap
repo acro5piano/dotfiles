@@ -32,6 +32,7 @@ window class_only: ['chromium', 'firefox'] do
   remap 'M-n', to: 'Ctrl-n'
   remap 'M-a', to: 'Ctrl-a'
   remap 'M-r', to: 'Ctrl-r'
+  remap 'M-p', to: 'Ctrl-p'
 
   # Slack
   remap 'M-x', to: 'Ctrl-k'
