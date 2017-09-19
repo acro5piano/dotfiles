@@ -44,6 +44,7 @@ function gl
     set fzf_flags --query "$query"
   end
 
+  cd
   ghq list -p | fzf $peco_flags | read line
 
   if [ $line ]
@@ -208,7 +209,7 @@ pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
 if [ "$TERM" = 'xterm-256color' ]
     if pgrep tmux > /dev/null
-        tmux a ^ /dev/null
+        # tmux a ^ /dev/null
     else
         tmux
     end

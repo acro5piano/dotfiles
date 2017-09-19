@@ -188,6 +188,8 @@ nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fd :e $MYVIMRC<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>gd :GitDiff<CR><C-l>
+nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
@@ -221,6 +223,22 @@ command! FZFMru call fzf#run({
 nnoremap go o<ESC>k
 
 
+"--------------
+" Git
+"--------------
+function! s:git_blame()
+    let fileName = '/tmp/__git_blame.'.expand(&ft)
+    call system('git blame '.expand('%').' | perl -pe "s/^.+? //" > '.fileName)
+    :exe ':e '.fileName
+endfunction
+command! GitBlame call s:git_blame()
+
+function! s:git_diff()
+    call system('git diff '.expand('%').' > /tmp/__git_diff.diff')
+    " :e /tmp/__git_diff.diff
+    :silent !ccat /tmp/__git_diff.diff | less
+endfunction
+command! GitDiff call s:git_diff()
 
 "---------------------------------------------------
 " Others
