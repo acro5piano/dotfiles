@@ -171,6 +171,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
     awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium") end),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey,           }, "h",
+        function ()
+            awful.client.focus.byidx( 1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey,           }, "l",
+        function ()
+            awful.client.focus.byidx(-1)
+            if client.focus then client.focus:raise() end
+        end),
     awful.key({ modkey,           }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "Left",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey,           }, "n", awful.tag.viewnext       ),

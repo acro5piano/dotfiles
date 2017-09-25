@@ -228,7 +228,7 @@ nnoremap go o<ESC>k
 "--------------
 function! s:git_blame()
     let fileName = '/tmp/__git_blame.'.expand('%:t')
-    call system('git blame '.expand('%').' | perl -pe "s/^.+? //" > '.fileName)
+    call system('git blame '.expand('%').' > '.fileName)
     :exe ':e '.fileName
 endfunction
 command! GitBlame call s:git_blame()
