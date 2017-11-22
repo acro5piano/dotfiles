@@ -199,6 +199,8 @@ alias dev2master="git co develop; and git pull; and hub pull-request -b master"
 alias v="vagrant up; vagrant ssh"
 alias vr="vagrant reload; vagrant ssh"
 alias vs="vagrant suspend"
+
+alias sum='perl -nale \'$sum += $_; END { print $sum }\''
 # }}}
 
 # {{{ init

@@ -17,6 +17,10 @@ install-dev-package(){
         jdk8-openjdk
 }
 
+install-verion-management-tool(){
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+}
+
 install-termianl-tool(){
     go get \
         github.com/jehiah/json2csv \

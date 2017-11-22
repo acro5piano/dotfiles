@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+while true
+    curl -H 'Accept-Encoding: gzip' -Ss -LI -o /dev/null -w \
+        '%{http_code} in %{time_total} seconds, %{content_type} as %{size_download} \n' \
+        $argv
+    sleep 1
+end
