@@ -32,6 +32,7 @@ install-termianl-tool(){
     which electron     || sudo yarn install -g electron
     which psysh || composer global require psy/psysh
     which phpunit || composer global require phpunit/phpunit
+    which pipenv || pip install --user pipenv
 
     sudo pacman -S --needed --noconfirm \
         graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect \

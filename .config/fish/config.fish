@@ -1,17 +1,20 @@
 # {{{ Env vars
 
-set -x GOPATH $HOME/.go
-set -x PATH $PATH \
+set -gx GOPATH $HOME/.go
+set -gx PATH \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
-            /bin
-set -x EDITOR vim
-set -x VISUAL vim
-set -x CHROME_BIN chromium
+            /bin \
+            $PATH
+set -gx EDITOR vim
+set -gx VISUAL vim
+set -gx CHROME_BIN chromium
+
+set -gx PIPENV_VENV_IN_PROJECT 1
 
 # }}}
 
@@ -181,7 +184,7 @@ alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
 alias la='ls -A'
-alias less='less -M -R'
+alias less='less -R'
 alias ll='ls -alh'
 alias ls='ls --color=auto'
 alias now='date +%Y%m%d_%H%M%S'
@@ -201,6 +204,10 @@ alias vr="vagrant reload; vagrant ssh"
 alias vs="vagrant suspend"
 
 alias sum='perl -nale \'$sum += $_; END { print $sum }\''
+alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
+
+alias csv='column -ts ,'
+alias tsv='column -ts \t'
 # }}}
 
 # {{{ init

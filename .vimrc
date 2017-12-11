@@ -141,12 +141,13 @@ inoremap z. =>
 inoremap zc console.log()<Left>
 inoremap zf foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zh <-
-inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
+" inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zl ->
 inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
 inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
+inoremap z[ from IPython import embed; embed()
 
 "----------------------------------------------------
 " Remap keys
