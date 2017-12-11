@@ -1,0 +1,10 @@
+#!/bin/bash
+
+selector=$1
+method=$2
+
+if [ ! "$method" ]; then
+    method=text
+fi
+
+nokogiri -e "\$_.css(\"$1\").each {|e| puts e.send(\"$method\") }"
