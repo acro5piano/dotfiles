@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-selector=$1
-method=$2
+require 'nokogiri'
+require 'optparse'
 
-if [ ! "$method" ]; then
-    method=text
-fi
+config = Hash.new
+opts = OptionParser.new
+opts.on('-g group') { |v| config[:g] = v }
+opts.parse!(ARGV)
 
-nokogiri -e "\$_.css(\"$1\").each {|e| puts e.send(\"$method\") }"
+document = Nokogiri::HTML(STDIN)
+
+if config[:g].nil?
+  puts document.css(ARGV[0]).map(&:text)
+else
+  document.css(config[:g]).each do |doc|
+    puts ARGV.map { |arg| doc.css(arg).text }.join("\t")
+  end
+end
