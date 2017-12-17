@@ -18,7 +18,6 @@ fishd.*
 .config/fcitx/conf/*
 !.config/fcitx/conf/fcitx-clipboard.config
 
-
 # Spacemacs things
 # I never use it
 # .emacs.d
