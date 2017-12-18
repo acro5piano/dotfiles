@@ -20,6 +20,7 @@ link(){
             rm -rf "$HOME/$f"
         fi
 
+        echo "$HOME/$f" '-->' "$DOTPATH/$f"
         ln -snfv "$DOTPATH/$f" "$HOME/$f"
     done
 
@@ -42,10 +43,6 @@ usage(){
 }
 
 cd $DOTPATH
-
-if ! [ "$1" ]; then
-    exec $SHELL
-fi
 
 case $1 in
     'pull') pull ;;
