@@ -14,7 +14,10 @@ install-dev-package(){
         go lua \
         php composer \
         nodejs npm \
-        jdk8-openjdk
+        jdk8-openjdk \
+        clojure
+
+    yaourt -S leiningen
 }
 
 install-verion-management-tool(){

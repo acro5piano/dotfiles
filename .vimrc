@@ -209,9 +209,6 @@ nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 
-" ctag
-nnoremap <C-]> g<C-]>
-
 nnoremap <ESC><ESC> :nohl<CR>
 
 nmap <F1> <ESC>
