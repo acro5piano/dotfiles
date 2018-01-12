@@ -21,7 +21,6 @@ window class_only: ['chromium', 'google-chrome', 'firefox'] do
   remap 'M-f', to: 'Ctrl-Right'
 
   remap 'C-k', to: ['Shift-End', 'Ctrl-x']
-  remap 'C-g', to: 'Escape'
 
   remap 'C-s', to: 'Ctrl-g'
   remap 'C-r', to: 'Ctrl-Shift-g'

@@ -3,12 +3,11 @@
 --regex-php=/get([a-z|A-Z|0-9]+)Attribute/\1/
 --regex-php=/scope([a-z|A-Z|0-9]+)/\1/
 
+
 --langmap=javascript:.js.es6.es.jsx
 --javascript-kinds=-c-f-m-p-v
-
---langdef=markdown
---langmap=markdown:.md
---regex-markdown=/^(#+[ \t]+.*)/\1/h,heading,headings/
+--regex-javascript=/^[ \t]*([a-z]+[ \t]+)*class[ \t]+([A-Za-z0-9_]+)[ \t]*([^)])/\2/c,class,classes/
+--regex-javascript=/^[ \t]*([a-z|A-Z]+)\(\)/\1/
 
 --exclude=.git
 --exclude=.svn

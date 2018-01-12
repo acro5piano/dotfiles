@@ -1,5 +1,6 @@
 # {{{ Env vars
 
+set -gx ANDROID_HOME /opt/android-sdk
 set -gx GOPATH $HOME/.go
 set -gx PATH \
             $HOME/.local/bin \
@@ -9,6 +10,7 @@ set -gx PATH \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
+            $ANDROID_HOME/tools\
             $PATH
 set -gx EDITOR vim
 set -gx VISUAL vim

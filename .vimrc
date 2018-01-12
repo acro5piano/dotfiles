@@ -32,6 +32,11 @@ Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 Plug 'Yggdroot/indentLine'
 Plug 'wsdjeg/FlyGrep.vim'
+
+Plug 'mxw/vim-jsx'
+Plug 'flowtype/vim-flow'
+Plug 'leafgarland/typescript-vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -96,8 +101,7 @@ set textwidth=0
 set nowrap
 
 " Show Full width
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
+match Todo /　/
 
 set t_Co=256
 
