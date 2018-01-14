@@ -1,3 +1,6 @@
+unless:
+  - which docker
+
 depends:
   - apt-transport-https \
   - ca-certificates
@@ -12,3 +15,5 @@ commands:
     stable"
   - sudo apt-get -y update
   - sudo apt-get -y install docker-ce
+  - sudo groupadd docker
+  - sudo usermod -aG docker $USER
