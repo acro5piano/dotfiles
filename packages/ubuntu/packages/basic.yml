@@ -14,6 +14,7 @@ depends:
   - tmux
   - tree
   - xclip
+  - aws
 
 unless:
   - which bc
@@ -29,3 +30,4 @@ unless:
   - which tmux
   - which tree
   - which xclip
+  - which aws

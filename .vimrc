@@ -264,4 +264,6 @@ autocmd BufReadPost *
 autocmd BufReadPost * syntax sync fromstart
 autocmd FileType vue syntax sync fromstart
 
+set backspace=indent,eol,start
+
 set showcmd

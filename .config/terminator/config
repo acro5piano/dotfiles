@@ -70,6 +70,7 @@
     background_darkness = 0.93
     background_image = None
     backspace_binding = control-h
+    copy_on_selection = True
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
     foreground_color = "#839496"

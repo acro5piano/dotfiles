@@ -57,4 +57,7 @@ bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
 # 熱がやばいため
 # save-xclip-history &
 
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+gsettings set org.gnome.desktop.wm.preferences auto-raise true
+
 exec awesome
