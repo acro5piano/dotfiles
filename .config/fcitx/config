@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=ALT_`
+TriggerKey=
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -31,7 +31,7 @@ TriggerKey=ALT_`
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
-ActivateKey=HENKANMODE ALT_RALT
+ActivateKey=ALT_RALT
 # Inactivate Input Method
 InactivateKey=ALT_LALT
 # Enable Hotkey to scroll Between Input Method
@@ -48,19 +48,19 @@ InactivateKey=ALT_LALT
 # ALT_SHIFT
 # CTRL_SUPER
 # ALT_SUPER
-#IMSwitchHotkey=CTRL_SHIFT
+IMSwitchHotkey=ALT_SUPER
 # Reload configuration
 #ReloadConfig=CTRL_5
 # Interval of Two Key Input
 #TimeInterval=250
 # Switching Virtual Keyboard
-VKSwitchKey=
+#VKSwitchKey=CTRL_ALT_B
 # Switching Remind Mode
 #RemindSwitchKey=
 # Switching Full Width Character Mode
 #FullWidthSwitchKey=
 # Switch Full Width Punc Mode
-PuncSwitchKey=
+#PuncSwitchKey=CTRL_.
 # Prev Page
 #PrevPageKey=- UP
 # Next Page
@@ -68,9 +68,9 @@ PuncSwitchKey=
 # Choose Second and Third Candidate Word
 #SecondThirdCandWordKey=
 # Saving All Config and Input History
-SaveAllKey=
+#SaveAllKey=CTRL_ALT_S
 # Switch Embeded Preedit
-SwitchPreedit=
+#SwitchPreedit=CTRL_ALT_P
 # Previous Candidate Word
 #PrevWord=SHIFT_TAB
 # Next Candidate Word

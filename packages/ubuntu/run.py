@@ -22,9 +22,9 @@ def ensure_depends(packages):
         print('    Checking {} is installed...'.format(package))
         command = 'apt list --installed | grep -q ' + package + '/'
         if subprocess.call(command, shell=True) is not 0:
-            print('    Installing dependency: {} ...'.format(package))
+            print('        Installing dependency: {} ...'.format(package))
             subprocess.call('sudo apt -y install ' + package + '>/dev/null', shell=True)
-            print('    Install completed: {} ...'.format(package))
+            print('        Install completed: {} ...'.format(package))
 
 def install(commands):
     command_lines = ' && '.join(commands)
@@ -56,11 +56,7 @@ def main():
             ensure_depends(config['depends'])
 
         if 'commands' in config:
-            print('HERE')
             install(config['commands'])
-
-        if 'extra' in config:
-            extra(extra)
 
 if __name__ == '__main__':
     main()

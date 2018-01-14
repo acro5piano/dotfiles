@@ -1,0 +1,7 @@
+unless:
+  - which fcitx
+
+depends:
+  - fcitx
+  - fcitx-mozc
+  - mozc-utils-gui
