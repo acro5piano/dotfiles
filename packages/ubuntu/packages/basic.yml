@@ -13,6 +13,7 @@ depends:
   - ssh
   - tmux
   - tree
+  - xclip
 
 unless:
   - which bc
@@ -27,3 +28,4 @@ unless:
   - which ssh
   - which tmux
   - which tree
+  - which xclip

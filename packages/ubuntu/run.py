@@ -22,11 +22,13 @@ def ensure_depends(packages):
         print('    Checking {} is installed...'.format(package))
         command = 'apt list --installed | grep -q ' + package + '/'
         if subprocess.call(command, shell=True) is not 0:
-            print('    Install {} ...'.format(package))
+            print('    Installing dependency: {} ...'.format(package))
             subprocess.call('sudo apt -y install ' + package + '>/dev/null', shell=True)
+            print('    Install completed: {} ...'.format(package))
 
 def install(commands):
     command_lines = ' && '.join(commands)
+    print(command_lines)
     subprocess.call(command_lines, shell=True)
 
 def extra(commands):
@@ -37,7 +39,7 @@ def main():
     files = glob.glob('./packages/*.yml')
     for file in files:
         config = yaml.load(open(file))
-        print('======================')
+        print('\n======================')
         print(file)
         print('======================')
 
@@ -54,6 +56,7 @@ def main():
             ensure_depends(config['depends'])
 
         if 'commands' in config:
+            print('HERE')
             install(config['commands'])
 
         if 'extra' in config:

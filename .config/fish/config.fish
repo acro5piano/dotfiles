@@ -3,6 +3,9 @@
 set -gx ANDROID_HOME /opt/android-sdk
 set -gx GOPATH $HOME/.go
 set -gx PATH \
+            $HOME/.yarn/bin \
+            $HOME/.config/yarn/global/node_modules/.bin \
+            $HOME/.nvm/versions/node/v8.4.0/bin \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
             $HOME/bin \
@@ -17,6 +20,7 @@ set -gx VISUAL vim
 set -gx CHROME_BIN chromium
 
 set -gx PIPENV_VENV_IN_PROJECT 1
+
 
 # }}}
 
@@ -42,19 +46,17 @@ function __copy_command
 end
 
 
-function gl
-  set -l query (commandline)
-
-  if test -n $query
-    set fzf_flags --query "$query"
-  end
-
-  cd
-  ghq list -p | fzf $peco_flags | read line
-
-  if [ $line ]
-    cd $line
-    commandline -f repaint
+function gh
+  if [ "$argv" ]
+    set repo $argv
+    git clone git@github.com:$repo.git ~/ghq/github.com/$repo
+    cd ~/ghq/github.com/$repo
+  else
+    find ~/ghq/github.com/ -maxdepth 2 | egrep '/.+/.+/.+/.+/.+/.+' | fzf | read line
+    if [ $line ]
+      cd $line
+      commandline -f repaint
+    end
   end
 end
 

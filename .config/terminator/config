@@ -69,6 +69,7 @@
     background_color = "#002b36"
     background_darkness = 0.93
     background_image = None
+    backspace_binding = control-h
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
     foreground_color = "#839496"
