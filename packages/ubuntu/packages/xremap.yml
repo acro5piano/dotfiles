@@ -1,0 +1,13 @@
+depends:
+  - bison
+  - libx11-dev
+
+unless:
+  - which xremap
+
+commands:
+  - cd /tmp
+  - git clone https://github.com/k0kubun/xremap
+  - cd xremap
+  - make
+  - sudo make install

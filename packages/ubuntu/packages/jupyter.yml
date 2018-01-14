@@ -1,0 +1,20 @@
+install: False
+
+depends:
+  - python-dev
+  - python-pip
+  - python3
+  - python3-pip
+  - gfortran
+  - liblapack-dev
+  - libpng12-dev
+  - libfreetype6-dev
+
+unless:
+  - which jupyter
+  - which ipython
+
+commands:
+  - pip install --user virtualenv
+  - pip install --user ipython
+  - pip install --user jupyter

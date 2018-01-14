@@ -1,0 +1,25 @@
+depends:
+  - libncurses5-dev
+  - liblua5.1-dev
+  - luajit
+  - libluajit-5.1.2-dev
+
+unless:
+  - which vim
+  - vim --version | grep -- +lua
+
+commands:
+  # - mkdir /tmp/vim
+  - cd /tmp/vim
+  # - wget ftp://ftp.vim.org/pub/vim/unix/vim-8.0.tar.bz2
+  - tar xvf vim-8.0.tar.bz2
+  - cd vim80
+  - ./configure
+    --prefix=/usr/local
+    --with-features=huge
+    --enable-multibyte
+    --enable-luainterp
+    --with-luajit
+    --enable-fail-if-missing
+  - make
+  - sudo make install

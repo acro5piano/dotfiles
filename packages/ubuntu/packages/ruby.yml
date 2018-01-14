@@ -1,0 +1,28 @@
+depends:
+  - libreadline-dev
+  - libssl-dev
+  - zlib1g-dev
+  - libyaml-dev
+  - libsqlite3-dev
+  - sqlite3
+  - imagemagick
+  - libxslt1-dev
+  - libxml2-dev
+  - git-core
+  - libreadline6
+  - libreadline6-dev
+  - libmysqlclient-dev
+  - libffi-dev
+
+unless:
+  - which rbenv
+
+commands:
+  - git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+  - git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  - rbenv install -v 2.4.0
+  - rbenv rehash
+  - rbenv global 2.4.0
+
+extra:
+  - gem install bundler

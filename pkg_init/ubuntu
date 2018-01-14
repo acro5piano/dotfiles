@@ -28,22 +28,22 @@ if [ -e $HOME/.vim/bundle ]; then
 fi
 
 # Install ruby using rbenv + Ruby-build
-if [ ! `which rbenv` ]; then
-    # For ruby installation
-    sudo apt install -y libreadline-dev libssl-dev zlib1g-dev libyaml-dev
-    sudo apt install -y libsqlite3-dev sqlite3
-    sudo apt install -y imagemagick # MiniMagick RMagick
-    sudo apt install -y libxslt-dev libxml2-dev # Nokogiri
-    sudo apt install -y git-core libreadline6 libreadline6-dev libmysqlclient-dev libffi-dev
-
-    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-    rbenv install -v 2.3.1
-    rbenv rehash
-    rbenv global 2.3.1
-
-    gem install bundler
-fi
+# if [ ! `which rbenv` ]; then
+#     # For ruby installation
+#     sudo apt install -y libreadline-dev libssl-dev zlib1g-dev libyaml-dev
+#     sudo apt install -y libsqlite3-dev sqlite3
+#     sudo apt install -y imagemagick # MiniMagick RMagick
+#     sudo apt install -y libxslt-dev libxml2-dev # Nokogiri
+#     sudo apt install -y git-core libreadline6 libreadline6-dev libmysqlclient-dev libffi-dev
+#
+#     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+#     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+#     rbenv install -v 2.3.1
+#     rbenv rehash
+#     rbenv global 2.3.1
+#
+#     gem install bundler
+# fi
 
 # For python
 if [ ! `which jupyter` ]; then

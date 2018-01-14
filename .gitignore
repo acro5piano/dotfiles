@@ -5,11 +5,11 @@
 # !.config/gconf
 !.config/touchegg
 !.config/wallpapers
-!.config/fish
 !.config/nvim
 !.config/systemd
 !.config/fish
 fishd.*
+*history*
 
 !.config/fcitx
 .config/fcitx/*

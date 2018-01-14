@@ -2,9 +2,7 @@
   borderless = True
   broadcast_default = off
   enabled_plugins = ,
-  extra_styling = False
   scroll_tabbar = True
-  smart_copy = False
 [keybindings]
   broadcast_all = None
   broadcast_group = None
@@ -14,10 +12,7 @@
   copy = <Primary><Shift>c
   cycle_next = None
   cycle_prev = None
-  edit_tab_title = None
-  edit_terminal_title = None
   edit_window_title = None
-  full_screen = None
   go_down = None
   go_left = None
   go_next = None
@@ -71,11 +66,12 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282828"
-    background_type = transparent
+    background_color = "#002b36"
+    background_darkness = 0.93
+    background_image = None
     cursor_color = "#ffffff"
     font = Source Code Pro Medium 10
-    foreground_color = "#ebdbb2"
+    foreground_color = "#839496"
     icon_bell = False
     scroll_on_keystroke = False
     scrollbar_position = hidden
