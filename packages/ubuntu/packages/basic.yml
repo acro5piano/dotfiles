@@ -15,6 +15,7 @@ depends:
   - tree
   - xclip
   - aws
+  - pm-utils
 
 unless:
   - which bc
@@ -31,3 +32,4 @@ unless:
   - which tree
   - which xclip
   - which aws
+  - which pm-suspend
