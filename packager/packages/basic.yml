@@ -18,6 +18,7 @@ depends:
   - pm-utils
   - acpi
   - docker-compose
+  - xbacklight
 
 unless:
   - which bc
@@ -35,3 +36,5 @@ unless:
   - which xclip
   - which aws
   - which pm-suspend
+  - which xbacklight
+  - which acpi_available

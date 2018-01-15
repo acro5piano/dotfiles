@@ -11,6 +11,9 @@ depends:
   - libjpeg-dev
   - libxcomposite-dev
 
+unless:
+  - which maim
+
 commands:
   - mkdir /tmp/maim
   - cd /tmp/maim
