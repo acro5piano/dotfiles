@@ -16,6 +16,8 @@ depends:
   - xclip
   - aws
   - pm-utils
+  - acpi
+  - docker-compose
 
 unless:
   - which bc

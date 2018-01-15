@@ -17,5 +17,3 @@ commands:
   - sudo apt-get -y install docker-ce
   - sudo groupadd docker
   - sudo usermod -aG docker $USER
-
-

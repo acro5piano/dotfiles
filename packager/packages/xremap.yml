@@ -7,7 +7,7 @@ unless:
 
 commands:
   - cd /tmp
-  - git clone https://github.com/k0kubun/xremap
+  - git clone https://github.com/acro5piano/xremap
   - cd xremap
   - make
   - sudo make install
