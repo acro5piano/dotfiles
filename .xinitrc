@@ -36,7 +36,7 @@ feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
 
 # Run terminal when not run
 pgrep terminator > /dev/null || terminator &
-pgrep chromium > /dev/null || chromium &
+pgrep chromium-browser > /dev/null || chromium-browser &
 
 # touchpad
 synclient TapButton1=1

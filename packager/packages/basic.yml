@@ -19,6 +19,13 @@ depends:
   - acpi
   - docker-compose
   - xbacklight
+  - mariadb-client
+  - php
+  - php-curl
+  - php-mbstring
+  - php-xml
+  - php-gd
+  - composer
 
 unless:
   - which bc
@@ -38,3 +45,6 @@ unless:
   - which pm-suspend
   - which xbacklight
   - which acpi_available
+  - which mysql
+  - which php
+  - which composer
