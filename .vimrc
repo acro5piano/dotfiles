@@ -93,9 +93,13 @@ nnoremap j gj
 nnoremap k gk
 set laststatus=2
 set showmatch
-syntax on
 set hlsearch
 set wildmenu
+
+syntax on
+if expand('%') == '.flowconfig'
+    set filetype=lisp
+endif
 
 set textwidth=0
 set nowrap
