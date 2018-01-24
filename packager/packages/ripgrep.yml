@@ -1,0 +1,8 @@
+depends:
+  - cargo
+
+unless:
+  - which ripgrep
+
+commands:
+  - cargo install ripgrep

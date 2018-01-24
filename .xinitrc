@@ -1,5 +1,7 @@
 # vim:set mode=sh
 
+export PATH="$HOME/bin:$PATH"
+
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
@@ -8,7 +10,7 @@ fcitx-autostart
 
 # Set mime type, or default applications
 xdg-settings set default-web-browser browser.desktop
-xdg-mime default chromium.desktop text/html
+xdg-mime default chromium-browser.desktop text/html
 xdg-mime default libreoffice.desktop text/csv
 xdg-mime default libreoffice.desktop application/docx
 xdg-mime default chromium.desktop x-scheme-handler/http
@@ -36,7 +38,7 @@ feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
 
 # Run terminal when not run
 pgrep terminator > /dev/null || terminator &
-pgrep chromium > /dev/null || chromium &
+pgrep chromium-browser > /dev/null || chromium-browser &
 
 # touchpad
 synclient TapButton1=1

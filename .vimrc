@@ -49,7 +49,7 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
-set statusline=%{anzu#search_status()}
+" set statusline=%{anzu#search_status()}
 
 source ~/.vim/neocomplete.config.vim
 
@@ -93,9 +93,13 @@ nnoremap j gj
 nnoremap k gk
 set laststatus=2
 set showmatch
-syntax on
 set hlsearch
 set wildmenu
+
+syntax on
+if expand('%') == '.flowconfig'
+    set filetype=lisp
+endif
 
 set textwidth=0
 set nowrap
@@ -107,9 +111,15 @@ set t_Co=256
 
 colorscheme elflord
 
+" left のふたつ目が設定できないのできもいけどこれで。
 let g:lightline = {
-      \ 'colorscheme': 'solarized'
-      \ }
+    \ 'colorscheme': 'solarized',
+    \ 'active': {
+    \   'left': [
+    \     [ 'readonly', 'filename', 'modified' ]
+    \   ]
+    \ },
+    \ }
 
 set breakindent
 
@@ -148,6 +158,7 @@ inoremap zh <-
 " inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zl ->
 inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
+" for jsx
 inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
