@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pwd | sed 's;/mnt;;' | tr / '\\' | sed 's/^/\\/'

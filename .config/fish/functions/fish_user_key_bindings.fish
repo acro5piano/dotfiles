@@ -5,3 +5,5 @@ function fish_user_key_bindings
     bind \e\cf fzf-file-widget
     bind \ec fzf-cd-widget
 end
+
+fzf_key_bindings

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-TMP=$(mktemp).$1
-cat > $TMP
-e $TMP
-
-echo 'You edited:'
-echo $TMP
