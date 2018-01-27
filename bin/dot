@@ -8,16 +8,14 @@ pull(){
 }
 
 link(){
-    echo a
     for f in .??*
     do
         [ "$f" = ".git" ] && continue
 
         if [ -e "$HOME/$f" ]; then
-            rm -rf "$HOME/$f"
+            tra "$HOME/$f"
         fi
 
-        echo "$HOME/$f" '-->' "$DOTPATH/$f"
         ln -snfv "$DOTPATH/$f" "$HOME/$f"
     done
 

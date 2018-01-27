@@ -4,12 +4,50 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-install-dev-package(){
+function level-1 {
     sudo pacman -S --needed --noconfirm \
         fish vim inotify-tools bc make git tmux openssh \
         rsync tree curl jq man at ripgrep ctags zip unzip \
         yaourt docker docker-compose arch-install-scripts \
-        ruby \
+        ruby
+
+    unset NVM_DIR
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+    [ -e $HOME/.vim/plugged ] ||
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    sudo pacman -S --needed  \
+        xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
+        fcitx fcitx-im fcitx-mozc fcitx-configtool \
+        terminator pcmanfm dmenu \
+        xclip xdotool xscreensaver acpi pm-utils alsa-lib alsa-utils xcompmgr xfce4-screenshot \
+        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
+        adobe-source-code-pro-fonts
+    yaourt -S --needed \
+        otf-ipaexfont  maim google-chrome
+
+    function install-xremap {
+        which xremap && return
+        cd /tmp
+        git clone https://github.com/k0kubun/xremap
+        cd xremap
+        make
+        sudo make install
+    }
+
+    install-xremap
+
+    sudo groupadd docker
+    sudo gpasswd -a $USER docker
+    sudo gpasswd -a $USER sys
+}
+
+
+function level-2 {
+    sudo pacman -S --needed --noconfirm \
+        imagemagick \
+        ghostscript \
         python3 python-pip gcc-fortran lapack libpng \
         go \
         lua \
@@ -21,14 +59,9 @@ install-dev-package(){
     yaourt -S \
         leiningen \
         android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23
-
     # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
     android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
     android update sdk --no-ui --all --filter build-tools-23.0.1,android-23,extra-android-m2repository
-}
-
-install-verion-management-tool(){
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 }
 
 install-termianl-tool(){
@@ -44,55 +77,11 @@ install-termianl-tool(){
     which pipenv || pip install --user pipenv
 
     sudo pacman -S --needed --noconfirm \
-        graphviz transmission-cli rlwrap fzf tig netctl wpa_actiond expect \
+        graphviz transmission-cli rlwrap fzf tig expect \
         nmap traceroute openssl
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
-install-editor-plugin(){
-    [ -e $HOME/.vim/plugged ] ||
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
-install-gui-package(){
-    sudo pacman -S --needed  \
-        xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
-        fcitx fcitx-im fcitx-mozc fcitx-configtool \
-        terminator chromium pcmanfm dmenu \
-        xclip xdotool xscreensaver acpi pm-utils alsa-lib alsa-utils xcompmgr xfce4-screenshot \
-        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
-        adobe-source-code-pro-fonts
-    yaourt -S --needed \
-        otf-ipaexfont  maim
-}
-
-install-xremap(){
-    which xremap && return
-    cd /tmp
-    git clone https://github.com/k0kubun/xremap
-    cd xremap
-    make
-    sudo make install
-}
-
-change-service(){
-    start_and_enable(){
-        sudo systemctl enable $1
-        sudo systemctl restart $1
-    }
-    add_user_to_group(){
-        id | grep -q $1 || sudo gpasswd -a $USER $1
-    }
-
-    # Docker setting
-    sudo groupadd docker
-    sudo gpasswd -a $USER docker
-    start_and_enable docker
-}
-
-install-dev-package && \
-install-termianl-tool && \
-install-editor-plugin && \
-install-gui-package && \
-install-xremap && \
+level-1
+level-2
 change-service
