@@ -216,7 +216,7 @@ alias tsv='column -ts \t'
 
 # {{{ init
 
-source ~/.traimmu_dotfiles/aliases
+[ -e  ~/.traimmu_dotfiles/aliases ] && source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 
