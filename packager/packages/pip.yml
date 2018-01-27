@@ -1,5 +1,0 @@
-unless:
-  - which mycli
-
-commands:
-  - pip install mycli

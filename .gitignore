@@ -42,3 +42,4 @@ tags
 TAGS
 .subversion
 /.cache
+*.retry

@@ -52,7 +52,7 @@ arch-chroot /mnt
 
 # Network tools
 pacman --sync --refresh yaourt
-pacman -S grub wireless_tools wpa_supplicant wpa_actiond dialog git
+pacman -S grub wireless_tools netctl wpa_supplicant wpa_actiond dialog git
 systemctl enable netctl
 systemctl enable netctl-auto@wlp3s0.service
 

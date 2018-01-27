@@ -4,9 +4,6 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-# TODO:
-#     - yaml like package list or ansible playbook
-
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         fish vim inotify-tools bc make git tmux openssh \

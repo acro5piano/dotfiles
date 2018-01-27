@@ -1,9 +1,0 @@
-unless:
-  - which node
-  - which npm
-
-commands:
-  - curl -o - https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
-  - nvm install v8.4.0
-  - nvm use 8.4.0
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
