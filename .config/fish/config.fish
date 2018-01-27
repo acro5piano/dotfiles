@@ -1,7 +1,7 @@
 # {{{ Env vars
 
-set -gx ANDROID_HOME /opt/android-sdk
-set -gx GOPATH $HOME/.go
+set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
+set -gx GOPATH $HOME/.go ^/dev/null
 set -gx PATH \
             $HOME/.yarn/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
@@ -14,7 +14,7 @@ set -gx PATH \
             /usr/local/bin \
             /bin \
             $ANDROID_HOME/tools\
-            $PATH
+            $PATH ^/dev/null
 set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx CHROME_BIN chromium
@@ -216,7 +216,7 @@ alias tsv='column -ts \t'
 
 # {{{ init
 
-[ -e  ~/.traimmu_dotfiles/aliases ] && source ~/.traimmu_dotfiles/aliases
+[ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 
 pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 

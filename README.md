@@ -11,6 +11,7 @@ fdisk /dev/sda
 ```
 
 - delete whole partition (d)
+  - press (d) until all partitions deleted
 - create new partition (n)
 - add boot flag (a)
 - write (w)
