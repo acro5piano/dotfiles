@@ -1,9 +1,0 @@
-#!/bin/bash
-
-current_branch=$(git branch --contains=HEAD | awk '{print $2}')
-
-git checkout origin/master
-git merge --no-commit --no-ff $current_branch
-git diff HEAD
-git merge --abort
-git checkout $current_branch

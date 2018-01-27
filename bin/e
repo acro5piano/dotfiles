@@ -1,3 +1,0 @@
-#!/bin/bash
-
-emacsclient -n -a '' $@

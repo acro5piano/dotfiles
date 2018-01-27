@@ -43,7 +43,7 @@ synclient VertScrollDelta=-111
 synclient HorizScrollDelta=-111
 
 # keyboard layout customize
-xmodmap $HOME/.xmodmap.d/us
+xmodmap $HOME/.xmodmap
 
 bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
 
