@@ -169,7 +169,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("sudo pm-suspend") end),
-    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium-browser") end),
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("google-chrome-stable") end),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "h",
         function ()

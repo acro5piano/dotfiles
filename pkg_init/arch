@@ -59,7 +59,7 @@ install-gui-package(){
         xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator chromium pcmanfm dmenu \
-        xclip xdotool xscreensaver acpi pm-utils xcompmgr xfce4-screenshot \
+        xclip xdotool xscreensaver acpi pm-utils alsa-lib alsa-utils xcompmgr xfce4-screenshot \
         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
         adobe-source-code-pro-fonts
     yaourt -S --needed \

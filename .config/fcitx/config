@@ -54,7 +54,7 @@ IMSwitchHotkey=ALT_SUPER
 # Interval of Two Key Input
 TimeInterval=25
 # Switching Virtual Keyboard
-#VKSwitchKey=CTRL_ALT_B
+VKSwitchKey=
 # Switching Remind Mode
 #RemindSwitchKey=
 # Switching Full Width Character Mode
@@ -69,12 +69,12 @@ TimeInterval=25
 #SecondThirdCandWordKey=
 # Saving All Config and Input History
 #SaveAllKey=CTRL_ALT_S
-# Switch Embeded Preedit
+# Switch Embedded Preedit
 #SwitchPreedit=CTRL_ALT_P
 # Previous Candidate Word
-#PrevWord=SHIFT_TAB
+PrevWord=CTRL_P
 # Next Candidate Word
-#NextWord=TAB
+NextWord=CTRL_N
 
 [Program]
 # Seconds sleep before fcitx really start
