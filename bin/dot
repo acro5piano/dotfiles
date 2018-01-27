@@ -7,11 +7,8 @@ pull(){
     link
 }
 
-st(){
-    git status
-}
-
 link(){
+    echo a
     for f in .??*
     do
         [ "$f" = ".git" ] && continue
@@ -27,18 +24,12 @@ link(){
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
 }
 
-install(){
-    $DOTPATH/pkg_init/`platform`
-}
-
-platform(){
-    [ -e /etc/arch-release ] && echo 'arch'
-    [ -e /etc/lsb-release ] && echo 'ubuntu'
-    [ -e /etc/redhat-release ] && echo 'centos'
-}
-
 usage(){
     echo 'dot: sync and manage dot files'
+    echo ''
+    echo 'commands:'
+    echo '    pull - fetch + link'
+    echo '    link - create symlink'
     exit 1
 }
 
@@ -46,9 +37,7 @@ cd $DOTPATH
 
 case $1 in
     'pull') pull ;;
-    'install') install ;;
     'link') link ;;
-    'st') st ;;
     *) usage ;;
 esac
 

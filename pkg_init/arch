@@ -4,9 +4,6 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-# TODO:
-#     - yaml like package list or ansible playbook
-
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
         fish vim inotify-tools bc make git tmux openssh \
@@ -54,18 +51,17 @@ install-termianl-tool(){
 
 install-editor-plugin(){
     [ -e $HOME/.vim/plugged ] ||
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install-gui-package(){
     sudo pacman -S --needed  \
-         xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
-         fcitx fcitx-im fcitx-mozc fcitx-configtool \
-         terminator chromium pcmanfm dmenu \
-         xclip xdotool xscreensaver acpi pm-utils xcompmgr xfce4-screenshot \
-         vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
-         adobe-source-code-pro-fonts
+        xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
+        fcitx fcitx-im fcitx-mozc fcitx-configtool \
+        terminator chromium pcmanfm dmenu \
+        xclip xdotool xscreensaver acpi pm-utils alsa-lib alsa-utils xcompmgr xfce4-screenshot \
+        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
+        adobe-source-code-pro-fonts
     yaourt -S --needed \
         otf-ipaexfont  maim
 }
@@ -87,28 +83,11 @@ change-service(){
     add_user_to_group(){
         id | grep -q $1 || sudo gpasswd -a $USER $1
     }
-    add_user_to_group sys
 
     # Docker setting
-    sudo systemctl daemon-reload
-    add_user_to_group docker
+    sudo groupadd docker
+    sudo gpasswd -a $USER docker
     start_and_enable docker
-
-    # Enable auto-connect wifi network
-    sudo systemctl disable dhcpcd
-    start_and_enable netctl
-    start_and_enable netctl-auto@wlp3s0.service
-    sudo netctl enable wlp3s0-Traimmu-AP
-    sudo netctl enable redmi2
-
-    sudo loginctl enable-linger kazuya
-}
-
-change-shell(){
-    grep -q fish /etc/shells || echo /usr/bin/fish | sudo tee -a /etc/shells
-    if [ $SHELL != /usr/bin/fish ]; then
-        chsh -s /usr/bin/fish
-    fi
 }
 
 install-dev-package && \
@@ -116,5 +95,4 @@ install-termianl-tool && \
 install-editor-plugin && \
 install-gui-package && \
 install-xremap && \
-change-service && \
-change-shell
+change-service

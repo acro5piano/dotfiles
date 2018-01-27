@@ -2,10 +2,8 @@
 	email = ketsume0211@gmail.com
 	name = gosho-kazuya
 [alias]
-    a = add
     alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
     br = branch
-    brd = !git branch | fzf | xargs git branch -D
     cam = commit -am
     co = checkout
     col = !git checkout $(git branch | fzf-tmux)
@@ -13,6 +11,7 @@
     d = diff
     dh = diff HEAD
     dw = diff -w --word-diff
+    dhw = diff HEAD
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     ls = ls-files

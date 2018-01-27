@@ -1,5 +1,0 @@
-#!/bin/bash
-
-for t in `w -s | grep $(basename $SHELL) | awk '{print $2}' | sed s:^:/dev/:`; do
-    echo $1 | cowsay > $t
-done
