@@ -21,7 +21,7 @@ mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 ```
 
-### pacman
+### pacman and yaourt
 
 ```sh
 vim /etc/pacman.d/mirrorlist
@@ -51,9 +51,14 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # Network tools
-pacman -Syy
-pacman -S grub  wireless_tools wpa_supplicant wpa_actiond dialog
-systemctl enable dhcpcd.service
+pacman --sync --refresh yaourt
+pacman -S grub wireless_tools wpa_supplicant wpa_actiond dialog git
+systemctl enable netctl
+systemctl enable netctl-auto@wlp3s0.service
+
+# Do not start dhcpcd because this disturb netctl
+# see https://bbs.archlinux.org/viewtopic.php?pid=1328423#p1328423
+#systemctl enable dhcpcd.service
 
 # Grub
 grub-install /dev/sda
@@ -72,17 +77,10 @@ Run the following commands as root:
 # add user
 useradd --create-home kazuya
 passwd kazuya
+gpasswd -a kazuya wheel
 
 # %wheel ALL=(ALL) NOPASSWD: ALL
 visudo
-
-# Ubuntu, Debian
-gpasswd -a kazuya sudo
-apt-get install git curl
-
-# Arch
-gpasswd -a kazuya wheel
-pacman -S git curl
 
 exit
 ```
@@ -94,8 +92,18 @@ localhost login> kazuya
 password:
 ```
 
-then run:
+then install dotfiles:
 
 ```sh
-curl -L https://raw.githubusercontent.com/acro5piano/dotfiles/master/install.sh | sh
+cd ~
+git clone https://github.com/acro5piano/dotfiles $HOME/.dotfiles
+$HOME/.dotfiles/bin/dot install
 ```
+
+and install packages:
+
+```
+bash $HOME/.dotfiles/pkg_init/arch
+```
+
+or minimal GUI environment:

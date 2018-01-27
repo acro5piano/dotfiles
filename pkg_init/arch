@@ -4,10 +4,13 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
+# TODO:
+#     - yaml like package list or ansible playbook
+
 install-dev-package(){
     sudo pacman -S --needed --noconfirm \
-        fish vim net-tools inotify-tools bc make git tmux openssh emacs \
-        rsync tree curl jq man at the_silver_searcher ripgrep ctags zip unzip \
+        fish vim inotify-tools bc make git tmux openssh \
+        rsync tree curl jq man at ripgrep ctags zip unzip \
         yaourt docker docker-compose arch-install-scripts \
         ruby \
         python3 python-pip gcc-fortran lapack libpng \
@@ -28,7 +31,7 @@ install-dev-package(){
 }
 
 install-verion-management-tool(){
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 }
 
 install-termianl-tool(){
@@ -57,7 +60,7 @@ install-editor-plugin(){
 
 install-gui-package(){
     sudo pacman -S --needed  \
-         xorg xorg-xinit wmctrl synaptics xorg-xbacklight  awesome \
+         xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
          fcitx fcitx-im fcitx-mozc fcitx-configtool \
          terminator chromium pcmanfm dmenu \
          xclip xdotool xscreensaver acpi pm-utils xcompmgr xfce4-screenshot \
