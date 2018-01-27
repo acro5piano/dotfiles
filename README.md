@@ -1,12 +1,33 @@
+# Backup
+
+The following files are not included in this repository so back up
+
+- ~/.ssh
+- ~/.aws
+- ~/.traimmu_dotfiles
+- ~/var
+- /etc/hosts
+
+```
+sudo mount /dev/sdb1 /mnt
+mkdir /mnt/backup/thinkpad-x240/$(now)
+cat | xargs -i cp -r {} /mnt/backup/thinkpad-x240/$(now)
+
+# Then paste backup file list
+```
+
 # Install Arch Linux
 
 - Create arch linux install usb.
+  - download latest iso image
+  - `dd if=/path/to/iso of=/dev/sdX`
 - Boot to usb and run the following:
 
-### File system
+## File system
+
+select disk to write arch linux
 
 ```sh
-# partition
 fdisk /dev/sda
 ```
 
@@ -21,7 +42,7 @@ mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 ```
 
-### pacman and yaourt
+## pacman and yaourt
 
 ```sh
 vim /etc/pacman.d/mirrorlist
@@ -41,7 +62,7 @@ SigLevel = Never
 Server = http://repo.archlinux.fr/$arch
 ```
 
-### Install base system
+## Install base system
 
 ```sh
 pacstrap /mnt base base-devel
@@ -96,8 +117,8 @@ then install dotfiles:
 
 ```sh
 cd ~
-git clone https://github.com/acro5piano/dotfiles $HOME/.dotfiles
-$HOME/.dotfiles/bin/dot install
+git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
+$HOME/.dotfiles/bin/dot link
 ```
 
 and install packages:
@@ -105,5 +126,3 @@ and install packages:
 ```
 bash $HOME/.dotfiles/pkg_init/arch
 ```
-
-or minimal GUI environment:
