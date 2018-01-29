@@ -130,3 +130,11 @@ and install packages:
 ```
 bash $HOME/.dotfiles/pkg_init/arch
 ```
+
+# Mozc settings
+
+```
+cd
+rm -rf .mozc
+git clone git@bitbucket.com:/Kazuya-Gosho/mozc .mozc
+```

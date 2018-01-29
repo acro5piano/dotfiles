@@ -45,7 +45,7 @@ function level-2 {
         python3 python-pip gcc-fortran lapack libpng \
         go \
         lua \
-        php composer \
+        php php-gd php-sqlite composer \
         nodejs npm \
         jdk8-openjdk \
         clojure \
