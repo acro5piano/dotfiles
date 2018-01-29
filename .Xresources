@@ -47,9 +47,6 @@ URxvt*color13: #FF00FF // magenta
 URxvt*color14: #00FFFF // cyan
 URxvt*color15: #FFFFFF // white
 
-
-
-
 !Emacs*FontBackend: xft
 !Emacs*font: Source Code Pro 10
 !Emacs*font: Monospace 16

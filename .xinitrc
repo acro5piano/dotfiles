@@ -22,10 +22,7 @@ xdg-mime default chromium.desktop text/html
 xset r rate 250
 
 # Multi display
-xrandr --output HDMI1 --above eDP1 --mode 1920x1080
-xrandr --output DP2 --above eDP1 --mode 1920x1080
-xrandr --output VGA1 --above LVDS1 --mode 1920x1080
-xrandr --output DP1 --above VGA1 --mode 1920x1080
+xrandr --output DP-2 --above eDP-1 --mode 1920x1080
 
 # wallpaper
 feh --bg-fill $HOME/.config/wallpapers/iceland.jpg

@@ -4,6 +4,7 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
+# Level 1 - Really basic applications to run os
 function level-1 {
     sudo pacman -S --needed --noconfirm \
         fish vim inotify-tools bc make git tmux openssh \
@@ -11,39 +12,34 @@ function level-1 {
         yaourt docker docker-compose arch-install-scripts \
         ruby
 
-    unset NVM_DIR
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    # unset NVM_DIR
+    # curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
-    [ -e $HOME/.vim/plugged ] ||
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     sudo pacman -S --needed  \
         xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator pcmanfm dmenu \
-        xclip xdotool xscreensaver acpi pm-utils alsa-lib alsa-utils xcompmgr xfce4-screenshot \
-        vlc feh pinta moc eog evince libreoffice-fresh ffmpeg wavpack inkscape \
+        xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
         adobe-source-code-pro-fonts
     yaourt -S --needed \
-        otf-ipaexfont  maim google-chrome
+        otf-ipaexfont maim google-chrome
 
-    function install-xremap {
-        which xremap && return
+    if ! which xremap; then
         cd /tmp
         git clone https://github.com/k0kubun/xremap
         cd xremap
         make
         sudo make install
-    }
+    fi
 
-    install-xremap
-
-    sudo groupadd docker
+    grep -q docker /etc/group || sudo groupadd docker
     sudo gpasswd -a $USER docker
     sudo gpasswd -a $USER sys
 }
 
-
+# Level 2 - Some developing packages
 function level-2 {
     sudo pacman -S --needed --noconfirm \
         imagemagick \
@@ -54,9 +50,12 @@ function level-2 {
         php composer \
         nodejs npm \
         jdk8-openjdk \
-        clojure
+        clojure \
+        wmctrl \
+        xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
+        vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
 
-    yaourt -S \
+    yaourt -S --needed --noconfirm \
         leiningen \
         android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23
     # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
@@ -65,13 +64,9 @@ function level-2 {
 }
 
 install-termianl-tool(){
-    go get \
-        github.com/jehiah/json2csv \
-        github.com/motemen/ghq
     which bundle   || gem install bundler pry
     which mycli    || pip install --user --upgrade virtualenv ipython mycli csvkit
-    which yarn     || sudo npm install -g yarn exp create-react-app create-react-native-app vue-cli
-    which electron     || sudo yarn install -g electron
+    which yarn     || npm install -g yarn exp create-react-app create-react-native-app vue-cli
     which psysh || composer global require psy/psysh
     which phpunit || composer global require phpunit/phpunit
     which pipenv || pip install --user pipenv
@@ -82,6 +77,6 @@ install-termianl-tool(){
     yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
-level-1
+# level-1
 level-2
-change-service
+install-termianl-tool
