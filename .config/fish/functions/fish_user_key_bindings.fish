@@ -6,4 +6,4 @@ function fish_user_key_bindings
     bind \ec fzf-cd-widget
 end
 
-fzf_key_bindings
+# fzf_key_bindings
