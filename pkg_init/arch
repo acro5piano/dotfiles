@@ -42,8 +42,6 @@ function level-1 {
 # Level 2 - Some developing packages
 function level-2 {
     sudo pacman -S --needed --noconfirm \
-        imagemagick \
-        ghostscript \
         python3 python-pip gcc-fortran lapack libpng \
         go \
         lua \
@@ -51,9 +49,13 @@ function level-2 {
         nodejs npm \
         jdk8-openjdk \
         clojure \
-        wmctrl \
+        imagemagick \
+        ghostscript \
+        wmctrl fzf \
         xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
         vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
+
+    go get github.com/github/hub
 
     yaourt -S --needed --noconfirm \
         leiningen \
@@ -61,22 +63,22 @@ function level-2 {
     # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
     android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
     android update sdk --no-ui --all --filter build-tools-23.0.1,android-23,extra-android-m2repository
+    sudo ln -s /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
+}
+
+function level-3 {
+    sudo pacman -S --needed --noconfirm \
+        graphviz transmission-cli rlwrap nmap traceroute openssl
+    yaourt -S --needed --noconfirm nkf cmigemo-git
 }
 
 install-termianl-tool(){
     which bundle   || gem install bundler pry
-    which mycli    || pip install --user --upgrade virtualenv ipython mycli csvkit
     which yarn     || npm install -g yarn exp create-react-app create-react-native-app vue-cli
-    which psysh || composer global require psy/psysh
-    which phpunit || composer global require phpunit/phpunit
-    which pipenv || pip install --user pipenv
-
-    sudo pacman -S --needed --noconfirm \
-        graphviz transmission-cli rlwrap fzf tig expect \
-        nmap traceroute openssl
-    yaourt -S --needed --noconfirm nkf cmigemo-git
+    which psysh || composer global require psy/psysh hirak/prestissimo phpunit/phpunit
+    which pipenv    || pip install --user --upgrade virtualenv ipython mycli pipenv
 }
 
 # level-1
-level-2
+# level-2
 install-termianl-tool

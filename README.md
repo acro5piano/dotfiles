@@ -57,6 +57,10 @@ vim /etc/pacman.conf
 add them:
 
 ```
+# comment in multilib
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
 [archlinuxfr]
 SigLevel = Never
 Server = http://repo.archlinux.fr/$arch
