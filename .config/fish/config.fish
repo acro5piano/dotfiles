@@ -45,14 +45,22 @@ function __copy_command
   echo (commandline -b) | xclip -i -selection clipboard
 end
 
+function git_shortcut
+end
+
 
 function gh
   if [ "$argv" ]
-    set repo $argv
-    git clone git@github.com:$repo.git ~/ghq/github.com/$repo
-    cd ~/ghq/github.com/$repo
+    set domain github.com
+    if echo "$argv" | grep -q :
+        set domain (echo "$argv" | perl -pe 's/^(.+):.+$/\1/')
+    end
+    set repo (echo "$argv" | perl -pe 's/^.+:(.+)$/\1/')
+    set dir (echo ~/ghq/$domain/$repo)
+    git clone git@$domain:$repo ~/ghq/$domain/$repo
+    cd ~/ghq/$domain/$repo
   else
-    find ~/ghq/github.com/ -maxdepth 2 | egrep '/.+/.+/.+/.+/.+/.+' | fzf | read line
+    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | fzf | read line
     if [ $line ]
       cd $line
       commandline -f repaint
