@@ -1,6 +1,6 @@
 # mode: ruby
 
-window class_only: ['chromium-browser', 'chromium', 'google-chrome', 'firefox'] do
+window class_only: ['chromium-browser', 'chromium', 'google-chrome', 'firefox', 'crx_ophjlpahpchlmihnnnihgmmeilfjmjjc'] do
   remap 'C-b', to: 'Left'
   remap 'C-f', to: 'Right'
   remap 'C-p', to: 'Up'

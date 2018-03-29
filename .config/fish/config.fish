@@ -21,6 +21,10 @@ set -gx CHROME_BIN chromium
 
 set -gx PIPENV_VENV_IN_PROJECT 1
 
+set -gx LANG en_US.UTF-8
+set -gx LC_ALL en_US.UTF-8
+set -gx LC_CTYPE en_US.UTF-8
+
 
 # }}}
 
@@ -175,7 +179,6 @@ end
 function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
 end
-
 
 # }}}
 

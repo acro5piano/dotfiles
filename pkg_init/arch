@@ -32,6 +32,7 @@ function level-1 {
     grep -q docker /etc/group || sudo groupadd docker
     sudo gpasswd -a $USER docker
     sudo gpasswd -a $USER sys
+    echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
 }
 
 # Level 2 - Some developing packages
@@ -49,7 +50,8 @@ function level-2 {
         wmctrl vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
     yaourt -S --needed --noconfirm \
         leiningen \
-        android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23
+        android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23 \
+        ttf-emojione-color
 
     # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
     android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
