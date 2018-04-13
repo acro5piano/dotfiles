@@ -1,6 +1,13 @@
 # {{{ Env vars
 
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
+
+if [ -e /Applications ]
+    set -gx JAVA_HOME (/usr/libexec/java_home)
+    set -gx STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk-10.jdk
+    set -gx ANDROID_HOME $HOME/Library/Android/sdk
+end
+
 set -gx GOPATH $HOME/.go ^/dev/null
 set -gx PATH \
             $HOME/.yarn/bin \
@@ -14,12 +21,15 @@ set -gx PATH \
             /usr/local/bin \
             /bin \
             $ANDROID_HOME/tools\
+            $ANDROID_HOME/platform-tools\
             $PATH ^/dev/null
 set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx CHROME_BIN chromium
 
 set -gx PIPENV_VENV_IN_PROJECT 1
+
+
 
 
 # }}}
@@ -128,6 +138,22 @@ function seek
     end
 end
 
+# TODO: divide files to os specific file
+function cl
+    if [ -e /Applications ]
+        pbcopy
+    else
+        xclip -i -selection clipboard
+    end
+end
+function clp
+    if [ -e /Applications ]
+        pbpaste
+    else
+        xclip -o -selection clipboard
+    end
+end
+
 function grep-replace
     git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
 end
@@ -190,8 +216,8 @@ alias 1='cd -'
 
 alias ag='rg'
 alias bc='bc -l'
-alias cl='xclip -i -selection clipboard'
-alias clp='xclip -o -selection clipboard'
+#alias cl='xclip -i -selection clipboard'
+#alias clp='xclip -o -selection clipboard'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'

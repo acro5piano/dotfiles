@@ -25,7 +25,7 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
@@ -33,8 +33,8 @@ Plug 'digitaltoad/vim-pug'
 Plug 'Yggdroot/indentLine'
 Plug 'wsdjeg/FlyGrep.vim'
 
+Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
-Plug 'flowtype/vim-flow'
 Plug 'leafgarland/typescript-vim'
 
 " Initialize plugin system
@@ -42,7 +42,6 @@ call plug#end()
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 5
-
 
 " anzu
 nmap n <Plug>(anzu-n-with-echo)
@@ -52,6 +51,26 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " set statusline=%{anzu#search_status()}
 
 source ~/.vim/neocomplete.config.vim
+
+
+"----------------------------------------------------
+" Asynchronous Lint Engine (ALE)
+"----------------------------------------------------
+" Limit linters used for JavaScript.
+let g:ale_linters = {
+\  'javascript': ['flow', 'eslint']
+\}
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 "----------------------------------------------------
 " Charcode
@@ -142,9 +161,9 @@ filetype indent on
 autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
-nnoremap <Space>pb :.!xclip -o -selection clipboard<CR>
+nnoremap <Space>pb :.!clp<CR>
 nnoremap <Space>pp :.!xclip -o -selection primary<CR>
-map <C-c> :w !xclip -i -selection clipboard<CR><CR>
+map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
 " Code autocomplete
@@ -206,6 +225,7 @@ nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gd :GitDiff<CR><C-l>
 nnoremap <Leader>gb :GitBlame<CR>
+nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
