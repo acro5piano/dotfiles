@@ -8,23 +8,18 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 function level-1 {
     sudo pacman -S --needed --noconfirm \
         fish vim inotify-tools bc make git tmux openssh \
-        rsync tree curl jq man at ripgrep ctags zip unzip \
-        yaourt docker docker-compose arch-install-scripts \
-        ruby
-
-    # unset NVM_DIR
-    # curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-
-    [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    sudo pacman -S --needed  \
-        xorg xorg-xinit wmctrl synaptics xorg-xbacklight awesome \
+        rsync tree curl jq man at ripgrep ctags zip unzip fzf \
+        yaourt docker docker-compose ruby \
+        xorg xorg-xinit synaptics awesome \
         fcitx fcitx-im fcitx-mozc fcitx-configtool \
         terminator pcmanfm dmenu \
         xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
         adobe-source-code-pro-fonts
+
     yaourt -S --needed \
         otf-ipaexfont maim google-chrome
+
+    [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     if ! which xremap; then
         cd /tmp
@@ -37,6 +32,7 @@ function level-1 {
     grep -q docker /etc/group || sudo groupadd docker
     sudo gpasswd -a $USER docker
     sudo gpasswd -a $USER sys
+    echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
 }
 
 # Level 2 - Some developing packages
@@ -49,36 +45,39 @@ function level-2 {
         nodejs npm \
         jdk8-openjdk \
         clojure \
-        imagemagick \
-        ghostscript \
-        wmctrl fzf \
-        xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
-        vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
-
-    go get github.com/github/hub
-
+        arch-install-scripts \
+        imagemagick ghostscript \
+        wmctrl vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
     yaourt -S --needed --noconfirm \
         leiningen \
-        android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23
+        android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23 \
+        ttf-emojione-color
+
     # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
     android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
     android update sdk --no-ui --all --filter build-tools-23.0.1,android-23,extra-android-m2repository
     sudo ln -s /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
-}
 
-function level-3 {
-    sudo pacman -S --needed --noconfirm \
-        graphviz transmission-cli rlwrap nmap traceroute openssl
-    yaourt -S --needed --noconfirm nkf cmigemo-git
-}
+    go get github.com/github/hub
 
-install-termianl-tool(){
+    unset NVM_DIR
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
     which bundle   || gem install bundler pry
     which yarn     || npm install -g yarn exp create-react-app create-react-native-app vue-cli
     which psysh || composer global require psy/psysh hirak/prestissimo phpunit/phpunit
     which pipenv    || pip install --user --upgrade virtualenv ipython mycli pipenv
 }
 
-# level-1
+# Level 3 - Sometimes needed packages
+function level-3 {
+    sudo pacman -S --needed --noconfirm \
+        graphviz transmission-cli rlwrap nmap traceroute openssl
+    yaourt -S --needed --noconfirm \
+        nkf cmigemo-git \
+        leiningen
+}
+
+level-1
 # level-2
-install-termianl-tool
+# level-3

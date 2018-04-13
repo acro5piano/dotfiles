@@ -177,7 +177,6 @@ inoremap zh <-
 " inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zl ->
 inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
-" for jsx
 inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>

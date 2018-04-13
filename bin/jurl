@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# jurl GET localhost:8000/api/v2/profile
+function main {
+    local method=$1
+    local url=$2
+    local data=$3
+    [ -e /tmp/jurl-token ] && local token=$(cat /tmp/jurl-token)
+
+    curl -Ss \
+        -H 'Accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer $token" \
+        -X $method \
+        $url \
+        "$([ "$data" ] && echo -d "$data")" \
+        | jq .
+
+}
+
+# jurl auth localhost:8000/api/v2/auth/login/email '{email: "student@traimmu.com", password: "123qweasd"}'
+function auth {
+    local url=$2
+    local data=$3
+    local query=$4
+
+    curl -Ss \
+        -H 'Accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -d "$(echo $data | _jsToJson)" \
+        -X POST \
+        $url \
+        | jq -r $query \
+        | tee /tmp/jurl-token
+
+    echo 'Token saved: /tmp/jurl-token'
+}
+
+function _jsToJson {
+    perl -pe 's/([a-z|0-9]+):/"\1":/g'
+}
+
+case $1 in
+    auth) auth "$@";;
+    *) main "$@";;
+esac
