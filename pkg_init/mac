@@ -2,8 +2,13 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install jq rg tmux fish ruby python docker mariadb mycli gron
+brew install jq rg tmux fish git
+brew install nvm ruby python docker mariadb mycli
+brew install watchman
+brew install imagemagick gohstscript ffmpeg
 
 brew cask install docker
+brew cask install java android-studio
 
+npm install -g vue-cli react-native-cli react-devtools
 pip3.6 install virtualenv pipenv
