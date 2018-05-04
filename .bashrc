@@ -168,3 +168,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # terminal emulator cannot run emacs so use vim
 export VISUAL=vim
 export EDITOR=vim
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
