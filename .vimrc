@@ -38,6 +38,7 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier'
 
 " Initialize plugin system
 call plug#end()
@@ -290,6 +291,16 @@ set ttimeoutlen=1 " fast move
 set modeline
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
+
+" Prettier
+
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+
+" `PrettierAsync` does not work
+autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+
 " remember cursor position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |

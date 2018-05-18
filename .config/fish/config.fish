@@ -74,7 +74,7 @@ function gh
     git clone git@$domain:$repo ~/ghq/$domain/$repo
     cd ~/ghq/$domain/$repo
   else
-    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | fzf | read line
+    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | grep -v DS_Store | fzf | read line
     if [ $line ]
       cd $line
       commandline -f repaint
