@@ -12,11 +12,11 @@ set -gx GOPATH $HOME/.go ^/dev/null
 set -gx PATH \
             $HOME/.yarn/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
-            $HOME/.nvm/versions/node/v8.4.0/bin \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
+            $HOME/.nvm/versions/node/v8.9.4/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
@@ -32,9 +32,6 @@ set -gx PIPENV_VENV_IN_PROJECT 1
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
-
-
-
 
 # }}}
 
@@ -56,7 +53,7 @@ function __fzf_history
 end
 
 function __copy_command
-  echo (commandline -b) | xclip -i -selection clipboard
+  echo (commandline -b) | cl
 end
 
 function git_shortcut
@@ -204,6 +201,11 @@ end
 
 function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
+end
+
+function nvm_fish
+    bass source ~/.nvm/nvm.sh ';'
+    nvm $argv
 end
 
 # }}}

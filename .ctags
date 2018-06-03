@@ -12,6 +12,7 @@
 --regex-javascript=/^[ \t]*([a-z]+[ \t]+)*[ \t]+([A-Za-z0-9_]+) ?\(\)[ \t]*([^)])/\2/c,method/
 --regex-javascript=/^[ \t]*([a-z|A-Z]+)\(\)/\1/
 --regex-javascript=/^[ \t]*([a-z]+[ \t]+)*const[ \t]+([A-Za-z0-9_]+)[ \t]*([^)])/\2/c,class,classes/
+--regex-javascript=/^[ \t]*([a-z]+[ \t]+)*export[ \t]+([A-Za-z0-9_]+)[ \t]*([^)])/\2/c,class,classes/
 
 --exclude=.git
 --exclude=.svn

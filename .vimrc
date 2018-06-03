@@ -292,14 +292,14 @@ set modeline
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
-" Prettier
+" Prettier Too heavy
 
 " when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-
-" `PrettierAsync` does not work
-autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+" let g:prettier#quickfix_enabled = 0
+" let g:prettier#autoformat = 0
+"
+" " `PrettierAsync` does not work
+" autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 
 " remember cursor position
 autocmd BufReadPost *
