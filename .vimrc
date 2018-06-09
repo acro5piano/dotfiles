@@ -312,6 +312,7 @@ autocmd BufReadPost *
 
 autocmd BufReadPost * syntax sync fromstart
 autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.js,jsx set filetype=typescript
 
 set backspace=indent,eol,start
 
