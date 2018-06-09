@@ -39,6 +39,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier'
+Plug 'jparise/vim-graphql'
 
 " Initialize plugin system
 call plug#end()
@@ -222,6 +223,8 @@ let mapleader = "\<Space>"
 nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
+nnoremap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>fr :FZFMru<CR>
