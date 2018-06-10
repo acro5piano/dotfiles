@@ -266,6 +266,12 @@ if [ "$TERM" = 'xterm-256color' ]
     end
 end
 
+if [ -e /etc/arch-release ]
+    sudo sysctl -p > /dev/null &
+end
+
+
+
 # }}}
 
 # vim:set ft=bash ts=2 sts=2 sw=2
