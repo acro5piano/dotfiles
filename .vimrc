@@ -37,7 +37,11 @@ Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'MaxMEllon/vim-jsx-pretty', {
+  \ 'for': 'typescript',
+  \ 'autoload': {
+  \   'filetypes': ['typescript']
+  \ }}
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
