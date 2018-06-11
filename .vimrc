@@ -20,12 +20,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 Plug 'jwalton512/vim-blade'
-" Plug 'pelodelfuego/vim-swoop'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
+" TODO: new complete engine
+" Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
@@ -40,7 +40,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
-
+Plug 'flowtype/vim-flow'
 " Initialize plugin system
 call plug#end()
 
@@ -57,7 +57,6 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " set statusline=%{anzu#search_status()}
 
 source ~/.vim/neocomplete.config.vim
-
 
 "----------------------------------------------------
 " Asynchronous Lint Engine (ALE)
@@ -78,6 +77,21 @@ let g:ale_lint_delay = 700
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+"----------------------------------------------------
+" Flow
+"----------------------------------------------------
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = getcwd() . "/node_modules/.bin/flow"
+endif
+let g:flow#showquickfix = 0
+
+let g:javascript_plugin_flow = 1
 
 "----------------------------------------------------
 " Charcode
@@ -266,7 +280,6 @@ command! FZFMru call fzf#run({
 
 nnoremap go o<ESC>k
 
-
 "--------------
 " Git
 "--------------
@@ -310,9 +323,7 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
-autocmd BufReadPost * syntax sync fromstart
 autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.js,jsx set filetype=typescript
 
 set backspace=indent,eol,start
 
