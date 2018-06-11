@@ -1,5 +1,14 @@
 #!/bin/bash
 
-file_name="$1"
+if [ -z $1 ]; then
+    echo 'Error: no filename' 1>&2
+    exit 1
+fi
 
-openssl aes-256-cbc -d -in "$file_name"
+if [ -z $DECRYPT_KEY ]; then
+    read -p 'Please input payme password and press Return: ' -s DECRYPT_KEY
+fi
+
+out=${2:-/dev/stdout}
+
+openssl aes-256-cbc -k $DECRYPT_KEY -d -in $1 -out $out

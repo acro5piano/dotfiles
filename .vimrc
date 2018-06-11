@@ -222,6 +222,8 @@ let mapleader = "\<Space>"
 nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
+nnoremap <Leader>an :ALENext<CR>
+nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>fr :FZFMru<CR>
