@@ -2,7 +2,7 @@
 
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
 
-if [ -e /Applications ]
+if [ -e $HOME/Library/Android ]
     set -gx JAVA_HOME (/usr/libexec/java_home)
     set -gx STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk-10.jdk
     set -gx ANDROID_HOME $HOME/Library/Android/sdk

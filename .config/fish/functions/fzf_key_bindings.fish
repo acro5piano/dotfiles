@@ -1,1 +1,1 @@
-/Users/kazuya-mac/.fzf/shell/key-bindings.fish
+/Users/kazuya/.fzf/shell/key-bindings.fish
