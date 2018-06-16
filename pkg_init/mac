@@ -9,7 +9,8 @@ brew install \
     jq rg tmux fish \
     nvm ruby python mariadb mycli \
     watchman \
-    imagemagick gohstscript ffmpeg
+    hub \
+    imagemagick ghostscript ffmpeg
 
 brew cask install flycut docker
 brew cask install java android-studio
