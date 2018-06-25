@@ -255,6 +255,8 @@ nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
+nnoremap <Leader>pp :Prettier<CR>
+nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
