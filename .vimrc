@@ -322,7 +322,7 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 " let g:prettier#autoformat = 0
 "
 " " `PrettierAsync` does not work
-" autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 
 " remember cursor position
 autocmd BufReadPost *

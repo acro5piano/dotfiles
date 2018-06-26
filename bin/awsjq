@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    profile=""
+else
+    profile="--profile $1"
+fi
+
+aws $profile ec2 describe-instances \
+    | jq '.Reservations[].Instances[] | .SecurityGroups[].GroupName, .NetworkInterfaces[].PrivateIpAddress, "---"'
