@@ -16,6 +16,7 @@ set -gx PATH \
             $HOME/.go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
+            $HOME/.gem/ruby/2.5.0/bin \
             $HOME/.nvm/versions/node/v8.9.4/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
