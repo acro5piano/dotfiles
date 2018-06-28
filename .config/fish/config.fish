@@ -251,6 +251,12 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
+
+function gcamp
+    git cam "$argv[1]"
+    and git pushthis
+end
+
 # }}}
 
 # {{{ init
