@@ -272,6 +272,7 @@ nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
+nnoremap <Leader>/ :TComment<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
 
@@ -322,7 +323,7 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 " let g:prettier#autoformat = 0
 "
 " " `PrettierAsync` does not work
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
 
 " remember cursor position
 autocmd BufReadPost *
