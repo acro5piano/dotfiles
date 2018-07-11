@@ -47,6 +47,7 @@ function level-2 {
         clojure \
         arch-install-scripts \
         imagemagick ghostscript \
+        httpie \
         wmctrl vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
     yaourt -S --needed --noconfirm \
         leiningen \
