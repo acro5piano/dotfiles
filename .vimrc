@@ -67,8 +67,10 @@ source ~/.vim/neocomplete.config.vim
 "----------------------------------------------------
 " Limit linters used for JavaScript.
 let g:ale_linters = {
-\  'javascript': ['flow', 'eslint']
+\  'javascript': ['flow', 'eslint'],
+\  'python': ['flake8'],
 \}
+let g:ale_completion_enabled = 1
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_sign_error = 'X' " could use emoji
@@ -81,6 +83,8 @@ let g:ale_lint_delay = 700
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
 
 "----------------------------------------------------
 " Flow
@@ -273,6 +277,7 @@ nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>/ :TComment<CR>
+vnoremap <Leader>/ :TComment<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
 

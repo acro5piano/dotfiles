@@ -1,0 +1,1 @@
+/Users/kazuya/.config/fisherman/nvm/functions/nvm.fish

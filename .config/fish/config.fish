@@ -17,7 +17,7 @@ set -gx PATH \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.gem/ruby/2.5.0/bin \
-            $HOME/.nvm/versions/node/v8.9.4/bin \
+            $HOME/.nvm/versions/node/v10.3.0/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
@@ -49,7 +49,7 @@ function delete-all-tables
 end
 
 function __fzf_history
-  history | perl -nle 'print if length($_) < 120' | fzf-tmux -d40% +s +m --query=(commandline -b) \
+  history | perl -nle 'print if length($_) < 200' | fzf-tmux --exact -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -232,7 +232,7 @@ alias jq='jq -C'
 alias la='ls -A'
 alias less='less -R'
 alias ll='ls -alh'
-alias now='date +%Y%m%d_%H%M%S'
+alias justnow='date +%Y%m%d_%H%M%S'
 alias seishin='cd (mktemp -d)'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias wi='sudo wifi-menu'
