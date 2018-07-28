@@ -68,7 +68,7 @@ source ~/.vim/neocomplete.config.vim
 " Limit linters used for JavaScript.
 let g:ale_linters = {
 \  'javascript': ['flow', 'eslint'],
-\  'python': ['flake8'],
+\  'python': ['flake8', 'mypy'],
 \}
 let g:ale_completion_enabled = 1
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
@@ -341,3 +341,5 @@ autocmd FileType vue syntax sync fromstart
 set backspace=indent,eol,start
 
 set showcmd
+
+autocmd BufWritePre *.py 0,$!yapf

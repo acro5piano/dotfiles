@@ -21,4 +21,6 @@ npm install -g \
     react-cli react-native-cli create-react-app
 pip3.6 install \
     virtualenv pipenv \
-    awscli
+    awscli \
+    mypy \
+    flake8
