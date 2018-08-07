@@ -265,6 +265,7 @@ nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR>
 nnoremap <Leader>tl :Tlist<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
