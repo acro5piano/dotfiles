@@ -199,6 +199,7 @@ map <C-c> :w !cl<CR><CR>
 "----------------------------------------------------
 
 inoremap {<CR> {<CR>}<Up><End><CR>
+inoremap ({<CR> ({<CR>})<Up><End><CR>
 inoremap z. =>
 inoremap zc console.log()<Left>
 inoremap zf foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
