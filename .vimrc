@@ -344,4 +344,14 @@ set backspace=indent,eol,start
 
 set showcmd
 
-autocmd BufWritePre *.py 0,$!yapf
+function! Yapf(...) abort
+    let l:curPos = getpos('.')
+    call cursor(1, 1)
+    silent execute "0,$!yapf"
+    if v:shell_error != 0
+        silent undo
+    end
+    call cursor(l:curPos[1], l:curPos[2])
+endfunction
+
+autocmd BufWritePre *.py call Yapf()
