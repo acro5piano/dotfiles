@@ -12,6 +12,7 @@ brew install \
     hub \
     imagemagick ghostscript ffmpeg
 
+brew cask install flycut cmd-eikana
 brew cask install flycut docker
 brew cask install java android-studio
 
