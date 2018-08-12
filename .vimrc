@@ -225,7 +225,7 @@ inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
-tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <C-g> <C-\><C-n>
 
 " キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
@@ -266,6 +266,7 @@ nnoremap <Leader>gd :GitDiff<CR><C-l>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
+nnoremap <Leader>ij :ImportJs<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>pp :Prettier<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
