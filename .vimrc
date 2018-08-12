@@ -26,7 +26,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 " TODO: new complete engine
 " Plug 'Valloric/YouCompleteMe'
-Plug 'Shougo/neocomplete.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
@@ -46,6 +45,16 @@ Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
 " Initialize plugin system
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
 " Yggdroot/indentLine
