@@ -8,6 +8,7 @@
 !.config/nvim
 !.config/systemd
 !.config/fish
+!.config/alacritty
 fishd.*
 *history*
 
