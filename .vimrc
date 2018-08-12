@@ -10,10 +10,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
+" Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -23,12 +23,11 @@ Plug 'jwalton512/vim-blade'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
-Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
-Plug 'wsdjeg/FlyGrep.vim'
 
 Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
@@ -42,7 +41,6 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
-" Initialize plugin system
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -51,9 +49,12 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 
+" Initialize plugin system
 call plug#end()
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 5
