@@ -24,8 +24,6 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-" TODO: new complete engine
-" Plug 'Valloric/YouCompleteMe'
 Plug 'tomtom/tcomment_vim'
 Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
@@ -69,7 +67,7 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " set statusline=%{anzu#search_status()}
 
-source ~/.vim/neocomplete.config.vim
+" source ~/.vim/neocomplete.config.vim
 
 "----------------------------------------------------
 " Asynchronous Lint Engine (ALE)
@@ -90,8 +88,6 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 let g:ale_echo_msg_format = '%linter% says %s'
 let g:ale_lint_delay = 700
 " Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
 
@@ -146,8 +142,6 @@ vmap *  <Plug>(asterisk-g*)
 "----------------------------------------------------
 autocmd FileType vue syntax sync fromstart
 set title
-nnoremap j gj
-nnoremap k gk
 set laststatus=2
 set showmatch
 set hlsearch
@@ -211,9 +205,6 @@ inoremap {<CR> {<CR>}<Up><End><CR>
 inoremap ({<CR> ({<CR>})<Up><End><CR>
 inoremap z. =>
 inoremap zc console.log()<Left>
-inoremap zf foreach<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
-inoremap zh <-
-" inoremap zi if<Space>()<Space>{<CR>}<Up><End><Left><Left><Left>
 inoremap zl ->
 inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
 inoremap </ </<C-x><C-o>
@@ -233,6 +224,8 @@ inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
+tnoremap <silent> <ESC> <C-\><C-n>
+
 " キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
@@ -252,6 +245,10 @@ cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
