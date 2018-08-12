@@ -1,5 +1,7 @@
 # {{{ Env vars
 
+set -gx IS_MAC (test -e /Applications)
+
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
 
 if [ -e $HOME/Library/Android ]
@@ -265,7 +267,9 @@ end
 
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 
-pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
+if [ $IS_MAC ]
+    pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
+end
 
 if [ "$TERM" = 'xterm-256color' ]
     if pgrep tmux > /dev/null
