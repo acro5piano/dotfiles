@@ -18,7 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'jwalton512/vim-blade'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
@@ -95,7 +95,7 @@ let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
 "----------------------------------------------------
 " Flow
 "----------------------------------------------------
-"Use locally installed flow
+" Use locally installed flow
 let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
 if matchstr(local_flow, "^\/\\w") == ''
     let local_flow= getcwd() . "/" . local_flow
@@ -134,7 +134,6 @@ let g:ackprg = 'rg --vimgrep --smart-case'
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-fuzzy-/)
 map z/ <Plug>(incsearch-stay)
 vmap *  <Plug>(asterisk-g*)
 
@@ -195,7 +194,6 @@ autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
 nnoremap <Space>pb :.!clp<CR>
-nnoremap <Space>pp :.!xclip -o -selection primary<CR>
 map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
@@ -217,15 +215,25 @@ inoremap z[ from IPython import embed; embed()
 " Remap keys
 "----------------------------------------------------
 
+tnoremap <silent> <C-g> <C-\><C-n>
+
 inoremap <S-TAB> <C-d>
 inoremap <TAB> <C-t>
+
 " Emacs-like key binding
 inoremap <C-a> <Home>
 inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
-tnoremap <silent> <C-g> <C-\><C-n>
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
@@ -235,14 +243,6 @@ inoremap <Up> <C-p>
 
 inoremap <C-k> <C-o>:call setline(line('.'), col('.') == 1 ? '' : getline('.')[:col('.') - 2])<CR>
 
-cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
-cnoremap <C-e> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-n> <Down>
-cnoremap <C-p> <Up>
-cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
 
 " like Spacemacs
 let mapleader = "\<Space>"
@@ -259,23 +259,19 @@ nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>fr :FZFMru<CR>
-nnoremap <Leader>fd :e $MYVIMRC<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gd :GitDiff<CR><C-l>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>mm :Marks<CR>
-nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>ij :ImportJs<CR>
+nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>pp :Prettier<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
-nnoremap <Leader>t/ :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR>
-nnoremap <Leader>tl :Tlist<CR>
+nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<HOME><CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
@@ -301,8 +297,6 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
-nnoremap go o<ESC>k
-
 "--------------
 " Git
 "--------------
@@ -313,32 +307,19 @@ function! s:git_blame()
 endfunction
 command! GitBlame call s:git_blame()
 
-function! s:git_diff()
-    call system('git diff '.expand('%').' > /tmp/__git_diff.diff')
-    :silent !ccat /tmp/__git_diff.diff | less
-endfunction
-command! GitDiff call s:git_diff()
-
 "---------------------------------------------------
 " Others
 "----------------------------------------------------
 set nocompatible
 set vb t_vb= " do not beep
-set hidden " not discard undo after buffers were killed
-set ambiwidth=double " for full width problem
+" set hidden " not discard undo after buffers were killed
+" set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 " Prettier Too heavy
-
-" when running at every change you may want to disable quickfix
-" let g:prettier#quickfix_enabled = 0
-" let g:prettier#autoformat = 0
-"
-" " `PrettierAsync` does not work
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
 
 " remember cursor position
 autocmd BufReadPost *
