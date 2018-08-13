@@ -41,6 +41,7 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
+Plug 'acro5piano/import-js-from-history'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
