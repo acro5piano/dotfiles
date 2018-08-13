@@ -17,6 +17,7 @@ brew install \
     nvm ruby python mariadb mycli \
     watchman \
     hub \
+    git-secrets \
     imagemagick ghostscript ffmpeg
 
 brew cask install flycut cmd-eikana
