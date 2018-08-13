@@ -317,7 +317,7 @@ command! GitBlame call s:git_blame()
 "----------------------------------------------------
 set nocompatible
 set vb t_vb= " do not beep
-" set hidden " not discard undo after buffers were killed
+set hidden " not discard undo after buffers were killed
 " set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
