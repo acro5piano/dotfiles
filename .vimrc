@@ -352,7 +352,7 @@ set backspace=indent,eol,start
 
 set showcmd
 
-function! Yapf(...) abort
+function! Yapf()
     let l:curPos = getpos('.')
     call cursor(1, 1)
     silent execute "0,$!yapf"
@@ -363,3 +363,5 @@ function! Yapf(...) abort
 endfunction
 
 autocmd BufWritePre *.py call Yapf()
+
+command! TSLint !yarn tslint --fix %
