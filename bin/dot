@@ -13,10 +13,10 @@ link(){
         [ "$f" = ".git" ] && continue
 
         if [ -e "$HOME/$f" ]; then
-            tra "$HOME/$f"
+            mv "$HOME/$f" `mktemp -d`
         fi
 
-        ln -snfv "$DOTPATH/$f" "$HOME/$f"
+        ln -snvf "$DOTPATH/$f" "$HOME/$f"
     done
 
     ln -snfv "$DOTPATH/bin" "$HOME/bin"

@@ -42,6 +42,9 @@ Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
 Plug 'acro5piano/import-js-from-history'
+Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
+" Plug 'acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
+" Plug 'simlrh/neovim-node-plugin-example', { 'do': 'npm install' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -320,7 +323,7 @@ set modeline
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
-" Prettier Too heavy
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
 
 " remember cursor position
 autocmd BufReadPost *
