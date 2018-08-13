@@ -28,6 +28,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
+Plug 'dyng/ctrlsf.vim'
 
 Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
