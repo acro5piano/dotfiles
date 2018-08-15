@@ -10,20 +10,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'haya14busa/incsearch.vim'
-" Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-scripts/taglist.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
-" Plug 'mattn/emmet-vim'
 Plug 'jwalton512/vim-blade'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
 Plug 'posva/vim-vue'
+Plug 'tomlion/vim-solidity'
 Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
@@ -31,7 +29,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'w0rp/ale'
-Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty', {
@@ -44,8 +41,6 @@ Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
-" Plug 'acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
-" Plug 'simlrh/neovim-node-plugin-example', { 'do': 'npm install' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -57,6 +52,10 @@ endif
 
 " Initialize plugin system
 call plug#end()
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
