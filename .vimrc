@@ -257,14 +257,18 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
+nnoremap <Leader>ag :Rg <C-R><C-W><CR>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bt :BTags<CR>
+nnoremap <Leader>bs :BLines<C-R><C-W><CR>
 nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>ij :ImportJs<CR>
@@ -275,7 +279,7 @@ nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<HOME><CR>
+nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
@@ -295,11 +299,18 @@ nmap <F1> <ESC>
 imap <F1> <ESC>
 vmap <F1> <ESC>
 
+" FZF customization
 command! FZFMru call fzf#run({
 \  'source':  v:oldfiles,
 \  'sink':    'e',
 \  'options': '-m -x +s',
 \  'down':    '40%'})
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+  \    1,
+  \   { 'options': '--exact' })
 
 "--------------
 " Git
