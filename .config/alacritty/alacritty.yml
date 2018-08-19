@@ -94,8 +94,8 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x002b36'
+    foreground: '0xdddddd'
 
     # (Optional) Bright and Dim foreground colors
     #

@@ -264,7 +264,7 @@ nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bt :BTags<CR>
-nnoremap <Leader>bs :BLines<C-R><C-W><CR>
+nnoremap <Leader>bs :BLines <C-R><C-W><CR>
 nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
