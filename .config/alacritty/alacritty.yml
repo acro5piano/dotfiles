@@ -95,7 +95,7 @@ colors:
   # Default colors
   primary:
     background: '0x002b36'
-    foreground: '0xdddddd'
+    foreground: '0x93a1a1'
 
     # (Optional) Bright and Dim foreground colors
     #
@@ -104,7 +104,7 @@ colors:
     # is `false`, the normal foreground color will be used.
     #
     # dim_foreground: '0x9a9a9a'
-    # bright_foreground: '0xffffff'
+    bright_foreground: '0xcccccc'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
