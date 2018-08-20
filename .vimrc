@@ -29,12 +29,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'w0rp/ale'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': 'typescript',
   \ 'autoload': {
-  \   'filetypes': ['typescript']
+  \   'filetypes': ['typescript', 'javascript']
   \ }}
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
@@ -108,6 +109,7 @@ if executable(local_flow)
   let g:flow#flowpath = getcwd() . "/node_modules/.bin/flow"
 endif
 let g:flow#showquickfix = 0
+let g:flow#enable = 0
 
 let g:javascript_plugin_flow = 1
 
