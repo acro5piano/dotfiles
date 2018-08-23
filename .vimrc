@@ -28,6 +28,10 @@ Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 
+" For func argument completion
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
 Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -40,6 +44,7 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
+Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
 
@@ -112,6 +117,10 @@ let g:flow#showquickfix = 0
 let g:flow#enable = 0
 
 let g:javascript_plugin_flow = 1
+
+" autocomplete-flow does this feature
+let g:flow#omnifunc = 0
+let g:autocomplete_flow#insert_paren_after_function = 0
 
 "----------------------------------------------------
 " Charcode
