@@ -1,1 +1,1 @@
-/Users/kazuya/.config/fisherman/bass/functions/bass.fish
+/Users/kazuya-mac/.config/fisherman/bass/functions/bass.fish

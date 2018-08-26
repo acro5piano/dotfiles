@@ -1,1 +1,1 @@
-/Users/kazuya/.config/fisherman/bass/functions/__bass.py
+/Users/kazuya-mac/.config/fisherman/bass/functions/__bass.py
