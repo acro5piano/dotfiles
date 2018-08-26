@@ -35,7 +35,9 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': 'typescript',
   \ 'autoload': {
@@ -273,7 +275,7 @@ nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
-nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>bs :BLines <C-R><C-W><CR>
 nnoremap <Leader>fr :FZFMru<CR>
