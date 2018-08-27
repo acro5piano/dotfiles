@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
+Plug 'tpope/vim-surround'
 
 " For func argument completion
 Plug 'Shougo/neosnippet'
@@ -270,7 +271,8 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
-nnoremap <Leader>ag :Rg <C-R><C-W><CR>
+nnoremap <Leader>rg :Rg<Space>
+nnoremap <Leader>rw :Rg <C-r><C-w><CR>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
@@ -321,7 +323,7 @@ command! FZFMru call fzf#run({
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>),
   \    1,
   \   { 'options': '--exact' })
 

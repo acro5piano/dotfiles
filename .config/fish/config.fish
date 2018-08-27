@@ -224,6 +224,7 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias ag='rg'
+alias rg='rg --hidden'
 alias bc='bc -l'
 #alias cl='xclip -i -selection clipboard'
 #alias clp='xclip -o -selection clipboard'
