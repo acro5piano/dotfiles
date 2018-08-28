@@ -47,9 +47,12 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
 Plug 'prettier/vim-prettier'
 Plug 'jparise/vim-graphql'
 Plug 'flowtype/vim-flow'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
-Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
+Plug 'acro5piano/jsx-autoedit'
+" Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
+" Plug '~/ghq/github.com/acro5piano/jsx-autoedit'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -273,6 +276,7 @@ nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>rg :Rg<Space>
 nnoremap <Leader>rw :Rg <C-r><C-w><CR>
+nnoremap <Leader>rt :JSXReplaceTag<CR>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
@@ -346,6 +350,10 @@ set hidden " not discard undo after buffers were killed
 " set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
+
+" set undofile
+" set undodir=/tmp
+" au BufWritePre /tmp/* setlocal noundofile
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 

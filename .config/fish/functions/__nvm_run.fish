@@ -1,1 +1,1 @@
-/Users/kazuya-mac/.config/fisherman/nvm/__nvm_run.fish
+/Users/kazuya/.config/fisherman/nvm/__nvm_run.fish
