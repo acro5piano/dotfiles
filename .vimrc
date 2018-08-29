@@ -50,7 +50,7 @@ Plug 'flowtype/vim-flow'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
-Plug 'acro5piano/jsx-autoedit'
+Plug 'acro5piano/vim-jsx-replace-tag'
 " Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
 " Plug '~/ghq/github.com/acro5piano/jsx-autoedit'
 
