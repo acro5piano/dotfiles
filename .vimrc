@@ -94,7 +94,10 @@ let g:ale_linters = {
 \  'javascript': ['flow', 'eslint'],
 \  'python': ['flake8', 'mypy'],
 \}
-let g:ale_completion_enabled = 1
+
+" Not work with nvim-typescript.
+let g:ale_completion_enabled = 0
+
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_sign_error = 'X' " could use emoji
@@ -275,9 +278,9 @@ nnoremap <Leader><Leader> :<C-p><HOME>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>rg :Rg<Space>
-nnoremap <Leader>rw :Rg <C-r><C-w><CR>
+nnoremap <Leader>ag :Rg <C-r><C-w><CR>
 nnoremap <Leader>rt :JSXReplaceTag<CR>
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
+nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>bb :Buffers<CR>
@@ -293,7 +296,6 @@ nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>ij :ImportJs<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>pp :Prettier<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
