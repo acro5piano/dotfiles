@@ -90,13 +90,16 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " Asynchronous Lint Engine (ALE)
 "----------------------------------------------------
 " Limit linters used for JavaScript.
-let g:ale_linters = {
-\  'javascript': ['flow', 'eslint'],
-\  'python': ['flake8', 'mypy'],
-\}
+" let g:ale_linters = {
+" \  'javascript': ['flow', 'eslint', 'tslint'],
+" \  'typescript': ['typescript', 'tslint'],
+" \  'python': ['flake8', 'mypy'],
+" \}
 
 " Not work with nvim-typescript.
+let g:nvim_typescript#diagnosticsEnable = 0
 let g:ale_completion_enabled = 0
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
@@ -275,6 +278,7 @@ nnoremap k gk
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 nnoremap <Leader><Leader> :<C-p><HOME>
+nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>rg :Rg<Space>
