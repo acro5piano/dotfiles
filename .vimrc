@@ -28,6 +28,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 
 " For func argument completion
 Plug 'Shougo/neosnippet'
@@ -287,6 +288,7 @@ nnoremap <Leader>rt :JSXReplaceTag<CR>
 nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader>bt :BTags<CR>
