@@ -20,6 +20,11 @@ brew install \
     git-secrets \
     imagemagick ghostscript ffmpeg
 
+if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+    fisher update
+fi
+
 brew cask install flycut cmd-eikana
 brew cask install flycut docker
 brew cask install java android-studio

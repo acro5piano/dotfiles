@@ -1,1 +1,0 @@
-/Users/kazuya/.config/fisherman/bass/functions/bass.fish
