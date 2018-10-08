@@ -17,7 +17,7 @@ brew install \
     nvm ruby python mariadb mycli \
     watchman \
     hub \
-    git-secrets \
+    git-secrets heroku/brew/heroku \
     imagemagick ghostscript ffmpeg
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then

@@ -12,6 +12,7 @@ end
 
 set -gx GOPATH $HOME/.go ^/dev/null
 set -gx PATH \
+            $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.local/bin \

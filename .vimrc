@@ -319,6 +319,7 @@ nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>/ :TComment<CR>
+vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
 
