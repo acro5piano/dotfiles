@@ -10,7 +10,9 @@ if [ -e $HOME/Library/Android ]
     set -gx ANDROID_HOME $HOME/Library/Android/sdk
 end
 
-set -gx GOPATH $HOME/.go ^/dev/null
+# [ -e $HOME/.go ]; or mkdir $HOME/.go
+# set -gx GOPATH $HOME/.go ^/dev/null
+# set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
             $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
@@ -209,8 +211,11 @@ function addone
 end
 
 function nvm_fish
-    bass source ~/.nvm/nvm.sh ';'
-    nvm $argv
+    bass source ~/.nvm/nvm.sh ';' nvm $argv
+end
+
+function gvm
+  bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
 
 # }}}

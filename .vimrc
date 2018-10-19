@@ -28,7 +28,9 @@ Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
+Plug 'tpope/vim-fugitive'
+
+Plug 'ruanyl/vim-gh-line'
 
 " For func argument completion
 Plug 'Shougo/neosnippet'
@@ -38,7 +40,7 @@ Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 " Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim', {'commit': '6d3bb828acdeaea75e061a3a7579aaaa8f635f8c'}
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': 'typescript',
@@ -54,6 +56,8 @@ Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
 " Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
 " Plug '~/ghq/github.com/acro5piano/jsx-autoedit'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -92,15 +96,17 @@ nmap # <Plug>(anzu-sharp-with-echo)
 "----------------------------------------------------
 " Limit linters used for JavaScript.
 " let g:ale_linters = {
-" \  'javascript': ['flow', 'eslint', 'tslint'],
+" \  'javascript': ['flow', 'eslint'],
 " \  'typescript': ['typescript', 'tslint'],
 " \  'python': ['flake8', 'mypy'],
+" \  'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman']
 " \}
 
 " Not work with nvim-typescript.
-let g:nvim_typescript#diagnosticsEnable = 0
+let g:nvim_typescript#diagnostics_enable = 0
 let g:ale_completion_enabled = 0
-let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
+let g:ale_ruby_rubocop_executable = 'bundle'
 
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
@@ -389,8 +395,22 @@ function! Yapf()
     end
     call cursor(l:curPos[1], l:curPos[2])
 endfunction
-
 autocmd BufWritePre *.py call Yapf()
+
+" function! Rubocop()
+"     let l:curPos = getpos('.')
+"     call cursor(1, 1)
+"     silent execute "0,$!bundle exec rubocop -a --stdin -"
+"     " if v:shell_error != 0
+"     "     silent undo
+"     " end
+"     call cursor(l:curPos[1], l:curPos[2])
+" endfunction
+" autocmd BufWritePre *.rb call Rubocop()
+command! Rubocop !bundle exec rubocop -a %
 
 command! TSLint !yarn tslint --fix %
 command! ESLint !yarn eslint --fix %
+
+command! VSCode !code %
+command! VSCodeDir !code %:p:h

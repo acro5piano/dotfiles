@@ -18,7 +18,8 @@ brew install \
     watchman \
     hub \
     git-secrets heroku/brew/heroku \
-    imagemagick ghostscript ffmpeg
+    imagemagick ghostscript ffmpeg \
+    dep
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
