@@ -101,6 +101,9 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " \  'python': ['flake8', 'mypy'],
 " \  'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman']
 " \}
+let g:ale_linters = {
+    \ 'go': ['govet', 'gofmt', 'gobuild'],
+\}
 
 " Not work with nvim-typescript.
 let g:nvim_typescript#diagnostics_enable = 0
