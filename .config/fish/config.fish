@@ -215,7 +215,16 @@ function nvm_fish
 end
 
 function gvm
-  bass source ~/.gvm/scripts/gvm ';' gvm $argv
+    bass source ~/.gvm/scripts/gvm ';' gvm $argv
+end
+
+function gcamp
+    git cam "$argv[1]"
+    and git pushthis
+end
+
+function tmsp
+    tmux swap-window -t $argv[1]
 end
 
 # }}}
@@ -252,7 +261,6 @@ alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
 alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
-alias dev2master="git co develop; and git pull; and hub pull-request -b master"
 
 alias v="vagrant up; vagrant ssh"
 alias vr="vagrant reload; vagrant ssh"
@@ -263,11 +271,6 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
-
-function gcamp
-    git cam "$argv[1]"
-    and git pushthis
-end
 
 # }}}
 
@@ -291,7 +294,7 @@ if [ -e /etc/arch-release ]
     sudo sysctl -p > /dev/null &
 end
 
-
+bass source ~/.gvm/scripts/gvm
 
 # }}}
 
