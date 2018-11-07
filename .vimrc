@@ -312,6 +312,7 @@ nnoremap <Leader>ij :ImportJs<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
+nnoremap <Leader>gj :GoDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
