@@ -48,7 +48,8 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
   \   'filetypes': ['typescript', 'javascript']
   \ }}
 Plug 'prettier/vim-prettier'
-Plug 'jparise/vim-graphql'
+" Plug 'jparise/vim-graphql'
+Plug 'acro5piano/vim-graphql'
 Plug 'flowtype/vim-flow'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'wokalski/autocomplete-flow'
