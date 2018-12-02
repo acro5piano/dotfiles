@@ -418,3 +418,4 @@ command! ESLint !yarn eslint --fix %
 
 command! VSCode !code %
 command! VSCodeDir !code %:p:h
+filetype plugin on

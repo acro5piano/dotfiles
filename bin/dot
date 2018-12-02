@@ -20,6 +20,7 @@ link(){
     done
 
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
+    ln -s $HOME/.vim/after $HOME/.config/nvim/after
 }
 
 usage(){
