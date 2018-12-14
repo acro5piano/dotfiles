@@ -68,10 +68,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " Initialize plugin system
@@ -336,10 +336,6 @@ nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>/ :TComment<CR>
 
-" for css completion
-nnoremap <Leader>cs :set ft=css<CR>
-nnoremap <Leader>ts :set ft=typescriptreact<CR>
-
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
@@ -432,5 +428,10 @@ command! ESLint !yarn eslint --fix %
 command! VSCode !code %
 command! VSCodeDir !code %:p:h
 filetype plugin on
+
+" for css completion
+" we use omnifunc now
+" nnoremap <Leader>cs :set ft=css<CR>
+" nnoremap <Leader>ts :set ft=typescriptreact<CR>
 
 autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
