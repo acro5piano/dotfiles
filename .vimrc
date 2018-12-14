@@ -432,3 +432,5 @@ command! ESLint !yarn eslint --fix %
 command! VSCode !code %
 command! VSCodeDir !code %:p:h
 filetype plugin on
+
+autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
