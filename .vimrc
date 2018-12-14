@@ -51,13 +51,13 @@ Plug 'prettier/vim-prettier'
 " Plug 'jparise/vim-graphql'
 Plug 'acro5piano/vim-graphql'
 Plug 'flowtype/vim-flow'
-Plug 'styled-components/vim-styled-components',
-Plug 'styled-components/vim-styled-components', {
-  \ 'branch': 'main',
-  \ 'for': 'typescript',
-  \ 'autoload': {
-  \   'filetypes': ['javascript.jsx', 'javascript']
-  \ }}
+" Plug 'styled-components/vim-styled-components', {
+"   \ 'branch': 'main',
+"   \ 'for': 'typescript',
+"   \ 'autoload': {
+"   \   'filetypes': ['javascript.jsx', 'javascript']
+"   \ }}
+Plug 'vim-scripts/SyntaxRange'
 Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
@@ -335,8 +335,14 @@ nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wo <C-w><C-w>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>/ :TComment<CR>
+
+" for css completion
+nnoremap <Leader>cs :set ft=css<CR>
+nnoremap <Leader>ts :set ft=typescriptreact<CR>
+
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
+
 
 nnoremap <ESC><ESC> :nohl<CR>
 
