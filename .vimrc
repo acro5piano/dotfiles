@@ -57,7 +57,6 @@ Plug 'flowtype/vim-flow'
 "   \ 'autoload': {
 "   \   'filetypes': ['javascript.jsx', 'javascript']
 "   \ }}
-Plug 'vim-scripts/SyntaxRange'
 Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
@@ -67,6 +66,10 @@ Plug 'acro5piano/vim-jsx-replace-tag'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 if has('nvim')
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "     \ 'branch': 'next',
+  "     \ 'do': 'bash install.sh',
+  "     \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " else
 "   Plug 'Shougo/deoplete.nvim'
@@ -118,6 +121,7 @@ let g:ale_completion_enabled = 0
 let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
 let g:ale_ruby_rubocop_executable = 'bundle'
 
+let g:ale_set_highlights = 0
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_sign_error = 'X' " could use emoji
