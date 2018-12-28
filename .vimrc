@@ -36,18 +36,15 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-Plug 'w0rp/ale'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim', {'commit': '6d3bb828acdeaea75e061a3a7579aaaa8f635f8c'}
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': 'typescript',
   \ 'autoload': {
   \   'filetypes': ['typescriptreact', 'typescript', 'javascript']
   \ }}
-Plug 'prettier/vim-prettier'
 " Plug 'jparise/vim-graphql'
 Plug 'acro5piano/vim-graphql'
 Plug 'flowtype/vim-flow'
@@ -57,15 +54,18 @@ Plug 'flowtype/vim-flow'
 "   \ 'autoload': {
 "   \   'filetypes': ['javascript.jsx', 'javascript']
 "   \ }}
-Plug 'wokalski/autocomplete-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
 " Plug '~/ghq/github.com/acro5piano/learn-vim-rpc-node', { 'do': 'npm install' }
 " Plug '~/ghq/github.com/acro5piano/jsx-autoedit'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 if has('nvim')
+    Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+    Plug 'prettier/vim-prettier'
+    Plug 'w0rp/ale'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'wokalski/autocomplete-flow'
   " Plug 'autozimu/LanguageClient-neovim', {
   "     \ 'branch': 'next',
   "     \ 'do': 'bash install.sh',
@@ -104,56 +104,60 @@ nmap # <Plug>(anzu-sharp-with-echo)
 "----------------------------------------------------
 " Asynchronous Lint Engine (ALE)
 "----------------------------------------------------
-" Limit linters used for JavaScript.
-" let g:ale_linters = {
-" \  'javascript': ['flow', 'eslint'],
-" \  'typescript': ['typescript', 'tslint'],
-" \  'python': ['flake8', 'mypy'],
-" \  'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman']
-" \}
-let g:ale_linters = {
-    \ 'go': ['govet', 'gofmt', 'gobuild'],
-\}
+if has('nvim')
+    " Limit linters used for JavaScript.
+    " let g:ale_linters = {
+    " \  'javascript': ['flow', 'eslint'],
+    " \  'typescript': ['typescript', 'tslint'],
+    " \  'python': ['flake8', 'mypy'],
+    " \  'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman']
+    " \}
+    let g:ale_linters = {
+        \ 'go': ['govet', 'gofmt', 'gobuild'],
+    \}
 
-" Not work with nvim-typescript.
-let g:nvim_typescript#diagnostics_enable = 0
-let g:ale_completion_enabled = 0
-let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
-let g:ale_ruby_rubocop_executable = 'bundle'
+    " Not work with nvim-typescript.
+    let g:nvim_typescript#diagnostics_enable = 0
+    let g:ale_completion_enabled = 0
+    let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
+    let g:ale_ruby_rubocop_executable = 'bundle'
 
-let g:ale_set_highlights = 0
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
-let g:ale_statusline_format = ['X %d', '? %d', '']
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-let g:ale_lint_delay = 700
-" Map keys to navigate between lines with errors and warnings.
+    let g:ale_set_highlights = 0
+    highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+    highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+    let g:ale_sign_error = 'X' " could use emoji
+    let g:ale_sign_warning = '?' " could use emoji
+    let g:ale_statusline_format = ['X %d', '? %d', '']
+    " %linter% is the name of the linter that provided the message
+    " %s is the error or warning message
+    let g:ale_echo_msg_format = '%linter% says %s'
+    let g:ale_lint_delay = 700
+    " Map keys to navigate between lines with errors and warnings.
 
-let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
+    let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
+endif
 
 "----------------------------------------------------
 " Flow
 "----------------------------------------------------
-" Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = getcwd() . "/node_modules/.bin/flow"
-endif
-let g:flow#showquickfix = 0
-let g:flow#enable = 0
+if has('nvim')
+    " Use locally installed flow
+    let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+    if matchstr(local_flow, "^\/\\w") == ''
+        let local_flow= getcwd() . "/" . local_flow
+    endif
+    if executable(local_flow)
+      let g:flow#flowpath = getcwd() . "/node_modules/.bin/flow"
+    endif
+    let g:flow#showquickfix = 0
+    let g:flow#enable = 0
 
-let g:javascript_plugin_flow = 1
+    let g:javascript_plugin_flow = 1
 
-" autocomplete-flow does this feature
-let g:flow#omnifunc = 0
-let g:autocomplete_flow#insert_paren_after_function = 0
+    " autocomplete-flow does this feature
+    let g:flow#omnifunc = 0
+    let g:autocomplete_flow#insert_paren_after_function = 0
+endif
 
 "----------------------------------------------------
 " Charcode
