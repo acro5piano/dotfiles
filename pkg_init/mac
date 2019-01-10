@@ -26,11 +26,10 @@ if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     fisher update
 fi
 
-brew cask install flycut cmd-eikana
-brew cask install flycut docker
+brew cask install flycut cmd-eikana skitch
+brew cask install docker
 brew cask install java android-studio
 brew cask install virtualbox
-brew cask install brave
 
 npm install -g \
     yarn \

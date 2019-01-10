@@ -14,6 +14,7 @@ end
 # set -gx GOPATH $HOME/.go ^/dev/null
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
+            $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
