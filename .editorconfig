@@ -11,5 +11,5 @@ trim_trailing_whitespace = true
 [*.{js,jsx,ts,tsx,rb,vim,yml,yaml}]
 indent_size = 2
 
-[{Podfile,Gemfile}]
+[{Podfile,Gemfile,*.tf}]
 indent_size = 2

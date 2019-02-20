@@ -41,6 +41,10 @@ set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
 
+set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
+
 # }}}
 
 # {{{ functions
@@ -228,6 +232,15 @@ function tmsp
     tmux swap-window -t $argv[1]
 end
 
+function merge
+    set repo (pwd | perl -pe 's#.+github.com/##')
+
+    curl \
+        -XPUT \
+        -H "Authorization: token $GITHUB_TOKEN" \
+        https://api.github.com/repos/$repo/pulls/$argv[1]/merge
+end
+
 # }}}
 
 # {{{ aliases
@@ -278,8 +291,9 @@ alias tsv='column -ts \t'
 # {{{ init
 
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
+[ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if [ $IS_MAC ]
+if [ ! $IS_MAC ]
     pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 end
 

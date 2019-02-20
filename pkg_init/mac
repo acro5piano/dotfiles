@@ -5,6 +5,8 @@
 # brew install vim --with-lua
 # [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
+
 brew install nvim
 [ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -19,7 +21,7 @@ brew install \
     hub \
     git-secrets heroku/brew/heroku \
     imagemagick ghostscript ffmpeg \
-    dep
+    terraform dep
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
@@ -39,4 +41,5 @@ pip3.6 install \
     virtualenv pipenv \
     awscli \
     mypy \
-    flake8
+    flake8 \
+    docker-pretty-ps

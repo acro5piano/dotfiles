@@ -29,6 +29,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'hashivim/vim-terraform'
 
 Plug 'ruanyl/vim-gh-line'
 
@@ -442,4 +443,4 @@ filetype plugin on
 " nnoremap <Leader>cs :set ft=css<CR>
 " nnoremap <Leader>ts :set ft=typescriptreact<CR>
 
-autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
