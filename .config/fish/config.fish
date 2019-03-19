@@ -1,6 +1,10 @@
 # {{{ Env vars
 
-set -gx IS_MAC (test -e /Applications)
+if [ -e /Applications ]
+    set -gx IS_MAC 1
+else
+    set -gx IS_MAC 0
+end
 
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
 
@@ -134,10 +138,6 @@ end
 
 function git-open
     git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+git@(.+)\.git;https://\1;g' | xargs chromium
-end
-
-function dot
-    cd ~/.dotfiles
 end
 
 function seek
@@ -293,7 +293,7 @@ alias tsv='column -ts \t'
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 [ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if [ ! $IS_MAC ]
+if [ $IS_MAC -eq 0 ]
     pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 end
 

@@ -38,7 +38,7 @@ fishd.*
 !.vim/indent
 !.vim/ftplugin
 !.vim/filetype.vim
-!.vim/neocomplete.config.vim
+!.vim/UltiSnips
 
 tags
 TAGS

@@ -19,8 +19,8 @@ link(){
         ln -snvf "$DOTPATH/$f" "$HOME/$f"
     done
 
+    # ln -snfv $HOME/.vim/after $HOME/.config/nvim/after
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
-    ln -s $HOME/.vim/after $HOME/.config/nvim/after
 }
 
 usage(){
@@ -29,15 +29,20 @@ usage(){
     echo 'commands:'
     echo '    pull - fetch + link'
     echo '    link - create symlink'
+    echo '    cd   - change directory to dot path'
+    echo ''
     exit 1
 }
 
-cd $DOTPATH
+change_dir() {
+    cd $DOTPATH
+    echo "cd to $DOTPATH"
+}
 
 case $1 in
     'pull') pull ;;
     'link') link ;;
+    'cd') change_dir ;;
+    '') change_dir ;;
     *) usage ;;
 esac
-
-cd $OLD_PWD
