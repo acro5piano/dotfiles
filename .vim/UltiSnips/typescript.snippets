@@ -20,17 +20,17 @@ export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
 }
 endsnippet
 
-snippet reactset "Set State"
+snippet setstate "Set State"
 this.setState({
   ${1}: ${2}
 });
 endsnippet
 
-snippet reactst "Get State" i
+snippet state "Get State" i
 const { $0 } = this.state
 endsnippet
 
-snippet reactren "Render"
+snippet render "Render"
 render() {
   return (
     <div>$0</div>
@@ -38,7 +38,7 @@ render() {
 }
 endsnippet
 
-snippet rnstylecreate "Create new StyleSheet"
+snippet stylecreate "Create new StyleSheet"
 const styles = StyleSheet.create({
   container: {
     ${1}:${2}
@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
 })
 endsnippet
 
-snippet rnstyleinsert "Insert StyleSheet"
+snippet styleinsert "Insert StyleSheet"
 style={styles.$0}
 endsnippet

@@ -31,6 +31,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
+Plug 'wsdjeg/FlyGrep.vim'
 
 Plug 'ruanyl/vim-gh-line'
 
@@ -315,8 +316,6 @@ nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>rg :Rg<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
-nnoremap <Leader>rt :JSXReplaceTag<CR>
-nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
@@ -325,6 +324,7 @@ nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>bs :BLines <C-R><C-W><CR>
 nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gs :GFiles?<CR>
@@ -338,6 +338,8 @@ nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>gj :GoDef<CR>
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rl :OverCommandLine<CR>s/
+nnoremap <Leader>rt :JSXReplaceTag<CR>
+nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
 nnoremap <Leader>wd :q<CR>
