@@ -1,1 +1,0 @@
-/Users/kazuya/.config/fisherman/rbenv/completions/rbenv.fish
