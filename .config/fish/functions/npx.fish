@@ -1,1 +1,0 @@
-/Users/kazuya-mac/.config/fisherman/nvm/functions/npx.fish

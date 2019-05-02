@@ -1,3 +1,14 @@
 #!/bin/bash
 
-ffmpeg -i $1 -filter:v "setpts=0.5*PTS" $2
+ffmpeg \
+    -i $1 \
+    -preset veryslow \
+    -tune animation \
+    -r 25 \
+    -crf 18  \
+    -maxrate 500k \
+    -b:a 128k \
+    -c:a copy \
+    -q:v 0 \
+    -filter:v "setpts=0.7*PTS, scale=720:-1" \
+    $2

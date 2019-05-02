@@ -1,6 +1,10 @@
 # {{{ Env vars
 
-set -gx IS_MAC (test -e /Applications)
+if [ -e /Applications ]
+    set -gx IS_MAC 1
+else
+    set -gx IS_MAC 0
+end
 
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
 
@@ -10,8 +14,12 @@ if [ -e $HOME/Library/Android ]
     set -gx ANDROID_HOME $HOME/Library/Android/sdk
 end
 
-set -gx GOPATH $HOME/.go ^/dev/null
+# [ -e $HOME/.go ]; or mkdir $HOME/.go
+# set -gx GOPATH $HOME/.go ^/dev/null
+# set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
+            $HOME/.poetry/bin \
+            $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.local/bin \
@@ -36,6 +44,10 @@ set -gx AWS_DEFAULT_PROFILE acro5piano
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
+
+set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 
 # }}}
 
@@ -128,10 +140,6 @@ function git-open
     git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+git@(.+)\.git;https://\1;g' | xargs chromium
 end
 
-function dot
-    cd ~/.dotfiles
-end
-
 function seek
     set dir $argv[-1]
     if [ -e $dir ]
@@ -208,8 +216,29 @@ function addone
 end
 
 function nvm_fish
-    bass source ~/.nvm/nvm.sh ';'
-    nvm $argv
+    bass source ~/.nvm/nvm.sh ';' nvm $argv
+end
+
+function gvm
+    bass source ~/.gvm/scripts/gvm ';' gvm $argv
+end
+
+function gcamp
+    git cam "$argv[1]"
+    and git pushthis
+end
+
+function tmsp
+    tmux swap-window -t $argv[1]
+end
+
+function merge
+    set repo (pwd | perl -pe 's#.+github.com/##')
+
+    curl \
+        -XPUT \
+        -H "Authorization: token $GITHUB_TOKEN" \
+        https://api.github.com/repos/$repo/pulls/$argv[1]/merge
 end
 
 # }}}
@@ -224,6 +253,7 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias ag='rg'
+alias rg='rg --hidden'
 alias bc='bc -l'
 #alias cl='xclip -i -selection clipboard'
 #alias clp='xclip -o -selection clipboard'
@@ -235,6 +265,7 @@ alias la='ls -A'
 alias less='less -R'
 alias ll='ls -alh'
 alias justnow='date +%Y%m%d_%H%M%S'
+alias today='date +%Y%m%d'
 alias seishin='cd (mktemp -d)'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias wi='sudo wifi-menu'
@@ -244,7 +275,6 @@ alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
 alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
-alias dev2master="git co develop; and git pull; and hub pull-request -b master"
 
 alias v="vagrant up; vagrant ssh"
 alias vr="vagrant reload; vagrant ssh"
@@ -256,18 +286,14 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
 
-function gcamp
-    git cam "$argv[1]"
-    and git pushthis
-end
-
 # }}}
 
 # {{{ init
 
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
+[ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if [ $IS_MAC ]
+if [ $IS_MAC -eq 0 ]
     pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
 end
 
@@ -283,7 +309,7 @@ if [ -e /etc/arch-release ]
     sudo sysctl -p > /dev/null &
 end
 
-
+bass source ~/.gvm/scripts/gvm
 
 # }}}
 

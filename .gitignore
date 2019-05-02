@@ -8,8 +8,9 @@
 !.config/nvim
 !.config/systemd
 !.config/fish
-!.config/alacritty
+.config/fish/functions
 fishd.*
+!.config/alacritty
 *history*
 
 !.config/fcitx
@@ -37,7 +38,7 @@ fishd.*
 !.vim/indent
 !.vim/ftplugin
 !.vim/filetype.vim
-!.vim/neocomplete.config.vim
+!.vim/UltiSnips
 
 tags
 TAGS

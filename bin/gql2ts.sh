@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-cat "$1" \
+if [ -z "$1" ]; then
+    file=$1
+else
+    file=`mktemp`
+    cat /dev/stdin > $file
+fi
+
+cat $file \
     | perl -pe 's/^(\s*)#/\1\/\//' \
     | perl -pe 's/!//g' \
     | perl -pe 's/^input /export interface /g' \
