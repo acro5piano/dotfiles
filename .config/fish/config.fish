@@ -307,7 +307,7 @@ if [ -e /etc/arch-release ]
     sudo sysctl -p > /dev/null &
 end
 
-bass source ~/.gvm/scripts/gvm
+# bass source ~/.gvm/scripts/gvm
 
 # }}}
 

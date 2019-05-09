@@ -16,7 +16,7 @@ brew install --HEAD alacritty
 
 brew install \
     jq rg tmux fish \
-    nvm ruby python mariadb mycli \
+    nvm rbenv gvm ruby python mariadb mycli \
     watchman \
     hub \
     git-secrets heroku/brew/heroku \
@@ -25,7 +25,7 @@ brew install \
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-    fisher update
+    fisher
 fi
 
 brew cask install flycut cmd-eikana skitch

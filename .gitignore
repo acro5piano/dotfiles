@@ -45,3 +45,4 @@ TAGS
 .subversion
 /.cache
 *.retry
+.config/fish/completions/
