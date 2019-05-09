@@ -1,0 +1,20 @@
+#!/bin/bash
+
+message=$1
+branch=$2
+
+if [ -z "$message" ]; then
+    hub pull-request
+else
+    if [ -z "$branch" ]; then
+        url=`hub pull-request -m "$message"`
+        open $url
+    else
+        if [ "$branch" == 'd' ]; then
+            branch=develop
+        fi
+        url=`hub pull-request -m "$message" -b "$branch"`
+        open $url
+    fi
+fi
+

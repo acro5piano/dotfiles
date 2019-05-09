@@ -5,6 +5,14 @@ endsnippet
 snippet reactcls "react class component template" b
 import * as React from 'react'
 
+interface ${2:`!v expand('%:t:r')`}Props {
+
+}
+
+interface ${3:`!v expand('%:t:r')`}State {
+
+}
+
 export class ${1:`!v expand('%:t:r')`} extends React.Component<${2:`!v expand('%:t:r')`}Props, ${3:`!v expand('%:t:r')`}State> {
   render() {
     return <>$0</>
@@ -14,6 +22,10 @@ endsnippet
 
 snippet reactfn "react function component template"
 import * as React from 'react'
+
+interface ${2:`!v expand('%:t:r')`}Props {
+
+}
 
 export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
   return <>$0</>
@@ -28,6 +40,10 @@ endsnippet
 
 snippet state "Get State" i
 const { $0 } = this.state
+endsnippet
+
+snippet props "Get Prop" i
+const { $0 } = this.props
 endsnippet
 
 snippet render "Render"

@@ -136,10 +136,6 @@ function diffc
     colordiff -U3 $argv
 end
 
-function git-open
-    git remote -v | perl -pe 's/[ ]/\n/g' | head -1 | perl -pe 's;^.+git@(.+)\.git;https://\1;g' | xargs chromium
-end
-
 function seek
     set dir $argv[-1]
     if [ -e $dir ]
@@ -285,6 +281,8 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
+
+alias devtomaster="open (hub pull-request -h develop -b master -m 'production deploy')"
 
 # }}}
 

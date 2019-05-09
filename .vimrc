@@ -55,6 +55,8 @@ Plug 'flowtype/vim-flow'
 Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
 
+Plug 'reasonml-editor/vim-reason-plus'
+
 if has('nvim')
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'prettier/vim-prettier'
@@ -269,6 +271,7 @@ inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
 inoremap z[ from IPython import embed; embed()
+inoremap zf <C-r>=expand('%:t:r')<CR>
 
 "----------------------------------------------------
 " Remap keys
@@ -324,6 +327,7 @@ nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>bs :BLines <C-R><C-W><CR>
 nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>sn :Snippets<CR>
 nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>gf :GFiles<CR>

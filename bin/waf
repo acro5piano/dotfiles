@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    profile=""
+else
+    profile="--profile $1"
+fi
+
+aws $profile ec2 authorize-security-group-ingress --group-name $2 --port 22 --protocol tcp --cidr $(curl checkip.amazonaws.com)/32

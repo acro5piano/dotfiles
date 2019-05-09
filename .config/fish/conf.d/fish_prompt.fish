@@ -6,13 +6,13 @@ set git_clean_color green
 function parse_git_branch
     git rev-parse --git-dir >/dev/null ^&1; or return
 
-    set -l branch (git branch --contains=HEAD | awk '{print $2}')
+    set -l current_branch (git branch --contains=HEAD | grep '^*' | awk '{print $2}')
     set -l git_changed_files_count (git status -s -uall | wc -l)
 
     if [ "$git_changed_files_count" -eq 0 ]
-        echo (set_color $git_clean_color)$branch(set_color normal)
+        echo (set_color $git_clean_color)$current_branch(set_color normal)
     else
-        echo (set_color $git_dirty_color)$branch(set_color normal)
+        echo (set_color $git_dirty_color)$current_branch(set_color normal)
     end
 end
 

@@ -2,10 +2,10 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# brew install vim --with-lua
-# [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
+
+brew install vim --with-lua
+[ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 brew install nvim
 [ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -20,8 +20,8 @@ brew install \
     watchman \
     hub \
     git-secrets heroku/brew/heroku \
-    imagemagick ghostscript ffmpeg \
-    terraform dep
+    imagemagick@6 ghostscript ffmpeg \
+    terraform dep ansible
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
@@ -40,6 +40,7 @@ npm install -g \
 pip3.6 install \
     virtualenv pipenv \
     awscli \
+    pgcli \
     mypy \
     flake8 \
     docker-pretty-ps
