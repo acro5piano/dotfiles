@@ -81,6 +81,14 @@ let g:vim_markdown_new_list_item_indent = 0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 1
+" let g:deoplete#auto_complete_start_length = 2
+" let g:deoplete#enable_camel_case = 0
+" let g:deoplete#enable_ignore_case = 0
+" let g:deoplete#enable_refresh_always = 0
+" let g:deoplete#enable_smart_case = 1
+" Move to deoplete
+" source ~/.vim/neocomplete.config.vim
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 5
@@ -93,9 +101,6 @@ nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " set statusline=%{anzu#search_status()}
-
-" Move to deoplete
-" source ~/.vim/neocomplete.config.vim
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
