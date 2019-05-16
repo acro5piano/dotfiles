@@ -58,15 +58,15 @@ Plug 'acro5piano/vim-jsx-replace-tag'
 Plug 'reasonml-editor/vim-reason-plus'
 
 if has('nvim')
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'prettier/vim-prettier'
   Plug 'w0rp/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'wokalski/autocomplete-flow'
-  " Plug 'autozimu/LanguageClient-neovim', {
-  "     \ 'branch': 'next',
-  "     \ 'do': 'bash install.sh',
-  "     \ }
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
 endif
@@ -115,6 +115,12 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 " Asynchronous Lint Engine (ALE)
 "----------------------------------------------------
 if has('nvim')
+    let g:LanguageClient_serverCommands = {
+        \ 'python': ['/usr/local/bin/pyls'],
+        \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+        \ }
+    let g:LanguageClient_diagnosticsEnable = 0
+
     " Limit linters used for JavaScript.
     " let g:ale_linters = {
     " \  'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
@@ -125,10 +131,10 @@ if has('nvim')
     " \}
     let g:ale_linters = {
         \ 'go': ['govet', 'gofmt', 'gobuild'],
-    \}
+        \}
 
     " Not work with nvim-typescript.
-    let g:nvim_typescript#diagnostics_enable = 0
+    " let g:nvim_typescript#diagnostics_enable = 0
     let g:ale_completion_enabled = 0
     let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
     let g:ale_ruby_rubocop_executable = 'bundle'
@@ -146,6 +152,7 @@ if has('nvim')
     " Map keys to navigate between lines with errors and warnings.
 
     let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
+    let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
 endif
 
 "----------------------------------------------------
@@ -316,53 +323,54 @@ inoremap <c-x><c-k> <c-x><c-k>
 let mapleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
-nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>aa :Ack<Space>
-nnoremap <Leader>rg :Rg<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
+nnoremap <Leader>aj :ALEGoToDefinition<CR>
+nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
+nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
-nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>bs :BLines <C-R><C-W><CR>
-nnoremap <Leader>fr :FZFMru<CR>
-nnoremap <Leader>sn :Snippets<CR>
+nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>fg :FlyGrep<CR>
+nnoremap <Leader>fj :FlowJumpToDef<CR>
+nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fs :w<CR>
-nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gs :GFiles?<CR>
-nnoremap <Leader>gp :GFilesPreview<CR>
 nnoremap <Leader>gb :GitBlame<CR>
-nnoremap <Leader>mm :Marks<CR>
+nnoremap <Leader>gf :GFiles<CR>
+nnoremap <Leader>gj :GoDef<CR>
+nnoremap <Leader>gp :GFilesPreview<CR>
+nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
+nnoremap <Leader>jd :NERDTreeFind<CR>
+nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>fj :FlowJumpToDef<CR>
-nnoremap <Leader>gj :GoDef<CR>
-nnoremap <Leader>rr :OverCommandLine<CR>%s/
+nnoremap <Leader>rg :Rg<Space>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
+nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rt :JSXReplaceTag<CR>
-nnoremap <Leader>tj :TSDef<CR>
+nnoremap <Leader>sn :Snippets<CR>
 nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
-nnoremap <Leader>wd :q<CR>
-nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>w/ :vs<CR>
+nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wh <C-w>h
-nnoremap <Leader>wl <C-w>l
 nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>wm <C-w><C-w>:q<CR>
 nnoremap <Leader>wo <C-w><C-w>
-nnoremap <Leader>jd :NERDTreeFind<CR>
-nnoremap <Leader>/ :TComment<CR>
-
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
