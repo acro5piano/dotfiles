@@ -58,7 +58,7 @@ Plug 'acro5piano/vim-jsx-replace-tag'
 Plug 'reasonml-editor/vim-reason-plus'
 
 if has('nvim')
-  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'prettier/vim-prettier'
   Plug 'w0rp/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -134,7 +134,7 @@ if has('nvim')
         \}
 
     " Not work with nvim-typescript.
-    " let g:nvim_typescript#diagnostics_enable = 0
+    let g:nvim_typescript#diagnostics_enable = 0
     let g:ale_completion_enabled = 0
     let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
     let g:ale_ruby_rubocop_executable = 'bundle'
