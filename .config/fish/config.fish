@@ -237,6 +237,17 @@ function merge
         https://api.github.com/repos/$repo/pulls/$argv[1]/merge
 end
 
+function clear-branchs
+    echo 'removing:'
+    git branch | grep -v \* | grep -v master | grep -v develop | perl -pe 's/^/  /'
+    echo
+    read res -n1 -P 'Continue? [Y/n]'
+    if [ res != 'Y' ]
+        return
+    end
+    # git branch | grep -v \* | grep -v master | grep -v develop |  xargs git branch -D
+end
+
 # }}}
 
 # {{{ aliases

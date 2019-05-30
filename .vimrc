@@ -131,7 +131,9 @@ if has('nvim')
     " \}
     let g:ale_linters = {
         \ 'go': ['govet', 'gofmt', 'gobuild'],
+        \ 'python': ['flake8', 'mypy'],
         \}
+        " \ 'python': ['flake8', 'mypy', 'pyls'],
 
     " Not work with nvim-typescript.
     let g:nvim_typescript#diagnostics_enable = 0
@@ -151,8 +153,24 @@ if has('nvim')
     let g:ale_lint_delay = 1500
     " Map keys to navigate between lines with errors and warnings.
 
-    let g:ale_python_flake8_executable = $PWD . 'bin/flake8'
+    let g:ale_python_flake8_executable = '/usr/local/bin/flake8'
+    let g:ale_python_mypy_executable = '/usr/local/bin/mypy'
     let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
+    " let g:ale_python_pyls_config = {
+    "   \   'pyls': {
+    "   \     'plugins': {
+    "   \       'pydocstyle': {
+    "   \         'enabled': v:false
+    "   \       },
+    "   \       'flake8': {
+    "   \         'enabled': v:false
+    "   \       },
+    "   \       'pycodestyle': {
+    "   \         'enabled': v:false
+    "   \       },
+    "   \     },
+    "   \   },
+    "   \ }
 endif
 
 "----------------------------------------------------
@@ -328,6 +346,8 @@ nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
+nnoremap <Leader>pg :ClipboardRg<C-r>
+nnoremap <Leader>ad :ALEDetail<CR><C-w><C-w>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
@@ -398,6 +418,12 @@ command! -bang -nargs=* Rg
   \    1,
   \   { 'options': '--exact' })
 
+command! -bang -nargs=* ClipboardRg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(system('clp')),
+  \    1,
+  \   { 'options': '--exact' })
+
 command! -bang -nargs=? -complete=dir GFilesPreview
   \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -451,6 +477,8 @@ function! Yapf()
     call cursor(l:curPos[1], l:curPos[2])
 endfunction
 autocmd BufWritePre *.py call Yapf()
+
+let g:terraform_fmt_on_save=1
 
 " function! Rubocop()
 "     let l:curPos = getpos('.')

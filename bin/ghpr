@@ -1,20 +1,21 @@
 #!/bin/bash
 
-message=$1
-branch=$2
+branch=$1
+message=$2
+
+url=""
 
 if [ -z "$message" ]; then
-    hub pull-request
-else
-    if [ -z "$branch" ]; then
-        url=`hub pull-request -m "$message"`
-        open $url
-    else
-        if [ "$branch" == 'd' ]; then
-            branch=develop
-        fi
-        url=`hub pull-request -m "$message" -b "$branch"`
-        open $url
-    fi
+    message=`git log -1 --pretty=%B | head -1`
 fi
 
+if [ -z "$branch" ]; then
+    url=`hub pull-request -m "$message"`
+else
+    if [ "$branch" == 'd' ]; then
+        branch=develop
+    fi
+    url=`hub pull-request -m "$message" -b "$branch"`
+fi
+
+open $url

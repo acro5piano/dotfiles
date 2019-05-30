@@ -33,14 +33,19 @@ brew cask install docker
 brew cask install java android-studio
 brew cask install virtualbox
 
+nvm install 10.3.0
+
 npm install -g \
     yarn \
     vue-cli \
-    react-cli react-native-cli create-react-app
+    react-native-cli create-react-app
 pip3.6 install \
-    virtualenv pipenv \
+    virtualenv poetry \
     awscli \
     pgcli \
     mypy \
     flake8 \
+    pyls \
     docker-pretty-ps
+
+gem install slargraph

@@ -8,6 +8,7 @@
 !.config/nvim
 !.config/systemd
 !.config/fish
+!.config/flake8
 .config/fish/functions
 fishd.*
 !.config/alacritty
