@@ -15,7 +15,7 @@ brew tap mscharley/homebrew
 brew install --HEAD alacritty
 
 brew install \
-    jq rg tmux fish \
+    jq rg tmux fish tree \
     nvm rbenv gvm ruby python mariadb mycli \
     watchman \
     hub \

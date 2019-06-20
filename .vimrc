@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 'jwalton512/vim-blade'
+Plug 'slim-template/vim-slim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
@@ -46,12 +47,6 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
   \ }}
 Plug 'acro5piano/vim-graphql'
 Plug 'flowtype/vim-flow'
-" Plug 'styled-components/vim-styled-components', {
-"   \ 'branch': 'main',
-"   \ 'for': 'typescript',
-"   \ 'autoload': {
-"   \   'filetypes': ['javascript.jsx', 'javascript']
-"   \ }}
 Plug 'acro5piano/import-js-from-history'
 Plug 'acro5piano/vim-jsx-replace-tag'
 
@@ -91,7 +86,7 @@ let g:deoplete#auto_complete_delay = 1
 " source ~/.vim/neocomplete.config.vim
 
 " Yggdroot/indentLine
-let g:indentLine_color_term = 5
+let g:indentLine_color_term = 8
 
 let g:jsx_ext_required = 0
 
@@ -499,9 +494,5 @@ command! VSCode !code %
 command! VSCodeDir !code %:p:h
 filetype plugin on
 
-" for css completion
-" we use omnifunc now
-" nnoremap <Leader>cs :set ft=css<CR>
-" nnoremap <Leader>ts :set ft=typescriptreact<CR>
-
-" autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+" For css completion
+autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS

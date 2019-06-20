@@ -4,7 +4,7 @@ perl -pe 's/ +$//g' \
     | perl -pe 's/ as .+//g' \
     | perl -pe 's/([A-Z])/-\L\1/g' \
     | perl -pe 's/^_//' \
-    | perl -pe 's/"([a-z]+)"$/\1/g' \
-    | perl -pe "s/'([a-z]+)'$/\1/g" \
     | perl -pe 's/([0-9]+),?$/\1px/g' \
+    | perl -pe 's/"([#|a-z|\-|0-9]+)",$/\1/g' \
+    | perl -pe "s/'([#|a-z|\-|0-9]+)',$/\1/g" \
     | perl -pe 's/,?$/;/'

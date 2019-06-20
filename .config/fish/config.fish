@@ -267,7 +267,6 @@ alias bc='bc -l'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
-alias jq='jq -C'
 alias la='ls -A'
 alias less='less -R'
 alias ll='ls -alh'
@@ -292,6 +291,7 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
+alias tmc='tmux clear-history'
 
 alias devtomaster="open (hub pull-request -h develop -b master -m 'production deploy')"
 
