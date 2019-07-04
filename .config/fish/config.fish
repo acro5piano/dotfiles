@@ -24,6 +24,7 @@ set -gx PATH \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
+            $HOME/go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.gem/ruby/2.5.0/bin \

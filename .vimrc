@@ -33,6 +33,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'wsdjeg/FlyGrep.vim'
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
 
 Plug 'ruanyl/vim-gh-line'
 
@@ -337,6 +339,7 @@ let mapleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
 
+nnoremap \| x~
 nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
@@ -496,3 +499,5 @@ filetype plugin on
 
 " For css completion
 autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+
+set history=1000

@@ -16,7 +16,7 @@ brew install --HEAD alacritty
 
 brew install \
     jq rg tmux fish tree \
-    nvm rbenv gvm ruby python mariadb mycli \
+    nvm rbenv gvm ruby python mariadb \
     watchman \
     hub \
     git-secrets heroku/brew/heroku \
@@ -43,6 +43,8 @@ pip3.6 install \
     virtualenv poetry \
     awscli \
     pgcli \
+    mycli \
+    litecli \
     mypy \
     flake8 \
     pyls \
