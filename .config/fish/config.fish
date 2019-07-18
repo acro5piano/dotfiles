@@ -29,11 +29,13 @@ set -gx PATH \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.gem/ruby/2.5.0/bin \
             $HOME/.nvm/versions/node/v10.3.0/bin \
+            $HOME/.nvm/versions/node/v10.13.0/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
-            $ANDROID_HOME/tools\
-            $ANDROID_HOME/platform-tools\
+            $ANDROID_HOME/tools \
+            $ANDROID_HOME/platform-tools \
+            $HOME/.cargo/bin \
             $PATH ^/dev/null
 set -gx EDITOR vim
 set -gx VISUAL vim

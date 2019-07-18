@@ -55,6 +55,8 @@ Plug 'acro5piano/vim-jsx-replace-tag'
 Plug 'reasonml-editor/vim-reason-plus'
 
 if has('nvim')
+  Plug 'rust-lang/rust.vim'
+  Plug 'racer-rust/vim-racer'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'prettier/vim-prettier'
   Plug 'w0rp/ale'
@@ -116,7 +118,10 @@ if has('nvim')
         \ 'python': ['/usr/local/bin/pyls'],
         \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
         \ }
+        " \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     let g:LanguageClient_diagnosticsEnable = 0
+    let g:racer_cmd = expand('~/.cargo/bin/racer')
+    let g:racer_experimental_completer = 1
 
     " Limit linters used for JavaScript.
     " let g:ale_linters = {
@@ -127,10 +132,14 @@ if has('nvim')
     " \  'go': ['govet', 'gofmt', 'gobuild'],
     " \}
     let g:ale_linters = {
+        \ 'rust': ['cargo', 'rls'],
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],
+
+    let g:ale_rust_rustc_options = '--emit metadata'
+    let g:rustfmt_autosave = 1
 
     " Not work with nvim-typescript.
     let g:nvim_typescript#diagnostics_enable = 0
@@ -359,6 +368,8 @@ nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>ft :set ft=txt<CR>
+nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gj :GoDef<CR>
@@ -392,6 +403,8 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
+" au FileType rust nnoremap <Leader>aj <Plug>(rust-def)
+nnoremap <Leader>aj <Plug>(rust-def)
 
 nmap <Leader>e <Plug>(easymotion-bd-W)
 nnoremap <ESC><ESC> :nohl<CR>
@@ -451,7 +464,9 @@ set modeline
 
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
+if has('nvim')
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
+endif
 
 " remember cursor position
 autocmd BufReadPost *

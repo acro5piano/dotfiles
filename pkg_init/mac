@@ -28,10 +28,9 @@ if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     fisher
 fi
 
-brew cask install flycut cmd-eikana skitch
-brew cask install docker
-brew cask install java android-studio
-brew cask install virtualbox
+brew cask install \
+    flycut cmd-eikana skitch \
+    docker java android-studio virtualbox
 
 nvm install 10.3.0
 
@@ -50,4 +49,7 @@ pip3.6 install \
     pyls \
     docker-pretty-ps
 
-gem install slargraph
+curl https://sh.rustup.rs -sSf | sh
+
+rustup toolchain add nightly
+cargo +nightly install racer
