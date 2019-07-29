@@ -124,17 +124,11 @@ if has('nvim')
     let g:racer_experimental_completer = 1
 
     " Limit linters used for JavaScript.
-    " let g:ale_linters = {
-    " \  'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
-    " \  'typescript': ['typescript', 'tslint'],
-    " \  'python': ['flake8', 'mypy'],
-    " \  'ruby': ['ruby', 'rubocop', 'rails_best_practices', 'reek', 'brakeman'],
-    " \  'go': ['govet', 'gofmt', 'gobuild'],
-    " \}
     let g:ale_linters = {
         \ 'rust': ['cargo', 'rls'],
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
+        \ 'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 
@@ -291,6 +285,7 @@ autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard paste
 nnoremap <Space>pb :.!clp<CR>
+
 map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
@@ -355,8 +350,6 @@ nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
 nnoremap <Leader>pg :ClipboardRg<C-r>
 nnoremap <Leader>ad :ALEDetail<CR><C-w><C-w>
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>aw :Ack <C-r><C-w>
@@ -372,7 +365,6 @@ nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gj :GoDef<CR>
 nnoremap <Leader>gp :GFilesPreview<CR>
 nnoremap <Leader>gs :GFiles?<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
@@ -403,8 +395,10 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
-" au FileType rust nnoremap <Leader>aj <Plug>(rust-def)
-nnoremap <Leader>aj <Plug>(rust-def)
+" Go to definition
+nnoremap <Leader>aj :ALEGoToDefinition<CR>
+au FileType rust nmap <Leader>aj <Plug>(rust-def)
+au FileType go nmap <Leader>aj :GoDef<CR>
 
 nmap <Leader>e <Plug>(easymotion-bd-W)
 nnoremap <ESC><ESC> :nohl<CR>

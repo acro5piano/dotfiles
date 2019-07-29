@@ -30,7 +30,8 @@ fi
 
 brew cask install \
     flycut cmd-eikana skitch \
-    docker java android-studio virtualbox
+    docker java android-studio virtualbox \
+    react-native-debugger
 
 nvm install 10.3.0
 
