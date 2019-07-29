@@ -1,9 +1,19 @@
 #!/bin/bash
 
-if acpi -b | grep -q Discharging; then
-  echo -n \#\[fg=yellow,bold\]
+if [ -e /Applications ]; then
+    _pmset=``
+    if pmset -g batt | grep -q drawing; then
+        echo -n \#\[fg=colour210,bold\]
+    else
+        echo -n \#\[fg=green,bold\]
+    fi
+    echo `pmset -g batt | grep -oE \[0-9\]+%`
 else
-  echo -n \#\[fg=green,bold\]
-fi
+    if acpi -b | grep -q Discharging; then
+        echo -n \#\[fg=yellow,bold\]
+    else
+        echo -n \#\[fg=green,bold\]
+    fi
 
-echo `acpi -b | grep -oE \[0-9\]+%`
+    echo `acpi -b | grep -oE \[0-9\]+%`
+fi

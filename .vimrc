@@ -38,10 +38,10 @@ Plug 'aklt/plantuml-syntax'
 
 Plug 'ruanyl/vim-gh-line'
 
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim', {'commit': '6d3bb828acdeaea75e061a3a7579aaaa8f635f8c'}
+" Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim', {'commit': '632bed9406fe891da8ec7b86320ff1c274d8318e'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': 'typescript',
   \ 'autoload': {
