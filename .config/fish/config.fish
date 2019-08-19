@@ -42,7 +42,7 @@ set -gx VISUAL vim
 set -gx CHROME_BIN chromium
 
 set -gx PIPENV_VENV_IN_PROJECT 1
-set -gx AWS_DEFAULT_PROFILE acro5piano
+# set -gx AWS_DEFAULT_PROFILE acro5piano
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -305,9 +305,9 @@ alias devtomaster="open (hub pull-request -h develop -b master -m 'production de
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 [ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if [ $IS_MAC -eq 0 ]
-    pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
-end
+# if [ $IS_MAC -eq 0 ]
+#     pgrep xremap > /dev/null; or bash -c 'nohup xremap ~/.xremap 2>&1 >/dev/null &'
+# end
 
 if [ "$TERM" = 'xterm-256color' ]
     if pgrep tmux > /dev/null
