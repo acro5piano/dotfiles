@@ -129,6 +129,9 @@ if has('nvim')
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
         \ 'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
+        \ 'typescript': ['tslint', 'tsserver', 'stylelint'],
+        \ 'tsx': ['tslint', 'tsserver', 'stylelint'],
+        \ 'typescriptreact': ['tslint', 'tsserver', 'stylelint'],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 

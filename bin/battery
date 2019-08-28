@@ -1,8 +1,7 @@
 #!/bin/bash
 
 if [ -e /Applications ]; then
-    _pmset=``
-    if pmset -g batt | grep -q drawing; then
+    if pmset -g batt | grep -q 'Battery Power'; then
         echo -n \#\[fg=colour210,bold\]
     else
         echo -n \#\[fg=green,bold\]

@@ -21,7 +21,8 @@ brew install \
     hub \
     git-secrets heroku/brew/heroku \
     imagemagick@6 ghostscript ffmpeg \
-    terraform dep ansible
+    terraform dep ansible \
+    dhall-json
 
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
@@ -38,7 +39,8 @@ nvm install 10.3.0
 npm install -g \
     yarn \
     vue-cli \
-    react-native-cli create-react-app
+    react-native-cli create-react-app \
+    firebase-tools tldr
 pip3.6 install \
     virtualenv poetry \
     awscli \

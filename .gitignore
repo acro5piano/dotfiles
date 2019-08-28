@@ -47,3 +47,5 @@ TAGS
 /.cache
 *.retry
 .config/fish/completions/
+
+.netrwhist
