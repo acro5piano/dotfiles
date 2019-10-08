@@ -20,7 +20,7 @@ function fish_prompt -d 'Write out the prompt'
     if [ $status -eq 0 ]
         set status_face (set_color green)"(*'-')"
     else
-        set status_face (set_color red)"(*T_T)"
+        set status_face (set_color red)"(*>_<)"
     end
 
     echo -e $status_face \

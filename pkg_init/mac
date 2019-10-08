@@ -40,7 +40,7 @@ npm install -g \
     yarn \
     vue-cli \
     react-native-cli create-react-app \
-    firebase-tools tldr
+    firebase-tools tldr serve
 pip3.6 install \
     virtualenv poetry \
     awscli \

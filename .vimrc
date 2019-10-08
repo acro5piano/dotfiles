@@ -129,7 +129,7 @@ if has('nvim')
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
         \ 'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
-        \ 'typescript': ['tslint', 'tsserver', 'stylelint'],
+        \ 'typescript': ['eslint', 'tslint', 'tsserver', 'stylelint'],
         \ 'tsx': ['tslint', 'tsserver', 'stylelint'],
         \ 'typescriptreact': ['tslint', 'tsserver', 'stylelint'],
         \}
@@ -366,6 +366,7 @@ nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
+nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gp :GFilesPreview<CR>

@@ -52,6 +52,9 @@ set -gx LDFLAGS "-L/usr/local/opt/readline/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/readline/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 
+set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
+
 # }}}
 
 # {{{ functions
