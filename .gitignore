@@ -49,3 +49,5 @@ TAGS
 .config/fish/completions/
 
 .netrwhist
+
+sentry-cli
