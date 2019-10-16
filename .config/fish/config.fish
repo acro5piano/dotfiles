@@ -230,6 +230,13 @@ function gcamp
     and git pushthis
 end
 
+function gtagp
+    git cam "$argv[1]"
+    git tag "$argv[2]"
+    git pushthis
+    git push origin "$argv[2]"
+end
+
 function tmsp
     tmux swap-window -t $argv[1]
 end
