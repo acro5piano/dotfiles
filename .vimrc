@@ -31,10 +31,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'kshenoy/vim-sol'
 Plug 'hashivim/vim-terraform'
 Plug 'wsdjeg/FlyGrep.vim'
 Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
+Plug 'junegunn/limelight.vim'
+Plug 'mbbill/undotree'
 
 Plug 'ruanyl/vim-gh-line'
 
@@ -306,6 +309,7 @@ inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
 inoremap z[ from IPython import embed; embed()
 inoremap zf <C-r>=expand('%:t:r')<CR>
+inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
 "----------------------------------------------------
 " Remap keys
@@ -368,10 +372,13 @@ nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
+nnoremap <Leader>gl :GitLog10<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gp :GFilesPreview<CR>
-nnoremap <Leader>gs :GFiles?<CR>
+nnoremap <Leader>gd :GitDiff<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
+nnoremap <Leader>ll :Limelight<CR>
+nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>mm :Marks<CR>
@@ -442,9 +449,24 @@ command! -bang -nargs=? -complete=dir GFilesPreview
 function! s:git_blame()
     let fileName = '/tmp/__git_blame.'.expand('%:t')
     call system('git blame '.expand('%').' > '.fileName)
-    :exe ':e '.fileName
+    :exe ':view '.fileName
 endfunction
 command! GitBlame call s:git_blame()
+
+
+function! s:git_log_10()
+    let fileName = '/tmp/__git_log.'.expand('%:t').'.diff'
+    call system('git log -p -10 '.expand('%').' > '.fileName)
+    :exe ':view '.fileName
+endfunction
+command! GitLog10 call s:git_log_10()
+
+function! s:git_diff()
+    let fileName = '/tmp/__git_diff.diff'
+    call system('git diff HEAD > '.fileName)
+    :exe ':view '.fileName
+endfunction
+command! GitDiff call s:git_diff()
 
 "---------------------------------------------------
 " Others
@@ -514,3 +536,6 @@ filetype plugin on
 autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 set history=1000
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240

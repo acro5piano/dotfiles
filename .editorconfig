@@ -14,5 +14,5 @@ indent_size = 2
 [{Podfile,Gemfile}]
 indent_size = 2
 
-[*.{php,sh,bash,fish}]
+[*.{php,sh,bash,fish,java}]
 indent_size = 4
