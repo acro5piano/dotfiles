@@ -19,7 +19,7 @@ brew install \
     nvm rbenv gvm ruby python mariadb \
     watchman \
     hub \
-    git-secrets heroku/brew/heroku \
+    git-crypt git-secrets heroku/brew/heroku \
     imagemagick@6 ghostscript ffmpeg \
     terraform dep ansible \
     dhall-json
