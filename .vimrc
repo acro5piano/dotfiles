@@ -42,11 +42,11 @@ Plug 'mbbill/undotree'
 Plug 'ruanyl/vim-gh-line'
 
 " Plug 'mxw/vim-jsx'
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim', {'commit': '632bed9406fe891da8ec7b86320ff1c274d8318e'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
-  \ 'for': 'typescript',
+  \ 'for': ['typescript', 'javascript'],
   \ 'autoload': {
   \   'filetypes': ['typescriptreact', 'typescript', 'javascript']
   \ }}
@@ -367,6 +367,7 @@ nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>fe :e!<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
