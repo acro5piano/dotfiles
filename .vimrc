@@ -289,9 +289,8 @@ filetype indent on
 
 autocmd InsertLeave * call system('fcitx-remote -c')
 
-" Clipboard paste
+" Clipboard copy / paste
 nnoremap <Space>pb :.!clp<CR>
-
 map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
@@ -351,6 +350,7 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap \| x~
+nnoremap Q @q
 nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
@@ -534,7 +534,7 @@ command! VSCodeDir !code %:p:h
 filetype plugin on
 
 " For css completion
-autocmd FileType typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 set history=1000
 

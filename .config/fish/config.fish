@@ -261,6 +261,14 @@ function clear-branchs
     # git branch | grep -v \* | grep -v master | grep -v develop |  xargs git branch -D
 end
 
+function memo
+    set dir $HOME/ghq/github.com/acro5piano/var/(date +%Y%m)
+    if [ ! -e $dir ]
+        mkdir $dir
+    end
+    nvim $dir/(date +%Y%m%d_%H%M%S).md
+end
+
 # }}}
 
 # {{{ aliases
