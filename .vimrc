@@ -394,6 +394,7 @@ nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
+nnoremap <Leader>gg :GrepFile<CR>
 nnoremap <Leader>w/ :vs<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wh <C-w>h
@@ -540,3 +541,18 @@ set history=1000
 
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
+
+"--------------
+" Git
+"--------------
+function! s:grep_file()
+    let fileName = '/tmp/__vim_grep.'.expand('%:t')
+    let l:search = input('search word: ')
+    if (l:search == '')
+      echo 'aborted.'
+      return
+    endif
+    call system('egrep '.l:search.' '.expand('%').' > '.fileName)
+    :exe ':view '.fileName
+endfunction
+command! GrepFile call s:grep_file()
