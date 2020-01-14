@@ -303,6 +303,7 @@ inoremap z. =>
 inoremap zc console.log()<Left>
 inoremap zl ->
 inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
+inoremap zr require 'pry'; binding.pry
 " autocmd FileType xml,html inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
@@ -349,7 +350,7 @@ let mapleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
 
-nnoremap \| x~
+nnoremap \| x~f_
 nnoremap Q @q
 nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
