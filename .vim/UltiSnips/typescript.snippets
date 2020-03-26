@@ -14,10 +14,33 @@ export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
 }
 endsnippet
 
-snippet udi "useState"
+snippet rme "react function component template"
+import * as React from 'react'
+
+interface ${2:`!v expand('%:t:r')`}Props {
+
+}
+
+export const ${1:`!v expand('%:t:r')`} = React.memo(({ }: ${2:`!v expand('%:t:r')`}Props) => {
+  return <>$0</>
+})
+endsnippet
+
+snippet udi
 const dispatch = useDispatch()
 endsnippet
 
-snippet ust "useState"
+snippet ust
 const [$0, set$0] = React.useState()
+endsnippet
+
+snippet utr
+const t = useTrans()
+endsnippet
+
+snippet uqu
+const t = useQuery<Get, GetVar>({
+  query: QUERY,
+  variables: {},
+})
 endsnippet
