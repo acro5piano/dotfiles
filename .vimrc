@@ -62,7 +62,7 @@ if has('nvim')
   Plug 'racer-rust/vim-racer'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'prettier/vim-prettier'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'wokalski/autocomplete-flow'
   Plug 'autozimu/LanguageClient-neovim', {
@@ -84,6 +84,8 @@ let g:vim_markdown_new_list_item_indent = 0
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 1
+set completeopt-=preview
+
 " let g:deoplete#auto_complete_start_length = 2
 " let g:deoplete#enable_camel_case = 0
 " let g:deoplete#enable_ignore_case = 0
@@ -287,7 +289,7 @@ filetype indent on
 " Using X11
 "----------------------------------------------------
 
-autocmd InsertLeave * call system('fcitx-remote -c')
+" autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard copy / paste
 nnoremap <Space>pb :.!clp<CR>
