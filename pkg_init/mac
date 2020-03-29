@@ -20,7 +20,7 @@ brew tap mscharley/homebrew
 brew install --HEAD alacritty
 
 brew install \
-    htop jq rg tmux fish tree \
+    htop jq rg tmux fish tree wget \
     nvm rbenv gvm ruby python mariadb \
     watchman \
     hub \
@@ -32,7 +32,7 @@ brew install \
 brew cask install \
     flycut cmd-eikana skitch \
     docker java android-studio virtualbox \
-    react-native-debugger
+    ngrok flipper
 
 nvm install 10.3.0
 

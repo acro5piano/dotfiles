@@ -14,6 +14,28 @@ export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
 }
 endsnippet
 
+snippet nfn "nextjs react function component template"
+import * as React from 'react'
+
+interface ${2:`!v expand('%:t:r')`}Props {
+
+}
+
+export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
+  return (
+  <div className="container">
+  $0
+  <style jsx>{`
+  .container {
+
+  }
+  `}
+  </style>
+  </div>
+  )
+}
+endsnippet
+
 snippet rme "react function component template"
 import * as React from 'react'
 
