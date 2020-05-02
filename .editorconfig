@@ -14,5 +14,9 @@ indent_size = 2
 [{Podfile,Gemfile}]
 indent_size = 2
 
-[*.{php,sh,bash,fish,java}]
+[*.{pl,perl,php,sh,bash,fish,java}]
 indent_size = 4
+
+[Makefile]
+indent_size = 4
+indent_style = tab

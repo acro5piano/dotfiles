@@ -3,7 +3,7 @@ import * as React from 'react'
 endsnippet
 
 snippet rfn "react function component template"
-import * as React from 'react'
+import React from 'react'
 
 interface ${2:`!v expand('%:t:r')`}Props {
 
@@ -61,8 +61,12 @@ const t = useTrans()
 endsnippet
 
 snippet uqu
-const t = useQuery<Get, GetVar>({
+const [{data, fetching}, refresh] = useQuery<Get, GetVar>({
   query: QUERY,
   variables: {},
 })
+endsnippet
+
+snippet umu
+const [{fetching}, mutate] = useMutation<Get, GetVar>(MUTATION)
 endsnippet

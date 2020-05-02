@@ -34,16 +34,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'kshenoy/vim-sol'
 Plug 'hashivim/vim-terraform'
 Plug 'wsdjeg/FlyGrep.vim'
-Plug 'scrooloose/vim-slumlord'
+" Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
 Plug 'junegunn/limelight.vim'
 Plug 'mbbill/undotree'
+Plug 'vmchale/dhall-vim'
 
 Plug 'ruanyl/vim-gh-line'
 
 " Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim', {'commit': '632bed9406fe891da8ec7b86320ff1c274d8318e'}
 Plug 'MaxMEllon/vim-jsx-pretty', {
   \ 'for': ['typescript', 'javascript'],
@@ -51,16 +51,20 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
   \   'filetypes': ['typescriptreact', 'typescript', 'javascript']
   \ }}
 Plug 'acro5piano/vim-graphql'
-Plug 'flowtype/vim-flow'
-Plug 'acro5piano/import-js-from-history'
+
+" Plug 'acro5piano/import-js-from-history'
+Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
+
 Plug 'acro5piano/vim-jsx-replace-tag'
 
-Plug 'reasonml-editor/vim-reason-plus'
 
 if has('nvim')
+  Plug 'leafgarland/typescript-vim'
+  Plug 'reasonml-editor/vim-reason-plus'
   Plug 'rust-lang/rust.vim'
   Plug 'racer-rust/vim-racer'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier'
   Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -83,7 +87,7 @@ let g:vim_markdown_new_list_item_indent = 0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 1
+" let g:deoplete#auto_complete_delay = 1
 set completeopt-=preview
 
 " let g:deoplete#auto_complete_start_length = 2
@@ -133,10 +137,12 @@ if has('nvim')
         \ 'rust': ['cargo', 'rls'],
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
+        \ 'php': ['php', 'phpstan'],
         \ 'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
         \ 'typescript': ['eslint', 'tslint', 'tsserver', 'stylelint'],
         \ 'tsx': ['tslint', 'tsserver', 'stylelint'],
         \ 'typescriptreact': ['tslint', 'tsserver', 'stylelint'],
+        \ 'html': [],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 
@@ -380,7 +386,7 @@ nnoremap <Leader>gl :GitLog10<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gp :GFilesPreview<CR>
 nnoremap <Leader>gd :GitDiff<CR>
-nnoremap <Leader>ij :ImportJsFZF<CR>
+nnoremap <Leader>ij :RepeatYourselfImport<CR>
 nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
 nnoremap <Leader>jd :NERDTreeFind<CR>
@@ -490,7 +496,7 @@ set modeline
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue PrettierAsync
 endif
 
 " remember cursor position
@@ -532,6 +538,7 @@ command! Rubocop !bundle exec rubocop -a %
 
 command! TSLint !yarn tslint --fix %
 command! ESLint !yarn eslint --fix %
+command! PrettierPhp !yarn prettier --tab-width 4 --write %
 
 command! VSCode !code %
 command! VSCodeDir !code %:p:h

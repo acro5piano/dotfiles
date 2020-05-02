@@ -14,10 +14,14 @@ if [ -e $HOME/Library/Android ]
     set -gx ANDROID_HOME $HOME/Library/Android/sdk
 end
 
+set -gx DENO_INSTALL $HOME/.deno
+
 # [ -e $HOME/.go ]; or mkdir $HOME/.go
 # set -gx GOPATH $HOME/.go ^/dev/null
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
+            $DENO_INSTALL/bin \
+            /usr/local/opt/php@7.4/bin \
             $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
@@ -28,8 +32,7 @@ set -gx PATH \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.gem/ruby/2.5.0/bin \
-            $HOME/.nvm/versions/node/v10.3.0/bin \
-            $HOME/.nvm/versions/node/v10.13.0/bin \
+            $HOME/.nvm/versions/node/v12.14.0/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
