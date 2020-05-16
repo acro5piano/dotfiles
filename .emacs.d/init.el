@@ -30,21 +30,14 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-SPC" . helm-dabbrev)
          ("M-y" . helm-show-kill-ring)
          ("C-x C-n" . helm-resume)
          ("C-x C-b" . helm-buffers-list))
-  :bind (:map helm-map
-	      ("M-i" . helm-previous-line)
-	      ("M-k" . helm-next-line)
-	      ("M-I" . helm-previous-page)
-	      ("M-K" . helm-next-page)
-	      ("M-h" . helm-beginning-of-buffer)
-	      ("M-H" . helm-end-of-buffer))
   :config (progn
 	    (setq helm-buffers-fuzzy-matching t)
-            (set-face-attribute 'helm-selection nil 
+	    (setq helm-recentf-fuzzy-match t)
+	    (setq helm-M-x-fuzzy-match t)
+            (set-face-attribute 'helm-selection nil
                                 :background "purple"
                                 :foreground "black")
             (helm-mode 1)))
@@ -88,8 +81,11 @@
   :config (progn
             (add-hook 'typescript-mode-hook #'lsp)))
 
-
 (use-package editorconfig
+  :ensure t
+  :config (editorconfig-mode 1))
+
+(use-package eglot
   :ensure t)
 
 ; Keyboard settings
@@ -112,14 +108,13 @@
            ("C-g" evil-normal-state)
            ("C-x C-o" completion-at-point))
 (bind-keys :map evil-normal-state-map
-           ("SPC bb" . helm-buffers-list)
-           ("SPC fp" . projectile-find-file)
+           ("SPC b b" . helm-buffers-list)
+           ("SPC g f" . helm-projectile)
            ("SPC s a a" . helm-do-ag-project-root)
-           ("SPC SPC" . smex)
+           ("SPC SPC" . helm-M-x)
            ("SPC f s" . save-buffer)
            ("SPC j d" . dired-jump)
            ("SPC b d" . kill-this-buffer)
-           ("SPC f r" . ido-recentf-open)
            ("SPC w m" . delete-other-windows)
            ("SPC w d" . delete-window)
            ("SPC q q" . delete-frame)
