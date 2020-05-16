@@ -245,8 +245,8 @@
           (lambda (f) (with-selected-frame f
                         (keyboard-translate ?\C-h ?\C-?))))
 
-;(global-set-key (kbd "C-z") 'undo)
-;(global-set-key (kbd "C-x C-c") nil)
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-x C-c") nil)
 
 (bind-keys*
  ("C-j" . mozc-start)

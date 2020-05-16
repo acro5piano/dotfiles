@@ -308,6 +308,7 @@ alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 
 alias v="vim"
 alias nv="nvim"
+alias e="emacs"
 
 alias sum='perl -nale \'$sum += $_; END { print $sum }\''
 alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
