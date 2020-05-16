@@ -85,9 +85,6 @@
   :ensure t
   :config (editorconfig-mode 1))
 
-(use-package eglot
-  :ensure t)
-
 ; Keyboard settings
 
 (keyboard-translate ?\C-h ?\C-?)
