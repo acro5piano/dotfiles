@@ -173,7 +173,7 @@ function clp
 end
 
 function grep-replace
-    git ls-files | xargs perl -i -pe "s/$argv[1]/$argv[2]/g"
+    git ls-files | xargs perl -i -pe "s#$argv[1]#$argv[2]#g"
 end
 
 function sub
@@ -306,9 +306,8 @@ alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
 alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 
-alias v="vagrant up; vagrant ssh"
-alias vr="vagrant reload; vagrant ssh"
-alias vs="vagrant suspend"
+alias v="vim"
+alias nv="nvim"
 
 alias sum='perl -nale \'$sum += $_; END { print $sum }\''
 alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''

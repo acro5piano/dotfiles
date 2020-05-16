@@ -52,7 +52,7 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
   \ }}
 Plug 'acro5piano/vim-graphql'
 
-" Plug 'acro5piano/import-js-from-history'
+Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
 
 Plug 'acro5piano/vim-jsx-replace-tag'
@@ -306,7 +306,9 @@ map <C-c> :w !cl<CR><CR>
 "----------------------------------------------------
 
 inoremap {<CR> {<CR>}<Up><End><CR>
+inoremap [<CR> [<CR>];<Up><End><CR>
 inoremap ({<CR> ({<CR>})<Up><End><CR>
+inoremap ([<CR> ([<CR>]);<Up><End><CR>
 inoremap z. =>
 inoremap zc console.log()<Left>
 inoremap zl ->
@@ -386,7 +388,7 @@ nnoremap <Leader>gl :GitLog10<CR>
 nnoremap <Leader>gf :GFiles<CR>
 nnoremap <Leader>gp :GFilesPreview<CR>
 nnoremap <Leader>gd :GitDiff<CR>
-nnoremap <Leader>ij :RepeatYourselfImport<CR>
+nnoremap <Leader>ij :ImportJsFZF<CR>
 nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
 nnoremap <Leader>jd :NERDTreeFind<CR>
@@ -496,7 +498,7 @@ set modeline
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue PrettierAsync
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
 endif
 
 " remember cursor position
