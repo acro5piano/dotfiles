@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
-" Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
@@ -56,13 +55,16 @@ Plug 'acro5piano/vim-graphql'
 Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
 
+if !has('nvim')
+  Plug 'haya14busa/incsearch.vim'
+endif
 
 if has('nvim')
   Plug 'leafgarland/typescript-vim'
   Plug 'reasonml-editor/vim-reason-plus'
   Plug 'rust-lang/rust.vim'
   Plug 'racer-rust/vim-racer'
-  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier'
   Plug 'dense-analysis/ale'
@@ -87,15 +89,14 @@ let g:vim_markdown_new_list_item_indent = 0
 " deoplete
 let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 1
+
 set completeopt-=preview
 
-" let g:deoplete#auto_complete_start_length = 2
-" let g:deoplete#enable_camel_case = 0
-" let g:deoplete#enable_ignore_case = 0
-" let g:deoplete#enable_refresh_always = 0
-" let g:deoplete#enable_smart_case = 1
-" Move to deoplete
-" source ~/.vim/neocomplete.config.vim
+if !has('nvim')
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+endif
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 8
@@ -149,8 +150,11 @@ if has('nvim')
     let g:rustfmt_autosave = 1
 
     " Not work with nvim-typescript.
-    let g:nvim_typescript#diagnostics_enable = 0
-    let g:ale_completion_enabled = 0
+    " let g:nvim_typescript#diagnostics_enable = 0
+    let g:ale_completion_enabled = 1
+    call deoplete#custom#option('sources', {
+        \ '_': ['ale', 'file'],
+    \})
     let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
     let g:ale_ruby_rubocop_executable = 'bundle'
 
@@ -163,7 +167,7 @@ if has('nvim')
     " %linter% is the name of the linter that provided the message
     " %s is the error or warning message
     let g:ale_echo_msg_format = '%linter% says %s'
-    let g:ale_lint_delay = 1500
+    let g:ale_lint_delay = 100
     " Map keys to navigate between lines with errors and warnings.
 
     let g:ale_python_flake8_executable = '/usr/local/bin/flake8'
