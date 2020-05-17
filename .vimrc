@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
-Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
+" Plug 'pelodelfuego/vim-swoop'
 Plug 'jwalton512/vim-blade'
 Plug 'slim-template/vim-slim'
 Plug 'osyo-manga/vim-anzu'
@@ -33,12 +34,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'kshenoy/vim-sol'
 Plug 'hashivim/vim-terraform'
-Plug 'wsdjeg/FlyGrep.vim'
+" Plug 'wsdjeg/FlyGrep.vim'
 " Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
 Plug 'junegunn/limelight.vim'
 Plug 'mbbill/undotree'
-Plug 'vmchale/dhall-vim'
+" Plug 'vmchale/dhall-vim'
 
 Plug 'ruanyl/vim-gh-line'
 
@@ -54,8 +55,6 @@ Plug 'acro5piano/vim-graphql'
 
 Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
-
-Plug 'acro5piano/vim-jsx-replace-tag'
 
 
 if has('nvim')
@@ -235,12 +234,10 @@ set wrapscan
 
 let g:ackprg = 'rg --vimgrep --smart-case'
 
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map g/ <Plug>(incsearch-stay)
-map ?  <Plug>(incsearch-backward)
-map z/ <Plug>(incsearch-stay)
-vmap *  <Plug>(asterisk-g*)
+map *  <Plug>(asterisk-*)
+map #  <Plug>(asterisk-#)
+map g* <Plug>(asterisk-z*)
+map g# <Plug>(asterisk-z#)
 
 "----------------------------------------------------
 " Face
@@ -366,16 +363,15 @@ nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
-nnoremap <Leader>pg :ClipboardRg<C-r>
 nnoremap <Leader>ad :ALEDetail<CR><C-w><C-w>
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
-nnoremap <Leader>bs :BLines <C-R><C-W><CR>
+nnoremap <Leader>jo :Lines <C-R><C-W><CR>
 nnoremap <Leader>bt :BTags<CR>
-nnoremap <Leader>fg :FlyGrep<CR>
+" nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>fr :FZFMru<CR>
 nnoremap <Leader>fe :e!<CR>
@@ -396,7 +392,7 @@ nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rg :Rg<Space>
+nnoremap <Leader>rg :RG!<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>rt :JSXReplaceTag<CR>
@@ -418,6 +414,17 @@ nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
+
+" See https://github.com/junegunn/f.vimrc.vim#example-advanced-ripgrep-integration
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s '
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " Go to definition
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
@@ -441,11 +448,11 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>),
-  \    1,
-  \   { 'options': '--exact' })
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>),
+"   \    1,
+"   \   { 'options': '--exact' })
 
 command! -bang -nargs=* ClipboardRg
   \ call fzf#vim#grep(
@@ -568,3 +575,5 @@ function! s:grep_file()
     :exe ':view '.fileName
 endfunction
 command! GrepFile call s:grep_file()
+
+au InsertLeave * set nopaste
