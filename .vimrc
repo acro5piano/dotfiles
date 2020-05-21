@@ -469,7 +469,7 @@ function! s:gitfiles_monorepo()
 
   let l:options = '-m --preview "head -20 {1}" --prompt "GitFiles> " '
   if l:path != ''
-    let l:options .= '--query '.l:path
+    let l:options .= '--query '.l:path.'/'
   endif
 
   call fzf#run({
