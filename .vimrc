@@ -1,3 +1,4 @@
+" vim:set shiftwidth=2 :
 "----------------------------------------------------
 " vim-plug
 "----------------------------------------------------
@@ -74,7 +75,7 @@ if has('nvim')
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
 endif
 
@@ -87,7 +88,7 @@ let g:vim_markdown_new_list_item_indent = 0
 
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " let g:deoplete#auto_complete_delay = 1
 
 set completeopt-=preview
@@ -148,13 +149,14 @@ if has('nvim')
 
     let g:ale_rust_rustc_options = '--emit metadata'
     let g:rustfmt_autosave = 1
+    set omnifunc=ale#completion#OmniFunc
 
     " Not work with nvim-typescript.
     " let g:nvim_typescript#diagnostics_enable = 0
     let g:ale_completion_enabled = 1
-    call deoplete#custom#option('sources', {
-        \ '_': ['ale', 'file'],
-    \})
+    " call deoplete#custom#option('sources', {
+    "     \ '_': ['ale', 'file'],
+    " \})
     let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
     let g:ale_ruby_rubocop_executable = 'bundle'
 
@@ -173,21 +175,21 @@ if has('nvim')
     let g:ale_python_flake8_executable = '/usr/local/bin/flake8'
     let g:ale_python_mypy_executable = '/usr/local/bin/mypy'
     let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
-    " let g:ale_python_pyls_config = {
-    "   \   'pyls': {
-    "   \     'plugins': {
-    "   \       'pydocstyle': {
-    "   \         'enabled': v:false
-    "   \       },
-    "   \       'flake8': {
-    "   \         'enabled': v:false
-    "   \       },
-    "   \       'pycodestyle': {
-    "   \         'enabled': v:false
-    "   \       },
-    "   \     },
-    "   \   },
-    "   \ }
+    let g:ale_python_pyls_config = {
+      \   'pyls': {
+      \     'plugins': {
+      \       'pydocstyle': {
+      \         'enabled': v:false
+      \       },
+      \       'flake8': {
+      \         'enabled': v:false
+      \       },
+      \       'pycodestyle': {
+      \         'enabled': v:false
+      \       },
+      \     },
+      \   },
+      \ }
 endif
 
 "----------------------------------------------------
@@ -385,8 +387,9 @@ nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gl :GitLog10<CR>
-nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>gp :GFilesPreview<CR>
+nnoremap <Leader>gf :GFilesMonorepo<CR>
+nnoremap <Leader>ga :GFiles<CR>
+nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>gd :GitDiff<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
 nnoremap <Leader>ll :Limelight<CR>
@@ -399,10 +402,7 @@ nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rg :RG!<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
-nnoremap <Leader>rt :JSXReplaceTag<CR>
 nnoremap <Leader>sn :Snippets<CR>
-nnoremap <Leader>t- :new<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <Leader>tj :TSDef<CR>
 nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 nnoremap <Leader>gg :GrepFile<CR>
@@ -432,6 +432,7 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " Go to definition
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
+nnoremap <Leader>ah :ALEHover<CR>
 au FileType rust nmap <Leader>aj <Plug>(rust-def)
 au FileType go nmap <Leader>aj :GoDef<CR>
 
@@ -452,20 +453,34 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
-" command! -bang -nargs=* Rg
-"   \ call fzf#vim#grep(
-"   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>),
-"   \    1,
-"   \   { 'options': '--exact' })
+" ported from https://github.com/junegunn/fzf.vim/blob/master/autoload/fzf/vim.vim#L546
+function! s:get_git_root()
+  let l:root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  if v:shell_error
+      return ''
+  endif
+  return l:root
+endfunction
 
-command! -bang -nargs=* ClipboardRg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(system('clp')),
-  \    1,
-  \   { 'options': '--exact' })
+function! s:gitfiles_monorepo()
+  let l:root = s:get_git_root()
+  let l:path = substitute(getcwd(), l:root, '', '')
+  let l:path = substitute(l:path, '/', '', '')
 
-command! -bang -nargs=? -complete=dir GFilesPreview
-  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+  let l:options = '-m --preview "head -20 {1}" --prompt "GitFiles> " '
+  if l:path != ''
+    let l:options .= '--query '.l:path
+  endif
+
+  call fzf#run({
+  \ 'source':  'git ls-files | uniq',
+  \ 'sink': 'e',
+  \ 'dir': l:root,
+  \ 'options': l:options,
+  \ 'down':    '40%'
+  \})
+endfunction
+command! GFilesMonorepo call s:gitfiles_monorepo()
 
 "--------------
 " Git
@@ -558,7 +573,7 @@ command! VSCodeDir !code %:p:h
 filetype plugin on
 
 " For css completion
-autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 set history=1000
 
