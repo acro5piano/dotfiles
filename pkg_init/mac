@@ -2,12 +2,10 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
+brew bundle
 
-brew install vim --with-lua
 [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-brew install nvim
 [ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -16,32 +14,19 @@ if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
     fisher
 fi
 
-brew tap mscharley/homebrew
-brew install --HEAD alacritty
-
-brew install \
-    htop jq rg tmux fish tree wget \
-    nvm rbenv gvm ruby python mariadb \
-    watchman \
-    hub \
-    git-crypt git-secrets heroku/brew/heroku \
-    imagemagick@6 ghostscript ffmpeg \
-    terraform dep ansible
-
-
-brew cask install \
-    flycut cmd-eikana skitch \
-    docker java android-studio virtualbox \
-    ngrok flipper
-
-nvm install 10.3.0
+# Clj
+curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
 # Node
+nvm install 10.3.0
 npm install -g \
     yarn \
     vue-cli \
-    react-native-cli create-react-app \
-    firebase-tools tldr serve
+    react-native-cli \
+    create-react-app \
+    firebase-tools \
+    tldr \
+    serve
 
 # Python
 pip3.6 install \
