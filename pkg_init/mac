@@ -18,7 +18,7 @@ fi
 curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
 # Node
-nvm install 10.3.0
+nvm install 12.14.0
 npm install -g \
     yarn \
     vue-cli \
