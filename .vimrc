@@ -75,7 +75,7 @@ if has('nvim')
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
 endif
 
@@ -86,11 +86,13 @@ call plug#end()
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
 
-
 " deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#auto_complete_delay = 1
-
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  call deoplete#custom#option('sources', {
+      \ '_': ['ale', 'file', 'buffer'],
+  \})
+endif
 set completeopt-=preview
 
 if !has('nvim')
@@ -154,9 +156,6 @@ if has('nvim')
     " Not work with nvim-typescript.
     " let g:nvim_typescript#diagnostics_enable = 0
     let g:ale_completion_enabled = 1
-    " call deoplete#custom#option('sources', {
-    "     \ '_': ['ale', 'file'],
-    " \})
     let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
     let g:ale_ruby_rubocop_executable = 'bundle'
 
