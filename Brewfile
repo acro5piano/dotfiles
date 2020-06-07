@@ -29,6 +29,7 @@ brew 'vim', args: ['with-lua']
 brew 'watchman'
 brew 'wget'
 
+cask 'alacritty'
 cask 'android-studio'
 cask 'cmd-eikana'
 cask 'docker'
