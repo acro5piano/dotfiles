@@ -13,7 +13,7 @@ Plug 'godlygeek/tabular'
 Plug 'haya14busa/vim-asterisk'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
@@ -233,7 +233,7 @@ set directory=/tmp
 "----------------------------------------------------
 " Search
 "----------------------------------------------------
-set history=100
+set history=1000
 set ignorecase
 set smartcase
 set wrapscan
@@ -379,7 +379,8 @@ nnoremap <Leader>jo :Lines <C-R><C-W><CR>
 nnoremap <Leader>bt :BTags<CR>
 " nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
-nnoremap <Leader>fr :FZFMru<CR>
+nnoremap <Leader>fr :History<CR>
+nnoremap <Leader>h/ :History/<CR>
 nnoremap <Leader>fe :e!<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
@@ -447,11 +448,6 @@ vmap <F1> <ESC>
 "--------------
 " FZF customization
 "--------------
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
 
 " ported from https://github.com/junegunn/fzf.vim/blob/master/autoload/fzf/vim.vim#L546
 function! s:get_git_root()
@@ -513,7 +509,7 @@ command! GitDiff call s:git_diff()
 set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
-" set ambiwidth=double " for full width problem
+set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
 
@@ -552,18 +548,7 @@ autocmd BufWritePre *.py call Yapf()
 
 let g:terraform_fmt_on_save=1
 
-" function! Rubocop()
-"     let l:curPos = getpos('.')
-"     call cursor(1, 1)
-"     silent execute "0,$!bundle exec rubocop -a --stdin -"
-"     " if v:shell_error != 0
-"     "     silent undo
-"     " end
-"     call cursor(l:curPos[1], l:curPos[2])
-" endfunction
-" autocmd BufWritePre *.rb call Rubocop()
-command! Rubocop !bundle exec rubocop -a %
-
+command! Rubocop !rubocop -a %
 command! TSLint !yarn tslint --fix %
 command! ESLint !yarn eslint --fix %
 command! PrettierPhp !yarn prettier --tab-width 4 --write %
@@ -574,8 +559,6 @@ filetype plugin on
 
 " For css completion
 " autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
-
-set history=1000
 
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240

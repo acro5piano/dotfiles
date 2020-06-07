@@ -30,7 +30,8 @@ npm install -g \
 
 # Python
 pip3.6 install \
-    virtualenv poetry \
+    virtualenv \
+    poetry \
     awscli \
     pgcli \
     mycli \
