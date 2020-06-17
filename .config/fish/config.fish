@@ -81,9 +81,11 @@ function __copy_command
   echo (commandline -b) | cl
 end
 
-function git_shortcut
+function seishin
+    set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
+    mkdir -p $dir
+    cd $dir
 end
-
 
 function gh
   if [ "$argv" ]
@@ -296,7 +298,6 @@ alias less='less -R'
 alias ll='ls -alh'
 alias justnow='date +%Y%m%d_%H%M%S'
 alias today='date +%Y%m%d'
-alias seishin='cd (mktemp -d)'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias wi='sudo wifi-menu'
 alias wether='curl -s wttr.in | sed -n "1,7p"'

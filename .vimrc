@@ -67,7 +67,7 @@ if has('nvim')
   Plug 'racer-rust/vim-racer'
   " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'flowtype/vim-flow'
-  Plug 'prettier/vim-prettier'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'wokalski/autocomplete-flow'
@@ -121,6 +121,14 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
+" Prettier
+let g:prettier#config#tab_width = '2'
+let g:prettier#config#config_precedence = 'prefer-file'
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#semi = 'false'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#arrow_parens = 'always'
 
 "----------------------------------------------------
 " Asynchronous Lint Engine (ALE)
