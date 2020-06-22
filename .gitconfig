@@ -17,6 +17,8 @@
     ls = ls-files
     pushthis = !git push origin $(git branch --contains=HEAD | awk '{print $2}')
     pullthis = !git pull origin $(git branch --contains=HEAD | awk '{print $2}')
+    ps = pushthis
+    pl = pullthis
     st = status -uall
     remote = remote -v
     today = log --oneline --since='12 hour ago'

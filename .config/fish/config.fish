@@ -286,8 +286,7 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias ag='rg'
-alias rg='rg --hidden'
-alias bc='bc -l'
+# alias rg='rg --hidden'
 #alias cl='xclip -i -selection clipboard'
 #alias clp='xclip -o -selection clipboard'
 alias ccat='pygmentize -g'
@@ -300,11 +299,9 @@ alias justnow='date +%Y%m%d_%H%M%S'
 alias today='date +%Y%m%d'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias wi='sudo wifi-menu'
-alias wether='curl -s wttr.in | sed -n "1,7p"'
+alias weather='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
-alias killer="ps aux | fzf --tac | awk -F\  '{print $2}' | xargs kill"
-alias murder="ps aux | fzf --tac | awk '{print $2}' | xargs kill -9"
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 
 alias v="vim"
@@ -318,7 +315,8 @@ alias csv='column -ts ,'
 alias tsv='column -ts \t'
 alias tmc='tmux clear-history'
 
-alias devtomaster="open (hub pull-request -h develop -b master -m 'production deploy')"
+alias dev2master="open (hub pull-request -h develop -b master -m 'production deploy')"
+alias master2release="open (hub pull-request -h master -b release -m 'production deploy')"
 
 # }}}
 
