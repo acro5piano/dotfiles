@@ -113,6 +113,7 @@ function g
     git status -uall
   end
 end
+complete --command g --wraps git
 
 function gup
   echo $PWD
@@ -230,9 +231,8 @@ function gvm
     bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
 
-function gcamp
-    git cam "$argv[1]"
-    and git pushthis
+function gacp
+    git commit -am "$argv" && git ps
 end
 
 function gtagp
