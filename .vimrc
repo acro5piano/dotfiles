@@ -52,6 +52,7 @@ Plug 'MaxMEllon/vim-jsx-pretty', {
   \   'filetypes': ['typescriptreact', 'typescript', 'javascript']
   \ }}
 Plug 'acro5piano/vim-graphql'
+Plug 'jxnblk/vim-mdx-js'
 
 Plug 'acro5piano/import-js-from-history'
 Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
@@ -384,7 +385,6 @@ nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader>jo :Lines <C-R><C-W><CR>
 nnoremap <Leader>bt :BTags<CR>
-" nnoremap <Leader>fg :FlyGrep<CR>
 nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>h/ :History/<CR>
@@ -400,7 +400,7 @@ nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>gd :GitDiff<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-nnoremap <Leader>ll :Limelight<CR>
+" nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
 nnoremap <Leader>jd :NERDTreeFind<CR>
 nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
@@ -444,8 +444,10 @@ nnoremap <Leader>ah :ALEHover<CR>
 au FileType rust nmap <Leader>aj <Plug>(rust-def)
 au FileType go nmap <Leader>aj :GoDef<CR>
 
-nmap <Leader>e <Plug>(easymotion-bd-W)
 nnoremap <ESC><ESC> :nohl<CR>
+
+map <Leader>e <Plug>(easymotion-bd-W)
+map <Leader>l <Plug>(easymotion-overwin-line)
 
 nmap <F1> <ESC>
 imap <F1> <ESC>

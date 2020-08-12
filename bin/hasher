@@ -1,6 +1,8 @@
 #!/bin/bash
 
-t=`echo $1 | shasum -a 256 | base64 | cut -c1-32`
+read -s -p '🔑 ' password
+
+t=`echo "${password}__${1}" | shasum -a 256 | base64 | cut -c1-32`
 
 echo $t
 

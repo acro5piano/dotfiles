@@ -25,14 +25,12 @@ set -gx PATH \
             $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
-            $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.local/bin \
             $HOME/.go/bin/ \
             $HOME/go/bin/ \
             $HOME/bin \
             $HOME/.gem/ruby/2.4.0/bin \
             $HOME/.gem/ruby/2.5.0/bin \
-            $HOME/.nvm/versions/node/v12.14.0/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
@@ -40,6 +38,8 @@ set -gx PATH \
             $ANDROID_HOME/platform-tools \
             $HOME/.cargo/bin \
             $PATH ^/dev/null
+            # $HOME/.nvm/versions/node/v12.14.0/bin \
+            # $HOME/.config/yarn/global/node_modules/.bin \
 set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx CHROME_BIN chromium
@@ -223,9 +223,9 @@ function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
 end
 
-function nvm_fish
-    bass source ~/.nvm/nvm.sh ';' nvm $argv
-end
+# function nvm_fish
+#     bass source ~/.nvm/nvm.sh ';' nvm $argv
+# end
 
 function gvm
     bass source ~/.gvm/scripts/gvm ';' gvm $argv
