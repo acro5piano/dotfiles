@@ -22,6 +22,8 @@ set -gx DENO_INSTALL $HOME/.deno
 set -gx PATH \
             $DENO_INSTALL/bin \
             /usr/local/opt/php@7.4/bin \
+            $HOME/.nvm/versions/node/v12.14.0/bin \
+            $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
             $HOME/.yarn/bin \
@@ -38,8 +40,6 @@ set -gx PATH \
             $ANDROID_HOME/platform-tools \
             $HOME/.cargo/bin \
             $PATH ^/dev/null
-            # $HOME/.nvm/versions/node/v12.14.0/bin \
-            # $HOME/.config/yarn/global/node_modules/.bin \
 set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx CHROME_BIN chromium

@@ -153,9 +153,10 @@ if has('nvim')
         \ 'javascript': ['flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
         \ 'typescript': ['tsserver', 'stylelint'],
         \ 'tsx': ['tsserver', 'stylelint'],
-        \ 'typescriptreact': ['tslint', 'tsserver', 'stylelint'],
+        \ 'typescriptreact': ['tsserver', 'stylelint',],
         \ 'html': [],
         \}
+        " \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 
     let g:ale_rust_rustc_options = '--emit metadata'
@@ -446,7 +447,7 @@ au FileType go nmap <Leader>aj :GoDef<CR>
 
 nnoremap <ESC><ESC> :nohl<CR>
 
-map <Leader>e <Plug>(easymotion-bd-W)
+map <Leader>e <Plug>(easymotion-overwin-w)
 map <Leader>l <Plug>(easymotion-overwin-line)
 
 nmap <F1> <ESC>
@@ -557,7 +558,7 @@ autocmd BufWritePre *.py call Yapf()
 
 let g:terraform_fmt_on_save=1
 
-command! Rubocop !rubocop -a %
+command! Rubocop !bundle exec rubocop -a %
 command! TSLint !yarn tslint --fix %
 command! ESLint !yarn eslint --fix %
 command! PrettierPhp !yarn prettier --tab-width 4 --write %
