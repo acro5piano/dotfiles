@@ -286,9 +286,6 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias ag='rg'
-# alias rg='rg --hidden'
-#alias cl='xclip -i -selection clipboard'
-#alias clp='xclip -o -selection clipboard'
 alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
@@ -304,6 +301,8 @@ alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 
+alias rg="rg --hidden --glob '!.git'"
+
 alias v="vim"
 alias nv="nvim"
 alias e="emacs"
@@ -314,9 +313,6 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
 alias tmc='tmux clear-history'
-
-alias dev2master="open (hub pull-request -h develop -b master -m 'production deploy')"
-alias master2release="open (hub pull-request -h master -b release -m 'production deploy')"
 
 # }}}
 
