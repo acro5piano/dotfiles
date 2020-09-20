@@ -4,16 +4,23 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-sudo pacman -S --needed --noconfirm \
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
+sudo pacman -Sy archlinux-keyring
+
+sudo pacman -S --needed \
     fish \
     vim \
+    neovim \
     inotify-tools \
     openssl \
-    bc \
     make \
     git \
     tmux \
     openssh \
+    rubygems \
+    libvterm \
+    libuv \
     rsync \
     tree \
     curl \
@@ -30,6 +37,7 @@ sudo pacman -S --needed --noconfirm \
     ruby \
     xorg \
     xorg-xinit \
+    python-six \
     synaptics \
     awesome \
     fcitx \
@@ -46,15 +54,22 @@ sudo pacman -S --needed --noconfirm \
     alsa-lib \
     alsa-utils \
     adobe-source-code-pro-fonts \
-    python3 python-pip gcc-fortran lapack libpng \
+    python \
+    gcc-fortran \
+    lapack \
+    libpng \
     go \
     lua \
-    php php-gd php-sqlite composer \
+    php \
+    php-gd \
+    php-sqlite \
+    composer \
     nodejs npm \
     jdk8-openjdk \
     clojure \
     arch-install-scripts \
-    imagemagick ghostscript \
+    imagemagick \
+    ghostscript \
     httpie \
     wmctrl \
     vlc \
@@ -64,20 +79,29 @@ sudo pacman -S --needed --noconfirm \
     eog \
     evince \
     libreoffice-fresh \
+    postgresql-client \
+    ldns \
     wavpack \
     inkscape
 
+sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
-git clone https://aur.archlinux.org/yay && makepkg -si --noconfirm && cd .. && rm -rf yay
+which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
+
+sudo python3 -m ensurepip
+sudo pip3 --upgrade install pip
 
 yay -S --needed \
     otf-ipaexfont \
     maim \
     google-chrome \
     leiningen \
-    android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23 \
-    ttf-emojione-color
-
+    android-platform \
+    android-sdk \
+    android-sdk-platform-tools \
+    android-sdk-build-tools \
+    android-platform-28 \
+    noto-fonts-emoji
 
 [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -103,9 +127,9 @@ sudo gpasswd -a $USER sys
 echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
 
 # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
-android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
-android update sdk --no-ui --all --filter build-tools-23.0.1,android-23,extra-android-m2repository
-sudo ln -s /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
+android update sdk --no-ui --all --filter platform-tools,android-28,extra-android-m2repository
+android update sdk --no-ui --all --filter build-tools-28.0.1,android-28,extra-android-m2repository
+sudo ln -svf /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
 
 go get github.com/github/hub
 
@@ -114,17 +138,17 @@ curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein 
 
 # Node
 nvm install 12.18.4
-npm install -g \
+sudo npm install -g \
     yarn \
     vue-cli \
     react-native-cli \
     create-react-app \
     firebase-tools \
-    tldr \
+    prettier \
     serve
 
 # Python
-pip3.6 install \
+sudo pip3 install \
     virtualenv \
     poetry \
     awscli \
