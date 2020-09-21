@@ -28,6 +28,7 @@ sudo pacman -S --needed \
     man \
     at \
     ripgrep \
+    escrotum \
     ctags \
     zip \
     unzip \
@@ -44,8 +45,9 @@ sudo pacman -S --needed \
     fcitx-im \
     fcitx-mozc \
     fcitx-configtool \
-    terminator \
+    alacritty \
     pcmanfm \
+    chromium \
     dmenu \
     xclip \
     xdotool \
@@ -78,6 +80,8 @@ sudo pacman -S --needed \
     moc \
     eog \
     evince \
+    libevent \
+    firefox \
     libreoffice-fresh \
     postgresql-client \
     ldns \
@@ -133,10 +137,8 @@ sudo ln -svf /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
 
 go get github.com/github/hub
 
-# Clj
 curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
-# Node
 nvm install 12.18.4
 sudo npm install -g \
     yarn \
@@ -147,7 +149,6 @@ sudo npm install -g \
     prettier \
     serve
 
-# Python
 sudo pip3 install \
     virtualenv \
     poetry \
@@ -158,12 +159,11 @@ sudo pip3 install \
     mypy \
     flake8 \
     pyls \
+    docker-compose \
     docker-pretty-ps
 
-# Rust
 curl https://sh.rustup.rs -sSf | sh
 rustup toolchain add nightly
 cargo +nightly install racer
 
-# Ruby
 gem install solargraph
