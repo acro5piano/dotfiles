@@ -429,15 +429,15 @@ vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
 " See https://github.com/junegunn/f.vimrc.vim#example-advanced-ripgrep-integration
-function! RipgrepFzf(query, fullscreen)
+function! RipgrepFzf(query)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s '
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec))
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
 
 " Go to definition
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
@@ -473,20 +473,25 @@ function! s:gitfiles_monorepo()
   let l:path = substitute(getcwd(), l:root, '', '')
   let l:path = substitute(l:path, '/', '', '')
 
-  let l:options = '-m --preview "pygmentize -g {1}" --prompt "GitFiles> " '
+  let l:options = '-m --preview "cat {1} " --prompt "GitFiles> " '
   if l:path != ''
     let l:options .= '--query '.l:path.'/'
   endif
+
 
   call fzf#run({
   \ 'source':  'git ls-files | uniq',
   \ 'sink': 'e',
   \ 'dir': l:root,
   \ 'options': l:options,
-  \ 'down':    '40%'
+  \ 'down': '40%',
   \})
+  " \ 'window': {'width': 0.9, 'height': 0.9},
+  " \ 'down':    '40%'
 endfunction
 command! GFilesMonorepo call s:gitfiles_monorepo()
+
+let g:fzf_layout = {'down': '40%'}
 
 "--------------
 " Git
