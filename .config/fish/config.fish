@@ -58,6 +58,8 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
+# set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
+
 # }}}
 
 # {{{ functions

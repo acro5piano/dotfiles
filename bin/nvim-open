@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+from pynvim import attach
+import sys
+
+
+nvim = attach('socket', path=sys.argv[1])
+nvim.command('silent! wincmd p', async_=True)
+nvim.command('silent! e {}'.format(sys.argv[2]), async_=True)
+nvim.command('silent! wincmd p', async_=True)
+nvim.command('silent! startinsert', async_=True)

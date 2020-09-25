@@ -52,3 +52,4 @@ TAGS
 
 sentry-cli
 .log
+__pycache__
