@@ -6,4 +6,8 @@ t=`echo "${password}__${1}" | shasum -a 256 | base64 | cut -c1-32`
 
 echo $t
 
-echo $t | pbcopy
+if [ `uname` == 'Linux' ]; then
+    echo $t | xclip -i -selection clipboard
+else
+    echo $t | pbcopy
+fi

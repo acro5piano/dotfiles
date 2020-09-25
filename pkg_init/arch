@@ -4,81 +4,166 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-# Level 1 - Really basic applications to run os
-function level-1 {
-    sudo pacman -S --needed --noconfirm \
-        fish vim inotify-tools bc make git tmux openssh \
-        rsync tree curl jq man at ripgrep ctags zip unzip fzf \
-        yaourt docker docker-compose ruby \
-        xorg xorg-xinit synaptics awesome \
-        fcitx fcitx-im fcitx-mozc fcitx-configtool \
-        terminator pcmanfm dmenu \
-        xclip xdotool xscreensaver acpi alsa-lib alsa-utils \
-        adobe-source-code-pro-fonts
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
+sudo pacman -Sy archlinux-keyring
 
-    yaourt -S --needed \
-        otf-ipaexfont maim google-chrome
+sudo pacman -S --needed \
+    fish \
+    vim \
+    neovim \
+    inotify-tools \
+    openssl \
+    make \
+    git \
+    tmux \
+    openssh \
+    rubygems \
+    libvterm \
+    libuv \
+    rsync \
+    tree \
+    curl \
+    jq \
+    man \
+    at \
+    ripgrep \
+    escrotum \
+    ctags \
+    zip \
+    unzip \
+    fzf \
+    docker \
+    docker-compose \
+    ruby \
+    xorg \
+    xorg-xinit \
+    python-six \
+    synaptics \
+    awesome \
+    fcitx \
+    fcitx-im \
+    fcitx-mozc \
+    fcitx-configtool \
+    alacritty \
+    pcmanfm \
+    chromium \
+    dmenu \
+    xclip \
+    xdotool \
+    xscreensaver \
+    acpi \
+    alsa-lib \
+    alsa-utils \
+    adobe-source-code-pro-fonts \
+    python \
+    gcc-fortran \
+    lapack \
+    libpng \
+    go \
+    lua \
+    php \
+    php-gd \
+    php-sqlite \
+    composer \
+    nodejs npm \
+    jdk8-openjdk \
+    clojure \
+    arch-install-scripts \
+    imagemagick \
+    ghostscript \
+    httpie \
+    wmctrl \
+    vlc \
+    feh \
+    pinta \
+    moc \
+    eog \
+    evince \
+    libevent \
+    firefox \
+    libreoffice-fresh \
+    postgresql-client \
+    ldns \
+    wavpack \
+    inkscape
 
-    [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
-    if ! which xremap; then
-        cd /tmp
-        git clone https://github.com/k0kubun/xremap
-        cd xremap
-        make
-        sudo make install
-    fi
+which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
 
-    grep -q docker /etc/group || sudo groupadd docker
-    sudo gpasswd -a $USER docker
-    sudo gpasswd -a $USER sys
-    echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
-}
+sudo python3 -m ensurepip
+sudo pip3 --upgrade install pip
 
-# Level 2 - Some developing packages
-function level-2 {
-    sudo pacman -S --needed --noconfirm \
-        python3 python-pip gcc-fortran lapack libpng \
-        go \
-        lua \
-        php php-gd php-sqlite composer \
-        nodejs npm \
-        jdk8-openjdk \
-        clojure \
-        arch-install-scripts \
-        imagemagick ghostscript \
-        httpie \
-        wmctrl vlc feh pinta moc eog evince libreoffice-fresh wavpack inkscape
-    yaourt -S --needed --noconfirm \
-        leiningen \
-        android-platform android-sdk android-sdk-platform-tools android-sdk-build-tools android-platform-23 \
-        ttf-emojione-color
+yay -S --needed \
+    otf-ipaexfont \
+    maim \
+    google-chrome \
+    leiningen \
+    android-platform \
+    android-sdk \
+    android-sdk-platform-tools \
+    android-sdk-build-tools \
+    android-platform-28 \
+    noto-fonts-emoji
 
-    # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
-    android update sdk --no-ui --all --filter platform-tools,android-25,extra-android-m2repository
-    android update sdk --no-ui --all --filter build-tools-23.0.1,android-23,extra-android-m2repository
-    sudo ln -s /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
+[ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    go get github.com/github/hub
+[ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    unset NVM_DIR
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+    fisher
+fi
 
-    which bundle   || gem install bundler pry
-    which yarn     || npm install -g yarn exp create-react-app create-react-native-app vue-cli
-    which psysh || composer global require psy/psysh hirak/prestissimo phpunit/phpunit
-    which pipenv    || pip install --user --upgrade virtualenv ipython mycli pipenv
-}
+if ! which xremap; then
+    cd /tmp
+    git clone https://github.com/k0kubun/xremap
+    cd xremap
+    make
+    sudo make install
+fi
 
-# Level 3 - Sometimes needed packages
-function level-3 {
-    sudo pacman -S --needed --noconfirm \
-        graphviz transmission-cli rlwrap nmap traceroute openssl
-    yaourt -S --needed --noconfirm \
-        nkf cmigemo-git \
-        leiningen
-}
+grep -q docker /etc/group || sudo groupadd docker
+sudo gpasswd -a $USER docker
+sudo gpasswd -a $USER sys
+echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
 
-level-1
-# level-2
-# level-3
+# https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
+android update sdk --no-ui --all --filter platform-tools,android-28,extra-android-m2repository
+android update sdk --no-ui --all --filter build-tools-28.0.1,android-28,extra-android-m2repository
+sudo ln -svf /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
+
+go get github.com/github/hub
+
+curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
+
+nvm install 12.18.4
+sudo npm install -g \
+    yarn \
+    vue-cli \
+    react-native-cli \
+    create-react-app \
+    firebase-tools \
+    prettier \
+    serve
+
+sudo pip3 install \
+    virtualenv \
+    poetry \
+    awscli \
+    pgcli \
+    mycli \
+    litecli \
+    mypy \
+    flake8 \
+    pyls \
+    docker-compose \
+    docker-pretty-ps
+
+curl https://sh.rustup.rs -sSf | sh
+rustup toolchain add nightly
+cargo +nightly install racer
+
+gem install solargraph
