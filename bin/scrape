@@ -6,12 +6,21 @@ require 'optparse'
 config = Hash.new
 opts = OptionParser.new
 opts.on('-g group') { |v| config[:g] = v }
+opts.on('-t target') { |v| config[:t] = v }
+opts.on('-u url') { |v| config[:u] = v }
 opts.parse!(ARGV)
 
 document = Nokogiri::HTML(STDIN)
 
 if config[:g].nil?
-  puts document.css(ARGV[0]).map(&:text)
+  docs = document.css(ARGV[0])
+  if config[:t].nil?
+    docs.map { |e| puts e }
+  elsif config[:t] == 'text'
+    docs.map { |e| puts e.text }
+  else
+    docs.map { |e| puts e.attr(config[:t]) }
+  end
 else
   document.css(config[:g]).each do |doc|
     puts ARGV.map { |arg| doc.css(arg).text }.join("\t")

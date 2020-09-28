@@ -46,4 +46,4 @@ rustup toolchain add nightly
 cargo +nightly install racer
 
 # Ruby
-gem install solargraph
+gem install --no-document solargraph nokogiri
