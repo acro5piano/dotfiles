@@ -38,6 +38,7 @@ sudo pacman -S --needed \
     gcc-fortran \
     ghostscript \
     git \
+    sudo pacman -S github-cli \
     go \
     httpie \
     imagemagick \

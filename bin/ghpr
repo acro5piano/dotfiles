@@ -2,6 +2,7 @@
 
 branch=$1
 message=$2
+body=$3
 
 url=""
 
@@ -18,7 +19,12 @@ else
     if [ "$branch" == 'm' ]; then
         branch=master
     fi
-    url=`hub pull-request -m "$message" -b "$branch"`
+    url=`gh pr create -H "$branch" -t "$message" -b "$body' | tail -1`
+
 fi
 
-open $url
+if [ `uname` == 'Linux' ]; then
+    xdg-open $url
+else
+    open $url
+fi
