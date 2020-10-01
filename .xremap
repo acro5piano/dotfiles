@@ -34,9 +34,9 @@ window class_only: ['chromium-browser', 'chromium', 'google-chrome'] do
   remap 'M-p', to: 'Ctrl-p'
   remap 'M-c', to: 'Ctrl-c'
 
-  # OSX Like
-  remap 'M-Up', to: 'Ctrl-Home'
-  remap 'M-Down', to: 'Ctrl-End'
+  # OSX Like - not working with Slack
+  # remap 'M-Up', to: 'Ctrl-Home'
+  # remap 'M-Down', to: 'Ctrl-End'
 
   # Slack
   remap 'M-x', to: 'Ctrl-k'
