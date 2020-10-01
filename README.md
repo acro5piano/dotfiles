@@ -136,5 +136,5 @@ bash $HOME/.dotfiles/pkg_init/arch
 ```
 cd
 rm -rf .mozc
-git clone git@bitbucket.com:/Kazuya-Gosho/mozc .mozc
+git clone git@github.com:acro5piano/mozc.git .mozc
 ```
