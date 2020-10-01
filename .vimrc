@@ -408,7 +408,7 @@ nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rg :RG!<CR>
+nnoremap <Leader>rg :MYRG<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>sn :Snippets<CR>
@@ -428,16 +428,21 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
-" See https://github.com/junegunn/f.vimrc.vim#example-advanced-ripgrep-integration
-function! RipgrepFzf(query, fullscreen)
+command! -bang -nargs=* MYRG
+  \ call fzf#vim#grep(
+  \   "rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('up', 'ctrl-/'), <bang>0)
+
+" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+function! RipgrepFzf(query)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s '
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview('up', spec))
 endfunction
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
 
 " Go to definition
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
@@ -458,6 +463,7 @@ vmap <F1> <ESC>
 "--------------
 " FZF customization
 "--------------
+let g:fzf_layout = {'down': '40%'}
 
 " ported from https://github.com/junegunn/fzf.vim/blob/master/autoload/fzf/vim.vim#L546
 function! s:get_git_root()
@@ -468,12 +474,21 @@ function! s:get_git_root()
   return l:root
 endfunction
 
+let g:fzf_action = {
+  \ 'alt-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let s:preview_bind = join([
+    \ '--bind "ctrl-o:execute-silent:nvim-open '.v:servername.' {1} & "',
+    \ ])
+
 function! s:gitfiles_monorepo()
   let l:root = s:get_git_root()
   let l:path = substitute(getcwd(), l:root, '', '')
   let l:path = substitute(l:path, '/', '', '')
 
-  let l:options = '-m --preview "pygmentize -g {1}" --prompt "GitFiles> " '
+  let l:options = '-m '.s:preview_bind.' --preview "pygmentize -g {1}" --prompt "GitFiles> " '
   if l:path != ''
     let l:options .= '--query '.l:path.'/'
   endif
@@ -483,7 +498,7 @@ function! s:gitfiles_monorepo()
   \ 'sink': 'e',
   \ 'dir': l:root,
   \ 'options': l:options,
-  \ 'down':    '40%'
+  \ 'down': g:fzf_layout['down'],
   \})
 endfunction
 command! GFilesMonorepo call s:gitfiles_monorepo()

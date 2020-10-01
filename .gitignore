@@ -51,3 +51,5 @@ TAGS
 .netrwhist
 
 sentry-cli
+.log
+__pycache__

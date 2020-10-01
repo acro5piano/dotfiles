@@ -58,18 +58,11 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
+# set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
+
 # }}}
 
 # {{{ functions
-
-function delete-all-tables
-    echo 'if it is ok, press ^d'
-    cat
-    mysqldump -u homestead -psecret \
-      --add-drop-table --no-data -P 33060 homestead -h 127.0.0.1 | \
-      grep -e '^DROP \| FOREIGN_KEY_CHECKS' | \
-      mysql -u homestead -psecret -P 33060 -h 127.0.0.1 homestead
-end
 
 function __fzf_history
   history | perl -nle 'print if length($_) < 200' | fzf-tmux --exact -d40% +s +m --query=(commandline -b) \
