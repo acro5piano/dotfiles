@@ -10,13 +10,13 @@ fcitx-autostart
 # Set mime type, or default applications
 xdg-settings set default-web-browser browser.desktop
 xdg-mime default google-chrome-stable.desktop text/html
-xdg-mime default libreoffice.desktop text/csv
-xdg-mime default libreoffice.desktop application/docx
 xdg-mime default google-chrome-stable.desktop x-scheme-handler/http
 xdg-mime default google-chrome-stable.desktop x-scheme-handler/https
+xdg-mime default google-chrome-stable.desktop text/html
+xdg-mime default libreoffice.desktop text/csv
+xdg-mime default libreoffice.desktop application/docx
 xdg-mime default evince.desktop application/pdf
 xdg-mime default pcmanfm.desktop inode/directory
-xdg-mime default google-chrome-stable.desktop text/html
 
 # Keyboard repeat frequency
 xset r rate 250
@@ -28,7 +28,7 @@ xrandr --output DP-2 --above eDP-1 --mode 1920x1080
 feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
 
 # Run terminal when not run
-pgrep terminator > /dev/null || terminator &
+pgrep alacritty > /dev/null || alacritty &
 pgrep google-chrome-stable > /dev/null || google-chrome-stable &
 
 # touchpad

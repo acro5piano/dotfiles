@@ -9,91 +9,81 @@ sudo pacman-key --refresh-keys
 sudo pacman -Sy archlinux-keyring
 
 sudo pacman -S --needed \
-    fish \
-    vim \
-    neovim \
-    inotify-tools \
-    openssl \
-    make \
-    git \
-    tmux \
-    openssh \
-    rubygems \
-    libvterm \
-    libuv \
-    rsync \
-    tree \
-    curl \
-    jq \
-    man \
-    at \
-    ripgrep \
-    escrotum \
-    ctags \
-    zip \
-    unzip \
-    fzf \
-    docker \
-    docker-compose \
-    ruby \
-    xorg \
-    xorg-xinit \
-    python-six \
-    synaptics \
-    awesome \
-    fcitx \
-    fcitx-im \
-    fcitx-mozc \
-    fcitx-configtool \
-    alacritty \
-    pcmanfm \
-    chromium \
-    dmenu \
-    xclip \
-    xdotool \
-    xscreensaver \
     acpi \
+    adobe-source-code-pro-fonts \
+    alacritty \
     alsa-lib \
     alsa-utils \
-    adobe-source-code-pro-fonts \
-    python \
+    arch-install-scripts \
+    at \
+    awesome \
+    chromium \
+    clojure \
+    composer \
+    ctags \
+    curl \
+    dmenu \
+    docker \
+    docker-compose \
+    eog \
+    escrotum \
+    evince \
+    fcitx \
+    fcitx-configtool \
+    fcitx-im \
+    fcitx-mozc \
+    feh \
+    fish \
+    fzf \
     gcc-fortran \
-    lapack \
-    libpng \
+    ghostscript \
+    git \
     go \
+    httpie \
+    imagemagick \
+    inotify-tools \
+    jdk8-openjdk \
+    jq \
+    lapack \
+    ldns \
+    libevent \
+    libpng \
+    libreoffice-fresh \
+    libuv \
+    libvterm \
     lua \
+    make \
+    man \
+    moc \
+    neovim \
+    nodejs npm \
+    openssh \
+    openssl \
+    pcmanfm \
     php \
     php-gd \
     php-sqlite \
-    composer \
-    nodejs npm \
-    jdk8-openjdk \
-    clojure \
-    arch-install-scripts \
-    imagemagick \
-    ghostscript \
-    httpie \
-    wmctrl \
-    vlc \
-    feh \
     pinta \
-    moc \
-    eog \
-    evince \
-    libevent \
-    firefox \
-    libreoffice-fresh \
     postgresql-client \
-    ldns \
+    python \
+    ripgrep \
+    rsync \
+    ruby \
+    rubygems \
+    synaptics \
+    tmux \
+    tree \
+    unzip \
+    vim \
+    vlc \
     wavpack \
-    inkscape
-
-sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
-
-which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
-
-sudo python3 -m ensurepip
-sudo pip3 --upgrade install pip
+    wmctrl \
+    xclip \
+    xdotool \
+    xorg \
+    xorg-xinit \
+    xscreensaver \
+    zip
 
 yay -S --needed \
     otf-ipaexfont \
@@ -106,6 +96,13 @@ yay -S --needed \
     android-sdk-build-tools \
     android-platform-28 \
     noto-fonts-emoji
+
+sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
+
+which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
+
+sudo python3 -m ensurepip
+
 
 [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
