@@ -326,9 +326,9 @@ if [ "$TERM" = 'xterm-256color' ]
     end
 end
 
-if [ -e /etc/arch-release ]
-    sudo sysctl -p > /dev/null &
-end
+# if [ -e /etc/arch-release ]
+#     sudo sysctl -p > /dev/null &
+# end
 
 # bass source ~/.gvm/scripts/gvm
 

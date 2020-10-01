@@ -4,9 +4,7 @@ The following files are not included in this repository so back up
 
 - ~/.ssh
 - ~/.aws
-- ~/.traimmu_dotfiles
 - ~/var
-- /etc/hosts
 
 ```
 sudo mount /dev/sdb1 /mnt
@@ -43,6 +41,8 @@ mount /dev/sda1 /mnt
 ```
 
 ## pacman and yaourt
+
+TODO: move this section into `yay`.
 
 ```sh
 vim /etc/pacman.d/mirrorlist
@@ -104,7 +104,7 @@ useradd --create-home kazuya
 passwd kazuya
 gpasswd -a kazuya wheel
 
-# %wheel ALL=(ALL) NOPASSWD: ALL
+# %wheel ALL=(ALL) ALL
 visudo
 
 exit
