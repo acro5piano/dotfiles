@@ -142,7 +142,7 @@ go get github.com/github/hub
 curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
 nvm install 12.18.4
-sudo npm install -g \
+npm install -g \
     yarn \
     vue-cli \
     react-native-cli \
@@ -151,7 +151,7 @@ sudo npm install -g \
     prettier \
     serve
 
-sudo pip3 install \
+pip3 install --user \
     virtualenv \
     poetry \
     awscli \
