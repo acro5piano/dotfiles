@@ -64,6 +64,7 @@ sudo pacman -S --needed \
     php \
     php-gd \
     php-sqlite \
+    pulseaudio \
     pinta \
     postgresql-client \
     python \
@@ -100,6 +101,8 @@ yay -S --needed \
     noto-fonts-emoji
 
 sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
+
+systemctl --user status pulseaudio
 
 which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
 

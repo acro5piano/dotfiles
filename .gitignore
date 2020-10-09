@@ -6,7 +6,7 @@
 !.config/touchegg
 !.config/wallpapers
 !.config/nvim
-!.config/systemd
+# !.config/systemd
 !.config/fish
 !.config/flake8
 .config/fish/functions

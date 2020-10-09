@@ -11,7 +11,8 @@ window_id=$(xwininfo | grep 'Window id' | perl -pe 's/ /\n/g' | grep 0x)
 
 cd $(mktemp -d)
 
-recordmydesktop --windowid $window_id --no-sound --no-wm-check --no-frame --delay 2 $capture_cursor
+# recordmydesktop --windowid $window_id --no-sound --no-wm-check --no-frame --delay 2 $capture_cursor
+recordmydesktop --no-sound --no-wm-check --no-frame --delay 2 $capture_cursor
 
 ffmpeg -i out.ogv out.gif
 

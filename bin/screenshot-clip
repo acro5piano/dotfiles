@@ -3,4 +3,4 @@
 maim -s | xclip -selection clipboard -t image/png
 xclip -o -selection clipboard > ~/var/screenshots/$(date +%Y-%m-%d_%H-%I-%S).png
 
-which xremap && nohup xremap .xremap & || true
+which xremap && nohup xremap ~/.xremap & || true

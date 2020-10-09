@@ -165,7 +165,7 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
+    -- awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("systemctl suspend") end),
@@ -187,10 +187,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
+    -- awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
+    awful.key({ modkey, "Shift"   }, "4", function () awful.util.spawn("screenshot-clip") end), -- OSX compatibility
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "x",     function () awful.util.spawn("dmenu_run_vertical") end),
-    awful.key({ modkey,           }, "w", function () awful.client.swap.byidx(1) end),
+    awful.key({ modkey,           }, "o", function () awful.client.swap.byidx(1) end),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
@@ -206,9 +207,9 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "z",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,           }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey,           }, "f",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
+    -- awful.key({ modkey,           }, "f",  awful.client.floating.toggle                     ),
+    -- awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end)
 )

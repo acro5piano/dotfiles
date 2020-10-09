@@ -18,6 +18,10 @@ xdg-mime default libreoffice.desktop application/docx
 xdg-mime default evince.desktop application/pdf
 xdg-mime default pcmanfm.desktop inode/directory
 
+if [ ! -e $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
+    systemctl --user enable pulseaudio
+fi
+
 # Keyboard repeat frequency
 xset r rate 250
 
