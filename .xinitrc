@@ -20,6 +20,7 @@ xdg-mime default pcmanfm.desktop inode/directory
 
 if [ ! -e $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
     systemctl --user enable pulseaudio
+    systemctl --user start pulseaudio
 fi
 
 # Keyboard repeat frequency
