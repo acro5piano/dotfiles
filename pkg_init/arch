@@ -38,9 +38,7 @@ sudo pacman -S --needed \
     gcc-fortran \
     ghostscript \
     git \
-    sudo pacman -S github-cli \
     go \
-    httpie \
     imagemagick \
     inotify-tools \
     jdk8-openjdk \
@@ -57,7 +55,7 @@ sudo pacman -S --needed \
     man \
     moc \
     neovim \
-    nodejs npm \
+    nodejs \
     openssh \
     openssl \
     pcmanfm \
