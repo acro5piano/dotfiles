@@ -92,10 +92,10 @@ font:
 # custom_cursor_colors: false
 #
 # # Colors (Tomorrow Night Bright)
-# colors:
+colors:
 #   # Default colors
-#   primary:
-#     background: '0x002b36'
+  primary:
+    background: '0x000000'
 #     foreground: '0x93a1a1'
 #
 #     # (Optional) Bright and Dim foreground colors
