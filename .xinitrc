@@ -27,7 +27,7 @@ fi
 xset r rate 250
 
 # Multi display
-xrandr --output DP-2 --above eDP-1 --mode 1920x1080
+# xrandr --output DP-2 --above eDP-1 --mode 1920x1080
 
 # wallpaper
 feh --bg-fill $HOME/.config/wallpapers/iceland.jpg

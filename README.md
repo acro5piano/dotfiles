@@ -77,9 +77,8 @@ arch-chroot /mnt
 
 # Network tools
 pacman --sync --refresh yaourt
-pacman -S grub wireless_tools netctl wpa_supplicant wpa_actiond dialog git
-systemctl enable netctl
-systemctl enable netctl-auto@wlp3s0.service
+pacman -S grub iwd dhcpcd dialog git
+systemctl enable iwd dhcpcd
 
 # Do not start dhcpcd because this disturb netctl
 # see https://bbs.archlinux.org/viewtopic.php?pid=1328423#p1328423
