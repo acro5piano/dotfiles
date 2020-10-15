@@ -69,20 +69,21 @@ Server = http://repo.archlinux.fr/$arch
 ## Install base system
 
 ```sh
+# Connect to a Network
+iwctl
+
+# FSTab
 pacstrap /mnt base base-devel
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Enter new arch
 arch-chroot /mnt
 
-# Network tools
-pacman --sync --refresh yaourt
-pacman -S grub iwd dhcpcd dialog git
-systemctl enable iwd dhcpcd
+# Very basic things
+pacman -S yay grub iwd
 
-# Do not start dhcpcd because this disturb netctl
-# see https://bbs.archlinux.org/viewtopic.php?pid=1328423#p1328423
-#systemctl enable dhcpcd.service
+# Connect to a Network
+iwctl
 
 # Grub
 grub-install /dev/sda
