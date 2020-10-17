@@ -102,7 +102,7 @@ yay -S --needed \
 
 sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
-systemctl --user status pulseaudio
+systemctl --user enable pulseaudio
 
 which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
 
