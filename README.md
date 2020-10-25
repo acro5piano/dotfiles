@@ -2,6 +2,7 @@
 
 The following files are not included in this repository so back up
 
+- ~/.mozc
 - ~/.ssh
 - ~/.aws
 - ~/var
@@ -131,10 +132,12 @@ and install packages:
 bash $HOME/.dotfiles/pkg_init/arch
 ```
 
-# Mozc settings
+# Install extra dotfiles
 
 ```
-cd
 rm -rf .mozc
-git clone git@github.com:acro5piano/mozc.git .mozc
+git clone git@github.com:acro5piano/mozc.git $HOME/.mozc
+
+rm -rf .ssh
+git clone git@github.com:acro5piano/ssh.git $HOME/.ssh
 ```
