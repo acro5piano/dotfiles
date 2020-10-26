@@ -82,7 +82,7 @@ function seishin
     cd $dir
 end
 
-function ghq
+function gl
   if [ "$argv" ]
     set domain github.com
     if echo "$argv" | grep -q :
