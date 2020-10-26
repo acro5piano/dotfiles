@@ -82,6 +82,12 @@ arch-chroot /mnt
 # Very basic things
 pacman -S yay grub iwd
 
+# Configure iwd
+cat <<'EOF'| sudo tee /etc/iwd/main.conf
+[General]
+EnableNetworkConfiguration=true
+EOF
+
 # Connect to a Network
 iwctl
 

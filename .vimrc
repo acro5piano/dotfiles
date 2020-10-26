@@ -444,6 +444,9 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
 
+command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
+command! TTagnize execute("normal vitS`vitS{at")
+
 " Go to definition
 nnoremap <Leader>aj :ALEGoToDefinition<CR>
 nnoremap <Leader>ah :ALEHover<CR>

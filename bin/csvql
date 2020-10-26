@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sqlite3 -header -csv -cmd ".import $1 t" -cmd ".mode markdown" :memory:

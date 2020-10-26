@@ -16,8 +16,8 @@ end
 
 set -gx DENO_INSTALL $HOME/.deno
 
-# [ -e $HOME/.go ]; or mkdir $HOME/.go
-# set -gx GOPATH $HOME/.go ^/dev/null
+[ -e $HOME/go ]; or mkdir $HOME/.go
+set -gx GOPATH $HOME/go ^/dev/null
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
             $DENO_INSTALL/bin \
@@ -58,6 +58,8 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
+set -gx NODE_PATH $NODE_PATH:`npm root -g`
+
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
 # }}}
@@ -80,7 +82,7 @@ function seishin
     cd $dir
 end
 
-function gh
+function ghq
   if [ "$argv" ]
     set domain github.com
     if echo "$argv" | grep -q :

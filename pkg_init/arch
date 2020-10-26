@@ -38,6 +38,7 @@ sudo pacman -S --needed \
     gcc-fortran \
     ghostscript \
     git \
+    github-cli \
     go \
     imagemagick \
     inotify-tools \
@@ -162,6 +163,8 @@ pip3 install --user \
     mypy \
     flake8 \
     pyls \
+    pandas \
+    ipython \
     docker-compose \
     docker-pretty-ps
 
