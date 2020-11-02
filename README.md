@@ -129,7 +129,7 @@ then install dotfiles:
 ```sh
 cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
-$HOME/.dotfiles/bin/dot link
+$HOME/.dotfiles/bin/dotfiles link
 ```
 
 and install packages:
@@ -141,9 +141,9 @@ bash $HOME/.dotfiles/pkg_init/arch
 # Install extra dotfiles
 
 ```
+rm -rf .ssh
+git clone https://github.com/acro5piano/ssh.git $HOME/.ssh
+
 rm -rf .mozc
 git clone git@github.com:acro5piano/mozc.git $HOME/.mozc
-
-rm -rf .ssh
-git clone git@github.com:acro5piano/ssh.git $HOME/.ssh
 ```
