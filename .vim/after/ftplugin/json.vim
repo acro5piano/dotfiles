@@ -1,1 +1,2 @@
 IndentLinesDisable
+set ft=javascript

@@ -150,13 +150,12 @@ if has('nvim')
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy'],
         \ 'php': ['php', 'phpstan'],
-        \ 'javascript': ['flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo'],
-        \ 'typescript': ['tsserver', 'stylelint'],
+        \ 'javascript': ['flow', 'flow-language-server', 'tsserver'],
+        \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         \ 'tsx': ['tsserver', 'stylelint'],
         \ 'typescriptreact': ['tsserver', 'stylelint',],
         \ 'html': [],
         \}
-        " \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 
     let g:ale_rust_rustc_options = '--emit metadata'
@@ -549,6 +548,10 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
+endif
+
+if has('nvim')
+    autocmd BufEnter *.json set ft=javascript
 endif
 
 " remember cursor position

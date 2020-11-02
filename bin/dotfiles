@@ -19,8 +19,8 @@ link(){
         ln -snvf "$DOTPATH/$f" "$HOME/$f"
     done
 
-    # ln -snfv $HOME/.vim/after $HOME/.config/nvim/after
     ln -snfv "$DOTPATH/bin" "$HOME/bin"
+    ln -snfv "$DOTPATH/prettier.config.js" "$HOME/prettier.config.js"
 }
 
 usage(){
