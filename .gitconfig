@@ -27,3 +27,5 @@
 	postBuffer = 1048576000
 [ghq]
     root = ~/ghq
+[pull]
+	rebase = false
