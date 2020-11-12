@@ -30,11 +30,11 @@ xset r rate 250
 # xrandr --output DP-2 --above eDP-1 --mode 1920x1080
 
 # wallpaper
-feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
+# feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
 
 # Run terminal when not run
-pgrep alacritty > /dev/null || alacritty &
-pgrep google-chrome-stable > /dev/null || google-chrome-stable &
+# pgrep alacritty > /dev/null || alacritty &
+# pgrep google-chrome-stable > /dev/null || google-chrome-stable &
 
 # touchpad
 synclient TapButton1=1
@@ -49,4 +49,5 @@ xmodmap $HOME/.xmodmap
 
 bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
 
-exec awesome
+# exec awesome
+exec spectrwm

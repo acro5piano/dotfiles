@@ -16,7 +16,6 @@ sudo pacman -S --needed \
     alsa-utils \
     arch-install-scripts \
     at \
-    awesome \
     chromium \
     clojure \
     composer \
@@ -73,6 +72,7 @@ sudo pacman -S --needed \
     rsync \
     ruby \
     rubygems \
+    spectrwm \
     synaptics \
     terraform \
     tmux \
@@ -92,7 +92,6 @@ sudo pacman -S --needed \
 yay -S --needed \
     otf-ipaexfont \
     maim \
-    google-chrome \
     leiningen \
     android-platform \
     android-sdk \
