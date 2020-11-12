@@ -9,10 +9,10 @@ fcitx-autostart
 
 # Set mime type, or default applications
 xdg-settings set default-web-browser browser.desktop
-xdg-mime default google-chrome-stable.desktop text/html
-xdg-mime default google-chrome-stable.desktop x-scheme-handler/http
-xdg-mime default google-chrome-stable.desktop x-scheme-handler/https
-xdg-mime default google-chrome-stable.desktop text/html
+xdg-mime default chromium.desktop text/html
+xdg-mime default chromium.desktop x-scheme-handler/http
+xdg-mime default chromium.desktop x-scheme-handler/https
+xdg-mime default chromium.desktop text/html
 xdg-mime default libreoffice.desktop text/csv
 xdg-mime default libreoffice.desktop application/docx
 xdg-mime default evince.desktop application/pdf
@@ -30,11 +30,7 @@ xset r rate 250
 # xrandr --output DP-2 --above eDP-1 --mode 1920x1080
 
 # wallpaper
-# feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
-
-# Run terminal when not run
-# pgrep alacritty > /dev/null || alacritty &
-# pgrep google-chrome-stable > /dev/null || google-chrome-stable &
+feh --bg-fill $HOME/.config/wallpapers/iceland.jpg
 
 # touchpad
 synclient TapButton1=1
@@ -49,5 +45,4 @@ xmodmap $HOME/.xmodmap
 
 bash -c 'sleep 5; xremap ~/.xremap 2>&1 > /tmp/xremap.log &'
 
-# exec awesome
 exec spectrwm
