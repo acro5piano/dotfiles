@@ -165,6 +165,7 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("systemctl suspend") end),
+    awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "h",
         function ()
@@ -182,8 +183,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
-    -- awful.key({ modkey,           }, "s", function () awful.util.spawn("screenshot-clip") end),
-    awful.key({ modkey, "Shift"   }, "4", function () awful.util.spawn("screenshot-clip") end), -- OSX compatibility
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "x",     function () awful.util.spawn("dmenu_run_vertical") end),
     awful.key({ modkey,           }, "o", function () awful.client.swap.byidx(1) end),
