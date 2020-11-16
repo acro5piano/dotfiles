@@ -43,7 +43,7 @@ end
 beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -61,22 +61,18 @@ local layouts =
 }
 -- }}}
 
--- {{{ Wallpaper
 if beautiful.wallpaper then
     for s = 1, screen.count() do
         gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
 end
--- }}}
 
--- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
--- }}}
 
 -- {{{ Wibox
 -- Create a textclock widget
@@ -166,10 +162,9 @@ end
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- awful.key({ modkey,           }, "b", function () awful.util.spawn("select_window") end),
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    -- awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("systemctl suspend") end),
-    awful.key({ modkey,           }, "i", function () awful.util.spawn("google-chrome-stable") end),
     awful.key({ modkey,           }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "h",
         function ()
@@ -209,7 +204,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "z",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
     -- awful.key({ modkey,           }, "f",  awful.client.floating.toggle                     ),
-    -- awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end)
 )
