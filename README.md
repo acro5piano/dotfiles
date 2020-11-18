@@ -87,6 +87,9 @@ pacman -S yay grub iwd
 cat <<'EOF'| sudo tee /etc/iwd/main.conf
 [General]
 EnableNetworkConfiguration=true
+
+[Network]
+NameResolvingService=systemd
 EOF
 
 # Connect to a Network
@@ -100,6 +103,10 @@ exit
 umount -R /mnt
 reboot
 ```
+
+If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
+
+
 
 # Install dotfiles
 
