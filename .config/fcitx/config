@@ -27,7 +27,7 @@ TriggerKey=
 # Super+Right Ctrl
 # Disabled
 # Custom
-#SwitchKey=L_SHIFT
+SwitchKey=R_ALT
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
@@ -52,7 +52,7 @@ IMSwitchHotkey=ALT_SUPER
 # Reload configuration
 #ReloadConfig=CTRL_5
 # Interval of Two Key Input
-TimeInterval=25
+TimeInterval=16
 # Switching Virtual Keyboard
 VKSwitchKey=
 # Switching Remind Mode

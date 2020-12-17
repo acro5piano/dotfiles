@@ -7,4 +7,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"

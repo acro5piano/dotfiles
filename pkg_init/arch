@@ -4,172 +4,178 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-sudo pacman-key --populate archlinux
-sudo pacman-key --refresh-keys
-sudo pacman -Sy archlinux-keyring
+# sudo pacman-key --populate archlinux
+# sudo pacman-key --refresh-keys
+# sudo pacman -Sy archlinux-keyring
 
-sudo pacman -S --needed \
-    acpi \
-    adobe-source-code-pro-fonts \
-    alacritty \
-    alsa-lib \
-    alsa-utils \
-    arch-install-scripts \
-    at \
-    chromium \
-    clojure \
-    composer \
-    ctags \
-    curl \
-    dmenu \
-    docker \
-    docker-compose \
-    eog \
-    escrotum \
-    evince \
-    fcitx \
-    fcitx-configtool \
-    fcitx-im \
-    fcitx-mozc \
-    feh \
-    fish \
-    fzf \
-    gcc-fortran \
-    ghostscript \
-    git \
-    github-cli \
-    go \
-    imagemagick \
-    inotify-tools \
-    jdk8-openjdk \
-    jq \
-    lapack \
-    ldns \
-    libevent \
-    libpng \
-    libreoffice-fresh \
-    libuv \
-    libvterm \
-    lua \
-    make \
-    man \
-    moc \
-    neovim \
-    nodejs \
-    openssh \
-    openssl \
-    pcmanfm \
-    php \
-    php-gd \
-    php-sqlite \
-    pulseaudio \
-    pavucontrol-qt \
-    pinta \
-    recordmydesktop \
-    postgresql-client \
-    python \
-    ripgrep \
-    rsync \
-    ruby \
-    rubygems \
-    spectrwm \
-    synaptics \
-    terraform \
-    tmux \
-    tree \
-    unzip \
-    vim \
-    vlc \
-    wavpack \
-    wmctrl \
-    xclip \
-    xdotool \
-    xorg \
-    xorg-xinit \
-    xscreensaver \
-    zip
+# sudo pacman -Sy --needed \
+#     acpi \
+#     adobe-source-code-pro-fonts \
+#     alacritty \
+#     alsa-lib \
+#     alsa-utils \
+#     arch-install-scripts \
+#     at \
+#     chromium
+#
+# sudo pacman -Sy --needed \
+#     acpi \
+#     adobe-source-code-pro-fonts \
+#     alacritty \
+#     alsa-lib \
+#     alsa-utils \
+#     arch-install-scripts \
+#     at \
+#     awesome \
+#     chromium \
+#     clojure \
+#     composer \
+#     ctags \
+#     curl \
+#     dmenu \
+#     docker \
+#     docker-compose \
+#     eog \
+#     evince \
+#     fcitx \
+#     fcitx-configtool \
+#     fcitx-qt5 \
+#     fcitx-mozc \
+#     feh \
+#     fish \
+#     fzf \
+#     gcc-fortran \
+#     ghostscript \
+#     git \
+#     github-cli \
+#     go \
+#     imagemagick \
+#     jdk8-openjdk \
+#     jq \
+#     lapack \
+#     ldns \
+#     libevent \
+#     libpng \
+#     libreoffice-fresh \
+#     libuv \
+#     libvterm \
+#     lua \
+#     make \
+#     man-db \
+#     moc \
+#     neovim \
+#     nodejs \
+#     openssh \
+#     openssl \
+#     pcmanfm \
+#     php \
+#     php-gd \
+#     php-sqlite \
+#     pulseaudio \
+#     pavucontrol-qt \
+#     pinta \
+#     recordmydesktop \
+#     postgresql-client \
+#     python \
+#     ripgrep \
+#     rsync \
+#     ruby \
+#     rubygems \
+#     spectrwm \
+#     terraform \
+#     tmux \
+#     tree \
+#     unzip \
+#     vim \
+#     wmctrl \
+#     xclip \
+#     xdotool \
+#     xorg \
+#     xorg-xinit \
+#     zip
+#
+# which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
 
-yay -S --needed \
-    otf-ipaexfont \
-    maim \
-    leiningen \
-    android-platform \
-    android-sdk \
-    android-sdk-platform-tools \
-    android-sdk-build-tools \
-    android-platform-28 \
-    noto-fonts-emoji
+# yay -S --needed \
+#     otf-ipaexfont \
+#     maim \
+#     leiningen \
+#     android-platform \
+#     android-sdk \
+#     android-sdk-platform-tools \
+#     android-sdk-build-tools \
+#     android-platform-28 \
+#     noto-fonts-emoji
 
-sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
+# sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
-systemctl --user enable pulseaudio
+# sudo python3 -m ensurepip
+#
+# [ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#
+# [ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#
+# if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
+#     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+#     fisher
+# fi
+#
+# if ! which xremap; then
+#     cd /tmp
+#     git clone https://github.com/k0kubun/xremap
+#     cd xremap
+#     make
+#     sudo make install
+# fi
+#
+# grep -q docker /etc/group || sudo groupadd docker
+# sudo gpasswd -a $USER docker
+# sudo gpasswd -a $USER sys
+# echo $SHELL | grep -q fish || chsh -s /bin/fish
 
-which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
+# # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
+# android update sdk --no-ui --all --filter platform-tools,android-28,extra-android-m2repository
+# android update sdk --no-ui --all --filter build-tools-28.0.1,android-28,extra-android-m2repository
+# sudo ln -svf /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
 
-sudo python3 -m ensurepip
+# go get github.com/github/hub
 
-[ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
-[ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-    fisher
-fi
-
-if ! which xremap; then
-    cd /tmp
-    git clone https://github.com/k0kubun/xremap
-    cd xremap
-    make
-    sudo make install
-fi
-
-grep -q docker /etc/group || sudo groupadd docker
-sudo gpasswd -a $USER docker
-sudo gpasswd -a $USER sys
-echo $SHELL | grep -q fish || chsh -s /usr/bin/fish
-
-# https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
-android update sdk --no-ui --all --filter platform-tools,android-28,extra-android-m2repository
-android update sdk --no-ui --all --filter build-tools-28.0.1,android-28,extra-android-m2repository
-sudo ln -svf /opt/android-sdk/platform-tools/adb /usr/local/bin/adb
-
-go get github.com/github/hub
-
-curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
-
-nvm install 12.18.4
-npm install -g \
+# nvm install 12.18.4
+sudo npm install -g \
     yarn \
     vue-cli \
     react-native-cli \
     create-react-app \
     firebase-tools \
     prettier \
+    plantview \
     serve
 
-pip3 install --user \
-    virtualenv \
-    poetry \
-    awscli \
-    pgcli \
-    mycli \
-    pynvim \
-    neovim \
-    iredis \
-    litecli \
-    mypy \
-    flake8 \
-    pyls \
-    pandas \
-    ipython \
-    docker-compose \
-    docker-pretty-ps
+# pip3 install --user \
+#     virtualenv \
+#     poetry \
+#     awscli \
+#     pgcli \
+#     mycli \
+#     pynvim \
+#     neovim \
+#     iredis \
+#     litecli \
+#     mypy \
+#     flake8 \
+#     pyls \
+#     pandas \
+#     ipython \
+#     docker-compose \
+#     docker-pretty-ps
+#
+# curl https://sh.rustup.rs -sSf | sh
+# rustup toolchain add nightly
+# cargo +nightly install racer
+#
+# gem install nokogiri solargraph
 
-curl https://sh.rustup.rs -sSf | sh
-rustup toolchain add nightly
-cargo +nightly install racer
-
-gem install solargraph
+# systemctl --user enable pulseaudio
