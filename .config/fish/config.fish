@@ -22,6 +22,7 @@ set -gx GOPATH $HOME/go ^/dev/null
 set -gx PATH \
             $DENO_INSTALL/bin \
             /usr/local/opt/php@7.4/bin \
+            $HOME/.nvm/versions/node/v15.2.1/bin \
             $HOME/.nvm/versions/node/v12.14.0/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.poetry/bin \

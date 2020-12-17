@@ -43,7 +43,7 @@ interface ${2:`!v expand('%:t:r')`}Props {
 
 }
 
-export const ${1:`!v expand('%:t:r')`} = React.memo(({ }: ${2:`!v expand('%:t:r')`}Props) => {
+export const ${1:`!v expand('%:t:r')`} = memo(({ }: ${2:`!v expand('%:t:r')`}Props) => {
   return <>$0</>
 })
 endsnippet
@@ -53,7 +53,19 @@ const dispatch = useDispatch()
 endsnippet
 
 snippet ust
-const [$0, set$0] = React.useState()
+const [$0, set$0] = useState()
+endsnippet
+
+snippet uca
+const $0 = useCallback(() => {
+  $1
+}, [])
+endsnippet
+
+snippet ufo
+const { register, handleSubmit } = useForm({
+  defaultValues: {$0}
+})
 endsnippet
 
 snippet utr

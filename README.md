@@ -34,6 +34,7 @@ fdisk /dev/sda
   - press (d) until all partitions deleted
 - create new partition (n)
 - add boot flag (a)
+    - if you use UFI boot, instead (t) and `1
 - write (w)
 
 ```sh

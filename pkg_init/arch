@@ -157,6 +157,7 @@ pip3 install --user \
     pgcli \
     mycli \
     pynvim \
+    neovim \
     iredis \
     litecli \
     mypy \
