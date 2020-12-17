@@ -32,14 +32,24 @@ fdisk /dev/sda
 
 - delete whole partition (d)
   - press (d) until all partitions deleted
-- create new partition (n)
-- add boot flag (a)
-    - if you use UFI boot, instead (t) and `1
+- If you use Legacy MBR boot:
+  - create a new partition (n)
+  - add boot flag (a)
+- else if you use UEFI boot:
+  - create a new partition (n) and set `+512M` for the partition size
+  - UEFI boot flag using (t) and `1`
+  - create a new partition (n)
 - write (w)
 
 ```sh
+# Legacy boot
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
+
+# UEFI
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+mount /dev/sda2 /mnt
 ```
 
 ## pacman and yaourt
@@ -75,14 +85,14 @@ Server = http://repo.archlinux.fr/$arch
 iwctl
 
 # FSTab
-pacstrap /mnt base base-devel
-genfstab -U -p /mnt >> /mnt/etc/fstab
+pacstrap /mnt base base-devel linux linux-firmware vi vim iwd
+genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
 arch-chroot /mnt
 
 # Very basic things
-pacman -S yay grub iwd
+# pacman -S yay
 
 # Configure iwd
 cat <<'EOF'| sudo tee /etc/iwd/main.conf
@@ -97,8 +107,9 @@ EOF
 iwctl
 
 # Grub
-grub-install /dev/sda
-grub-mkconfig > /boot/grub/grub.cfg
+mkdir /boot
+mount /dev/sda1 /boot
+bootctl install
 
 exit
 umount -R /mnt
@@ -106,8 +117,6 @@ reboot
 ```
 
 If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
-
-
 
 # Install dotfiles
 
