@@ -99,15 +99,16 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 # which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
 
 # yay -S --needed \
-#     otf-ipaexfont \
-#     maim \
-#     leiningen \
 #     android-platform \
-#     android-sdk \
-#     android-sdk-platform-tools \
-#     android-sdk-build-tools \
 #     android-platform-28 \
-#     noto-fonts-emoji
+#     android-sdk \
+#     android-sdk-build-tools \
+#     android-sdk-platform-tools \
+#     leiningen \
+#     maim \
+#     noto-fonts-emoji \
+#     ngrok \
+#     otf-ipaexfont
 
 # sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
