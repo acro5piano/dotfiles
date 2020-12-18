@@ -4,6 +4,8 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
+# sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 # sudo pacman-key --populate archlinux
 # sudo pacman-key --refresh-keys
 # sudo pacman -Sy archlinux-keyring
