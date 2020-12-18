@@ -59,6 +59,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 #     libreoffice-fresh \
 #     libuv \
 #     libvterm \
+#     light \
 #     lua \
 #     make \
 #     man-db \
@@ -132,6 +133,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 # grep -q docker /etc/group || sudo groupadd docker
 # sudo gpasswd -a $USER docker
 # sudo gpasswd -a $USER sys
+# sudo gpasswd -a $USER video
 # echo $SHELL | grep -q fish || chsh -s /bin/fish
 
 # # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
