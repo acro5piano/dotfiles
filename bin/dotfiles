@@ -1,48 +1,33 @@
 #!/bin/bash
 
+set -ue
+
 DOTPATH="$HOME/.dotfiles"
 
-pull(){
-    git pull origin master
-    link
-}
+FILES=(\
+    .asoundrc \
+    .bash_profile \
+    bin \
+    .config \
+    .ctags \
+    .editorconfig \
+    .gemrc \
+    .gitconfig \
+    prettier.config.js \
+    .tmux.conf \
+    .vim \
+    .vimrc \
+    .xinitrc \
+    .xinputrc \
+    .xmodmap \
+    .xremap \
+    .Xresources \
+)
 
-link(){
-    for f in .??*
-    do
-        [ "$f" = ".git" ] && continue
+for f in ${FILES[@]}; do
+    if [ -e "$HOME/$f" ]; then
+        mv -v "$HOME/$f" `mktemp -d`
+    fi
 
-        if [ -e "$HOME/$f" ]; then
-            mv "$HOME/$f" `mktemp -d`
-        fi
-
-        ln -snvf "$DOTPATH/$f" "$HOME/$f"
-    done
-
-    ln -snfv "$DOTPATH/bin" "$HOME/bin"
-    ln -snfv "$DOTPATH/prettier.config.js" "$HOME/prettier.config.js"
-}
-
-usage(){
-    echo 'dot: sync and manage dot files'
-    echo ''
-    echo 'commands:'
-    echo '    pull - fetch + link'
-    echo '    link - create symlink'
-    echo '    cd   - change directory to dot path'
-    echo ''
-    exit 1
-}
-
-change_dir() {
-    cd $DOTPATH
-    echo "cd to $DOTPATH"
-}
-
-case $1 in
-    'pull') pull ;;
-    'link') link ;;
-    'cd') change_dir ;;
-    '') change_dir ;;
-    *) usage ;;
-esac
+    ln -snvf "$DOTPATH/$f" "$HOME/$f"
+done
