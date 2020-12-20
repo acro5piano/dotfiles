@@ -153,7 +153,7 @@ if has('nvim')
         \ 'javascript': ['flow', 'flow-language-server', 'tsserver'],
         \ 'typescript': ['tsserver', 'stylelint',],
         \ 'tsx': ['tsserver', 'stylelint'],
-        \ 'typescriptreact': ['tsserver', 'stylelint',],
+        \ 'typescriptreact': ['tsserver', 'stylelint', 'eslint'],
         \ 'html': [],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],

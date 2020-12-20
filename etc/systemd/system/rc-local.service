@@ -1,0 +1,12 @@
+[Unit]
+Description=Exec command on startup
+
+[Service]
+Type=oneshort
+ExecStart=/bin/loadkeys /usr/share/keymaps/en-caps2ctrl
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
