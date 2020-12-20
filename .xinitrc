@@ -20,12 +20,12 @@ xdg-mime default pcmanfm.desktop inode/directory
 # Keyboard repeat frequency
 xset r rate 250
 
+# start service async
+# fcitx-autostart &
+xremap ~/.xremap 2>&1 > /tmp/xremap.log &
+chromium &
+
 # keyboard layout customize
 xmodmap $HOME/.xmodmap
-
-# start service async
-bash -c 'sleep 2; xremap ~/.xremap 2>&1 > /tmp/xremap.log &' &
-fcitx-autostart &
-chromium &
 
 exec awesome

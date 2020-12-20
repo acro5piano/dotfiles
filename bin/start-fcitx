@@ -1,0 +1,9 @@
+#!/bin/sh
+
+fcitx
+
+sleep 1
+
+# fcitx breaks xmodmap and xremap, so restart it
+xremap ~/.xremap 2>&1 > /tmp/xremap.log &
+xmodmap $HOME/.xmodmap
