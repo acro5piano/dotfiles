@@ -24,6 +24,7 @@ xset r rate 250
 # fcitx-autostart &
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 chromium &
+start_fcitx &
 
 # keyboard layout customize
 xmodmap $HOME/.xmodmap

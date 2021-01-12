@@ -4,15 +4,6 @@ set -eu
 
 export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 
-
-if [ ! -e $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
-    systemctl --user enable pulseaudio
-    systemctl --user start pulseaudio
-fi
-
-
-# sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-
 # sudo pacman-key --populate archlinux
 # sudo pacman-key --refresh-keys
 # sudo pacman -Sy archlinux-keyring
@@ -48,6 +39,7 @@ fi
 #     evince \
 #     fcitx \
 #     fcitx-configtool \
+#     dnsutils \
 #     fcitx-qt5 \
 #     fcitx-mozc \
 #     feh \
@@ -74,7 +66,6 @@ fi
 #     man-db \
 #     moc \
 #     neovim \
-#     nodejs \
 #     openssh \
 #     openssl \
 #     pcmanfm \
@@ -112,10 +103,12 @@ fi
 #     android-sdk-build-tools \
 #     android-sdk-platform-tools \
 #     leiningen \
+#     stripe-cli \
 #     maim \
 #     noto-fonts-emoji \
 #     ngrok \
-#     otf-ipaexfont
+#     otf-ipaexfont \
+#     zoom
 
 # sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
@@ -145,6 +138,14 @@ fi
 # sudo gpasswd -a $USER video
 # echo $SHELL | grep -q fish || chsh -s /bin/fish
 
+if [ ! -e $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
+    systemctl --user enable pulseaudio
+    systemctl --user start pulseaudio
+fi
+
+sudo ln -svf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 # # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
 # android update sdk --no-ui --all --filter platform-tools,android-28,extra-android-m2repository
 # android update sdk --no-ui --all --filter build-tools-28.0.1,android-28,extra-android-m2repository
@@ -153,7 +154,7 @@ fi
 # curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
 
 # nvm install 12.18.4
-sudo npm install -g \
+npm install -g \
     yarn \
     vue-cli \
     react-native-cli \
@@ -161,6 +162,8 @@ sudo npm install -g \
     firebase-tools \
     prettier \
     plantview \
+    wscat \
+    nodemon \
     serve
 
 # pip3 install --user \

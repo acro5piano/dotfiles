@@ -1,4 +1,4 @@
-# vim:set ft=bash
+# vim:set ft=perl :
 
 set git_dirty_color red
 set git_clean_color green

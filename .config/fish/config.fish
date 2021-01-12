@@ -62,6 +62,8 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
+nvm use 14 >/dev/null ^/dev/null
+
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
 # }}}

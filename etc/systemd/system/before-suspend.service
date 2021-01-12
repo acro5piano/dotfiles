@@ -1,0 +1,10 @@
+[Unit]
+Description=Before suspend script
+Before=sleep.target
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c "light > /tmp/brightness-value"
+
+[Install]
+WantedBy=sleep.target
