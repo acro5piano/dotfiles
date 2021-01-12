@@ -20,7 +20,6 @@ ln -snvf $DOTPATH/.xmodmap $HOME/.xmodmap
 ln -snvf $DOTPATH/.xremap $HOME/.xremap
 ln -snvf $DOTPATH/.Xresources $HOME/.Xresources
 
-ln -snvf $DOTPATH/.config $HOME/.config/awesome
 ln -snvf $DOTPATH/.config/alacritty/ $HOME/.config/alacritty/
 ln -snvf $DOTPATH/.config/awesome/ $HOME/.config/awesome/
 ln -snvf $DOTPATH/.config/fish/ $HOME/.config/fish/
