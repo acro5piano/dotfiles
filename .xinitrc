@@ -11,7 +11,7 @@ xdg-settings set default-web-browser browser.desktop
 xdg-mime default chromium.desktop text/html
 xdg-mime default chromium.desktop x-scheme-handler/http
 xdg-mime default chromium.desktop x-scheme-handler/https
-xdg-mime default chromium.desktop text/html
+xdg-mime default chromium.desktop video/quicktime
 xdg-mime default libreoffice.desktop text/csv
 xdg-mime default libreoffice.desktop application/docx
 xdg-mime default evince.desktop application/pdf
