@@ -34,6 +34,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 #     curl \
 #     dmenu \
 #     docker \
+#     flameshot \
 #     docker-compose \
 #     eog \
 #     evince \
