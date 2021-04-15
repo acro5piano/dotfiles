@@ -18,6 +18,7 @@
     ps = !git push origin $(git branch --contains=HEAD | awk '{print $2}')
     re = remote -v
     td = log --stat --oneline --since='12 hour ago'
+    show-merge = !git diff $(git show | grep Merge | head -1 | awk '{print $2"..."$3}')
 
 [push]
 	default = matching

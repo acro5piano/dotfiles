@@ -4,7 +4,7 @@
 --regex-php=/scope([a-z|A-Z|0-9]+)/\1/
 
 --langdef=graphql
---langmap=graphql:.graphql.gql
+--langmap=graphql:.gql
 --regex-graphql=/^[ \t]*enum[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/e,enum/
 --regex-graphql=/^[ \t]*query[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/q,query/
 --regex-graphql=/^[ \t]*fragment[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/f,fragment/

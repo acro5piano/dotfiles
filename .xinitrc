@@ -25,7 +25,7 @@ xset r rate 250
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 chromium &
 start-fcitx &
-flameshot &
+# flameshot &
 
 # keyboard layout customize
 xmodmap $HOME/.xmodmap

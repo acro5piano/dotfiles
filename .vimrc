@@ -518,7 +518,7 @@ command! GitBlame call s:git_blame()
 
 function! s:git_log_10()
     let fileName = '/tmp/__git_log.'.expand('%:t').'.diff'
-    call system('git log -p -10 '.expand('%').' > '.fileName)
+    call system('git log -p -100 '.expand('%').' > '.fileName)
     :exe ':view '.fileName
 endfunction
 command! GitLog10 call s:git_log_10()
@@ -590,6 +590,8 @@ filetype plugin on
 
 " For css completion
 " autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
+
+autocmd BufEnter,BufNew *.tera set filetype=html
 
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
