@@ -3,8 +3,6 @@ import React from 'react'
 endsnippet
 
 snippet rfn "react function component template"
-import React from 'react'
-
 interface ${2:`!v expand('%:t:r')`}Props {
 
 }
@@ -15,8 +13,6 @@ export function ${1:`!v expand('%:t:r')`}({ }: ${2:`!v expand('%:t:r')`}Props) {
 endsnippet
 
 snippet nfn "nextjs react function component template"
-import * as React from 'react'
-
 interface ${2:`!v expand('%:t:r')`}Props {
 
 }
@@ -54,6 +50,10 @@ endsnippet
 
 snippet ust
 const [$0, set$0] = useState()
+endsnippet
+
+snippet uls
+const [$0, set$0] = useLocalStorageState()
 endsnippet
 
 snippet uca

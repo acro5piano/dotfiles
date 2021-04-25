@@ -16,18 +16,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 #     alsa-utils \
 #     arch-install-scripts \
 #     at \
-#     chromium
-#
-# sudo pacman -Sy --needed \
-#     acpi \
-#     adobe-source-code-pro-fonts \
-#     alacritty \
-#     alsa-lib \
-#     alsa-utils \
-#     arch-install-scripts \
-#     at \
 #     awesome \
-#     chromium \
 #     clojure \
 #     composer \
 #     ctags \
@@ -40,6 +29,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 #     evince \
 #     fcitx \
 #     fcitx-configtool \
+#     firefox-developer-edition \
 #     dnsutils \
 #     fcitx-qt5 \
 #     fcitx-mozc \
@@ -102,6 +92,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/:$HOME/.local/bin
 #     android-sdk \
 #     android-sdk-build-tools \
 #     android-sdk-platform-tools \
+#     google-chrome-beta \
 #     leiningen \
 #     stripe-cli \
 #     maim \

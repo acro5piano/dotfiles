@@ -23,7 +23,7 @@ xset r rate 250
 # start service async
 # fcitx-autostart &
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
-chromium &
+google-chrome-beta &
 start-fcitx &
 # flameshot &
 
