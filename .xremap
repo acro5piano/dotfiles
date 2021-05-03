@@ -45,10 +45,12 @@ window class_only: targets do
   remap 'M-a', to: 'Ctrl-a'
   remap 'M-r', to: 'Ctrl-r'
   remap 'M-p', to: 'Ctrl-p'
+  remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
   remap 'M-c', to: 'Ctrl-c'
   remap 'M-v', to: 'Ctrl-v'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
+  remap 'C-M-b', to: 'Ctrl-d'
   remap 'C-Shift-p', to: 'Ctrl-Shift-A'
 
   # OSX Like - not working with Slack

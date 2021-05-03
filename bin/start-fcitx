@@ -1,6 +1,8 @@
 #!/bin/sh
 
-fcitx
+sleep 2
+
+nohup fcitx5 2>&1 > /tmp/fcitx-log &
 
 sleep 1
 
