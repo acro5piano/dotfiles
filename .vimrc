@@ -63,6 +63,8 @@ if has('nvim')
       \ 'do': 'bash install.sh',
       \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  " Want to migrate to https://github.com/norcalli/snippets.nvim
   Plug 'SirVer/ultisnips'
 endif
 
