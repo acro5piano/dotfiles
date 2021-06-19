@@ -9,7 +9,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'godlygeek/tabular'
 Plug 'haya14busa/vim-asterisk'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
@@ -17,69 +16,54 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
-" Plug 'pelodelfuego/vim-swoop'
-Plug 'jwalton512/vim-blade'
-Plug 'slim-template/vim-slim'
-Plug 'osyo-manga/vim-anzu'
+" Plug 'jwalton512/vim-blade'
+" Plug 'slim-template/vim-slim'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
-Plug 'tomlion/vim-solidity'
-Plug 'digitaltoad/vim-pug'
+" Plug 'posva/vim-vue'
+" Plug 'tomlion/vim-solidity'
+" Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
-Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'kshenoy/vim-sol'
 Plug 'hashivim/vim-terraform'
-" Plug 'wsdjeg/FlyGrep.vim'
-" Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
-Plug 'junegunn/limelight.vim'
-Plug 'mbbill/undotree'
-" Plug 'vmchale/dhall-vim'
 
 Plug 'ruanyl/vim-gh-line'
 
 " Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim', {'commit': '632bed9406fe891da8ec7b86320ff1c274d8318e'}
-Plug 'MaxMEllon/vim-jsx-pretty', {
-  \ 'for': ['typescript', 'javascript'],
-  \ 'autoload': {
-  \   'filetypes': ['typescriptreact', 'typescript', 'javascript']
-  \ }}
+" Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'MaxMEllon/vim-jsx-pretty', {
+"   \ 'for': ['typescript', 'javascript', 'typescript.tsx'],
+"   \ 'autoload': {
+"   \   'filetypes': ['typescriptreact',  'typescript.tsx', 'typescript', 'javascript']
+"   \ }}
 Plug 'acro5piano/vim-graphql'
 Plug 'jxnblk/vim-mdx-js'
 
 Plug 'acro5piano/import-js-from-history'
-Plug '~/ghq/github.com/acro5piano/vim-repeat-yourself'
-
-if !has('nvim')
-  Plug 'haya14busa/incsearch.vim'
-endif
 
 if has('nvim')
-  Plug 'leafgarland/typescript-vim'
-  Plug 'reasonml-editor/vim-reason-plus'
-  Plug 'rust-lang/rust.vim'
-  Plug 'racer-rust/vim-racer'
+  " Plug 'leafgarland/typescript-vim'
+  " Plug 'reasonml-editor/vim-reason-plus'
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'racer-rust/vim-racer'
   " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-  Plug 'flowtype/vim-flow'
+  " Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'dense-analysis/ale'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'wokalski/autocomplete-flow'
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Plug 'wokalski/autocomplete-flow'
   Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips'
-
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
 
 " Initialize plugin system
@@ -98,23 +82,12 @@ if has('nvim')
 endif
 set completeopt-=preview
 
-if !has('nvim')
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-endif
+set incsearch
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 8
 
 let g:jsx_ext_required = 0
-
-" anzu
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-" set statusline=%{anzu#search_status()}
 
 " Easy Motion
 let g:EasyMotion_do_mapping = 0
@@ -137,9 +110,11 @@ let g:prettier#config#arrow_parens = 'always'
 " Asynchronous Lint Engine (ALE)
 "----------------------------------------------------
 if has('nvim')
+    "not works yet for graphql
     let g:LanguageClient_serverCommands = {
         \ 'python': ['/usr/local/bin/pyls'],
         \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+        \ 'graphql': ['graphql-lsp', 'server', '--schemaPath', 'schema.graphql'],
         \ }
         " \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     let g:LanguageClient_diagnosticsEnable = 0
@@ -154,6 +129,7 @@ if has('nvim')
         \ 'php': ['php', 'phpstan'],
         \ 'javascript': ['flow', 'flow-language-server', 'tsserver'],
         \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
+        \ 'graphql': [],
         \ 'tsx': ['tsserver', 'stylelint'],
         \ 'typescript.tsx': ['tsserver', 'stylelint', 'eslint'],
         \ 'html': [],
@@ -325,14 +301,14 @@ inoremap ([<CR> ([<CR>]);<Up><End><CR>
 inoremap z. =>
 inoremap zc console.log()<Left>
 inoremap zl ->
-inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
-inoremap zr require 'pry'; binding.pry
+" inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
+" inoremap zr require 'pry'; binding.pry
 " autocmd FileType xml,html inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
-inoremap z[ from IPython import embed; embed()
-inoremap zf <C-r>=expand('%:t:r')<CR>
-inoremap zw <C-r>=expand('%:p:h:t')<CR>
+" inoremap z[ from IPython import embed; embed()
+" inoremap zf <C-r>=expand('%:t:r')<CR>
+" inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
 "----------------------------------------------------
 " Remap keys
@@ -423,7 +399,6 @@ nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wl <C-w>l
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
-nnoremap <Leader>wo <C-w><C-w>
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
@@ -518,12 +493,12 @@ endfunction
 command! GitBlame call s:git_blame()
 
 
-function! s:git_log_10()
+function! s:git_log_100()
     let fileName = '/tmp/__git_log.'.expand('%:t').'.diff'
     call system('git log -p -100 '.expand('%').' > '.fileName)
     :exe ':view '.fileName
 endfunction
-command! GitLog10 call s:git_log_10()
+command! GitLog10 call s:git_log_100()
 
 function! s:git_diff()
     let fileName = '/tmp/__git_diff.diff'
@@ -535,7 +510,7 @@ command! GitDiff call s:git_diff()
 "---------------------------------------------------
 " Others
 "----------------------------------------------------
-set nocompatible
+" set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
 set ambiwidth=double " for full width problem
@@ -549,7 +524,7 @@ set modeline
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.md,*.vue Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue Prettier
 endif
 
 if has('nvim')
@@ -582,7 +557,6 @@ autocmd BufWritePre *.py call Yapf()
 let g:terraform_fmt_on_save=1
 
 command! Rubocop !bundle exec rubocop -a %
-command! TSLint !yarn tslint --fix %
 command! ESLint !yarn eslint --fix %
 command! PrettierPhp !yarn prettier --tab-width 4 --write %
 

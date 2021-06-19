@@ -2,8 +2,11 @@
 
 domain=$1
 col=${2:-32}
+password=$HASHER_PASSWORD
 
-read -s -p '🔑 ' password
+if [ -z $password ]; then
+    read -s -p '🔑 ' password
+fi
 
 t=`echo "${password}__${domain}" | shasum -a 256 | base64 | head -1 | cut -c1-${col}`
 
