@@ -133,6 +133,7 @@ if has('nvim')
         \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         \ 'graphql': [],
         \ 'tsx': ['tsserver', 'stylelint'],
+        \ 'typescriptreact': ['tsserver', 'stylelint'],
         \ 'typescript.tsx': ['tsserver', 'stylelint', 'eslint'],
         \ 'html': [],
         \}
@@ -309,8 +310,8 @@ inoremap zl ->
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
 " inoremap z[ from IPython import embed; embed()
-" inoremap zf <C-r>=expand('%:t:r')<CR>
-" inoremap zw <C-r>=expand('%:p:h:t')<CR>
+inoremap zf <C-r>=expand('%:t:r')<CR>
+inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
 "----------------------------------------------------
 " Remap keys
