@@ -4,7 +4,7 @@ Before=sleep.target
 
 [Service]
 Type=simple
-ExecStart=/bin/sh -c "light > /tmp/brightness-value"
+ExecStart=/bin/sh -c "light -O"
 
 [Install]
 WantedBy=sleep.target

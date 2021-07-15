@@ -85,7 +85,7 @@ sudo pacman -Sy --needed \
     xorg-xinit \
     zip
 
-which yay || git clone https://aur.archlinux.org/yay && makepkg -si && cd .. && rm -rf yay || true
+which yay || git clone https://aur.archlinux.org/yay && cd yay && makepkg -si && cd .. && rm -rf yay || true
 
 yay -S --needed \
     android-platform \

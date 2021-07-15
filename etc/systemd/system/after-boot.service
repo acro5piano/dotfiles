@@ -2,7 +2,7 @@
 Description=Exec command on startup
 
 [Service]
-Type=oneshort
+Type=oneshot
 ExecStart=/bin/loadkeys /usr/share/keymaps/en-caps2ctrl
 TimeoutSec=0
 StandardOutput=tty

@@ -177,26 +177,27 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "Left",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey,           }, "n", awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "p", awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "k",      function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "Left",   function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey,           }, "n",      awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "p",      awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "x",     function () awful.util.spawn("dmenu_run_vertical") end),
-    awful.key({ modkey,           }, "o", function () awful.client.swap.byidx(1) end),
+    awful.key({ modkey,           }, "Right",  function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "u",      awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "x",      function () awful.util.spawn("dmenu_run_vertical") end),
+    awful.key({ modkey,           }, "o",      function () awful.client.swap.byidx(1) end),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
 
+    -- These keys are not working!!
     awful.key({                   }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer sset Master 5-") end),
     awful.key({                   }, "XF86AudioMute",           function () awful.util.spawn("amixer sset Master mute") end),
     awful.key({                   }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer sset Master 5+") end),
-    awful.key({                   }, "XF86MonBrightnessDown",    function () awful.util.spawn("xbacklight -5") end),
-    awful.key({                   }, "XF86MonBrightnessUp",      function () awful.util.spawn("xbacklight +5") end)
+    awful.key({                   }, "XF86MonBrightnessDown",   function () awful.util.spawn("light -U 10") end),
+    awful.key({                   }, "XF86MonBrightnessUp",     function () awful.util.spawn("light -A 10") end)
 )
 
 clientkeys = awful.util.table.join(
