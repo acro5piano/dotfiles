@@ -7,6 +7,7 @@ else
 end
 
 set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
+set -gx ANDROID_SDK_ROOT /opt/android-sdk
 
 if [ -e $HOME/Library/Android ]
     set -gx JAVA_HOME (/usr/libexec/java_home)
