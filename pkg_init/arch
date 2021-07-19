@@ -8,114 +8,7 @@ sudo pacman-key --populate archlinux
 sudo pacman-key --refresh-keys
 sudo pacman -Sy archlinux-keyring
 
-sudo pacman -Sy --needed \
-    acpi \
-    adobe-source-code-pro-fonts \
-    alacritty \
-    alsa-lib \
-    alsa-utils \
-    arch-install-scripts \
-    at \
-    awesome \
-    clojure \
-    composer \
-    ctags \
-    curl \
-    dmenu \
-    docker \
-    flameshot \
-    docker-compose \
-    eog \
-    evince \
-    fcitx5 \
-    fcitx5-configtool \
-    fcitx5-mozc \
-    fcitx5-gtk \
-    firefox-developer-edition \
-    dnsutils \
-    feh \
-    fish \
-    fzf \
-    gcc-fortran \
-    ghostscript \
-    git \
-    github-cli \
-    go \
-    imagemagick \
-    jdk8-openjdk \
-    jq \
-    lapack \
-    ldns \
-    libevent \
-    libpng \
-    libuv \
-    libvterm \
-    light \
-    lua \
-    make \
-    man-db \
-    moc \
-    ntp \
-    neovim \
-    openssh \
-    openssl \
-    pcmanfm \
-    php \
-    php-gd \
-    php-sqlite \
-    pulseaudio \
-    pavucontrol-qt \
-    pinta \
-    recordmydesktop \
-    postgresql-client \
-    python \
-    ripgrep \
-    rsync \
-    ruby \
-    rubygems \
-    terraform \
-    tmux \
-    tree \
-    unzip \
-    vim \
-    wmctrl \
-    xclip \
-    xdotool \
-    xorg \
-    xorg-xinit \
-    zip
-
-which yay || git clone https://aur.archlinux.org/yay && cd yay && makepkg -si && cd .. && rm -rf yay || true
-
-yay -S --needed \
-    android-platform \
-    android-platform-28 \
-    android-platform-29 \
-    android-sdk \
-    android-sdk-build-tools \
-    android-sdk-platform-tools \
-    google-chrome-beta \
-    leiningen \
-    stripe-cli \
-    maim \
-    noto-fonts-emoji \
-    ngrok \
-    otf-ipaexfont \
-    zoom
-
 sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
-
-sudo python3 -m ensurepip
-
-[ -e $HOME/.vim/plugged ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-[ -e $HOME/.local/share/nvim ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-    fisher
-fi
 
 if ! which xremap; then
     cd /tmp
@@ -131,55 +24,9 @@ sudo gpasswd -a $USER sys
 sudo gpasswd -a $USER video
 echo $SHELL | grep -q fish || chsh -s /bin/fish
 
-if [ ! -e $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
-    systemctl --user enable pulseaudio
-    systemctl --user start pulseaudio
-fi
-
 sudo ln -svf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
 # yes | /opt/android-sdk/tools/bin/sdkmanager --licenses
 
-# curl -L https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein | bash
-
-# nvm install 12.18.4
-npm install -g \
-    yarn \
-    vue-cli \
-    react-native-cli \
-    create-react-app \
-    firebase-tools \
-    prettier \
-    plantview \
-    wscat \
-    nodemon \
-    serve
-
-pip3 install --user \
-    awscli \
-    docker-compose \
-    docker-pretty-ps \
-    flake8 \
-    ipython \
-    iredis \
-    litecli \
-    livereload \
-    mycli \
-    mypy \
-    neovim \
-    pandas \
-    pgcli \
-    poetry \
-    pyls \
-    pynvim \
-    virtualenv
-
-curl https://sh.rustup.rs -sSf | sh
-rustup toolchain add nightly
-cargo +nightly install racer
-
-gem install nokogiri solargraph
-
-systemctl --user enable pulseaudio
