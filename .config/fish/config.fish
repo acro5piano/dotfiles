@@ -17,14 +17,16 @@ end
 
 set -gx DENO_INSTALL $HOME/.deno
 
+set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+
 [ -e $HOME/go ]; or mkdir $HOME/.go
-set -gx GOPATH $HOME/go ^/dev/null
+set -gx GOPATH $HOME/go
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
+            $ANDROID_HOME/tools/bin \
             $DENO_INSTALL/bin \
             /usr/local/opt/php@7.4/bin \
-            $HOME/.nvm/versions/node/v15.2.1/bin \
-            $HOME/.nvm/versions/node/v12.14.0/bin \
+            $HOME/.nvm/versions/node/*/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
@@ -33,8 +35,7 @@ set -gx PATH \
             $HOME/.go/bin/ \
             $HOME/go/bin/ \
             $HOME/bin \
-            $HOME/.gem/ruby/2.4.0/bin \
-            $HOME/.gem/ruby/2.5.0/bin \
+            /home/kazuya/.gem/ruby/*/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
@@ -61,9 +62,11 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
+nvm use 14 >/dev/null ^/dev/null
+
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
-nvm use 14 >/dev/null ^/dev/null
+status --is-interactive; and source (rbenv init -|psub)
 
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
@@ -72,7 +75,9 @@ nvm use 14 >/dev/null ^/dev/null
 # {{{ functions
 
 function __fzf_history
-  history | perl -nle 'print if length($_) < 200' | fzf-tmux --exact -d40% +s +m --query=(commandline -b) \
+  set FILTER fzf-tmux # Not works at all!
+  set FILTER fzf
+  history | perl -nle 'print if length($_) < 200' | $FILTER --exact -d40% +s +m --query=(commandline -b) \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -313,6 +318,8 @@ alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
 alias tmc='tmux clear-history'
+
+alias q='qrcode'
 
 # }}}
 
