@@ -1,4 +1,6 @@
 - hosts: localhost
+  roles:
+    - kewlfft.aur
   tasks:
     - import_tasks: tasks/pacman.yml
     - import_tasks: tasks/yay.yml
@@ -6,3 +8,7 @@
     - import_tasks: tasks/pip.yml
     - import_tasks: tasks/gem.yml
     - import_tasks: tasks/systemd.yml
+    - import_tasks: tasks/dotfiles.yml
+      tags:
+        - dotfiles
+

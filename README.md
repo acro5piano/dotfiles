@@ -94,7 +94,7 @@ cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
 cd $HOME/.dotfiles
 ansible-galaxy collection install community.general
-ansible-playbook --ask-become-pass ansible/playbooks/main.yml
+ansible-playbook --ask-become-pass ansible/main.yml
 ```
 
 # Copy large & secure files

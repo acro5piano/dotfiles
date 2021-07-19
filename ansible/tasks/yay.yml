@@ -1,34 +1,30 @@
-- hosts: localhost
-  roles:
-    - kewlfft.aur
-  tasks:
-    - name: Get executable yay
-      ansible.builtin.unarchive:
-        src: https://github.com/Jguer/yay/releases/download/v10.3.0/yay_10.3.0_x86_64.tar.gz
-        dest: "{{ lookup('env', 'HOME') }}"
-        remote_src: yes
-    - name: Install Yay
-      become: yes
-      ansible.builtin.copy:
-        src: "{{ lookup('env', 'HOME') }}/yay_10.3.0_x86_64/yay"
-        dest: /bin/yay
-    - name: Install keyring before anything
-      become: yes
-      community.general.pacman:
-        name: archlinux-keyring
-        state: latest
-    - name: Install packages with yay
-      aur:
-        name: "{{ item }}"
-        state: latest
-      loop:
-        - android-platform-29
-        - android-sdk
-        - android-sdk-build-tools
-        - android-sdk-platform-tools
-        - google-chrome-beta
-        - leiningen
-        - ngrok
-        - otf-ipaexfont
-        - yay
-        - zoom
+- name: Get executable yay
+  ansible.builtin.unarchive:
+    src: https://github.com/Jguer/yay/releases/download/v10.3.0/yay_10.3.0_x86_64.tar.gz
+    dest: "{{ lookup('env', 'HOME') }}"
+    remote_src: yes
+- name: Install Yay
+  become: yes
+  ansible.builtin.copy:
+    src: "{{ lookup('env', 'HOME') }}/yay_10.3.0_x86_64/yay"
+    dest: /bin/yay
+- name: Install keyring before anything
+  become: yes
+  community.general.pacman:
+    name: archlinux-keyring
+    state: latest
+- name: Install packages with yay
+  aur:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - android-platform-29
+    - android-sdk
+    - android-sdk-build-tools
+    - android-sdk-platform-tools
+    - google-chrome-beta
+    - leiningen
+    - ngrok
+    - otf-ipaexfont
+    - yay
+    - zoom
