@@ -16,4 +16,6 @@
       tags: [ systemd ]
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ]
+    - import_tasks: tasks/misc.yml
+      tags: [ misc ]
 

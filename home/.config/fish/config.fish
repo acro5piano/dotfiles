@@ -62,7 +62,7 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/readline/lib/pkgconfig"
 set -gx GRADLE_OPTS '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
-nvm use 14 >/dev/null ^/dev/null
+nvm use 14 >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
@@ -280,6 +280,44 @@ function memo
 end
 
 # }}}
+
+function fish_user_key_bindings
+    bind \cr __fzf_history
+    bind \e\ch backward-kill-word
+    bind \ew __copy_command
+    bind \e\cf fzf-file-widget
+    bind \ec fzf-cd-widget
+end
+
+set git_dirty_color red
+set git_clean_color green
+
+function parse_git_branch
+    git status >/dev/null 2>/dev/null || return
+
+    set -l current_branch (git branch --contains=HEAD | grep '^*' | awk '{print $2}')
+    set -l git_changed_files_count (git status -s -uall | wc -l)
+
+    if [ "$git_changed_files_count" -eq 0 ]
+        echo (set_color $git_clean_color)$current_branch(set_color normal)
+    else
+        echo (set_color $git_dirty_color)$current_branch(set_color normal)
+    end
+end
+
+function fish_prompt -d 'Write out the prompt'
+    if [ $status -eq 0 ]
+        set status_face (set_color green)"(*'-')"
+    else
+        set status_face (set_color red)"(*>_<)"
+    end
+
+    echo -e $status_face \
+        (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) \
+        [(parse_git_branch)] \
+        (date +%Y-%m-%d.%H:%M:%S) \
+        "\n~> "
+end
 
 # {{{ aliases
 

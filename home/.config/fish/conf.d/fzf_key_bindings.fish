@@ -1,1 +1,0 @@
-/Users/kazuya/.fzf/shell/key-bindings.fish

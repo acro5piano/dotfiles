@@ -1,12 +1,12 @@
 - name: Get executable yay
   ansible.builtin.unarchive:
     src: https://github.com/Jguer/yay/releases/download/v10.3.0/yay_10.3.0_x86_64.tar.gz
-    dest: "{{ lookup('env', 'HOME') }}"
+    dest: ~/
     remote_src: yes
 - name: Install Yay
   become: yes
   ansible.builtin.copy:
-    src: "{{ lookup('env', 'HOME') }}/yay_10.3.0_x86_64/yay"
+    src: ~/yay_10.3.0_x86_64/yay
     dest: /bin/yay
 - name: Install keyring before anything
   become: yes

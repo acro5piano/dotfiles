@@ -1,0 +1,37 @@
+#########################
+# Vim
+#########################
+- name: Create directory for vim-plug
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.vim/autoload
+    - ~/.local/share/nvim/site/autoload
+- name: Install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.vim/autoload/plug.vim
+- name: Install vim-plug for neovim
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: ~/.local/share/nvim/site/autoload/plug.vim
+
+#########################
+# Fisher
+#########################
+- name: Get fisher source
+  get_url:
+    url: https://git.io/fisher
+    dest: /tmp/fisher.fish
+- name: Install fisher
+  shell:
+    cmd: source /tmp/fisher.fish && fisher install jorgebucaran/fisher
+    executable: /bin/fish
+- name: Install fish plugins
+  shell:
+    cmd: "fisher install {{ item }}"
+    executable: /bin/fish
+  loop:
+    - jorgebucaran/nvm.fish@2.1.0
+    - edc/bass
