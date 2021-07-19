@@ -1,4 +1,18 @@
-# Install Arch Linux
+# Dotfiles
+
+acro5piano's personal dotfiles. It aims to automate setup my development PC idempotently.
+
+Core technologies:
+
+- Arch Linux
+- Wayland
+- Sway
+- yay
+- Ansible
+
+# Setup process
+
+## Install Arch Linux
 
 Ref: https://qiita.com/j8takagi/items/235e4ae484e8c587ca92
 
@@ -7,7 +21,7 @@ Ref: https://qiita.com/j8takagi/items/235e4ae484e8c587ca92
   - `dd if=/path/to/iso of=/dev/sdX`
 - Boot to usb and run the following:
 
-## File system (UEFI)
+### File system (UEFI)
 
 select disk to write arch linux
 
@@ -29,13 +43,13 @@ mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
 ```
 
-## Install base system
+### Install base system
 
 ```sh
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware vi vim iwd
+pacstrap /mnt base base-devel linux linux-firmware vi vim iwd ansible
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -64,7 +78,7 @@ reboot
 
 If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
 
-# Install dotfiles
+## Install dotfiles
 
 Run the following commands as root:
 
@@ -92,30 +106,27 @@ then install dotfiles:
 ```sh
 cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
-$HOME/.dotfiles/bin/dotfiles
+cd $HOME/.dotfiles
+ansible-galaxy collection install community.general
+ansible-galaxy install kewlfft.aur
+ansible-playbook --ask-become-pass ansible/main.yml
 ```
 
-and install packages:
-
-```
-bash $HOME/.dotfiles/pkg_init/arch
-```
-
-# Install extra dotfiles
-
-```
-rm -rf .ssh
-git clone git@github.com:acro5piano/ssh.git $HOME/.ssh
-
-rm -rf .mozc
-git clone git@github.com:acro5piano/mozc.git $HOME/.mozc
-```
-
-# Copy large & secure files
+## Copy large & secure files
 
 ```
 mkdir $HOME/var
 scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var/music
 scp -r 192.168.xxx.yyy:/home/kazuya/.aws $HOME/.aws
+scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
 ```
 
+# Maintain
+
+```
+# Sync dotfiles only
+ansible-playbook --tags dotfiles ansible/main.yml
+
+# Install pacman dep
+ansible-playbook --tags pacman ansible/main.yml
+```

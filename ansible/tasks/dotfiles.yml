@@ -1,0 +1,23 @@
+- name: Link dotfiles
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/home/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    state: link
+  loop:
+    - .bash_profile
+    - .bashrc
+    - .config/alacritty
+    - .config/fish
+    - .config/nvim
+    - .config/sway
+    - .config/flake8
+    - .ctags
+    - .editorconfig
+    - .gemrc
+    - .gitconfig
+    - prettier.config.js
+    - .tmux.conf
+    - .vim
+    - .vimrc
+    - .xremap
+    - .zshrc

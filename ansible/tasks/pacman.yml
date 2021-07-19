@@ -1,0 +1,82 @@
+- name: Install keyring before anything
+  become: yes
+  community.general.pacman:
+    name: archlinux-keyring
+    state: latest
+- name: Install packages with pacman
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - acpi
+    - adobe-source-code-pro-fonts
+    - alacritty
+    - alsa-lib
+    - alsa-utils
+    - arch-install-scripts
+    - at
+    - awesome
+    - chromium
+    - clojure
+    - composer
+    - ctags
+    - curl
+    - dmenu
+    - docker
+    - flameshot
+    - docker-compose
+    - eog
+    - evince
+    - fcitx5
+    - fcitx5-configtool
+    - fcitx5-mozc
+    - fcitx5-gtk
+    - firefox-developer-edition
+    - dnsutils
+    - feh
+    - fish
+    - fzf
+    - gcc-fortran
+    - ghostscript
+    - git
+    - github-cli
+    - go
+    - imagemagick
+    - jdk8-openjdk
+    - jq
+    - lapack
+    - ldns
+    - libevent
+    - libpng
+    - libuv
+    - libvterm
+    - light
+    - lua
+    - make
+    - man-db
+    - ntp
+    - neovim
+    - openssh
+    - openssl
+    - pcmanfm
+    - php
+    - php-gd
+    - php-sqlite
+    - pulseaudio
+    - pulseaudio-bluetooth
+    - pavucontrol
+    - pinta
+    - postgresql-client
+    - python
+    # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
+    - ripgrep
+    - rsync
+    - ruby
+    - rubygems
+    - terraform
+    - tmux
+    - tree
+    - unzip
+    - vim
+    - zip

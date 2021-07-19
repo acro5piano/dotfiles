@@ -1,0 +1,7 @@
+- name: Enable pulseaudio
+  ansible.builtin.systemd:
+    name: pulseaudio
+    state: started
+    enabled: yes
+    scope: user
+
