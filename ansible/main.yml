@@ -3,12 +3,17 @@
     - kewlfft.aur
   tasks:
     - import_tasks: tasks/pacman.yml
+      tags: [ pacman ]
     - import_tasks: tasks/yay.yml
+      tags: [ yay ]
     - import_tasks: tasks/npm.yml
+      tags: [ npm ]
     - import_tasks: tasks/pip.yml
+      tags: [ pip ]
     - import_tasks: tasks/gem.yml
+      tags: [ gem ]
     - import_tasks: tasks/systemd.yml
+      tags: [ systemd ]
     - import_tasks: tasks/dotfiles.yml
-      tags:
-        - dotfiles
+      tags: [ dotfiles ]
 
