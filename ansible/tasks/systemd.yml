@@ -4,4 +4,14 @@
     state: started
     enabled: yes
     scope: user
+- name: Link systemd config file
+  become: yes
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/etc/systemd/system/{{ item }}"
+    dest: "/etc/systemd/system/{{ item }}"
+    state: link
+  loop:
+    - after-boot.service
+    - after-suspend.service
+    - before-suspend.service
 
