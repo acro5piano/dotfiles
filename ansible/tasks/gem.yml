@@ -1,0 +1,9 @@
+- name: Install packages with ruby gem
+  become: yes
+  community.general.gem:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - bundler
+    - nokogiri
+    - solargraph

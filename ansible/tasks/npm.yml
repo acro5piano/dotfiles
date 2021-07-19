@@ -1,0 +1,13 @@
+- name: Install packages with npm
+  become: yes
+  community.general.npm:
+    name: "{{ item }}"
+    state: latest
+    global: yes
+  loop:
+    - yarn
+    - prettier
+    - plantview
+    - wscat
+    - serve
+

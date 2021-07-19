@@ -35,7 +35,7 @@ mount /dev/sda2 /mnt
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware vi vim iwd
+pacstrap /mnt base base-devel linux linux-firmware vi vim iwd ansible
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -92,23 +92,9 @@ then install dotfiles:
 ```sh
 cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
-$HOME/.dotfiles/bin/dotfiles
-```
-
-and install packages:
-
-```
-bash $HOME/.dotfiles/pkg_init/arch
-```
-
-# Install extra dotfiles
-
-```
-rm -rf .ssh
-git clone git@github.com:acro5piano/ssh.git $HOME/.ssh
-
-rm -rf .mozc
-git clone git@github.com:acro5piano/mozc.git $HOME/.mozc
+cd $HOME/.dotfiles
+ansible-galaxy collection install community.general
+ansible-playbook --ask-become-pass ansible/playbooks/main.yml
 ```
 
 # Copy large & secure files
@@ -118,4 +104,3 @@ mkdir $HOME/var
 scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var/music
 scp -r 192.168.xxx.yyy:/home/kazuya/.aws $HOME/.aws
 ```
-

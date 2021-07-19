@@ -1,0 +1,25 @@
+- hosts: localhost
+  tasks:
+    - name: Install packages with pip3
+      become: yes
+      pip:
+        name: "{{ item }}"
+        state: latest
+        executable: pip3
+      loop:
+        - awscli
+        - docker-compose
+        - docker-pretty-ps
+        - flake8
+        - ipython
+        - iredis
+        - litecli
+        - livereload
+        - mycli
+        - mypy
+        - neovim
+        - pgcli
+        - poetry
+        - pyls
+        - pynvim
+        - virtualenv
