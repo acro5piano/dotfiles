@@ -1,4 +1,5 @@
 - name: Install pip3
+  become: yes
   command: python -m ensurepip
 - name: Install packages with pip3
   become: yes
