@@ -6,6 +6,5 @@ nohup fcitx5 2>&1 > /tmp/fcitx-log &
 
 sleep 1
 
-# fcitx breaks xmodmap and xremap, so restart it
+# fcitx breaks xremap, so restart it
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
-xmodmap $HOME/.xmodmap

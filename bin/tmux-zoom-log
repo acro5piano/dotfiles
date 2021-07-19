@@ -1,9 +1,0 @@
-#!/bin/bash
-
-pane_id=`tmux display -pt "$TMUX_PANE" '#{pane_index}'`
-
-if ! tmux list-panes -F '#F' | grep -q Z; then
-    tmux resize-pane -Z -t:.$pane_id
-fi
-
-tmux copy-mode -u
