@@ -60,23 +60,25 @@
     - openssh
     - openssl
     - pcmanfm
+    - pavucontrol
     - php
     - php-gd
     - php-sqlite
-    - pulseaudio
-    - pulseaudio-bluetooth
-    - pavucontrol
     - pinta
     - postgresql-client
+    - pulseaudio
+    - pulseaudio-bluetooth
     - python
     # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
     - ripgrep
     - rsync
     - ruby
     - rubygems
+    - slurp
     - terraform
     - tmux
     - tree
     - unzip
     - vim
+    - wl-clipboard
     - zip

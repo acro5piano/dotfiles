@@ -16,12 +16,13 @@
 - name: Install packages with yay
   aur:
     name: "{{ item }}"
-    state: latest
+    state: present
   loop:
     - android-platform-29
     - android-sdk
     - android-sdk-build-tools
     - android-sdk-platform-tools
+    - clipman
     - google-chrome-beta
     - leiningen
     - ngrok

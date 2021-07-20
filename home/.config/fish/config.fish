@@ -169,14 +169,14 @@ function cl
     if [ -e /Applications ]
         pbcopy
     else
-        xclip -i -selection clipboard
+        wl-copy
     end
 end
 function clp
     if [ -e /Applications ]
         pbpaste
     else
-        xclip -o -selection clipboard
+        wl-paste
     end
 end
 
