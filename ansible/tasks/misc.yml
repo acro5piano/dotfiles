@@ -19,6 +19,8 @@
 
 #########################
 # Fisher
+#
+# To install fisher plugins, please edit ~/.config/fish/fish_plugins first.
 #########################
 - name: Get fisher source
   get_url:
@@ -26,12 +28,5 @@
     dest: /tmp/fisher.fish
 - name: Install fisher
   shell:
-    cmd: source /tmp/fisher.fish && fisher install jorgebucaran/fisher
+    cmd: source /tmp/fisher.fish && fisher update
     executable: /bin/fish
-- name: Install fish plugins
-  shell:
-    cmd: "fisher install {{ item }}"
-    executable: /bin/fish
-  loop:
-    - jorgebucaran/nvm.fish@2.1.0
-    - edc/bass

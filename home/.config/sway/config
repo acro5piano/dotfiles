@@ -9,7 +9,7 @@ input type:touchpad {
 input type:keyboard {
   xkb_options ctrl:nocaps
   repeat_delay 200
-  repeat_rate 45
+  repeat_rate 50
 }
 
 bindsym $mod+Ctrl+s exec systemctl suspend
