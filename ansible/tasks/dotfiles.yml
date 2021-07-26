@@ -6,6 +6,7 @@
   loop:
     - .bash_profile
     - .bashrc
+    - bin
     - .config/alacritty
     - .config/fish
     - .config/i3
