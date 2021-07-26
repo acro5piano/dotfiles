@@ -8,6 +8,7 @@
     - .bashrc
     - .config/alacritty
     - .config/fish
+    - .config/i3
     - .config/nvim
     - .config/sway
     - .config/flake8
