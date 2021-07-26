@@ -1,4 +1,10 @@
+# vim:set ft=conf
+
 include /etc/sway/config
+
+hide_edge_borders smart
+
+# default_border none
 
 input type:touchpad {
   tap enabled

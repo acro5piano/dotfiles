@@ -20,4 +20,6 @@
     - .vim
     - .vimrc
     - .xremap
+    - .xmodmap
+    - .xinitrc
     - .zshrc

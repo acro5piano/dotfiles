@@ -33,6 +33,7 @@
     - fcitx5-mozc
     - fcitx5-gtk
     - firefox-developer-edition
+    - grim
     - dnsutils
     - feh
     - fish
@@ -42,6 +43,7 @@
     - git
     - github-cli
     - go
+    # - i3-wm # Some features are not available on wayland, so rely on i3 if needed.
     - imagemagick
     - jdk8-openjdk
     - jq
@@ -74,6 +76,7 @@
     - rsync
     - ruby
     - rubygems
+    - screenfetch
     - slurp
     - terraform
     - tmux
