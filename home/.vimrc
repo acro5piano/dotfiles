@@ -133,7 +133,7 @@ if has('nvim')
         \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         \ 'graphql': [],
         \ 'tsx': ['tsserver', 'stylelint'],
-        \ 'typescriptreact': ['tsserver', 'stylelint'],
+        \ 'typescriptreact': ['tsserver', 'stylelint', 'eslint'],
         \ 'typescript.tsx': ['tsserver', 'stylelint', 'eslint'],
         \ 'html': [],
         \}

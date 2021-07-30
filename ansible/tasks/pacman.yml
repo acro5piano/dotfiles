@@ -16,7 +16,6 @@
     - alsa-utils
     - arch-install-scripts
     - at
-    - awesome
     - chromium
     - clojure
     - composer
@@ -43,7 +42,8 @@
     - git
     - github-cli
     - go
-    # - i3-wm # Some features are not available on wayland, so rely on i3 if needed.
+    - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
+    - i3status
     - imagemagick
     - jdk8-openjdk
     - jq
