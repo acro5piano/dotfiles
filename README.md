@@ -35,13 +35,13 @@ gdisk /dev/nvme0n1
 - delete whole partition (d)
   - press (d) until all partitions deleted
 - Create a partition for boot
-    - create a new partition (n) and set `+512M` for the partition size
-    - UEFI boot flag `ef00`
+  - create a new partition (n) and set `+512M` for the partition size
+  - UEFI boot flag `ef00`
 - Create a partition for swap (for hibernation)
-    - create a new partition (n) and set `+8G` size for it
-    - Swap flag `8200`
+  - create a new partition (n) and set `+8G` size for it
+  - Swap flag `8200`
 - Create a partition for main
-    - create a new partition (n) and set maximum size for it
+  - create a new partition (n) and set maximum size for it
 - write (w)
 
 ```sh
@@ -135,6 +135,6 @@ scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
 # Sync dotfiles only
 ansible-playbook --tags dotfiles ansible/main.yml
 
-# Install pacman dep
-ansible-playbook --tags pacman ansible/main.yml
+# Install pacman dep only
+ansible-playbook --ask-become-pass --tags pacman ansible/main.yml
 ```
