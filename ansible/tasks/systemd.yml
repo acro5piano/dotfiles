@@ -14,4 +14,9 @@
     - after-boot.service
     - after-suspend.service
     - before-suspend.service
-
+- name: Disable systemd-hostnamed, as it breaks iwd
+  become: yes
+  ansible.builtin.systemd:
+    name: systemd-hostnamed
+    state: stopped
+    enabled: no
