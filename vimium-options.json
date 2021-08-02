@@ -1,0 +1,142 @@
+{
+  "settingsVersion": "1.67",
+  "exclusionRules": [
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https://app.slack.com/",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://docs.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://calendar.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://twitter.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://github.com/*",
+      "passKeys": "jk"
+    },
+    {
+      "pattern": "https?://app.slack.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://photos.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://photos.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.youtube.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.youtube.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://hackmd.io/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://localhost:3000/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://workingonthis.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.netflix.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://500px.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.notion.so/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://awesome-image-annotator.netlify.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://awesome-image-annotator.netlify.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://image-annotator.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://image-annotator.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://localhost:3001/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://midi.city/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://signal.vercel.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://meet.around.co/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://remotehour.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://dokumen.tips/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.slideshare.net/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.cmoa.jp/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://knight-g123.akamaized.net/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewForegroundTab\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 120,
+  "smoothScroll": true,
+  "grabBackFocus": false,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}
