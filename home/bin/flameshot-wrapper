@@ -1,5 +1,0 @@
-#!/bin/bash
-
-flameshot gui
-
-which xremap && nohup xremap ~/.xremap & || true

@@ -30,3 +30,18 @@
   shell:
     cmd: source /tmp/fisher.fish && fisher update
     executable: /bin/fish
+
+#########################
+# waybind
+#########################
+- name: Create directory for waybind
+  become: yes
+  file:
+    path: /etc/waybind
+    state: directory
+- name: Link waybind config file
+  become: yes
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/etc/waybind/config.yml"
+    dest: /etc/waybind/config.yml
+    state: link
