@@ -2,7 +2,7 @@
   become: yes
   command: python -m ensurepip
 - name: Install packages with pip3
-  become: yes
+  become: "{{ os != 'mac' | default(true) }}"
   pip:
     name: "{{ item }}"
     state: latest
