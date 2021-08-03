@@ -45,3 +45,11 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/etc/waybind/config.yml"
     dest: /etc/waybind/config.yml
     state: link
+
+#########################
+# tpm
+#########################
+- name: Install tpm
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm

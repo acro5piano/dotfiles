@@ -26,5 +26,5 @@ exec start-fcitx &
 exec xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 exec wl-paste -t text --watch clipman store --max-items=50 &
 
-exec swaymsg 'workspace 2; exec chromium'
+exec swaymsg 'workspace 2; exec brave'
 exec swaymsg 'workspace 1; exec alacritty'
