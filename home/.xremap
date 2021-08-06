@@ -1,13 +1,13 @@
 # mode: ruby
 
 targets = [
-  'chromium-browser',
-  'chromium',
-  'google-chrome',
-  'google-chrome-beta',
-  'google-chrome-stable',
-  'google-chrome-dev',
-  'vivaldi-stable',
+  # 'chromium-browser',
+  # 'chromium',
+  # 'google-chrome',
+  # 'google-chrome-beta',
+  # 'google-chrome-stable',
+  # 'google-chrome-dev',
+  # 'vivaldi-stable',
   'konqueror',
   'brave-browser',
   /crx_/,

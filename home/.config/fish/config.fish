@@ -6,7 +6,7 @@ else
     set -gx IS_MAC 0
 end
 
-set -gx ANDROID_HOME /opt/android-sdk ^/dev/null
+set -gx ANDROID_HOME /opt/android-sdk
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
 
 if [ -e $HOME/Library/Android ]
