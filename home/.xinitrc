@@ -12,4 +12,4 @@ synclient HorizTwoFingerScroll=1
 synclient VertScrollDelta=-111
 synclient HorizScrollDelta=-111
 
-exec awesome
+exec i3

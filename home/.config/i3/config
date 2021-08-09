@@ -190,5 +190,5 @@ bar {
 #######################
 
 # Not works well!
-exec i3-msg 'workspace 2; exec chromium'
+exec i3-msg 'workspace 2; exec brave'
 exec i3-msg 'workspace 1; exec alacritty'
