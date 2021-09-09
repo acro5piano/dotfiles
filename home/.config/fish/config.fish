@@ -388,3 +388,7 @@ end
 
 # vim:set ft=bash ts=2 sts=2 sw=2
 # vim:set foldmethod=marker:
+
+# The next line updates PATH for the Google Cloud SDK.
+set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
+[ -f $gcp_sdk_path ] && . $gcp_sdk_path

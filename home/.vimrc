@@ -56,12 +56,12 @@ if has('nvim')
   " Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'dense-analysis/ale'
-  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " Plug 'wokalski/autocomplete-flow'
-  Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "     \ 'branch': 'next',
+  "     \ 'do': 'bash install.sh',
+  "     \ }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
   " Want to migrate to https://github.com/norcalli/snippets.nvim
@@ -113,13 +113,13 @@ let g:prettier#config#arrow_parens = 'always'
 "----------------------------------------------------
 if has('nvim')
     "not works yet for graphql
-    let g:LanguageClient_serverCommands = {
-        \ 'python': ['/usr/local/bin/pyls'],
-        \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-        \ 'graphql': ['graphql-lsp', 'server', '--schemaPath', 'schema.graphql'],
-        \ }
-        " \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    let g:LanguageClient_diagnosticsEnable = 0
+    " let g:LanguageClient_serverCommands = {
+    "     \ 'python': ['/usr/local/bin/pyls'],
+    "     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    "     \ 'graphql': ['graphql-lsp', 'server', '--schemaPath', 'schema.graphql'],
+    "     \ }
+    "     " \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    " let g:LanguageClient_diagnosticsEnable = 0
     let g:racer_cmd = expand('~/.cargo/bin/racer')
     let g:racer_experimental_completer = 1
 
@@ -127,7 +127,7 @@ if has('nvim')
     let g:ale_linters = {
         \ 'rust': ['cargo', 'rls'],
         \ 'go': ['govet', 'gofmt', 'gobuild'],
-        \ 'python': ['flake8', 'mypy'],
+        \ 'python': ['flake8', 'mypy', 'python'],
         \ 'php': ['php', 'phpstan'],
         \ 'javascript': ['flow', 'flow-language-server', 'tsserver'],
         \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
@@ -384,7 +384,7 @@ nnoremap <Leader>ij :ImportJsFZF<CR>
 " nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
 nnoremap <Leader>jd :NERDTreeFind<CR>
-nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
