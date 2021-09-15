@@ -1,4 +1,6 @@
 - hosts: localhost
+  vars:
+    os: linux
   tasks:
     - import_tasks: tasks/pacman.yml
       tags: [ pacman ]
