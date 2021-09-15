@@ -115,8 +115,7 @@ then install dotfiles:
 cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
 cd $HOME/.dotfiles
-ansible-galaxy collection install community.general
-ansible-galaxy install kewlfft.aur
+ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook --ask-become-pass ansible/main.yml
 ```
 

@@ -14,7 +14,7 @@
     name: archlinux-keyring
     state: latest
 - name: Install packages with yay
-  aur:
+  kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
   loop:

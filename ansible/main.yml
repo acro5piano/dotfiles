@@ -1,6 +1,4 @@
 - hosts: localhost
-  roles:
-    - kewlfft.aur
   tasks:
     - import_tasks: tasks/pacman.yml
       tags: [ pacman ]
