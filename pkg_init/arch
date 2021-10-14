@@ -6,8 +6,6 @@ sudo pacman-key --populate archlinux
 sudo pacman-key --refresh-keys
 sudo pacman -Sy archlinux-keyring
 
-sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
-
 if ! which xremap; then
     cd /tmp
     git clone https://github.com/k0kubun/xremap
@@ -24,6 +22,7 @@ echo $SHELL | grep -q fish || chsh -s /bin/fish
 
 sudo ln -svf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
 # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
 yes | /opt/android-sdk/tools/bin/sdkmanager --licenses

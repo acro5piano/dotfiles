@@ -138,8 +138,8 @@ ansible-playbook --tags dotfiles ansible/main.yml
 ansible-playbook --ask-become-pass --tags pacman ansible/main.yml
 ```
 
-# MAC OSX
+# OSX
 
 ```
-ansible-playbook --tags dotfiles,misc,npm,pip ansible/main.yml --extra-vars "os=mac"
+ansible-playbook --tags dotfiles,misc,npm,pip,gem ansible/main.yml --extra-vars "os=mac"
 ```
