@@ -2,7 +2,7 @@
 
 targets = [
   # 'chromium-browser',
-  # 'chromium',
+  'chromium',
   # 'google-chrome',
   # 'google-chrome-beta',
   # 'google-chrome-stable',

@@ -1,6 +1,6 @@
 - name: Enable pulseaudio
   ansible.builtin.systemd:
-    name: pulseaudio
+    name: pipewire
     state: started
     enabled: yes
     scope: user

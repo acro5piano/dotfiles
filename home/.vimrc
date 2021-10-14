@@ -53,11 +53,11 @@ if has('nvim')
   " Plug 'rust-lang/rust.vim'
   " Plug 'racer-rust/vim-racer'
   " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-  " Plug 'flowtype/vim-flow'
+  Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  " Plug 'wokalski/autocomplete-flow'
+  Plug 'wokalski/autocomplete-flow'
   " Plug 'autozimu/LanguageClient-neovim', {
   "     \ 'branch': 'next',
   "     \ 'do': 'bash install.sh',
@@ -129,13 +129,14 @@ if has('nvim')
         \ 'go': ['govet', 'gofmt', 'gobuild'],
         \ 'python': ['flake8', 'mypy', 'python'],
         \ 'php': ['php', 'phpstan'],
-        \ 'javascript': ['flow', 'flow-language-server', 'tsserver'],
+        \ 'javascript': ['flow', 'flow-language-server', 'eslint'],
         \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
         \ 'graphql': [],
         \ 'tsx': ['tsserver', 'stylelint'],
         \ 'typescriptreact': ['tsserver', 'stylelint', 'eslint'],
         \ 'typescript.tsx': ['tsserver', 'stylelint', 'eslint'],
         \ 'html': [],
+        \ 'json': [],
         \}
         " \ 'python': ['flake8', 'mypy', 'pyls'],
 
@@ -528,10 +529,7 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue Prettier
-endif
-
-if has('nvim')
-    autocmd BufEnter *.json set ft=javascript
+    autocmd BufEnter *.json set ft=java
 endif
 
 " remember cursor position
