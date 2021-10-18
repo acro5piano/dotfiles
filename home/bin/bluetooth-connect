@@ -1,0 +1,6 @@
+#!/bin/bash
+
+case "$1" in
+    "sony") bluetoothctl connect 90:7A:58:9D:C7:35;;
+    "ankar") bluetoothctl connect 7C:96:D2:9D:7A:BC;;
+esac
