@@ -50,7 +50,7 @@ Plug 'acro5piano/import-js-from-history'
 if has('nvim')
   " Plug 'leafgarland/typescript-vim'
   " Plug 'reasonml-editor/vim-reason-plus'
-  " Plug 'rust-lang/rust.vim'
+  Plug 'rust-lang/rust.vim'
   " Plug 'racer-rust/vim-racer'
   " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'flowtype/vim-flow'
@@ -569,6 +569,7 @@ filetype plugin on
 " autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 autocmd BufEnter,BufNew *.tera set filetype=html
+autocmd BufEnter,BufNew *.toml set filetype=yaml
 
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
