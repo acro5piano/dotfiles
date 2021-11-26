@@ -345,6 +345,7 @@ alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 
 alias rg="rg --hidden --glob '!.git'"
+alias ghrw="watch -n 5 gh run list"
 
 alias v="vim"
 alias nv="nvim"
