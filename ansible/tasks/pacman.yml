@@ -16,6 +16,7 @@
     - alsa-utils
     - arch-install-scripts
     - at
+    - bat
     - chromium
     - clojure
     - composer

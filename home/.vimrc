@@ -16,13 +16,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
-" Plug 'jwalton512/vim-blade'
-" Plug 'slim-template/vim-slim'
 Plug 'osyo-manga/vim-over'
 Plug 'plasticboy/vim-markdown'
-" Plug 'posva/vim-vue'
-" Plug 'tomlion/vim-solidity'
-" Plug 'digitaltoad/vim-pug'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'Yggdroot/indentLine'
@@ -33,36 +28,18 @@ Plug 'aklt/plantuml-syntax'
 
 Plug 'ruanyl/vim-gh-line'
 
-" Plug 'mxw/vim-jsx'
-" Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
-" Plug 'MaxMEllon/vim-jsx-pretty', {
-"   \ 'for': ['typescript', 'javascript', 'typescript.tsx'],
-"   \ 'autoload': {
-"   \   'filetypes': ['typescriptreact',  'typescript.tsx', 'typescript', 'javascript']
-"   \ }}
 Plug 'acro5piano/vim-graphql'
 Plug 'jxnblk/vim-mdx-js'
 
 Plug 'acro5piano/import-js-from-history'
 
 if has('nvim')
-  " Plug 'leafgarland/typescript-vim'
-  " Plug 'reasonml-editor/vim-reason-plus'
   Plug 'rust-lang/rust.vim'
-  " Plug 'racer-rust/vim-racer'
-  " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-  Plug 'flowtype/vim-flow'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'wokalski/autocomplete-flow'
-  " Plug 'autozimu/LanguageClient-neovim', {
-  "     \ 'branch': 'next',
-  "     \ 'do': 'bash install.sh',
-  "     \ }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Want to migrate to https://github.com/norcalli/snippets.nvim
   Plug 'SirVer/ultisnips'
@@ -74,15 +51,6 @@ call plug#end()
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
-
-" deoplete
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option('sources', {
-      \ '_': ['ale', 'file', 'buffer'],
-  \})
-endif
-set completeopt-=preview
 
 set incsearch
 
@@ -107,103 +75,6 @@ let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#arrow_parens = 'always'
-
-"----------------------------------------------------
-" Asynchronous Lint Engine (ALE)
-"----------------------------------------------------
-if has('nvim')
-    "not works yet for graphql
-    " let g:LanguageClient_serverCommands = {
-    "     \ 'python': ['/usr/local/bin/pyls'],
-    "     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    "     \ 'graphql': ['graphql-lsp', 'server', '--schemaPath', 'schema.graphql'],
-    "     \ }
-    "     " \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    " let g:LanguageClient_diagnosticsEnable = 0
-    let g:racer_cmd = expand('~/.cargo/bin/racer')
-    let g:racer_experimental_completer = 1
-
-    " Limit linters used for JavaScript.
-    let g:ale_linters = {
-        \ 'rust': ['cargo', 'rls'],
-        \ 'go': ['govet', 'gofmt', 'gobuild'],
-        \ 'python': ['flake8', 'mypy', 'python'],
-        \ 'php': ['php', 'phpstan'],
-        \ 'javascript': ['flow', 'flow-language-server', 'eslint'],
-        \ 'typescript': ['tsserver', 'stylelint', 'eslint'],
-        \ 'graphql': [],
-        \ 'tsx': ['tsserver', 'stylelint'],
-        \ 'typescriptreact': ['tsserver', 'stylelint', 'eslint'],
-        \ 'typescript.tsx': ['tsserver', 'stylelint', 'eslint'],
-        \ 'html': [],
-        \ 'json': [],
-        \}
-        " \ 'python': ['flake8', 'mypy', 'pyls'],
-
-    let g:ale_rust_rustc_options = '--emit metadata'
-    let g:rustfmt_autosave = 1
-    set omnifunc=ale#completion#OmniFunc
-
-    " Not work with nvim-typescript.
-    " let g:nvim_typescript#diagnostics_enable = 0
-    let g:ale_completion_enabled = 1
-    let g:ale_linter_aliases = {'typescriptreact': 'typescript', 'typescript': 'typescript', 'tsx': 'typescript'}
-    let g:ale_ruby_rubocop_executable = 'bundle'
-
-    let g:ale_set_highlights = 0
-    highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-    highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-    let g:ale_sign_error = 'X' " could use emoji
-    let g:ale_sign_warning = '?' " could use emoji
-    let g:ale_statusline_format = ['X %d', '? %d', '']
-    " %linter% is the name of the linter that provided the message
-    " %s is the error or warning message
-    let g:ale_echo_msg_format = '%linter% says %s'
-    let g:ale_lint_delay = 100
-    " Map keys to navigate between lines with errors and warnings.
-
-    let g:ale_python_flake8_executable = '/usr/local/bin/flake8'
-    let g:ale_python_mypy_executable = '/usr/local/bin/mypy'
-    let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
-    let g:ale_python_pyls_config = {
-      \   'pyls': {
-      \     'plugins': {
-      \       'pydocstyle': {
-      \         'enabled': v:false
-      \       },
-      \       'flake8': {
-      \         'enabled': v:false
-      \       },
-      \       'pycodestyle': {
-      \         'enabled': v:false
-      \       },
-      \     },
-      \   },
-      \ }
-endif
-
-"----------------------------------------------------
-" Flow
-"----------------------------------------------------
-if has('nvim')
-    " Use locally installed flow
-    let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-    if matchstr(local_flow, "^\/\\w") == ''
-      let local_flow = getcwd() . "/" . local_flow
-    endif
-    if executable(local_flow)
-      let g:flow#flowpath = getcwd() . "/node_modules/.bin/flow"
-    endif
-    let g:flow#showquickfix = 0
-    let g:flow#enable = 0
-
-
-    let g:javascript_plugin_flow = 1
-
-    " autocomplete-flow does this feature
-    let g:flow#omnifunc = 1
-    let g:autocomplete_flow#insert_paren_after_function = 0
-endif
 
 
 "----------------------------------------------------
@@ -285,10 +156,8 @@ filetype indent on
 
 
 "----------------------------------------------------
-" Using X11
+" Copy/Paste
 "----------------------------------------------------
-
-" autocmd InsertLeave * call system('fcitx-remote -c')
 
 " Clipboard copy / paste
 nnoremap <Space>pb :.!clp<CR>
@@ -359,9 +228,16 @@ nnoremap <Leader>/ :TComment<CR>
 nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
-nnoremap <Leader>ad :ALEDetail<CR><C-w><C-w>
-nnoremap <Leader>an :ALENext<CR>
-nnoremap <Leader>ap :ALEPrevious<CR>
+
+" COC
+nmap <Leader>ac :CocAction<CR>
+nmap <Leader>an <Plug>(coc-diagnostic-prev)
+nmap <Leader>ag <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gm <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
@@ -403,8 +279,6 @@ nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wl <C-w>l
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
@@ -427,12 +301,6 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
 command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
 command! TTagnize execute("normal vitS`vitS{at")
 
-" Go to definition
-nnoremap <Leader>aj :ALEGoToDefinition<CR>
-nnoremap <Leader>ah :ALEHover<CR>
-au FileType rust nmap <Leader>aj <Plug>(rust-def)
-au FileType go nmap <Leader>aj :GoDef<CR>
-
 nnoremap <ESC><ESC> :nohl<CR>
 
 map <Leader>e <Plug>(easymotion-overwin-w)
@@ -441,7 +309,6 @@ map <Leader>l <Plug>(easymotion-overwin-line)
 nmap <F1> <ESC>
 imap <F1> <ESC>
 vmap <F1> <ESC>
-
 
 "--------------
 " FZF customization
@@ -496,7 +363,6 @@ function! s:git_blame()
 endfunction
 command! GitBlame call s:git_blame()
 
-
 function! s:git_log_100()
     let fileName = '/tmp/__git_log.'.expand('%:t').'.diff'
     call system('git log -p -100 '.expand('%').' > '.fileName)
@@ -510,6 +376,15 @@ function! s:git_diff()
     :exe ':view '.fileName
 endfunction
 command! GitDiff call s:git_diff()
+
+
+"---------------------------------------------------
+" File alias
+"----------------------------------------------------
+autocmd BufEnter,BufNew *.json set ft=java
+autocmd BufEnter,BufNew *.tera set filetype=html
+autocmd BufEnter,BufNew *.toml set filetype=yaml
+
 
 "---------------------------------------------------
 " Others
@@ -529,7 +404,6 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue Prettier
-    autocmd BufEnter *.json set ft=java
 endif
 
 " remember cursor position
@@ -567,26 +441,5 @@ filetype plugin on
 
 " For css completion
 " autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
-
-autocmd BufEnter,BufNew *.tera set filetype=html
-autocmd BufEnter,BufNew *.toml set filetype=yaml
-
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-"--------------
-" Git
-"--------------
-function! s:grep_file()
-    let fileName = '/tmp/__vim_grep.'.expand('%:t')
-    let l:search = input('search word: ')
-    if (l:search == '')
-      echo 'aborted.'
-      return
-    endif
-    call system('egrep '.l:search.' '.expand('%').' > '.fileName)
-    :exe ':view '.fileName
-endfunction
-command! GrepFile call s:grep_file()
 
 au InsertLeave * set nopaste
