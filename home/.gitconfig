@@ -7,7 +7,7 @@
     br = branch
     cm = commit -am
     co = checkout
-    cz = !git checkout $(git branch | fzf-tmux)
+    cz = !git checkout $(git branch | fzf-tmux --no-preview)
     d = diff
     dh = diff HEAD
     dhw = diff HEAD

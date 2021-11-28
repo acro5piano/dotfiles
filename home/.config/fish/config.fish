@@ -68,6 +68,7 @@ set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
 status --is-interactive; and source (rbenv init -|psub)
 
+set -gx FZF_DEFAULT_OPTS "--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
 # }}}
@@ -359,6 +360,7 @@ alias tsv='column -ts \t'
 alias tmc='tmux clear-history'
 
 alias q='qrcode'
+alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 
 # }}}
 
