@@ -471,7 +471,7 @@ function! s:gitfiles_monorepo()
   let l:path = substitute(getcwd(), l:root, '', '')
   let l:path = substitute(l:path, '/', '', '')
 
-  let l:options = '-m '.s:preview_bind.' --preview "bat --color=always --style plain {1}" --prompt "GitFiles> " '
+  let l:options = '-m '.s:preview_bind.' --no-unicode --preview "bat --color=always --style plain {1}" --prompt "GitFiles> " '
   if l:path != ''
     let l:options .= '--query '.l:path.'/'
   endif
