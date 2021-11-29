@@ -40,6 +40,7 @@ if has('nvim')
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'josa42/vim-lightline-coc'
 
   " Want to migrate to https://github.com/norcalli/snippets.nvim
   Plug 'SirVer/ultisnips'
@@ -76,6 +77,10 @@ let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#arrow_parens = 'always'
 
+" COC
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 "----------------------------------------------------
 " Charcode
@@ -136,10 +141,12 @@ let g:lightline = {
     \ 'colorscheme': 'solarized',
     \ 'active': {
     \   'left': [
-    \     [ 'readonly', 'filename', 'modified' ]
-    \   ]
+    \     [ 'readonly', 'filename', 'modified', 'coc_errors', 'coc_warnings' ],
+    \   ],
     \ },
     \ }
+
+call lightline#coc#register()
 
 set breakindent
 
@@ -193,6 +200,7 @@ inoremap <S-TAB> <C-d>
 inoremap <TAB> <C-t>
 
 " Emacs-like key binding
+" キーワード補完には <C-x> <C-n> を使う
 inoremap <C-a> <Home>
 inoremap <C-b> <Left>
 inoremap <C-d> <Del>
@@ -206,8 +214,6 @@ cnoremap <C-f> <Right>
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 cnoremap <C-k> <C-\>estrpart(getcmdline(), 0, getcmdpos()-1)<CR>
-
-" キーワード補完には <C-x> <C-n> を使う
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <Down> <C-n>
@@ -230,6 +236,7 @@ nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
 
 " COC
+inoremap <silent><expr> <c-l> coc#refresh()
 nmap <Leader>ac :CocAction<CR>
 nmap <Leader>ap <Plug>(coc-diagnostic-prev)
 nmap <Leader>an <Plug>(coc-diagnostic-next)
@@ -444,3 +451,6 @@ filetype plugin on
 " autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 au InsertLeave * set nopaste
+
+" https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
+highlight clear SignColumn
