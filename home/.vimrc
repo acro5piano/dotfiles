@@ -235,6 +235,7 @@ nnoremap <Leader><Leader> :History:<CR>
 nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader>ag :Rg <C-r><C-w><CR>
 
+
 " COC
 inoremap <silent><expr> <c-l> coc#refresh()
 nmap <Leader>ac :CocAction<CR>
@@ -453,4 +454,5 @@ filetype plugin on
 au InsertLeave * set nopaste
 
 " https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
-highlight clear SignColumn
+highlight SignColumn ctermbg=black
+autocmd FileType nerdtree setlocal signcolumn=no
