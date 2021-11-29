@@ -231,12 +231,13 @@ nnoremap <Leader>ag :Rg <C-r><C-w><CR>
 
 " COC
 nmap <Leader>ac :CocAction<CR>
-nmap <Leader>an <Plug>(coc-diagnostic-prev)
-nmap <Leader>ag <Plug>(coc-diagnostic-next)
+nmap <Leader>ap <Plug>(coc-diagnostic-prev)
+nmap <Leader>an <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gm <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <Leader>aj <Plug>(coc-definition)
+nmap <silent> <Leader>at <Plug>(coc-type-definition)
+nmap <silent> <Leader>am <Plug>(coc-implementation)
+nmap <silent> <Leader>ar <Plug>(coc-references)
 
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
