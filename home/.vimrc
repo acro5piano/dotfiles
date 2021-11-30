@@ -146,7 +146,9 @@ let g:lightline = {
     \ },
     \ }
 
-call lightline#coc#register()
+if has('nvim')
+  call lightline#coc#register()
+endif
 
 set breakindent
 
@@ -246,6 +248,7 @@ nmap <silent> <Leader>aj <Plug>(coc-definition)
 nmap <silent> <Leader>at <Plug>(coc-type-definition)
 nmap <silent> <Leader>am <Plug>(coc-implementation)
 nmap <silent> <Leader>ar <Plug>(coc-references)
+nmap <silent> <Leader>ac :CocAction<CR>
 
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
@@ -439,6 +442,7 @@ endfunction
 autocmd BufWritePre *.py call Yapf()
 
 let g:terraform_fmt_on_save=1
+let g:rustfmt_autosave = 1
 
 command! Rubocop !bundle exec rubocop -a %
 command! ESLint !yarn eslint --fix %
