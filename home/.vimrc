@@ -248,6 +248,7 @@ nmap <silent> <Leader>aj <Plug>(coc-definition)
 nmap <silent> <Leader>at <Plug>(coc-type-definition)
 nmap <silent> <Leader>am <Plug>(coc-implementation)
 nmap <silent> <Leader>ar <Plug>(coc-references)
+nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
 nnoremap <Leader>aw :Ack <C-r><C-w>

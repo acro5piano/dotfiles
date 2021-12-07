@@ -1,6 +1,6 @@
 [user]
 	email = ketsume0211@gmail.com
-	name = gosho-kazuya
+	name = Kay Gosho
 [alias]
     alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
     a = add

@@ -1,10 +1,8 @@
 # vim:set ft=conf
 
-include /etc/sway/config
+include ./default_config
 
 hide_edge_borders smart
-
-# default_border none
 
 input type:touchpad {
   tap enabled
@@ -27,4 +25,6 @@ exec xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
 exec swaymsg 'workspace 2; exec brave'
-exec swaymsg 'workspace 1; exec alacritty'
+exec swaymsg 'workspace 1; exec kitty'
+
+output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch

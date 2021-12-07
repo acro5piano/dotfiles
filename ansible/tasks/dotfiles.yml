@@ -9,10 +9,11 @@
     - bin
     - .config/alacritty
     - .config/fish
+    - .config/flake8
     - .config/i3
+    - .config/kitty
     - .config/nvim
     - .config/sway
-    - .config/flake8
     - .ctags
     - .editorconfig
     - .gemrc

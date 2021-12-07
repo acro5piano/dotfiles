@@ -5,5 +5,5 @@ bluetoothctl power on
 case "$1" in
     "sony") bluetoothctl connect 90:7A:58:9D:C7:35;;
     "anker") bluetoothctl connect 7C:96:D2:9D:7A:BC;;
-    "opencomm") bluetoothctl connect 20:74:CF:92:21:E7;;
+    "afsz") bluetoothctl connect 20:74:CF:92:21:E7;;
 esac

@@ -77,7 +77,7 @@ set -gx FZF_DEFAULT_OPTS "--ansi --preview-window 'right:60%' --preview 'bat --c
 function __fzf_history
   set FILTER fzf-tmux # Not works at all!
   set FILTER fzf
-  history | perl -nle 'print if length($_) < 200' | $FILTER --exact -d40% +s +m --query=(commandline -b) \
+  history | perl -nle 'print if length($_) < 200' | $FILTER --exact -d40% +s +m --query=(commandline -b) --no-preview \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end

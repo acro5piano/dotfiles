@@ -33,7 +33,6 @@
     - fcitx5-mozc
     - fcitx5-gtk
     - firefox-developer-edition
-    - grim
     - dnsutils
     - feh
     - fish
@@ -43,11 +42,13 @@
     - git
     - github-cli
     - go
-    - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
+    - grim
     - i3status
+    - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
     - jdk8-openjdk
     - jq
+    - kitty
     - lapack
     - ldns
     - libevent
@@ -58,10 +59,11 @@
     - lua
     - make
     - man-db
-    - ntp
     - neovim
+    - ntp
     - openssh
     - openssl
+    - onefetch
     - pcmanfm
     - pavucontrol
     - php
