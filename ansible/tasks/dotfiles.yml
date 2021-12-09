@@ -15,6 +15,7 @@
     - .config/nvim
     - .config/sway
     - .ctags
+    - .ctags
     - .editorconfig
     - .gemrc
     - .gitconfig
@@ -22,7 +23,8 @@
     - .tmux.conf
     - .vim
     - .vimrc
-    - .xremap
-    - .xmodmap
+    - .wayremap.py
     - .xinitrc
+    - .xmodmap
+    - .xremap
     - .zshrc

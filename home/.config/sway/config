@@ -21,7 +21,7 @@ bindsym $mod+p exec clipman pick -t dmenu
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 
 exec start-fcitx &
-exec xremap ~/.xremap 2>&1 > /tmp/xremap.log &
+# exec xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
 exec swaymsg 'workspace 2; exec brave'

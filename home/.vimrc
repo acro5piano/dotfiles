@@ -190,7 +190,7 @@ inoremap zl ->
 " autocmd FileType xml,html inoremap </ </<C-x><C-o>
 inoremap zd <C-r>=strftime("%Y-%m-%d")<CR><Space>
 inoremap zt <C-r>=strftime("%H:%M")<CR><Space>
-" inoremap z[ from IPython import embed; embed()
+inoremap z[ from IPython import embed; embed()
 inoremap zf <C-r>=expand('%:t:r')<CR>
 inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
