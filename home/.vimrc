@@ -41,6 +41,8 @@ if has('nvim')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'josa42/vim-lightline-coc'
+  " Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+  Plug 'mindriot101/vim-yapf'
 
   " Want to migrate to https://github.com/norcalli/snippets.nvim
   Plug 'SirVer/ultisnips'
@@ -431,16 +433,7 @@ set backspace=indent,eol,start
 
 set showcmd
 
-function! Yapf()
-    let l:curPos = getpos('.')
-    call cursor(1, 1)
-    silent execute "0,$!yapf"
-    if v:shell_error != 0
-        silent undo
-    end
-    call cursor(l:curPos[1], l:curPos[2])
-endfunction
-autocmd BufWritePre *.py call Yapf()
+autocmd BufWritePre *.py Yapf
 
 let g:terraform_fmt_on_save=1
 let g:rustfmt_autosave = 1

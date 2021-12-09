@@ -21,6 +21,8 @@
     - neovim
     - pgcli
     - poetry
-    - pyls
     - pynvim
+    - pyright
+    - toml # required by yapf
     - virtualenv
+    - yapf
