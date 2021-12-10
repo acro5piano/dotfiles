@@ -17,7 +17,7 @@ input type:keyboard {
 }
 
 bindsym $mod+Ctrl+s exec systemctl suspend
-bindsym $mod+p exec clipman pick -t dmenu
+bindsym $mod+p exec clipman pick -t bemenu
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 
 exec start-fcitx &

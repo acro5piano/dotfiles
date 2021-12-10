@@ -10,8 +10,6 @@ wayremap_config = WayremapConfig(
     ],
     bindings=[
         # Alternative
-        Binding('alt.k', [[k.KEY_LEFTCTRL, k.KEY_K]]),
-        Binding('alt.h', [[k.KEY_LEFTCTRL, k.KEY_H]]),
         Binding('ctrl.alt.d', [[k.KEY_LEFTCTRL, k.KEY_D]]),
         Binding('ctrl.alt.p', [[k.KEY_LEFTCTRL, k.KEY_LEFTSHIFT, k.KEY_A]]),
 
@@ -43,6 +41,10 @@ wayremap_config = WayremapConfig(
         Binding('alt.a', [[k.KEY_LEFTCTRL, k.KEY_A]]),
         Binding('alt.c', [[k.KEY_LEFTCTRL, k.KEY_C]]),
         Binding('alt.v', [[k.KEY_LEFTCTRL, k.KEY_V]]),
+
+        # TODO: alt keys are pripritize??
+        Binding('alt.k', [[k.KEY_LEFTCTRL, k.KEY_K]]),
+        Binding('alt.h', [[k.KEY_LEFTCTRL, k.KEY_H]]),
     ])
 
 run(wayremap_config, '/dev/input/event4')
