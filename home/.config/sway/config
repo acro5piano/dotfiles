@@ -2,6 +2,8 @@
 
 include ./default_config
 
+set $mod Mod4
+
 hide_edge_borders smart
 
 input type:touchpad {
@@ -24,7 +26,9 @@ exec start-fcitx &
 # exec xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
-exec swaymsg 'workspace 2; exec brave'
+exec swaymsg 'workspace 2; exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland'
 exec swaymsg 'workspace 1; exec kitty'
 
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
+
+bindsym $mod+d exec bemenu-run

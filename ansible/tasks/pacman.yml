@@ -17,14 +17,13 @@
     - arch-install-scripts
     - at
     - bat
+    - bemenu-wayland
     - chromium
     - clojure
     - composer
     - ctags
     - curl
-    - dmenu
     - docker
-    - flameshot
     - docker-compose
     - eog
     - evince
@@ -34,7 +33,6 @@
     - fcitx5-gtk
     - firefox-developer-edition
     - dnsutils
-    - feh
     - fish
     - fzf
     - gcc-fortran
