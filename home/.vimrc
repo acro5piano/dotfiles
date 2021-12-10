@@ -419,6 +419,7 @@ autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue Prettier
+    autocmd BufWritePre *.py Yapf
 endif
 
 " remember cursor position
@@ -433,7 +434,6 @@ set backspace=indent,eol,start
 
 set showcmd
 
-autocmd BufWritePre *.py Yapf
 
 let g:terraform_fmt_on_save=1
 let g:rustfmt_autosave = 1
