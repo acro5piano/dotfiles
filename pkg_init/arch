@@ -6,14 +6,6 @@ sudo pacman-key --populate archlinux
 sudo pacman-key --refresh-keys
 sudo pacman -Sy archlinux-keyring
 
-if ! which xremap; then
-    cd /tmp
-    git clone https://github.com/k0kubun/xremap
-    cd xremap
-    make
-    sudo make install
-fi
-
 grep -q docker /etc/group || sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo gpasswd -a $USER sys
