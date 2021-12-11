@@ -11,7 +11,7 @@
     dest: "/etc/{{ item }}"
     state: link
   loop:
-    - wayremap.py
+    - wayremap.config.py
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
