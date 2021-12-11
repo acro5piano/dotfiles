@@ -15,9 +15,10 @@ input type:touchpad {
 input type:keyboard {
   xkb_options ctrl:nocaps
   repeat_delay 200
-  repeat_rate 40
+  repeat_rate 50
 }
 
+bindsym $mod+escape exec systemctl suspend
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+p exec clipman pick -t bemenu
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
@@ -25,7 +26,7 @@ bindsym Print exec grim -g "$(slurp)" -| wl-copy
 exec start-fcitx &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
-exec swaymsg 'workspace 2; exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland'
+exec swaymsg 'workspace 2; exec brave --restore-last-session'
 exec swaymsg 'workspace 1; exec kitty'
 
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch

@@ -368,13 +368,12 @@ alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 [ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if [ "$TERM" = 'xterm-256color' ]
-    if pgrep tmux > /dev/null
-        # tmux a ^ /dev/null
-    else
+if swaymsg --quiet --type get_tree
+    if ! tmux list-sessions | grep -q ''
         tmux
     end
 end
+
 
 # if [ -e /etc/arch-release ]
 #     sudo sysctl -p > /dev/null &
@@ -390,3 +389,7 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
 [ -f $gcp_sdk_path ] && . $gcp_sdk_path
+
+# If running from tty1 start sway
+set TTY1 (tty)
+[ "$TTY1" = "/dev/tty1" ] && exec sway
