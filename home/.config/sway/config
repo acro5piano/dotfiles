@@ -26,7 +26,7 @@ bindsym Print exec grim -g "$(slurp)" -| wl-copy
 exec start-fcitx &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
-exec swaymsg 'workspace 2; exec brave --restore-last-session'
+exec swaymsg 'workspace 2; exec firefox-developer-edition'
 exec swaymsg 'workspace 1; exec kitty'
 
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
