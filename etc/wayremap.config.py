@@ -13,8 +13,9 @@ wayremap_config = WayremapConfig(
         # Alternative
         Binding([e.KEY_LEFTCTRL, e.KEY_LEFTALT, e.KEY_D],
                 [[k.KEY_LEFTCTRL, k.KEY_D]]),
-        Binding([e.KEY_LEFTCTRL, e.KEY_LEFTALT, e.KEY_P],
+        Binding([e.KEY_LEFTALT, e.KEY_P],
                 [[k.KEY_LEFTCTRL, k.KEY_LEFTSHIFT, k.KEY_A]]),
+        Binding([e.KEY_LEFTALT, e.KEY_S], [[k.KEY_LEFTCTRL, k.KEY_S]]),
 
         # Slack helm!
         Binding([e.KEY_LEFTALT, e.KEY_X], [[k.KEY_LEFTCTRL, k.KEY_K]]),
@@ -50,6 +51,8 @@ wayremap_config = WayremapConfig(
         # TODO: alt keys are pripritize??
         Binding([e.KEY_LEFTALT, e.KEY_K], [[k.KEY_LEFTCTRL, k.KEY_K]]),
         Binding([e.KEY_LEFTALT, e.KEY_H], [[k.KEY_LEFTCTRL, k.KEY_H]]),
+
+        Binding([e.KEY_LEFTALT, e.KEY_E], [[k.KEY_LEFTCTRL, k.KEY_E]]),
     ])
 
 run(wayremap_config, '/dev/input/event4')

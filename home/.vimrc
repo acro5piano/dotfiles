@@ -200,6 +200,8 @@ inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
 tnoremap <silent> <C-g> <C-\><C-n>
 
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 inoremap <S-TAB> <C-d>
 inoremap <TAB> <C-t>
 
@@ -252,6 +254,8 @@ nmap <silent> <Leader>am <Plug>(coc-implementation)
 nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
+
+
 
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
@@ -400,7 +404,6 @@ autocmd BufEnter,BufNew *.json set ft=java
 autocmd BufEnter,BufNew *.tera set filetype=html
 autocmd BufEnter,BufNew *.toml set filetype=yaml
 
-
 "---------------------------------------------------
 " Others
 "----------------------------------------------------
@@ -454,3 +457,10 @@ au InsertLeave * set nopaste
 " https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
 highlight SignColumn ctermbg=black
 autocmd FileType nerdtree setlocal signcolumn=no
+
+" local plugins
+if has('nvim')
+  set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
+  " mozc
+  nmap <silent> <Leader>z :CocCommand mozc.toggle<CR>
+endif

@@ -27,6 +27,7 @@ exec start-fcitx &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
 # exec swaymsg 'workspace 2; exec firefox-developer-edition'
+exec swaymsg 'workspace 7; exec pavucontrol'
 exec swaymsg 'workspace 2; exec brave'
 exec swaymsg 'workspace 1; exec kitty'
 
