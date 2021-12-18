@@ -4,7 +4,7 @@ Description=wayremap on startup with 10 seconds delay
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/python /etc/wayremap.config.py
-ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/sleep 30
 TimeoutSec=0
 StandardOutput=tty
 RemainAfterExit=yes

@@ -460,7 +460,7 @@ autocmd FileType nerdtree setlocal signcolumn=no
 
 " local plugins
 if has('nvim')
-  set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
+  " set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
   " mozc
   nmap <silent> <Leader>z :CocCommand mozc.toggle<CR>
 endif
