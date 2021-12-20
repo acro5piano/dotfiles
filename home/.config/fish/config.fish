@@ -1,3 +1,5 @@
+# vim:set ft=sh :
+
 # {{{ Env vars
 
 if [ -e /Applications ]
@@ -18,6 +20,8 @@ end
 set -gx DENO_INSTALL $HOME/.deno
 
 set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+
+set -gx GTK_IM_MODULE fctix
 
 [ -e $HOME/go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
