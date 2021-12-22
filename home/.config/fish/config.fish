@@ -21,7 +21,7 @@ set -gx DENO_INSTALL $HOME/.deno
 
 set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-set -gx GTK_IM_MODULE fctix
+set -gx GTK_IM_MODULE fcitx
 
 [ -e $HOME/go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
@@ -47,8 +47,8 @@ set -gx PATH \
             $ANDROID_HOME/platform-tools \
             $HOME/.cargo/bin \
             $PATH ^/dev/null
-set -gx EDITOR vim
-set -gx VISUAL vim
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 set -gx CHROME_BIN chromium
 
 set -gx PIPENV_VENV_IN_PROJECT 1

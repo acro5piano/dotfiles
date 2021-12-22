@@ -8,6 +8,7 @@ wayremap_config = WayremapConfig(
         'Brave-browser',
         'Leafpad',
         'firefoxdeveloperedition',
+        'Chromium',
     ],
     bindings=[
         # Alternative
@@ -51,7 +52,6 @@ wayremap_config = WayremapConfig(
         # TODO: alt keys are pripritize??
         Binding([e.KEY_LEFTALT, e.KEY_K], [[k.KEY_LEFTCTRL, k.KEY_K]]),
         Binding([e.KEY_LEFTALT, e.KEY_H], [[k.KEY_LEFTCTRL, k.KEY_H]]),
-
         Binding([e.KEY_LEFTALT, e.KEY_E], [[k.KEY_LEFTCTRL, k.KEY_E]]),
     ])
 
