@@ -46,7 +46,7 @@ if has('nvim')
 
   " Want to migrate to https://github.com/norcalli/snippets.nvim
   Plug 'SirVer/ultisnips'
-  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+  " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
 
 " Initialize plugin system
@@ -461,6 +461,9 @@ autocmd FileType nerdtree setlocal signcolumn=no
 
 " local plugins
 if has('nvim')
-  inoremap <expr> <C-j> execute(':CocCommand mozc.enable')
+  " set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
+  autocmd User MozcEnabled execute('inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"')
+  autocmd User MozcDisabled execute('inoremap <cr> <cr>')
   au InsertLeave * execute(':CocCommand mozc.disable')
+  inoremap <expr> <C-j> execute(':CocCommand mozc.toggle')
 endif

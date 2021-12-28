@@ -17,6 +17,7 @@ wayremap_config = WayremapConfig(
         Binding([e.KEY_LEFTALT, e.KEY_P],
                 [[k.KEY_LEFTCTRL, k.KEY_LEFTSHIFT, k.KEY_A]]),
         Binding([e.KEY_LEFTALT, e.KEY_S], [[k.KEY_LEFTCTRL, k.KEY_S]]),
+        Binding([e.KEY_LEFTALT, e.KEY_N], [[k.KEY_LEFTCTRL, k.KEY_N]]),
 
         # Slack helm!
         Binding([e.KEY_LEFTALT, e.KEY_X], [[k.KEY_LEFTCTRL, k.KEY_K]]),

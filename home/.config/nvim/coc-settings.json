@@ -9,15 +9,6 @@
 			],
 			"initializationOptions": {},
 			"settings": {}
-		},
-		"deno": {
-			"command": "deno",
-			"args": ["lsp"],
-			"filetypes": [
-				"deno"
-			],
-			"initializationOptions": {},
-			"settings": {}
 		}
 	}
 }

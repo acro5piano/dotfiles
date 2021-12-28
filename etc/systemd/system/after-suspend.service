@@ -4,7 +4,7 @@ Before=sleep.target
 
 [Service]
 Type=simple
-ExecStart=/bin/sh -c "sleep 10 && light -I"
+ExecStart=/bin/sh -c "iwctl scan && sleep 5 && light -I"
 
 [Install]
 WantedBy=sleep.target

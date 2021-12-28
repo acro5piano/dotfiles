@@ -23,8 +23,8 @@
     - .tmux.conf
     - .vim
     - .vimrc
-    - .wayremap.py
     - .xinitrc
     - .xmodmap
     - .xremap
+    - .xremap.yml
     - .zshrc

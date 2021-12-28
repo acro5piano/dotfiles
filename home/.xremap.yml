@@ -1,0 +1,12 @@
+keymap:
+  - name: Emacs binding
+    # application:
+    #   only:
+    #     - Brave-browser
+    #     - brave-browser
+    #     - chromium
+    remap:
+      C-b: left
+      C-f: right
+      C-p: up
+      C-n: down
