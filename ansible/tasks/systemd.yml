@@ -20,19 +20,20 @@
     state: link
   loop:
     - after-boot.service
-    - after-suspend.service
-    - before-suspend.service
     - wayremap.service
-- name: Enable pulseaudio
+- name: Add around suspend script
+  become: yes
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/usr/lib/systemd/system-sleep/around-suspend.sh"
+    dest: /usr/lib/systemd/system-sleep/around-suspend.sh
+    state: link
+- name: Enable wayremap
   become: yes
   ansible.builtin.systemd:
     name: "{{ item }}"
     state: started
     enabled: yes
   loop:
-    - after-boot.service
-    - after-suspend.service
-    - before-suspend.service
     - wayremap.service
 - name: Disable systemd-hostnamed, as it breaks iwd
   become: yes
