@@ -81,7 +81,7 @@ set -gx FZF_DEFAULT_OPTS "--ansi --preview-window 'right:60%' --preview 'bat --c
 function __fzf_history
   set FILTER fzf-tmux # Not works at all!
   set FILTER fzf
-  history | perl -nle 'print if length($_) < 200' | $FILTER --exact -d40% +s +m --query=(commandline -b) --no-preview \
+  history | perl -nle 'print if length($_) < 200' | $FILTER -d40% --exact +s +m --query=(commandline -b) --no-preview \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -347,6 +347,7 @@ alias weather='curl -s wttr.in | sed -n "1,7p"'
 alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
+alias t='toggl'
 
 alias rg="rg --hidden --glob '!.git'"
 alias ghrw="watch -n 5 gh run list"

@@ -9,6 +9,9 @@ wayremap_config = WayremapConfig(
         'Leafpad',
         'firefoxdeveloperedition',
         'Chromium',
+        'Slack',
+        'Pcmanfm',
+        'Google-chrome-beta',
     ],
     bindings=[
         # Alternative
