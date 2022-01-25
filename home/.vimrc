@@ -460,7 +460,7 @@ highlight SignColumn ctermbg=black
 autocmd FileType nerdtree setlocal signcolumn=no
 
 " local plugins
-if has('nvim')
+if has('nvim') && !has('mac')
   " set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
   autocmd User MozcEnabled execute('inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"')
   autocmd User MozcDisabled execute('inoremap <cr> <cr>')

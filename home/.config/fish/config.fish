@@ -373,9 +373,11 @@ alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 [ -e  ~/.secret.env ]; and source ~/.secret.env
 
-if swaymsg --quiet --type get_tree
-    if ! tmux list-sessions | grep -q ''
-        tmux
+if which sway
+    if swaymsg --quiet --type get_tree
+        if ! tmux list-sessions | grep -q ''
+            tmux
+        end
     end
 end
 
