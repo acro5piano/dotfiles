@@ -34,3 +34,5 @@ exec swaymsg 'workspace 1; exec alacritty-x'
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 
 bindsym $mod+d exec bemenu-run
+
+bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
