@@ -376,7 +376,7 @@ alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 [ -e  ~/.secret.env ]; and source ~/.secret.env
 
 if which sway >/dev/null 2>/dev/null
-    if swaymsg --quiet --type get_tree
+    if swaymsg --quiet --type get_tree 2>/dev/null
         if ! tmux list-sessions | grep -q ''
             tmux
         end
