@@ -12,7 +12,6 @@
     state: link
   loop:
     - wayremap.config.py
-    - wayremap-lenovo.config.py
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
@@ -22,7 +21,6 @@
   loop:
     - after-boot.service
     - wayremap.service
-    - wayremap-lenovo.service
 - name: Add around suspend script
   become: yes
   ansible.builtin.file:
@@ -37,7 +35,6 @@
     enabled: yes
   loop:
     - wayremap.service
-    - wayremap-lenovo.service
 - name: Disable systemd-hostnamed, as it breaks iwd
   become: yes
   ansible.builtin.systemd:
