@@ -21,7 +21,9 @@ input type:keyboard {
 bindsym $mod+escape exec systemctl suspend
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+p exec clipman pick -t bemenu
-bindsym Print exec grim -g "$(slurp)" -| wl-copy
+
+# on ThinkPad Trackpoint, PrtSc is easy to mistype
+bindsym $mod+Print exec grim -g "$(slurp)" -| wl-copy
 
 exec start-fcitx &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &

@@ -22,10 +22,6 @@
       "passKeys": ""
     },
     {
-      "pattern": "https?://github.com/*",
-      "passKeys": "jk"
-    },
-    {
       "pattern": "https?://app.slack.com/*",
       "passKeys": ""
     },
@@ -47,10 +43,6 @@
     },
     {
       "pattern": "https?://hackmd.io/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://localhost:3000/*",
       "passKeys": ""
     },
     {
@@ -120,12 +112,96 @@
     {
       "pattern": "https?://knight-g123.akamaized.net/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.figma.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://read.amazon.co.jp/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://app.diagrams.net/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://github.dev/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://github.dev/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://video.unext.jp/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.facebook.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://speakerdeck.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://app.asana.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://admin.typeform.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://catan-with-friends.web.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://cdpn.io/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://catan.dev/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://c750b3d6-5d10-4765-9d55-b4af80c96670.netlify.app/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://miro.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://member.foodchemicalnews.co.jp/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://dustinbrett.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://drive.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://teams.live.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "about:blank*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://ubie.atlassian.net/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewForegroundTab\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewForegroundTab\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
