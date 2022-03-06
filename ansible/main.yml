@@ -18,4 +18,6 @@
       tags: [ dotfiles ]
     - import_tasks: tasks/misc.yml
       tags: [ misc ]
+    - import_tasks: tasks/user.yml
+      tags: [ user ]
 

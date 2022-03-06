@@ -15,6 +15,7 @@
     - alsa-lib
     - alsa-utils
     - arch-install-scripts
+    - android-udev
     - at
     - bat
     - bemenu-wayland
