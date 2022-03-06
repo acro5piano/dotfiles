@@ -18,7 +18,7 @@
     name: "{{ item }}"
     state: present
   loop:
-    - android-platform-29
+    - android-platform-30
     - android-sdk
     - android-sdk-build-tools
     - android-sdk-platform-tools
