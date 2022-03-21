@@ -1,5 +1,6 @@
 - name: Install packages with npm
-  become: "{{ os != 'mac' | default(true) }}"
+  # become: "{{ os != 'mac' | default(true) }}"
+  become: false
   community.general.npm:
     name: "{{ item }}"
     state: latest

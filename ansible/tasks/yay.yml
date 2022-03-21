@@ -24,6 +24,7 @@
     - android-sdk-platform-tools
     - clipman
     - google-chrome-beta
+    - brave-bin
     - leiningen
     - ngrok
     - otf-ipaexfont

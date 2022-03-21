@@ -3,16 +3,10 @@ root = true
 [*]
 charset = utf-8
 indent_style = space
-indent_size = 4
+indent_size = 2
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-
-[*.{js,jsx,ts,tsx,rb,vim,yml,yaml,graphql,gql,tf,svg,json}]
-indent_size = 2
-
-[{Podfile,Gemfile}]
-indent_size = 2
 
 [*.{pl,perl,php,sh,bash,fish,java}]
 indent_size = 4

@@ -30,7 +30,6 @@ set -gx PATH \
             $ANDROID_HOME/tools/bin \
             $DENO_INSTALL/bin \
             /usr/local/opt/php@7.4/bin \
-            $HOME/.nvm/versions/node/*/bin \
             $HOME/.config/yarn/global/node_modules/.bin \
             $HOME/.poetry/bin \
             $HOME/.rbenv/shims \
@@ -67,7 +66,7 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx GREP_OPTIONS '--line-buffered'
 
-nvm use 14 >/dev/null 2>/dev/null
+nvm use 16 >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
@@ -234,10 +233,6 @@ function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
 end
 
-# function nvm_fish
-#     bass source ~/.nvm/nvm.sh ';' nvm $argv
-# end
-
 function gvm
     bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
@@ -350,6 +345,7 @@ alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 alias t='toggl'
+alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\''
 
 alias rg="rg --hidden --glob '!.git'"
 alias ghrw="watch -n 5 gh run list"
@@ -387,8 +383,6 @@ end
 # if [ -e /etc/arch-release ]
 #     sudo sysctl -p > /dev/null &
 # end
-
-# bass source ~/.gvm/scripts/gvm
 
 # }}}
 
