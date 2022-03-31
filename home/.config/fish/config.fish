@@ -53,6 +53,8 @@ set -gx CHROME_BIN chromium
 set -gx PIPENV_VENV_IN_PROJECT 1
 # set -gx AWS_DEFAULT_PROFILE acro5piano
 
+set -gx CLOUDSDK_PYTHON /usr/bin/python2
+
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
@@ -396,3 +398,7 @@ set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
 # If running from tty1 start sway
 set TTY1 (tty)
 [ "$TTY1" = "/dev/tty1" ] && exec sway
+
+function __nvm-active --on-event fish_prompt
+    [ -e .nvmrc ] && nvm use > /dev/null
+end

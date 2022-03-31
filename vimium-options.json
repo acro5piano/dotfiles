@@ -58,10 +58,6 @@
       "passKeys": ""
     },
     {
-      "pattern": "https?://www.notion.so/*",
-      "passKeys": ""
-    },
-    {
       "pattern": "https?://awesome-image-annotator.netlify.app/*",
       "passKeys": ""
     },
@@ -111,10 +107,6 @@
     },
     {
       "pattern": "https?://knight-g123.akamaized.net/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://www.figma.com/*",
       "passKeys": ""
     },
     {
@@ -194,14 +186,22 @@
       "passKeys": ""
     },
     {
-      "pattern": "https?://ubie.atlassian.net/*",
+      "pattern": "https?://github.com/*",
+      "passKeys": "jk"
+    },
+    {
+      "pattern": "https?://app.gather.town/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.notion.so/*",
       "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap E LinkHints.activateModeToOpenInNewForegroundTab\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
