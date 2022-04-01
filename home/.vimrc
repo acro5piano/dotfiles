@@ -6,51 +6,6 @@
 " filetype plugin indent off    " required
 
 " set the runtime path to include Vundle and initialize
-call plug#begin('~/.vim/plugged')
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'haya14busa/vim-asterisk'
-Plug 'easymotion/vim-easymotion'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'mileszs/ack.vim'
-Plug 'osyo-manga/vim-over'
-Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
-Plug 'tomtom/tcomment_vim'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform'
-Plug 'aklt/plantuml-syntax'
-
-Plug 'ruanyl/vim-gh-line'
-
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'acro5piano/vim-graphql'
-Plug 'jxnblk/vim-mdx-js'
-
-Plug 'acro5piano/import-js-from-history'
-
-if has('nvim')
-  Plug 'rust-lang/rust.vim'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'josa42/vim-lightline-coc'
-  " Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-  Plug 'mindriot101/vim-yapf'
-
-  " Want to migrate to https://github.com/norcalli/snippets.nvim
-  Plug 'SirVer/ultisnips'
-  " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-endif
-
-" Initialize plugin system
-call plug#end()
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
