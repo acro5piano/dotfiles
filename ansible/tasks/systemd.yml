@@ -19,7 +19,8 @@
     dest: "/etc/systemd/system/{{ item }}"
     state: link
   loop:
-    - after-boot.service
+    - change-keymap.service
+    - disable-wlan0.service
     - wayremap.service
 - name: Add around suspend script
   become: yes
