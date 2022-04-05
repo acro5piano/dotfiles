@@ -8,5 +8,6 @@ fi
 
 if [ $1 == "post" ]; then
     light -I
-    iwctl scan
+    iwctl station wlan0 scan
+    iwctl station wlan1 scan || true
 fi
