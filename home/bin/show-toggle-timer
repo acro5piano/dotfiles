@@ -1,0 +1,18 @@
+#!/bin/bash
+
+five_mins_ago=`date -d '5 minutes ago' '+%s'`
+last_modified=`date -r /tmp/__show-toggle-timer-cache '+%s'`
+
+# Cache five minutes.
+if [ $last_modified -gt $five_mins_ago ]; then
+  cat /tmp/__show-toggle-timer-cache
+  exit 0
+fi
+
+toggl view-timer \
+  | head -1 \
+  | cut -d, -f 8 \
+  | awk '{print $2}' \
+  | perl -pe 's/"//g' \
+  | cut -c 1-12 \
+  | tee /tmp/__show-toggle-timer-cache
