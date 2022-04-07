@@ -14,5 +14,5 @@ toggl view-timer \
   | cut -d, -f 8 \
   | awk '{print $2}' \
   | perl -pe 's/"//g' \
-  | cut -c 1-12 \
+  | cut -b 1-64 \
   | tee /tmp/__show-toggle-timer-cache
