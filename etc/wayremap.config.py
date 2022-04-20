@@ -9,6 +9,8 @@ applications = [
     'Slack',
     'Pcmanfm',
     'Google-chrome-beta',
+    'Vivaldi-snapshot',
+    'Vivaldi-stable',
 ]
 
 bindings = [
