@@ -81,6 +81,10 @@ set -gx FZF_DEFAULT_OPTS "--ansi --preview-window 'right:60%' --preview 'bat --c
 
 # {{{ functions
 
+function __nvm-active --on-event fish_prompt
+    [ -e .nvmrc ] && nvm use > /dev/null
+end
+
 function __fzf_history
   set FILTER fzf-tmux # Not works at all!
   set FILTER fzf
@@ -366,6 +370,7 @@ alias tmc='tmux clear-history'
 alias q='qrcode'
 alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 
+
 # }}}
 
 # {{{ init
@@ -397,8 +402,4 @@ set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
 
 # If running from tty1 start i3
 set TTY1 (tty)
-[ "$TTY1" = "/dev/tty1" ] && exec i3
-
-function __nvm-active --on-event fish_prompt
-    [ -e .nvmrc ] && nvm use > /dev/null
-end
+[ "$TTY1" = "/dev/tty1" ] && exec startx
