@@ -12,6 +12,7 @@
     state: link
   loop:
     - wayremap.config.py
+    - X11/xorg.conf.d/30-touchpad.conf
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
@@ -28,16 +29,15 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/usr/lib/systemd/system-sleep/around-suspend.sh"
     dest: /usr/lib/systemd/system-sleep/around-suspend.sh
     state: link
-- name: Enable wayremap
+- name: Enable some services
   become: yes
   ansible.builtin.systemd:
     name: "{{ item }}"
     state: started
     enabled: yes
   loop:
-    - wayremap.service
+    # - wayremap.service
     - disable-wlan0.service
-    - wayremap.service
 - name: Disable systemd-hostnamed, as it breaks iwd
   become: yes
   ansible.builtin.systemd:

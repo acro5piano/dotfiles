@@ -395,9 +395,9 @@ end
 set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
 [ -f $gcp_sdk_path ] && . $gcp_sdk_path
 
-# If running from tty1 start sway
+# If running from tty1 start i3
 set TTY1 (tty)
-[ "$TTY1" = "/dev/tty1" ] && exec sway
+[ "$TTY1" = "/dev/tty1" ] && exec i3
 
 function __nvm-active --on-event fish_prompt
     [ -e .nvmrc ] && nvm use > /dev/null

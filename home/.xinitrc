@@ -2,14 +2,15 @@
 
 xmodmap $HOME/.xmodmap
 
-xset r rate 200
-xremap ~/.xremap 2>&1 > /tmp/xremap.log &
+xset r rate 150
 
-synclient TapButton1=1
-synclient TapButton2=3
-synclient TapButton3=2
-synclient HorizTwoFingerScroll=1
-synclient VertScrollDelta=-111
-synclient HorizScrollDelta=-111
+xremap ~/.xremap 2>&1 > /tmp/xremap.log &
+start-fcitx &
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+xmodmap ~/.xmodmap
 
 exec i3
