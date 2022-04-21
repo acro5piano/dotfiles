@@ -181,6 +181,9 @@ bindsym $mod+r mode "resize"
 bar {
     font pango:Source Code Pro, FontAwesome 10
     status_command i3status-rs
+    colors {
+        background #222222
+    }
 }
 
 bindsym $mod+Print exec screenshot-clip
@@ -192,3 +195,5 @@ bindsym $mod+Print exec screenshot-clip
 # Not works well!
 exec i3-msg 'workspace 2; exec brave'
 exec i3-msg 'workspace 1; exec alacritty'
+
+hide_edge_borders smart
