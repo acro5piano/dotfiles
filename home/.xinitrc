@@ -2,7 +2,7 @@
 
 xmodmap $HOME/.xmodmap
 
-xset r rate 150
+xset r rate 200 60
 
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
