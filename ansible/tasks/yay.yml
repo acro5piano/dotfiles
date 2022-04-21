@@ -22,13 +22,12 @@
     - android-sdk
     - android-sdk-build-tools
     - android-sdk-platform-tools
+    - brave-bin
     - clipman
     - google-chrome-beta
-    - brave-bin
     - leiningen
+    - nerd-fonts-source-code-pro
     - ngrok
     - otf-ipaexfont
     - yay
     - zoom
-    - nerd-fonts-source-code-pro
-    - i3status-rs

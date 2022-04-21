@@ -89,3 +89,4 @@
     - vim
     - wl-clipboard
     - zip
+    - i3status-rust
