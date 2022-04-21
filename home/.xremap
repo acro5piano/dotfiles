@@ -4,7 +4,7 @@ targets = [
   # 'chromium-browser',
   'chromium',
   # 'google-chrome',
-  # 'google-chrome-beta',
+  'google-chrome-beta',
   # 'google-chrome-stable',
   # 'google-chrome-dev',
   # 'vivaldi-stable',

@@ -94,7 +94,7 @@ function __fzf_history
 end
 
 function __copy_command
-  echo (commandline -b) | cl
+  echo -n (commandline -b) | cl
 end
 
 function seishin
@@ -180,14 +180,16 @@ function cl
     if [ -e /Applications ]
         pbcopy
     else
-        wl-copy
+        # wl-copy
+        xclip -selection clipboard
     end
 end
 function clp
     if [ -e /Applications ]
         pbpaste
     else
-        wl-paste
+        # wl-paste
+        xclip -selection clipboard -o
     end
 end
 
