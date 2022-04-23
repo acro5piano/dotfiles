@@ -40,6 +40,7 @@ window class_only: targets do
   # remap 'C-r', to: 'Ctrl-Shift-g'
 
   # Alternative
+  remap 'C-M-d', to: 'Ctrl-d'
   remap 'C-M-s', to: 'Ctrl-f'
   remap 'C-M-b', to: 'Ctrl-b'
   remap 'M-s', to: 'Ctrl-s'
@@ -52,8 +53,6 @@ window class_only: targets do
   remap 'M-v', to: 'Ctrl-v'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
-  remap 'C-Shift-b', to: 'Ctrl-d'
-  remap 'C-Shift-i', to: 'Ctrl-Shift-A'
 
   # OSX Like - not working with Slack
   # remap 'M-Up', to: 'Ctrl-Home'

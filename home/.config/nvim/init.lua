@@ -1,19 +1,15 @@
--- local use = vim.fn['use']
---
--- vim.call('plug#begin', '~/.config/nvim/plugged')
---
---
--- -- use
---
--- vim.call('plug#end')
-
 vim.api.nvim_set_keymap('n', '<Space>qq', ':q<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>q!', ':q!CR>', { noremap = true })
 
 require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'itchyny/lightline.vim'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   use 'editorconfig/editorconfig-vim'
   use 'haya14busa/vim-asterisk'
   use 'easymotion/vim-easymotion'
@@ -39,11 +35,12 @@ require('packer').startup(function()
   use 'rust-lang/rust.vim'
   use { 'prettier/vim-prettier', run = 'yarn install' }
   use { 'neoclide/coc.nvim', branch = 'release'}
-  use 'josa42/vim-lightline-coc'
   use 'mindriot101/vim-yapf'
   use 'SirVer/ultisnips'
   -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 end)
+
+require('lualine').setup()
 
 
 vim.api.nvim_exec(':source ~/.vimrc', false)

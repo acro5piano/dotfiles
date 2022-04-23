@@ -68,7 +68,7 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx GREP_OPTIONS '--line-buffered'
 
-nvm use 16 >/dev/null 2>/dev/null
+nvm use 18 >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 

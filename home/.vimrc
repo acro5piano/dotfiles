@@ -96,20 +96,6 @@ set t_Co=256
 
 colorscheme elflord
 
-" left のふたつ目が設定できないのできもいけどこれで。
-let g:lightline = {
-    \ 'colorscheme': 'solarized',
-    \ 'active': {
-    \   'left': [
-    \     [ 'readonly', 'filename', 'modified', 'coc_errors', 'coc_warnings' ],
-    \   ],
-    \ },
-    \ }
-
-if has('nvim')
-  call lightline#coc#register()
-endif
-
 set breakindent
 
 "----------------------------------------------------

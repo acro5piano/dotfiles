@@ -58,8 +58,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+l focus right
+bindsym $mod+p focus left
+bindsym $mod+n focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -68,19 +68,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-# bindsym $mod+h split h
 
 # split in vertical orientation
 # bindsym $mod+v split v
@@ -129,6 +126,19 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+h         workspace number $ws1
+bindsym $mod+j         workspace number $ws1
+bindsym $mod+k         workspace number $ws2
+bindsym $mod+l         workspace number $ws3
+bindsym $mod+semicolon workspace number $ws4
+
+bindsym $mod+shift+h         move container to workspace number $ws1
+bindsym $mod+shift+j         move container to workspace number $ws1
+bindsym $mod+shift+k         move container to workspace number $ws2
+bindsym $mod+shift+l         move container to workspace number $ws3
+bindsym $mod+shift+semicolon move container to workspace number $ws4
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -179,11 +189,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    position top
     font pango:Source Code Pro, FontAwesome 10
     status_command i3status-rs
-    colors {
-        background #222222
-    }
 }
 
 bindsym $mod+Print exec screenshot-clip
