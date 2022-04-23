@@ -223,7 +223,7 @@ nnoremap <Leader>gd :GitDiff<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
 " nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
-nnoremap <Leader>jd :NERDTreeFind<CR>
+nnoremap <Leader>jd :NeoTreeFocus<CR>
 " nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>

@@ -37,10 +37,21 @@ require('packer').startup(function()
   use { 'neoclide/coc.nvim', branch = 'release'}
   use 'mindriot101/vim-yapf'
   use 'SirVer/ultisnips'
+  use 'RRethy/vim-illuminate'
+use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
+
   -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 end)
 
 require('lualine').setup()
 
-
 vim.api.nvim_exec(':source ~/.vimrc', false)
+vim.api.nvim_exec('hi link illuminatedWord Visual', false)
