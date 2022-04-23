@@ -199,8 +199,6 @@ nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
-
-
 nnoremap <Leader>aw :Ack <C-r><C-w>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
@@ -219,22 +217,18 @@ nnoremap <Leader>gl :GitLog10<CR>
 nnoremap <Leader>gf :GFilesMonorepo<CR>
 nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
-nnoremap <Leader>gd :GitDiff<CR>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-" nnoremap <Leader>ll :Limelight<CR>
 nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
-nnoremap <Leader>jd :NeoTreeFocus<CR>
+nnoremap <Leader>jd :NeoTreeReveal<CR>
 " nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>mm :Marks<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rg :MYRG<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>sn :Snippets<CR>
-nnoremap <Leader>tt :call fzf#vim#tags(expand('<cword>'))<CR><HOME>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
-nnoremap <Leader>gg :GrepFile<CR>
+" nnoremap <Leader>gg :GrepFile<CR>
 nnoremap <Leader>w/ :vs<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wh <C-w>h
@@ -244,22 +238,6 @@ nnoremap <Leader>wl <C-w>l
 nnoremap <Leader>wm <C-w><C-w>:q<CR>
 vnoremap <Leader>/ :TComment<CR>
 vnoremap <Leader>jq :!jq --monochrome-output .<CR>
-
-command! -bang -nargs=* MYRG
-  \ call fzf#vim#grep(
-  \   "rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('up', 'ctrl-/'), <bang>0)
-
-" See https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
-function! RipgrepFzf(query)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s '
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview('up', spec))
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>)
 
 command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
 command! TTagnize execute("normal vitS`vitS{at")
@@ -333,14 +311,6 @@ function! s:git_log_100()
 endfunction
 command! GitLog10 call s:git_log_100()
 
-function! s:git_diff()
-    let fileName = '/tmp/__git_diff.diff'
-    call system('git diff HEAD > '.fileName)
-    :exe ':view '.fileName
-endfunction
-command! GitDiff call s:git_diff()
-
-
 "---------------------------------------------------
 " File alias
 "----------------------------------------------------
@@ -381,7 +351,6 @@ set backspace=indent,eol,start
 
 set showcmd
 
-
 let g:terraform_fmt_on_save=1
 let g:rustfmt_autosave = 1
 
@@ -401,12 +370,3 @@ au InsertLeave * set nopaste
 " https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
 highlight SignColumn ctermbg=black
 autocmd FileType nerdtree setlocal signcolumn=no
-
-" local plugins
-if has('nvim') && !has('mac')
-  " set runtimepath^=/home/kazuya/ghq/github.com/acro5piano/coc-mozc
-  autocmd User MozcEnabled execute('inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"')
-  autocmd User MozcDisabled execute('inoremap <cr> <cr>')
-  au InsertLeave * execute(':CocCommand mozc.disable')
-  inoremap <expr> <C-j> execute(':CocCommand mozc.toggle')
-endif

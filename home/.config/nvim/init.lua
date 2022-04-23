@@ -1,8 +1,6 @@
-vim.api.nvim_set_keymap('n', '<Space>qq', ':q<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Space>q!', ':q!CR>', { noremap = true })
+vim.api.nvim_exec(':source ~/.vimrc', false)
 
 require('packer').startup(function()
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   use {
@@ -13,8 +11,11 @@ require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'haya14busa/vim-asterisk'
   use 'easymotion/vim-easymotion'
-  use { 'junegunn/fzf', run = function () vim.fn['fzf#install']() end }
-  use 'junegunn/fzf.vim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use 'junegunn/vim-easy-align'
   use 'mileszs/ack.vim'
   use 'osyo-manga/vim-over'
@@ -37,21 +38,47 @@ require('packer').startup(function()
   use { 'neoclide/coc.nvim', branch = 'release'}
   use 'mindriot101/vim-yapf'
   use 'SirVer/ultisnips'
-  use 'RRethy/vim-illuminate'
-use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      }
     }
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      {'nvim-telescope/telescope.nvim'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end
   }
-
-  -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 end)
 
+require('neoclip').setup()
 require('lualine').setup()
 
-vim.api.nvim_exec(':source ~/.vimrc', false)
-vim.api.nvim_exec('hi link illuminatedWord Visual', false)
+local actions = require("telescope.actions")
+require("telescope").setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+
+vim.api.nvim_set_keymap('n', '<Leader>gg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gf', '<cmd>Telescope git_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ag', '<cmd>Telescope grep_string<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>bb', '<cmd>Telescope buffers show_all_buffers=true sort_lastused=true default_selection_index=2 <cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>tr', '<cmd>Telescope resume<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fr', '<cmd>Telescope oldfiles<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Space>', '<cmd>Telescope command_history<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>pp', '', { noremap = true, silent = true , callback = function()
+  require('telescope').extensions.neoclip.default()
+end})
