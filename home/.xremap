@@ -7,7 +7,7 @@ targets = [
   'google-chrome-beta',
   # 'google-chrome-stable',
   # 'google-chrome-dev',
-  # 'vivaldi-stable',
+  'vivaldi-stable',
   'konqueror',
   'brave-browser',
   /crx_/,

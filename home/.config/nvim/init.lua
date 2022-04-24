@@ -75,7 +75,7 @@ require("telescope").setup({
 	},
 })
 
-require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+require("hop").setup()
 
 vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>HopWord<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gd", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
