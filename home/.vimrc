@@ -20,9 +20,6 @@ let g:indentLine_color_term = 8
 
 let g:jsx_ext_required = 0
 
-" Easy Motion
-let g:EasyMotion_do_mapping = 0
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
@@ -98,6 +95,9 @@ colorscheme elflord
 
 set breakindent
 
+" https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
+highlight SignColumn ctermbg=black
+
 "----------------------------------------------------
 " Indent
 "----------------------------------------------------
@@ -170,9 +170,6 @@ inoremap <Down> <C-n>
 inoremap <Up> <C-p>
 inoremap <C-k> <C-o>:call setline(line('.'), col('.') == 1 ? '' : getline('.')[:col('.') - 2])<CR>
 
-inoremap <c-x><c-k> <c-x><c-k>
-inoremap <c-x><c-k> <c-x><c-k>
-
 " like Spacemacs
 let mapleader = "\<Space>"
 nnoremap j gj
@@ -223,10 +220,8 @@ nnoremap <Leader>jd :NeoTreeReveal<CR>
 " nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
-nnoremap <Leader>rg :MYRG<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
-nnoremap <Leader>sn :Snippets<CR>
 nnoremap <Leader>w- :new<CR><C-w><C-w>
 " nnoremap <Leader>gg :GrepFile<CR>
 nnoremap <Leader>w/ :vs<CR>
@@ -243,9 +238,6 @@ command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
 command! TTagnize execute("normal vitS`vitS{at")
 
 nnoremap <ESC><ESC> :nohl<CR>
-
-map <Leader>e <Plug>(easymotion-overwin-w)
-map <Leader>l <Plug>(easymotion-overwin-line)
 
 nmap <F1> <ESC>
 imap <F1> <ESC>
@@ -328,10 +320,6 @@ set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
 
-" set undofile
-" set undodir=/tmp
-" au BufWritePre /tmp/* setlocal noundofile
-
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
@@ -339,7 +327,10 @@ if has('nvim')
     autocmd BufWritePre *.py Yapf
 endif
 
-" remember cursor position
+" Experimental: maximize pane when focus
+autocmd FocusGained * silent! !tmux resize-pane -Z
+
+" " remember cursor position
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
@@ -351,8 +342,7 @@ set backspace=indent,eol,start
 
 set showcmd
 
-let g:terraform_fmt_on_save=1
-let g:rustfmt_autosave = 1
+autocmd BufWritePre *.lua lua require("stylua-nvim").format_file()
 
 command! Rubocop !bundle exec rubocop -a %
 command! ESLint !yarn eslint --fix %
@@ -367,6 +357,3 @@ filetype plugin on
 
 au InsertLeave * set nopaste
 
-" https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
-highlight SignColumn ctermbg=black
-autocmd FileType nerdtree setlocal signcolumn=no

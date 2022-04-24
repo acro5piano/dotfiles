@@ -6,6 +6,7 @@ xset r rate 200 60
 
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
+copyq &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
