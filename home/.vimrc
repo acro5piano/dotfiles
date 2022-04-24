@@ -13,8 +13,6 @@ let g:vim_markdown_new_list_item_indent = 0
 
 let g:graphql_javascript_tags = ['gql']
 
-set incsearch
-
 " Yggdroot/indentLine
 let g:indentLine_color_term = 8
 
@@ -60,6 +58,8 @@ set history=1000
 set ignorecase
 set smartcase
 set wrapscan
+set hlsearch
+set incsearch
 
 let g:ackprg = 'rg --vimgrep --smart-case'
 
@@ -75,7 +75,6 @@ autocmd FileType vue syntax sync fromstart
 set title
 set laststatus=2
 set showmatch
-set hlsearch
 set wildmenu
 
 syntax on
@@ -215,8 +214,7 @@ nnoremap <Leader>gf :GFilesMonorepo<CR>
 nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-nnoremap <Leader>ut :UndotreeToggle<CR>:UndotreeFocus<CR>
-nnoremap <Leader>jd :NeoTreeReveal<CR>
+nnoremap <Leader>jd :NeoTreeFloat<CR>
 " nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
@@ -313,10 +311,9 @@ autocmd BufEnter,BufNew *.toml set filetype=yaml
 "---------------------------------------------------
 " Others
 "----------------------------------------------------
-" set nocompatible
+set nocompatible
 set vb t_vb= " do not beep
 set hidden " not discard undo after buffers were killed
-set ambiwidth=double " for full width problem
 set ttimeoutlen=1 " fast move
 set modeline
 
