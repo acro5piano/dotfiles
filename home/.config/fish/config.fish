@@ -86,9 +86,7 @@ function __nvm-active --on-event fish_prompt
 end
 
 function __fzf_history
-  set FILTER fzf-tmux # Not works at all!
-  set FILTER fzf
-  history | perl -nle 'print if length($_) < 200' | $FILTER -d40% --exact +s +m --query=(commandline -b) --no-preview \
+  history | perl -nle 'print if length($_) < 200' | fzf-tmux -h --exact +s +m --query=(commandline -b) --no-preview \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -164,17 +162,6 @@ function diffc
     colordiff -U3 $argv
 end
 
-function seek
-    set dir $argv[-1]
-    if [ -e $dir ]
-        set expression (echo $argv | perl -pe "s#$dir##" | perl -pe 's# +#.+#g')
-        rg --color always --heading $expression $dir | perl -nle 'print if length($_) < 200'
-    else
-        set expression (echo $argv | perl -pe 's# +#.+#g')
-        rg --color always --heading $expression | perl -nle 'print if length($_) < 200'
-    end
-end
-
 # TODO: divide files to os specific file
 function cl
     if [ -e /Applications ]
@@ -229,20 +216,12 @@ function delete_html_tags
     perl -pe "s#<.*?>##g"
 end
 
-function vimf
-    vim (git ls-files | fzf-tmux)
-end
-
 function sp
     bash -c "$argv &"
 end
 
 function addone
     ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
-end
-
-function gvm
-    bass source ~/.gvm/scripts/gvm ';' gvm $argv
 end
 
 function gacp
@@ -258,15 +237,6 @@ end
 
 function tmsp
     tmux swap-window -t $argv[1]
-end
-
-function merge
-    set repo (pwd | perl -pe 's#.+github.com/##')
-
-    curl \
-        -XPUT \
-        -H "Authorization: token $GITHUB_TOKEN" \
-        https://api.github.com/repos/$repo/pulls/$argv[1]/merge
 end
 
 function clear-branchs
@@ -353,7 +323,7 @@ alias dp2off='xrandr --output DP2 --off'
 alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
 alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 alias t='toggl'
-alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\''
+alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\'' # '
 
 alias rg="rg --hidden --glob '!.git'"
 alias ghrw="watch -n 5 gh run list"
@@ -363,7 +333,7 @@ alias nv="nvim"
 alias e="emacs"
 
 alias sum='perl -nale \'$sum += $_; END { print $sum }\''
-alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\''
+alias avg='perl -nale \'$sum += $_; END { print $sum / $.}\'' # '
 
 alias csv='column -ts ,'
 alias tsv='column -ts \t'
@@ -371,11 +341,6 @@ alias tmc='tmux clear-history'
 
 alias q='qrcode'
 alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
-
-
-# }}}
-
-# {{{ init
 
 [ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
 [ -e  ~/.secret.env ]; and source ~/.secret.env
@@ -387,16 +352,6 @@ if which sway >/dev/null 2>/dev/null
         end
     end
 end
-
-
-# if [ -e /etc/arch-release ]
-#     sudo sysctl -p > /dev/null &
-# end
-
-# }}}
-
-# vim:set ft=bash ts=2 sts=2 sw=2
-# vim:set foldmethod=marker:
 
 # The next line updates PATH for the Google Cloud SDK.
 set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
