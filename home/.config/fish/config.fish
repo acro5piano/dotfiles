@@ -83,6 +83,8 @@ status --is-interactive; and source (rbenv init -|psub)
 
 function __nvm-active --on-event fish_prompt
     [ -e .nvmrc ] && nvm use > /dev/null
+    [ -e ../.nvmrc ] && nvm use > /dev/null
+    [ -e ../../.nvmrc ] && nvm use > /dev/null
 end
 
 function __fzf_history
