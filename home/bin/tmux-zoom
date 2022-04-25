@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tmux list-panes -F '#F' | grep -q Z || tmux resize-pane -Z

@@ -3,3 +3,4 @@ __pycache__
 home/.config/nvim/plugin/packer_compiled.lua
 home/.config/nvim/pack/github/start/copilot.vim/
 home/.vim/.netrwhist
+home/bin/php
