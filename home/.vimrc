@@ -78,9 +78,6 @@ set showmatch
 set wildmenu
 
 syntax on
-if expand('%') == '.flowconfig'
-    set filetype=lisp
-endif
 
 set textwidth=0
 set nowrap
@@ -143,8 +140,6 @@ inoremap zw <C-r>=expand('%:p:h:t')<CR>
 
 tnoremap <silent> <C-g> <C-\><C-n>
 
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 inoremap <S-TAB> <C-d>
 inoremap <TAB> <C-t>
 
@@ -194,11 +189,7 @@ nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
 nnoremap <Leader>aw :Ack <C-r><C-w>
-nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
-nnoremap <Leader>jo :Lines <C-R><C-W><CR>
-nnoremap <Leader>bt :BTags<CR>
-nnoremap <Leader>fj :FlowJumpToDef<CR>
 nnoremap <Leader>fr :History<CR>
 nnoremap <Leader>h/ :History/<CR>
 nnoremap <Leader>fe :e!<CR>
@@ -207,7 +198,7 @@ nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
-nnoremap <Leader>gl :GitLog10<CR>
+nnoremap <Leader>gl :GitLog100<CR>
 nnoremap <Leader>gf :GFilesMonorepo<CR>
 nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
@@ -237,49 +228,6 @@ imap <F1> <ESC>
 vmap <F1> <ESC>
 
 "--------------
-" FZF customization
-"--------------
-let g:fzf_layout = {'down': '40%'}
-
-" ported from https://github.com/junegunn/fzf.vim/blob/master/autoload/fzf/vim.vim#L546
-function! s:get_git_root()
-  let l:root = split(system('git rev-parse --show-toplevel'), '\n')[0]
-  if v:shell_error
-      return ''
-  endif
-  return l:root
-endfunction
-
-let g:fzf_action = {
-  \ 'alt-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let s:preview_bind = join([
-    \ '--bind "ctrl-o:execute-silent:nvim-open '.v:servername.' {1} & "',
-    \ ])
-
-function! s:gitfiles_monorepo()
-  let l:root = s:get_git_root()
-  let l:path = substitute(getcwd(), l:root, '', '')
-  let l:path = substitute(l:path, '/', '', '')
-
-  let l:options = '-m '.s:preview_bind.' --no-unicode --preview "bat --color=always --style plain {1}" --prompt "GitFiles> " '
-  if l:path != ''
-    let l:options .= '--query '.l:path.'/'
-  endif
-
-  call fzf#run({
-  \ 'source':  'git ls-files | uniq',
-  \ 'sink': 'e',
-  \ 'dir': l:root,
-  \ 'options': l:options,
-  \ 'down': g:fzf_layout['down'],
-  \})
-endfunction
-command! GFilesMonorepo call s:gitfiles_monorepo()
-
-"--------------
 " Git
 "--------------
 function! s:git_blame()
@@ -294,7 +242,7 @@ function! s:git_log_100()
     call system('git log -p -100 '.expand('%').' > '.fileName)
     :exe ':view '.fileName
 endfunction
-command! GitLog10 call s:git_log_100()
+command! GitLog100 call s:git_log_100()
 
 "---------------------------------------------------
 " File alias

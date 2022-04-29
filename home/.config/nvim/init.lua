@@ -84,17 +84,44 @@ require("telescope").setup({
 
 require("hop").setup()
 
-vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>HopWordMW<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>gd", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>td", ":tabclose<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>gf", "<cmd>GFilesMonorepo<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>gg", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>ag", "<cmd>Telescope grep_string<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>jd", "<cmd>NvimTreeFindFile<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>bb", "<cmd>Buffers<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>tr", "<cmd>Telescope resume<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>fr", "<cmd>Telescope oldfiles<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader><Space>", "<cmd>Telescope command_history<cr>", { noremap = true, silent = true })
+local normal_keymap = {
+	["<Leader>e"] = "<cmd>HopWordMW<cr>",
+	["<Leader>gd"] = "<cmd>DiffviewOpen<cr>",
+	["<Leader>td"] = ":tabclose<cr>",
+	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
+	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
+	["<Leader>ag"] = "<cmd>lua require('fzf-lua').grep_cword()<cr>",
+	["<Leader>jd"] = "<cmd>NvimTreeFindFile<cr>",
+	["<Leader>bb"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
+	["<Leader>tr"] = "<cmd>lua require('fzf-lua').resume()<cr>",
+	["<Leader>fr"] = "<cmd>lua require('fzf-lua').oldfiles()<cr>",
+	["<Leader><Space>"] = "<cmd>lua require('fzf-lua').command_history()<cr>",
+}
+
+for key, value in pairs(normal_keymap) do
+	vim.api.nvim_set_keymap("n", key, value, { noremap = true, silent = true })
+end
+
+local function get_working_path_from_git_root()
+	local handle = io.popen("git rev-parse --show-toplevel")
+	local root = handle:read("*a"):gsub("\n", "")
+	handle:close()
+	current_dir = os.getenv("PWD")
+	return current_dir:gsub(root, ""):gsub("^/", "")
+end
+vim.api.nvim_set_keymap("n", "<Leader>gf", "", {
+	noremap = true,
+	silent = true,
+	callback = function()
+		local relative_path = get_working_path_from_git_root()
+		if relative_path == "" then
+			require("fzf-lua").git_files()
+		else
+			require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path } })
+		end
+	end,
+})
+
 vim.api.nvim_set_keymap("n", "<Leader>pp", "", {
 	noremap = true,
 	silent = true,

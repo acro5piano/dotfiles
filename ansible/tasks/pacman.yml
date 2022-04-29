@@ -36,6 +36,7 @@
     - dnsutils
     - fish
     - fzf
+    - stylua
     - gcc-fortran
     - ghostscript
     - git
