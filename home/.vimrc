@@ -212,14 +212,11 @@ nnoremap <Leader>gf :GFilesMonorepo<CR>
 nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-nnoremap <Leader>jd :NeoTreeReveal<CR>:NeoTreeReveal<CR>
-" nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 nnoremap <Leader>w- :new<CR><C-w><C-w>
-" nnoremap <Leader>gg :GrepFile<CR>
 nnoremap <Leader>w/ :vs<CR>
 nnoremap <Leader>wd :q<CR>
 nnoremap <Leader>wh <C-w>h

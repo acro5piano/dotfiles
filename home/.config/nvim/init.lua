@@ -21,7 +21,7 @@ require("packer").startup(function()
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-
+	use("junegunn/fzf.vim")
 	use("junegunn/vim-easy-align")
 	use("mileszs/ack.vim")
 	use("osyo-manga/vim-over")
@@ -43,26 +43,33 @@ require("packer").startup(function()
 	use("mindriot101/vim-yapf")
 	use("SirVer/ultisnips")
 	use({
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		"kyazdani42/nvim-tree.lua",
 		requires = {
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
 	})
 	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = {
 			{ "nvim-telescope/telescope.nvim" },
+			{ "tami5/sqlite.lua", module = "sqlite" },
 		},
 	})
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
+	use({ "ckipp01/stylua-nvim" }) -- requires "pacman -S stylua"
 end)
 
-require("neoclip").setup()
+require("neoclip").setup({
+	keys = {
+		telescope = {
+			i = {
+				paste = "<cr>",
+			},
+		},
+	},
+})
 require("lualine").setup()
+require("nvim-tree").setup()
 
 local actions = require("telescope.actions")
 require("telescope").setup({
@@ -77,18 +84,14 @@ require("telescope").setup({
 
 require("hop").setup()
 
-vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>HopWord<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>HopWordMW<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gd", "<cmd>DiffviewOpen<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>td", ":tabclose<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gf", "<cmd>GFilesMonorepo<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>gg", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>gf", "<cmd>Telescope git_files<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>ag", "<cmd>Telescope grep_string<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>bb",
-	"<cmd>Telescope buffers show_all_buffers=true sort_lastused=true default_selection_index=2 <cr>",
-	{ noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<Leader>jd", "<cmd>NvimTreeFindFile<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>bb", "<cmd>Buffers<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>tr", "<cmd>Telescope resume<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>fr", "<cmd>Telescope oldfiles<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader><Space>", "<cmd>Telescope command_history<cr>", { noremap = true, silent = true })
