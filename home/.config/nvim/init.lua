@@ -10,13 +10,7 @@ require("packer").startup(function()
 
 	use("editorconfig/editorconfig-vim")
 	use("haya14busa/vim-asterisk")
-	use({
-		"phaazon/hop.nvim",
-		branch = "v1", -- optional but strongly recommended
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-		end,
-	})
+	use({ "phaazon/hop.nvim", branch = "v1" })
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
