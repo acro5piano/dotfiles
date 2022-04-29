@@ -63,7 +63,31 @@ require("neoclip").setup({
 	},
 })
 require("lualine").setup()
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+	view = {
+		width = 40,
+		signcolumn = "no",
+		mappings = {
+			custom_only = true,
+			list = {
+				{ key = "d", action = "remove" },
+				{ key = "m", action = "rename" },
+				{ key = "c", action = "copy" },
+				{ key = "p", action = "paste" },
+				{ key = "y", action = "copy_path" },
+				{ key = "-", action = "dir_up" },
+				{ key = "o", action = "system_open" },
+				{ key = { "<CR>" }, action = "edit" },
+				{ key = "P", action = "parent_node" },
+				{ key = "<Tab>", action = "preview" },
+				{ key = "I", action = "toggle_git_ignored" },
+				{ key = "a", action = "create" },
+				{ key = { "<2-RightMouse>", "<C-]>" }, action = "cd" },
+				{ key = "H", action = "toggle_dotfiles" },
+			},
+		},
+	},
+})
 
 local actions = require("telescope.actions")
 require("telescope").setup({
