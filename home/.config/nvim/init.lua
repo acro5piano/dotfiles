@@ -96,12 +96,15 @@ for key, value in pairs(normal_keymap) do
 	vim.api.nvim_set_keymap("n", key, value, { noremap = true, silent = true })
 end
 
+local function regexEscape(str)
+	return str:gsub("[%(%)%.%%%+%-%*%?%[%^%$%]]", "%%%1")
+end
 local function get_working_path_from_git_root()
 	local handle = io.popen("git rev-parse --show-toplevel")
 	local root = handle:read("*a"):gsub("\n", "")
 	handle:close()
 	current_dir = os.getenv("PWD")
-	return current_dir:gsub(root, ""):gsub("^/", "")
+	return current_dir:gsub(regexEscape(root), ""):gsub("^/", "")
 end
 vim.api.nvim_set_keymap("n", "<Leader>gf", "", {
 	noremap = true,
