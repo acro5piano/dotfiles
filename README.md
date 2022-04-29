@@ -57,7 +57,7 @@ mount /dev/sda2 /mnt
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware vi vim iwd ansible
+pacstrap /mnt base base-devel linux linux-firmware vim iwd ansible
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch

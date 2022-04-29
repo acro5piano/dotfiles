@@ -13,7 +13,8 @@ t=`echo "${password}__${domain}" | shasum -a 256 | base64 | head -1 | cut -c1-${
 echo `echo $t | cut -c1-8`...
 
 if [ `uname` == 'Linux' ]; then
-    echo $t | wl-copy
+    # echo $t | wl-copy
+    echo $t | xclip -selection clipboard
 else
     echo $t | pbcopy
 fi

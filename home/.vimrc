@@ -189,8 +189,6 @@ nmap <Leader>ap <Plug>(coc-diagnostic-prev)
 nmap <Leader>an <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <Leader>aj <Plug>(coc-definition)
-nmap <silent> <Leader>at <Plug>(coc-type-definition)
-nmap <silent> <Leader>am <Plug>(coc-implementation)
 nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
@@ -214,7 +212,7 @@ nnoremap <Leader>gf :GFilesMonorepo<CR>
 nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-nnoremap <Leader>jd :NeoTreeFloat<CR>
+nnoremap <Leader>jd :NeoTreeReveal<CR>:NeoTreeReveal<CR>
 " nnoremap <Leader>jj :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
@@ -320,7 +318,7 @@ set modeline
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue,*.html Prettier
     autocmd BufWritePre *.py Yapf
 endif
 

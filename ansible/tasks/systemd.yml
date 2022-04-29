@@ -38,6 +38,7 @@
   loop:
     # - wayremap.service
     - disable-wlan0.service
+    - systemd-resolved.service
 - name: Disable systemd-hostnamed, as it breaks iwd
   become: yes
   ansible.builtin.systemd:
