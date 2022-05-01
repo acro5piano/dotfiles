@@ -118,3 +118,16 @@ endsnippet
 snippet uro
 const router = useRouter()
 endsnippet
+
+snippet imv
+const [isModalVisible, setIsModalVisible] = useState(false)
+endsnippet
+
+snippet sim
+setIsModalVisible(false)
+endsnippet
+
+snippet apm
+<AppModal isOpen={isModalVisible} onRequestClose={() => setIsModalVisible(false)}>
+</AppModal>
+endsnippet

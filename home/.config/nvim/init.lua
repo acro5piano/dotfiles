@@ -15,7 +15,6 @@ require("packer").startup(function()
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use("junegunn/fzf.vim")
 	use("junegunn/vim-easy-align")
 	use("mileszs/ack.vim")
 	use("osyo-manga/vim-over")
@@ -51,6 +50,7 @@ require("packer").startup(function()
 	})
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "ckipp01/stylua-nvim" }) -- requires "pacman -S stylua"
+	use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
 end)
 
 require("neoclip").setup({
