@@ -3,11 +3,8 @@ vim.api.nvim_exec(":source ~/.vimrc", false)
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
-
+	use("kyazdani42/nvim-web-devicons")
+	use("nvim-lualine/lualine.nvim")
 	use("editorconfig/editorconfig-vim")
 	use("haya14busa/vim-asterisk")
 	use({ "phaazon/hop.nvim", branch = "v1" })
@@ -35,22 +32,12 @@ require("packer").startup(function()
 	use({ "neoclide/coc.nvim", branch = "release" })
 	use("mindriot101/vim-yapf")
 	use("SirVer/ultisnips")
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-	})
-	use({
-		"AckslD/nvim-neoclip.lua",
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-			{ "tami5/sqlite.lua", module = "sqlite" },
-		},
-	})
+	use("kyazdani42/nvim-tree.lua")
+	use("AckslD/nvim-neoclip.lua")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "ckipp01/stylua-nvim" }) -- requires "pacman -S stylua"
-	use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
+	use("ckipp01/stylua-nvim") -- requires "pacman -S stylua"
+	use("ibhagwan/fzf-lua")
+	use("L3MON4D3/LuaSnip")
 end)
 
 require("neoclip").setup({
