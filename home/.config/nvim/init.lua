@@ -99,16 +99,24 @@ local normal_keymap = {
 	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
 	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
 	["<Leader>ag"] = "<cmd>lua require('fzf-lua').grep_cword()<cr>",
-	["<Leader>jd"] = "<cmd>NvimTreeFindFile<cr>",
-	["<Leader>bb"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
-	["<Leader>tr"] = "<cmd>lua require('fzf-lua').resume()<cr>",
+	["<Leader>j"] = "<cmd>NvimTreeFindFile<cr>",
+	["<Leader>b"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
+	["<Leader>k"] = ":bp|bd #<CR>",
+	["<Leader>t"] = "<cmd>lua require('fzf-lua').resume()<cr>",
 	["<Leader>fr"] = "<cmd>lua require('fzf-lua').oldfiles()<cr>",
 	["<Leader><Space>"] = "<cmd>lua require('fzf-lua').command_history()<cr>",
+	["<Leader>c"] = "<cmd>lua require('fzf-lua').commands()<cr>",
+	["<C-w><C-k>"] = ":q<CR>",
+	["<C-w><CR>"] = "<C-w><C-w>:q<CR>", -- maps to C-w C-m
+	["<C-w>/"] = ":vsplit<CR><C-w><C-w><C-6><C-w><C-w>",
+	["<C-w>-"] = ":new<CR><C-6><C-w><C-w>",
 }
 
 for key, value in pairs(normal_keymap) do
-	vim.api.nvim_set_keymap("n", key, value, { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", key, value, { noremap = false, silent = true })
 end
+
+vim.g.nvim_tree_highlight_opened_files = true
 
 local function regexEscape(str)
 	return str:gsub("[%(%)%.%%%+%-%*%?%[%^%$%]]", "%%%1")

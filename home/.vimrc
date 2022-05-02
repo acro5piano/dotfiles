@@ -172,10 +172,6 @@ nnoremap k gk
 nnoremap \| x~f_
 nnoremap Q @q
 nnoremap <Leader>/ :TComment<CR>
-nnoremap <Leader><Leader> :History:<CR>
-nnoremap <Leader>aa :Ack<Space>
-nnoremap <Leader>ag :Rg <C-r><C-w><CR>
-
 
 " COC
 inoremap <silent><expr> <c-l> coc#refresh()
@@ -188,10 +184,6 @@ nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
-nnoremap <Leader>aw :Ack <C-r><C-w>
-nnoremap <Leader>bd :bp\|bd #<CR>
-nnoremap <Leader>fr :History<CR>
-nnoremap <Leader>h/ :History/<CR>
 nnoremap <Leader>fe :e!<CR>
 nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
@@ -199,24 +191,13 @@ nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gl :GitLog100<CR>
-nnoremap <Leader>gf :GFilesMonorepo<CR>
-nnoremap <Leader>ga :GFiles<CR>
 nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>ij :ImportJsFZF<CR>
 nnoremap <Leader>q! :qa!<CR>
 nnoremap <Leader>qq :qa<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
-nnoremap <Leader>w- :new<CR><C-w><C-w>
-nnoremap <Leader>w/ :vs<CR>
-nnoremap <Leader>wd :q<CR>
-nnoremap <Leader>wh <C-w>h
-nnoremap <Leader>wj <C-w>j
-nnoremap <Leader>wk <C-w>k
-nnoremap <Leader>wl <C-w>l
-nnoremap <Leader>wm <C-w><C-w>:q<CR>
 vnoremap <Leader>/ :TComment<CR>
-vnoremap <Leader>jq :!jq --monochrome-output .<CR>
 
 command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
 command! TTagnize execute("normal vitS`vitS{at")
