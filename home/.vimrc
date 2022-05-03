@@ -111,7 +111,7 @@ filetype indent on
 "----------------------------------------------------
 
 " Clipboard copy / paste
-" nnoremap <Space>pb :.!clp<CR>
+nnoremap <Space>pb :.!clp<CR>
 map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
