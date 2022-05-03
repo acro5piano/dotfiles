@@ -18,11 +18,11 @@ let g:indentLine_color_term = 8
 
 let g:jsx_ext_required = 0
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+" " UltiSnips
+" let g:UltiSnipsExpandTrigger="<c-s>"
+" let g:UltiSnipsJumpForwardTrigger="<c-n>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Prettier
 let g:prettier#config#tab_width = '2'
@@ -111,7 +111,7 @@ filetype indent on
 "----------------------------------------------------
 
 " Clipboard copy / paste
-nnoremap <Space>pb :.!clp<CR>
+" nnoremap <Space>pb :.!clp<CR>
 map <C-c> :w !cl<CR><CR>
 
 "----------------------------------------------------
@@ -184,17 +184,16 @@ nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
+nnoremap <Leader><CR> :w<CR>
 nnoremap <Leader>fe :e!<CR>
-nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
 nnoremap <Leader>fm :set ft=markdown<CR>
 nnoremap <Leader>wp :set wrap!<CR>
 nnoremap <Leader>gb :GitBlame<CR>
 nnoremap <Leader>gl :GitLog100<CR>
-nnoremap <Leader>gs :call fzf#vim#gitfiles('?')<CR><HOME>
 nnoremap <Leader>ij :ImportJsFZF<CR>
-nnoremap <Leader>q! :qa!<CR>
-nnoremap <Leader>qq :qa<CR>
+nnoremap <Leader>! :qa!<CR>
+nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 vnoremap <Leader>/ :TComment<CR>
@@ -249,7 +248,7 @@ if has('nvim')
 endif
 
 " Experimental: maximize pane when focus
-autocmd FocusGained * silent! !tmux-zoom
+" autocmd FocusGained * silent! !tmux-zoom
 
 " " remember cursor position
 autocmd BufReadPost *
@@ -278,3 +277,5 @@ filetype plugin on
 
 au InsertLeave * set nopaste
 
+" TODO: move to lua
+imap <silent><expr> <c-s> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-s>'

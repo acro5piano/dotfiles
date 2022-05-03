@@ -74,6 +74,7 @@ require("nvim-tree").setup({
 				{ key = "H", action = "toggle_dotfiles" },
 				{ key = "[", action = "prev_sibling" },
 				{ key = "]", action = "next_sibling" },
+				{ key = "q", action = "close" },
 			},
 		},
 	},
@@ -94,21 +95,22 @@ require("hop").setup()
 
 local normal_keymap = {
 	["<Leader>e"] = "<cmd>HopWordMW<cr>",
-	["<Leader>gd"] = "<cmd>DiffviewOpen<cr>",
-	["<Leader>td"] = ":tabclose<cr>",
-	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
-	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
 	["<Leader>ag"] = "<cmd>lua require('fzf-lua').grep_cword()<cr>",
-	["<Leader>j"] = "<cmd>NvimTreeFindFile<cr>",
 	["<Leader>b"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
-	["<Leader>k"] = ":bp|bd #<CR>",
-	["<Leader>t"] = "<cmd>lua require('fzf-lua').resume()<cr>",
 	["<Leader>fr"] = "<cmd>lua require('fzf-lua').oldfiles()<cr>",
+	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
+	["<Leader>gd"] = "<cmd>DiffviewOpen<cr>",
+	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
+	["<Leader>j"] = "<cmd>NvimTreeFindFile<cr>",
+	["<Leader>k"] = ":bp|bd #<CR>",
+	["<Leader>lr"] = "<cmd>lua require('fzf-lua').resume()<cr>",
+	["<Leader>td"] = ":tabclose<cr>",
 	["<Leader><Space>"] = "<cmd>lua require('fzf-lua').command_history()<cr>",
-	["<Leader>c"] = "<cmd>lua require('fzf-lua').commands()<cr>",
+	["<M-x>"] = "<cmd>lua require('fzf-lua').commands()<cr>",
 	["<C-w><C-k>"] = ":q<CR>",
-	["<C-w><CR>"] = "<C-w><C-w>:q<CR>", -- maps to C-w C-m
-	["<C-w>/"] = ":vsplit<CR><C-w><C-w><C-6><C-w><C-w>",
+	["<C-w><CR>"] = string.rep("<C-w><C-w>:q<CR>", 3), -- maps to C-w C-m
+	["<C-w>/"] = ":vsplit<CR><C-w><C-l><C-6><C-w><C-h>",
+	["<C-w><C-n>"] = ":vsplit<CR><C-w><C-l><C-6><C-w><C-h>",
 	["<C-w>-"] = ":new<CR><C-6><C-w><C-w>",
 }
 
@@ -116,7 +118,14 @@ for key, value in pairs(normal_keymap) do
 	vim.api.nvim_set_keymap("n", key, value, { noremap = false, silent = true })
 end
 
-vim.g.nvim_tree_highlight_opened_files = true
+local insert_keymap = {
+	["<c-u>"] = "<cmd>lua require('luasnip').jump(-1)<Cr>",
+}
+
+for key, value in pairs(insert_keymap) do
+	vim.api.nvim_set_keymap("i", key, value, { noremap = false, silent = true })
+	vim.api.nvim_set_keymap("s", key, value, { noremap = false, silent = true })
+end
 
 local function regexEscape(str)
 	return str:gsub("[%(%)%.%%%+%-%*%?%[%^%$%]]", "%%%1")
@@ -128,7 +137,7 @@ local function get_working_path_from_git_root()
 	current_dir = os.getenv("PWD")
 	return current_dir:gsub(regexEscape(root), ""):gsub("^/", "")
 end
-vim.api.nvim_set_keymap("n", "<Leader>gf", "", {
+vim.api.nvim_set_keymap("n", "<Leader>o", "", {
 	noremap = true,
 	silent = true,
 	callback = function()
@@ -141,13 +150,11 @@ vim.api.nvim_set_keymap("n", "<Leader>gf", "", {
 	end,
 })
 
-vim.api.nvim_set_keymap("n", "<Leader>pp", "", {
-	noremap = true,
-	silent = true,
-	callback = function()
-		require("telescope").extensions.neoclip.default()
-	end,
-})
+vim.api.nvim_create_user_command("NeoClipPick", function(opts)
+	require("telescope").extensions.neoclip.default()
+end, {})
 
 vim.g.terraform_fmt_on_save = true
 vim.g.rustfmt_autosave = true
+
+require("snippets")
