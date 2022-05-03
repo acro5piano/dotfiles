@@ -248,7 +248,7 @@ if has('nvim')
 endif
 
 " Experimental: maximize pane when focus
-" autocmd FocusGained * silent! !tmux-zoom
+autocmd FocusGained * silent! !tmux-zoom
 
 " " remember cursor position
 autocmd BufReadPost *
@@ -271,9 +271,6 @@ command! PrettierPhp !yarn prettier --tab-width 4 --write %
 command! VSCode !code %
 command! VSCodeDir !code %:p:h
 filetype plugin on
-
-" For css completion
-" autocmd FileType typescript.tsx,typescript,typescriptreact,javascript,javascript.jsx,jsx,tsx setlocal omnifunc=csscomplete#CompleteCSS
 
 au InsertLeave * set nopaste
 

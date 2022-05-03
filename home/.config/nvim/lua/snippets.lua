@@ -120,3 +120,16 @@ ls.add_snippets("typescriptreact", {
 		exit(),
 	}),
 })
+
+ls.add_snippets("typescript", {
+	snippet("tst", {
+		t({ "import test from 'ava'", "", "test('" }),
+		f(function()
+			return vim.api.nvim_buf_get_name(0):match("^.*/(.*).test.tsx?$")
+		end),
+		t({ "', async (t) => {", "  " }),
+		i(1),
+		t({ "", "})" }),
+		exit(),
+	}),
+})
