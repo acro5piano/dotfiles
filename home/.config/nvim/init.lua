@@ -121,7 +121,7 @@ for key, value in pairs(insert_keymap) do
 end
 
 local visual_keymap = {
-	["D"] = "s<div>",
+	["D"] = "S<div>", -- sarround with <div>
 }
 
 for key, value in pairs(visual_keymap) do
