@@ -120,6 +120,14 @@ for key, value in pairs(insert_keymap) do
 	vim.api.nvim_set_keymap("s", key, value, { noremap = false, silent = true })
 end
 
+local visual_keymap = {
+	["D"] = "s<div>",
+}
+
+for key, value in pairs(visual_keymap) do
+	vim.api.nvim_set_keymap("v", key, value, { noremap = false, silent = true })
+end
+
 local function regexEscape(str)
 	return str:gsub("[%(%)%.%%%+%-%*%?%[%^%$%]]", "%%%1")
 end

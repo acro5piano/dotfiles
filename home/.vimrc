@@ -124,6 +124,7 @@ inoremap ({<CR> ({<CR>})<Up><End><CR>
 inoremap ([<CR> ([<CR>]);<Up><End><CR>
 inoremap z. =>
 inoremap zc console.log()<Left>
+inoremap zn className=""<Left>
 inoremap zl ->
 " inoremap zp extract(\Psy\Shell::debug(get_defined_vars()));
 " inoremap zr require 'pry'; binding.pry
