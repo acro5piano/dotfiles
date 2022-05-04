@@ -179,7 +179,7 @@ inoremap <silent><expr> <c-l> coc#refresh()
 nmap <Leader>ac :CocAction<CR>
 nmap <Leader>ap <Plug>(coc-diagnostic-prev)
 nmap <Leader>an <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gh <Plug>(coc-definition)
 nmap <silent> <Leader>aj <Plug>(coc-definition)
 nmap <silent> <Leader>ar <Plug>(coc-references)
 nmap <silent> <Leader>ah <Plug>(coc-type-definition)
