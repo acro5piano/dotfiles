@@ -23,12 +23,10 @@
     - android-sdk-build-tools
     - android-sdk-platform-tools
     - brave-bin
-    - clipman
-    - espanso-bin
     - google-chrome-beta
-    - leiningen
     - nerd-fonts-source-code-pro
     - ngrok
+    - openswan
     - otf-ipaexfont
     - yay
     - zoom

@@ -14,29 +14,26 @@
     - alacritty
     - alsa-lib
     - alsa-utils
-    - arch-install-scripts
     - android-udev
+    - arch-install-scripts
     - at
     - bat
     - bemenu-wayland
     - chromium
-    - clojure
     - composer
-    - ctags
     - curl
+    - dnsutils
     - docker
     - docker-compose
     - eog
     - evince
     - fcitx5
     - fcitx5-configtool
-    - fcitx5-mozc
     - fcitx5-gtk
+    - fcitx5-mozc
     - firefox-developer-edition
-    - dnsutils
     - fish
     - fzf
-    - stylua
     - gcc-fortran
     - ghostscript
     - git
@@ -44,12 +41,11 @@
     - go
     - grim
     - i3status
-    - xorg
+    - i3status-rust
     - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
     - jdk8-openjdk
     - jq
-    - kitty
     - lapack
     - ldns
     - libevent
@@ -62,19 +58,19 @@
     - man-db
     - neovim
     - ntp
+    - onefetch
     - openssh
     - openssl
-    - onefetch
-    - pcmanfm
     - pavucontrol
+    - pcmanfm
     - php
     - php-gd
     - php-sqlite
     - pinta
-    - postgresql-client
     - pipewire
-    - pipewire-pulse
     - pipewire-alsa
+    - pipewire-pulse
+    - postgresql-client
     - python
     # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
     - ripgrep
@@ -82,13 +78,15 @@
     - ruby
     - rubygems
     - screenfetch
-    - slurp
-    - sway
+    # - slurp # Wayland is too early
+    - stylua
+    # - sway # Wayland is too early
     - terraform
     - tmux
     - tree
     - unzip
     - vim
-    - wl-clipboard
+    # - wl-clipboard # Wayland is too early
+    - xl2tpd
+    - xorg
     - zip
-    - i3status-rust
