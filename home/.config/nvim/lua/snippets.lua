@@ -42,7 +42,7 @@ local function firstToUpper(args)
 end
 
 local function fileName()
-	return vim.api.nvim_buf_get_name(0):match("^.*/(.*).tsx$")
+	return vim.api.nvim_buf_get_name(0):match("^.*/(.*).tsx?$")
 end
 
 ls.add_snippets("typescriptreact", {
@@ -130,6 +130,26 @@ ls.add_snippets("typescript", {
 		t({ "', async (t) => {", "  " }),
 		i(1),
 		t({ "", "})" }),
+		exit(),
+	}),
+	snippet("nxo", {
+		t({
+			"import { objectType } from 'nexus'",
+			"import { baseEntity } from 'src/graphql/types/base/baseEntity'",
+			"",
+			"export const ",
+		}),
+		f(fileName),
+		t({
+			" = objectType({",
+			"  name: '",
+		}),
+		f(function()
+			return fileName():gsub("Type", "")
+		end),
+		t({ "',", "  definition(t) {", "    baseEntity(t)", "    " }),
+		i(1),
+		t({ "", "  }", "})" }),
 		exit(),
 	}),
 })
