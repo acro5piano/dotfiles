@@ -58,6 +58,10 @@ ls.add_snippets("typescriptreact", {
 		t(")"),
 		exit(),
 	}),
+	snippet("urf", {
+		t("const ref = useRef<HTMLDivElement>(null!)"),
+		exit(),
+	}),
 	snippet("ufo", {
 		t({
 			"const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({",

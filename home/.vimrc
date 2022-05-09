@@ -186,6 +186,7 @@ nmap <silent> <Leader>ah <Plug>(coc-type-definition)
 nmap <silent> <Leader>ac :CocAction<CR>
 
 nnoremap <Leader>aw :Ack <C-r><C-w>
+nnoremap <Leader>aa :Ack<Space>
 nnoremap <Leader><CR> :w<CR>
 nnoremap <Leader>fe :e!<CR>
 nnoremap <Leader>ft :set ft=txt<CR>
