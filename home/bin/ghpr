@@ -5,7 +5,7 @@ message=$2
 
 url=""
 
-# body=`git cherry -v master feature/remove-firestore-from-extension`
+# body=`git cherry -v main feature/remove-firestore-from-extension`
 
 set -ue
 
@@ -20,7 +20,7 @@ else
         branch=develop
     fi
     if [ "$branch" == 'm' ]; then
-        branch=master
+        branch=main
     fi
     url=`gh pr create --title "$message" --body "$message" --base "$branch" `
 fi
