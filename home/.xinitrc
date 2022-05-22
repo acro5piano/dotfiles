@@ -13,6 +13,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+export TERMINAL=alacritty # required for i3
+
 xmodmap ~/.xmodmap
 
 exec i3

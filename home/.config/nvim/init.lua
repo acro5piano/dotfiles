@@ -93,7 +93,7 @@ local normal_keymap = {
 	["<Leader>b"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
 	["<Leader>fr"] = "<cmd>lua require('fzf-lua').oldfiles()<cr>",
 	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
-	["<Leader>gd"] = "<cmd>lua require('fzf-lua').git_status()<cr>",
+	["<Leader>d"] = "<cmd>lua require('fzf-lua').git_status()<cr>",
 	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
 	["<Leader>j"] = "<cmd>NvimTreeFindFile<cr>",
 	["<Leader>k"] = ":bp|bd #<CR>",
@@ -168,14 +168,8 @@ require("fzf-lua").setup({
 		},
 	},
 	previewers = {
-		bat = {
-			cmd = "bat",
-			args = "--style=numbers,changes --color always",
-			theme = "Coldark-Dark", -- bat preview theme (bat --list-themes)
-			config = nil, -- nil uses $BAT_CONFIG_PATH
-		},
 		git_diff = {
-			pager = "delta", -- if you have `delta` installed
+			pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim environment
 		},
 	},
 })
