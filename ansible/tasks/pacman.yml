@@ -38,6 +38,7 @@
     - ghostscript
     - git
     - github-cli
+    - git-delta
     - go
     - grim
     - i3status

@@ -200,6 +200,7 @@ nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>rl :OverCommandLine<CR>s/
 nnoremap <Leader>rr :OverCommandLine<CR>%s/
 vnoremap <Leader>/ :TComment<CR>
+nnoremap <Leader>tt :TTagnize<CR>
 
 command! RequireToImport execute("normal 0cwimport<ESC>f=cf(from <ESC>$x0j")
 command! TTagnize execute("normal vitS`vitS{at")
@@ -246,7 +247,7 @@ set modeline
 autocmd BufWritePre * :%s/\s\+$//e " remove trairing whitespace on save
 
 if has('nvim')
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue,*.html Prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.gql,*.md,*.vue,*.html PrettierAsync
     autocmd BufWritePre *.py Yapf
 endif
 

@@ -36,7 +36,6 @@ require("packer").startup(function()
 	use("SirVer/ultisnips")
 	use("kyazdani42/nvim-tree.lua")
 	use("AckslD/nvim-neoclip.lua")
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("ckipp01/stylua-nvim") -- requires "pacman -S stylua"
 	use("ibhagwan/fzf-lua")
 	use("L3MON4D3/LuaSnip")
@@ -94,7 +93,7 @@ local normal_keymap = {
 	["<Leader>b"] = "<cmd>lua require('fzf-lua').buffers()<cr>",
 	["<Leader>fr"] = "<cmd>lua require('fzf-lua').oldfiles()<cr>",
 	["<Leader>ga"] = "<cmd>require('fzf-lua').git_files()<cr>",
-	["<Leader>gd"] = "<cmd>DiffviewOpen<cr>",
+	["<Leader>gd"] = "<cmd>lua require('fzf-lua').git_status()<cr>",
 	["<Leader>gg"] = "<cmd>lua require('fzf-lua').live_grep()<cr>",
 	["<Leader>j"] = "<cmd>NvimTreeFindFile<cr>",
 	["<Leader>k"] = ":bp|bd #<CR>",
@@ -151,6 +150,34 @@ vim.api.nvim_set_keymap("n", "<Leader>o", "", {
 			require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path } })
 		end
 	end,
+})
+
+require("fzf-lua").setup({
+	winopts = {
+		height = 0.9, -- window height
+		width = 0.95, -- window width
+	},
+	keymap = {
+		builtin = {
+			["<C-k>"] = "preview-page-up",
+			["<C-j>"] = "preview-page-down",
+		},
+		fzf = {
+			["ctrl-k"] = "preview-page-up",
+			["ctrl-j"] = "preview-page-down",
+		},
+	},
+	previewers = {
+		bat = {
+			cmd = "bat",
+			args = "--style=numbers,changes --color always",
+			theme = "Coldark-Dark", -- bat preview theme (bat --list-themes)
+			config = nil, -- nil uses $BAT_CONFIG_PATH
+		},
+		git_diff = {
+			pager = "delta", -- if you have `delta` installed
+		},
+	},
 })
 
 vim.api.nvim_create_user_command("NeoClipPick", function(opts)
