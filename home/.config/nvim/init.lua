@@ -169,7 +169,7 @@ require("fzf-lua").setup({
 	},
 	previewers = {
 		git_diff = {
-			pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim environment
+			pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment
 		},
 	},
 })

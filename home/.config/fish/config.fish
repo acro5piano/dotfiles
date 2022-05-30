@@ -11,6 +11,7 @@ end
 set -gx ANDROID_HOME /opt/android-sdk
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
 
+set -gx TERM xterm-256color
 
 if [ -e $HOME/Library/Android ]
     set -gx JAVA_HOME (/usr/libexec/java_home)

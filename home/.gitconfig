@@ -33,7 +33,7 @@
 	defaultBranch = main
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --true-color=never
 
 [delta]
     navigate = true  # use n and N to move between diff sections
