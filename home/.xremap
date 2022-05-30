@@ -36,7 +36,7 @@ window class_only: targets do
 
   remap 'C-k', to: ['Shift-End', 'Ctrl-x']
 
-  remap 'C-s', to: 'Ctrl-g'
+  remap 'C-s', to: 'F3'
   # remap 'C-r', to: 'Ctrl-Shift-g'
 
   # Alternative
