@@ -8,10 +8,10 @@
     - .bashrc
     - bin
     - .config/alacritty
+    - .config/mimeapps.list
     - .config/fish
     - .config/flake8
     - .config/i3
-    - .config/kitty
     - .config/nvim
     - .config/sway
     - .ctags

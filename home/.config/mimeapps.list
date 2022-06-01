@@ -1,0 +1,27 @@
+[Default Applications]
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+text/csv=libreoffice.desktop
+application/docx=libreoffice.desktop
+application/pdf=brave.desktop
+inode/directory=pcmanfm.desktop
+x-scheme-handler/mailto=brave-browser.desktop
+video/quicktime=google-chrome-beta.desktop
+x-scheme-handler/webcal=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+x-scheme-handler/chrome=firefox-developer-edition.desktop
+application/x-extension-htm=firefox-developer-edition.desktop
+application/x-extension-html=firefox-developer-edition.desktop
+application/x-extension-shtml=firefox-developer-edition.desktop
+application/xhtml+xml=firefox-developer-edition.desktop
+application/x-extension-xhtml=firefox-developer-edition.desktop
+application/x-extension-xht=firefox-developer-edition.desktop
+image/png=feh.desktop
+image/jpg=feh.desktop
+image/jpeg=feh.desktop
+image/gif=feh.desktop
+image/bmp=feh.desktop
+image/x-xcf=feh.desktop
+image/webp=feh.desktop

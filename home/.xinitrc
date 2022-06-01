@@ -2,6 +2,10 @@
 
 xmodmap $HOME/.xmodmap
 
+xdg-settings set default-web-browser brave.desktop
+xdg-mime default feh.desktop image/png image/jpg image/jpeg image/gif image/bmp image/x-xcf image/webp
+xdg-mime default brave.desktop application/pdf
+
 xset r rate 230 60
 
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
