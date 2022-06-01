@@ -99,6 +99,7 @@ local normal_keymap = {
 	["<Leader>k"] = ":bp|bd #<CR>",
 	["<Leader>lr"] = "<cmd>lua require('fzf-lua').resume()<cr>",
 	["<Leader>td"] = ":tabclose<cr>",
+	["<Leader>ac"] = "<Plug>(coc-codeaction-cursor)",
 	["<Leader><Space>"] = "<cmd>lua require('fzf-lua').command_history()<cr>",
 	["<M-x>"] = "<cmd>lua require('fzf-lua').commands()<cr>",
 	["<C-w><C-k>"] = ":q<CR>",
