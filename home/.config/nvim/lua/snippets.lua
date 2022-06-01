@@ -45,7 +45,7 @@ local function fileName()
 	return vim.api.nvim_buf_get_name(0):match("^.*/(.*).tsx?$")
 end
 
-ls.add_snippets("typescriptreact", {
+local typescriptreact = {
 	snippet("ust", {
 		t("const ["),
 		i(1),
@@ -106,7 +106,6 @@ ls.add_snippets("typescriptreact", {
 			"})",
 		}),
 	}),
-
 	snippet("rfn", {
 		t("interface "),
 		f(fileName),
@@ -123,8 +122,10 @@ ls.add_snippets("typescriptreact", {
 		t({ "", "  </div>", ")", "}" }),
 		exit(),
 	}),
-})
+}
 
+ls.add_snippets("typescriptreact", typescriptreact)
+ls.add_snippets("typescript", typescriptreact)
 ls.add_snippets("typescript", {
 	snippet("tst", {
 		t({ "import test from 'ava'", "", "test('" }),
