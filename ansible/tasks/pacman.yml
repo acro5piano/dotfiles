@@ -31,6 +31,7 @@
     - fcitx5-configtool
     - fcitx5-gtk
     - fcitx5-mozc
+    - feh
     - firefox-developer-edition
     - fish
     - fzf
@@ -88,6 +89,7 @@
     - unzip
     - vim
     # - wl-clipboard # Wayland is too early
-    - xl2tpd
+    - xvkbd
+    - xcolor
     - xorg
     - zip
