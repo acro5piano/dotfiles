@@ -13,6 +13,7 @@
   loop:
     - wayremap.config.py
     - X11/xorg.conf.d/30-touchpad.conf
+    - X11/xorg.conf.d/10-disable-dpms.conf
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
