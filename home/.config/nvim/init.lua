@@ -33,7 +33,6 @@ require("packer").startup(function()
 	use({ "prettier/vim-prettier", run = "yarn install" })
 	use({ "neoclide/coc.nvim", branch = "release" })
 	use("mindriot101/vim-yapf")
-	use("SirVer/ultisnips")
 	use("kyazdani42/nvim-tree.lua")
 	use("AckslD/nvim-neoclip.lua")
 	use("ckipp01/stylua-nvim") -- requires "pacman -S stylua"
@@ -102,7 +101,6 @@ local normal_keymap = {
 	["<Leader>ac"] = "<Plug>(coc-codeaction-cursor)",
 	["<Leader><Space>"] = "<cmd>lua require('fzf-lua').command_history()<cr>",
 	["<M-x>"] = "<cmd>lua require('fzf-lua').commands()<cr>",
-	["<C-w><C-k>"] = ":q<CR>",
 	["<C-w><CR>"] = string.rep("<C-w><C-w>:q<CR>", 3), -- maps to C-w C-m
 	["<C-w>/"] = ":vsplit<CR><C-w><C-l><C-6><C-w><C-h>",
 	["<C-w><C-n>"] = ":vsplit<CR><C-w><C-l><C-6><C-w><C-h>",

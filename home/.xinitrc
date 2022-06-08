@@ -7,6 +7,8 @@ xdg-mime default feh.desktop image/png image/jpg image/jpeg image/gif image/bmp 
 xdg-mime default brave.desktop application/pdf
 
 xset -dpms
+xset s off
+xset dpms 0 0 0
 
 xset r rate 230 60
 
