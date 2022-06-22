@@ -4,6 +4,7 @@ xmodmap $HOME/.xmodmap
 
 xdg-settings set default-web-browser brave.desktop
 xdg-mime default feh.desktop image/png image/jpg image/jpeg image/gif image/bmp image/x-xcf image/webp
+xdg-mime default gnumeric.desktop text/csv
 xdg-mime default brave.desktop application/pdf
 
 xset -dpms

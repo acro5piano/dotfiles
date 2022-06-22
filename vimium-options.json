@@ -19,11 +19,11 @@
     },
     {
       "pattern": "https?://twitter.com/*",
-      "passKeys": ""
+      "passKeys": "jk"
     },
     {
       "pattern": "https?://app.slack.com/*",
-      "passKeys": ""
+      "passKeys": "ef"
     },
     {
       "pattern": "https?://photos.google.com/*",
@@ -35,11 +35,7 @@
     },
     {
       "pattern": "https?://www.youtube.com/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://www.youtube.com/*",
-      "passKeys": ""
+      "passKeys": "hjklif"
     },
     {
       "pattern": "https?://hackmd.io/*",
@@ -196,12 +192,36 @@
     {
       "pattern": "https?://www.notion.so/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://meet.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://app.slack.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.figma.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://vimsnake.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://mobile.twitter.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://localhost:3662/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\n# map h scrollLeft\n# map l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
