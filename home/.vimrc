@@ -253,7 +253,7 @@ if has('nvim')
 endif
 
 " Experimental: maximize pane when focus
-autocmd FocusGained * silent! !tmux-zoom
+" autocmd FocusGained * silent! !tmux-zoom
 
 " " remember cursor position
 autocmd BufReadPost *
