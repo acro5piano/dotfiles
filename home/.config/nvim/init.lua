@@ -1,31 +1,28 @@
-vim.g.mapleader = " "
+local util = require("my-util")
 
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 	use("ibhagwan/fzf-lua")
 	use("kyazdani42/nvim-web-devicons")
-	use("ckipp01/stylua-nvim") -- requires "pacman -S stylua"
 	use("jparise/vim-graphql")
 	use("terrortylor/nvim-comment")
 	use("nvim-lualine/lualine.nvim")
 	use("bronson/vim-visual-star-search")
+	use("lambdalisue/fern.vim")
 end)
 
+vim.g.mapleader = " "
 vim.o.tabstop = 2
 vim.o.wrap = false
 vim.o.signcolumn = "yes"
-vim.g.netrw_liststyle = 3
+vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
-	callback = require("stylua-nvim").format_file,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "netrw" },
 	callback = function()
-		vim.keymap.set("n", "<C-o>", ":Rex<CR>", { buffer = true })
+		util.format_whole_file("stylua -")
 	end,
 })
 
@@ -44,12 +41,11 @@ vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "<Leader>k", require("fzf-lua").git_status)
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "<Leader>ag", require("fzf-lua").grep_cword)
-vim.keymap.set("n", "<Leader>bd", ":bp|bd #<CR>")
-vim.keymap.set("n", "<Leader>bl", require("fzf-lua").buffers)
+vim.keymap.set("n", "<Leader>b", require("fzf-lua").buffers)
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
 vim.keymap.set("n", "<Leader>fr", require("fzf-lua").oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
-vim.keymap.set("n", "<Leader>fd", ":Explore<CR>")
+vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>ga", require("fzf-lua").git_files)
 vim.keymap.set("n", "<Leader>gf", require("fzf-lua").git_files)
 vim.keymap.set("n", "<Leader>gg", require("fzf-lua").live_grep)
@@ -75,3 +71,5 @@ require("lualine").setup({
 		lualine_z = { "location" },
 	},
 })
+
+require("nvim_comment").setup()
