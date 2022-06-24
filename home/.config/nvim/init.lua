@@ -84,6 +84,12 @@ vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "ac", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
 
+vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
+vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
+vim.keymap.set("i", "({<CR>", "({<CR>})<Up><End><CR>")
+vim.keymap.set("i", "([<CR>", "([<CR>])<Up><End><CR>")
+vim.keymap.set("i", "z.", "=>")
+
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 
 require("lualine").setup({
@@ -102,6 +108,7 @@ require("nvim_comment").setup()
 
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})
+-- require("lspconfig").graphql.setup({})
 require("cmp").setup({
 	sources = {
 		{ name = "nvim_lsp" },
