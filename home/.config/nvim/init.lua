@@ -9,6 +9,7 @@ require("packer").startup(function()
 	use("nvim-lualine/lualine.nvim")
 	use("bronson/vim-visual-star-search")
 	use("lambdalisue/fern.vim")
+	use("acro5piano/nvim-format-buffer")
 end)
 
 vim.g.mapleader = " "
@@ -21,9 +22,12 @@ vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
-	callback = function()
-		util.format_whole_file("stylua -")
-	end,
+	callback = require("nvim-format-buffer").create_format_fn("stylua -"),
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript"),
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
@@ -32,6 +36,15 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 		vim.api.nvim_exec('silent! normal! g`"zv', false)
 	end,
 })
+
+local function git_files_cwd_aware()
+	local relative_path = util.get_working_path_from_git_root()
+	if relative_path == "" then
+		require("fzf-lua").git_files()
+	else
+		require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path } })
+	end
+end
 
 vim.keymap.set("", "<F1>", "<ESC>")
 
@@ -47,7 +60,7 @@ vim.keymap.set("n", "<Leader>fr", require("fzf-lua").oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
 vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>ga", require("fzf-lua").git_files)
-vim.keymap.set("n", "<Leader>gf", require("fzf-lua").git_files)
+vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
 vim.keymap.set("n", "<Leader>gg", require("fzf-lua").live_grep)
 vim.keymap.set("n", "<Leader>gl", require("fzf-lua").git_bcommits)
 vim.keymap.set("n", "<Leader>gs", require("fzf-lua").git_status)
@@ -66,7 +79,6 @@ require("lualine").setup({
 		lualine_b = { "filename" },
 		lualine_c = { "branch", "diff", "diagnostics" },
 		lualine_x = { "encoding", "fileformat", "filetype" },
-		-- lualine_y = { "progress" },
 		lualine_y = {},
 		lualine_z = { "location" },
 	},
