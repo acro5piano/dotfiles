@@ -1,6 +1,7 @@
 local util = require("my-util")
+local cmp = require("cmp")
 
-require("packer").startup(function()
+require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("ibhagwan/fzf-lua")
 	use("kyazdani42/nvim-web-devicons")
@@ -10,6 +11,12 @@ require("packer").startup(function()
 	use("bronson/vim-visual-star-search")
 	use("lambdalisue/fern.vim")
 	use("acro5piano/nvim-format-buffer")
+	use("neovim/nvim-lspconfig")
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-nvim-lsp")
 end)
 
 vim.g.mapleader = " "
@@ -23,6 +30,11 @@ vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
 	callback = require("nvim-format-buffer").create_format_fn("stylua -"),
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.py" },
+	callback = require("nvim-format-buffer").create_format_fn("yapf"),
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -68,6 +80,8 @@ vim.keymap.set("n", "<Leader>q", ":qa<CR>")
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<Leader>x", require("fzf-lua").commands)
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
+vim.keymap.set("n", "gh", vim.lsp.buf.definition)
+vim.keymap.set("n", "ac", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
 
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
@@ -75,13 +89,44 @@ vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 require("lualine").setup({
 	options = { theme = "gruvbox" },
 	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "filename" },
-		lualine_c = { "branch", "diff", "diagnostics" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = {},
+		lualine_a = { "filename" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = { "encoding", "fileformat", "filetype" },
 		lualine_z = { "location" },
 	},
 })
 
 require("nvim_comment").setup()
+
+require("lspconfig").pyright.setup({})
+require("lspconfig").tsserver.setup({})
+require("cmp").setup({
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "cmdline" },
+	},
+	mapping = {
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-l>"] = cmp.mapping.complete(),
+	},
+})
+require("lspconfig").sumneko_lua.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
+
+require("cmp").setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
