@@ -49,13 +49,23 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
-local function git_files_cwd_aware()
-	local relative_path = util.get_working_path_from_git_root()
-	if relative_path == "" then
-		require("fzf-lua").git_files()
-	else
-		require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path } })
+-- The reason I added  'opts' as a paraameter is so you can
+-- call this function with your own parameters / customizations
+-- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
+local function git_files_cwd_aware(opts)
+	opts = opts or {}
+	local fzf_lua = require("fzf-lua")
+	-- git_root() will warn us if we're not inside a git repo
+	-- so we don't have to add another warning here, if
+	-- you want to avoid the error message change it to:
+	-- local git_root = fzf_lua.path.git_root(opts, true)
+	local git_root = fzf_lua.path.git_root(opts)
+	if not git_root then
+		return
 	end
+	local relative = fzf_lua.path.relative(vim.loop.cwd(), git_root)
+	opts.fzf_opts = { ["--query"] = git_root ~= relative and relative .. "/" or nil }
+	return fzf_lua.git_files(opts)
 end
 
 vim.keymap.set("", "<F1>", "<ESC>")
