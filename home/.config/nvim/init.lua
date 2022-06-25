@@ -14,7 +14,7 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
-	use("ur4ltz/surround.nvim")
+	use("tpope/vim-surround")
 end)
 
 vim.g.mapleader = " "
@@ -111,15 +111,22 @@ require("lualine").setup({
 		lualine_z = { "location" },
 	},
 })
-
 require("nvim_comment").setup()
 
-require("lspconfig").pyright.setup({})
-require("lspconfig").tsserver.setup({})
--- require("lspconfig").graphql.setup({})
+local lsp = require("lspconfig")
+lsp.pyright.setup({})
+lsp.tsserver.setup({})
+lsp.sumneko_lua.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
 
 local cmp = require("cmp")
-
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
@@ -131,15 +138,6 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-l>"] = cmp.mapping.complete(),
-	},
-})
-require("lspconfig").sumneko_lua.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
 	},
 })
 cmp.setup.cmdline(":", {
