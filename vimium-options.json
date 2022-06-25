@@ -19,7 +19,7 @@
     },
     {
       "pattern": "https?://twitter.com/*",
-      "passKeys": "jk"
+      "passKeys": "hljk"
     },
     {
       "pattern": "https?://app.slack.com/*",
@@ -221,7 +221,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\n# map h scrollLeft\n# map l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap { scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",

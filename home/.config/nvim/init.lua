@@ -124,6 +124,7 @@ require("nvim_comment").setup()
 local lsp = require("lspconfig")
 lsp.pyright.setup({})
 lsp.tsserver.setup({})
+lsp.solargraph.setup({})
 lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
