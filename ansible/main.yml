@@ -10,6 +10,8 @@
       tags: [ npm ]
     - import_tasks: tasks/pip.yml
       tags: [ pip ]
+    - import_tasks: tasks/luarocks.yml
+      tags: [ luarocks ]
     - import_tasks: tasks/gem.yml
       tags: [ gem ]
     - import_tasks: tasks/systemd.yml

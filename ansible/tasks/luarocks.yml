@@ -1,0 +1,3 @@
+- name: Install lua library with luarocks
+  become: yes
+  command: luarocks install luaunit
