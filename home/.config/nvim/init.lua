@@ -30,6 +30,16 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 
+vim.g["fern#default_hidden"] = 1
+
+-- Restore cursor position
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "*" },
+	callback = function()
+		vim.api.nvim_exec('silent! normal! g`"zv', false)
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
 	callback = require("nvim-format-buffer").create_format_fn("stylua -"),
@@ -43,13 +53,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
 	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript"),
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	pattern = { "*" },
-	callback = function()
-		vim.api.nvim_exec('silent! normal! g`"zv', false)
-	end,
 })
 
 -- The reason I added  'opts' as a paraameter is so you can
