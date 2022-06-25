@@ -57,6 +57,7 @@
     - light
     - lua
     - lua-language-server
+    - luarocks
     - make
     - man-db
     - neovim

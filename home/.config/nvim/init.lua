@@ -1,3 +1,5 @@
+local util = require("my-util")
+
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("ibhagwan/fzf-lua")
@@ -15,10 +17,13 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("tpope/vim-surround")
+	use("dcampos/nvim-snippy")
+	use("dcampos/cmp-snippy")
 end)
 
 vim.g.mapleader = " "
 vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.wrap = false
 vim.o.signcolumn = "yes"
 vim.o.ignorecase = true
@@ -69,28 +74,28 @@ end
 vim.keymap.set("", "<F1>", "<ESC>")
 
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
-vim.keymap.set("n", "|", "x~f_")
-vim.keymap.set("n", "Q", "@q")
-vim.keymap.set("n", "<Leader>k", require("fzf-lua").git_status)
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
+vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>ag", require("fzf-lua").grep_cword)
 vim.keymap.set("n", "<Leader>b", require("fzf-lua").buffers)
+vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
 vim.keymap.set("n", "<Leader>fr", require("fzf-lua").oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
-vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>ga", require("fzf-lua").git_files)
 vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
 vim.keymap.set("n", "<Leader>gg", require("fzf-lua").live_grep)
 vim.keymap.set("n", "<Leader>gl", require("fzf-lua").git_bcommits)
 vim.keymap.set("n", "<Leader>gs", require("fzf-lua").git_status)
+vim.keymap.set("n", "<Leader>k", require("fzf-lua").git_status)
+vim.keymap.set("n", "<Leader>la", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
 vim.keymap.set("n", "<Leader>q", ":qa<CR>")
+vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<Leader>x", require("fzf-lua").commands)
-vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
-vim.keymap.set("n", "gh", vim.lsp.buf.definition)
-vim.keymap.set("n", "ac", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
+vim.keymap.set("n", "Q", "@q")
+vim.keymap.set("n", "|", "x~f_")
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
 vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
@@ -120,7 +125,7 @@ lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim" },
+				globals = { "vim", "describe" },
 			},
 		},
 	},
@@ -133,6 +138,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "cmdline" },
+		{ name = "snippy" },
 	},
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -141,7 +147,20 @@ cmp.setup({
 	},
 })
 cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
+		{ name = "path" },
 		{ name = "cmdline" },
 	},
 })
+
+require("snippy").setup({
+	mappings = {
+		is = {
+			["<Tab>"] = "expand_or_advance",
+			["<S-Tab>"] = "previous",
+		},
+	},
+})
+
+UpperFirstLetter = util.upper_first_letter
