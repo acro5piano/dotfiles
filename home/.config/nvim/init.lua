@@ -1,6 +1,3 @@
-local util = require("my-util")
-local cmp = require("cmp")
-
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("ibhagwan/fzf-lua")
@@ -17,6 +14,7 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
+	use("ur4ltz/surround.nvim")
 end)
 
 vim.g.mapleader = " "
@@ -119,7 +117,10 @@ require("nvim_comment").setup()
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})
 -- require("lspconfig").graphql.setup({})
-require("cmp").setup({
+
+local cmp = require("cmp")
+
+cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
@@ -141,8 +142,7 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-
-require("cmp").setup.cmdline(":", {
+cmp.setup.cmdline(":", {
 	sources = {
 		{ name = "cmdline" },
 	},
