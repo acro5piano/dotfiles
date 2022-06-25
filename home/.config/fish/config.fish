@@ -76,7 +76,7 @@ set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
 status --is-interactive; and source (rbenv init -|psub)
 
-# set -gx FZF_DEFAULT_OPTS "--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
 # }}}
@@ -90,7 +90,7 @@ function __nvm-active --on-event fish_prompt
 end
 
 function __fzf_history
-  history | perl -nle 'print if length($_) < 200' | fzf-tmux -h --exact +s +m --query=(commandline -b) --no-preview \
+  history | perl -nle 'print if length($_) < 200' | fzf-tmux -p 80%,80% -h --exact +s +m --query=(commandline -b) --no-preview \
     > /tmp/fzf
   and commandline (cat /tmp/fzf)
 end
@@ -116,7 +116,7 @@ function gl
     git clone git@$domain:$repo ~/ghq/$domain/$repo
     cd ~/ghq/$domain/$repo
   else
-    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | grep -v DS_Store | fzf-tmux -h --no-preview | read line
+    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | grep -v DS_Store | fzf-tmux -h --no-preview -p 60%,60% | read line
     if [ $line ]
       cd $line
       commandline -f repaint
