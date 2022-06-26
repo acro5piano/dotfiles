@@ -115,7 +115,7 @@ vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
 vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
 
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
-vim.api.nvim_set_keymap("v", "D", "S<div>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 
 require("lualine").setup({
 	options = { theme = "gruvbox" },
