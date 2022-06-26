@@ -57,6 +57,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript"),
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.css" },
+	callback = require("nvim-format-buffer").create_format_fn("prettier --parser css"),
+})
+
 -- The reason I added  'opts' as a paraameter is so you can
 -- call this function with your own parameters / customizations
 -- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
@@ -117,6 +122,14 @@ vim.keymap.set("i", "zt", '<C-r>=strftime("%H:%M")<CR><Space>')
 vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
 vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
 
+vim.keymap.set("i", "<C-a>", "<Home>")
+vim.keymap.set("i", "<C-b>", "<Left>")
+vim.keymap.set("i", "<C-d>", "<Del>")
+vim.keymap.set("i", "<C-e>", "<End>")
+vim.keymap.set("i", "<C-f>", "<Right>")
+vim.keymap.set("i", "<C-n>", "<Down>")
+vim.keymap.set("i", "<C-p>", "<Up>")
+
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 
@@ -159,6 +172,12 @@ lsp.sumneko_lua.setup({
 
 local cmp = require("cmp")
 cmp.setup({
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			require("snippy").expand_snippet(args.body) -- For `snippy` users.
+		end,
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{
@@ -191,7 +210,7 @@ require("snippy").setup({
 	mappings = {
 		is = {
 			["<C-s>"] = "expand_or_advance",
-			["<C-b>"] = "previous",
+			["<C-w>"] = "previous", -- maybe I'll never use this mapping
 		},
 	},
 })
