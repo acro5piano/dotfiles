@@ -97,7 +97,7 @@ bar {
 
 bindsym $mod+Print exec screenshot-clip
 bindsym $mod+p exec clipmenu
-bindsym $mod+Ctrl+s exec systemctl suspend
+bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 
 # Not works well!
 exec i3-msg 'workspace 2; exec brave'
