@@ -107,8 +107,15 @@ vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
 vim.keymap.set("i", "({<CR>", "({<CR>})<Up><End><CR>")
 vim.keymap.set("i", "([<CR>", "([<CR>])<Up><End><CR>")
 vim.keymap.set("i", "z.", "=>")
+vim.keymap.set("i", "zl", "->")
+vim.keymap.set("i", "zc", "console.log()<Left>")
+vim.keymap.set("i", "zd", '<C-r>=strftime("%Y-%m-%d")<CR><Space>')
+vim.keymap.set("i", "zt", '<C-r>=strftime("%H:%M")<CR><Space>')
+vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
+vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
 
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
+vim.api.nvim_set_keymap("v", "D", "S<div>", { noremap = false, silent = true })
 
 require("lualine").setup({
 	options = { theme = "gruvbox" },
@@ -151,7 +158,14 @@ local cmp = require("cmp")
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "buffer" },
+		{
+			name = "buffer",
+			options = {
+				get_bufnrs = function()
+					return vim.api.nvim_list_bufs()
+				end,
+			},
+		},
 		{ name = "path" },
 		{ name = "cmdline" },
 		{ name = "snippy" },
