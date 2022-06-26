@@ -1,4 +1,4 @@
-local util = require("my-util")
+local my_util = require("my-util")
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
@@ -19,6 +19,7 @@ require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	use("dcampos/nvim-snippy")
 	use("dcampos/cmp-snippy")
+	use("github/copilot.vim")
 end)
 
 vim.g.mapleader = " "
@@ -90,8 +91,9 @@ vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
 vim.keymap.set("n", "<Leader>gg", require("fzf-lua").live_grep)
 vim.keymap.set("n", "<Leader>gl", require("fzf-lua").git_bcommits)
 vim.keymap.set("n", "<Leader>gs", require("fzf-lua").git_status)
-vim.keymap.set("n", "<Leader>k", require("fzf-lua").git_status)
-vim.keymap.set("n", "<Leader>la", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<Leader>la", require("fzf-lua").lsp_code_actions)
+vim.keymap.set("n", "<Leader>ld", require("fzf-lua").lsp_document_diagnostics)
+vim.keymap.set("n", "<Leader>lw", require("fzf-lua").lsp_workspace_diagnostics)
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
 vim.keymap.set("n", "<Leader>q", ":qa<CR>")
 vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
@@ -123,7 +125,17 @@ require("nvim_comment").setup()
 
 local lsp = require("lspconfig")
 lsp.pyright.setup({})
-lsp.tsserver.setup({})
+lsp.tsserver.setup({
+	handlers = {
+		["textDocument/definition"] = function(err, result, method, ...)
+			if vim.tbl_islist(result) and #result > 1 then
+				local filtered_result = my_util.filter(result, my_util.filter_react_dts)
+				return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
+			end
+			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
+		end,
+	},
+})
 lsp.solargraph.setup({})
 lsp.sumneko_lua.setup({
 	settings = {
@@ -161,10 +173,10 @@ cmp.setup.cmdline(":", {
 require("snippy").setup({
 	mappings = {
 		is = {
-			["<Tab>"] = "expand_or_advance",
-			["<S-Tab>"] = "previous",
+			["<C-s>"] = "expand_or_advance",
+			["<C-b>"] = "previous",
 		},
 	},
 })
 
-UpperFirstLetter = util.upper_first_letter
+UpperFirstLetter = my_util.upper_first_letter

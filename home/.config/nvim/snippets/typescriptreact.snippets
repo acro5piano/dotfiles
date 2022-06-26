@@ -3,3 +3,14 @@ snippet ust
 
 snippet uro
 	const router = useRouter()
+snippet rfn
+	interface ${1:`expand('%:t:r')`}Props {
+		
+	}
+
+	export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
+		return (
+			<div>
+			</div>
+		)
+	}
