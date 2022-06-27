@@ -38,8 +38,8 @@
     - gcc-fortran
     - ghostscript
     - git
-    - github-cli
     - git-delta
+    - github-cli
     - go
     - grim
     - i3status
@@ -81,6 +81,8 @@
     - rsync
     - ruby
     - rubygems
+    - rust
+    - rust-analyzer
     - screenfetch
     # - slurp # Wayland is too early
     - stylua
@@ -91,7 +93,6 @@
     - unzip
     - vim
     # - wl-clipboard # Wayland is too early
-    - xvkbd
     - xcolor
     - xorg
     - zip

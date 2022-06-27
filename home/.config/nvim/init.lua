@@ -169,6 +169,7 @@ lsp.sumneko_lua.setup({
 		},
 	},
 })
+lsp.rust_analyzer.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
