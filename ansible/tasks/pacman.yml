@@ -81,8 +81,8 @@
     - rsync
     - ruby
     - rubygems
-    - rust
-    - rust-analyzer
+    # - rust # 2022-06-27: It make static link error. use `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` instead.
+    # - rust-analyzer
     - screenfetch
     # - slurp # Wayland is too early
     - stylua

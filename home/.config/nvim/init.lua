@@ -62,6 +62,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	callback = require("nvim-format-buffer").create_format_fn("prettier --parser css"),
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.rs" },
+	callback = require("nvim-format-buffer").create_format_fn("rustfmt"),
+})
+
 -- The reason I added  'opts' as a paraameter is so you can
 -- call this function with your own parameters / customizations
 -- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
