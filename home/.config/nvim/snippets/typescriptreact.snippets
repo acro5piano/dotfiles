@@ -1,6 +1,5 @@
 snippet ust
 	const [${1:name}, set${1/.*/\=v:lua.UpperFirstLetter(submatch(0))/}] = useState(${2:defaultValue})
-
 snippet uro
 	const router = useRouter()
 snippet rfn
@@ -23,4 +22,20 @@ snippet ufo
     defaultValues: {
     },
   });
+snippet tst
+	import 'src/testing/hooks/refresh-database';
 
+	import test from 'ava'
+
+	test.serial('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async (t) => {
+		${2}
+	})
+snippet apm
+	<AppModal isOpen={isModalVisible} onRequestClose={() => setIsModalVisible(false)}>
+	</AppModal>
+snippet imv
+	const [isModalVisible, setIsModalVisible] = useState(false)
+snippet uef
+  useEffect(() => {
+    ${0}
+  }, [])

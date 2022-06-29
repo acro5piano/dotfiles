@@ -2,4 +2,4 @@
 
 file=`mktemp`.sh
 tmux capture-pane -pS - > $file
-tmux new-window -n:mywindow "vim '+ normal G $' $file"
+tmux new-window -n:mywindow "$EDITOR '+ normal G $' $file"

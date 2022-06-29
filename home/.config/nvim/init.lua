@@ -30,6 +30,7 @@ vim.o.wrap = false
 vim.o.signcolumn = "yes"
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.foldenable = false
 vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 
 vim.g["fern#default_hidden"] = 1
