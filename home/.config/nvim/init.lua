@@ -21,6 +21,7 @@ require("packer").startup(function(use)
 	use("dcampos/cmp-snippy")
 	use("github/copilot.vim")
 	use("ruanyl/vim-gh-line")
+	use("kyoh86/vim-ripgrep")
 end)
 
 vim.g.mapleader = " "
@@ -87,12 +88,17 @@ local function git_files_cwd_aware(opts)
 	return fzf_lua.git_files(opts)
 end
 
+-- TODO: make this to lua
+vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search(<q-args>)", false)
+
 vim.keymap.set("", "<F1>", "<ESC>")
 
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
+vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", require("fzf-lua").grep_cword)
+vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", require("fzf-lua").buffers)
 vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
