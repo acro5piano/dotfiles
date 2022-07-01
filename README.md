@@ -10,6 +10,10 @@ Core technologies:
 - yay
 - Ansible
 
+![image](https://user-images.githubusercontent.com/10719495/176838810-ea61f97a-7f7f-4c8b-80f7-243ee8eb8de9.png)
+
+![image](https://user-images.githubusercontent.com/10719495/176839022-bcaf0d70-3395-4b6e-812e-ff676c8294c0.png)
+
 # Setup process
 
 ## Install Arch Linux
