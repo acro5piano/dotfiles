@@ -1,2 +1,0 @@
-IndentLinesDisable
-set ft=javascript
