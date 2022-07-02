@@ -67,6 +67,7 @@
     - openssl
     - pavucontrol
     - pcmanfm
+    - peek
     - php
     - php-gd
     - php-sqlite
