@@ -22,6 +22,7 @@ require("packer").startup(function(use)
 	use("github/copilot.vim")
 	use("ruanyl/vim-gh-line")
 	use("kyoh86/vim-ripgrep")
+	use("gpanders/editorconfig.nvim")
 end)
 
 vim.g.mapleader = " "
