@@ -186,19 +186,17 @@ lsp.rust_analyzer.setup({})
 local cmp = require("cmp")
 cmp.setup({
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			require("snippy").expand_snippet(args.body) -- For `snippy` users.
 		end,
 	},
+	preselect = cmp.PreselectMode.None, -- https://github.com/hrsh7th/nvim-cmp/issues/355#issuecomment-944910279
 	sources = {
 		{ name = "nvim_lsp" },
 		{
 			name = "buffer",
 			options = {
-				get_bufnrs = function()
-					return vim.api.nvim_list_bufs()
-				end,
+				get_bufnrs = vim.api.nvim_list_bufs,
 			},
 		},
 		{ name = "path" },
