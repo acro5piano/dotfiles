@@ -226,4 +226,13 @@ require("snippy").setup({
 	},
 })
 
+require("fzf-lua").setup({
+	keymap = {
+		fzf = {
+			-- fzf '--bind=' options
+			-- If we have empty table here, fzf-lua respects fzf built-in keymap for c-f and c-b.
+		},
+	},
+})
+
 UpperFirstLetter = my_util.upper_first_letter
