@@ -1,3 +1,4 @@
+local fzf_lua = require("fzf-lua")
 local my_util = require("my-util")
 
 require("packer").startup(function(use)
@@ -75,7 +76,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
 local function git_files_cwd_aware(opts)
 	opts = opts or {}
-	local fzf_lua = require("fzf-lua")
 	-- git_root() will warn us if we're not inside a git repo
 	-- so we don't have to add another warning here, if
 	-- you want to avoid the error message change it to:
@@ -98,28 +98,31 @@ vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
-vim.keymap.set("n", "<Leader>ag", require("fzf-lua").grep_cword)
+vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
-vim.keymap.set("n", "<Leader>b", require("fzf-lua").buffers)
+vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
 vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
-vim.keymap.set("n", "<Leader>fr", require("fzf-lua").oldfiles)
+vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
-vim.keymap.set("n", "<Leader>ga", require("fzf-lua").git_files)
+vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
 vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
-vim.keymap.set("n", "<Leader>gg", require("fzf-lua").live_grep)
-vim.keymap.set("n", "<Leader>gl", require("fzf-lua").git_bcommits)
-vim.keymap.set("n", "<Leader>gs", require("fzf-lua").git_status)
-vim.keymap.set("n", "<Leader>la", require("fzf-lua").lsp_code_actions)
-vim.keymap.set("n", "<Leader>ld", require("fzf-lua").lsp_document_diagnostics)
-vim.keymap.set("n", "<Leader>lw", require("fzf-lua").lsp_workspace_diagnostics)
+vim.keymap.set("n", "<Leader>gg", fzf_lua.live_grep)
+vim.keymap.set("n", "<Leader>gl", fzf_lua.git_bcommits)
+vim.keymap.set("n", "<Leader>gs", fzf_lua.git_status)
+vim.keymap.set("n", "<Leader>la", fzf_lua.lsp_code_actions)
+vim.keymap.set("n", "<Leader>ld", fzf_lua.lsp_document_diagnostics)
+vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>ln", vim.lsp.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.lsp.diagnostic.goto_prev)
+vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
 vim.keymap.set("n", "<Leader>q", ":qa<CR>")
-vim.keymap.set("n", "<Leader><Space>", require("fzf-lua").command_history)
+vim.keymap.set("n", "<Leader>rl", ":s/")
+vim.keymap.set("n", "<Leader>rr", ":%s/")
+vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
-vim.keymap.set("n", "<Leader>x", require("fzf-lua").commands)
+vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "|", "x~f_")
 
@@ -227,7 +230,7 @@ require("snippy").setup({
 	},
 })
 
-require("fzf-lua").setup({
+fzf_lua.setup({
 	keymap = {
 		fzf = {
 			-- fzf '--bind=' options
