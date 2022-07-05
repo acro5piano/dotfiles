@@ -237,6 +237,11 @@ fzf_lua.setup({
 			-- If we have empty table here, fzf-lua respects fzf built-in keymap for c-f and c-b.
 		},
 	},
+	previewers = {
+		git_diff = {
+			pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment
+		},
+	},
 })
 
 UpperFirstLetter = my_util.upper_first_letter
