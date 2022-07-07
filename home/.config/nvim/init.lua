@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
-	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript"),
+	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript 2>/dev/null"),
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -101,7 +101,7 @@ vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
-vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
+-- vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
@@ -126,6 +126,7 @@ vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "|", "x~f_")
+vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
 vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
