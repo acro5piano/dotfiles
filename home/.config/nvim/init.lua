@@ -246,4 +246,7 @@ fzf_lua.setup({
 	},
 })
 
+-- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
+
+-- vim.keymap.set("n", "<Leader>fd", require("explorer").reveal)
