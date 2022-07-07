@@ -24,6 +24,7 @@
     - pynvim
     - pyright
     - toml # required by yapf
+    - trash-cli
     - virtualenv
     - wayremap
     - yapf
