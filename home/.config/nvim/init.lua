@@ -103,6 +103,7 @@ vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
 -- vim.keymap.set("n", "<Leader>fd", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
+vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
 vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
@@ -233,6 +234,10 @@ require("snippy").setup({
 })
 
 fzf_lua.setup({
+	winopts = {
+		height = 0.9, -- window height
+		width = 0.9, -- window width
+	},
 	keymap = {
 		fzf = {
 			-- fzf '--bind=' options
