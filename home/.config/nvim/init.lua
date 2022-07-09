@@ -68,7 +68,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.rs" },
-	callback = require("nvim-format-buffer").create_format_fn("rustfmt"),
+	callback = require("nvim-format-buffer").create_format_fn("rustfmt --edition 2021"),
 })
 
 -- The reason I added  'opts' as a paraameter is so you can
