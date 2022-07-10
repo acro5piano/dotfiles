@@ -1,9 +1,7 @@
-local fzf_lua = require("fzf-lua")
-local my_util = require("my-util")
-
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("ibhagwan/fzf-lua")
+	-- use({ "ibhagwan/fzf-lua", commit = "236b305a1821c79038ab907d08441ff8e0724818" }) -- not work anymore
+	use({ "ibhagwan/fzf-lua", commit = "989674058e1645bac149606237bbe6156d0ddeec" }) -- work
 	use("kyazdani42/nvim-web-devicons")
 	use("jparise/vim-graphql")
 	use("terrortylor/nvim-comment")
@@ -25,6 +23,8 @@ require("packer").startup(function(use)
 	use("kyoh86/vim-ripgrep")
 	use("gpanders/editorconfig.nvim")
 end)
+
+local my_util = require("my-util")
 
 vim.g.mapleader = " "
 vim.o.tabstop = 2
@@ -70,6 +70,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.rs" },
 	callback = require("nvim-format-buffer").create_format_fn("rustfmt --edition 2021"),
 })
+
+local fzf_lua = require("fzf-lua")
 
 -- The reason I added  'opts' as a paraameter is so you can
 -- call this function with your own parameters / customizations
