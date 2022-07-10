@@ -1,7 +1,6 @@
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	-- use({ "ibhagwan/fzf-lua", commit = "236b305a1821c79038ab907d08441ff8e0724818" }) -- not work anymore
-	use({ "ibhagwan/fzf-lua", commit = "989674058e1645bac149606237bbe6156d0ddeec" }) -- work
+	use({ "ibhagwan/fzf-lua" })
 	use("kyazdani42/nvim-web-devicons")
 	use("jparise/vim-graphql")
 	use("terrortylor/nvim-comment")
@@ -99,6 +98,7 @@ vim.keymap.set("", "<F1>", "<ESC>")
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
+vim.keymap.set("n", "g/", fzf_lua.blines)
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
@@ -151,6 +151,7 @@ vim.keymap.set("i", "<C-f>", "<Right>")
 vim.keymap.set("i", "<C-n>", "<Down>")
 vim.keymap.set("i", "<C-p>", "<Up>")
 
+vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 
@@ -239,6 +240,7 @@ fzf_lua.setup({
 	winopts = {
 		height = 0.9, -- window height
 		width = 0.9, -- window width
+		hl = { border = "Normal" },
 	},
 	keymap = {
 		fzf = {
