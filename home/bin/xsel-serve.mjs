@@ -6,12 +6,13 @@ import { networkInterfaces } from 'os'
 
 const nic = process.argv[2] || 'wlan0'
 
-console.log(nic)
 
 const log = (t, level = 'INFO') =>
   console.log(
     `[${new Date().toLocaleTimeString()}] [${level}] ` + JSON.stringify(t),
   )
+
+log({ msg: `using network interface: ${nic}` })
 
 createServer((req, res) => {
   log({ headers: req.headers, ip: req.socket.remoteAddress })
