@@ -9,6 +9,7 @@
     executable: pip3
   loop:
     - awscli
+    - black
     - docker-compose
     - docker-pretty-ps
     - flake8
@@ -27,4 +28,4 @@
     - trash-cli
     - virtualenv
     - wayremap
-    - yapf
+    # - yapf # I use black
