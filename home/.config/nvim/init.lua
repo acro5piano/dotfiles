@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.py" },
 	-- callback = require("nvim-format-buffer").create_format_fn("yapf"),
-	callback = require("nvim-format-buffer").create_format_fn("black -q -"),
+	callback = require("nvim-format-buffer").create_format_fn("black -q - | isort -"),
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
