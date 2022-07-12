@@ -48,13 +48,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
-	callback = require("nvim-format-buffer").create_format_fn("stylua -"),
+	callback = require("nvim-format-buffer").create_format_fn("stylua -"), -- requires `sudo pacman -S stylua`
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.py" },
-	-- callback = require("nvim-format-buffer").create_format_fn("yapf"),
-	callback = require("nvim-format-buffer").create_format_fn("black -q - | isort -"),
+	callback = require("nvim-format-buffer").create_format_fn("black -q - | isort -"), -- requires `pip install black isort`
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -75,6 +74,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.rs" },
 	callback = require("nvim-format-buffer").create_format_fn("rustfmt --edition 2021"),
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.sql" },
+	callback = require("nvim-format-buffer").create_format_fn("sql-formatter --config ~/sql-formatter.json"), -- requires `npm -g i sql-formatter`
 })
 
 local fzf_lua = require("fzf-lua")
