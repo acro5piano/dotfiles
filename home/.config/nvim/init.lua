@@ -21,6 +21,7 @@ require("packer").startup(function(use)
 	use("ruanyl/vim-gh-line")
 	use("kyoh86/vim-ripgrep")
 	use("gpanders/editorconfig.nvim")
+	use("aklt/plantuml-syntax")
 end)
 
 local my_util = require("my-util")
@@ -59,6 +60,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
 	callback = require("nvim-format-buffer").create_format_fn("prettier --parser typescript 2>/dev/null"),
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.md" },
+	callback = require("nvim-format-buffer").create_format_fn("prettier --parser markdown 2>/dev/null"),
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
