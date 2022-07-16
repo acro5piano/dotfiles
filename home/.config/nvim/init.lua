@@ -46,6 +46,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "*.fish" },
+	callback = function()
+		vim.api.nvim_exec("setlocal ft=graphql", false)
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*.lua" },
 	callback = require("nvim-format-buffer").create_format_fn("stylua -"), -- requires `sudo pacman -S stylua`
