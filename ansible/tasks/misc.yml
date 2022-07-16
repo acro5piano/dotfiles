@@ -34,9 +34,10 @@
     dest: ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu.gz
 - name: Unzip rust analyer
   shell:
-    cmd: gzip -d ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu.gz
+    cmd: gzip -d -f ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu.gz
 - name: Install rust analyer
   become: True
   copy:
     src: ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu
     dest: /usr/local/bin/rust-analyzer
+    mode: 0755
