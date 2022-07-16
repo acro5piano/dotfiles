@@ -22,6 +22,4 @@
       tags: [ misc ]
     - import_tasks: tasks/user.yml
       tags: [ user ]
-    - import_tasks: tasks/rustup.yml
-      tags: [ rustup ]
 

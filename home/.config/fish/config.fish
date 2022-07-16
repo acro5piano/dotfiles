@@ -40,13 +40,12 @@ set -gx PATH \
             $HOME/.go/bin/ \
             $HOME/go/bin/ \
             $HOME/bin \
-            $HOME/.gem/ruby/*/bin \
+            /home/kazuya/.gem/ruby/*/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
             $ANDROID_HOME/tools \
             $ANDROID_HOME/platform-tools \
-            $HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin \
             $HOME/.cargo/bin \
             $PATH ^/dev/null
 set -gx EDITOR nvim
