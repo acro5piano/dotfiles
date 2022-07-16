@@ -1,0 +1,3 @@
+- name: Install rust toolchain with rustup
+  become: yes
+  command: rustup +nightly component add rust-analyzer-preview

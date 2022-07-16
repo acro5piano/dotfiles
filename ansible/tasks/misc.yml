@@ -20,23 +20,3 @@
   shell:
     cmd: source /tmp/fisher.fish && fisher update
     executable: fish
-
-#########################
-# Rust analyzer
-#########################
-- name: Ensure tmp directory
-  file:
-    path: ~/tmp
-    state: directory
-- name: Get rust analyzer source
-  get_url:
-    url: https://github.com/rust-lang/rust-analyzer/releases/download/2022-07-11/rust-analyzer-x86_64-unknown-linux-gnu.gz
-    dest: ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu.gz
-- name: Unzip rust analyer
-  shell:
-    cmd: gzip -d ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu.gz
-- name: Install rust analyer
-  become: True
-  copy:
-    src: ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu
-    dest: /usr/local/bin/rust-analyzer
