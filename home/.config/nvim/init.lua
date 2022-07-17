@@ -112,6 +112,7 @@ end
 vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search(<q-args>)", false)
 
 vim.keymap.set("", "<F1>", "<ESC>")
+vim.keymap.set("i", "<F1>", "<ESC>")
 
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
