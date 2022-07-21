@@ -53,6 +53,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "quickfix" },
+	callback = function()
+		vim.keymap.set("n", "p", "<CR>zz<C-w>p", { buffer = true })
+		vim.keymap.set("n", "P", "<CR>zz<C-w>pj", { buffer = true })
+	end,
+})
+
 require("nvim-format-buffer").setup({
 	format_rules = {
 		{ pattern = { "*.lua" }, command = "stylua -" },
