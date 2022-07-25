@@ -1,3 +1,5 @@
+local os = require("os")
+
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use({ "ibhagwan/fzf-lua" })
@@ -58,6 +60,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	callback = function()
 		vim.keymap.set("n", "p", "<CR>zz<C-w>p", { buffer = true })
 		vim.keymap.set("n", "P", "<CR>zz<C-w>pj", { buffer = true })
+	end,
+})
+
+-- WARNING: This could be a perfomance bottleneck. Keep it in mind.
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+	pattern = { "*" },
+	callback = function()
+		os.execute("fcitx5-remote -c")
 	end,
 })
 
