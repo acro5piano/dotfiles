@@ -15,7 +15,7 @@
     },
     {
       "pattern": "https?://calendar.google.com/*",
-      "passKeys": ""
+      "passKeys": "jke"
     },
     {
       "pattern": "https?://twitter.com/*",
@@ -35,7 +35,7 @@
     },
     {
       "pattern": "https?://www.youtube.com/*",
-      "passKeys": "hjklif"
+      "passKeys": "hjklifm"
     },
     {
       "pattern": "https?://hackmd.io/*",
@@ -221,7 +221,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap { scrollToTop\nmap G scrollToBottom\nmap <left> scrollFullPageUp\nmap <right> scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\n# This will be overwritten with xremap and works like vim, but it prevents to scroll images on Twitter.\n# map <left> scrollFullPageUp\n# map <right> scrollFullPageDown\nmap { scrollFullPageUp\nmap } scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
