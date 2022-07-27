@@ -16,17 +16,12 @@
     - alsa-utils
     - android-udev
     - arch-install-scripts
-    - at
     - bat
-    - bemenu-wayland
-    - chromium
     - composer
     - curl
     - dnsutils
     - docker
     - docker-compose
-    - eog
-    - evince
     - fcitx5
     - fcitx5-configtool
     - fcitx5-gtk
@@ -65,13 +60,12 @@
     - onefetch
     - openssh
     - openssl
-    - pavucontrol
+    - pavucontrol-qt
     - pcmanfm
     - peek
     - php
     - php-gd
     - php-sqlite
-    - pinta
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
@@ -85,15 +79,19 @@
     # - rust # 2022-06-27: It make static link error. use `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` instead.
     # - rust-analyzer
     - screenfetch
-    # - slurp # Wayland is too early
     - stylua
-    # - sway # Wayland is too early
     - terraform
     - tmux
     - tree
     - unzip
     - vim
-    # - wl-clipboard # Wayland is too early
     - xcolor
     - xorg
     - zip
+
+# Backup for useful Wayland tools. Someday I will move to Wayland.
+#
+# - slurp
+# - sway
+# - wl-clipboard
+# - bemenu-wayland
