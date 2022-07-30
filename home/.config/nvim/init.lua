@@ -169,7 +169,9 @@ vim.keymap.set({ "i", "c" }, "<C-e>", "<End>")
 vim.keymap.set({ "i", "c" }, "<C-f>", "<Right>")
 vim.keymap.set({ "i", "c" }, "<C-n>", "<Down>")
 vim.keymap.set({ "i", "c" }, "<C-p>", "<Up>")
+vim.keymap.set("i", "<C-k>", "<C-o>C<ESC><Right>", { noremap = false, silent = true })
 
+vim.keymap.set("c", "<C-k>", "<C-\\>e(strpart(getcmdline(), 0, getcmdpos() - 1))<CR>")
 vim.keymap.set("c", "<C-g>", "<C-f>")
 
 vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
