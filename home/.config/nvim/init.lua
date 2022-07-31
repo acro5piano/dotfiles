@@ -111,6 +111,8 @@ vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search
 vim.keymap.set("", "<F1>", "<ESC>")
 vim.keymap.set("i", "<F1>", "<ESC>")
 
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
@@ -161,6 +163,10 @@ vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
 vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
 vim.keymap.set("i", "<Down>", "<C-n>")
 vim.keymap.set("i", "<Up>", "<C-p>")
+
+-- indent with Tab/S-tab
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = false })
+vim.keymap.set("i", "<Tab>", "<C-t>", { noremap = false })
 
 -- emacs-like key bindings
 vim.keymap.set({ "i", "c" }, "<C-a>", "<Home>")
