@@ -100,6 +100,8 @@ bar {
 bindsym $mod+Print exec screenshot-clip
 bindsym $mod+p exec clipmenu
 bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
+bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
+bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 
 # Not works well!
 exec i3-msg 'workspace 2; exec brave'
