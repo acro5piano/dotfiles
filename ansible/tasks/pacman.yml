@@ -62,7 +62,7 @@
     - openssl
     - pavucontrol-qt
     - pcmanfm
-    - peek
+    - peek # The awesome screen recorder
     - php
     - php-gd
     - php-sqlite

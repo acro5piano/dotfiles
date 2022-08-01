@@ -76,7 +76,10 @@ require("nvim-format-buffer").setup({
 	format_rules = {
 		{ pattern = { "*.lua" }, command = "stylua -" },
 		{ pattern = { "*.py" }, command = "black -q - | isort -" },
-		{ pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" }, command = "prettier --parser typescript 2>/dev/null" },
+		{
+			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.mts" },
+			command = "prettier --parser typescript 2>/dev/null",
+		},
 		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
 		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
 		{ pattern = { "*.css" }, command = "prettier --parser css" },

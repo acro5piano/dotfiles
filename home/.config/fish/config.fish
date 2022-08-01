@@ -365,9 +365,9 @@ if which sway >/dev/null 2>/dev/null
     end
 end
 
-# The next line updates PATH for the Google Cloud SDK.
-set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
-[ -f $gcp_sdk_path ] && . $gcp_sdk_path
+# # The next line updates PATH for the Google Cloud SDK.
+# set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
+# [ -f $gcp_sdk_path ] && . $gcp_sdk_path
 
 # If running from tty1 start i3
 set TTY1 (tty)
