@@ -82,6 +82,7 @@ require("nvim-format-buffer").setup({
 		},
 		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
 		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
+		-- { pattern = { "*.html" }, command = "prettier --parser html 2>/dev/null" },
 		{ pattern = { "*.css" }, command = "prettier --parser css" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
 		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatte`
@@ -117,6 +118,7 @@ vim.keymap.set("i", "<F1>", "<ESC>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
+vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "g/", fzf_lua.blines)
