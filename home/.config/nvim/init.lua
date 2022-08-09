@@ -25,6 +25,7 @@ require("packer").startup(function(use)
 	use("gpanders/editorconfig.nvim")
 	use("aklt/plantuml-syntax")
 	use("preservim/vim-markdown")
+	use("phaazon/hop.nvim")
 end)
 
 local my_util = require("my-util")
@@ -131,6 +132,7 @@ vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
 vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
+vim.keymap.set("n", ",", ":HopWord<CR>")
 vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
 vim.keymap.set("n", "<Leader>gg", fzf_lua.live_grep)
 vim.keymap.set("n", "<Leader>gl", fzf_lua.git_bcommits)
@@ -289,6 +291,8 @@ fzf_lua.setup({
 		},
 	},
 })
+
+require("hop").setup()
 
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
