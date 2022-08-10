@@ -65,6 +65,25 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "*.gql", "*.graphql" },
+	callback = function()
+		vim.keymap.set(
+			"n",
+			"gh",
+			"/\\(\\(type\\)\\|\\(input\\)\\|\\(enum\\)\\|\\(scalar\\)\\) <C-r><C-w>[\\n| ]<CR>:nohl<CR>",
+			{ buffer = true }
+		)
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "*.md" },
+	callback = function()
+		vim.api.nvim_exec(":set wrap", false)
+	end,
+})
+
 -- WARNING: This could be a perfomance bottleneck. Keep it in mind.
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 	pattern = { "*" },
@@ -81,9 +100,7 @@ require("nvim-format-buffer").setup({
 			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.mts" },
 			command = "prettier --parser typescript 2>/dev/null",
 		},
-		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
-		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null" },
-		-- { pattern = { "*.html" }, command = "prettier --parser html 2>/dev/null" },
+		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
 		{ pattern = { "*.css" }, command = "prettier --parser css" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
 		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatte`
