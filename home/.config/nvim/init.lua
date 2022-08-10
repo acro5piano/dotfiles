@@ -26,6 +26,7 @@ require("packer").startup(function(use)
 	use("aklt/plantuml-syntax")
 	use("preservim/vim-markdown")
 	use("phaazon/hop.nvim")
+	use("hashivim/vim-terraform")
 end)
 
 local my_util = require("my-util")
@@ -103,7 +104,8 @@ require("nvim-format-buffer").setup({
 		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
 		{ pattern = { "*.css" }, command = "prettier --parser css" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
-		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatte`
+		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
+		{ pattern = { "*.tf" }, command = "terraform fmt -" },
 	},
 })
 
@@ -246,6 +248,7 @@ lsp.sumneko_lua.setup({
 	},
 })
 lsp.rust_analyzer.setup({})
+lsp.terraformls.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
