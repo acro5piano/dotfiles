@@ -2,7 +2,7 @@ local os = require("os")
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("ibhagwan/fzf-lua")
+	use("/home/kazuya/ghq/github.com/ibhagwan/fzf-lua")
 	use("kyazdani42/nvim-web-devicons")
 	use("jparise/vim-graphql")
 	use("terrortylor/nvim-comment")
