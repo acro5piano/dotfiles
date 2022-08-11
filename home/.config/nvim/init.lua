@@ -27,6 +27,8 @@ require("packer").startup(function(use)
 	use("preservim/vim-markdown")
 	use("phaazon/hop.nvim")
 	use("hashivim/vim-terraform")
+	use("windwp/nvim-ts-autotag")
+	use("nvim-treesitter/nvim-treesitter")
 end)
 
 local my_util = require("my-util")
@@ -313,6 +315,27 @@ fzf_lua.setup({
 })
 
 require("hop").setup()
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "typescript", "tsx", "python" },
+	auto_install = false,
+	highlight = {
+		enable = false,
+	},
+	autotag = {
+		enable = true,
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_incremental = ")",
+			node_decremental = "(",
+		},
+	},
+})
+
+require("nvim-ts-autotag").setup()
 
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
