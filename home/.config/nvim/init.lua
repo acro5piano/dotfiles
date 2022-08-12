@@ -341,3 +341,8 @@ require("nvim-ts-autotag").setup()
 UpperFirstLetter = my_util.upper_first_letter
 
 -- vim.keymap.set("n", "<Leader>fd", require("explorer").reveal)
+
+vim.api.nvim_create_autocmd("VimResized", {
+	pattern = "*",
+	callback = fzf_lua.redraw,
+})
