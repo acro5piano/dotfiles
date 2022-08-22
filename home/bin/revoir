@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# "Au revoir" means "see you" in French
+
+killall brave
+sudo shutdown -h 0

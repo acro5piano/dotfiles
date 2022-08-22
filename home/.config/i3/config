@@ -105,7 +105,11 @@ bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
 # Not works well!
-exec i3-msg 'workspace 2; exec brave'
-exec i3-msg 'workspace 1; exec alacritty'
+for_window [class="brave-browser"] move container to workspace 2
+exec --no-startup-id brave
+
+exec i3-msg 'exec alacritty'
+
+assign [class="Brave"] $ws2
 
 hide_edge_borders smart
