@@ -3,7 +3,7 @@ Description=disable wlan0 because it is no longer working
 
 [Service]
 Type=oneshot
-ExecStart=iwctl device wlan0 set-property Powered off
+ExecStart=/bin/iwctl device wlan0 set-property Powered off
 TimeoutSec=0
 StandardOutput=tty
 RemainAfterExit=yes
