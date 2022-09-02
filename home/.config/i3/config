@@ -108,6 +108,8 @@ bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 for_window [class="brave-browser"] move container to workspace 2
 exec --no-startup-id brave
 
+for_window [class="pcmanfm"] move container to workspace 2
+
 exec i3-msg 'exec alacritty'
 
 assign [class="Brave"] $ws2

@@ -89,14 +89,6 @@ function __nvm-active --on-event fish_prompt
     [ -e ../../.nvmrc ] && nvm use > /dev/null
 end
 
-function __poetry-active --on-event fish_prompt
-    if [ -z "$POETRY_ACTIVE" ]
-        if [ -e poetry.lock ]
-            poetry shell
-        end
-    end
-end
-
 function __fzf_history
   history | perl -nle 'print if length($_) < 200' | fzf-tmux -p 80%,80% -h --exact +s +m --query=(commandline -b) --no-preview \
     > /tmp/fzf
