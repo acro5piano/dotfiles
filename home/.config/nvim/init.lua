@@ -2,7 +2,7 @@ local os = require("os")
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("/home/kazuya/ghq/github.com/ibhagwan/fzf-lua")
+	use("ibhagwan/fzf-lua")
 	use("kyazdani42/nvim-web-devicons")
 	use("jparise/vim-graphql")
 	use("terrortylor/nvim-comment")
@@ -29,6 +29,7 @@ require("packer").startup(function(use)
 	use("hashivim/vim-terraform")
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/nvim-treesitter")
+	use("goolord/alpha-nvim")
 end)
 
 local my_util = require("my-util")
@@ -340,9 +341,4 @@ require("nvim-ts-autotag").setup()
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
 
--- vim.keymap.set("n", "<Leader>fd", require("explorer").reveal)
-
-vim.api.nvim_create_autocmd("VimResized", {
-	pattern = "*",
-	callback = fzf_lua.redraw,
-})
+require("alpha").setup(require("alpha.themes.startify").config)
