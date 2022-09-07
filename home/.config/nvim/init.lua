@@ -191,8 +191,8 @@ vim.keymap.set("i", "zd", '<C-r>=strftime("%Y-%m-%d")<CR><Space>')
 vim.keymap.set("i", "zt", '<C-r>=strftime("%H:%M")<CR><Space>')
 vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
 vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
-vim.keymap.set("i", "<Down>", "<C-n>")
-vim.keymap.set("i", "<Up>", "<C-p>")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
+vim.keymap.set("i", "<Up>", "<C-o>gk")
 
 -- indent with Tab/S-tab
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = false })
