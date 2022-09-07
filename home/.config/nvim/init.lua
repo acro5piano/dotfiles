@@ -30,6 +30,7 @@ require("packer").startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/nvim-treesitter")
 	use("goolord/alpha-nvim")
+	use("lukas-reineke/cmp-rg")
 end)
 
 local my_util = require("my-util")
@@ -272,6 +273,10 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "cmdline" },
 		{ name = "snippy" },
+		{
+			name = "rg",
+			keyword_length = 3,
+		},
 	},
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -279,6 +284,7 @@ cmp.setup({
 		["<C-l>"] = cmp.mapping.complete(),
 	},
 })
+
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
@@ -304,8 +310,8 @@ fzf_lua.setup({
 	},
 	keymap = {
 		fzf = {
-			-- fzf '--bind=' options
-			-- If we have empty table here, fzf-lua respects fzf built-in keymap for c-f and c-b.
+			-- Do not delete this empty block!
+			-- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
 		},
 	},
 	previewers = {
@@ -318,22 +324,11 @@ fzf_lua.setup({
 require("hop").setup()
 
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "typescript", "tsx", "python" },
+	ensure_installed = { "typescript", "tsx" },
 	auto_install = false,
-	highlight = {
-		enable = false,
-	},
-	autotag = {
-		enable = true,
-	},
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "gnn",
-			node_incremental = ")",
-			node_decremental = "(",
-		},
-	},
+	highlight = { enable = false },
+	autotag = { enable = true },
+	incremental_selection = { enable = false },
 })
 
 require("nvim-ts-autotag").setup()
