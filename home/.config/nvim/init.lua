@@ -175,6 +175,7 @@ vim.keymap.set("n", "<Leader>rl", ":s/")
 vim.keymap.set("n", "<Leader>rr", ":%s/")
 vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
+vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "|", "x~f_")
@@ -213,6 +214,7 @@ vim.keymap.set("c", "<C-g>", "<C-f>")
 
 vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
+vim.api.nvim_set_keymap("v", "B", "S*gvS*", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 
 require("lualine").setup({
