@@ -216,6 +216,7 @@ vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.api.nvim_set_keymap("v", "B", "S*gvS*", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
+vim.keymap.set("v", ",", require("hop").hint_words)
 
 require("lualine").setup({
 	options = { theme = "gruvbox" },
