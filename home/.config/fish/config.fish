@@ -116,7 +116,7 @@ function gl
     git clone git@$domain:$repo ~/ghq/$domain/$repo
     cd ~/ghq/$domain/$repo
   else
-    find ~/ghq/ -maxdepth 3 | egrep '/.+/.+/.+/.+/.+/.+' | grep -v DS_Store | fzf-tmux -h --no-preview -p 60%,60% | read line
+    find ~/ghq/ -maxdepth 3 | grep -E '/.+/.+/.+/.+/.+/.+' | grep -v DS_Store | fzf-tmux -h --no-preview -p 60%,60% | read line
     if [ $line ]
       cd $line
       commandline -f repaint
