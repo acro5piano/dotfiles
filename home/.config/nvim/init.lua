@@ -285,6 +285,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-l>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
 	},
 })
 
@@ -326,6 +327,7 @@ fzf_lua.setup({
 
 require("hop").setup()
 
+-- To use nvim-ts-autotag
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "typescript", "tsx" },
 	auto_install = false,
