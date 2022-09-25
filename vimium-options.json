@@ -35,7 +35,7 @@
     },
     {
       "pattern": "https?://www.youtube.com/*",
-      "passKeys": "hjklifm"
+      "passKeys": "hjklif"
     },
     {
       "pattern": "https?://hackmd.io/*",
@@ -216,17 +216,21 @@
     {
       "pattern": "https?://localhost:3662/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://returntomonkeyisland.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap f LinkHints.activateModeToOpenInNewTab\nmap i focusInput\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\n# This will be overwritten with xremap and works like vim, but it prevents to scroll images on Twitter.\n# map <left> scrollFullPageUp\n# map <right> scrollFullPageDown\nmap { scrollFullPageUp\nmap } scrollFullPageDown\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab",
+  "keyMappings": "unmapAll\nmap e LinkHints.activateMode\nmap o LinkHints.activateModeToOpenInNewTab\nmap i focusInput\n# Use n/p instead\n# map j scrollDown\n# map k scrollUp\nmap h scrollLeft\nmap l scrollRight\nmap n scrollDown\nmap p scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap f scrollFullPageDown\nmap b scrollFullPageUp\nmap u goBack\nmap > goNext\nmap < goPrevious\nmap x removeTab\nmap m togglePinTab\n\n\n# This will be overwritten with xremap and works like vim, but it prevents to scroll images on Twitter.\n# map <left> scrollFullPageUp\n# map <right> scrollFullPageDown",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
-  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
-  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "nextPatterns": "次,next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "前,prev,previous,back,older,<,‹,←,«,≪,<<",
   "regexFindMode": false,
   "ignoreKeyboardLayout": false,
   "scrollStepSize": 120,
