@@ -45,10 +45,10 @@ window class_only: targets do
   remap 'C-M-b', to: 'Ctrl-b'
   remap 'M-e', to: 'Ctrl-e'
   remap 'M-s', to: 'Ctrl-s'
-  remap 'M-n', to: 'Ctrl-n'
+  remap 'M-n', to: 'Ctrl-Tab'
+  remap 'M-p', to: 'Ctrl-Shift-Tab'
   remap 'M-a', to: 'Ctrl-a'
   remap 'M-r', to: 'Ctrl-r'
-  remap 'M-p', to: 'Ctrl-p'
   remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
   remap 'M-c', to: 'Ctrl-c'
   remap 'M-v', to: 'Ctrl-v'
