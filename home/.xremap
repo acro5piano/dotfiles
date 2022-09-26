@@ -10,6 +10,7 @@ targets = [
   'vivaldi-stable',
   'konqueror',
   'brave-browser',
+  'feh',
   /crx_/,
 ]
 
