@@ -24,6 +24,8 @@ export XMODIFIERS=@im=fcitx
 
 export TERMINAL=alacritty # required for i3
 
+iwctl device wlan0 set-property Powered off & # disable, as I use USB device
+
 xmodmap ~/.xmodmap
 
 exec i3

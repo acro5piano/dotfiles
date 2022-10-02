@@ -109,6 +109,7 @@ for_window [class="brave-browser"] move container to workspace 2
 exec --no-startup-id brave
 
 for_window [class="pcmanfm"] move container to workspace 2
+for_window [class="Pcmanfm"] move container to workspace 2
 
 exec i3-msg 'exec alacritty'
 
