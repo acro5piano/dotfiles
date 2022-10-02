@@ -1,6 +1,6 @@
 # mode: ruby
 
-targets = [
+browsers = [
   # 'chromium-browser',
   'chromium',
   # 'google-chrome',
@@ -15,7 +15,7 @@ targets = [
 ]
 
 # Firefox nore more work
-window class_only: targets do
+window class_only: browsers do
   remap 'C-b', to: 'Left'
   remap 'C-f', to: 'Right'
   remap 'C-p', to: 'Up'
