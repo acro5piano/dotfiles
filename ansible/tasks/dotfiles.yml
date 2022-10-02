@@ -13,6 +13,7 @@
     - .config/i3
     - .config/nvim
     - .config/sway
+    - .config/kitty
     - .ctags
     - .ctags
     - .editorconfig

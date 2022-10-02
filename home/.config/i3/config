@@ -14,7 +14,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+v exec --no-startup-id sleep 0.1 && xsel | xvkbd -file - 2>/dev/null
@@ -111,7 +112,7 @@ exec --no-startup-id brave
 for_window [class="pcmanfm"] move container to workspace 2
 for_window [class="Pcmanfm"] move container to workspace 2
 
-exec i3-msg 'exec alacritty'
+exec i3-msg 'exec kitty'
 
 assign [class="Brave"] $ws2
 

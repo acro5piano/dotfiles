@@ -8,6 +8,8 @@ else
     set -gx IS_MAC 0
 end
 
+set -gx TERMINAL kitty
+
 set -gx ANDROID_HOME /opt/android-sdk
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
 
