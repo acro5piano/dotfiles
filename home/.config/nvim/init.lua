@@ -151,7 +151,9 @@ vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C
 vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
-vim.keymap.set("n", "g/", fzf_lua.blines)
+-- vim.keymap.set("n", "g/", fzf_lua.blines)
+vim.keymap.set("n", "/", fzf_lua.blines) -- experimental: try something new!
+vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
 vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
