@@ -31,6 +31,8 @@ require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter")
 	use("goolord/alpha-nvim")
 	use("lukas-reineke/cmp-rg")
+	use("gbprod/yanky.nvim")
+	use("stevearc/dressing.nvim") -- for yanky to work nicely
 end)
 
 local my_util = require("my-util")
@@ -150,6 +152,7 @@ vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "g/", fzf_lua.blines)
+vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
@@ -346,3 +349,9 @@ require("nvim-ts-autotag").setup()
 UpperFirstLetter = my_util.upper_first_letter
 
 require("alpha").setup(require("alpha.themes.startify").config)
+require("yanky").setup({
+	highlight = {
+		on_put = false,
+		on_yank = false,
+	},
+})
