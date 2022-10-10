@@ -10,19 +10,18 @@ xdg-mime default brave.desktop application/pdf
 xset -dpms
 xset s off
 xset dpms 0 0 0
-
 xset r rate 230 60
 
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
 copyq &
 CM_SELECTIONS=clipboard clipmenud &
+nohup ~/bin/xset-auto.py &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-export GLFW_IM_MODULE=ibus
-
+export GLFW_IM_MODULE=ibus # required for Kitty terminal
 export TERMINAL=alacritty # required for i3
 
 iwctl device wlan0 set-property Powered off & # disable, as I use USB device

@@ -2,7 +2,8 @@
   become: yes
   command: python -m ensurepip
 - name: Install packages with pip3
-  become: "{{ os != 'mac' | default(true) }}"
+  # become: "{{ os != 'mac' | default(true) }}"
+  become: false
   pip:
     name: "{{ item }}"
     state: latest
@@ -11,21 +12,17 @@
     - awscli
     - black
     - docker-compose
-    - docker-pretty-ps
     - flake8
     - ipython
     - iredis
     - litecli
-    - livereload
     - mycli
-    - mypy
-    - neovim
     - pgcli
     - poetry
-    - pynvim
     - pyright
     - toml # required by yapf
     - trash-cli
     - virtualenv
-    - wayremap
+    - pyudev # required by xset-auto
+    # - wayremap # I use xremap
     # - yapf # I use black
