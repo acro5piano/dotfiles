@@ -283,7 +283,7 @@ cmp.setup({
 			},
 		},
 		{ name = "path" },
-		{ name = "cmdline" },
+		-- { name = "cmdline" },
 		{ name = "snippy" },
 		{
 			name = "rg",
