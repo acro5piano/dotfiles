@@ -188,6 +188,7 @@ vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("n", "|", "x~f_")
 vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
+vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
 vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
@@ -293,7 +294,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-l>"] = cmp.mapping.complete(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
+		["<TAB>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
 	},
 })
 
