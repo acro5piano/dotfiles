@@ -294,7 +294,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-l>"] = cmp.mapping.complete(),
-		["<TAB>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
+		["<C-j>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
 	},
 })
 
