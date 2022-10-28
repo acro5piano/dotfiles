@@ -58,11 +58,6 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-bindsym $mod+w workspace number $ws1
-bindsym $mod+e workspace number $ws2
-bindsym $mod+r workspace number $ws3
-bindsym $mod+t workspace number $ws4
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -95,8 +90,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# TODO: temporary disable for corne keyboard
-# bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 bar {
     position top
