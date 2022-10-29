@@ -1,3 +1,7 @@
+- name: Ensure config directory
+  file:
+    path: ~/.config
+    state: directory
 - name: Link dotfiles
   ansible.builtin.file:
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/home/{{ item }}"
