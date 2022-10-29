@@ -174,7 +174,9 @@ end
 function cl
     if [ -e /Applications ]
         pbcopy
-    else
+    else if [ -e /mnt/c ]
+        clip.exe
+	else
         # wl-copy
         xclip -selection clipboard
     end

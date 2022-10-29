@@ -95,13 +95,25 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
+local function has(command)
+	local handle = io.popen(command)
+	if handle == nil then
+		return false
+	end
+	local result = handle:read("*a")
+	handle:close()
+	return string.find(result, "/") ~= nil
+end
+
 -- WARNING: This could be a perfomance bottleneck. Keep it in mind.
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-	pattern = { "*" },
-	callback = function()
-		os.execute("fcitx5-remote -c")
-	end,
-})
+if has("fcitx5-remote") then
+	vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+		pattern = { "*" },
+		callback = function()
+			os.execute("fcitx5-remote -c")
+		end,
+	})
+end
 
 require("nvim-format-buffer").setup({
 	format_rules = {
@@ -170,11 +182,11 @@ vim.keymap.set("n", "<Leader>gl", fzf_lua.git_bcommits)
 vim.keymap.set("n", "<Leader>gs", fzf_lua.git_status)
 vim.keymap.set("n", "<Leader>la", fzf_lua.lsp_code_actions)
 vim.keymap.set("n", "<Leader>ld", fzf_lua.lsp_document_diagnostics)
--- vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
--- vim.keymap.set("n", "<Leader>ln", vim.lsp.diagnostic.goto_next)
--- vim.keymap.set("n", "<Leader>lp", vim.lsp.diagnostic.goto_prev)
+vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
+vim.keymap.set("n", "<Leader>ln", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
--- vim.keymap.set("n", "<Leader>li", vim.lsp.diagnostic.show_line_diagnostics)
+vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>pb", ":.!clp<CR>")
 vim.keymap.set("n", "<Leader>wp", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
