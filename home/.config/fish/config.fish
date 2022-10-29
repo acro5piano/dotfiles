@@ -27,7 +27,7 @@ set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 set -gx GTK_IM_MODULE fcitx
 
-[ -e $HOME/go ]; or mkdir $HOME/.go
+[ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
 set -gx PATH \
