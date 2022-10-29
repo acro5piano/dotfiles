@@ -60,7 +60,7 @@ mount /dev/sda2 /mnt
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware vim iwd ansible
+pacstrap /mnt base base-devel linux linux-firmware iwd python
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -87,7 +87,10 @@ exit
 reboot
 ```
 
-If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
+Notes:
+
+- Python is required because we use Ansible later.
+- If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
 
 ## Install dotfiles
 
@@ -118,6 +121,9 @@ then install dotfiles:
 cd ~
 git clone git@github.com:/acro5piano/dotfiles $HOME/.dotfiles
 cd $HOME/.dotfiles
+python -m ensurepip
+export PATH=$PATH:~/.local/bin/
+pip install ansible
 ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook --ask-become-pass ansible/main.yml
 ```
