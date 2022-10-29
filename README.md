@@ -152,3 +152,20 @@ ansible-playbook --ask-become-pass ansible/main.yml --tags pacman
 ```
 ansible-playbook ansible/main.yml --tags dotfiles,misc,npm,pip,gem --extra-vars "os=mac"
 ```
+
+# Windows + WSL2 Arch
+
+Before git clone:
+
+```bash
+export PATH=$PATH:~/.local/bin/
+sudo pacman -Syu git openssh
+```
+
+Replace the Ansile command with:
+
+```
+ansible-playbook wsl/ansible/main.yml
+ansible-playbook ansible/main.yml --tags pip,npm,misc
+chsh -s /usr/bin/fish
+```
