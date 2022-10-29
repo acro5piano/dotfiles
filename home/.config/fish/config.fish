@@ -76,7 +76,9 @@ nvm use 18 >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
-status --is-interactive; and source (rbenv init -|psub)
+if not which ruby > /dev/null
+  status --is-interactive; and source (rbenv init -|psub)
+end
 
 set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
