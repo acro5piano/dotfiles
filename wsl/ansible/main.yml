@@ -2,3 +2,5 @@
   tasks:
     - import_tasks: tasks/pacman.yml
       tags: [ pacman ]
+    - import_tasks: tasks/yay.yml
+      tags: [ yay ]

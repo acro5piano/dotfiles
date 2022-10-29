@@ -18,16 +18,4 @@
     name: "{{ item }}"
     state: present
   loop:
-    - android-platform-30
-    - android-sdk
-    - android-sdk-build-tools
-    - android-sdk-platform-tools
-    - brave-bin
-    - google-chrome-beta
-    - nerd-fonts-source-code-pro
-    - ngrok
-    - openswan
-    - otf-ipaexfont
     - rbenv
-    - yay
-    - zoom

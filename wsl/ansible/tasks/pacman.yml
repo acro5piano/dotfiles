@@ -42,6 +42,7 @@
     - postgresql-client
     - python
     # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
+    - rbenv
     - ripgrep
     - rsync
     - ruby
