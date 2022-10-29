@@ -5,8 +5,7 @@ acro5piano's personal dotfiles. It aims to automate setup my development PC idem
 Core technologies:
 
 - Arch Linux
-- Wayland
-- Sway
+- i3
 - yay
 - Ansible
 
@@ -136,14 +135,14 @@ scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
 
 ```
 # Sync dotfiles only
-ansible-playbook --tags dotfiles ansible/main.yml
+ansible-playbook ansible/main.yml --tags dotfiles
 
 # Install pacman dep only
-ansible-playbook --ask-become-pass --tags pacman ansible/main.yml
+ansible-playbook --ask-become-pass ansible/main.yml --tags pacman
 ```
 
 # OSX
 
 ```
-ansible-playbook --tags dotfiles,misc,npm,pip,gem ansible/main.yml --extra-vars "os=mac"
+ansible-playbook ansible/main.yml --tags dotfiles,misc,npm,pip,gem --extra-vars "os=mac"
 ```
