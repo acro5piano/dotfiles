@@ -1,0 +1,58 @@
+- name: Install keyring before anything
+  become: yes
+  community.general.pacman:
+    name: archlinux-keyring
+    state: latest
+- name: Install packages with pacman
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - bat
+    - composer
+    - curl
+    # - docker
+    # - docker-compose
+    - fish
+    - fzf
+    - gcc-fortran
+    - ghostscript
+    - git
+    - git-delta
+    - github-cli
+    - go
+    - imagemagick
+    - jq
+    - lapack
+    - libevent
+    - libpng
+    - libuv
+    - lua
+    - lua-language-server
+    - make
+    - man-db
+    - neovim
+    - onefetch
+    - openssh
+    - openssl
+    - php
+    - php-gd
+    - php-sqlite
+    - postgresql-client
+    - python
+    # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
+    - ripgrep
+    - rsync
+    - ruby
+    - rubygems
+    # - rust # 2022-06-27: It make static link error. use `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` instead.
+    # - rust-analyzer
+    - screenfetch
+    - stylua
+    - terraform
+    - tmux
+    - tree
+    - unzip
+    - vim
+    - zip
