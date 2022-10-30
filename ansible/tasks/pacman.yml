@@ -30,6 +30,7 @@
     - firefox-developer-edition
     - fish
     - fzf
+    - gcc
     - gcc-fortran
     - ghostscript
     - git
