@@ -12,3 +12,5 @@
     - wscat
     - serve
     - sql-formatter
+    - typescript # required for lsp
+    - typescript-language-server # required for lsp
