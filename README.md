@@ -155,6 +155,16 @@ ansible-playbook ansible/main.yml --tags dotfiles,misc,npm,pip,gem --extra-vars 
 
 # Windows + WSL2 Arch
 
+For Windows, use them:
+
+- Wezterm (To support select-to-copy on Surface touch screen)
+- WSL2 Arch
+- PowerToys (To customize key bindings on Browsers)
+
+For Arch installation, see the awesome https://github.com/yuk7/ArchWSL
+
+### Tweaks of installation process
+
 Before git clone:
 
 ```bash
