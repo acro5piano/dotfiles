@@ -2,10 +2,15 @@
 
 # {{{ Env vars
 
+set -gx IS_MAC 0
+set -gx IS_WSL 0
+set -gx IS_LINUX 0
 if [ -e /Applications ]
     set -gx IS_MAC 1
+else if [ -e /mnt/c ]
+    set -gx IS_WSL 1
 else
-    set -gx IS_MAC 0
+    set -gx IS_LINUX 1
 end
 
 set -gx TERMINAL kitty
@@ -170,11 +175,12 @@ function diffc
     colordiff -U3 $argv
 end
 
+
 # TODO: divide files to os specific file
 function cl
-    if [ -e /Applications ]
+    if [ $IS_MAC -eq 1 ]
         pbcopy
-    else if [ -e /mnt/c ]
+    else if [ $IS_WSL -eq 1 ]
         clip.exe
 	else
         # wl-copy
@@ -182,8 +188,10 @@ function cl
     end
 end
 function clp
-    if [ -e /Applications ]
+    if [ $IS_MAC -eq 1 ]
         pbpaste
+    else if [ $IS_WSL -eq 1 ]
+	  powershell.exe -command 'Get-Clipboard'
     else
         # wl-paste
         xclip -selection clipboard -o
