@@ -26,6 +26,7 @@
     - prettier.config.js
     - sql-formatter.json
     - .tmux.conf
+    - .wezterm.lua
     - .xinitrc
     - .xmodmap
     - .xremap
