@@ -60,7 +60,7 @@ mount /dev/sda2 /mnt
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware iwd python
+pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
