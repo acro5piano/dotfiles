@@ -8,6 +8,7 @@
   ansible.builtin.copy:
     src: ~/yay_10.3.0_x86_64/yay
     dest: /bin/yay
+    mode: 0755
 - name: Install keyring before anything
   become: yes
   community.general.pacman:
@@ -18,10 +19,10 @@
     name: "{{ item }}"
     state: present
   loop:
-    - android-platform-30
-    - android-sdk
-    - android-sdk-build-tools
-    - android-sdk-platform-tools
+    # - android-platform-30
+    # - android-sdk
+    # - android-sdk-build-tools
+    # - android-sdk-platform-tools
     - brave-bin
     - google-chrome-beta
     - nerd-fonts-source-code-pro
