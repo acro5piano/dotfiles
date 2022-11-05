@@ -40,6 +40,8 @@ window class_only: browsers do
   remap 'C-s', to: 'F3'
   # remap 'C-r', to: 'Ctrl-Shift-g'
 
+  # remap 'C-[', to: 'ESC'
+
   # Alternative
   remap 'C-M-d', to: 'Ctrl-d'
   remap 'C-M-s', to: 'Ctrl-f'
