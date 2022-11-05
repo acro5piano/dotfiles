@@ -88,6 +88,7 @@
     - vim
     - xcolor
     - xorg
+    - xclip
     - zip
 
 # Backup for useful Wayland tools. Someday I will move to Wayland.
