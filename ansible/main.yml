@@ -16,6 +16,8 @@
       tags: [ gem ]
     - import_tasks: tasks/systemd.yml
       tags: [ systemd ]
+    - import_tasks: tasks/systemd-surface.yml
+      tags: [ systemd-surface ]
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ]
     - import_tasks: tasks/misc.yml
