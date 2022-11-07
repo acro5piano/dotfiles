@@ -37,7 +37,7 @@ window class_only: browsers do
 
   remap 'C-k', to: ['Shift-End', 'Ctrl-x']
 
-  remap 'C-s', to: 'F3'
+  remap 'C-s', to: 'Ctrl-f'
   # remap 'C-r', to: 'Ctrl-Shift-g'
 
   # remap 'C-[', to: 'ESC'
