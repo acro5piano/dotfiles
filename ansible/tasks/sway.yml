@@ -1,0 +1,10 @@
+- name: Install packages with pacman
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - slurp
+    - sway
+    - wl-clipboard
+    - bemenu-wayland

@@ -18,20 +18,21 @@ input type:keyboard {
   repeat_rate 50
 }
 
-bindsym $mod+escape exec systemctl suspend
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+p exec clipman pick -t bemenu
+bindsym $mod+Enter exec kitty
 
 # on ThinkPad Trackpoint, PrtSc is easy to mistype
 bindsym $mod+Print exec grim -g "$(slurp)" -| wl-copy
 
 exec start-fcitx &
+exec xremap ~/.xremap &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
 # exec swaymsg 'workspace 2; exec firefox-developer-edition'
-exec swaymsg 'workspace 7; exec pavucontrol'
+exec swaymsg 'workspace 7; exec pavucontrol-qt'
 exec swaymsg 'workspace 2; exec brave'
-exec swaymsg 'workspace 1; exec alacritty-x'
+exec swaymsg 'workspace 1; exec kitty'
 
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 

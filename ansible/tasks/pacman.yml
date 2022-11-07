@@ -11,7 +11,6 @@
   loop:
     - acpi
     - adobe-source-code-pro-fonts
-    - alacritty
     - alsa-lib
     - alsa-utils
     - android-udev
