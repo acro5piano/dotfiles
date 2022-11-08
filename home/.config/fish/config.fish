@@ -10,8 +10,8 @@ if [ -e /Applications ]
     set -gx IS_MAC 1
 else if [ -e /mnt/c ]
     set -gx IS_WSL 1
-else if uname -a | grep -q surface
-    set -gx IS_SURFACE_LINUX 1
+# else if uname -a | grep -q surface
+#     set -gx IS_SURFACE_LINUX 1
 else
     set -gx IS_LINUX 1
 end
