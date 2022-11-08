@@ -37,6 +37,8 @@ set -gx GTK_IM_MODULE fcitx
 
 set --universal nvm_default_version 18
 
+fnm env --use-on-cd | source
+
 [ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
 # set -gx GOROOT /usr/local/Cellar/go/1.11.1/libexec
@@ -99,12 +101,6 @@ set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # }}}
 
 # {{{ functions
-
-function __nvm-active --on-event fish_prompt
-    [ -e .nvmrc ] && nvm use > /dev/null
-    [ -e ../.nvmrc ] && nvm use > /dev/null
-    [ -e ../../.nvmrc ] && nvm use > /dev/null
-end
 
 function __fzf_history
   history | perl -nle 'print if length($_) < 200' | fzf-tmux -p 80%,80% -h --exact +s +m --query=(commandline -b) --no-preview \
@@ -356,3 +352,4 @@ end
 if [ "$TTY" = "/dev/tty2" ]
 	exec sway
 end
+

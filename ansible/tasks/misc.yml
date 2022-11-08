@@ -22,6 +22,14 @@
     executable: fish
 
 #########################
+# fnm
+#
+# To install fisher plugins, please edit ~/.config/fish/fish_plugins first.
+#########################
+- name: Get fnm
+  shell: curl -fsSL https://fnm.vercel.app/install | bash
+
+#########################
 # Rust analyzer
 #########################
 - name: Ensure tmp directory
