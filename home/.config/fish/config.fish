@@ -80,7 +80,8 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx GREP_OPTIONS '--line-buffered'
 
-nvm use latest >/dev/null 2>/dev/null
+# It's slow down!
+# nvm use latest >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
