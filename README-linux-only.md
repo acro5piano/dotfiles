@@ -1,6 +1,4 @@
-# Dotfiles
-
-acro5piano's personal dotfiles. It aims to automate setup my development PC idempotently.
+# linux-only installation
 
 Core technologies:
 
@@ -9,19 +7,16 @@ Core technologies:
 - yay
 - Ansible
 
-![image](https://user-images.githubusercontent.com/10719495/176838810-ea61f97a-7f7f-4c8b-80f7-243ee8eb8de9.png)
-
-![image](https://user-images.githubusercontent.com/10719495/176839022-bcaf0d70-3395-4b6e-812e-ff676c8294c0.png)
-
 # Setup process
 
-## Install Arch Linux with Windows 10 or 11 multi boot
+## Install Arch Linux
 
-- Reduce Windows partition and create a blank partition
+Ref: https://qiita.com/j8takagi/items/235e4ae484e8c587ca92
+
 - Create arch linux install usb.
   - download latest iso image
   - `cp /path/to/iso /dev/sdX`
-- Boot to usb
+- Boot to usb and run the following:
 
 ### File system (UEFI)
 
@@ -31,11 +26,16 @@ select disk to write arch linux
 cfdisk /dev/nvme0n1
 ```
 
+- delete whole partition
+- Create a partition for boot
+  - create a new partition and set `512M` for the partition size
+  - Add UEFI boot flag (`ef00`)
 - Create a partition for main
   - create a new partition and set maximum size for it
 - Create a partition for swap (for hibernation)
   - create a new partition and set `20G` size for it
   - Add swap flag (`8200`)
+- write out
 
 ```sh
 # UEFI
@@ -54,7 +54,7 @@ mount /dev/nvme0n1p1 /mnt/efi
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim os-prober grub
+pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim grub
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -73,8 +73,6 @@ EOF
 iwctl
 
 # Grub
-nvim /etc/default/grub # Enable this line: GRUB_DISABLE_OS_PROBER=false
-os-prober
 grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -82,36 +80,9 @@ exit
 reboot
 ```
 
-Notes:
-
-- Python is required because we use Ansible later.
-- If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
-- Grub is easier than systemd-boot
-
-## Add user
-
-Run the following commands as root:
-
-```sh
-# add user
-useradd --create-home kazuya
-passwd kazuya
-gpasswd -a kazuya wheel
-
-# %wheel ALL=(ALL) ALL
-visudo
-
-exit
-```
-
-and login as kazuya:
-
-```sh
-localhost login> kazuya
-password:
-```
-
 ## Install dotfiles
+
+then install dotfiles:
 
 ```sh
 cd ~

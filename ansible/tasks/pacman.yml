@@ -89,6 +89,7 @@
     - xorg
     - xclip
     - zip
+    - ttf-sourcecodepro-nerd
 
 # Backup for useful Wayland tools. Someday I will move to Wayland.
 #
