@@ -10,7 +10,7 @@ if [ -e /Applications ]
     set -gx IS_MAC 1
 else if [ -e /mnt/c ]
     set -gx IS_WSL 1
-else if uname -a | grep surface
+else if uname -a | grep -q surface
     set -gx IS_SURFACE_LINUX 1
 else
     set -gx IS_LINUX 1
@@ -335,7 +335,8 @@ alias q='qrcode'
 
 set TTY1 (tty)
 
-if "$TTY1" | grep -q /dev/pts
+# Run tmux if not running
+if string match -q '/dev/pts/*' "$TTY1"
 	if ! tmux list-sessions | grep -q ''
 		tmux
 	end
@@ -343,7 +344,7 @@ end
 
 # If running from tty1, start i3 or sway
 if [ "$TTY1" = "/dev/tty1" ]
-    if [ $IS_SURFACE_LINUX = 1 ]
+    if [ $IS_SURFACE_LINUX -eq 1 ]
 		exec sway
 	else
 		exec startx
