@@ -2,7 +2,6 @@
   become: yes
   command: python -m ensurepip
 - name: Install packages with pip3
-  # become: "{{ os != 'mac' | default(true) }}"
   become: false
   pip:
     name: "{{ item }}"
