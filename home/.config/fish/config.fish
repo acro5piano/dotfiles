@@ -80,6 +80,8 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx GREP_OPTIONS '--line-buffered'
 
+set -gx BROWSER brave
+
 # It's slow down!
 # nvm use latest >/dev/null 2>/dev/null
 
