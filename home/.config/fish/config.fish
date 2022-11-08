@@ -334,20 +334,21 @@ alias tmc='tmux clear-history'
 
 alias q='qrcode'
 
-set TTY1 (tty)
+set TTY (tty)
 
 # Run tmux if not running
-if string match -q '/dev/pts/*' "$TTY1"
+if string match -q '/dev/pts/*' "$TTY"
 	if ! tmux list-sessions | grep -q ''
 		tmux
 	end
 end
 
-# If running from tty1, start i3 or sway
-if [ "$TTY1" = "/dev/tty1" ]
-    if [ $IS_SURFACE_LINUX -eq 1 ]
-		exec sway
-	else
-		exec startx
-	end
+# If running from tty1, start i3
+if [ "$TTY" = "/dev/tty1" ]
+	exec startx
+end
+
+# If running from tty2, start sway
+if [ "$TTY" = "/dev/tty2" ]
+	exec sway
 end
