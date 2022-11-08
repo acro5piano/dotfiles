@@ -5,10 +5,13 @@
 set -gx IS_MAC 0
 set -gx IS_WSL 0
 set -gx IS_LINUX 0
+set -gx IS_SURFACE_LINUX 0
 if [ -e /Applications ]
     set -gx IS_MAC 1
 else if [ -e /mnt/c ]
     set -gx IS_WSL 1
+else if uname -a | grep surface
+    set -gx IS_SURFACE_LINUX 1
 else
     set -gx IS_LINUX 1
 end
@@ -167,23 +170,15 @@ function mozc
     end
 end
 
-function diffw
-    colordiff -yW (tput cols) $argv
-end
-
-function diffc
-    colordiff -U3 $argv
-end
-
-
 # TODO: divide files to os specific file
 function cl
     if [ $IS_MAC -eq 1 ]
         pbcopy
     else if [ $IS_WSL -eq 1 ]
         clip.exe
+	else if [ $IS_SURFACE_LINUX -eq 1 ]
+		wl-copy
 	else
-        # wl-copy
         xclip -selection clipboard
     end
 end
@@ -192,6 +187,8 @@ function clp
         pbpaste
     else if [ $IS_WSL -eq 1 ]
 	  powershell.exe -command 'Get-Clipboard'
+	else if [ $IS_SURFACE_LINUX -eq 1 ]
+		wl-paste
     else
         # wl-paste
         xclip -selection clipboard -o
@@ -234,38 +231,23 @@ function delete_html_tags
     perl -pe "s#<.*?>##g"
 end
 
-function sp
-    bash -c "$argv &"
-end
-
-function addone
-    ruby -ne 'puts $_.sub(/([0-9]+)/) { |i| i.to_i.next }'
-end
-
 function gacp
     git commit -am "$argv" && git ps
-end
-
-function gtagp
-    git cam "$argv[1]"
-    git tag "$argv[2]"
-    git pushthis
-    git push origin "$argv[2]"
 end
 
 function tmsp
     tmux swap-window -t $argv[1]
 end
 
-function clear-branchs
+function clear-branches
     echo 'removing:'
-    git branch | grep -v \* | grep -v master | grep -v develop | perl -pe 's/^/  /'
+    git branch | grep -v \* | grep -v master | grep -v main | grep -v develop | perl -pe 's/^/  /'
     echo
     read res -n1 -P 'Continue? [Y/n]'
     if [ res != 'Y' ]
         return
     end
-    # git branch | grep -v \* | grep -v master | grep -v develop |  xargs git branch -D
+    git branch | grep -v \* | grep -v master | grep -v main | grep -v develop |  xargs git branch -D
 end
 
 function memo
@@ -286,9 +268,6 @@ function fish_user_key_bindings
     bind \ec fzf-cd-widget
 end
 
-set git_dirty_color red
-set git_clean_color green
-
 function parse_git_branch
     git status >/dev/null 2>/dev/null || return
 
@@ -296,9 +275,9 @@ function parse_git_branch
     set -l git_changed_files_count (git status -s -uall | wc -l)
 
     if [ "$git_changed_files_count" -eq 0 ]
-        echo (set_color $git_clean_color)$current_branch(set_color normal)
+        echo (set_color green)$current_branch(set_color normal)
     else
-        echo (set_color $git_dirty_color)$current_branch(set_color normal)
+        echo (set_color red)$current_branch(set_color normal)
     end
 end
 
@@ -326,20 +305,15 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 
 alias ag='rg'
-alias ccat='pygmentize -g'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
 alias la='ls -A'
 alias less='less -R'
 alias ll='ls -alh'
 alias justnow='date +%Y%m%d_%H%M%S'
+alias now='date +%Y%m%d_%H%M%S'
 alias today='date +%Y%m%d'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
-alias wi='sudo wifi-menu'
-alias weather='curl -s wttr.in | sed -n "1,7p"'
-alias dp2off='xrandr --output DP2 --off'
-alias dp2on='xrandr --output DP2 --above eDP1 --mode 1920x1080'
-alias pngcopy='convert - png:- | xclip -i -selection clipboard -t image/png'
 alias t='toggl'
 alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\'' # '
 
@@ -358,23 +332,20 @@ alias tsv='column -ts \t'
 alias tmc='tmux clear-history'
 
 alias q='qrcode'
-alias bd='git diff --name-only --diff-filter=d | xargs bat --diff'
 
-[ -e  ~/.traimmu_dotfiles/aliases ]; and source ~/.traimmu_dotfiles/aliases
-[ -e  ~/.secret.env ]; and source ~/.secret.env
+set TTY1 (tty)
 
-if which sway >/dev/null 2>/dev/null
-    if swaymsg --quiet --type get_tree 2>/dev/null
-        if ! tmux list-sessions | grep -q ''
-            tmux
-        end
-    end
+if "$TTY1" | grep -q /dev/pts
+	if ! tmux list-sessions | grep -q ''
+		tmux
+	end
 end
 
-# # The next line updates PATH for the Google Cloud SDK.
-# set gcp_sdk_path ~/var/google-cloud-sdk/path.fish.inc
-# [ -f $gcp_sdk_path ] && . $gcp_sdk_path
-
-# If running from tty1 start i3
-set TTY1 (tty)
-[ "$TTY1" = "/dev/tty1" ] && exec startx
+# If running from tty1, start i3 or sway
+if [ "$TTY1" = "/dev/tty1" ]
+    if [ $IS_SURFACE_LINUX = 1 ]
+		exec sway
+	else
+		exec startx
+	end
+end

@@ -20,7 +20,6 @@ input type:keyboard {
 
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+p exec clipman pick -t bemenu
-bindsym $mod+Enter exec kitty
 
 # on ThinkPad Trackpoint, PrtSc is easy to mistype
 bindsym $mod+Print exec grim -g "$(slurp)" -| wl-copy
