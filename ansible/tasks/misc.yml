@@ -1,5 +1,5 @@
 #########################
-# Neovim
+# Packer.nvim
 #########################
 - name: Install packer.nvim
   git:
@@ -46,4 +46,14 @@
   copy:
     src: ~/tmp/rust-analyzer-x86_64-unknown-linux-gnu
     dest: /usr/local/bin/rust-analyzer
+    mode: 0755
+
+#########################
+# Transcrypt
+#########################
+- name: Install transcrypt
+  become: True
+  get_url:
+    url: https://raw.githubusercontent.com/elasticdog/transcrypt/master/transcrypt
+    dest: /usr/local/bin/transcrypt
     mode: 0755
