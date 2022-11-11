@@ -128,9 +128,9 @@ ansible-playbook --ask-become-pass ansible/main.yml
 
 ```
 mkdir $HOME/var
-scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var/music
 scp -r 192.168.xxx.yyy:/home/kazuya/.aws $HOME/.aws
 scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
+scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var
 ```
 
 # Maintain
