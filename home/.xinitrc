@@ -27,6 +27,7 @@ export TERMINAL=kitty # required for i3
 # For surface device
 export QT_AUTO_SCREEN_SCALE_FACTOR=2
 export GDK_SCALE=2
+xrandr --output eDP-1 --dpi 190
 
 xmodmap ~/.xmodmap
 

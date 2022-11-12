@@ -31,4 +31,5 @@
     - .xinitrc
     - .xmodmap
     - .xremap
+    - .Xresources
     - .zshrc
