@@ -1,5 +1,5 @@
-theme = "plain"
-icons = "awesome5"
+theme = "slick"
+icons = "awesome"
 
 [[block]]
 block = "disk_space"
@@ -48,4 +48,5 @@ cycle = [0, 5, 10, 50, 100]
 
 [[block]]
 block = "battery"
+interval = 60
 if_command = "test -e /sys/class/power_supply/BAT*"
