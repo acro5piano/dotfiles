@@ -46,6 +46,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
+vim.o.mouse = false
 
 vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
 vim.api.nvim_exec("highlight Pmenu ctermbg=235 ctermfg=231", false)
