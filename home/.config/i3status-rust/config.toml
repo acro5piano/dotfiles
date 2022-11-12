@@ -1,5 +1,5 @@
-theme = "solarized-dark"
-icons = "awesome"
+theme = "plain"
+icons = "awesome5"
 
 [[block]]
 block = "disk_space"
@@ -22,12 +22,20 @@ block = "cpu"
 interval = 1
 
 [[block]]
-block = "load"
-interval = 1
-format = "{1m}"
+block = "sound"
+step_width = 5
 
 [[block]]
-block = "sound"
+block = "custom"
+command = '''echo ↑'''
+on_click = '''pactl set-sink-volume @DEFAULT_SINK@ +10% && killall -SIGUSR1 i3status '''
+interval = "once"
+
+[[block]]
+block = "custom"
+command = '''echo ↓'''
+on_click = '''pactl set-sink-volume @DEFAULT_SINK@ -10% && killall -SIGUSR1 i3status '''
+interval = "once"
 
 [[block]]
 block = "time"
@@ -35,5 +43,9 @@ interval = 5
 format = "%a, %Y/%m/%d %R"
 
 [[block]]
+block = "backlight"
+cycle = [0, 5, 10, 50, 100]
+
+[[block]]
 block = "battery"
-if_command = "test -e /sys/class/power_supply/BAT0"
+if_command = "test -e /sys/class/power_supply/BAT*"
