@@ -2,6 +2,10 @@
   file:
     path: ~/.config
     state: directory
+- name: Ensure gh directory
+  file:
+    path: ~/.config/gh
+    state: directory
 - name: Link dotfiles
   ansible.builtin.file:
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/home/{{ item }}"
@@ -16,6 +20,7 @@
     - .config/flake8
     - .config/i3
     - .config/i3status-rust
+    - .config/gh/config.yml
     - .config/nvim
     - .config/sway
     - .config/kitty
