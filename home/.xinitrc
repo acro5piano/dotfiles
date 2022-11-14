@@ -24,10 +24,12 @@ export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus # required for Kitty terminal
 export TERMINAL=kitty # required for i3
 
+iwctl device wlan0 set-property Powered off & # disable, as I use USB device
+
 # For surface device
-export QT_AUTO_SCREEN_SCALE_FACTOR=2
-export GDK_SCALE=2
-xrandr --output eDP-1 --dpi 190
+# export QT_AUTO_SCREEN_SCALE_FACTOR=2
+# export GDK_SCALE=2
+# xrandr --output eDP-1 --dpi 190
 
 xmodmap ~/.xmodmap
 
