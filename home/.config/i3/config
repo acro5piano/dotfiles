@@ -4,9 +4,12 @@
 
 set $mod Mod4
 
-font pango:monospace 8
+font pango:Source Code Pro 9
 
-set $refresh_i3status killall -SIGUSR1 i3status
+default_border pixel 1
+default_floating_border pixel 1
+
+set $refresh_i3status killall -SIGUSR1 i3status-rs
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -18,6 +21,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme Arc-Dark
+bindsym $mod+Tab exec --no-startup-id rofi -show window -theme Arc-Dark
 
 # change focus
 bindsym $mod+h focus left
@@ -99,7 +103,7 @@ bindsym $mod+r mode "resize"
 
 bar {
     position top
-    font pango:monospace, FontAwesome 10
+    font pango:Source Code Pro 10
     status_command i3status-rs
 }
 
