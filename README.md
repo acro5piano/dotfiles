@@ -13,6 +13,8 @@ Core technologies:
 
 ![image](https://user-images.githubusercontent.com/10719495/176839022-bcaf0d70-3395-4b6e-812e-ff676c8294c0.png)
 
+![image](https://user-images.githubusercontent.com/10719495/202087327-462649bd-d3df-45c7-b0e0-62e35074769f.png)
+
 # Setup process
 
 ## Install Arch Linux with Windows 10 or 11 multi boot
