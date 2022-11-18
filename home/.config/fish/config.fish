@@ -37,7 +37,7 @@ set -gx GTK_IM_MODULE fcitx
 
 set --universal nvm_default_version 18
 
-fnm env --use-on-cd | source
+fnm env --use-on-cd | source > /dev/null
 
 [ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go

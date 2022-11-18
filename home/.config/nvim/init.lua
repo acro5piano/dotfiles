@@ -167,6 +167,7 @@ vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 -- vim.keymap.set("n", "g/", fzf_lua.blines)
 vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
 vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
+vim.keymap.set("n", "gm", fzf_lua.lsp_definitions)
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
@@ -253,17 +254,18 @@ require("lualine").setup({
 })
 require("nvim_comment").setup()
 
+local shrink_result_definition = function(err, result, method, ...)
+	if vim.tbl_islist(result) and #result > 1 then
+		return vim.lsp.handlers["textDocument/definition"](err, { result[1] }, method, ...)
+	end
+	vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
+end
+
 local lsp = require("lspconfig")
 lsp.pyright.setup({})
 lsp.tsserver.setup({
 	handlers = {
-		["textDocument/definition"] = function(err, result, method, ...)
-			if vim.tbl_islist(result) and #result > 1 then
-				local filtered_result = my_util.filter(result, my_util.filter_react_dts)
-				return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
-			end
-			vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
-		end,
+		["textDocument/definition"] = shrink_result_definition,
 	},
 })
 lsp.solargraph.setup({})
@@ -274,6 +276,9 @@ lsp.sumneko_lua.setup({
 				globals = { "vim", "describe" },
 			},
 		},
+	},
+	handlers = {
+		["textDocument/definition"] = shrink_result_definition,
 	},
 })
 lsp.rust_analyzer.setup({})
