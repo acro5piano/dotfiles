@@ -254,7 +254,9 @@ require("lualine").setup({
 })
 require("nvim_comment").setup()
 
-local shrink_result_definition = function(err, result, method, ...)
+-- This handler function forces to select the first element of lsp definitions if multiple candidates exist.
+-- Without this, nvim-cmp shows a quickfix list to select a code position to jump, which is really annoying.
+local shrink_lsp_definition_result = function(err, result, method, ...)
 	if vim.tbl_islist(result) and #result > 1 then
 		return vim.lsp.handlers["textDocument/definition"](err, { result[1] }, method, ...)
 	end
@@ -265,7 +267,7 @@ local lsp = require("lspconfig")
 lsp.pyright.setup({})
 lsp.tsserver.setup({
 	handlers = {
-		["textDocument/definition"] = shrink_result_definition,
+		["textDocument/definition"] = shrink_lsp_definition_result,
 	},
 })
 lsp.solargraph.setup({})
@@ -278,7 +280,7 @@ lsp.sumneko_lua.setup({
 		},
 	},
 	handlers = {
-		["textDocument/definition"] = shrink_result_definition,
+		["textDocument/definition"] = shrink_lsp_definition_result,
 	},
 })
 lsp.rust_analyzer.setup({})
