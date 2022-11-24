@@ -33,4 +33,6 @@ iwctl device wlan0 set-property Powered off & # disable, as I use USB device
 
 xmodmap ~/.xmodmap
 
+light -S 10
+
 exec i3
