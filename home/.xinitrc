@@ -31,6 +31,8 @@ iwctl device wlan0 set-property Powered off & # disable, as I use USB device
 # export GDK_SCALE=2
 # xrandr --output eDP-1 --dpi 190
 
+feh --bg-scale ~/.dotfiles/wallpapers/autumn-load.jpg
+
 xmodmap ~/.xmodmap
 
 light -S 10

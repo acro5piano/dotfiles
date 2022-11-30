@@ -107,7 +107,7 @@ bar {
     status_command i3status-rs
     colors {
         separator #666666
-        background #334155
+        background #0f172a
         statusline #dddddd
         focused_workspace #0088CC #0088CC #ffffff
         active_workspace #333333 #333333 #ffffff
@@ -124,12 +124,13 @@ bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
 bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
-# Not works well!
 for_window [class="brave-browser"] move container to workspace 2
 exec --no-startup-id brave
 
 for_window [class="pcmanfm"] move container to workspace 2
 for_window [class="Pcmanfm"] move container to workspace 2
+
+for_window [class="TigerVNC"] move container to workspace 3
 
 exec i3-msg 'exec kitty'
 
