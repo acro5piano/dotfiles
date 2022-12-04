@@ -10,4 +10,5 @@ if [ $1 == "post" ]; then
     light -I
     systemctl restart iwd
     sleep 2
+    iwctl device wlan0 set-property Powered off
 fi

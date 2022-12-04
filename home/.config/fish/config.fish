@@ -351,3 +351,25 @@ if [ "$TTY" = "/dev/tty2" ]
 	exec sway
 end
 
+function load-dotenv
+	set file $argv[1]
+	if test -z $file
+		set file .env
+	end
+	if ! test -f $file
+	    echo "Not found: $file"
+		return
+	end
+    for line in (cat $argv[1])
+        set line (string trim $line)
+        if test -z $line
+        or string match -q "#*" $line
+            continue
+        end
+        set name_value (string split -m 1 = $line)
+        set name (string trim $name_value[1])
+        set value (string trim $name_value[2])
+        echo "[line=$line, name=$name, value=$value]"
+        set -gx $name $value
+    end
+end
