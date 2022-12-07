@@ -347,6 +347,9 @@ fzf_lua.setup({
 			-- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
 		},
 	},
+	grep = {
+		rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 --hidden",
+	},
 	previewers = {
 		git_diff = {
 			pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment

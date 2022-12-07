@@ -25,11 +25,11 @@
     - .config/sway
     - .config/kitty
     - .ctags
-    - .ctags
     - .editorconfig
     - .gemrc
     - .gitconfig
     - prettier.config.js
+    - .ripgreprc
     - sql-formatter.json
     - .tmux.conf
     - .wezterm.lua

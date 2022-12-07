@@ -19,7 +19,7 @@
     - pgcli
     - poetry
     - pyright
-    - toml # required by yapf
+    # - toml # required by yapf
     - trash-cli
     - virtualenv
     - pyudev # required by xset-auto
