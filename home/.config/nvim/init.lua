@@ -16,7 +16,7 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
-	use("machakann/vim-sandwich")
+	use("tpope/vim-surround")
 	use("dcampos/nvim-snippy")
 	use("dcampos/cmp-snippy")
 	use("github/copilot.vim")
@@ -33,6 +33,7 @@ require("packer").startup(function(use)
 	use("lukas-reineke/cmp-rg")
 	use("gbprod/yanky.nvim")
 	use("stevearc/dressing.nvim") -- for yanky to work nicely
+	use("monaqa/dial.nvim")
 end)
 
 local my_util = require("my-util")
@@ -240,6 +241,36 @@ vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.api.nvim_set_keymap("v", "B", "S*gvS*", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 vim.keymap.set("v", ",", require("hop").hint_words)
+
+vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
+vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
+vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual())
+vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual())
+vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual())
+vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual())
+
+local augend = require("dial.augend")
+require("dial.config").augends:register_group({
+	default = {
+		augend.integer.alias.decimal,
+		augend.integer.alias.hex,
+		augend.date.alias["%Y/%m/%d"],
+		augend.date.alias["%Y-%m-%d"],
+		augend.date.alias["%H:%M"],
+		augend.constant.alias.Alpha,
+		augend.constant.alias.alpha,
+		augend.constant.new({
+			elements = { "or", "and" },
+			word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+			cyclic = false, -- "or" is incremented into "and".
+		}),
+		augend.constant.new({
+			elements = { "||", "&&" },
+			word = false,
+			cyclic = false,
+		}),
+	},
+})
 
 require("lualine").setup({
 	options = { theme = "gruvbox" },
