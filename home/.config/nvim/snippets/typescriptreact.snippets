@@ -7,7 +7,18 @@ snippet rfn
 
 	}
 
-	export const ${1:`expand('%:t:r')`}: = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
+	export const ${1:`expand('%:t:r')`} = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
+		return (
+			<div>
+			</div>
+		)
+	}
+snippet rfc
+	interface ${1:`expand('%:t:r')`}Props {
+
+	}
+
+	export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
 		return (
 			<div>
 			</div>
