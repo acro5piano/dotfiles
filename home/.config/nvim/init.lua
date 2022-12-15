@@ -117,16 +117,24 @@ if has("fcitx5-remote") then
 	})
 end
 
+local function prettier_bin()
+	local bin = vim.fn.findfile("node_modules/.bin/prettier", vim.fn.getcwd() .. ";")
+	if bin == "" then
+		return "prettier"
+	end
+	return bin
+end
+
 require("nvim-format-buffer").setup({
 	format_rules = {
 		{ pattern = { "*.lua" }, command = "stylua -" },
 		{ pattern = { "*.py" }, command = "black -q - | isort -" },
 		{
 			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.mts" },
-			command = "prettier --parser typescript 2>/dev/null",
+			command = prettier_bin() .. " --parser typescript 2>/dev/null",
 		},
-		{ pattern = { "*.md" }, command = "prettier --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
-		{ pattern = { "*.css" }, command = "prettier --parser css" },
+		{ pattern = { "*.md" }, command = prettier_bin() .. " --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
+		{ pattern = { "*.css" }, command = prettier_bin() .. " --parser css" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
 		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
 		{ pattern = { "*.tf" }, command = "terraform fmt -" },
