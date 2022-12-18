@@ -34,11 +34,7 @@ require("packer").startup(function(use)
 	use("gbprod/yanky.nvim")
 	use("stevearc/dressing.nvim") -- for yanky to work nicely
 	use("monaqa/dial.nvim")
-
-	-- Themes
-	use("shaunsingh/nord.nvim")
-	use("marko-cerovac/material.nvim")
-	use("sainnhe/sonokai")
+	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 end)
 
 local my_util = require("my-util")
@@ -55,27 +51,17 @@ vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.mouse = false
 
--- vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
--- vim.api.nvim_exec("highlight Pmenu ctermbg=235 ctermfg=231", false)
--- vim.api.nvim_exec("highlight PmenuSel cterm=BOLD ctermbg=239 ctermfg=231", false)
-vim.g.nord_disable_background = true
-vim.g.nord_contrast = true
-vim.g.nord_uniform_diff_background = true
-
--- vim.cmd("colorscheme nord")
+vim.g.material_style = "darker"
 require("material").setup({
 	disable = {
 		background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
 	},
+	high_visibility = {
+		lighter = true, -- Enable higher contrast text for lighter style
+		darker = true, -- Enable higher contrast text for darker style
+	},
 })
-
-vim.g.material_style = "darker"
-
 vim.cmd("colorscheme material")
-
--- vim.g.sonokai_style = "espresso"
--- vim.g.sonokai_transparent_background = 1
--- vim.cmd("colorscheme sonokai")
 
 vim.g["fern#default_hidden"] = 1
 
