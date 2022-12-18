@@ -28,17 +28,23 @@ require("packer").startup(function(use)
 	use("phaazon/hop.nvim")
 	use("hashivim/vim-terraform")
 	use("windwp/nvim-ts-autotag")
-	use("nvim-treesitter/nvim-treesitter")
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("goolord/alpha-nvim")
 	use("lukas-reineke/cmp-rg")
 	use("gbprod/yanky.nvim")
 	use("stevearc/dressing.nvim") -- for yanky to work nicely
 	use("monaqa/dial.nvim")
+
+	-- Themes
+	use("shaunsingh/nord.nvim")
+	use("marko-cerovac/material.nvim")
+	use("sainnhe/sonokai")
 end)
 
 local my_util = require("my-util")
 
 vim.g.mapleader = " "
+
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.wrap = false
@@ -49,9 +55,27 @@ vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.mouse = false
 
-vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
-vim.api.nvim_exec("highlight Pmenu ctermbg=235 ctermfg=231", false)
-vim.api.nvim_exec("highlight PmenuSel cterm=BOLD ctermbg=239 ctermfg=231", false)
+-- vim.api.nvim_exec("highlight SignColumn ctermbg=black", false)
+-- vim.api.nvim_exec("highlight Pmenu ctermbg=235 ctermfg=231", false)
+-- vim.api.nvim_exec("highlight PmenuSel cterm=BOLD ctermbg=239 ctermfg=231", false)
+vim.g.nord_disable_background = true
+vim.g.nord_contrast = true
+vim.g.nord_uniform_diff_background = true
+
+-- vim.cmd("colorscheme nord")
+require("material").setup({
+	disable = {
+		background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+	},
+})
+
+vim.g.material_style = "darker"
+
+vim.cmd("colorscheme material")
+
+-- vim.g.sonokai_style = "espresso"
+-- vim.g.sonokai_transparent_background = 1
+-- vim.cmd("colorscheme sonokai")
 
 vim.g["fern#default_hidden"] = 1
 
@@ -398,13 +422,11 @@ fzf_lua.setup({
 
 require("hop").setup()
 
--- To use nvim-ts-autotag
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "typescript", "tsx" },
-	auto_install = false,
-	highlight = { enable = false },
+	ensure_installed = "all",
+	highlight = { enable = true },
+	indent = { enable = true },
 	autotag = { enable = true },
-	incremental_selection = { enable = false },
 })
 
 require("nvim-ts-autotag").setup()
