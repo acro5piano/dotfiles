@@ -84,7 +84,7 @@ set -gx GREP_OPTIONS '--line-buffered'
 
 set -gx BROWSER brave
 
-# It's slow down!
+# It slows down!
 # nvm use latest >/dev/null 2>/dev/null
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
