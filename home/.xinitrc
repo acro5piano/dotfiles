@@ -17,6 +17,7 @@ start-fcitx &
 copyq &
 CM_SELECTIONS=clipboard clipmenud &
 nohup ~/bin/xset-auto.py > /dev/null &
+dunst &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

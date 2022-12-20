@@ -21,6 +21,7 @@
     - dnsutils
     - docker
     - docker-compose
+    - dunst
     - fcitx5
     - fcitx5-configtool
     - fcitx5-gtk

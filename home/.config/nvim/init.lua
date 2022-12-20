@@ -79,6 +79,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "Podfile", "Appfile", "Matchfile", "Fastfile" },
+	callback = function()
+		vim.api.nvim_exec("setlocal ft=ruby", false)
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	pattern = { "quickfix" },
 	callback = function()
 		vim.keymap.set("n", "p", "<CR>zz<C-w>p", { buffer = true })
@@ -317,7 +324,13 @@ lsp.tsserver.setup({
 		["textDocument/definition"] = shrink_lsp_definition_result,
 	},
 })
-lsp.solargraph.setup({})
+lsp.solargraph.setup({
+	settings = {
+		solargraph = {
+			diagnostics = false,
+		},
+	},
+})
 lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
