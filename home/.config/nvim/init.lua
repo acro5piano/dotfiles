@@ -48,6 +48,7 @@ vim.o.smartcase = true
 vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.mouse = false
+vim.o.cedit = "<C-q>"
 
 vim.g.material_style = "darker"
 require("material").setup({
