@@ -33,6 +33,7 @@ require("packer").startup(function(use)
 	use("stevearc/dressing.nvim") -- for yanky to work nicely
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
+	use("onsails/lspkind.nvim")
 end)
 
 local my_util = require("my-util")
@@ -376,6 +377,19 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-l>"] = cmp.mapping.complete(),
 		["<C-j>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
+	},
+	formatting = {
+		format = require("lspkind").cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
 	},
 })
 
