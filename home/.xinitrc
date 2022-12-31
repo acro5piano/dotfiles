@@ -1,4 +1,4 @@
-# vim:set mode=sh
+# vim:set ft=sh :
 
 xmodmap $HOME/.xmodmap
 
@@ -10,7 +10,7 @@ xdg-mime default brave.desktop application/pdf
 xset -dpms
 xset s off
 xset dpms 0 0 0
-xset r rate 230 60
+xset r rate 200 60
 
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
