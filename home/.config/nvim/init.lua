@@ -33,6 +33,7 @@ require("packer").startup(function(use)
 	use("stevearc/dressing.nvim") -- for yanky to work nicely
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
+	use("williamboman/mason.nvim")
 end)
 
 local my_util = require("my-util")

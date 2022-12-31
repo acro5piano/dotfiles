@@ -302,6 +302,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias 1='cd -'
+alias ,d='cd ~/.dotfiles'
 
 alias ag='rg'
 alias dc='docker-compose'
