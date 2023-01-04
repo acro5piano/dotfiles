@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -ue
+
+for site in `cat ~/.junkairc`; do
+  echo ''
+  echo ''
+  echo 'Press any key to move on to the next site:'
+  echo "  $site"
+  read -n 1
+  xdg-open $site
+done
