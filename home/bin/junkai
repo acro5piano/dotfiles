@@ -2,14 +2,14 @@
 
 set -ue
 
-for site in `cat ~/.junkairc`; do
+while read -u 3 -r site; do
   echo ''
   echo ''
+  echo "$site"
   echo 'Move on to the next site? [Y/n]'
-  echo "  $site"
   read -n 1 key
   if [ "$key" = 'n' ]; then
     continue
   fi
-  brave $site 2>/dev/null
-done
+  brave `echo $site | awk '{print $1}'` 2>/dev/null
+done 3<~/.junkairc
