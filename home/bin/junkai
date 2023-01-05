@@ -5,8 +5,11 @@ set -ue
 for site in `cat ~/.junkairc`; do
   echo ''
   echo ''
-  echo 'Press any key to move on to the next site:'
+  echo 'Move on to the next site? [Y/n]'
   echo "  $site"
-  read -n 1
-  xdg-open $site
+  read -n 1 key
+  if [ "$key" = 'n' ]; then
+    continue
+  fi
+  brave $site 2>/dev/null
 done
