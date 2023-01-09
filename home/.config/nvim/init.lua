@@ -455,4 +455,4 @@ require("yanky").setup({
 	},
 })
 
-require("gitsigns").setup()
+-- require("gitsigns").setup()
