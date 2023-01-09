@@ -226,10 +226,14 @@ vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
-vim.keymap.set("n", "Q", "@q")
+vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
 vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
+
+-- mm to mark, M to move. This is a bit more intuitive than the default: supports jump across files.
+vim.keymap.set("n", "mm", "mA")
+vim.keymap.set("n", "M", "'A")
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
 vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
