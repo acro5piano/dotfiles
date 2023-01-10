@@ -153,6 +153,7 @@ require("nvim-format-buffer").setup({
 		},
 		{ pattern = { "*.md" }, command = prettier_bin() .. " --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
 		{ pattern = { "*.css" }, command = prettier_bin() .. " --parser css" },
+		{ pattern = { "*.graphql" }, command = prettier_bin() .. " --parser graphql" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
 		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
 		{ pattern = { "*.tf" }, command = "terraform fmt -" },
