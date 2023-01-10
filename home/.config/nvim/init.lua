@@ -352,6 +352,7 @@ lsp.sumneko_lua.setup({
 })
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
+lsp.graphql.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
