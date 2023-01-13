@@ -16,6 +16,12 @@ sudo ln -svf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 sudo ln -svf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 sudo ln -svf /usr/lib/libffi.so.7 /usr/lib/libffi.so.6
 
+if ! which xremap-rs; then
+    curl -L https://github.com/k0kubun/xremap/releases/download/v0.8.0/xremap-linux-x86_64-x11.zip -o /tmp/xremap-linux-x86_64-x11.zip
+    unzip /tmp/xremap-linux-x86_64-x11.zip
+    sudo mv xremap /usr/local/bin/xremap-rs
+fi
+
 if ! which xremap; then
     sudo curl -L https://github.com/acro5piano/xremap-mruby-bin/raw/main/xremap -o /usr/local/bin/xremap
     sudo chmod +x /usr/local/bin/xremap
