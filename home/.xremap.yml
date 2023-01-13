@@ -1,0 +1,53 @@
+modmap:
+  - name: Ctrl or ESC
+    remap:
+      CapsLock:
+        alone: ESC
+        held: Ctrl_L
+
+# virtual_modifiers:
+#   - F23
+#   - F24
+#
+# keymap:
+#   - remap:
+#       KEY_F23-K: UP
+#       KEY_F23-H: LEFT
+#       KEY_F23-J: DOWN
+#       KEY_F23-L: RIGHT
+#       KEY_F23-U: PAGEUP
+#       KEY_F23-O: PAGEDOWN
+#       KEY_F23-M: ENTER
+#       KEY_F23-F: BACKSPACE
+#       KEY_F23-D: DELETE
+#       KEY_F23-A: HOME
+#       KEY_F23-E: END
+#       KEY_F23-S: ENTER
+#       KEY_F24-H: KEY_MINUS
+#       KEY_F24-J: KEY_EQUAL
+#       KEY_F24-K: KEY_LEFTBRACE
+#       KEY_F24-L: KEY_RIGHTBRACE
+#       KEY_F24-SEMICOLON: KEY_BACKSLASH
+#       KEY_F24-APOSTROPHE: KEY_GRAVE
+#       KEY_F24-Q: KEY_1
+#       KEY_F24-W: KEY_2
+#       KEY_F24-E: KEY_3
+#       KEY_F24-R: KEY_4
+#       KEY_F24-T: KEY_5
+#       KEY_F24-Y: KEY_6
+#       KEY_F24-U: KEY_7
+#       KEY_F24-I: KEY_8
+#       KEY_F24-O: KEY_9
+#       KEY_F24-P: KEY_0
+#       KEY_F24-KEY_1: KEY_F1
+#       KEY_F24-KEY_2: KEY_F2
+#       KEY_F24-KEY_3: KEY_F3
+#       KEY_F24-KEY_4: KEY_F4
+#       KEY_F24-KEY_5: KEY_F5
+#       KEY_F24-KEY_6: KEY_F6
+#       KEY_F24-KEY_7: KEY_F7
+#       KEY_F24-KEY_8: KEY_F8
+#       KEY_F24-KEY_9: KEY_F9
+#       KEY_F24-KEY_0: KEY_F10
+#       KEY_F24-KEY_MINUS: KEY_F11
+#       KEY_F24-KEY_EQUAL: KEY_F12

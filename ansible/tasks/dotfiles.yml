@@ -36,5 +36,6 @@
     - .xinitrc
     - .xmodmap
     - .xremap
+    - .xremap.yml
     - .Xresources
     - .zshrc

@@ -1,0 +1,15 @@
+[Unit]
+Description=xremap
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/xremap-rs /home/kazuya/.xremap.yml
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=no
+User=root
+Group=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

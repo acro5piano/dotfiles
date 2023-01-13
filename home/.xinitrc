@@ -1,7 +1,5 @@
 # vim:set ft=sh :
 
-xmodmap $HOME/.xmodmap
-
 xdg-settings set default-web-browser brave.desktop
 xdg-mime default feh.desktop image/png image/jpg image/jpeg image/gif image/bmp image/x-xcf image/webp
 xdg-mime default gnumeric.desktop text/csv
@@ -32,8 +30,9 @@ export TERMINAL=kitty # required for i3
 
 feh --bg-scale ~/.dotfiles/wallpapers/autumn-load.jpg
 
-xmodmap ~/.xmodmap
+# We use xremap for this
+# xmodmap ~/.xmodmap
 
-light -S 10
+light -S 5
 
 exec i3

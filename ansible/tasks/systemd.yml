@@ -4,6 +4,13 @@
     state: started
     enabled: yes
     scope: user
+- name: Disable systemd-hostnamed, as it breaks iwd
+  become: yes
+  ansible.builtin.systemd:
+    name: systemd-hostnamed
+    state: stopped
+    enabled: no
+
 - name: Link dotfiles to /etc
   become: yes
   ansible.builtin.file:
@@ -11,7 +18,6 @@
     dest: "/etc/{{ item }}"
     state: link
   loop:
-    - wayremap.config.py
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
 - name: Link systemd config file
@@ -22,8 +28,7 @@
     state: link
   loop:
     - change-keymap.service
-    - disable-wlan0.service
-    - wayremap.service
+    - xremap.service
 - name: Add around suspend script
   become: yes
   ansible.builtin.file:
@@ -37,13 +42,6 @@
     state: started
     enabled: yes
   loop:
-    # - wayremap.service
-    - disable-wlan0.service
+    - xremap.service
     - systemd-resolved.service
     - change-keymap.service
-- name: Disable systemd-hostnamed, as it breaks iwd
-  become: yes
-  ansible.builtin.systemd:
-    name: systemd-hostnamed
-    state: stopped
-    enabled: no
