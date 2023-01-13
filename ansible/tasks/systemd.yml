@@ -20,6 +20,7 @@
   loop:
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
+    - xremap.yml
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
@@ -27,7 +28,6 @@
     dest: "/etc/systemd/system/{{ item }}"
     state: link
   loop:
-    - change-keymap.service
     - xremap.service
 - name: Add around suspend script
   become: yes
@@ -44,4 +44,3 @@
   loop:
     - xremap.service
     - systemd-resolved.service
-    - change-keymap.service

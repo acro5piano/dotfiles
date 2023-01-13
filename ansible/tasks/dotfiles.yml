@@ -36,6 +36,6 @@
     - .xinitrc
     - .xmodmap
     - .xremap
-    - .xremap.yml
+    # - .xremap.yml goes to /etc/xremap.yml
     - .Xresources
     - .zshrc
