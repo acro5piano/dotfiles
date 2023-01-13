@@ -1,16 +1,16 @@
 # mode: ruby
 
 browsers = [
-  # 'chromium-browser',
-  'chromium',
-  # 'google-chrome',
-  'google-chrome-beta',
-  # 'google-chrome-stable',
-  # 'google-chrome-dev',
-  'vivaldi-stable',
-  'konqueror',
   'brave-browser',
+  'chromium',
+  'chromium-browser',
   'feh',
+  'google-chrome',
+  'google-chrome-beta',
+  'google-chrome-dev',
+  'google-chrome-stable',
+  'konqueror',
+  'vivaldi-stable',
   /crx_/,
 ]
 
@@ -40,9 +40,7 @@ window class_only: browsers do
   remap 'C-s', to: 'Ctrl-f'
   # remap 'C-r', to: 'Ctrl-Shift-g'
 
-  # remap 'C-[', to: 'ESC'
-
-  # Alternative
+  # Alternatives
   remap 'C-M-d', to: 'Ctrl-d'
   remap 'C-M-s', to: 'Ctrl-f'
   remap 'C-M-b', to: 'Ctrl-b'
@@ -57,10 +55,6 @@ window class_only: browsers do
   remap 'M-v', to: 'Ctrl-v'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
-
-  # OSX Like - not working with Slack
-  # remap 'M-Up', to: 'Ctrl-Home'
-  # remap 'M-Down', to: 'Ctrl-End'
 
   # Slack
   remap 'M-x', to: 'Ctrl-k'

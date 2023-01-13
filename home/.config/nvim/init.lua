@@ -353,7 +353,9 @@ lsp.sumneko_lua.setup({
 })
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
-lsp.graphql.setup({})
+lsp.graphql.setup({
+	filetypes = { "graphql", "typescript", "typescriptreact", "javascriptreact" },
+})
 
 local cmp = require("cmp")
 cmp.setup({
