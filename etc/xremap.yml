@@ -4,3 +4,4 @@ modmap:
       CapsLock:
         alone: ESC
         held: Ctrl_L
+        alone_timeout_millis: 200
