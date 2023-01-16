@@ -34,7 +34,6 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 	use("onsails/lspkind.nvim")
-	use("lewis6991/gitsigns.nvim")
 end)
 
 local my_util = require("my-util")
@@ -288,12 +287,10 @@ require("dial.config").augends:register_group({
 		augend.date.alias["%Y/%m/%d"],
 		augend.date.alias["%Y-%m-%d"],
 		augend.date.alias["%H:%M"],
-		augend.constant.alias.Alpha,
-		augend.constant.alias.alpha,
 		augend.constant.new({
 			elements = { "or", "and" },
-			word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
-			cyclic = false, -- "or" is incremented into "and".
+			word = true,
+			cyclic = false,
 		}),
 		augend.constant.new({
 			elements = { "||", "&&" },
@@ -462,5 +459,3 @@ require("yanky").setup({
 		on_yank = false,
 	},
 })
-
--- require("gitsigns").setup()
