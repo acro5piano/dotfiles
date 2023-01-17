@@ -203,6 +203,7 @@ vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
 vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
+vim.keymap.set("n", "<Leader>fn", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
 vim.keymap.set("n", ",", ":HopWord<CR>")
 vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
@@ -228,7 +229,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
-vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
+-- vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 -- mm to mark, M to move. This is a bit more intuitive than the default: supports jump across files.

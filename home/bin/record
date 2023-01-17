@@ -18,3 +18,7 @@ ffmpeg -i out.ogv out.gif
 
 echo Saved at:
 echo $PWD
+
+if [ `uname -s` == 'Linux' ]; then
+    echo -n $PWD | xclip -selection clipboard
+fi

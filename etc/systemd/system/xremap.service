@@ -3,7 +3,7 @@ Description=xremap
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/xremap-rs /etc/xremap.yml
+ExecStart=/usr/local/bin/xremap-rs --watch /etc/xremap.yml
 TimeoutSec=0
 StandardOutput=tty
 RemainAfterExit=no
