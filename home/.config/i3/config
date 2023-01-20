@@ -24,7 +24,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -theme Arc-Dark
 bindsym $mod+Tab exec --no-startup-id rofi -show window -theme Arc-Dark
 
 # change focus
-bindsym $mod+n focus right
+bindsym $mod+h focus left
+bindsym $mod+l focus right
 
 # split in vertical/horizonatal orientation
 bindsym $mod+Shift+v split v
@@ -60,10 +61,13 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# Alternative
-bindsym $mod+j workspace number $ws1
-bindsym $mod+k workspace number $ws2
-bindsym $mod+l workspace number $ws3
+# Alternative (It's not working!)
+# bindsym $mod+j workspace number $ws1
+# bindsym $mod+k workspace number $ws2
+# bindsym $mod+l workspace number $ws3
+
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
 bindsym $mod+comma workspace number $ws7
 
 # move focused container to workspace
@@ -116,7 +120,7 @@ bar {
 }
 
 bindsym $mod+Print exec screenshot-clip
-bindsym $mod+p exec clipmenu
+bindsym $mod+semicolon exec clipmenu
 bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
 bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
