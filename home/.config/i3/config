@@ -20,8 +20,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme Arc-Dark
-bindsym $mod+Tab exec --no-startup-id rofi -show window -theme Arc-Dark
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+h focus left
@@ -119,8 +119,10 @@ bar {
     }
 }
 
+hide_edge_borders smart
+
 bindsym $mod+Print exec screenshot-clip
-bindsym $mod+semicolon exec clipmenu
+bindsym $mod+semicolon exec CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
 bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
 bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
@@ -128,15 +130,11 @@ bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
 bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
 for_window [class="brave-browser"] move container to workspace 2
-exec --no-startup-id brave
-
 for_window [class="pcmanfm"] move container to workspace 2
 for_window [class="Pcmanfm"] move container to workspace 2
-
 for_window [class="TigerVNC"] move container to workspace 3
 
+exec --no-startup-id brave
 exec i3-msg 'exec kitty'
 
 assign [class="Brave"] $ws2
-
-hide_edge_borders smart

@@ -344,12 +344,12 @@ end
 
 # If running from tty1, start i3
 if [ "$TTY" = "/dev/tty1" ]
-	exec startx
+	startx
 end
 
 # If running from tty2, start sway
 if [ "$TTY" = "/dev/tty2" ]
-	exec sway
+	sway
 end
 
 function load-dotenv
