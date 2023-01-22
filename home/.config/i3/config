@@ -24,12 +24,19 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+l focus right
+# bindsym $mod+h focus left
+# bindsym $mod+l focus right
+bindsym $mod+b focus right
 
-# split in vertical/horizonatal orientation
-bindsym $mod+Shift+v split v
-bindsym $mod+Shift+h split h
+# change focus
+bindsym $mod+h exec xdotool click 6
+bindsym $mod+j exec xdotool click 5
+bindsym $mod+k exec xdotool click 4
+bindsym $mod+l exec xdotool click 7
+
+# split in vertical/horizonatal orientation (hard to use)
+# bindsym $mod+Shift+v split v
+# bindsym $mod+Shift+h split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -127,7 +134,7 @@ bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
 bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
-bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
+# bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
 for_window [class="brave-browser"] move container to workspace 2
 for_window [class="pcmanfm"] move container to workspace 2
