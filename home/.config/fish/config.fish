@@ -333,6 +333,8 @@ alias tmc='tmux clear-history'
 
 alias q='qrcode'
 
+alias xremap-restart='sudo systemctl restart xremap && sleep 3 && xset r rate 230 60'
+
 set TTY (tty)
 
 # Run tmux if not running
