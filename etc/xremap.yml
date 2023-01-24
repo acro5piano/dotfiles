@@ -1,16 +1,34 @@
+virtual_modifiers:
+  - F23
+  - F24
+
 modmap:
-  - name: Ctrl
+  - name: Global
     remap:
-      CapsLock:
+      CAPSLOCK:
         # It is ideal to have the feature "click to ESC", hold to ctrl.
         # However, it creates mistypes much and it is critical (de-focusing from text input, close fzf-lua window, etc.)
         # Use Right-Shift instead.
         # alone: ESC
-        alone: Ctrl_L
-        held: Ctrl_L
-  - name: Shift or ESC
-    remap:
+        alone: CTRL_L
+        held: CTRL_L
       SHIFT_R:
         alone: ESC
         held: SHIFT_R
         alone_timeout_millis: 200
+      SHIFT_L:
+        alone: BTN_LEFT
+        held: SHIFT_L
+        alone_timeout_millis: 200
+      TAB:
+        alone: TAB
+        held: F23
+        alone_timeout_millis: 200
+      CONTROL_L:
+        alone: F24
+        held: F24
+
+keymap:
+  - name: Global
+    remap:
+      F23-J: KEY_F12
