@@ -6,10 +6,6 @@ modmap:
   - name: Global
     remap:
       CAPSLOCK:
-        # It is ideal to have the feature "click to ESC", hold to ctrl.
-        # However, it creates mistypes much and it is critical (de-focusing from text input, close fzf-lua window, etc.)
-        # Use Right-Shift instead.
-        # alone: ESC
         alone: CTRL_L
         held: CTRL_L
       SHIFT_R:
@@ -35,4 +31,6 @@ keymap:
       F23-5: KEY_F5
       F23-J: PAGEDOWN
       F23-K: PAGEUP
+      F24-S:
+        launch: ["systemctl", "suspend"]
       F24-P: SUPER-PRINT
