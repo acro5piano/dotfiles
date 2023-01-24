@@ -13,7 +13,7 @@ xset r rate 230 60
 xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
 copyq &
-CM_SELECTIONS=clipboard clipmenud &
+CM_DIR=~/tmp CM_SELECTIONS=clipboard clipmenud &
 nohup ~/bin/xset-auto.py > /dev/null &
 dunst &
 
