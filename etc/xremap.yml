@@ -31,4 +31,7 @@ modmap:
 keymap:
   - name: Global
     remap:
+      F23-R: KEY_F5
       F23-J: KEY_F12
+      F23-H: CTRL-SHIFT-PAGEUP
+      F23-L: CTRL-SHIFT-PAGEDOWN
