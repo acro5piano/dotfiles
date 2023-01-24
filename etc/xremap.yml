@@ -11,15 +11,15 @@ modmap:
       SHIFT_R:
         alone: ESC
         held: SHIFT_R
-        alone_timeout_millis: 400 # My pinky finger is not strong to release quickly yet
+        alone_timeout_millis: 200 # My pinky finger is not strong to release quickly yet, but I'll do my best
       SHIFT_L:
         alone: BTN_LEFT
         held: SHIFT_L
-        alone_timeout_millis: 400
+        alone_timeout_millis: 200
       TAB:
         alone: TAB
         held: F23
-        alone_timeout_millis: 400
+        alone_timeout_millis: 200
       # It's very strange, but Figma requires to use native ctrl key for Pinch ZOOM.
       # So we should keep CONTROL_L as it is.
       # CONTROL_L:
