@@ -1,6 +1,7 @@
 virtual_modifiers:
-  - F23
   - F24
+  - F23
+  - F22
 
 modmap:
   - name: Global
@@ -18,8 +19,17 @@ modmap:
         alone_timeout_millis: 200
       TAB:
         alone: TAB
+        held: F24
+        alone_timeout_millis: 200
+      BACKSPACE:
+        alone: BACKSPACE
         held: F23
         alone_timeout_millis: 200
+      GRAVE:
+        alone: GRAVE
+        held: F22
+        alone_timeout_millis: 200
+
       # It's very strange, but Figma requires to use native ctrl key for Pinch ZOOM.
       # So we should keep CONTROL_L as it is.
       # CONTROL_L:
@@ -27,12 +37,22 @@ modmap:
       #   held: F24
 
 keymap:
-  - name: Global
+  - name: Shortcts with TAB key
     remap:
-      F23-2: KEY_F2
-      F23-5: KEY_F5
-      F23-J: PAGEDOWN
-      F23-K: PAGEUP
-      F23-S:
+      F24-2: KEY_F2
+      F24-5: KEY_F5
+      F24-J: PAGEDOWN
+      F24-K: PAGEUP
+      F24-S:
         launch: ["systemctl", "suspend"]
-      F23-P: SUPER-PRINT
+      F24-P: SUPER-PRINT
+
+  - name: Shortcuts with BACKSPACE key
+    remap:
+      F23-LEFTBRACE: CTRL-PAGEUP
+      F23-KEY_RIGHTBRACE: CTRL-PAGEDOWN
+
+  - name: Shortcuts with GRAVE(`) key
+    remap:
+      F22-W: CTRL-PAGEUP
+      F22-E: CTRL-PAGEDOWN
