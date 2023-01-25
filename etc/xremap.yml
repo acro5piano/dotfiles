@@ -9,50 +9,38 @@ modmap:
       CAPSLOCK:
         alone: CTRL_L
         held: CTRL_L
-      SHIFT_R:
-        alone: ESC
-        held: SHIFT_R
-        alone_timeout_millis: 200 # My pinky finger is not strong to release quickly yet, but I'll do my best
       SHIFT_L:
         alone: BTN_LEFT
         held: SHIFT_L
         alone_timeout_millis: 200
-      TAB:
-        alone: TAB
-        held: F24
+      SHIFT_R:
+        alone: ESC
+        held: SHIFT_R
         alone_timeout_millis: 200
-      BACKSPACE:
-        alone: BACKSPACE
-        held: F23
-        alone_timeout_millis: 200
-      GRAVE:
-        alone: GRAVE
+      ENTER:
+        alone: ENTER
         held: F22
         alone_timeout_millis: 200
-
-      # It's very strange, but Figma requires to use native ctrl key for Pinch ZOOM.
-      # So we should keep CONTROL_L as it is.
-      # CONTROL_L:
-      #   alone: F24
-      #   held: F24
+      RIGHT:
+        alone: RIGHT
+        held: CTRL_L
+        alone_timeout_millis: 200
 
 keymap:
-  - name: Shortcts with TAB key
+  - name: Shortcuts with Right key
     remap:
-      F24-2: KEY_F2
-      F24-5: KEY_F5
-      F24-J: PAGEDOWN
-      F24-K: PAGEUP
-      F24-S:
-        launch: ["systemctl", "suspend"]
-      F24-P: SUPER-PRINT
-
-  - name: Shortcuts with BACKSPACE key
-    remap:
-      F23-LEFTBRACE: CTRL-PAGEUP
-      F23-KEY_RIGHTBRACE: CTRL-PAGEDOWN
-
-  - name: Shortcuts with GRAVE(`) key
-    remap:
-      F22-W: CTRL-PAGEUP
-      F22-E: CTRL-PAGEDOWN
+      F22-Q: Y
+      F22-W: U
+      F22-E: I
+      F22-R: O
+      F22-T: P
+      F22-A: H
+      F22-S: J
+      F22-D: K
+      F22-F: L
+      F22-G: SEMICOLON
+      F22-Z: N
+      F22-X: M
+      F22-C: COMMA
+      F22-V: DOT
+      F22-B: SLASH
