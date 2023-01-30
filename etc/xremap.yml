@@ -55,8 +55,8 @@ keymap:
   - name: F22
     remap:
       F22-Q: BACKSLASH
-      F22-W: LEFTBRACE
-      F22-E: RIGHTBRACE
+      F22-W: RIGHTBRACE
+      F22-E: LEFTBRACE
       F22-R: EQUAL
       F22-T: MINUS
       F22-A: APOSTROPHE
@@ -68,4 +68,4 @@ keymap:
       F22-X: F20
       F22-C: F20
       F22-V: F20
-      F22-B: F20
+      F22-B: BACKSPACE
