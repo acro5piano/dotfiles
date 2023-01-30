@@ -9,38 +9,38 @@ modmap:
       CAPSLOCK:
         alone: CTRL_L
         held: CTRL_L
-      SHIFT_L:
-        alone: BTN_LEFT
-        held: SHIFT_L
-        alone_timeout_millis: 200
       SHIFT_R:
         alone: ESC
         held: SHIFT_R
         alone_timeout_millis: 200
-      ENTER:
-        alone: ENTER
-        held: F22
+      LEFT:
+        alone: LEFT
+        held: F24
+        alone_timeout_millis: 200
+      DOWN:
+        alone: DOWN
+        held: F23
         alone_timeout_millis: 200
       RIGHT:
         alone: RIGHT
-        held: CTRL_L
+        held: F22
         alone_timeout_millis: 200
 
 keymap:
-  - name: Shortcuts with Right key
+  - name: Shortcuts with LEFT key
     remap:
-      F22-Q: Y
-      F22-W: U
-      F22-E: I
-      F22-R: O
-      F22-T: P
-      F22-A: H
-      F22-S: J
-      F22-D: K
-      F22-F: L
-      F22-G: SEMICOLON
-      F22-Z: N
-      F22-X: M
-      F22-C: COMMA
-      F22-V: DOT
-      F22-B: SLASH
+      F24-Q: P
+      F24-W: O
+      F24-E: I
+      F24-R: U
+      F24-T: Y
+      F24-A: SEMICOLON
+      F24-S: L
+      F24-D: K
+      F24-F: J
+      F24-G: H
+      F24-Z: SLASH
+      F24-X: DOT
+      F24-C: COMMA
+      F24-V: M
+      F24-B: N
