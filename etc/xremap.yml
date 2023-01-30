@@ -13,17 +13,9 @@ modmap:
         alone: ESC
         held: SHIFT_R
         alone_timeout_millis: 200
-      LEFT:
-        alone: LEFT
+      SLASH:
+        alone: SLASH
         held: F24
-        alone_timeout_millis: 200
-      DOWN:
-        alone: DOWN
-        held: F23
-        alone_timeout_millis: 200
-      RIGHT:
-        alone: RIGHT
-        held: F22
         alone_timeout_millis: 200
 
 keymap:
