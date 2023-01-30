@@ -61,8 +61,8 @@ keymap:
       F22-T: MINUS
       F22-A: APOSTROPHE
       F22-S: F20
-      F22-D: F20
-      F22-F: F20
+      F22-D: PAGEUP
+      F22-F: PAGEDOWN
       F22-G: F20
       F22-Z: GRAVE
       F22-X: F20
