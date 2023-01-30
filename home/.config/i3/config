@@ -70,13 +70,13 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Alternative (It's not working!)
-# bindsym $mod+j workspace number $ws1
-# bindsym $mod+k workspace number $ws2
-# bindsym $mod+l workspace number $ws3
 
 bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 bindsym $mod+comma workspace number $ws7
+bindsym $mod+w workspace number $ws1
+bindsym $mod+e workspace number $ws2
+bindsym $mod+r workspace number $ws3
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -110,7 +110,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 bar {
     position top
