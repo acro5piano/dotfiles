@@ -28,8 +28,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 # bindsym $mod+l focus right
 bindsym $mod+o focus right
 
-# change focus
-bindsym $mod+a exec xdotool click 1
+# Emulate mouse wheel
 bindsym $mod+h exec xdotool click 6
 bindsym $mod+j exec xdotool click 5
 bindsym $mod+k exec xdotool click 4
