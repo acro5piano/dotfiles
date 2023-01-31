@@ -19,12 +19,12 @@ modmap:
         alone: BACKSLASH
         held: F24
         alone_timeout_millis: 200
-      SLASH:
-        alone: SLASH
-        held: F23
-        alone_timeout_millis: 200
       APOSTROPHE:
         alone: APOSTROPHE
+        held: F23
+        alone_timeout_millis: 200
+      DOT:
+        alone: DOT
         held: F22
         alone_timeout_millis: 200
 
