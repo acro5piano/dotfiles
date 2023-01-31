@@ -38,9 +38,9 @@ keymap:
   - name: F23
     remap:
       F23-Q: F20
-      F23-W: KEY_1
-      F23-E: KEY_2
-      F23-R: KEY_3
+      F23-W: KEY_7
+      F23-E: KEY_8
+      F23-R: KEY_9
       F23-T: F20
       F23-A: F20
       F23-S: KEY_4
@@ -48,24 +48,24 @@ keymap:
       F23-F: KEY_6
       F23-G: F20
       F23-Z: KEY_0
-      F23-X: KEY_7
-      F23-C: KEY_8
-      F23-V: KEY_9
+      F23-X: KEY_1
+      F23-C: KEY_2
+      F23-V: KEY_3
       F23-B: F20
   - name: F22
     remap:
-      F22-Q: BACKSLASH
-      F22-W: RIGHTBRACE
-      F22-E: LEFTBRACE
-      F22-R: EQUAL
-      F22-T: MINUS
+      F22-Q: F20
+      F22-W: F20
+      F22-E: F20
+      F22-R: MINUS
+      F22-T: EQUAL
       F22-A: APOSTROPHE
       F22-S: F20
-      F22-D: PAGEUP
-      F22-F: PAGEDOWN
-      F22-G: F20
+      F22-D: LEFTBRACE
+      F22-F: RIGHTBRACE
+      F22-G: BACKSLASH
       F22-Z: GRAVE
       F22-X: F20
-      F22-C: F20
-      F22-V: F20
+      F22-C: PAGEUP
+      F22-V: PAGEDOWN
       F22-B: BACKSPACE
