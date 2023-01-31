@@ -23,8 +23,8 @@ modmap:
         alone: SLASH
         held: F23
         alone_timeout_millis: 200
-      SEMICOLON:
-        alone: SEMICOLON
+      APOSTROPHE:
+        alone: APOSTROPHE
         held: F22
         alone_timeout_millis: 200
 
