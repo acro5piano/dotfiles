@@ -6,12 +6,10 @@ virtual_modifiers:
 modmap:
   - name: Global
     remap:
-      CAPSLOCK:
-        alone: CTRL_L
-        held: CTRL_L
-      SHIFT_L:
+      CAPSLOCK: CTRL_L
+      SHIFT_R:
         alone: ESC
-        held: SHIFT_L
+        held: SHIFT_R
         alone_timeout_millis: 200 # My pinky finger is not strong to release quickly yet, but I'll do my best
       TAB:
         alone: TAB
@@ -19,7 +17,7 @@ modmap:
         alone_timeout_millis: 200
       BACKSLASH:
         alone: BACKSLASH
-        held: F23
+        held: F24
         alone_timeout_millis: 200
 
       # Click SHIFT_L to mouse click.
@@ -36,7 +34,7 @@ modmap:
       #   held: F24
 
 keymap:
-  - name: Shortcuts with TAB key
+  - name: Shortcuts with TAB/BACKSLASH key
     remap:
       F24-1: F1
       F24-2: F2
@@ -53,18 +51,3 @@ keymap:
       F24-J: PAGEDOWN
       F24-K: PAGEUP
       F24-P: SUPER-PRINT
-
-  - name: Shortcuts with BACKSLASH key
-    remap:
-      F23-1: F1
-      F23-2: F2
-      F23-3: F3
-      F23-4: F4
-      F23-5: F5
-      F23-6: F6
-      F23-7: F7
-      F23-8: F8
-      F23-9: F9
-      F23-0: F10
-      F23-MINUS: F11
-      F23-EQUAL: F12
