@@ -18,7 +18,7 @@ modmap:
       DOT: F22
 
 keymap:
-  - name: F24
+  - name: Alphabet Layer
     remap:
       F24-Q: P
       F24-W: O
@@ -35,7 +35,7 @@ keymap:
       F24-C: COMMA
       F24-V: M
       F24-B: N
-  - name: F23
+  - name: Numpad Layer
     remap:
       F23-Q: F20
       F23-W: KEY_7
@@ -52,13 +52,13 @@ keymap:
       F23-C: KEY_2
       F23-V: KEY_3
       F23-B: F20
-  - name: F22
+  - name: Symbol Layer
     remap:
       F22-Q: F20
       F22-W: F20
-      F22-E: F20
-      F22-R: MINUS
-      F22-T: EQUAL
+      F22-E: MINUS
+      F22-R: EQUAL
+      F22-T: F20
       F22-A: APOSTROPHE
       F22-S: F20
       F22-D: LEFTBRACE
