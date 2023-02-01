@@ -4,12 +4,6 @@
     state: started
     enabled: yes
     scope: user
-- name: Disable systemd-hostnamed, as it breaks iwd
-  become: yes
-  ansible.builtin.systemd:
-    name: systemd-hostnamed
-    state: stopped
-    enabled: no
 
 - name: Link dotfiles to /etc
   become: yes
@@ -21,6 +15,7 @@
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
     - xremap.yml
+    - keyd/default.conf
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
@@ -35,6 +30,7 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/usr/lib/systemd/system-sleep/around-suspend.sh"
     dest: /usr/lib/systemd/system-sleep/around-suspend.sh
     state: link
+
 - name: Enable some services
   become: yes
   ansible.builtin.systemd:
@@ -42,5 +38,14 @@
     state: started
     enabled: yes
   loop:
-    - xremap.service
     - systemd-resolved.service
+    - keyd.service
+- name: Disable some services
+  become: yes
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  loop:
+    - xremap.service
+    - systemd-hostnamed
