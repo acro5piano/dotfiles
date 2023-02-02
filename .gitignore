@@ -7,3 +7,4 @@ home/bin/php
 
 *.tar.gz
 *.tgz
+*.backup
