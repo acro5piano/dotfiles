@@ -67,7 +67,7 @@ set -gx CHROME_BIN chromium
 set -gx PIPENV_VENV_IN_PROJECT 1
 # set -gx AWS_DEFAULT_PROFILE acro5piano
 
-set -gx CLOUDSDK_PYTHON /usr/bin/python2
+set -gx CLOUDSDK_PYTHON /usr/bin/python3.9
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
