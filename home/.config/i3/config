@@ -21,12 +21,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+x exec --no-startup-id rofi -show window
 
 # change focus
-# bindsym $mod+h focus left
-# bindsym $mod+l focus right
-bindsym $mod+o focus right
+bindsym $mod+shift+h focus left
+bindsym $mod+shift+l focus right
+bindsym $mod+Tab focus right
 
 # Emulate mouse wheel
 bindsym $mod+h exec xdotool click 6
