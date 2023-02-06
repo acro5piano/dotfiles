@@ -19,7 +19,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+x exec --no-startup-id rofi -show window
 
@@ -68,13 +68,19 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# Alternative (It's not working!)
-# bindsym $mod+j workspace number $ws1
-# bindsym $mod+k workspace number $ws2
-# bindsym $mod+l workspace number $ws3
+# Alternative
+bindsym $mod+q workspace number $ws1
+bindsym $mod+w workspace number $ws2
+bindsym $mod+e workspace number $ws3
+bindsym $mod+r workspace number $ws4
+bindsym $mod+t workspace number $ws5
+bindsym $mod+y workspace number $ws6
+bindsym $mod+u workspace number $ws7
+bindsym $mod+i workspace number $ws8
+bindsym $mod+o workspace number $ws9
 
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
+# bindsym $mod+n workspace next_on_output
+# bindsym $mod+p workspace prev_on_output
 bindsym $mod+comma workspace number $ws7
 
 # move focused container to workspace
@@ -89,9 +95,20 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Alternative
+bindsym $mod+Shift+q move container to workspace number $ws1
+bindsym $mod+Shift+w move container to workspace number $ws2
+bindsym $mod+Shift+e move container to workspace number $ws3
+bindsym $mod+Shift+r move container to workspace number $ws4
+bindsym $mod+Shift+t move container to workspace number $ws5
+bindsym $mod+Shift+y move container to workspace number $ws6
+bindsym $mod+Shift+u move container to workspace number $ws7
+bindsym $mod+Shift+i move container to workspace number $ws8
+bindsym $mod+Shift+o move container to workspace number $ws9
+
+
 # reload the configuration file
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -109,7 +126,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+backslash mode "resize"
 
 bar {
     position top
