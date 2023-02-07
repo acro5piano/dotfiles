@@ -159,6 +159,7 @@ for_window [class="brave-browser"] move container to workspace 2
 for_window [class="pcmanfm"] move container to workspace 2
 for_window [class="Pcmanfm"] move container to workspace 2
 for_window [class="TigerVNC"] move container to workspace 3
+for_window [class="pavucontrol-qt"] move container to workspace 7
 
 exec --no-startup-id brave
 exec i3-msg 'exec kitty'
