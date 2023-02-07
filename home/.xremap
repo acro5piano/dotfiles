@@ -31,7 +31,6 @@ window class_only: browsers do
   remap 'M-d', to: 'Ctrl-Delete'
   remap 'C-M-h', to: 'Ctrl-BackSpace'
   remap 'C-y', to: 'Ctrl-v'
-  remap 'C-m', to: 'Return'
 
   remap 'M-b', to: 'Ctrl-Left'
   remap 'M-f', to: 'Ctrl-Right'
