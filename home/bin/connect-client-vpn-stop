@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -exu
+
+echo "d myvpn" | sudo tee /var/run/xl2tpd/l2tp-control
+
+sudo ipsec down myvpn
+sleep 2
+sudo ipsec stop
+sudo systemctl stop xl2tpd.service

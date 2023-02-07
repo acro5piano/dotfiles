@@ -16,6 +16,7 @@
     - X11/xorg.conf.d/10-disable-dpms.conf
     - xremap.yml
     - keyd/default.conf
+    - keyd/elecom-numpad-right.conf
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
