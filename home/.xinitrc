@@ -10,7 +10,6 @@ xset s off
 xset dpms 0 0 0
 xset r rate 230 60
 
-xremap ~/.xremap 2>&1 > /tmp/xremap.log &
 start-fcitx &
 copyq &
 CM_DIR=~/tmp CM_SELECTIONS=clipboard clipmenud &
@@ -22,6 +21,8 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus # required for Kitty terminal
 export TERMINAL=kitty # required for i3
+
+xhost +SI:localuser:root # required for xremap-rs
 
 # For surface device
 # export QT_AUTO_SCREEN_SCALE_FACTOR=2

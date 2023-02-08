@@ -41,7 +41,7 @@
     enabled: yes
   loop:
     - systemd-resolved.service
-    - keyd.service
+    - xremap.service
 - name: Disable some services
   become: yes
   ansible.builtin.systemd:
@@ -49,5 +49,5 @@
     state: stopped
     enabled: no
   loop:
-    - xremap.service
+    - keyd.service
     - systemd-hostnamed

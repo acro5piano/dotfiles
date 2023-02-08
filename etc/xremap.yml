@@ -1,5 +1,4 @@
-# No used at all
-virtual_modifiers:
+virtual_modifiers: # No used at all
   - F24
   - F23
   - F22
@@ -17,55 +16,41 @@ modmap:
         held: SHIFT_L
         alone_timeout_millis: 200 # My pinky finger is not strong to release quickly yet, but I'll do my best
 
-# keymap:
-#   - name: Fn Layer
-#     remap:
-#       F24-1: F1
-#       F24-2: F2
-#       F24-3: F3
-#       F24-4: F4
-#       F24-5: F5
-#       F24-6: F6
-#       F24-7: F7
-#       F24-8: F8
-#       F24-9: F9
-#       F24-0: F10
-#       F24-MINUS: F11
-#       F24-EQUAL: F12
-#       F24-J: PAGEDOWN
-#       F24-K: PAGEUP
-#       F24-P: SUPER-PRINT
-#   - name: Numpad Layer
-#     remap:
-#       F23-Q: F20
-#       F23-W: KEY_7
-#       F23-E: KEY_8
-#       F23-R: KEY_9
-#       F23-T: F20
-#       F23-A: F20
-#       F23-S: KEY_4
-#       F23-D: KEY_5
-#       F23-F: KEY_6
-#       F23-G: F20
-#       F23-Z: KEY_0
-#       F23-X: KEY_1
-#       F23-C: KEY_2
-#       F23-V: KEY_3
-#       F23-B: F20
-#   - name: Symbol Layer
-#     remap:
-#       F22-Q: F20
-#       F22-W: F20
-#       F22-E: MINUS
-#       F22-R: EQUAL
-#       F22-T: F20
-#       F22-A: APOSTROPHE
-#       F22-S: F20
-#       F22-D: LEFTBRACE
-#       F22-F: RIGHTBRACE
-#       F22-G: BACKSLASH
-#       F22-Z: GRAVE
-#       F22-X: F20
-#       F22-C: PAGEUP
-#       F22-V: PAGEDOWN
-#       F22-B: BACKSPACE
+keymap:
+  - name: Emacs binding
+    application:
+      not: kitty
+    remap:
+      C-b: left
+      C-f: right
+      C-p: up
+      C-n: down
+      C-a: home
+      C-e: end
+      C-M-a: ctrl-Home
+      C-M-e: ctrl-End
+      C-h: backspace
+      C-d: delete
+      M-d: ctrl-Delete
+      C-M-h: ctrl-BackSpace
+      C-y: ctrl-v
+      M-b: ctrl-Left
+      M-f: ctrl-Right
+      C-k: [shift-End, 'Ctrl-x']
+      C-s: ctrl-f
+
+      # Alternatives
+      C-M-d: ctrl-d
+      C-M-s: ctrl-f
+      C-M-b: ctrl-b
+      M-e: ctrl-e
+      M-s: ctrl-s
+      M-n: ctrl-Tab
+      M-p: ctrl-Shift-Tab
+      M-a: ctrl-a
+      M-r: ctrl-r
+      C-M-p: m-p # Used in picture in picture extension
+      M-c: ctrl-c
+      M-v: ctrl-v
+      M-k: ctrl-k
+      M-h: ctrl-h
