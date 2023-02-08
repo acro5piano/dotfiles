@@ -9,3 +9,5 @@ home/bin/php
 *.tgz
 *.backup
 home/bin/connect-client-vpn
+
+*.lock
