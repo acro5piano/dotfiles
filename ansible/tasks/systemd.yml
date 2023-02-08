@@ -17,6 +17,7 @@
     - xremap.yml
     - keyd/default.conf
     - keyd/elecom-numpad-right.conf
+    - keyd/hoyome-numpad-left.conf
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
