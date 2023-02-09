@@ -54,3 +54,4 @@ keymap:
       M-v: ctrl-v
       M-k: ctrl-k
       M-h: ctrl-h
+      M-x: ctrl-k
