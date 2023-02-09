@@ -82,6 +82,9 @@ set -gx JAVA_OPTS "-Xms512m -Xmx1024m"
 
 set -gx GREP_OPTIONS '--line-buffered'
 
+# Required for poetry
+set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
+
 set -gx BROWSER brave
 
 # It slows down!

@@ -69,7 +69,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Alternative
-bindsym $mod+q workspace number $ws0
+bindsym $mod+q workspace number $ws1
 bindsym $mod+w workspace number $ws1
 bindsym $mod+e workspace number $ws2
 bindsym $mod+r workspace number $ws3
@@ -97,7 +97,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Alternative
-bindsym $mod+Shift+q move container to workspace number $ws0
+bindsym $mod+Shift+q move container to workspace number $ws1
 bindsym $mod+Shift+w move container to workspace number $ws1
 bindsym $mod+Shift+e move container to workspace number $ws2
 bindsym $mod+Shift+r move container to workspace number $ws3
@@ -159,6 +159,7 @@ for_window [class="brave-browser"] move container to workspace 2
 for_window [class="pcmanfm"] move container to workspace 2
 for_window [class="Pcmanfm"] move container to workspace 2
 for_window [class="TigerVNC"] move container to workspace 3
+for_window [class="pavucontrol-qt"] move container to workspace 7
 
 exec --no-startup-id brave
 exec i3-msg 'exec kitty'

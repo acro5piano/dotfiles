@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ue
+
 bluetoothctl power on
 
 case "$1" in
