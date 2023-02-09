@@ -55,3 +55,5 @@ keymap:
       M-k: ctrl-k
       M-h: ctrl-h
       M-x: ctrl-k
+
+      M-space: ctrl-shift-a
