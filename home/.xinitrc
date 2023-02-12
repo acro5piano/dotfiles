@@ -15,6 +15,7 @@ copyq &
 CM_DIR=~/tmp CM_SELECTIONS=clipboard clipmenud &
 nohup ~/bin/xset-auto.py > /dev/null &
 dunst &
+pavucontrol-qt &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -22,7 +23,6 @@ export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus # required for Kitty terminal
 export TERMINAL=kitty # required for i3
 
-xhost +SI:localuser:root # required for xremap-rs
 
 # For surface device
 # export QT_AUTO_SCREEN_SCALE_FACTOR=2
@@ -32,7 +32,8 @@ xhost +SI:localuser:root # required for xremap-rs
 feh --bg-scale ~/.dotfiles/wallpapers/autumn-load.jpg
 
 # We use xremap for this
-# xmodmap ~/.xmodmap
+xmodmap ~/.xmodmap
+# xhost +SI:localuser:root # required for xremap-rs
 
 light -S 5
 
