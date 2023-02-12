@@ -15,6 +15,7 @@ copyq &
 CM_DIR=~/tmp CM_SELECTIONS=clipboard clipmenud &
 nohup ~/bin/xset-auto.py > /dev/null &
 dunst &
+pavucontrol-qt &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
