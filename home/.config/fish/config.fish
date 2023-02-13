@@ -1,7 +1,3 @@
-# vim:set ft=sh :
-
-# {{{ Env vars
-
 set -gx IS_MAC 0
 set -gx IS_WSL 0
 set -gx IS_LINUX 0
@@ -216,6 +212,12 @@ end
 function camelcase
     perl -pe 's#(_|^)(.)#\u$2#g'
 end
+
+function titlecase
+    /bin/ruby -nale 'puts $_.gsub(/([A-Z])/, \'_\1\').gsub(/^_/, \'\').upcase'
+    # '''
+end
+
 
 function insert
     perl -pe "s#^#$argv[1] #g"
