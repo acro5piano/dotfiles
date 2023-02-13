@@ -73,10 +73,18 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
+-- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	pattern = { "*.fish" },
+	pattern = { "*" },
 	callback = function()
-		vim.api.nvim_exec("setlocal ft=graphql", false)
+		vim.api.nvim_exec('silent! normal! g`"zv', false)
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	callback = function()
+		vim.api.nvim_exec(":%s/ \\+$//e", false)
 	end,
 })
 
