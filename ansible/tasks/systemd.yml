@@ -15,9 +15,7 @@
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
     - xremap.yml
-    - keyd/default.conf
-    - keyd/elecom-numpad-right.conf
-    - keyd/hoyome-numpad-left.conf
+    - keyd
 - name: Link systemd config file
   become: yes
   ansible.builtin.file:
@@ -41,7 +39,7 @@
     enabled: yes
   loop:
     - systemd-resolved.service
-    - xremap.service
+    - keyd.service
 - name: Disable some services
   become: yes
   ansible.builtin.systemd:
@@ -49,5 +47,5 @@
     state: stopped
     enabled: no
   loop:
-    - keyd.service
+    - xremap.service
     - systemd-hostnamed
