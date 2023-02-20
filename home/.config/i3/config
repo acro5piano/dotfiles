@@ -26,8 +26,8 @@ bindsym $mod+r exec --no-startup-id rofi -show drun
 bindsym $mod+x exec --no-startup-id rofi -show window
 
 # change focus
-bindsym $mod+shift+h focus left
-bindsym $mod+shift+l focus right
+# bindsym $mod+Shift+h focus left
+# bindsym $mod+Shift+l focus right
 bindsym $mod+Tab focus right
 
 # Emulate mouse wheel
@@ -95,14 +95,14 @@ bindsym $mod+l workspace number $ws9
 
 # Alternative
 bindsym $mod+Shift+a move container to workspace number $ws1
-bindsym $mod+Shift+w move container to workspace number $ws2
-bindsym $mod+Shift+e move container to workspace number $ws3
-bindsym $mod+Shift+r move container to workspace number $ws4
-bindsym $mod+Shift+t move container to workspace number $ws5
-bindsym $mod+Shift+y move container to workspace number $ws6
-bindsym $mod+Shift+u move container to workspace number $ws7
-bindsym $mod+Shift+i move container to workspace number $ws8
-bindsym $mod+Shift+o move container to workspace number $ws9
+bindsym $mod+Shift+s move container to workspace number $ws2
+bindsym $mod+Shift+d move container to workspace number $ws3
+bindsym $mod+Shift+f move container to workspace number $ws4
+bindsym $mod+Shift+g move container to workspace number $ws5
+bindsym $mod+Shift+h move container to workspace number $ws6
+bindsym $mod+Shift+j move container to workspace number $ws7
+bindsym $mod+Shift+k move container to workspace number $ws8
+bindsym $mod+Shift+l move container to workspace number $ws9
 
 
 # reload the configuration file
