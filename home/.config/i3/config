@@ -151,10 +151,13 @@ bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
 # bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
-for_window [class="brave-browser"] move container to workspace 2
-for_window [class="pcmanfm"] move container to workspace 2
-for_window [class="Pcmanfm"] move container to workspace 2
-for_window [class="TigerVNC"] move container to workspace 3
+for_window [class="kitty"] move container to workspace 7
+
+# Index Finger
+for_window [class="brave-browser"] move container to workspace 8
+for_window [class="pcmanfm"] move container to workspace 8
+for_window [class="Pcmanfm"] move container to workspace 8
+for_window [class="TigerVNC"] move container to workspace 9
 for_window [class="pavucontrol-qt"] move container to workspace 5
 
 exec --no-startup-id brave
