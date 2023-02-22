@@ -19,7 +19,9 @@ Core technologies:
 
 ## Install Arch Linux with Windows 10 or 11 multi boot
 
-- Reduce Windows partition and create a blank partition
+- **On windows**,
+  - Reduce Windows partition to minimum 80GB
+  - Create a blank partition for Linux
 - Create arch linux install usb.
   - download latest iso image
   - `cp /path/to/iso /dev/sdX`
@@ -38,6 +40,7 @@ cfdisk /dev/nvme0n1
 - Create a partition for swap (for hibernation)
   - create a new partition and set `20G` size for it
   - Add swap flag (`8200`)
+- write out
 
 ```sh
 # UEFI
@@ -100,8 +103,14 @@ useradd --create-home kazuya
 passwd kazuya
 gpasswd -a kazuya wheel
 
-# %wheel ALL=(ALL) ALL
-visudo
+visudo /etc/sudoers.d/admin
+
+# Recommended config:
+#   %wheel ALL=(ALL) ALL
+#   %wheel ALL=NOPASSWD: /bin/systemctl restart iwd
+#   %wheel ALL=NOPASSWD: /bin/systemctl restart bluetooth
+#   %wheel ALL=NOPASSWD: /bin/systemctl systemctl restart keyd
+#   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn
 
 exit
 ```
@@ -114,6 +123,8 @@ password:
 ```
 
 ## Install dotfiles
+
+then install dotfiles:
 
 ```sh
 cd ~
@@ -130,9 +141,9 @@ ansible-playbook --ask-become-pass ansible/main.yml
 
 ```
 mkdir $HOME/var
+scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var/music
 scp -r 192.168.xxx.yyy:/home/kazuya/.aws $HOME/.aws
 scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
-scp -r 192.168.xxx.yyy:/home/kazuya/var/music $HOME/var
 ```
 
 # Maintain
@@ -149,6 +160,24 @@ ansible-playbook --ask-become-pass ansible/main.yml --tags pacman
 
 ```
 ansible-playbook ansible/main.yml --tags dotfiles,misc,npm,pip,gem --extra-vars "os=mac"
+```
+
+# Linux only (No need Windows)
+
+For Linux only environment, do this on `cfdisk` phase:
+
+- Delete whole partition
+- Create a partition for boot
+  - create a new partition and set `512M` for the partition size
+  - Add UEFI boot flag (`ef00`)
+
+And use this commands for the initial setup, replacing `grub` thing:
+
+```sh
+# systemd-boot
+mkdir /boot
+mount /dev/sda1 /boot
+bootctl install
 ```
 
 # Windows + WSL2 Arch
