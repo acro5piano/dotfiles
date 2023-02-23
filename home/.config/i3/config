@@ -118,6 +118,7 @@ bar {
 hide_edge_borders smart
 
 bindsym $mod+Print exec screenshot-clip
+bindsym $mod+shift+p exec screenshot-clip
 bindsym $mod+semicolon exec CM_DIR=~/tmp CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
 bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
