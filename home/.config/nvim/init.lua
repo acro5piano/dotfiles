@@ -112,6 +112,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 			"/\\(\\(type\\)\\|\\(input\\)\\|\\(enum\\)\\|\\(scalar\\)\\) <C-r><C-w>[\\n| ]<CR>:nohl<CR>",
 			{ buffer = true }
 		)
+		vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
 	end,
 })
 
