@@ -285,8 +285,6 @@ vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
 vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual())
 vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual())
 
-vim.keymap.set("v", "`", "S")
-
 local augend = require("dial.augend")
 require("dial.config").augends:register_group({
 	default = {
