@@ -18,7 +18,6 @@ require("packer").startup(function(use)
 	use("tpope/vim-surround")
 	use("dcampos/nvim-snippy")
 	use("dcampos/cmp-snippy")
-	use("github/copilot.vim")
 	use("ruanyl/vim-gh-line")
 	use("kyoh86/vim-ripgrep")
 	use("gpanders/editorconfig.nvim")
@@ -34,6 +33,8 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 	use("onsails/lspkind.nvim")
+	-- use("zbirenbaum/copilot.lua")
+	-- use("zbirenbaum/copilot-cmp")
 end)
 
 local my_util = require("my-util")
@@ -283,8 +284,8 @@ vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
 vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
 vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual())
 vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual())
-vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual())
-vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual())
+
+vim.keymap.set("v", "`", "S")
 
 local augend = require("dial.augend")
 require("dial.config").augends:register_group({
