@@ -129,7 +129,7 @@ bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
 for_window [class="kitty"] move container to workspace 7
 
 # Index Finger
-for_window [class="brave-browser"] move container to workspace 8
+for_window [class="brave-browser"] move container to workspace $ws8
 for_window [class="pcmanfm"] move container to workspace 8
 for_window [class="Pcmanfm"] move container to workspace 8
 for_window [class="TigerVNC"] move container to workspace 9
@@ -138,4 +138,4 @@ for_window [class="pavucontrol-qt"] move container to workspace 5
 exec --no-startup-id brave
 exec i3-msg 'exec kitty'
 
-assign [class="Brave"] $ws2
+assign [class="Brave"] $ws8
