@@ -83,9 +83,6 @@ set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 
 set -gx BROWSER brave
 
-# It slows down!
-# nvm use latest >/dev/null 2>/dev/null
-
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
 if not which ruby > /dev/null
@@ -94,6 +91,9 @@ end
 
 set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
+
+set -p Z_EXCLUDE "(google-cloud-sdk|\.dotfiles)"
+
 
 # }}}
 

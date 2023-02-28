@@ -33,6 +33,7 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 	use("onsails/lspkind.nvim")
+	-- use("github/copilot.vim")
 	-- use("zbirenbaum/copilot.lua")
 	-- use("zbirenbaum/copilot-cmp")
 end)
