@@ -33,6 +33,8 @@ require("packer").startup(function(use)
 	use("monaqa/dial.nvim")
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 	use("onsails/lspkind.nvim")
+	use("Vonr/align.nvim")
+
 	-- use("github/copilot.vim")
 	-- use("zbirenbaum/copilot.lua")
 	-- use("zbirenbaum/copilot-cmp")
@@ -280,6 +282,11 @@ vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.api.nvim_set_keymap("v", "B", "S*gvS*", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 vim.keymap.set("v", ",", require("hop").hint_words)
+
+-- Aligns to a string, looking left and with previews
+vim.keymap.set("x", "a", function()
+	require("align").align_to_string(true, false, true)
+end, { noremap = false, silent = true })
 
 vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
 vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
