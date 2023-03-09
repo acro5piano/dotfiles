@@ -28,8 +28,8 @@
     [
       "EX(CMB(KC_U, KC_I,    KC_BSPC))",
       "EX(CMB(KC_K, KC_J,    KC_ENT))",
-      "EX(CMB(KC_M, KC_COMM, KC_SLSH))",
-      "EX(CMB(KC_L, KC_SCLN, KC_QUOT))",
+      "KC_NO",
+      "KC_NO",
 
       "KC_NO",
       "KC_NO",
