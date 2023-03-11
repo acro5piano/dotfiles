@@ -8,6 +8,5 @@ home/bin/php
 *.tar.gz
 *.tgz
 *.backup
-home/bin/connect-client-vpn
 
 *.lock
