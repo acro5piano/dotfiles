@@ -2,6 +2,7 @@
 
 set -exu
 
+# e.g. 11.222.33.444
 CLIENT_VPN=$1
 
 echo "Connecting VPN: $CLIENT_VPN"
