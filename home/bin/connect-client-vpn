@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -exu
+
+CLIENT_VPN=$1
+
+echo "Connecting VPN: $CLIENT_VPN"
+
+# This resets the route. Otherwise, `SIOCADDRT: File exists Error and Solution` happens.
+# https://www.cyberciti.biz/faq/siocaddrt-file-exists-ubuntu-linux-error-solution/
+sudo ip route delete $CLIENT_VPN dev wlan0 || true
+
+sudo mkdir -p /var/run/xl2tpd
+sudo touch /var/run/xl2tpd/l2tp-control
+
+sudo systemctl restart xl2tpd.service
+
+sudo ipsec restart
+sleep 2
+sudo ipsec up myvpn
+
+echo "c myvpn" | sudo tee /var/run/xl2tpd/l2tp-control
+
+sleep 2
+
+sudo route add $CLIENT_VPN gw 192.168.150.1
+sleep 5
+
+sudo route add default dev ppp0
+
+wget -qO- http://ipv4.icanhazip.com; echo
