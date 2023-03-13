@@ -221,7 +221,9 @@ chsh -s /usr/bin/fish
 
 # About my keyboard
 
-I use two gridpads as a split keyboard by the power of keyd. keyd has two pitfills:
+![image](https://user-images.githubusercontent.com/10719495/224605667-c06a7da0-99e1-414b-8895-cd29130137ab.png)
+
+I use two BLE gridpads as a split keyboard by the power of keyd. keyd has two pitfills:
 
 - 1. KC_BTN1 is not available
 - 2. not works outside Linux.
