@@ -11,3 +11,6 @@ home/bin/php
 
 *.lock
 .luarc.json
+
+home/.emacs.d/*
+!home/.emacs.d/init.el

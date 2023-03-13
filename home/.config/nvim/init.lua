@@ -34,6 +34,7 @@ require("packer").startup(function(use)
 	use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
 	use("onsails/lspkind.nvim")
 	use("Vonr/align.nvim")
+	use("/home/kazuya/ghq/github.com/acro5piano/cmp-mozc")
 
 	-- use("github/copilot.vim")
 	-- use("zbirenbaum/copilot.lua")
@@ -401,6 +402,10 @@ cmp.setup({
 		{ name = "snippy" },
 		{
 			name = "rg",
+			keyword_length = 3,
+		},
+		{
+			name = "mozc",
 			keyword_length = 3,
 		},
 	},

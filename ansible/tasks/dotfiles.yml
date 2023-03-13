@@ -26,6 +26,7 @@
     - .config/kitty
     - .ctags
     - .editorconfig
+    - .emacs.d
     - .gemrc
     - .gitconfig
     - prettier.config.js
