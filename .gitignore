@@ -10,3 +10,4 @@ home/bin/php
 *.backup
 
 *.lock
+.luarc.json
