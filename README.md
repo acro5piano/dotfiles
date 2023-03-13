@@ -27,7 +27,6 @@ Core technologies:
   </td>
 </table>
 
-
 # Setup process
 
 ## Install Arch Linux with Windows 10 or 11 multi boot
@@ -220,10 +219,29 @@ ansible-playbook ansible/main.yml --tags pip,npm,misc
 chsh -s /usr/bin/fish
 ```
 
-# Update BLE Micro Pro config
+# About my keyboard
+
+I use two gridpads as a split keyboard by the power of keyd. keyd has two pitfills:
+
+- 1. KC_BTN1 is not available
+- 2. not works outside Linux.
+
+These problems will be fixed by using two ble micro pro controllers as master/slave mode, but it should be difficult at this time. I'll try to implement it in the near future.
+
+### Update BLE Micro Pro config
+
+Right hand
 
 ```
-sudo umount /mnt && sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
+sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
 cp -v ./qmk/keyfuda-04-right-hand/*.JSN /mnt/
-sudo umount /mnt && sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
+sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
+```
+
+Left hand
+
+```
+sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
+cp -v ./qmk/keyfuda-04-left-hand/*.JSN /mnt/
+sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
 ```

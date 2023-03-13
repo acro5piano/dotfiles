@@ -1,0 +1,16 @@
+{
+  "keyboard": "keyfuda04_grid",
+  "keymap": "keyfuda04_grid_layout_mine",
+  "layout": "LAYOUT",
+  "layers": [
+    [
+      "KC_T", "KC_G", "KC_B", "KC_SPC",
+      "KC_R", "KC_F", "KC_V", "KC_LALT",
+      "KC_E", "KC_D", "KC_C", "KC_LGUI",
+      "KC_W", "KC_S", "KC_X", "KC_F20",
+      "KC_Q", "KC_A", "KC_Z", "KC_F21"
+    ]
+  ],
+  "author": "",
+  "notes": ""
+}
