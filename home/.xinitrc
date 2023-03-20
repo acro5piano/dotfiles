@@ -32,7 +32,9 @@ export TERMINAL=kitty # required for i3
 feh --bg-scale ~/.dotfiles/wallpapers/autumn-load.jpg
 
 xmodmap ~/.xmodmap
-# xhost +SI:localuser:root # required for xremap-rs
+
+# I'm not sure of the reason, but this is required for initial connection establishment
+sudo systemctl restart iwd
 
 light -S 5
 
