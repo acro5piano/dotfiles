@@ -24,7 +24,8 @@ echo "c myvpn" | sudo tee /var/run/xl2tpd/l2tp-control
 
 sleep 2
 
-sudo route add $CLIENT_VPN gw 192.168.150.1
+gw=`ip route | grep default | awk '{print $3}'`
+sudo route add $CLIENT_VPN gw $gw
 sleep 5
 
 sudo route add default dev ppp0
