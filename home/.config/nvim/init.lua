@@ -34,6 +34,7 @@ require("packer").startup(function(use)
   use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround")
+  use("nvim-treesitter/nvim-treesitter-textobjects")
 
   -- use("github/copilot.vim")
   -- use("zbirenbaum/copilot.lua")
@@ -475,6 +476,25 @@ require("nvim-treesitter.configs").setup({
   highlight = { enable = true },
   indent = { enable = true },
   autotag = { enable = true },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.outer",
+        ["as"] = "@scope",
+      },
+      selection_modes = {
+        ["@parameter.outer"] = "v", -- charwise
+        ["@function.outer"] = "V", -- linewise
+        ["@class.outer"] = "<c-v>", -- blockwise
+      },
+      include_surrounding_whitespace = true,
+    },
+  },
 })
 
 require("nvim-ts-autotag").setup()
