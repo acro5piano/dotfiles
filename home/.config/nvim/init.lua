@@ -15,7 +15,7 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-cmdline")
   use("hrsh7th/cmp-nvim-lsp")
-  use("tpope/vim-surround")
+  -- use("tpope/vim-surround")
   use("dcampos/nvim-snippy")
   use("dcampos/cmp-snippy")
   use("ruanyl/vim-gh-line")
@@ -33,6 +33,7 @@ require("packer").startup(function(use)
   use("monaqa/dial.nvim")
   use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
   use("onsails/lspkind.nvim")
+  use("kylechui/nvim-surround")
 
   -- use("github/copilot.vim")
   -- use("zbirenbaum/copilot.lua")
@@ -488,3 +489,5 @@ require("yanky").setup({
     on_yank = false,
   },
 })
+
+require("nvim-surround").setup({})
