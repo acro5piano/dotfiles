@@ -27,6 +27,8 @@ bindsym $mod+tab exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+o focus right
+bindsym $mod+n focus right
+bindsym $mod+p focus left
 
 # Emulate mouse wheel
 # bindsym $mod+h exec xdotool click 6
@@ -65,9 +67,6 @@ bindsym $mod+h workspace number $ws6
 bindsym $mod+j workspace number $ws7
 bindsym $mod+k workspace number $ws8
 bindsym $mod+l workspace number $ws9
-
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
 
 # Alternative
 bindsym $mod+Shift+a move container to workspace number $ws1
@@ -119,7 +118,7 @@ hide_edge_borders smart
 
 bindsym Print exec screenshot-clip
 bindsym $mod+shift+p exec screenshot-clip
-bindsym $mod+semicolon exec CM_DIR=~/tmp CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
+bindsym $mod+v exec CM_DIR=~/tmp CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
 bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
 bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
