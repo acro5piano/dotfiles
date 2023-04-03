@@ -8,7 +8,8 @@ xdg-mime default brave.desktop application/pdf
 xset -dpms
 xset s off
 xset dpms 0 0 0
-xset r rate 230 60
+# xset r rate 230 60
+xset r rate 200 60
 
 start-fcitx &
 copyq &
