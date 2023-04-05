@@ -1,9 +1,0 @@
-#!/bin/bash
-
-TMP=$(mktemp).$1
-cat > $TMP
-vim $TMP
-
-echo 'You edited:'
-echo $TMP
-
