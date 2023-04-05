@@ -158,6 +158,17 @@ scp -r 192.168.xxx.yyy:/home/kazuya/.aws $HOME/.aws
 scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
 ```
 
+## Bluetooth
+
+By default bluetooth connection takes too much time. Here is the fix:
+
+- 1. Edit the file /etc/bluetooth/main.conf
+- 1. Uncomment FastConnectable config and set it to true: FastConnectable = true
+- 1. Uncomment ReconnectAttempts=7 (set the value to whatever number that you want)
+- 1. Uncomment ReconnectIntervals=1, 2, 3
+
+Special Thanks: https://gist.github.com/andrebrait/961cefe730f4a2c41f57911e6195e444#enable-bluetooth-fast-connect-config
+
 # Maintain
 
 ```
