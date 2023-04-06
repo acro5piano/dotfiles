@@ -1,10 +1,18 @@
 # vim:set ft=conf
 
-include ./default_config
-
 set $mod Mod4
+set $term kitty
 
 hide_edge_borders smart
+output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
+
+bar {
+    position top
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    colors {
+        background #0f172a
+    }
+}
 
 input type:touchpad {
   tap enabled
@@ -18,16 +26,26 @@ input type:keyboard {
   repeat_rate 60
 }
 
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+o focus right
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Ctrl+s exec systemctl suspend
-bindsym $mod+y exec clipman pick -t bemenu
-
+bindsym $mod+y exec clipman pick -t rofi
+bindsym $mod+x exec bemenu-run
+bindsym $mod+z fullscreen
+bindsym $mod+r mode "resize"
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
+bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
 
-exec start-fcitx &
-exec xremap ~/.xremap &
-exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
+mode "resize" {
+    bindsym j resize shrink width 30px
+    bindsym k resize grow width 30px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
-# Alternative
 bindsym $mod+a workspace number 1
 bindsym $mod+s workspace number 2
 bindsym $mod+d workspace number 3
@@ -38,7 +56,6 @@ bindsym $mod+j workspace number 7
 bindsym $mod+k workspace number 8
 bindsym $mod+l workspace number 9
 
-# Alternative
 bindsym $mod+Shift+a move container to workspace number 1
 bindsym $mod+Shift+s move container to workspace number 2
 bindsym $mod+Shift+d move container to workspace number 3
@@ -49,14 +66,11 @@ bindsym $mod+Shift+j move container to workspace number 7
 bindsym $mod+Shift+k move container to workspace number 8
 bindsym $mod+Shift+l move container to workspace number 9
 
+exec start-fcitx &
+exec xremap ~/.xremap &
+exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 exec swaymsg 'workspace 5; exec pavucontrol-qt'
 exec swaymsg 'workspace 8; exec brave'
 exec swaymsg 'workspace 7; exec kitty'
 
-output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
-
-bindsym $mod+x exec bemenu-run
-
-bindsym $mod+o focus right
-
-bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
+include /etc/sway/config.d/*
