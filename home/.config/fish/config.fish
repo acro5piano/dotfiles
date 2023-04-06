@@ -1,15 +1,16 @@
 set -gx IS_MAC 0
 set -gx IS_WSL 0
-set -gx IS_LINUX 0
-set -gx IS_SURFACE_LINUX 0
+set -gx IS_WAYLAND 0
+set -gx IS_X11 0
+
 if [ -e /Applications ]
     set -gx IS_MAC 1
 else if [ -e /mnt/c ]
     set -gx IS_WSL 1
-# else if uname -a | grep -q surface
-#     set -gx IS_SURFACE_LINUX 1
-else
-    set -gx IS_LINUX 1
+else if [ -z $WAYLAND_DISPLAY ]
+    set -gx IS_WAYLAND 1
+else if [ -z $XAUTHORITY ]
+    set -gx IS_WAYLAND 1
 end
 
 set -gx TERMINAL kitty
@@ -174,7 +175,7 @@ function cl
         pbcopy
     else if [ $IS_WSL -eq 1 ]
         clip.exe
-	else if [ $IS_SURFACE_LINUX -eq 1 ]
+	else if [ $IS_WAYLAND -eq 1 ]
 		wl-copy
 	else
         xclip -selection clipboard
@@ -185,7 +186,7 @@ function clp
         pbpaste
     else if [ $IS_WSL -eq 1 ]
 	  powershell.exe -command 'Get-Clipboard'
-	else if [ $IS_SURFACE_LINUX -eq 1 ]
+	else if [ $IS_WAYLAND -eq 1 ]
 		wl-paste
     else
         # wl-paste
