@@ -16,8 +16,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
-bindsym XF86Mail exec --no-startup-id light -A 6
-bindsym XF86HomePage exec --no-startup-id light -U 6
 
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+c kill
@@ -134,7 +132,8 @@ for_window [class="Pcmanfm"] move container to workspace 8
 for_window [class="TigerVNC"] move container to workspace 9
 for_window [class="pavucontrol-qt"] move container to workspace 5
 
-exec --no-startup-id brave
+# 2023-04-07: x11 is now optional, sway become my partner again
+# exec --no-startup-id brave
 exec i3-msg 'exec kitty'
 
 assign [class="Brave"] $ws8
