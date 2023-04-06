@@ -33,9 +33,9 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+y exec clipman pick -t rofi
-bindsym $mod+x exec bemenu-run
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
+bindsym $mod+x exec rofi -show drun
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
 
