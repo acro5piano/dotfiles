@@ -14,27 +14,49 @@ input type:touchpad {
 
 input type:keyboard {
   xkb_options ctrl:nocaps
-  repeat_delay 200
-  repeat_rate 50
+  repeat_delay 300
+  repeat_rate 60
 }
 
 bindsym $mod+Ctrl+s exec systemctl suspend
-bindsym $mod+p exec clipman pick -t bemenu
+bindsym $mod+y exec clipman pick -t bemenu
 
-# on ThinkPad Trackpoint, PrtSc is easy to mistype
-bindsym $mod+Print exec grim -g "$(slurp)" -| wl-copy
+bindsym Print exec grim -g "$(slurp)" -| wl-copy
 
 exec start-fcitx &
 exec xremap ~/.xremap &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 
-# exec swaymsg 'workspace 2; exec firefox-developer-edition'
-exec swaymsg 'workspace 7; exec pavucontrol-qt'
-exec swaymsg 'workspace 2; exec brave'
-exec swaymsg 'workspace 1; exec kitty'
+# Alternative
+bindsym $mod+a workspace number 1
+bindsym $mod+s workspace number 2
+bindsym $mod+d workspace number 3
+bindsym $mod+f workspace number 4
+bindsym $mod+g workspace number 5
+bindsym $mod+h workspace number 6
+bindsym $mod+j workspace number 7
+bindsym $mod+k workspace number 8
+bindsym $mod+l workspace number 9
+
+# Alternative
+bindsym $mod+Shift+a move container to workspace number 1
+bindsym $mod+Shift+s move container to workspace number 2
+bindsym $mod+Shift+d move container to workspace number 3
+bindsym $mod+Shift+f move container to workspace number 4
+bindsym $mod+Shift+g move container to workspace number 5
+bindsym $mod+Shift+h move container to workspace number 6
+bindsym $mod+Shift+j move container to workspace number 7
+bindsym $mod+Shift+k move container to workspace number 8
+bindsym $mod+Shift+l move container to workspace number 9
+
+exec swaymsg 'workspace 5; exec pavucontrol-qt'
+exec swaymsg 'workspace 8; exec brave'
+exec swaymsg 'workspace 7; exec kitty'
 
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 
-bindsym $mod+d exec bemenu-run
+bindsym $mod+x exec bemenu-run
+
+bindsym $mod+o focus right
 
 bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
