@@ -9,7 +9,6 @@ output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
-default_border pixel 0
 
 bar {
     position top
@@ -24,6 +23,10 @@ input type:touchpad {
   tap enabled
   natural_scroll enabled
   dwt enabled
+}
+
+input type:pointer {
+  natural_scroll enabled
 }
 
 input type:keyboard {
