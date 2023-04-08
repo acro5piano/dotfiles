@@ -100,15 +100,6 @@ set -p Z_EXCLUDE "(google-cloud-sdk|\.dotfiles)"
 
 # {{{ functions
 
-function __fzf_history
-  history | perl -nle 'print if length($_) < 200' | fzf-tmux -p 80%,80% -h --exact +s +m --query=(commandline -b) --no-preview \
-    > /tmp/fzf
-  and commandline (cat /tmp/fzf)
-end
-
-function __copy_command
-  echo -n (commandline -b) | cl
-end
 
 function seishin
     set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
@@ -266,12 +257,13 @@ end
 # }}}
 
 function fish_user_key_bindings
-    bind \cr __fzf_history
     bind \e\ch backward-kill-word
     bind \ew __copy_command
-    bind \e\cf fzf-file-widget
-    bind \ec fzf-cd-widget
 end
+function __copy_command
+  echo -n (commandline -b) | cl
+end
+fzf_configure_bindings
 
 function parse_git_branch
     git status >/dev/null 2>/dev/null || return
