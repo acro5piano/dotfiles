@@ -41,6 +41,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
+# set $MOUSE 1390:337:ELECOM_TrackBall_Mouse
+# bindsym --input-device=$MOUSE --whole-window BTN_EXTRA seat - cursor press BTN_LEFT
+# bindsym --input-device=$MOUSE --whole-window --release BTN_EXTRA seat - cursor release BTN_LEFT
+
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
