@@ -308,7 +308,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias 1='cd -'
-alias ,d='cd ~/.dotfiles'
+alias ,d='cd ~/.dotfiles; nvim'
 
 alias ag='rg'
 alias dc='docker-compose'

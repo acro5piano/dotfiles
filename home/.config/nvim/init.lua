@@ -31,10 +31,10 @@ require("packer").startup(function(use)
   use("gbprod/yanky.nvim")
   use("stevearc/dressing.nvim") -- for yanky to work nicely
   use("monaqa/dial.nvim")
-  use("marko-cerovac/material.nvim") -- Material theme which supports treesitter
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround")
   use("nvim-treesitter/nvim-treesitter-textobjects")
+  use("folke/tokyonight.nvim")
 
   -- use("github/copilot.vim")
   -- use("zbirenbaum/copilot.lua")
@@ -56,17 +56,11 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.o.mouse = false
 vim.o.cedit = "<C-q>"
 
-vim.g.material_style = "darker"
-require("material").setup({
-  disable = {
-    background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-  },
-  high_visibility = {
-    lighter = true, -- Enable higher contrast text for lighter style
-    darker = true, -- Enable higher contrast text for darker style
-  },
+require("tokyonight").setup({
+  transparent = true,
 })
-vim.cmd("colorscheme material")
+
+vim.cmd("colorscheme tokyonight")
 
 vim.g["fern#default_hidden"] = 1
 

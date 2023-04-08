@@ -1,4 +1,4 @@
-# vim:set ft=conf
+# vim:set ft=bash :
 
 set $mod Mod4
 set $term kitty
