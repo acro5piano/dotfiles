@@ -79,7 +79,7 @@ bindsym $mod+Shift+m move container to workspace number 4
 bindsym $mod+Shift+comma move container to workspace number 5
 bindsym $mod+Shift+period move container to workspace number 6
 
-assign [class="Firefox"] workspace 6
+assign [class="Pcmanfm"] workspace 2
 
 exec start-fcitx &
 exec xremap ~/.xremap &
