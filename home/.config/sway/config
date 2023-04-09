@@ -65,31 +65,28 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+a workspace number 1
-bindsym $mod+s workspace number 2
-bindsym $mod+d workspace number 3
-bindsym $mod+f workspace number 4
-bindsym $mod+g workspace number 5
-bindsym $mod+h workspace number 6
-bindsym $mod+j workspace number 7
-bindsym $mod+k workspace number 8
-bindsym $mod+l workspace number 9
+bindsym $mod+j workspace number 1
+bindsym $mod+k workspace number 2
+bindsym $mod+l workspace number 3
+bindsym $mod+m workspace number 4
+bindsym $mod+comma workspace number 5
+bindsym $mod+period workspace number 6
 
-bindsym $mod+Shift+a move container to workspace number 1
-bindsym $mod+Shift+s move container to workspace number 2
-bindsym $mod+Shift+d move container to workspace number 3
-bindsym $mod+Shift+f move container to workspace number 4
-bindsym $mod+Shift+g move container to workspace number 5
-bindsym $mod+Shift+h move container to workspace number 6
-bindsym $mod+Shift+j move container to workspace number 7
-bindsym $mod+Shift+k move container to workspace number 8
-bindsym $mod+Shift+l move container to workspace number 9
+bindsym $mod+Shift+j move container to workspace number 1
+bindsym $mod+Shift+k move container to workspace number 2
+bindsym $mod+Shift+l move container to workspace number 3
+bindsym $mod+Shift+m move container to workspace number 4
+bindsym $mod+Shift+comma move container to workspace number 5
+bindsym $mod+Shift+period move container to workspace number 6
+
+assign [class="Firefox"] workspace 6
 
 exec start-fcitx &
 exec xremap ~/.xremap &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
-exec swaymsg 'workspace 5; exec pavucontrol-qt'
-exec swaymsg 'workspace 8; exec brave'
-exec swaymsg 'workspace 7; exec kitty'
+exec light -S 1
+exec swaymsg 'workspace 6; exec pavucontrol-qt'
+exec swaymsg 'workspace 2; exec brave'
+exec swaymsg 'workspace 1; exec kitty'
 
 include /etc/sway/config.d/*
