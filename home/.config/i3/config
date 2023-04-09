@@ -1,13 +1,22 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# vim:set ft=bash :
 
 set $mod Mod4
+set $term kitty
+
+hide_edge_borders smart
 
 font pango:Source Code Pro 9
-
 default_border pixel 1
 default_floating_border pixel 1
+
+bar {
+    position top
+    font pango:Source Code Pro 10
+    status_command i3status-rs
+    colors {
+        background #0f172a
+    }
+}
 
 set $refresh_i3status killall -SIGUSR1 i3status-rs
 
@@ -17,123 +26,43 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+c kill
-bindsym $mod+r exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+r restart
-bindsym $mod+tab exec --no-startup-id rofi -show window
-
-# change focus
+bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
-bindsym $mod+n focus right
-bindsym $mod+p focus left
-
-# Emulate mouse wheel
-# bindsym $mod+h exec xdotool click 6
-# bindsym $mod+j exec xdotool click 5
-# bindsym $mod+k exec xdotool click 4
-# bindsym $mod+l exec xdotool click 7
-
-# split in vertical/horizonatal orientation (hard to use)
-# bindsym $mod+Shift+v split v
-# bindsym $mod+Shift+h split h
-
-# enter fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
-# Same as tmux
-bindsym $mod+z fullscreen toggle
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-
-# Alternative
-bindsym $mod+a workspace number $ws1
-bindsym $mod+s workspace number $ws2
-bindsym $mod+d workspace number $ws3
-bindsym $mod+f workspace number $ws4
-bindsym $mod+g workspace number $ws5
-bindsym $mod+h workspace number $ws6
-bindsym $mod+j workspace number $ws7
-bindsym $mod+k workspace number $ws8
-bindsym $mod+l workspace number $ws9
-
-# Alternative
-bindsym $mod+Shift+a move container to workspace number $ws1
-bindsym $mod+Shift+s move container to workspace number $ws2
-bindsym $mod+Shift+d move container to workspace number $ws3
-bindsym $mod+Shift+f move container to workspace number $ws4
-bindsym $mod+Shift+g move container to workspace number $ws5
-bindsym $mod+Shift+h move container to workspace number $ws6
-bindsym $mod+Shift+j move container to workspace number $ws7
-bindsym $mod+Shift+k move container to workspace number $ws8
-bindsym $mod+Shift+l move container to workspace number $ws9
-
-
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # bindsym Left resize shrink width 10 px or 10 ppt
-        # bindsym Down resize grow height 10 px or 10 ppt
-        # bindsym Up resize shrink height 10 px or 10 ppt
-        # bindsym Right resize grow width 10 px or 10 ppt
-
-        bindsym Up resize grow width 5 px or 5 ppt
-        bindsym Down resize shrink width 5 px or 5 ppt
-
-        # back to normal
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+backslash mode "resize"
-
-bar {
-    position top
-    font pango:Source Code Pro 10
-    status_command i3status-rs
-    colors {
-        separator #666666
-        background #0f172a
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
-}
-
-hide_edge_borders smart
+bindsym $mod+i focus left
+bindsym $mod+Return exec $term
+bindsym $mod+Ctrl+s exec systemctl suspend
+bindsym $mod+z fullscreen
+bindsym $mod+r mode "resize"
+bindsym $mod+x exec rofi -show drun
 
 bindsym Print exec screenshot-clip
-bindsym $mod+shift+p exec screenshot-clip
 bindsym $mod+y exec CM_DIR=~/tmp CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
-bindsym $mod+Ctrl+s exec sleep 1 && systemctl suspend
 bindsym $mod+Up exec xrandr --output eDP-1 --rotate normal
 bindsym $mod+Left exec xrandr --output eDP-1 --rotate left
 bindsym $mod+Right exec xrandr --output eDP-1 --rotate right
-# bindsym $mod+i exec pactl set-source-port 48 analog-input-headset-mic
 
-for_window [class="kitty"] move container to workspace 7
+mode "resize" {
+    bindsym j resize shrink width 30px
+    bindsym k resize grow width 30px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
-# Index Finger
-for_window [class="brave-browser"] move container to workspace $ws8
-for_window [class="pcmanfm"] move container to workspace 8
-for_window [class="Pcmanfm"] move container to workspace 8
-for_window [class="TigerVNC"] move container to workspace 9
-for_window [class="pavucontrol-qt"] move container to workspace 5
+bindsym $mod+j workspace number 1
+bindsym $mod+k workspace number 2
+bindsym $mod+l workspace number 3
+bindsym $mod+m workspace number 4
+bindsym $mod+comma workspace number 5
+bindsym $mod+period workspace number 6
 
-# 2023-04-07: x11 is now optional, sway become my partner again
-# exec --no-startup-id brave
+bindsym $mod+Shift+j move container to workspace number 1
+bindsym $mod+Shift+k move container to workspace number 2
+bindsym $mod+Shift+l move container to workspace number 3
+bindsym $mod+Shift+m move container to workspace number 4
+bindsym $mod+Shift+comma move container to workspace number 5
+bindsym $mod+Shift+period move container to workspace number 6
+
+for_window [class="Pcmanfm"] move container to workspace 2
+for_window [class="pavucontrol-qt"] move container to workspace 6
+
 exec i3-msg 'exec kitty'
-
-assign [class="Brave"] $ws8

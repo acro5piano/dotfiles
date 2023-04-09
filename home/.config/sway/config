@@ -35,9 +35,9 @@ input type:keyboard {
   repeat_rate 60
 }
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
@@ -48,15 +48,17 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
+bindsym $mod+i focus left
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Ctrl+s exec systemctl suspend
-bindsym $mod+y exec clipman pick -t rofi
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+x exec rofi -show drun
+
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
+bindsym $mod+y exec clipman pick -t rofi
 bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -80,6 +82,7 @@ bindsym $mod+Shift+comma move container to workspace number 5
 bindsym $mod+Shift+period move container to workspace number 6
 
 assign [class="Pcmanfm"] workspace 2
+for_window [class="pavucontrol-qt"] move container to workspace 6
 
 exec start-fcitx &
 exec xremap ~/.xremap &
