@@ -278,10 +278,12 @@ vim.keymap.set("c", "<C-g>", "<C-f>")
 vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.keymap.set("v", ",", require("hop").hint_words)
+vim.keymap.set("v", "K", "^o$")
 
 -- vim.keymap.set not works with them
 vim.api.nvim_set_keymap("v", "D", 'SDci"', {})
 vim.api.nvim_set_keymap("v", "T", "ST", {})
+vim.api.nvim_set_keymap("n", "<Leader>t", 'va"STds"', {})
 
 vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
 vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
@@ -511,6 +513,12 @@ require("nvim-surround").setup({
     },
     ["T"] = {
       add = { "{t`", "`}" },
+    },
+    ["<"] = {
+      add = { "<>", "</>" },
+    },
+    [">"] = {
+      add = { "<>", "</>" },
     },
   },
 })
