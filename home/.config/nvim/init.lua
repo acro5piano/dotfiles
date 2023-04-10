@@ -277,14 +277,11 @@ vim.keymap.set("c", "<C-g>", "<C-f>")
 
 vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
-vim.api.nvim_set_keymap("v", "B", "S*gvS*", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("v", "D", 'S<div>$i<ESC>$i className=""<Left>', { noremap = false, silent = true })
 vim.keymap.set("v", ",", require("hop").hint_words)
 
--- Aligns to a string, looking left and with previews
-vim.keymap.set("x", "a", function()
-  require("align").align_to_string(true, false, true)
-end, { noremap = false, silent = true })
+-- vim.keymap.set not works with them
+vim.api.nvim_set_keymap("v", "D", 'SDci"', {})
+vim.api.nvim_set_keymap("v", "T", "ST", {})
 
 vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
 vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
@@ -504,4 +501,16 @@ require("yanky").setup({
   },
 })
 
-require("nvim-surround").setup({})
+require("nvim-surround").setup({
+  surrounds = {
+    ["E"] = { -- emphasize
+      add = { "**", "**" },
+    },
+    ["D"] = {
+      add = { '<div className="">', "</div>" },
+    },
+    ["T"] = {
+      add = { "{t`", "`}" },
+    },
+  },
+})
