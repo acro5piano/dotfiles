@@ -50,7 +50,8 @@ window class_only: browsers do
   remap 'M-p', to: 'Ctrl-Shift-Tab'
   remap 'M-a', to: 'Ctrl-a'
   remap 'M-r', to: 'Ctrl-r'
-  remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
+  # remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
+  remap 'C-M-p', to: 'Ctrl-p'
   remap 'M-c', to: 'Ctrl-c'
   remap 'M-v', to: 'Ctrl-v'
   remap 'M-k', to: 'Ctrl-k'

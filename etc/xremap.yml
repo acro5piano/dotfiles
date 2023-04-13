@@ -57,3 +57,4 @@ keymap:
       M-x: ctrl-k
 
       M-space: ctrl-shift-a
+      M-q: ctrl-p
