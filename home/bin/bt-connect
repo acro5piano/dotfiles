@@ -4,7 +4,16 @@ set -ue
 
 bluetoothctl power on
 
+sony=90:7A:58:9D:C7:35
+anker=7C:96:D2:9D:7A:BC
+
+# `[c]onnect` | `[d]isconnect`
+operation=${2:-connect}
+
+[ $operation == 'c' ] && operation=connect
+[ $operation == 'd' ] && operation=disconnect
+
 case "$1" in
-    "sony") bluetoothctl connect 90:7A:58:9D:C7:35;;
-    "anker") bluetoothctl connect 7C:96:D2:9D:7A:BC;;
+    "sony") bluetoothctl $operation $sony;;
+    "anker") bluetoothctl $operation $anker;;
 esac
