@@ -343,14 +343,13 @@ if string match -q '/dev/pts/*' "$TTY"
 	end
 end
 
-# If running from tty1, start i3
 if [ "$TTY" = "/dev/tty1" ]
-	startx
+	sway
 end
 
-# If running from tty2, start sway
+# x11 is still required for web meeting screen share
 if [ "$TTY" = "/dev/tty2" ]
-	sway
+	startx
 end
 
 function load-dotenv
