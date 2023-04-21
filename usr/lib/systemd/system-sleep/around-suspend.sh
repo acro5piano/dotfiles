@@ -3,11 +3,15 @@
 set -eux
 
 if [ $1 == "pre" ]; then
+    # https://bbs.archlinux.org/viewtopic.php?id=217775
+    modprobe -r xhci_pci xhci_hcd
     light -O
 fi
 
 if [ $1 == "post" ]; then
     light -I
+    # https://bbs.archlinux.org/viewtopic.php?id=217775
+    modprobe xhci_pci xhci_hcd
     systemctl restart iwd
     # systemctl restart bluetooth
     # bluetoothctl power on
