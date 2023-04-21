@@ -14,7 +14,7 @@
       "device_rows": 5,
       "device_cols": 4,
       "debounce": 1,
-      "is_left_hand": 1,
+      "is_left_hand": 0,
       "diode_direction": 0,
       "row_pins": [ 20, 19, 18, 17, 16 ],
       "col_pins": [ 8, 7, 6, 5 ],
@@ -26,7 +26,7 @@
         17, 18, 19, 20
       ]
     },
-    "mode": "SINGLE",
+    "mode": "SPLIT_SLAVE",
     "startup": 1,
     "peripheral": {
       "max_interval": 60,

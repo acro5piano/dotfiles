@@ -26,7 +26,7 @@
         17, 18, 19, 20
       ]
     },
-    "mode": "SINGLE",
+    "mode": "SPLIT_MASTER",
     "startup": 1,
     "peripheral": {
       "max_interval": 60,
