@@ -1,6 +1,6 @@
 {
   "keyboard": "keyfuda04_grid",
-  "keymap": "keyfuda04_grid_layout_mine",
+  "keymap": "keyfuda04_grid_layout_left",
   "layout": "LAYOUT",
   "layers": [
     [
