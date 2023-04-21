@@ -28,6 +28,7 @@
     },
     "mode": "SINGLE",
     "startup": 1,
+    "reserved":[0,0,1,0,0,0,0,0],
     "peripheral": {
       "max_interval": 60,
       "min_interval": 30,
