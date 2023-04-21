@@ -243,18 +243,12 @@ These problems will be fixed by using two ble micro pro controllers as master/sl
 
 ### Update BLE Micro Pro config
 
-Right hand
+```bash
+cd qmk
 
-```
-sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
-cp -v ./qmk/keyfuda-04-right-hand/*.JSN /mnt/
-sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
-```
+# Left hand
+sudo make sync-left
 
-Left hand
-
-```
-sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
-cp -v ./qmk/keyfuda-04-left-hand/*.JSN /mnt/
-sudo umount /mnt ; sudo mount -o gid=1000,uid=1000 /dev/sd? /mnt
+# Right hand
+sudo make sync-right
 ```
