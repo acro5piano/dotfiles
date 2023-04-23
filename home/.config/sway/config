@@ -85,11 +85,11 @@ assign [class="Pcmanfm"] workspace 2
 for_window [class="pavucontrol-qt"] move container to workspace 6
 
 exec start-fcitx &
-exec xremap ~/.xremap &
+exec keyd-application-mapper -d
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 2; exec brave'
 exec swaymsg 'workspace 1; exec kitty'
+exec swaymsg 'workspace 2; exec brave'
 
 include /etc/sway/config.d/*

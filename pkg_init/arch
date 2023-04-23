@@ -10,6 +10,7 @@ grep -q docker /etc/group || sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo gpasswd -a $USER sys
 sudo gpasswd -a $USER video
+sudo gpasswd -a $USER keyd
 echo $SHELL | grep -q fish || chsh -s /bin/fish
 
 sudo ln -svf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
