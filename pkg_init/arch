@@ -30,3 +30,7 @@ fi
 
 # https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
 yes | /opt/android-sdk/tools/bin/sdkmanager --licenses
+
+systemctl --user restart pipewire
+systemctl --user restart wireplumber
+systemctl --user restart pipewire-pulse
