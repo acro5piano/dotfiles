@@ -3,39 +3,36 @@
 [main]
 
 [control]
-  # f = macro(right)
-  # k = macro(S-end C-x)
-  # s = macro(C-f)
-  # b = left
-  # f = right
-  # p = up
-  # n = down
-  # a = home
-  # e = end
   h = backspace
-  # d = delete
-  # y = macro(C-v)
+  k = macro(S-end C-x)
+  s = macro(C-f)
+  b = macro(left)
+  f = right
+  p = up
+  n = down
+  a = home
+  e = end
+  h = backspace
+  d = delete
+  y = macro(C-v)
 
-# [alt]
-#   remap 'M-d', to: 'Ctrl-Delete'
-#   remap 'M-b', to: 'Ctrl-Left'
-#   remap 'M-f', to: 'Ctrl-Right'
-#
-#   # Alternatives
-#   remap 'M-e', to: 'Ctrl-e'
-#   remap 'M-s', to: 'Ctrl-s'
-#   remap 'M-n', to: 'Ctrl-Tab'
-#   remap 'M-p', to: 'Ctrl-Shift-Tab'
-#   remap 'M-a', to: 'Ctrl-a'
-#   remap 'M-r', to: 'Ctrl-r'
-#   # remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
-#   remap 'M-c', to: 'Ctrl-c'
-#   remap 'M-v', to: 'Ctrl-v'
-#   remap 'M-k', to: 'Ctrl-k'
-#   remap 'M-h', to: 'Ctrl-h'
-#
-#   # Slack
-#   remap 'M-x', to: 'Ctrl-k'
+[alt]
+  # Emacs shortcuts
+  d = macro(C-delete)
+  b = macro(C-left)
+  f = macro(C-right)
+  n = macro(C-pagedown)
+  p = macro(C-pageup)
+  # OSX-like shortcuts
+  a = macro(C-a)
+  c = macro(C-c)
+  v = macro(C-v)
+  x = macro(C-x)
+  # alternative keybindings
+  k = macro(C-k)
+  h = macro(C-h)
+  e = macro(C-e)
+  s = macro(C-s)
 
 [control+alt]
   h = macro(C-backspace)
@@ -48,3 +45,13 @@
 #   remap 'C-M-s', to: 'Ctrl-f'
 #   remap 'C-M-b', to: 'Ctrl-b'
 #   remap 'C-M-p', to: 'Ctrl-p'
+
+
+control+alt.a = macro(C-home)
+control+alt.h = macro(C-backspace)
+control+alt.e = macro(C-end)
+
+
+control+alt.d = macro(C-d)
+control+alt.b = macro(C-b)
+control+alt.p = macro(C-p)
