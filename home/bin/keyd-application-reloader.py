@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import argparse
-import os
 import subprocess
 import traceback
 from functools import cache
@@ -24,14 +23,6 @@ def read_file_cached(filepath: str):
     with open(filepath, "r") as file:
         content = file.read()
     return content
-
-
-def find_sway_ipc_path() -> str:
-    for root, _, files in os.walk("/run/user/"):
-        for file in files:
-            if "sway-ipc" in file:
-                return os.path.join(root, file)
-    raise Exception("Cannot find sway socket under /run/user/")
 
 
 def activate_keyd_include(filepaths: list[str], writes: list[str]):
@@ -77,7 +68,7 @@ def subscribe_sway(
             raise Exception("Failed to reload keyd. Hint: `gpasswd -a $USER keyd`")
 
     try:
-        sway = Connection(find_sway_ipc_path())
+        sway = Connection()
         sway.on(Event.WINDOW_FOCUS, on_window_focus)
         sway.main()
     except:
