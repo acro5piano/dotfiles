@@ -39,7 +39,6 @@
     - github-cli
     - go
     - grim
-    - i3status
     - i3status-rust
     - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
@@ -80,15 +79,12 @@
     - rubygems
     # - rust # 2022-06-27: It make static link error. use `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` instead.
     # - rust-analyzer
-    - screenfetch
     - stylua
     - terraform
     - tmux
     - tree
     - unzip
-    - vim
     - xcolor
-    - xorg
     - xclip
     - clipmenu
     - zip

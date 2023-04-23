@@ -6,5 +6,5 @@
   loop:
     - slurp
     - sway
+    - xorg-xwayland
     - wl-clipboard
-    - bemenu-wayland

@@ -32,7 +32,11 @@ set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 set -gx GTK_IM_MODULE fcitx
 
-fnm env --use-on-cd | source > /dev/null
+function has
+    which $1 1>/dev/null 2>/dev/null
+end
+
+has fnm && fnm env --use-on-cd | source > /dev/null
 
 [ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
@@ -86,9 +90,9 @@ set -gx BROWSER brave
 
 set -gx NODE_PATH $NODE_PATH:`npm root -g`
 
-if not which ruby > /dev/null
-  status --is-interactive; and source (rbenv init -|psub)
-end
+# if not which ruby > /dev/null
+#   status --is-interactive; and source (rbenv init -|psub)
+# end
 
 set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'

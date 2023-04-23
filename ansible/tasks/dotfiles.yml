@@ -12,8 +12,6 @@
     dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
     state: link
   loop:
-    - .bash_profile
-    - .bashrc
     - bin
     - .config/alacritty
     - .config/fish
