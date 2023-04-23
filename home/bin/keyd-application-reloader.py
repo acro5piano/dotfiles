@@ -8,15 +8,6 @@ from functools import cache
 from i3ipc import Connection, Event
 
 
-def run_or_die(cmd: str, msg=""):
-    rc = subprocess.run(
-        ["/bin/sh", "-c", cmd], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-    ).returncode
-
-    if rc != 0:
-        raise Exception(msg)
-
-
 @cache
 def read_file_cached(filepath: str):
     content = ""
@@ -66,6 +57,34 @@ def subscribe_sway(
         ).returncode
         if rc != 0:
             raise Exception("Failed to reload keyd. Hint: `gpasswd -a $USER keyd`")
+        subprocess.run(
+            [
+                "sudo",
+                "evemu-event",
+                "/dev/input/event4",
+                "--type",
+                "EV_KEY",
+                "--code",
+                "KEY_LEFTMETA",
+                "--value",
+                "1",
+                "--syn",
+            ],
+        )
+        subprocess.run(
+            [
+                "sudo",
+                "evemu-event",
+                "/dev/input/event4",
+                "--type",
+                "EV_KEY",
+                "--code",
+                "KEY_LEFTMETA",
+                "--value",
+                "0",
+                "--syn",
+            ],
+        )
 
     try:
         sway = Connection()
