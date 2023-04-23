@@ -14,3 +14,5 @@ home/bin/php
 
 home/.emacs.d/*
 !home/.emacs.d/init.el
+
+home/.config/keyd/app.log
