@@ -252,3 +252,67 @@ sudo make sync-left
 # Right hand
 sudo make sync-right
 ```
+
+# Enable hibernation with swapfile
+
+Follow https://www.linuxuprising.com/2021/08/how-to-enable-hibernation-on-ubuntu.html
+
+Create Swap file:
+
+```bash
+# Run in root
+dd if=/dev/zero of=/swapfile bs=1G count=36 status=progress
+chmod 600 /swapfile
+mkswap -U clear /swapfile
+swapon /swapfile
+echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+```
+
+Modify HOOKS in mkinitcpio config like this:
+
+```
+# /etc/mkinitcpio.conf
+
+HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)
+```
+
+Then run
+
+```
+sudo mkinitcpio -p linux
+```
+
+Get resume physical offset:
+
+```
+filefrag -v /swapfile | head
+
+~> sudo filefrag -v /swapfile | head
+[sudo] password for kazuya:
+Filesystem type is: ef53
+File size of /swapfile is 27917287424 (6815744 blocks of 4096 bytes)
+ ext:     logical_offset:        physical_offset: length:   expected: flags:
+   0:        0..    4095:     446464..    450559:   4096:
+   1:     4096..   36863:  109543424.. 109576191:  32768:     450560:
+   2:    36864..   69631:  139427840.. 139460607:  32768:  109576192:
+   3:    69632..  102399:    8159232..   8191999:  32768:  139460608:
+```
+
+Get swap file uuid:
+
+```
+~> findmnt -no UUID -T /swapfile
+
+63f7f18e-5a53-4471-9429-e3fc0e2e4666
+```
+
+Then modify entry file like this:
+
+```
+~> cat /boot/loader/entries/arch.conf
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=UUID=00000000-1111-2222-3333-444444444444 resume=UUID=63f7f18e-5a53-4471-9429-e3fc0e2e4666 resume_offset=446464 rw
+```
