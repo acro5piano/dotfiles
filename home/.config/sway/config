@@ -51,6 +51,7 @@ bindsym $mod+o focus right
 bindsym $mod+i focus left
 bindsym $mod+Return exec $term
 bindsym $mod+Ctrl+s exec systemctl suspend
+bindsym $mod+Shift+s exec systemctl hibernate
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+x exec rofi -show drun
