@@ -45,7 +45,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 # bindsym --input-device=$MOUSE --whole-window BTN_EXTRA seat - cursor press BTN_LEFT
 # bindsym --input-device=$MOUSE --whole-window --release BTN_EXTRA seat - cursor release BTN_LEFT
 
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+escape kill
 bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
 bindsym $mod+i focus left
