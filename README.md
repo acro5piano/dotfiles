@@ -317,6 +317,17 @@ initrd /initramfs-linux.img
 options root=UUID=00000000-1111-2222-3333-444444444444 resume=UUID=63f7f18e-5a53-4471-9429-e3fc0e2e4666 resume_offset=446464 rw
 ```
 
+You also may want to change the power button behavior:
+
+```
+/etc/systemd/logind.conf
+
+# ...
+HandlePowerKey=hibernate
+HandleLidSwitch=hibernate
+# ...
+```
+
 # Tweak Bluetooth config
 
 Follow https://gist.github.com/acro5piano/9606ce598e04c10dde1948cf7e098f80
