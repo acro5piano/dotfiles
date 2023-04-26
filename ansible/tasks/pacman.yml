@@ -89,7 +89,8 @@
     - unzip
     - vim
     - xcolor
-    - xorg
+    - xorg-xinit
+    - xorg-xserver
     - xclip
     - clipmenu
     - zip
