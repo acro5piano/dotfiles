@@ -331,3 +331,14 @@ HandleLidSwitch=hibernate
 # Tweak Bluetooth config
 
 Follow https://gist.github.com/acro5piano/9606ce598e04c10dde1948cf7e098f80
+
+# Backlight is wrong
+
+If `light` does not work properly, try to modify the kernel parameter:
+
+```
+~> cat /boot/loader/entries/arch.conf
+options root=UUID=... acpi_backlight=native rw
+```
+
+ref: https://bbs.archlinux.org/viewtopic.php?id=282805
