@@ -90,6 +90,9 @@ EOF
 # Connect to a Network
 iwctl
 
+# install /boot
+bootctl install
+
 exit
 reboot
 ```
