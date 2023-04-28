@@ -6,7 +6,7 @@ Core technologies:
 
 - Arch Linux
 - Sway
-- Kitty Termina
+- Kitty Terminal
 - Brave Browser
 
 <table>
