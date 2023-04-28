@@ -270,6 +270,7 @@ vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
 vim.keymap.set("n", "<Backspace>", ":NeoTreeFloatToggle<CR>")
+vim.keymap.set("n", "<Leader>d", ":NeoTreeFloatToggle<CR>")
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
@@ -563,4 +564,9 @@ require("neo-tree").setup({
     },
   },
   enable_git_status = true,
+  window = {
+    mappings = {
+      ["<esc>"] = "close_window",
+    },
+  },
 })
