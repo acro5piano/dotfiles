@@ -7,7 +7,6 @@ require("packer").startup(function(use)
   use("terrortylor/nvim-comment")
   use("nvim-lualine/lualine.nvim")
   use("bronson/vim-visual-star-search")
-  use("lambdalisue/fern.vim")
   use("acro5piano/nvim-format-buffer")
   use("neovim/nvim-lspconfig")
   use("hrsh7th/nvim-cmp")
@@ -26,6 +25,8 @@ require("packer").startup(function(use)
   use("phaazon/hop.nvim")
   use("windwp/nvim-ts-autotag")
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use("nvim-treesitter/nvim-treesitter-textobjects")
+  use("folke/tokyonight.nvim")
   use("goolord/alpha-nvim")
   use("lukas-reineke/cmp-rg")
   use("gbprod/yanky.nvim")
@@ -33,8 +34,39 @@ require("packer").startup(function(use)
   use("monaqa/dial.nvim")
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround")
-  use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("folke/tokyonight.nvim")
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    -- config = function()
+    --   require("neo-tree").setup({
+    --     filesystem = {
+    --       filtered_items = {
+    --         visible = true,
+    --         hide_dotfiles = false,
+    --         hide_hidden = false,
+    --         show_hidden = true,
+    --         hide_gitignored = false,
+    --         hide_by_name = {
+    --           "node_modules",
+    --         },
+    --       },
+    --     },
+    --     add_blank_line_at_top = true,
+    --     popup_border_style = "rounded",
+    --     enable_git_status = true,
+    --     window = {
+    --       mappings = {
+    --         ["<esc>"] = "close_window",
+    --       },
+    --     },
+    --   })
+    -- end,
+  })
 
   -- use("github/copilot.vim")
   -- use("zbirenbaum/copilot.lua")
@@ -59,10 +91,7 @@ vim.o.cedit = "<C-q>"
 require("tokyonight").setup({
   transparent = true,
 })
-
 vim.cmd("colorscheme tokyonight")
-
-vim.g["fern#default_hidden"] = 1
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
@@ -215,7 +244,6 @@ vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
 vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
-vim.keymap.set("n", "<Leader>fn", ":Fern %:h<CR>")
 vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
 vim.keymap.set("n", ",", ":HopWord<CR>")
 vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
@@ -241,7 +269,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
-vim.keymap.set("n", "<Backspace>", ":Fern %:h<CR>")
+vim.keymap.set("n", "<Backspace>", ":NeoTreeFloatToggle<CR>")
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
@@ -521,4 +549,18 @@ require("nvim-surround").setup({
       add = { "<>", "</>" },
     },
   },
+})
+
+require("neo-tree").setup({
+  filesystem = {
+    filtered_items = {
+      visible = true,
+      hide_dotfiles = false,
+      hide_gitignored = true,
+      hide_by_name = {
+        "node_modules",
+      },
+    },
+  },
+  enable_git_status = true,
 })
