@@ -71,6 +71,7 @@
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
+    - wireplumber
     - postgresql-client
     - python
     # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
@@ -88,8 +89,10 @@
     - unzip
     - vim
     - xcolor
-    - xorg
+    - xorg-xinit
+    - xorg-xserver
     - xclip
     - clipmenu
     - zip
     - ttf-sourcecodepro-nerd
+    - xdg-desktop-portal-wlr # Required for screen sharing

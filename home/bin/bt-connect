@@ -6,6 +6,7 @@ bluetoothctl power on
 
 sony=90:7A:58:9D:C7:35
 anker=7C:96:D2:9D:7A:BC
+at=00:0A:45:26:45:45
 
 # `[c]onnect` | `[d]isconnect`
 operation=${2:-connect}
@@ -16,4 +17,5 @@ operation=${2:-connect}
 case "$1" in
     "sony") bluetoothctl $operation $sony;;
     "anker") bluetoothctl $operation $anker;;
+    "at") bluetoothctl $operation $at;;
 esac

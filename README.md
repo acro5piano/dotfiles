@@ -5,9 +5,9 @@ acro5piano's personal dotfiles. It aims to automate setup my development PC idem
 Core technologies:
 
 - Arch Linux
-- i3
-- yay
-- Ansible
+- Sway
+- Kitty Terminal
+- Brave Browser
 
 <table>
   <td>
@@ -29,13 +29,15 @@ Core technologies:
 
 # Setup process
 
-## Install Arch Linux with Windows 10 or 11 multi boot
+The following document assumes you have:
 
-- **On windows**,
-  - Reduce Windows partition to minimum 80GB
-  - Create a blank partition for Linux
+- A UEFI boot device
+- No multie boot device (Windows multi boot document below)
+
+## Install Arch Linux
+
 - Create arch linux install usb.
-  - download latest iso image
+  - download the latest iso image
   - `cp /path/to/iso /dev/sdX`
 - Boot to usb
 
@@ -50,9 +52,11 @@ cfdisk /dev/nvme0n1
 - Create a partition for main
   - create a new partition and set maximum size for it
 - Create a partition for swap (for hibernation)
-  - create a new partition and set `20G` size for it
-  - Add swap flag (`8200`)
+  - create a new partition and set `40G` size for it
+  - Set the type for `Linux swap`
 - write out
+
+Swap is required for hibernation.
 
 ```sh
 # UEFI
@@ -61,8 +65,8 @@ mkfs.ext4 /dev/nvme0n1p2
 mkswap /dev/nvme0n1p3
 swapon /dev/nvme0n1p3
 mount /dev/nvme0n1p2 /mnt
-mkdir /mnt/efi
-mount /dev/nvme0n1p1 /mnt/efi
+mkdir /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot
 ```
 
 ### Install base system
@@ -71,7 +75,7 @@ mount /dev/nvme0n1p1 /mnt/efi
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim os-prober grub
+pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -81,19 +85,13 @@ arch-chroot /mnt
 cat <<'EOF'| sudo tee /etc/iwd/main.conf
 [General]
 EnableNetworkConfiguration=true
-
-[Network]
-NameResolvingService=systemd
 EOF
 
 # Connect to a Network
 iwctl
 
-# Grub
-nvim /etc/default/grub # Enable this line: GRUB_DISABLE_OS_PROBER=false
-os-prober
-grub-install
-grub-mkconfig -o /boot/grub/grub.cfg
+# install /boot
+bootctl install
 
 exit
 reboot
@@ -103,7 +101,7 @@ Notes:
 
 - Python is required because we use Ansible later.
 - If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
-- Grub is easier than systemd-boot
+- systemd-boot is pre-installed and simple to use than Grub for Linux-only system.
 
 ## Add user
 
@@ -148,6 +146,10 @@ ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook --ask-become-pass ansible/main.yml
 ```
 
+For groups, please take a look at:
+
+https://github.com//acro5piano/dotfiles/blob/e0ef379e4326bd102abddc28bd5946b52cbeee06/pkg_init/arch#L1
+
 ## Copy large & secure files
 
 ```
@@ -159,20 +161,12 @@ scp -r 192.168.xxx.yyy:/home/kazuya/.ssh $HOME/.ssh
 
 ## Bluetooth
 
-By default bluetooth connection takes too much time. Here is the fix:
-
-- 1. Edit the file /etc/bluetooth/main.conf
-- 1. Uncomment FastConnectable config and set it to true: FastConnectable = true
-- 1. Uncomment ReconnectAttempts=7 (set the value to whatever number that you want)
-- 1. Uncomment ReconnectIntervals=1, 2, 3
-
-Special Thanks: https://gist.github.com/andrebrait/961cefe730f4a2c41f57911e6195e444#enable-bluetooth-fast-connect-config
+By default bluetooth connection takes too much time. Here is the fix: https://gist.github.com/andrebrait/961cefe730f4a2c41f57911e6195e444#enable-bluetooth-fast-connect-config
 
 # Maintain
 
 ```
-# Sync dotfiles only
-ansible-playbook ansible/main.yml --tags dotfiles
+# Sync dotfiles only ansible-playbook ansible/main.yml --tags dotfiles
 
 # Install pacman dep only
 ansible-playbook --ask-become-pass ansible/main.yml --tags pacman
@@ -184,22 +178,28 @@ ansible-playbook --ask-become-pass ansible/main.yml --tags pacman
 ansible-playbook ansible/main.yml --tags dotfiles,misc,npm,pip,gem --extra-vars "os=mac"
 ```
 
-# Linux only (No need Windows)
+# Windows Multi boot
 
-For Linux only environment, do this on `cfdisk` phase:
+For Windows Multi boot environment, do this before `cfdisk` phase:
 
-- Delete whole partition
-- Create a partition for boot
-  - create a new partition and set `512M` for the partition size
-  - Add UEFI boot flag (`ef00`)
+- **On windows**,
+  - Reduce Windows partition to minimum 80GB
+  - Create a blank partition for Linux
 
-And use this commands for the initial setup, replacing `grub` thing:
+And use this commands for the initial setup, replacing `systemd-boot` thing (as Grub is easier than systemd-boot if you do multi-boot):
 
 ```sh
 # systemd-boot
 mkdir /boot
 mount /dev/sda1 /boot
-bootctl install
+
+# Grub
+os-prober
+grub-install
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Grub options
+nvim /etc/default/grub # Enable this line: GRUB_DISABLE_OS_PROBER=false
 ```
 
 # Windows + WSL2 Arch
@@ -251,3 +251,95 @@ sudo make sync-left
 # Right hand
 sudo make sync-right
 ```
+
+# Enable hibernation with swapfile
+
+TODO: Swap partition is more reliable than swapfile. I'm still estimating the difference now, as swapfile caused the `hibernate inconsistent memory map detected` error.
+
+Follow https://www.linuxuprising.com/2021/08/how-to-enable-hibernation-on-ubuntu.html
+
+Create Swap file:
+
+```bash
+# Run in root
+dd if=/dev/zero of=/swapfile bs=1G count=36 status=progress
+chmod 600 /swapfile
+mkswap -U clear /swapfile
+swapon /swapfile
+echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+```
+
+Modify HOOKS in mkinitcpio config like this:
+
+```
+# /etc/mkinitcpio.conf
+
+HOOKS=(base udev autodetect keyboard modconf block filesystems resume fsck)
+```
+
+Then run
+
+```
+sudo mkinitcpio -p linux
+```
+
+Get resume physical offset:
+
+```
+filefrag -v /swapfile | head
+
+~> sudo filefrag -v /swapfile | head
+[sudo] password for kazuya:
+Filesystem type is: ef53
+File size of /swapfile is 27917287424 (6815744 blocks of 4096 bytes)
+ ext:     logical_offset:        physical_offset: length:   expected: flags:
+   0:        0..    4095:     446464..    450559:   4096:
+   1:     4096..   36863:  109543424.. 109576191:  32768:     450560:
+   2:    36864..   69631:  139427840.. 139460607:  32768:  109576192:
+   3:    69632..  102399:    8159232..   8191999:  32768:  139460608:
+```
+
+Get swap file uuid:
+
+```
+~> findmnt -no UUID -T /swapfile
+
+63f7f18e-5a53-4471-9429-e3fc0e2e4666
+```
+
+Then modify entry file like this:
+
+```
+~> cat /boot/loader/entries/arch.conf
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=UUID=00000000-1111-2222-3333-444444444444 resume=UUID=63f7f18e-5a53-4471-9429-e3fc0e2e4666 resume_offset=446464 rw
+```
+
+You also may want to change the power button behavior:
+
+```
+/etc/systemd/logind.conf
+
+# ...
+HandlePowerKey=hibernate
+HandleLidSwitch=hibernate
+# ...
+```
+
+# Tweak Bluetooth config
+
+Follow https://gist.github.com/acro5piano/9606ce598e04c10dde1948cf7e098f80
+
+# Backlight is wrong
+
+If `light` does not work properly, try to modify the kernel parameter:
+
+```
+~> cat /boot/loader/entries/arch.conf
+options root=UUID=... acpi_backlight=native rw
+```
+
+ref: https://bbs.archlinux.org/viewtopic.php?id=282805

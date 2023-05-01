@@ -1,0 +1,43 @@
+
+[experimental_invert_layer]
+y = q
+u = w
+i = e
+o = r
+p = t
+h = a
+j = s
+k = d
+l = f
+; = g
+n = z
+m = x
+, = c
+. = v
+/ = b
+
+[experimental_jp_input]
+q = toggle(experimental_jp_input)
+
+s = o
+d = e
+f = u
+g = i
+
+l = s
+u = d
+i = f
+o = g
+
+leftcontrol = layer(experimental_jp_input_ctrl)
+
+[experimental_jp_input_ctrl:C]
+s = macro(C-s)
+d = macro(C-d)
+f = macro(C-f)
+g = macro(C-g)
+
+l = macro(C-l)
+u = macro(C-u)
+i = macro(C-i)
+o = macro(C-o)
