@@ -97,7 +97,12 @@ def subscribe_sway(
         print(traceback.format_exc())
 
 
-opt = argparse.ArgumentParser()
+description = """
+example: \n
+    keyd-application-reloader.py -v -c /etc/keyd/keyfuda-logical-split-keyboard.conf -t Brave-browser,brave -w 'include emacs-binding'
+"""
+
+opt = argparse.ArgumentParser(description=description)
 opt.add_argument(
     "-v",
     "--verbose",
