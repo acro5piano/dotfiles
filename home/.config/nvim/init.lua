@@ -7,6 +7,7 @@ require("packer").startup(function(use)
   use("terrortylor/nvim-comment")
   use("nvim-lualine/lualine.nvim")
   use("bronson/vim-visual-star-search")
+  -- use("/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer")
   use("acro5piano/nvim-format-buffer")
   use("neovim/nvim-lspconfig")
   use("hrsh7th/nvim-cmp")
@@ -180,6 +181,7 @@ local function prettier_bin()
 end
 
 require("nvim-format-buffer").setup({
+  verbose = false,
   format_rules = {
     { pattern = { "*.lua" }, command = "stylua -" },
     { pattern = { "*.py" }, command = "black -q - | isort -" },
