@@ -5,9 +5,9 @@
   "layers": [
     [
       "KC_LCTL", "KC_N",    "KC_H",    "KC_Y",
-      "KC_F24",  "KC_M",    "KC_J",    "KC_U",
+      "KC_F20",  "KC_M",    "KC_J",    "KC_U",
       "KC_HENK", "KC_COMM", "KC_K",    "KC_I",
-      "KC_F23",  "KC_DOT",  "KC_L",    "KC_O",
+      "KC_F21",  "KC_DOT",  "KC_L",    "KC_O",
       "KC_F22",  "KC_SLSH", "KC_ENT",  "KC_P"
     ]
   ],
