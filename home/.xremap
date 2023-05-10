@@ -52,8 +52,11 @@ window class_only: browsers do
   remap 'M-r', to: 'Ctrl-r'
   # remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
   remap 'C-M-p', to: 'Ctrl-p'
+
+  # OSX-like
   remap 'M-c', to: 'Ctrl-c'
   remap 'M-v', to: 'Ctrl-v'
+  remap 'M-z', to: 'Ctrl-z'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
 
