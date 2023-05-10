@@ -12,6 +12,7 @@ createServer((req, res) => {
   exec('wl-paste -t text', (_err, stdout) => {
     const pasted = String(stdout).trim()
     log({ pasted })
+    res.setHeader('Content-Type', 'text/plain; charset=UTF-8')
     res.end(pasted)
   })
 }).listen(2000, '0.0.0.0', () => {
