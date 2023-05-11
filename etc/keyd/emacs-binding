@@ -1,0 +1,57 @@
+# vim:set ft=toml :
+
+[main]
+
+[control]
+  h = backspace
+  k = macro(S-end C-x)
+  s = macro(C-f)
+  b = macro(left)
+  f = right
+  p = up
+  n = down
+  a = home
+  e = end
+  h = backspace
+  d = delete
+  y = macro(C-v)
+
+[alt]
+  # Emacs shortcuts
+  d = macro(C-delete)
+  b = macro(C-left)
+  f = macro(C-right)
+  n = macro(C-pagedown)
+  p = macro(C-pageup)
+  # OSX-like shortcuts
+  a = macro(C-a)
+  c = macro(C-c)
+  v = macro(C-v)
+  x = macro(C-x)
+  # alternative keybindings
+  k = macro(C-k)
+  h = macro(C-h)
+  e = macro(C-e)
+  s = macro(C-s)
+
+[control+alt]
+  h = macro(C-backspace)
+
+#   remap 'C-M-a', to: 'Ctrl-Home'
+#   remap 'C-M-e', to: 'Ctrl-End'
+#
+#   # Alternatives
+#   remap 'C-M-d', to: 'Ctrl-d'
+#   remap 'C-M-s', to: 'Ctrl-f'
+#   remap 'C-M-b', to: 'Ctrl-b'
+#   remap 'C-M-p', to: 'Ctrl-p'
+
+
+control+alt.a = macro(C-home)
+control+alt.h = macro(C-backspace)
+control+alt.e = macro(C-end)
+
+
+control+alt.d = macro(C-d)
+control+alt.b = macro(C-b)
+control+alt.p = macro(C-p)
