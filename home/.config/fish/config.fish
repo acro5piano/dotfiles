@@ -174,6 +174,9 @@ function cl
         xclip -selection clipboard
     end
 end
+function cl-image
+    wl-copy -t image/png
+end
 function clp
     if [ $IS_MAC -eq 1 ]
         pbpaste
