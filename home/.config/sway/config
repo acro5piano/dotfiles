@@ -88,6 +88,7 @@ for_window [class="pavucontrol-qt"] move container to workspace 6
 
 exec start-fcitx &
 exec xremap ~/.xremap &
+exec dunst &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
