@@ -72,7 +72,7 @@
 		"map m togglePinTab",
 		""
 	],
-	"linkHintCharacters": "qwertasdfgzxcvb",
+	"linkHintCharacters": "wertasdfgzcvb",
 	"nextPatterns": "next,more,newer,>,›,→,»,≫,>>,次,次へ",
 	"previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<,前,前へ",
 	"scrollStepSize": 250,
