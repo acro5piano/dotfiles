@@ -55,11 +55,9 @@ window class_only: browsers do
 
   # OSX-like
   remap 'M-c', to: 'Ctrl-c'
+  remap 'M-x', to: 'Ctrl-x'
   remap 'M-v', to: 'Ctrl-v'
   remap 'M-z', to: 'Ctrl-z'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
-
-  # Slack
-  remap 'M-x', to: 'Ctrl-k'
 end
