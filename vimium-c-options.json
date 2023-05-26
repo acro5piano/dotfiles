@@ -1,15 +1,15 @@
 {
 	"name": "Vimium C",
-	"@time": "4/26/2023, 4:45:32 PM",
-	"time": 1682495132076,
+	"@time": "5/26/2023, 4:23:15 PM",
+	"time": 1685085795568,
 	"environment": {
-		"extension": "1.99.99",
+		"extension": "1.99.991",
 		"platform": "linux",
 		"chromium": 112
 	},
 	"exclusionRules": [
 		{
-			"passKeys": "e g i j k ",
+			"passKeys": "e g i j k n p ",
 			"pattern": ":https://mail.google.com/"
 		},
 		{
@@ -31,6 +31,22 @@
 		{
 			"passKeys": "",
 			"pattern": ":https://discord.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://sushida.net/"
+		},
+		{
+			"passKeys": "f i ",
+			"pattern": ":https://www.youtube.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://www.toptal.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://www.notion.so/"
 		}
 	],
 	"keyLayout": 2,
@@ -38,6 +54,7 @@
 		"#!no-check",
 		"unmapAll",
 		"map e LinkHints.activate",
+		"map t LinkHints.activateOpenInNewTab",
 		"map o LinkHints.activateOpenInNewTab",
 		"map i focusInput",
 		"map h scrollLeft",
@@ -49,15 +66,16 @@
 		"map f scrollFullPageDown",
 		"map b scrollFullPageUp",
 		"map u goBack",
-		"map <c-r> goForward",
 		"map > goNext",
 		"map < goPrevious",
 		"map x removeTab",
 		"map m togglePinTab",
 		""
 	],
+	"linkHintCharacters": "qwertasdfgzxcvb",
 	"nextPatterns": "next,more,newer,>,›,→,»,≫,>>,次,次へ",
 	"previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<,前,前へ",
 	"scrollStepSize": 250,
-	"vimSync": true
+	"vimSync": true,
+	"waitForEnter": false
 }
