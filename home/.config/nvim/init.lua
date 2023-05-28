@@ -404,6 +404,7 @@ lsp.terraformls.setup({})
 lsp.graphql.setup({
   filetypes = { "graphql", "typescript", "typescriptreact", "javascriptreact" },
 })
+lsp.eslint.setup({})
 
 local cmp = require("cmp")
 cmp.setup({

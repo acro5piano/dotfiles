@@ -7,7 +7,7 @@ snippet imr
 snippet imt
   import { t } from 'ttag'
 snippet rfn
-	interface ${1:`expand('%:t:r')`}Props {
+	type ${1:`expand('%:t:r')`}Props = {
 
 	}
 
@@ -18,7 +18,7 @@ snippet rfn
 		)
 	}
 snippet rfc
-	interface ${1:`expand('%:t:r')`}Props {
+	type ${1:`expand('%:t:r')`}Props = {
 
 	}
 
@@ -27,6 +27,14 @@ snippet rfc
 			<div>
 			</div>
 		)
+	}
+snippet rho
+	type ${1:`expand('%:t:r')`}Props = {
+
+	}
+
+	export const ${1:`expand('%:t:r')`} = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
+    const [,] = useState()
 	}
 snippet ufo
   const {

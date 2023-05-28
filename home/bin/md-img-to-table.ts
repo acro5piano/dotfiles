@@ -7,7 +7,7 @@ function convert(lines: string) {
   const tds = lines
     .split('\n')
     .map((line) => {
-      const matches = line.match(/(https:.+.png)/)
+      const matches = line.match(/(https:.+.\))/)
       const src = matches?.[1]
       if (!src) {
         return ''
