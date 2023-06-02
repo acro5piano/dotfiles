@@ -97,7 +97,6 @@ set -gx FZF_DEFAULT_OPTS "--layout reverse"
 
 set -p Z_EXCLUDE "(google-cloud-sdk|\.dotfiles)"
 
-
 # }}}
 
 # {{{ functions
