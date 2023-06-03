@@ -43,35 +43,7 @@ require("packer").startup(function(use)
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
-    -- config = function()
-    --   require("neo-tree").setup({
-    --     filesystem = {
-    --       filtered_items = {
-    --         visible = true,
-    --         hide_dotfiles = false,
-    --         hide_hidden = false,
-    --         show_hidden = true,
-    --         hide_gitignored = false,
-    --         hide_by_name = {
-    --           "node_modules",
-    --         },
-    --       },
-    --     },
-    --     add_blank_line_at_top = true,
-    --     popup_border_style = "rounded",
-    --     enable_git_status = true,
-    --     window = {
-    --       mappings = {
-    --         ["<esc>"] = "close_window",
-    --       },
-    --     },
-    --   })
-    -- end,
   })
-
-  -- use("github/copilot.vim")
-  -- use("zbirenbaum/copilot.lua")
-  -- use("zbirenbaum/copilot-cmp")
 end)
 
 local my_util = require("my-util")
