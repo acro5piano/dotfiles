@@ -14,5 +14,5 @@
     - sql-formatter
     - typescript # required for lsp
     - typescript-language-server # required for lsp
-    - vscode-eslint-language-server # required for lsp
     - graphql-language-service-cli # required for lsp
+    - vscode-langservers-extracted # required for lsp
