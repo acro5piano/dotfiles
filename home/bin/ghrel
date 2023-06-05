@@ -5,9 +5,9 @@ set -ue
 branch=$1
 
 git fetch
-body=`git log origin/$1...origin/main --pretty=format:"%s" | grep 'Merge pull request' | perl -pe 's/Merge pull request //' | perl -pe 's/^/- /'`
+body=`git log origin/$1...origin/main --pretty=format:"%s" | grep 'Merge pull request' | grep -v 'main$' | perl -pe 's/Merge pull request //' | perl -pe 's/^/- /'`
 
-echo $body
+echo $body | perl -pe 's/- /\n- /g'
 
 url=`gh pr create --title "Production Release" --body "$body" --base "$branch"`
 
