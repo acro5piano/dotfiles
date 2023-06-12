@@ -30,13 +30,13 @@
     "startup": 1,
     "reserved":[0,0,1,0,0,0,0,0],
     "peripheral": {
-      "max_interval": 60,
-      "min_interval": 30,
-      "slave_latency": 7
+      "max_interval": 10,
+      "min_interval": 10,
+      "slave_latency": 0
     },
     "central": {
-      "max_interval": 60,
-      "min_interval": 30,
+      "max_interval": 10,
+      "min_interval": 10,
       "slave_latency": 0
     },
     "led": {
