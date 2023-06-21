@@ -35,15 +35,7 @@ require("packer").startup(function(use)
   use("monaqa/dial.nvim")
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround")
-  use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-  })
+  use("stevearc/oil.nvim")
 end)
 
 local my_util = require("my-util")
@@ -243,8 +235,8 @@ vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
-vim.keymap.set("n", "<Backspace>", ":NeoTreeFloatToggle<CR>")
-vim.keymap.set("n", "<Leader>d", ":NeoTreeFloatToggle<CR>")
+vim.keymap.set("n", "<Backspace>", ":Oil<CR>")
+vim.keymap.set("n", "<Leader>d", ":Oil<CR>")
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
@@ -527,21 +519,8 @@ require("nvim-surround").setup({
   },
 })
 
-require("neo-tree").setup({
-  filesystem = {
-    filtered_items = {
-      visible = true,
-      hide_dotfiles = false,
-      hide_gitignored = true,
-      hide_by_name = {
-        "node_modules",
-      },
-    },
-  },
-  enable_git_status = true,
-  window = {
-    mappings = {
-      ["<esc>"] = "close_window",
-    },
+require("oil").setup({
+  keymaps = {
+    ["<C-u>"] = "actions.parent",
   },
 })
