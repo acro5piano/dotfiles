@@ -41,6 +41,8 @@ end)
 local my_util = require("my-util")
 
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -235,8 +237,9 @@ vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
-vim.keymap.set("n", "<Backspace>", ":Oil<CR>")
-vim.keymap.set("n", "<Leader>d", ":Oil<CR>")
+vim.keymap.set("n", "<Leader>d", require("oil").open)
+vim.keymap.set("n", "<Backspace>", require("oil").open)
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
 vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
@@ -519,8 +522,4 @@ require("nvim-surround").setup({
   },
 })
 
-require("oil").setup({
-  keymaps = {
-    ["<C-u>"] = "actions.parent",
-  },
-})
+require("oil").setup({})
