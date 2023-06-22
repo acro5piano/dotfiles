@@ -15,7 +15,6 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-cmdline")
   use("hrsh7th/cmp-nvim-lsp")
-  -- use("tpope/vim-surround")
   use("dcampos/nvim-snippy")
   use("dcampos/cmp-snippy")
   use("ruanyl/vim-gh-line")
@@ -34,7 +33,7 @@ require("packer").startup(function(use)
   use("stevearc/dressing.nvim") -- for yanky to work nicely
   use("monaqa/dial.nvim")
   use("onsails/lspkind.nvim")
-  use("kylechui/nvim-surround")
+  use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
 end)
 
