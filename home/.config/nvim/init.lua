@@ -128,8 +128,8 @@ local function has(command)
   return string.find(result, "/") ~= nil
 end
 
--- WARNING: This could be a perfomance bottleneck. Keep it in mind.
 if has("fcitx5-remote") then
+  -- WARNING: This could be a perfomance bottleneck. Keep it in mind.
   vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     pattern = { "*" },
     callback = function()
@@ -345,27 +345,29 @@ lsp.solargraph.setup({
     },
   },
 })
-require("lspconfig").lua_ls.setup({
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
+if has("lua-language-server") then
+  require("lspconfig").lua_ls.setup({
+    settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = { "vim" },
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
       },
     },
-  },
-  handlers = {
-    ["textDocument/definition"] = shrink_lsp_definition_result,
-  },
-})
+    handlers = {
+      ["textDocument/definition"] = shrink_lsp_definition_result,
+    },
+  })
+end
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
 lsp.graphql.setup({
@@ -522,4 +524,8 @@ require("nvim-surround").setup({
   },
 })
 
-require("oil").setup({})
+require("oil").setup({
+  view_options = {
+    show_hidden = true,
+  },
+})
