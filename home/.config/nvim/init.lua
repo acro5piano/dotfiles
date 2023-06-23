@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 local function has(command)
-  local handle = io.popen("which " .. command)
+  local handle = io.popen("which 2>&1 >/dev/null " .. command)
   if handle == nil then
     return false
   end
