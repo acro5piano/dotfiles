@@ -54,11 +54,11 @@ bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+Shift+s exec systemctl hibernate
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
-bindsym $mod+x exec rofi -show drun
+bindsym $mod+p exec rofi -show drun -i
 
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 # requires go install github.com/yory8/clipman@latest
-bindsym $mod+y exec clipman pick -t rofi
+bindsym $mod+y exec clipman pick -t rofi -T'-i'
 bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
