@@ -118,13 +118,15 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 local function has(command)
-  local handle = io.popen("which 2>&1 >/dev/null " .. command)
+  -- We need redirect because stderr is annoying
+  -- https://github.com/neovim/neovim/issues/21376
+  local handle = io.popen("which 2>&1 " .. command)
   if handle == nil then
     return false
   end
   local result = handle:read("*a")
   handle:close()
-  return string.find(result, "/") ~= nil
+  return string.find(result, "which: no") == nil
 end
 
 if has("fcitx5-remote") then
