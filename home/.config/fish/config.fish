@@ -357,4 +357,5 @@ if [ "$TTY" = "/dev/tty2" ]
 end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/var/google-cloud-sdk/path.fish.inc ]; . ~/var/google-cloud-sdk/path.fish.inc; end
+# Comment out temporary for it slows down startup time
+# if [ -f ~/var/google-cloud-sdk/path.fish.inc ]; . ~/var/google-cloud-sdk/path.fish.inc; end
