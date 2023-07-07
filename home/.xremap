@@ -60,6 +60,9 @@ window class_only: browsers do
   remap 'M-z', to: 'Ctrl-z'
   remap 'M-k', to: 'Ctrl-k'
   remap 'M-h', to: 'Ctrl-h'
+  remap 'M-w', to: 'Ctrl-w'
+  remap 'M-l', to: 'Ctrl-l'
+  remap 'M-t', to: 'Ctrl-t'
 
   remap 'M-minus', to: 'Ctrl-minus'
   remap 'M-equal', to: 'Ctrl-equal'
