@@ -111,6 +111,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*.tf", "*.hcl" },
+  callback = function()
+    vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.md" },
   callback = function()
     vim.api.nvim_exec(":set wrap", false)
