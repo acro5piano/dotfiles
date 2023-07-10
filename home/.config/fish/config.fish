@@ -337,6 +337,7 @@ alias tmc='tmux clear-history'
 alias q='qrcode'
 
 alias xremap-restart="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xremap.log &"
+alias feh="feh --scale-down"
 
 set TTY (tty)
 
