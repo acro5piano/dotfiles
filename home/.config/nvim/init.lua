@@ -35,6 +35,7 @@ require("packer").startup(function(use)
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
+  use("m4xshen/autoclose.nvim")
 end)
 
 local my_util = require("my-util")
@@ -245,10 +246,6 @@ vim.keymap.set("n", "<Backspace>", require("oil").open)
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 
-vim.keymap.set("i", "{<CR>", "{<CR>}<Up><End><CR>")
-vim.keymap.set("i", "[<CR>", "[<CR>]<Up><End><CR>")
--- vim.keymap.set("i", "({<CR>", "({<CR>})<Up><End><CR>") -- it prevents nvim-cmp to insert ()
--- vim.keymap.set("i", "([<CR>", "([<CR>])<Up><End><CR>") -- it prevents nvim-cmp to insert ()
 vim.keymap.set("i", "z.", "=>")
 vim.keymap.set("i", "z;", "z.") -- Needed for zod validation. My fingers are too lazy to fix the 5 years mapping - e.g.) z.string().uuid()
 vim.keymap.set("i", "zl", "->")
@@ -559,3 +556,5 @@ require("oil").setup({
     show_hidden = true,
   },
 })
+
+require("autoclose").setup()
