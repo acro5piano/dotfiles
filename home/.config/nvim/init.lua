@@ -119,6 +119,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*.sql" },
+  callback = function()
+    vim.api.nvim_buf_set_option(0, "commentstring", "-- %s")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.md" },
   callback = function()
     vim.api.nvim_exec(":set wrap", false)
@@ -321,7 +328,7 @@ require("lualine").setup({
     lualine_z = { "location" },
   },
 })
-require("nvim_comment").setup()
+require("nvim_comment").setup({ create_mappings = false })
 
 -- This handler function forces to select the first element of lsp definitions if multiple candidates exist.
 -- Without this, nvim-cmp shows a quickfix list to select a code position to jump, which is really annoying.
@@ -557,4 +564,8 @@ require("oil").setup({
   },
 })
 
-require("autoclose").setup()
+require("autoclose").setup({
+  keys = {
+    [">"] = { escape = false, close = false },
+  },
+})
