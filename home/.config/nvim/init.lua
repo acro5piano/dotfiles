@@ -569,3 +569,9 @@ require("autoclose").setup({
     [">"] = { escape = false, close = false },
   },
 })
+
+-- TODO: how to create a custom command shortcut in lua
+function Highlight(word)
+  vim.api.match("Todo", word)
+  -- :match Todo /c7745532-196c-4c67-a7c4-2ff5d2fbb005/
+end
