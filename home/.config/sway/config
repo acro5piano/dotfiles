@@ -28,7 +28,7 @@ input type:touchpad {
 input type:pointer {
   natural_scroll enabled
   scroll_method on_button_down
-  scroll_button button3
+  scroll_button button9
 }
 
 input type:keyboard {
