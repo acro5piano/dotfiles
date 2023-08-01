@@ -26,7 +26,6 @@ require("packer").startup(function(use)
   use("windwp/nvim-ts-autotag")
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("folke/tokyonight.nvim")
   use("goolord/alpha-nvim")
   use("lukas-reineke/cmp-rg")
   use("gbprod/yanky.nvim")
@@ -36,6 +35,11 @@ require("packer").startup(function(use)
   use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
   use("m4xshen/autoclose.nvim")
+
+  -- Themes
+  use("folke/tokyonight.nvim")
+  use("marko-cerovac/material.nvim")
+  use("sainnhe/everforest")
 end)
 
 local my_util = require("my-util")
@@ -55,10 +59,20 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.o.mouse = false
 vim.o.cedit = "<C-q>"
 
-require("tokyonight").setup({
-  transparent = true,
-})
-vim.cmd("colorscheme tokyonight")
+-- require("tokyonight").setup({
+--   transparent = true,
+-- })
+-- require("material").setup({
+--   contrast = {
+--     floating_windows = true, -- Enable contrast for floating windows
+--   },
+--
+--   disable = {
+--     background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+--   },
+-- })
+vim.g.everforest_transparent_background = 1
+vim.cmd("colorscheme everforest")
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
