@@ -62,17 +62,17 @@ vim.o.cedit = "<C-q>"
 -- require("tokyonight").setup({
 --   transparent = true,
 -- })
--- require("material").setup({
---   contrast = {
---     floating_windows = true, -- Enable contrast for floating windows
---   },
---
---   disable = {
---     background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
---   },
--- })
-vim.g.everforest_transparent_background = 1
-vim.cmd("colorscheme everforest")
+vim.g.material_style = "palenight"
+require("material").setup({
+  plugins = {
+    "nvim-cmp",
+  },
+  disable = {
+    background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+  },
+})
+-- vim.g.everforest_transparent_background = 1
+vim.cmd("colorscheme material")
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
