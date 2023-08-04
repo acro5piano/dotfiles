@@ -35,6 +35,7 @@ require("packer").startup(function(use)
   use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
   use("m4xshen/autoclose.nvim")
+  use("mechatroner/rainbow_csv")
 
   -- Themes
   use("folke/tokyonight.nvim")
@@ -62,7 +63,7 @@ vim.o.cedit = "<C-q>"
 -- require("tokyonight").setup({
 --   transparent = true,
 -- })
-vim.g.material_style = "palenight"
+vim.g.material_style = "darker"
 require("material").setup({
   plugins = {
     "nvim-cmp",
