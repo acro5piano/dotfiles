@@ -34,7 +34,6 @@ require("packer").startup(function(use)
   use("onsails/lspkind.nvim")
   use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
-  use("m4xshen/autoclose.nvim")
   use("mechatroner/rainbow_csv")
 
   -- Themes
@@ -276,6 +275,47 @@ vim.keymap.set("i", "zd", '<C-r>=strftime("%Y-%m-%d")<CR><Space>')
 vim.keymap.set("i", "zt", '<C-r>=strftime("%H:%M")<CR><Space>')
 vim.keymap.set("i", "zf", "<C-r>=expand('%:t:r')<CR>")
 vim.keymap.set("i", "zw", "<C-r>=expand('%:p:h:t')<CR>")
+
+-- Return/Space triggered auto close braces
+local function get_left_2_chars()
+  -- add "_" to let close function work in the first col
+  local line = "_" .. vim.api.nvim_get_current_line()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  local left_2_char = line:sub(col, col + 1)
+  return left_2_char
+end
+vim.keymap.set("i", "<CR>", function()
+  local left_2_char = get_left_2_chars()
+  if left_2_char == "({" then
+    return "})<Left><Left><CR><UP><END><CR>"
+  end
+  if left_2_char == " {" then
+    return "}<Left><CR><UP><END><CR>"
+  end
+  if left_2_char == "_{" then
+    return "}<Left><CR><UP><END><CR>"
+  end
+  if left_2_char == " (" then
+    return ")<Left><CR><UP><END><CR>"
+  end
+  if left_2_char == "_(" then
+    return ")<Left><CR><UP><END><CR>"
+  end
+  return "<CR>"
+end, { expr = true })
+vim.keymap.set("i", "<Space>", function()
+  local left_2_char = get_left_2_chars()
+  if left_2_char == "({" then
+    return "})<Left><Left><Space><Left><Space>"
+  end
+  if left_2_char == " {" or left_2_char == "_{" then
+    return "}<Left><Space><Left><Space>"
+  end
+  if left_2_char == "_(" or left_2_char == "_(" then
+    return ")<Left><Space><Left><Space>"
+  end
+  return "<Space>"
+end, { expr = true })
 
 -- indent with Tab/S-tab
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = false })
@@ -576,12 +616,6 @@ require("nvim-surround").setup({
 require("oil").setup({
   view_options = {
     show_hidden = true,
-  },
-})
-
-require("autoclose").setup({
-  keys = {
-    [">"] = { escape = false, close = false },
   },
 })
 
