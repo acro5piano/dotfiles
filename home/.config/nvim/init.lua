@@ -305,6 +305,9 @@ vim.keymap.set("i", "<CR>", function()
 end, { expr = true })
 vim.keymap.set("i", "<Space>", function()
   local left_2_char = get_left_2_chars()
+  if left_2_char == "{{" then
+    return "}}<Left><Left><Space><Left><Space>"
+  end
   if left_2_char == "({" then
     return "})<Left><Left><Space><Left><Space>"
   end
