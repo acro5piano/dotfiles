@@ -473,6 +473,7 @@ lsp.eslint.setup({
   filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })
 lsp.astro.setup({})
+lsp.emmet_language_server.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
