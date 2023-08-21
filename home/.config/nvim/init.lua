@@ -35,6 +35,7 @@ require("packer").startup(function(use)
   use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
   use("stevearc/oil.nvim")
   use("mechatroner/rainbow_csv")
+  use("echasnovski/mini.align")
 
   -- Themes
   use("folke/tokyonight.nvim")
@@ -635,3 +636,5 @@ function Highlight(word)
   vim.api.match("Todo", word)
   -- :match Todo /c7745532-196c-4c67-a7c4-2ff5d2fbb005/
 end
+
+require("mini.align").setup()

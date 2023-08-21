@@ -4,6 +4,8 @@ snippet uro
 	const router = useRouter()
 snippet imr
   import * as R from 'remeda'
+snippet rct
+  import React from 'react'
 snippet imt
   import { t } from 'ttag'
 snippet rfn
@@ -11,7 +13,7 @@ snippet rfn
 
 	}
 
-	export const ${1:`expand('%:t:r')`} = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
+	export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
 		return (
 			<div>
 			</div>
