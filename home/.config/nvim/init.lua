@@ -185,6 +185,10 @@ require("nvim-format-buffer").setup({
       pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.mts" },
       command = prettier_bin() .. " --parser typescript 2>/dev/null",
     },
+    {
+      pattern = { "*.astro" },
+      command = prettier_bin() .. " --parser astro 2>/dev/null",
+    },
     { pattern = { "*.md" }, command = prettier_bin() .. " --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
     { pattern = { "*.css" }, command = prettier_bin() .. " --parser css" },
     { pattern = { "*.html" }, command = prettier_bin() .. " --parser html" },
@@ -465,7 +469,10 @@ lsp.terraformls.setup({})
 lsp.graphql.setup({
   filetypes = { "graphql", "typescript", "typescriptreact", "javascriptreact" },
 })
-lsp.eslint.setup({})
+lsp.eslint.setup({
+  filetypes = { "typescript", "typescriptreact", "javascriptreact" },
+})
+lsp.astro.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
