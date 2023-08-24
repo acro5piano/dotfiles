@@ -147,13 +147,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.csv", "*.tsv" },
-  callback = function()
-    vim.api.nvim_exec(":TSDisable highlight", false)
-  end,
-})
-
 local function has(command)
   -- We need redirect because stderr is annoying
   -- https://github.com/neovim/neovim/issues/21376
@@ -575,7 +568,15 @@ require("hop").setup()
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = function(lang)
+      local buf_name = vim.fn.expand("%")
+      if lang == "csv" then
+        return true
+      end
+    end,
+  },
   indent = { enable = true },
   autotag = { enable = true },
   textobjects = {
