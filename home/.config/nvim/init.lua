@@ -578,7 +578,7 @@ require("nvim-treesitter.configs").setup({
     end,
   },
   indent = { enable = true },
-  autotag = { enable = true },
+  autotag = { enable = false },
   textobjects = {
     select = {
       enable = true,
@@ -600,7 +600,7 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
-require("nvim-ts-autotag").setup()
+-- require("nvim-ts-autotag").setup()
 
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
