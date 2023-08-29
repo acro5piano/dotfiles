@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "5/26/2023, 4:23:15 PM",
-	"time": 1685085795568,
+	"@time": "8/29/2023, 5:47:26 PM",
+	"time": 1693298846249,
 	"environment": {
-		"extension": "1.99.991",
+		"extension": "1.99.994",
 		"platform": "linux",
-		"chromium": 112
+		"chromium": 116
 	},
 	"exclusionRules": [
 		{
@@ -45,8 +45,36 @@
 			"pattern": ":https://www.toptal.com/"
 		},
 		{
-			"passKeys": "",
+			"passKeys": "t ",
+			"pattern": ":https://github.com/"
+		},
+		{
+			"passKeys": "e f n o p t ",
 			"pattern": ":https://www.notion.so/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://app.diagrams.net/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://www.onlinegantt.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://twitter.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://drive.google.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://app.amplitude.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": ":https://app.asana.com/"
 		}
 	],
 	"keyLayout": 2,
@@ -54,7 +82,7 @@
 		"#!no-check",
 		"unmapAll",
 		"map e LinkHints.activate",
-		"map t LinkHints.activateOpenInNewTab",
+		"map , LinkHints.activate",
 		"map o LinkHints.activateOpenInNewTab",
 		"map i focusInput",
 		"map h scrollLeft",
@@ -72,7 +100,7 @@
 		"map m togglePinTab",
 		""
 	],
-	"linkHintCharacters": "wertasdfgzcvb",
+	"linkHintCharacters": "wertasdfgzcvbuiopjklm,.",
 	"nextPatterns": "next,more,newer,>,›,→,»,≫,>>,次,次へ",
 	"previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<,前,前へ",
 	"scrollStepSize": 250,
