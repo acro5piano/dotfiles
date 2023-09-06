@@ -36,7 +36,7 @@ function has
     which $1 >/dev/null 2>/dev/null
 end
 
-has fnm && fnm env --use-on-cd | source > /dev/null
+fnm env --use-on-cd | source > /dev/null
 
 [ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go

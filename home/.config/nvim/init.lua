@@ -260,6 +260,7 @@ vim.keymap.set("n", "<Leader>wp", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
 vim.keymap.set("n", "<Leader>q", ":qa<CR>")
 vim.keymap.set("n", "<Leader>rl", ":s/")
+vim.keymap.set("n", "<S-y>", '"+y')
 vim.keymap.set("n", "<Leader>rr", ":%s/")
 vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
@@ -474,7 +475,7 @@ lsp.eslint.setup({
   filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })
 lsp.astro.setup({})
-lsp.emmet_language_server.setup({})
+-- lsp.emmet_language_server.setup({})
 
 local cmp = require("cmp")
 cmp.setup({
