@@ -1,7 +1,7 @@
 snippet ust
-	const [${1:name}, set${1/.*/\=v:lua.UpperFirstLetter(submatch(0))/}] = useState(${2:defaultValue})
+  const [${1:name}, set${1/.*/\=v:lua.UpperFirstLetter(submatch(0))/}] = useState(${2:defaultValue})
 snippet uro
-	const router = useRouter()
+  const router = useRouter()
 snippet imr
   import * as R from 'remeda'
 snippet rct
@@ -9,35 +9,37 @@ snippet rct
 snippet imt
   import { t } from 'ttag'
 snippet rfn
-	type ${1:`expand('%:t:r')`}Props = {
+  import React from 'react'
 
-	}
+  type ${1:`expand('%:t:r')`}Props = {
+    children: React.ReactNode
+  }
 
-	export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
-		return (
-			<div>
-			</div>
-		)
-	}
+  export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
+    return (
+      <div>
+      </div>
+    )
+  }
 snippet rfc
-	type ${1:`expand('%:t:r')`}Props = {
+  type ${1:`expand('%:t:r')`}Props = {
 
-	}
+  }
 
-	export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
-		return (
-			<div>
-			</div>
-		)
-	}
+  export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
+    return (
+      <div>
+      </div>
+    )
+  }
 snippet rho
-	type ${1:`expand('%:t:r')`}Props = {
+  type ${1:`expand('%:t:r')`}Props = {
 
-	}
+  }
 
-	export const ${1:`expand('%:t:r')`} = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
+  export const ${1:`expand('%:t:r')`} = ({ ${2} }: ${1:`expand('%:t:r')`}Props) => {
     const [,] = useState()
-	}
+  }
 snippet ufo
   const {
     register,
@@ -48,18 +50,18 @@ snippet ufo
     },
   });
 snippet tst
-	import 'src/testing/hooks/refresh-database';
+  import 'src/testing/hooks/refresh-database';
 
-	import test from 'ava'
+  import test from 'ava'
 
-	test.serial('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async (t) => {
-		${2}
-	})
+  test.serial('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async (t) => {
+    ${2}
+  })
 snippet apm
-	<AppModal isOpen={isModalVisible} onRequestClose={() => setIsModalVisible(false)}>
-	</AppModal>
+  <AppModal isOpen={isModalVisible} onRequestClose={() => setIsModalVisible(false)}>
+  </AppModal>
 snippet imv
-	const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 snippet uef
   useEffect(() => {
     ${0}

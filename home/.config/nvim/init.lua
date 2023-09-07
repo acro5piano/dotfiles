@@ -579,7 +579,7 @@ require("nvim-treesitter.configs").setup({
     end,
   },
   indent = { enable = true },
-  autotag = { enable = false },
+  autotag = { enable = true },
   textobjects = {
     select = {
       enable = true,
