@@ -573,7 +573,7 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = function(lang)
       local buf_name = vim.fn.expand("%")
-      if lang == "csv" then
+      if lang == "csv" or lang == "po" then
         return true
       end
     end,
