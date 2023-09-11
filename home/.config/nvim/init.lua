@@ -563,6 +563,10 @@ fzf_lua.setup({
       pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment
     },
   },
+  winopts = {
+    -- this is temporary fix until .po file freeze problem in nvim-treesitter
+    preview = { default = "bat_native" },
+  },
 })
 
 require("hop").setup()

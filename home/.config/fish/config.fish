@@ -360,3 +360,7 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 # Comment out temporary for it slows down startup time
 # if [ -f ~/var/google-cloud-sdk/path.fish.inc ]; . ~/var/google-cloud-sdk/path.fish.inc; end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
