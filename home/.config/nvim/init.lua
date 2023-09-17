@@ -300,7 +300,7 @@ end
 vim.keymap.set("i", "<CR>", function()
   local left_2_char = get_left_2_chars()
   local right_char = get_right_1_char()
-  if not right_char == " " or not right_char == "_" then
+  if right_char ~= " " and right_char ~= "_" then
     return "<CR>"
   end
   if left_2_char == "({" then
@@ -323,7 +323,7 @@ end, { expr = true })
 vim.keymap.set("i", "<Space>", function()
   local left_2_char = get_left_2_chars()
   local right_char = get_right_1_char()
-  if not right_char == " " or not right_char == "_" then
+  if right_char ~= " " and right_char ~= "_" then
     return "<Space>"
   end
   if left_2_char == "{{" then
