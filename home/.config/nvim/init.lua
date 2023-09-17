@@ -290,8 +290,19 @@ local function get_left_2_chars()
   local left_2_char = line:sub(col, col + 1)
   return left_2_char
 end
+local function get_right_1_char()
+  -- add "_" to let close function work in the last col
+  local line = vim.api.nvim_get_current_line() .. "_"
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  local right_char = line:sub(col + 1, col + 1)
+  return right_char
+end
 vim.keymap.set("i", "<CR>", function()
   local left_2_char = get_left_2_chars()
+  local right_char = get_right_1_char()
+  if not right_char == " " or not right_char == "_" then
+    return "<CR>"
+  end
   if left_2_char == "({" then
     return "})<Left><Left><CR><UP><END><CR>"
   end
@@ -311,6 +322,10 @@ vim.keymap.set("i", "<CR>", function()
 end, { expr = true })
 vim.keymap.set("i", "<Space>", function()
   local left_2_char = get_left_2_chars()
+  local right_char = get_right_1_char()
+  if not right_char == " " or not right_char == "_" then
+    return "<Space>"
+  end
   if left_2_char == "{{" then
     return "}}<Left><Left><Space><Left><Space>"
   end
