@@ -10,7 +10,6 @@
   loop:
     - awscli
     - black
-    - docker-compose
     - flake8
     - ipython
     - iredis

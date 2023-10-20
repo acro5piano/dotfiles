@@ -8,8 +8,6 @@
   loop:
     - yarn
     - prettier
-    - plantview
-    - wscat
     - serve
     - sql-formatter
     - typescript # required for lsp
