@@ -7,8 +7,8 @@ require("packer").startup(function(use)
   use("terrortylor/nvim-comment")
   use("nvim-lualine/lualine.nvim")
   use("bronson/vim-visual-star-search")
-  -- use("/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer")
-  use("acro5piano/nvim-format-buffer")
+  use("/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer")
+  -- use("acro5piano/nvim-format-buffer")
   use("neovim/nvim-lspconfig")
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-path")
@@ -183,21 +183,28 @@ require("nvim-format-buffer").setup({
   format_rules = {
     { pattern = { "*.lua" }, command = "stylua -" },
     { pattern = { "*.py" }, command = "black -q - | isort -" },
-    {
-      pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.mts" },
-      command = prettier_bin() .. " --parser typescript 2>/dev/null",
-    },
-    {
-      pattern = { "*.astro" },
-      command = prettier_bin() .. " --parser astro 2>/dev/null",
-    },
-    { pattern = { "*.md" }, command = prettier_bin() .. " --parser markdown 2>/dev/null | perl -pe 's/\\t/  /g'" },
-    { pattern = { "*.css" }, command = prettier_bin() .. " --parser css" },
-    { pattern = { "*.html" }, command = prettier_bin() .. " --parser html" },
-    { pattern = { "*.graphql" }, command = prettier_bin() .. " --parser graphql" },
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
     { pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
+
+    {
+      pattern = {
+        "*.js",
+        "*.jsx",
+        "*.ts",
+        "*.tsx",
+        "*.mjs",
+        "*.mts",
+        "*.astro",
+        "*.graphql",
+        "*.css",
+        "*.md",
+        "*.html",
+      },
+      command = function()
+        return prettier_bin() .. " --stdin-filepath " .. vim.api.nvim_buf_get_name(0)
+      end,
+    },
   },
 })
 
