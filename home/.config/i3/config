@@ -34,7 +34,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
-bindsym $mod+x exec rofi -show drun
+bindsym $mod+p exec rofi -show drun -i
 
 bindsym Print exec screenshot-clip
 bindsym $mod+y exec CM_DIR=~/tmp CM_LAUNCHER=rofi CM_HISTLENGTH=24 clipmenu -i
@@ -64,6 +64,7 @@ bindsym $mod+Shift+comma move container to workspace number 5
 bindsym $mod+Shift+period move container to workspace number 6
 
 for_window [class="Pcmanfm"] move container to workspace 2
+for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="pavucontrol-qt"] move container to workspace 6
 
 exec i3-msg 'exec kitty'
