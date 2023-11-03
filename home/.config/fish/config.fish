@@ -95,8 +95,6 @@ has rbenv && status --is-interactive && source (rbenv init -|psub)
 set -gx FZF_DEFAULT_OPTS "--layout reverse"
 # set -gx FZF_DEFAULT_OPTS '--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "ctrl-o:toggle-preview"'
 
-set -p Z_EXCLUDE "(google-cloud-sdk|\.dotfiles)"
-
 # }}}
 
 # {{{ functions
