@@ -1,4 +1,4 @@
 #!/bin/bash
 
 wl-paste > /tmp/ocr.png
-tesseract /tmp/a.png - -l jpn | perl -pe 's/ //g' 2>/dev/null | grep -v 'Estimating resolution as'
+tesseract /tmp/ocr.png - -l jpn 2>/dev/null | grep -v 'Estimating resolution as'
