@@ -166,7 +166,7 @@ function cl
     else if [ $IS_WSL -eq 1 ]
         clip.exe
 	else if [ $IS_WAYLAND -eq 1 ]
-		wl-copy
+		cat /dev/stdin | perl -pe 'chomp if eof' | wl-copy
 	else
         xclip -selection clipboard
     end
