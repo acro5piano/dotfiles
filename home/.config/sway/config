@@ -96,7 +96,7 @@ exec xremap ~/.xremap &
 exec dunst &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 exec light -S 1
-exec swaymsg 'workspace 6; exec pavucontrol'
+exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 1; exec kitty'
 exec swaymsg 'workspace 2; exec brave'
 
