@@ -202,7 +202,7 @@ require("nvim-format-buffer").setup({
         "*.html",
       },
       command = function()
-        return prettier_bin() .. " --stdin-filepath " .. vim.api.nvim_buf_get_name(0)
+        return prettier_bin() .. " --stdin-filepath 2>/dev/null " .. vim.api.nvim_buf_get_name(0)
       end,
     },
   },
