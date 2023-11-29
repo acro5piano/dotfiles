@@ -30,8 +30,6 @@ set -gx DENO_INSTALL $HOME/.deno
 
 set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-set -gx GTK_IM_MODULE fcitx
-
 function has
     which $1 >/dev/null 2>/dev/null
 end
