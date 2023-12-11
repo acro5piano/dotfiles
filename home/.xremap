@@ -38,7 +38,6 @@ window class_only: browsers do
   remap 'C-k', to: ['Shift-End', 'Ctrl-x']
 
   remap 'C-s', to: 'Ctrl-f'
-  # remap 'C-r', to: 'Ctrl-Shift-g'
 
   # Alternatives
   remap 'C-M-d', to: 'Ctrl-d'
@@ -51,7 +50,8 @@ window class_only: browsers do
   remap 'M-a', to: 'Ctrl-a'
   remap 'M-r', to: 'Ctrl-r'
   # remap 'C-M-p', to: 'M-p' # Used in picture in picture extension
-  remap 'C-M-p', to: 'Ctrl-p'
+  # remap 'C-M-p', to: 'Ctrl-p'
+  remap 'C-M-p', to: 'Ctrl-Shift-a'
 
   # OSX-like
   remap 'M-c', to: 'Ctrl-c'
