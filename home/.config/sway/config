@@ -90,6 +90,7 @@ bindsym $mod+Shift+period move container to workspace number 6
 assign [class="Pcmanfm"] workspace 2
 for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="pavucontrol-qt"] move container to workspace 6
+for_window [class="Chromium"] move container to workspace 5
 
 exec start-fcitx &
 exec xremap ~/.xremap &
