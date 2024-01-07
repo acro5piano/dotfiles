@@ -11,22 +11,11 @@ snippet imt
 snippet rfn
   import React from 'react'
 
-  type ${1:`expand('%:t:r')`}Props = {
+  type `expand('%:t:r')`Props = {
     children: React.ReactNode
   }
 
-  export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
-    return (
-      <div>
-      </div>
-    )
-  }
-snippet rfc
-  type ${1:`expand('%:t:r')`}Props = {
-
-  }
-
-  export const ${1:`expand('%:t:r')`}: React.FC<${1:`expand('%:t:r')`}Props> = ({ ${2} }) => {
+  export const `expand('%:t:r')`: React.FC<`expand('%:t:r')`Props> = ({ ${1} }) => {
     return (
       <div>
       </div>
@@ -57,6 +46,14 @@ snippet tst
   test.serial('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async (t) => {
     ${2}
   })
+snippet tsti
+  import 'integration-tests/hooks/refresh-database'
+
+  import test from 'ava'
+
+  test.serial('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async (t) => {
+    ${2}
+  })
 snippet apm
   <AppModal isOpen={isModalVisible} onRequestClose={() => setIsModalVisible(false)}>
   </AppModal>
@@ -74,3 +71,13 @@ snippet mai
   <span className="material-icons">${1}</span>
 snippet ulo
   const [pathname, navigate] = useLocation();
+snippet ucs
+  type `!lua UpperFirstLetter(vim.fn.expand('%:t:r'))`Args = {
+
+  }
+
+  export async function `expand('%:t:r')`({}: `!lua UpperFirstLetter(vim.fn.expand('%:t:r'))`Args) {
+
+  }
+
+
