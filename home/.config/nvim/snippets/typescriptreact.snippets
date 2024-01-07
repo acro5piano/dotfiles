@@ -1,5 +1,5 @@
 snippet ust
-  const [${1:name}, set${1/.*/\=v:lua.UpperFirstLetter(submatch(0))/}] = useState(${2:defaultValue})
+  const [${1:name}, set${1/[a-z]/\U\0/}] = useState(${2:defaultValue})
 snippet uro
   const router = useRouter()
 snippet imr
