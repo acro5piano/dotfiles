@@ -18,5 +18,5 @@ createServer((req, res) => {
 }).listen(2000, '0.0.0.0', () => {
   const nets = networkInterfaces()
   log({ msg: `Please Visit http://${nets['wlan0'][0]['address']}:2000` })
-  log({ msg: 'listening on :2222' })
+  log({ msg: 'listening on :2000' })
 })
