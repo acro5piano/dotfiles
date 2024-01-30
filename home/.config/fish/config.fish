@@ -186,7 +186,7 @@ function clp
 end
 
 function grep-replace
-    git ls-files | xargs perl -i -pe "s#$argv[1]#$argv[2]#g"
+    git ls-files -z | xargs -0 perl -i -pe "s#$argv[1]#$argv[2]#g"
 end
 
 function sub
