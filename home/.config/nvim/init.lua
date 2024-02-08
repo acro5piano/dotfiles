@@ -221,6 +221,19 @@ local function git_files_cwd_aware()
   })
 end
 
+function replace_html_special_chars()
+  local line = vim.api.nvim_get_current_line()
+  local html_special_chars = {
+    ["&"] = "&amp;",
+    ["<"] = "&lt;",
+    [">"] = "&gt;",
+    ['"'] = "&quot;",
+    ["'"] = "&apos;",
+  }
+  local replaced_line = string.gsub(line, "[&<>\"']", html_special_chars)
+  vim.api.nvim_set_current_line(replaced_line)
+end
+
 -- TODO: make this to lua
 vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search(<q-args>)", false)
 
@@ -281,6 +294,7 @@ vim.keymap.set("n", "<Leader>d", require("oil").open)
 vim.keymap.set("n", "<Backspace>", require("oil").open)
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
+vim.keymap.set("n", "&", replace_html_special_chars)
 
 vim.keymap.set("i", "z.", "=>")
 vim.keymap.set("i", "z;", "z.") -- Needed for zod validation. My fingers are too lazy to fix the 5 years mapping - e.g.) z.string().uuid()
