@@ -1,7 +1,7 @@
 # vim:set ft=bash :
 
 set $mod Mod4
-set $term kitty
+set $term alacritty
 
 hide_edge_borders smart
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
@@ -97,7 +97,7 @@ exec dunst &
 exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 1; exec kitty'
+exec swaymsg 'workspace 1; exec alacritty'
 exec swaymsg 'workspace 2; exec brave'
 
 include /etc/sway/config.d/*
