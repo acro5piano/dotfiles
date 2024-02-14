@@ -240,8 +240,8 @@ vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search
 vim.keymap.set("", "<F1>", "<ESC>")
 vim.keymap.set("i", "<F1>", "<ESC>")
 
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+-- vim.keymap.set("n", "j", "gj")
+-- vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C-w C-m
 vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l><C-6>")
 vim.keymap.set("n", "<C-w>-", "<C-w>s<C-w><C-j><C-6>")
