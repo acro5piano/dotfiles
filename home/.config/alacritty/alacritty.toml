@@ -5,6 +5,9 @@ import = [
     "~/.config/alacritty/themes/themes/ayu_dark.toml"
 ]
 
+[mouse]
+hide_when_typing = true
+
 # [colors.primary]
 # background = "0x000000"
 
