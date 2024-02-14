@@ -2,7 +2,8 @@
 # git clone --depth 1 https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 import = [
     # "~/.config/alacritty/themes/themes/tokyo-night.toml"
-    "~/.config/alacritty/themes/themes/ayu_dark.toml"
+    # "~/.config/alacritty/themes/themes/ayu_dark.toml"
+    "~/.config/alacritty/themes/themes/falcon.toml"
 ]
 
 # [colors.primary]
