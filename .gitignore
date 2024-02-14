@@ -17,3 +17,5 @@ home/.emacs.d/*
 
 home/.config/keyd/app.log
 home/.config/fish/fishd.tmp.*
+
+home/.config/alacritty/themes/

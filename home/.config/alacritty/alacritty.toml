@@ -1,5 +1,12 @@
-[colors.primary]
-background = "0x000000"
+# mkdir -p ~/.config/alacritty/themes
+# git clone --depth 1 https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+import = [
+    # "~/.config/alacritty/themes/themes/tokyo-night.toml"
+    "~/.config/alacritty/themes/themes/ayu_dark.toml"
+]
+
+# [colors.primary]
+# background = "0x000000"
 
 [env]
 TERM = "xterm-256color"
@@ -7,8 +14,9 @@ TERM = "xterm-256color"
 [font]
 size = 13
 
-[font.normal]
-family = "Source Code Pro"
+# [font.normal]
+# family = "Source Code Pro"
+# family = "Monospace"
 
 [selection]
 save_to_clipboard = true
