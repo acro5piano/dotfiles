@@ -17,8 +17,8 @@ TERM = "xterm-256color"
 [font]
 size = 13
 
-# [font.normal]
-# family = "Source Code Pro"
+[font.normal]
+family = "Source Code Pro"
 # family = "Monospace"
 
 [selection]

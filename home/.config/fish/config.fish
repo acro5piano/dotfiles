@@ -345,7 +345,7 @@ if string match -q '/dev/pts/*' "$TTY"
 end
 
 if [ "$TTY" = "/dev/tty1" ]
-	sway
+    XDG_CURRENT_DESKTOP=sway sway
 end
 
 # x11 is still required for web meeting screen share
