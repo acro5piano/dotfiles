@@ -6,7 +6,7 @@ Core technologies:
 
 - Arch Linux
 - Sway
-- Kitty Terminal
+- Alacritty
 - Brave Browser
 
 <table>
@@ -101,7 +101,7 @@ Notes:
 
 - Python is required because we use Ansible later.
 - If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
-- systemd-boot is pre-installed and simple to use than Grub for Linux-only system.
+- systemd-boot is pre-installed and simple to use than Grub unless dual boot with Windows.
 
 ## Add user
 
@@ -229,44 +229,16 @@ ansible-playbook ansible/main.yml --tags pip,npm,misc
 chsh -s /usr/bin/fish
 ```
 
-# About my keyboard
+# Enable hibernation with swap partition
 
-![image](https://user-images.githubusercontent.com/10719495/224605667-c06a7da0-99e1-414b-8895-cd29130137ab.png)
+Linux supports swapfile, but it is not reliable as of 2024. swapfile causes the `hibernate inconsistent memory map detected` error while resuming.
 
-I use two BLE gridpads as a split keyboard by the power of keyd. keyd has two pitfills:
-
-- 1. KC_BTN1 is not available
-- 2. not works outside Linux.
-
-These problems will be fixed by using two ble micro pro controllers as master/slave mode, but it should be difficult at this time. I'll try to implement it in the near future.
-
-### Update BLE Micro Pro config
+Specify swap partition
 
 ```bash
-cd qmk
+# /etc/fstab
 
-# Left hand
-sudo make sync-left
-
-# Right hand
-sudo make sync-right
-```
-
-# Enable hibernation with swapfile
-
-TODO: Swap partition is more reliable than swapfile. I'm still estimating the difference now, as swapfile caused the `hibernate inconsistent memory map detected` error.
-
-Follow https://www.linuxuprising.com/2021/08/how-to-enable-hibernation-on-ubuntu.html
-
-Create Swap file:
-
-```bash
-# Run in root
-dd if=/dev/zero of=/swapfile bs=1G count=36 status=progress
-chmod 600 /swapfile
-mkswap -U clear /swapfile
-swapon /swapfile
-echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+UUID=7efab515-xxxx-xxxx-xxxx-7e17afceeacb none swap defaults 0 0
 ```
 
 Modify HOOKS in mkinitcpio config like this:
@@ -283,39 +255,12 @@ Then run
 sudo mkinitcpio -p linux
 ```
 
-Get resume physical offset:
+Add resume to the kernel parameter:
 
 ```
-filefrag -v /swapfile | head
+# /boot/loader/entries/arch.conf
 
-~> sudo filefrag -v /swapfile | head
-[sudo] password for kazuya:
-Filesystem type is: ef53
-File size of /swapfile is 27917287424 (6815744 blocks of 4096 bytes)
- ext:     logical_offset:        physical_offset: length:   expected: flags:
-   0:        0..    4095:     446464..    450559:   4096:
-   1:     4096..   36863:  109543424.. 109576191:  32768:     450560:
-   2:    36864..   69631:  139427840.. 139460607:  32768:  109576192:
-   3:    69632..  102399:    8159232..   8191999:  32768:  139460608:
-```
-
-Get swap file uuid:
-
-```
-~> findmnt -no UUID -T /swapfile
-
-63f7f18e-5a53-4471-9429-e3fc0e2e4666
-```
-
-Then modify entry file like this:
-
-```
-~> cat /boot/loader/entries/arch.conf
-
-title Arch Linux
-linux /vmlinuz-linux
-initrd /initramfs-linux.img
-options root=UUID=00000000-1111-2222-3333-444444444444 resume=UUID=63f7f18e-5a53-4471-9429-e3fc0e2e4666 resume_offset=446464 rw
+options root=UUID=63f7f18e-xxxx-xxxx-xxxx-e3fc0e2e4666 resume=UUID=7efab515-xxxx-xxxx-xxxx-7e17afceeacb acpi_backlight=native rw
 ```
 
 You also may want to change the power button behavior:
@@ -325,7 +270,7 @@ You also may want to change the power button behavior:
 
 # ...
 HandlePowerKey=hibernate
-HandleLidSwitch=hibernate
+HandleLidSwitch=ignore
 # ...
 ```
 
