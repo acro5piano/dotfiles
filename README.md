@@ -49,9 +49,11 @@ select disk to write arch linux
 cfdisk /dev/nvme0n1
 ```
 
-- Create a partition for main
+- Create a partition for UEFI `/dev/nvme0n1p1`
   - create a new partition and set maximum size for it
-- Create a partition for swap (for hibernation)
+- Create a partition for main `/dev/nvme0n1p2`
+  - create a new partition and set maximum size for it
+- Create a partition for swap (for hibernation) `/dev/nvme0n1p3`
   - create a new partition and set `40G` size for it
   - Set the type for `Linux swap`
 - write out
