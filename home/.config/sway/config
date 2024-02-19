@@ -4,7 +4,7 @@ set $mod Mod4
 set $term alacritty
 
 # Also alacritty hides cursor
-seat * hide_cursor 4000
+# seat * hide_cursor 4000
 seat * hide_cursor when-typing enable
 
 hide_edge_borders smart
