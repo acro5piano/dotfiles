@@ -12,19 +12,16 @@
     dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
     state: link
   loop:
-    - .bash_profile
-    - .bashrc
     - bin
     - .config/alacritty
     - .config/fish
-    - .config/flake8
     - .config/i3
     - .config/i3status-rust
     - .config/gh/config.yml
     - .config/nvim
     - .config/sway
     - .config/kitty
-    - .ctags
+    - .config/helix
     - .editorconfig
     - .emacs.d
     - .gemrc
@@ -33,10 +30,6 @@
     - .ripgreprc
     - sql-formatter.json
     - .tmux.conf
-    - .wezterm.lua
     - .xinitrc
     - .xmodmap
     - .xremap
-    # - .xremap.yml goes to /etc/xremap.yml
-    - .Xresources
-    - .zshrc
