@@ -1,47 +1,61 @@
 local os = require("os")
 
-require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
-  use("ibhagwan/fzf-lua")
-  use("kyazdani42/nvim-web-devicons")
-  use("terrortylor/nvim-comment")
-  use("nvim-lualine/lualine.nvim")
-  use("bronson/vim-visual-star-search")
-  use("/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
   -- use("acro5piano/nvim-format-buffer")
-  use("neovim/nvim-lspconfig")
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("dcampos/nvim-snippy")
-  use("dcampos/cmp-snippy")
-  use("ruanyl/vim-gh-line")
-  use("kyoh86/vim-ripgrep")
-  use("gpanders/editorconfig.nvim")
-  use("aklt/plantuml-syntax")
-  use("preservim/vim-markdown")
-  use("phaazon/hop.nvim")
-  use("windwp/nvim-ts-autotag")
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("goolord/alpha-nvim")
-  use("lukas-reineke/cmp-rg")
-  use("gbprod/yanky.nvim")
-  use("stevearc/dressing.nvim") -- for yanky to work nicely
-  use("monaqa/dial.nvim")
-  use("onsails/lspkind.nvim")
-  use("kylechui/nvim-surround") -- better replacement of "tpope/vim-surround"
-  use("stevearc/oil.nvim")
-  use("mechatroner/rainbow_csv")
-  use("echasnovski/mini.align")
+
+  -- "wbthomason/packer.nvim",
+  "ibhagwan/fzf-lua",
+  "kyazdani42/nvim-web-devicons",
+  "terrortylor/nvim-comment",
+  "nvim-lualine/lualine.nvim",
+  "bronson/vim-visual-star-search",
+  "neovim/nvim-lspconfig",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/cmp-nvim-lsp",
+  "dcampos/nvim-snippy",
+  "dcampos/cmp-snippy",
+  "ruanyl/vim-gh-line",
+  "kyoh86/vim-ripgrep",
+  "gpanders/editorconfig.nvim",
+  "aklt/plantuml-syntax",
+  "preservim/vim-markdown",
+  "phaazon/hop.nvim",
+  "windwp/nvim-ts-autotag",
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  "goolord/alpha-nvim",
+  "lukas-reineke/cmp-rg",
+  "gbprod/yanky.nvim",
+  "stevearc/dressing.nvim", -- for yanky to work nicely
+  "monaqa/dial.nvim",
+  "onsails/lspkind.nvim",
+  "kylechui/nvim-surround", -- better replacement of "tpope/vim-surround"
+  "stevearc/oil.nvim",
+  "mechatroner/rainbow_csv",
+  "echasnovski/mini.align",
 
   -- Themes
-  use("folke/tokyonight.nvim")
-  use("marko-cerovac/material.nvim")
-  use("sainnhe/everforest")
-end)
+  "folke/tokyonight.nvim",
+  "marko-cerovac/material.nvim",
+  "sainnhe/everforest",
+})
 
 local my_util = require("my-util")
 
