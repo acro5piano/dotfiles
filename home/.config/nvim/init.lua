@@ -49,23 +49,18 @@ require("lazy").setup({
   "mechatroner/rainbow_csv",
   "echasnovski/mini.align",
 
-  -- Themes
-  "folke/tokyonight.nvim",
-  "marko-cerovac/material.nvim",
-  "sainnhe/everforest",
-
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 
-  {
-    "aznhe21/actions-preview.nvim",
-    config = function()
-      vim.keymap.set({ "v", "n" }, "<Leader>la", require("actions-preview").code_actions)
-    end,
-  },
+  "aznhe21/actions-preview.nvim",
+
+  -- Themes
+  "folke/tokyonight.nvim",
+  "marko-cerovac/material.nvim",
+  "sainnhe/everforest",
 })
 
 local my_util = require("my-util")
@@ -203,8 +198,6 @@ local function prettier_bin()
   return bin
 end
 
-vim.keymap.set({ "v", "n" }, "<Leader>la", require("actions-preview").code_actions)
-
 require("nvim-format-buffer").setup({
   verbose = false,
   format_rules = {
@@ -270,6 +263,7 @@ vim.keymap.set("n", "gm", builtin.lsp_definitions)
 vim.keymap.set("n", "g;", ":Telescope resume<CR>")
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", builtin.grep_string)
+vim.keymap.set("n", "<Leader>la", require("actions-preview").code_actions)
 vim.keymap.set("n", "<Leader>ai", function()
   builtin.grep_string({ query = "import" })
 end)
