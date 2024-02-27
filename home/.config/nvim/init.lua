@@ -224,16 +224,7 @@ require("nvim-format-buffer").setup({
 
 local fzf_lua = require("fzf-lua")
 
-local function git_files_cwd_aware()
-  local git_root = fzf_lua.path.git_root()
-  if not git_root then
-    return
-  end
-  local relative = fzf_lua.path.relative(vim.loop.cwd(), git_root)
-  return fzf_lua.git_files({
-    fzf_opts = { ["--query"] = git_root ~= relative and relative .. "/\\ " or nil },
-  })
-end
+local git_files_cwd_aware = require("git-files-cwd-aware")
 
 function replace_html_special_chars()
   local line = vim.api.nvim_get_current_line()
@@ -279,7 +270,7 @@ vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
 vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
 vim.keymap.set("n", ",", ":HopWord<CR>")
-vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware)
+vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware.git_files_cwd_aware)
 vim.keymap.set("n", "<Leader>gg", fzf_lua.live_grep)
 vim.keymap.set("n", "<Leader>gl", fzf_lua.git_bcommits)
 vim.keymap.set("n", "<Leader>gs", fzf_lua.git_status)
