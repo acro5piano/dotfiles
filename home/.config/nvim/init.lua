@@ -267,6 +267,7 @@ vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "gp", ":Telescope yank_history<CR>")
 vim.keymap.set("n", "gm", builtin.lsp_definitions)
+vim.keymap.set("n", "g;", ":Telescope resume<CR>")
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>ag", builtin.grep_string)
 vim.keymap.set("n", "<Leader>ai", function()
@@ -402,11 +403,6 @@ vim.keymap.set("v", "<Leader>ag", builtin.grep_string)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.keymap.set("v", ",", require("hop").hint_words)
 vim.keymap.set("v", "K", "^o$")
-
--- vim.keymap.set not works with them
-vim.api.nvim_set_keymap("v", "D", 'SDci"', {})
-vim.api.nvim_set_keymap("v", "T", "ST", {})
-vim.api.nvim_set_keymap("n", "<Leader>t", 'va"STds"', {})
 
 vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
 vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
@@ -666,6 +662,10 @@ require("nvim-surround").setup({
     },
   },
 })
+-- vim.keymap.set not works with them
+vim.api.nvim_set_keymap("v", "D", 'SDci"', {}) -- surrounds <div className=""></div> in the selection and insert
+vim.api.nvim_set_keymap("v", "T", "ST", {}) -- surround selection with ttag
+-- vim.api.nvim_set_keymap("n", "<Leader>t", 'va"STds"', {}) -- shit
 
 require("oil").setup({
   view_options = {
@@ -695,6 +695,7 @@ table.insert(vimgrep_arguments, "!**/.git/*")
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
+    sorting_strategy = "ascending",
     vimgrep_arguments = vimgrep_arguments,
     resolve = {
       resolve_anchor_pos = "N",
