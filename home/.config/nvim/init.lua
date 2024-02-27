@@ -18,7 +18,6 @@ require("lazy").setup({
   -- use("acro5piano/nvim-format-buffer")
 
   -- "wbthomason/packer.nvim",
-  "ibhagwan/fzf-lua",
   "kyazdani42/nvim-web-devicons",
   "terrortylor/nvim-comment",
   "nvim-lualine/lualine.nvim",
@@ -43,7 +42,6 @@ require("lazy").setup({
   "goolord/alpha-nvim",
   "lukas-reineke/cmp-rg",
   "gbprod/yanky.nvim",
-  "stevearc/dressing.nvim", -- for yanky to work nicely
   "monaqa/dial.nvim",
   "onsails/lspkind.nvim",
   "kylechui/nvim-surround", -- better replacement of "tpope/vim-surround"
@@ -55,6 +53,19 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
   "marko-cerovac/material.nvim",
   "sainnhe/everforest",
+
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.5",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      vim.keymap.set({ "v", "n" }, "<Leader>la", require("actions-preview").code_actions)
+    end,
+  },
 })
 
 local my_util = require("my-util")
@@ -192,6 +203,8 @@ local function prettier_bin()
   return bin
 end
 
+vim.keymap.set({ "v", "n" }, "<Leader>la", require("actions-preview").code_actions)
+
 require("nvim-format-buffer").setup({
   verbose = false,
   format_rules = {
@@ -222,8 +235,6 @@ require("nvim-format-buffer").setup({
   },
 })
 
-local fzf_lua = require("fzf-lua")
-
 local git_files_cwd_aware = require("git-files-cwd-aware")
 
 function replace_html_special_chars()
@@ -242,6 +253,8 @@ end
 -- TODO: make this to lua
 vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search(<q-args>)", false)
 
+local builtin = require("telescope.builtin")
+
 vim.keymap.set("", "<F1>", "<ESC>")
 vim.keymap.set("i", "<F1>", "<ESC>")
 
@@ -252,35 +265,34 @@ vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l><C-6>")
 vim.keymap.set("n", "<C-w>-", "<C-w>s<C-w><C-j><C-6>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
--- vim.keymap.set("n", "g/", fzf_lua.blines)
-vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
-vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
-vim.keymap.set("n", "gm", fzf_lua.lsp_definitions)
+vim.keymap.set("n", "gp", ":Telescope yank_history<CR>")
+vim.keymap.set("n", "gm", builtin.lsp_definitions)
 vim.keymap.set("n", "<Leader>aa", ":Ripgrep ")
-vim.keymap.set("n", "<Leader>ag", fzf_lua.grep_cword)
+vim.keymap.set("n", "<Leader>ag", builtin.grep_string)
 vim.keymap.set("n", "<Leader>ai", function()
-  fzf_lua.grep_cword({ query = "import" })
+  builtin.grep_string({ query = "import" })
 end)
 vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
-vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
+vim.keymap.set("n", "<Leader>b", builtin.buffers)
 -- vim.keymap.set("n", "<Leader>b", ":b <TAB>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
-vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
-vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
+vim.keymap.set("n", "<Leader>fr", builtin.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
-vim.keymap.set("n", "<Leader>ga", fzf_lua.git_files)
+vim.keymap.set("n", "<Leader>ga", builtin.git_files)
 vim.keymap.set("n", ",", ":HopWord<CR>")
-vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware.git_files_cwd_aware)
-vim.keymap.set("n", "<Leader>gg", fzf_lua.live_grep)
-vim.keymap.set("n", "<Leader>gl", fzf_lua.git_bcommits)
-vim.keymap.set("n", "<Leader>gs", fzf_lua.git_status)
-vim.keymap.set("n", "<Leader>la", fzf_lua.lsp_code_actions)
+-- vim.keymap.set("n", "<Leader>gf", git_files_cwd_aware.git_files_cwd_aware)
+vim.keymap.set("n", "<Leader>gf", function()
+  builtin.find_files({ hidden = true })
+end)
+vim.keymap.set("n", "<Leader>gg", builtin.live_grep)
+vim.keymap.set("n", "<Leader>gl", builtin.git_bcommits)
+vim.keymap.set("n", "<Leader>gs", builtin.git_status)
 vim.keymap.set("n", "<Leader>lq", vim.lsp.buf.references) -- named after "lsp quicifix"
-vim.keymap.set("n", "<Leader>lr", fzf_lua.lsp_references)
+vim.keymap.set("n", "<Leader>lr", builtin.lsp_references)
 vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>ln", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
+vim.keymap.set("n", "<Leader>lw", builtin.diagnostics)
 vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>pb", ":.!clp<CR>")
 vim.keymap.set("n", "<Leader>wp", ":set wrap!<CR>")
@@ -289,10 +301,10 @@ vim.keymap.set("n", "<Leader>q", ":qa<CR>")
 vim.keymap.set("n", "<Leader>rl", ":s/")
 vim.keymap.set({ "n", "v" }, "<S-y>", '"+y')
 vim.keymap.set("n", "<Leader>rr", ":%s/")
-vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
+vim.keymap.set("n", "<Leader><Space>", builtin.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
-vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
+vim.keymap.set("n", "<Leader>x", builtin.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
 vim.keymap.set("n", "<Leader>d", require("oil").open)
@@ -386,7 +398,7 @@ vim.keymap.set("i", "<C-p>", "<C-o>k")
 vim.keymap.set("i", "<C-k>", "<C-c>lC")
 vim.keymap.set("c", "<C-k>", "<C-\\>e(strpart(getcmdline(), 0, getcmdpos() - 1))<CR>")
 
-vim.keymap.set("v", "<Leader>ag", fzf_lua.grep_visual)
+vim.keymap.set("v", "<Leader>ag", builtin.grep_string)
 vim.keymap.set("v", "<C-c>", ":w !cl<CR><CR>")
 vim.keymap.set("v", ",", require("hop").hint_words)
 vim.keymap.set("v", "K", "^o$")
@@ -584,32 +596,6 @@ require("snippy").setup({
   },
 })
 
-fzf_lua.setup({
-  winopts = {
-    height = 0.9, -- window height
-    width = 0.9, -- window width
-    hl = { border = "Normal" },
-  },
-  keymap = {
-    fzf = {
-      -- Do not delete this empty block!
-      -- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
-    },
-  },
-  grep = {
-    rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 --hidden",
-  },
-  previewers = {
-    git_diff = {
-      pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment
-    },
-  },
-  winopts = {
-    -- this is temporary fix until .po file freeze problem in nvim-treesitter
-    preview = { default = "bat_native" },
-  },
-})
-
 require("hop").setup()
 
 require("nvim-treesitter.configs").setup({
@@ -650,6 +636,8 @@ require("nvim-treesitter.configs").setup({
 
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter
+
+require("telescope").load_extension("yank_history")
 
 require("alpha").setup(require("alpha.themes.startify").config)
 require("yanky").setup({
@@ -692,3 +680,38 @@ function Highlight(word)
 end
 
 require("mini.align").setup()
+
+local telescopeConfig = require("telescope.config")
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+-- I want to search in hidden/dot files.
+table.insert(vimgrep_arguments, "--hidden")
+-- I don't want to search in the `.git` directory.
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.git/*")
+
+local actions = require("telescope.actions")
+require("telescope").setup({
+  defaults = {
+    vimgrep_arguments = vimgrep_arguments,
+    resolve = {
+      resolve_anchor_pos = "N",
+    },
+    layout_config = {
+      prompt_position = "top",
+    },
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+      },
+    },
+  },
+  pickers = {
+    find_files = {
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+  },
+})
