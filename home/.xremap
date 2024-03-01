@@ -53,6 +53,10 @@ window class_only: browsers do
   # remap 'C-M-p', to: 'Ctrl-p'
   remap 'C-M-p', to: 'Ctrl-Shift-a'
 
+  # Notion moving issues
+  remap 'C-M-k', to: 'Alt-k'
+  remap 'C-M-j', to: 'Alt-j'
+
   # OSX-like
   remap 'M-c', to: 'Ctrl-c'
   remap 'M-x', to: 'Ctrl-x'
