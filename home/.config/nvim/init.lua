@@ -409,16 +409,6 @@ require("dial.config").augends:register_group({
     augend.date.alias["%Y/%m/%d"],
     augend.date.alias["%Y-%m-%d"],
     augend.date.alias["%H:%M"],
-    augend.constant.new({
-      elements = { "or", "and" },
-      word = true,
-      cyclic = false,
-    }),
-    augend.constant.new({
-      elements = { "||", "&&" },
-      word = false,
-      cyclic = false,
-    }),
   },
 })
 
