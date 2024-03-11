@@ -3,7 +3,7 @@
 set -ue
 
 bluetoothctl power on
-bluetoothctl select 00:1B:DC:FC:94:C8
+# bluetoothctl select 00:1B:DC:FC:94:C8
 
 
 sony=90:7A:58:9D:C7:35
