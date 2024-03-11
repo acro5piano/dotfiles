@@ -10,7 +10,7 @@ seat * hide_cursor when-typing enable
 hide_edge_borders smart
 output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 
-font pango:monospace 0
+font pango:monospace 0.001
 titlebar_padding 1
 titlebar_border_thickness 0
 

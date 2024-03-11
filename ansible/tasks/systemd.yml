@@ -11,6 +11,7 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/etc/{{ item }}"
     dest: "/etc/{{ item }}"
     state: link
+    force: true
   loop:
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
