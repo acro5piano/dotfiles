@@ -15,16 +15,8 @@
   loop:
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
-    - xremap.yml
+    - systemd/system/disable-wlan0.service
     - keyd
-- name: Link systemd config file
-  become: yes
-  ansible.builtin.file:
-    src: "{{ lookup('env', 'HOME') }}/.dotfiles/etc/systemd/system/{{ item }}"
-    dest: "/etc/systemd/system/{{ item }}"
-    state: link
-  loop:
-    - xremap.service
 - name: Add around suspend script
   become: yes
   ansible.builtin.file:
@@ -41,6 +33,7 @@
   loop:
     - systemd-resolved.service
     - keyd.service
+    - disable-wlan0.service
 - name: Disable some services
   become: yes
   ansible.builtin.systemd:
@@ -48,5 +41,4 @@
     state: stopped
     enabled: no
   loop:
-    - xremap.service
     - systemd-hostnamed
