@@ -7,9 +7,11 @@ CLIENT_VPN=$1
 
 echo "Connecting VPN: $CLIENT_VPN"
 
+interface=`iwctl station list | grep connected | awk '{print $2}'`
+
 # This resets the route. Otherwise, `SIOCADDRT: File exists Error and Solution` happens.
 # https://www.cyberciti.biz/faq/siocaddrt-file-exists-ubuntu-linux-error-solution/
-sudo ip route delete $CLIENT_VPN dev wlan0 || true
+sudo ip route delete $CLIENT_VPN dev $interface || true
 
 sudo mkdir -p /var/run/xl2tpd
 sudo touch /var/run/xl2tpd/l2tp-control
