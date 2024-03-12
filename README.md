@@ -280,6 +280,12 @@ HandleLidSwitch=ignore
 
 Follow https://gist.github.com/acro5piano/9606ce598e04c10dde1948cf7e098f80
 
+Bluez 5.73 may contain a bug which the service hangs up after hibernation. For the time being, let's use 5.72.
+
+```
+sudo pacman -U /var/cache/pacman/pkg/bluez-5.72-2-x86_64.pkg.tar.zst /var/cache/pacman/pkg/bluez-libs-5.72-2-x86_64.pkg.tar.zst /var/cache/pacman/pkg/bluez-utils-5.72-2-x86_64.pkg.tar.zst
+```
+
 # Backlight is wrong
 
 If `light` does not work properly, try to modify the kernel parameter:
