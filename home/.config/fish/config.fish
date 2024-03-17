@@ -302,6 +302,8 @@ alias ......='cd ../../../../..'
 alias 1='cd -'
 alias ,d='cd ~/.dotfiles; nvim'
 
+alias c='chatgpt'
+
 alias ag='rg'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
