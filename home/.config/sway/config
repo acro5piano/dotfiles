@@ -104,4 +104,6 @@ exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 1; exec alacritty'
 exec swaymsg 'workspace 2; exec brave'
 
+exec iwctl device wlan0 set-property Powered off
+
 include /etc/sway/config.d/*
