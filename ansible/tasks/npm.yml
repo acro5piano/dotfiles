@@ -16,3 +16,4 @@
     - typescript-language-server # required for lsp
     - graphql-language-service-cli # required for lsp
     - vscode-langservers-extracted # required for lsp
+    - '@astrojs/language-server' # required for lsp
