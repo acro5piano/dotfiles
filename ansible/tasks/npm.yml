@@ -7,9 +7,11 @@
     global: yes
   loop:
     - yarn
+    - pnpm
     - prettier
     - serve
     - sql-formatter
+    - wscat
     - typescript # required for lsp
     - typescript-language-server # required for lsp
     - graphql-language-service-cli # required for lsp
