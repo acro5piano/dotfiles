@@ -51,7 +51,7 @@ set -gx PATH \
             $HOME/.go/bin/ \
             $HOME/go/bin/ \
             $HOME/bin \
-            /home/kazuya/.gem/ruby/*/bin \
+            $HOME/.local/share/gem/ruby/*/bin \
             $HOME/.config/composer/vendor/bin \
             /usr/local/bin \
             /bin \
