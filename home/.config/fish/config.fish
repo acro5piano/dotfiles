@@ -131,6 +131,7 @@ function g
   end
 end
 complete --command g --wraps git
+complete --command pn --wraps yarn
 
 function gup
   echo $PWD
@@ -336,6 +337,7 @@ alias q='qrcode'
 
 alias xremap-restart="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xremap.log &"
 alias feh="feh --scale-down --offset +0+0"
+alias pn="pnpm"
 
 set TTY (tty)
 
