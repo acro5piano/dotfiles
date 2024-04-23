@@ -9,6 +9,7 @@
     co = checkout
     col = !git checkout $(git branch | fzf-tmux --no-preview)
     d = diff
+    dd = !git diff | delta
     dh = diff HEAD
     dhw = diff HEAD
     dw = diff -w --word-diff
@@ -24,7 +25,7 @@
 	default = matching
 [core]
 	quotepath = false
-  pager = delta
+  ; pager = delta
 [http]
 	postBuffer = 1048576000
 [pull]
