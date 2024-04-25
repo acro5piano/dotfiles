@@ -61,7 +61,10 @@ bindsym $mod+Shift+s exec systemctl hibernate
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
+
 bindsym $mod+t layout toggle tabbed split
+bindsym $mod+h splith
+bindsym $mod+v splitv
 
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
