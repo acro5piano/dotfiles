@@ -53,7 +53,6 @@ require("lazy").setup({
 
   -- Themes
   "folke/tokyonight.nvim",
-  "marko-cerovac/material.nvim",
   "sainnhe/everforest",
 })
 
@@ -77,17 +76,6 @@ vim.o.cedit = "<C-q>"
 require("tokyonight").setup({
   transparent = true,
 })
-vim.g.material_style = "darker"
-require("material").setup({
-  plugins = {
-    "nvim-cmp",
-  },
-  disable = {
-    background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-  },
-})
-vim.g.everforest_transparent_background = 1
-vim.cmd("colorscheme material")
 vim.cmd("colorscheme tokyonight")
 
 -- Restore cursor position
