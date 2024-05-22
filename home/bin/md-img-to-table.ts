@@ -7,7 +7,7 @@ function convert(lines: string) {
   const tds = lines
     .split('\n')
     .map((line) => {
-      const matches = line.match(/(https:.+.\))/)
+      const matches = line.match(/(https:.+.)\)/)
       const src = matches?.[1]
       if (!src) {
         return ''
@@ -21,7 +21,9 @@ function convert(lines: string) {
     .join('\n')
   return dedent`
     <table>
-      ${tds}
+      <tr>
+        ${tds}
+      </tr>
     </table>
   `
 }
@@ -29,15 +31,17 @@ function convert(lines: string) {
 if (Deno.args[0] === 'test') {
   const expected = dedent`
     <table>
-      <td>
-        <img src="https://image.test/uploads/000000000000000000000000000000000000.png" />
-      </td>
-      <td>
-        <img src="https://image.test/uploads/000000000000000000000000000000000001.png" />
-      </td>
-      <td>
-        <img src="https://image.test/uploads/000000000000000000000000000000000002.png" />
-      </td>
+      <tr>
+        <td>
+          <img src="https://image.test/uploads/000000000000000000000000000000000000.png" />
+        </td>
+        <td>
+          <img src="https://image.test/uploads/000000000000000000000000000000000001.png" />
+        </td>
+        <td>
+          <img src="https://image.test/uploads/000000000000000000000000000000000002.png" />
+        </td>
+      </tr>
     </table>
   `
   const fixture = dedent`

@@ -339,7 +339,8 @@ alias xremap-restart="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xrema
 alias feh="feh --scale-down --offset +0+0"
 alias pn="pnpm"
 
-abbr --add tog --set-cursor "toggl start-timer -n %"
+# abbr --add tog --set-cursor "toggl start-timer -n %"
+# abbr --add to --set-cursor "toggl start-timer -n %"
 
 set TTY (tty)
 
