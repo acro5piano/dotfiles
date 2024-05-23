@@ -1,5 +1,6 @@
 functions
 completions
-conf.d
 fish_variables
 fishfile
+conf.d/*
+!conf.d/wi.fish
