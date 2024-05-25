@@ -1,7 +1,6 @@
 theme = "dark_high_contrast"
 
 [editor]
-line-number = "relative"
 mouse = false
 
 [editor.cursor-shape]
