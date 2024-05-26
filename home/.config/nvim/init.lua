@@ -70,8 +70,12 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
-vim.o.mouse = false
+vim.o.selectmode = "mouse,key"
 vim.o.cedit = "<C-q>"
+
+vim.o.backup = false
+vim.o.swapfile = false
+vim.o.undofile = false
 
 require("tokyonight").setup({
   transparent = true,
@@ -624,7 +628,7 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
--- require("nvim-ts-autotag").setup()
+require("nvim-ts-autotag").setup()
 
 -- used in snippet
 UpperFirstLetter = my_util.upper_first_letter

@@ -11,3 +11,5 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[keys.normal]
+A-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
