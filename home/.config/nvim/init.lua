@@ -72,6 +72,7 @@ vim.o.foldenable = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.selectmode = "mouse,key"
 vim.o.cedit = "<C-q>"
+vim.o.mouse = ""
 
 vim.o.backup = false
 vim.o.swapfile = false
