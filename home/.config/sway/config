@@ -108,7 +108,7 @@ exec swaymsg 'workspace 1; exec alacritty'
 exec swaymsg 'workspace 2; exec brave'
 
 # My system76 no longer work built-in wi-fi
-exec iwctl device wlan0 set-property Powered off
-exec iwctl adapter phy0 set-property Powered off
+# exec iwctl device wlan0 set-property Powered off
+# exec iwctl adapter phy0 set-property Powered off
 
 include /etc/sway/config.d/*
