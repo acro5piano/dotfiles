@@ -148,12 +148,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.md" },
-  callback = function()
-    vim.api.nvim_exec(":set wrap", false)
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+--   pattern = { "*.md" },
+--   callback = function()
+--     vim.api.nvim_exec(":set wrap", false)
+--   end,
+-- })
 
 local function has(command)
   -- We need redirect because stderr is annoying
