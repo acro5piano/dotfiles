@@ -1,5 +1,6 @@
 function wi
-  set station (iwctl device list | grep wlan | grep ' on ' | awk '{print $1}')
+  set station (iwctl device list | rg '(wlan[0-9]+)' --replace '$1' --only-matching)
+  echo "using station: $station"
   iwctl station $station $argv
 end
 
