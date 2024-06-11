@@ -19,7 +19,6 @@
     - poetry
     - pyright
     # - toml # required by yapf
-    - trash-cli
     - virtualenv
     - pyudev # required by xset-auto
     # - wayremap # I use xremap
