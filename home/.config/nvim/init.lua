@@ -193,7 +193,6 @@ require("nvim-format-buffer").setup({
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
     { pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
-
     {
       pattern = {
         "*.js",
@@ -203,6 +202,7 @@ require("nvim-format-buffer").setup({
         "*.mjs",
         "*.mts",
         "*.astro",
+        "*.gql",
         "*.graphql",
         "*.css",
         "*.md",
@@ -492,9 +492,12 @@ if has("lua-language-server") then
 end
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
--- lsp.graphql.setup({
---   filetypes = { "graphql", "typescript", "typescriptreact", "javascriptreact" },
--- })
+lsp.graphql.setup({
+  filetypes = {
+    "graphql",
+  },
+  cmd = { "graphql-lsp", "server", "-m", "stream" },
+})
 lsp.eslint.setup({
   filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })
