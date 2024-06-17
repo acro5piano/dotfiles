@@ -15,7 +15,7 @@
   loop:
     - X11/xorg.conf.d/30-touchpad.conf
     - X11/xorg.conf.d/10-disable-dpms.conf
-    - systemd/system/disable-wlan0.service
+    # - systemd/system/disable-wlan0.service
     - keyd
 - name: Add around suspend script
   become: yes
@@ -33,7 +33,7 @@
   loop:
     - systemd-resolved.service
     - keyd.service
-    - disable-wlan0.service
+    # - disable-wlan0.service
 - name: Disable some services
   become: yes
   ansible.builtin.systemd:

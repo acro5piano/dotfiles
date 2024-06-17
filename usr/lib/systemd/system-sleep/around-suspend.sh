@@ -12,7 +12,7 @@ if [ $1 == "post" ]; then
     light -I
     # https://bbs.archlinux.org/viewtopic.php?id=217775
     # modprobe xhci_pci
-   systemctl restart iwd
+   # systemctl restart iwd
     # systemctl restart bluetooth
     # bluetoothctl power on
     # bluetoothctl pairable on
