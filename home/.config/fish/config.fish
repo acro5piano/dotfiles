@@ -305,6 +305,15 @@ alias ,d='cd ~/.dotfiles; nvim'
 
 alias c='chatgpt'
 
+function cb --description 'ChatGPT colorized output (no steam)'
+  set PAGER 'less -R -X'
+  if test -t 0
+    chatgpt $argv[1] | bat -l md --style plain
+  else
+    cat /dev/stdin | chatgpt $argv[1] | bat -l md --style plain
+  end
+end
+
 alias ag='rg'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
