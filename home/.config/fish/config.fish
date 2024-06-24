@@ -131,7 +131,6 @@ function g
   end
 end
 complete --command g --wraps git
-complete --command pn --wraps yarn
 
 function gup
   echo $PWD
@@ -306,7 +305,7 @@ alias ,d='cd ~/.dotfiles; nvim'
 alias c='chatgpt'
 
 function cb --description 'ChatGPT colorized output (no steam)'
-  set PAGER 'less -R -X'
+  set PAGER 'less -R -X +F'
   if test -t 0
     chatgpt $argv[1] | bat -l md --style plain
   else
@@ -376,3 +375,10 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm
+set -gx PNPM_HOME "/home/kazuya/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
