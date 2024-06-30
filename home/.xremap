@@ -13,6 +13,7 @@ browsers = [
   'vivaldi-stable',
   'Joplin',
   'joplin',
+  'obsidian',
   /crx_/,
 ]
 
