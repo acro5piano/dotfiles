@@ -11,6 +11,8 @@ browsers = [
   'google-chrome-stable',
   'konqueror',
   'vivaldi-stable',
+  'Joplin',
+  'joplin',
   /crx_/,
 ]
 
