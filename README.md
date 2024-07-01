@@ -77,7 +77,7 @@ mount /dev/nvme0n1p1 /mnt/boot
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux linux-firmware iwd python git neovim
+pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd python git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -94,10 +94,19 @@ iwctl
 
 # install /boot
 bootctl install
-
-exit
-reboot
 ```
+
+Create `/boot/loader/entries/arch.conf`
+
+```
+title Arch Linux Zen
+linux /vmlinuz-linux-zen
+initrd /initramfs-linux-zen.img
+
+options root=UUID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx resume=UUID=xxxxxxxxxxxxxxxxxxxx acpi_backlight=native rw
+```
+
+Then exit and reboot.
 
 Notes:
 
