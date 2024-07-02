@@ -34,7 +34,6 @@ function has
     which $1 >/dev/null 2>/dev/null
 end
 
-fnm env --use-on-cd | source > /dev/null
 
 [ -e $HOME/.go ]; or mkdir $HOME/.go
 set -gx GOPATH $HOME/go
@@ -382,3 +381,5 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+fnm env --use-on-cd | source
