@@ -1,0 +1,4 @@
+.editor-toolbar {
+  /* removes the WYSIWYG button */
+  display: none !important;
+}
