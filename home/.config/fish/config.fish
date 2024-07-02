@@ -382,4 +382,4 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-fnm env --use-on-cd | source
+fnm env --use-on-cd | source > /dev/null
