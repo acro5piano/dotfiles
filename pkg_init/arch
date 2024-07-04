@@ -36,6 +36,6 @@ systemctl --user restart wireplumber
 systemctl --user restart pipewire-pulse
 
 # Get joplin
-sudo curl https://github.com/laurent22/joplin/releases/download/v2.14.22/Joplin-2.14.22.AppImage > /usr/local/bin/joplin
+sudo curl -L https://github.com/laurent22/joplin/releases/download/v3.0.12/Joplin-3.0.12.AppImage > /usr/local/bin/joplin
 mkdir -p $HOME/.local/share/applications
 cat home/.local/share/applications/joplin.desktop > $HOME/.local/share/applications/joplin.desktop
