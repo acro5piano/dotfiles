@@ -20,8 +20,8 @@ binding = { key = "Enter", mods = "Alt" }
 regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
 
 
-# [colors.primary]
-# background = "0x000000"
+[colors.primary]
+background = "0x000000"
 
 [env]
 TERM = "xterm-256color"
