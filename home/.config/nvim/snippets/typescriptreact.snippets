@@ -9,15 +9,13 @@ snippet rct
 snippet imt
   import { t } from 'ttag'
 snippet rfn
-  import React from 'react'
-
-  type `expand('%:t:r')`Props = {
+  type `expand('%:t:r')` = {
     children: React.ReactNode
   }
 
   export const `expand('%:t:r')`: React.FC<`expand('%:t:r')`Props> = ({ ${1} }) => {
     return (
-      <div>
+      <div className="">
       </div>
     )
   }
