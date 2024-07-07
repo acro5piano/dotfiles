@@ -46,6 +46,7 @@ window class_only: browsers do
   remap 'C-M-d', to: 'Ctrl-d'
   remap 'C-M-s', to: 'Ctrl-f'
   remap 'C-M-b', to: 'Ctrl-b'
+  remap 'C-M-n', to: 'Ctrl-n'
   remap 'M-e', to: 'Ctrl-e'
   remap 'M-s', to: 'Ctrl-s'
   remap 'M-n', to: 'Ctrl-Tab'
