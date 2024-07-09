@@ -57,6 +57,7 @@ set -gx PATH \
             $ANDROID_HOME/tools \
             $ANDROID_HOME/platform-tools \
             $HOME/.cargo/bin \
+            $HOME/.pulumi/bin \
             $PATH ^/dev/null
 set -gx EDITOR nvim
 set -gx VISUAL nvim
