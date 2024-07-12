@@ -14,8 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
-  -- use("acro5piano/nvim-format-buffer")
+  -- { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
+  "acro5piano/nvim-format-buffer",
 
   -- "wbthomason/packer.nvim",
   "ibhagwan/fzf-lua",

@@ -1,27 +1,28 @@
 # vim:set ft=bash :
 
+include /etc/sway/config.d/*
+
 set $mod Mod4
 set $term alacritty
 
 # Also alacritty hides cursor
-# seat * hide_cursor 4000
 seat * hide_cursor when-typing enable
 
 hide_edge_borders smart
-output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
+# output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 
-font pango:monospace 0.001
-titlebar_padding 1
-titlebar_border_thickness 0
-
-bar {
-    position top
-    font pango:Source Code Pro 10
-    status_command i3status-rs
-    colors {
-        background #0f172a
-    }
-}
+# font pango:monospace 0.001
+# titlebar_padding 1
+# titlebar_border_thickness 0
+#
+# bar {
+#     position top
+#     font pango:Source Code Pro 10
+#     status_command i3status-rs
+#     colors {
+#         background #0f172a
+#     }
+# }
 
 input type:touchpad {
   tap enabled
@@ -47,10 +48,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
-# set $MOUSE 1390:337:ELECOM_TrackBall_Mouse
-# bindsym --input-device=$MOUSE --whole-window BTN_EXTRA seat - cursor press BTN_LEFT
-# bindsym --input-device=$MOUSE --whole-window --release BTN_EXTRA seat - cursor release BTN_LEFT
-
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
@@ -62,16 +59,16 @@ bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
 
-bindsym $mod+t layout toggle tabbed split
-bindsym $mod+h splith
-bindsym $mod+v splitv
-
-bindsym Print exec grim -g "$(slurp)" -| wl-copy
-bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
-# requires go install github.com/yory8/clipman@latest
-bindsym $mod+y exec clipman pick -t rofi -T'-i'
-bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# bindsym $mod+t layout toggle tabbed split
+# bindsym $mod+h splith
+# bindsym $mod+v splitv
+#
+# bindsym Print exec grim -g "$(slurp)" -| wl-copy
+# bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
+# # requires go install github.com/yory8/clipman@latest
+# bindsym $mod+y exec clipman pick -t rofi -T'-i'
+# bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
+# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -99,19 +96,13 @@ for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="Joplin"] move container to workspace 5
 
-exec start-fcitx &
-exec xremap ~/.xremap &
-exec dunst &
-exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
-exec light -S 1
-# I'm using pulsemixer now
+# exec start-fcitx &
+# exec xremap ~/.xremap &
+# exec dunst &
+# exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
+# exec light -S 1
+# # I'm using pulsemixer now
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec joplin'
 exec swaymsg 'workspace 1; exec alacritty'
 exec swaymsg 'workspace 2; exec brave'
-
-# My system76 no longer work built-in wi-fi
-# exec iwctl device wlan0 set-property Powered off
-# exec iwctl adapter phy0 set-property Powered off
-
-include /etc/sway/config.d/*
