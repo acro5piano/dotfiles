@@ -11,6 +11,7 @@ function link() {
 link bin
 link .config/alacritty
 link .config/fish/config.fish
+link .config/fish/wi.fish
 link .config/nvim
 link .config/sway
 link .gitconfig
