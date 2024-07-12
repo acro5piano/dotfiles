@@ -9,7 +9,6 @@ set $term alacritty
 seat * hide_cursor when-typing enable
 
 hide_edge_borders smart
-# output '*' bg ~/.dotfiles/wallpapers/autumn-load.jpg stretch
 
 # font pango:monospace 0.001
 # titlebar_padding 1
@@ -59,16 +58,10 @@ bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
 
-# bindsym $mod+t layout toggle tabbed split
-# bindsym $mod+h splith
-# bindsym $mod+v splitv
-#
-# bindsym Print exec grim -g "$(slurp)" -| wl-copy
-# bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
-# # requires go install github.com/yory8/clipman@latest
-# bindsym $mod+y exec clipman pick -t rofi -T'-i'
-# bindsym $mod+Shift+p exec grim -g $(slurp -p) -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | tee /tmp/color | wl-copy
-# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym Print exec grim -g "$(slurp)" -| wl-copy
+bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
+# requires go install github.com/yory8/clipman@latest
+bindsym $mod+y exec clipman pick -t rofi -T'-i'
 
 mode "resize" {
     bindsym j resize shrink width 30px
