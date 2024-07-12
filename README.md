@@ -103,7 +103,7 @@ title Arch Linux Zen
 linux /vmlinuz-linux-zen
 initrd /initramfs-linux-zen.img
 
-options root=UUID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx resume=UUID=xxxxxxxxxxxxxxxxxxxx acpi_backlight=native rw
+options root=UUID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx acpi_backlight=native rw resume=UUID=xxxxxxxxxxxxxxxxxxxx
 ```
 
 Add user:

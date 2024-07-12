@@ -11,12 +11,12 @@
   loop:
     - acpi
     - adobe-source-code-pro-fonts
-    - alsa-lib
-    - alsa-utils
-    - android-udev
+    # - alsa-lib
+    # - alsa-utils
+    # - android-udev
     - arch-install-scripts
     - bat
-    - composer
+    # - composer
     - curl
     - dnsutils
     - docker
@@ -53,8 +53,8 @@
     - libvterm
     - light
     - lua
-    - lua-language-server
-    - luarocks
+    # - lua-language-server
+    # - luarocks
     - make
     - man-db
     - neovim
@@ -65,9 +65,9 @@
     - pavucontrol-qt
     - pcmanfm
     # - peek # The awesome gif screen recorder
-    - php
-    - php-gd
-    - php-sqlite
+    # - php
+    # - php-gd
+    # - php-sqlite
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
