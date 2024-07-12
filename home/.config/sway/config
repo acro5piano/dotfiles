@@ -96,12 +96,11 @@ for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="Joplin"] move container to workspace 5
 
-# exec start-fcitx &
-# exec xremap ~/.xremap &
-# exec dunst &
+exec start-fcitx &
+exec xremap ~/.xremap &
+exec dunst &
 # exec wl-paste -t text --watch clipman store --max-items=50 --no-persist &
 # exec light -S 1
-# # I'm using pulsemixer now
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec joplin'
 exec swaymsg 'workspace 1; exec alacritty'
