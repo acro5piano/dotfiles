@@ -196,11 +196,6 @@ end
 # {{{ aliases
 
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias 1='cd -'
 alias ,d='cd ~/.dotfiles; nvim'
 
 alias c='chatgpt'
@@ -209,7 +204,6 @@ alias ag='rg'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
 alias gd='tmux-zoom && git diff HEAD && tmux resize-pane -Z'
-alias la='ls -A'
 alias less='less -R'
 alias justnow='date +%Y%m%d_%H%M%S'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
@@ -260,4 +254,4 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-# fnm env --use-on-cd | source > /dev/null
+fnm env --use-on-cd | source > /dev/null
