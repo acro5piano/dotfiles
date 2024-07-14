@@ -57,8 +57,10 @@
     # - luarocks
     - make
     - man-db
-    - noto-fonts-cjk
+    - noto-fonts
     - noto-fonts-emoji
+    # Noto CJS is suck, prefer ipa
+    # - noto-fonts-cjk
     - neovim
     - ntp
     - onefetch
