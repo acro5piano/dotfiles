@@ -10,14 +10,14 @@ seat * hide_cursor when-typing enable
 
 hide_edge_borders smart
 
-
-# default_border none
-# default_floating_border none
-font pango:monospace 10
-# titlebar_padding 1
-# titlebar_border_thickness 0
+default_border none
+default_floating_border none
+font pango:monospace 0.001
+titlebar_padding 1
+titlebar_border_thickness 0
 
 bar {
+    font pango:monospace 9
     position top
     status_command i3status-rs
     colors {
