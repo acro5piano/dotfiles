@@ -39,7 +39,6 @@
     - github-cli
     - go
     - grim
-    - i3status
     - i3status-rust
     - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
@@ -57,6 +56,8 @@
     # - luarocks
     - make
     - man-db
+    - noto-fonts-cjk
+    - noto-fonts-emoji
     - neovim
     - ntp
     - onefetch

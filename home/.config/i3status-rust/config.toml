@@ -1,14 +1,11 @@
 [theme]
 theme = "slick"
 [icons]
-icons = "awesome6"
+icons = "emoji"
 
 [[block]]
 block = "focused_window"
 format = "$title.str(max_w:80) |"
-
-# [[block]]
-# block = "bluetooth"
 
 [[block]]
 block = "disk_space"
@@ -35,5 +32,5 @@ if_command = "test -e /sys/class/power_supply/BAT*"
 
 [[block]]
 block = "time"
-interval = 60
+interval = 30
 format = " $icon $timestamp.datetime(f:'%a, %Y/%m/%d %R') "

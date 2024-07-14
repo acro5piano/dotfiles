@@ -2,6 +2,10 @@
 
 function link() {
 	to=$HOME/$1
+	if [ ! -e $from ]; then
+		echo 'not found: ' $from
+		return
+	fi
 	from=$HOME/.dotfiles/home/$1
 	if [ ! -e $to ]; then
 		ln -svf $from $to
@@ -11,9 +15,10 @@ function link() {
 link bin
 link .config/alacritty
 link .config/fish/config.fish
-link .config/fish/wi.fish
+link .config/fish/conf.d/wi.fish
 link .config/nvim
 link .config/sway
+link .config/i3status-rust
 link .gitconfig
 link .tmux.conf
 link .xremap
