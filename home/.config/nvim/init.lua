@@ -191,7 +191,7 @@ require("nvim-format-buffer").setup({
 		{ pattern = { "*.lua" }, command = "stylua -" },
 		{ pattern = { "*.py" }, command = "black -q - | isort -" },
 		{ pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
-		{ pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
+		{ pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
 		{ pattern = { "*.tf" }, command = "terraform fmt -" },
 		{
 			pattern = {
