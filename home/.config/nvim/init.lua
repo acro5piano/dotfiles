@@ -492,12 +492,12 @@ if has("lua-language-server") then
 end
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
-lsp.graphql.setup({
-	filetypes = {
-		"graphql",
-	},
-	cmd = { "graphql-lsp", "server", "-m", "stream" },
-})
+-- lsp.graphql.setup({
+-- 	filetypes = {
+-- 		"graphql",
+-- 	},
+-- 	cmd = { "graphql-lsp", "server", "-m", "stream" },
+-- })
 lsp.eslint.setup({
 	filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })
