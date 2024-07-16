@@ -20,9 +20,9 @@ set -gx PATH \
             $PATH ^/dev/null
 set -gx EDITOR nvim
 set -gx VISUAL nvim
+set -gx BROWSER brave
 
 set -gx PIPENV_VENV_IN_PROJECT 1
-
 set -gx CLOUDSDK_PYTHON /usr/bin/python3.12
 
 set -gx LANG en_US.UTF-8
@@ -30,8 +30,7 @@ set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
 
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
-
-set -gx BROWSER brave
+set -gx FZF_DEFAULT_OPTS "--layout reverse"
 
 function seishin
     set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
