@@ -14,23 +14,19 @@ function link() {
 
 link bin
 link .config/alacritty
-link .config/fish/config.fish
 link .config/fish/conf.d/wi.fish
+link .config/fish/config.fish
+link .config/gh/config.yml
+link .config/i3status-rust
+link .config/joplin-desktop/userchrome.css
 link .config/nvim
 link .config/sway
-link .config/i3status-rust
+link .editorconfig
 link .gitconfig
+link prettier.config.js
+link .ripgreprc
 link .tmux.conf
 link .xremap
 
 # sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
 
-    # bin
-    # .config/i3
-    # .config/i3status-rust
-    # .config/gh/config.yml
-    # .editorconfig
-    # .gitconfig
-    # prettier.config.js
-    # .ripgreprc
-    # sql-formatter.json
