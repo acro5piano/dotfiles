@@ -148,8 +148,9 @@ function clear-branches
     echo 'removing:'
     git branch | grep -v \* | grep -v master | grep -v main | grep -v develop | perl -pe 's/^/  /'
     echo
-    read res -n1 -P 'Continue? [Y/n]'
-    if [ res != 'Y' ]
+    read res -n1 -P 'Continue? [y/n] '
+    if [ "$res" != 'y' ]
+        echo 'abort.'
         return
     end
     git branch | grep -v \* | grep -v master | grep -v main | grep -v develop |  xargs git branch -D
