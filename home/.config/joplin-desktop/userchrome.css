@@ -2,3 +2,6 @@
   /* removes the WYSIWYG button */
   display: none !important;
 }
+.title-input {
+  border-bottom: solid 1px #ccc !important;
+}
