@@ -106,6 +106,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*.js", "*.ts", "*.tsx" },
+	callback = function()
+		vim.api.nvim_exec(":EslintFixAll", false)
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	pattern = { "Podfile", "Appfile", "Matchfile", "Fastfile" },
 	callback = function()

@@ -314,4 +314,12 @@ ref: https://bbs.archlinux.org/viewtopic.php?id=282805
 
 # ChatGPT CLI
 
+```
 curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
+```
+
+# Joplin
+
+```
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+```
