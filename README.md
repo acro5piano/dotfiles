@@ -51,11 +51,11 @@ cfdisk /dev/nvme0n1
 
 - Create a partition for UEFI `/dev/nvme0n1p1`
   - create a new partition and set maximum size for it
-- Create a partition for main `/dev/nvme0n1p2`
-  - create a new partition and set maximum size for it
-- Create a partition for swap (for hibernation) `/dev/nvme0n1p3`
+- Create a partition for swap (for hibernation) `/dev/nvme0n1p2`
   - create a new partition and set `40G` size for it
   - Set the type for `Linux swap`
+- Create a partition for main `/dev/nvme0n1p3`
+  - create a new partition and set maximum size for it
 - write out
 
 Swap is required for hibernation.
@@ -63,10 +63,10 @@ Swap is required for hibernation.
 ```sh
 # UEFI
 mkfs.fat -F32 /dev/nvme0n1p1
-mkfs.ext4 /dev/nvme0n1p2
-mkswap /dev/nvme0n1p3
-swapon /dev/nvme0n1p3
-mount /dev/nvme0n1p2 /mnt
+mkswap /dev/nvme0n1p2
+swapon /dev/nvme0n1p2
+mkfs.ext4 /dev/nvme0n1p3
+mount /dev/nvme0n1p3 /mnt
 mkdir /mnt/boot
 mount /dev/nvme0n1p1 /mnt/boot
 ```
@@ -77,7 +77,7 @@ mount /dev/nvme0n1p1 /mnt/boot
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd python git neovim
+pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd python git vim neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
@@ -103,7 +103,17 @@ title Arch Linux Zen
 linux /vmlinuz-linux-zen
 initrd /initramfs-linux-zen.img
 
-options root=UUID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx resume=UUID=xxxxxxxxxxxxxxxxxxxx acpi_backlight=native rw
+options root=UUID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx acpi_backlight=native rw resume=UUID=xxxxxxxxxxxxxxxxxxxx
+```
+
+Add user:
+
+```
+# add user
+useradd --create-home kazuya
+passwd kazuya
+gpasswd -a kazuya wheel
+EDITOR=vim sudo visudo
 ```
 
 Then exit and reboot.
@@ -119,10 +129,6 @@ Notes:
 Run the following commands as root:
 
 ```sh
-# add user
-useradd --create-home kazuya
-passwd kazuya
-gpasswd -a kazuya wheel
 
 visudo /etc/sudoers.d/admin
 
@@ -308,4 +314,12 @@ ref: https://bbs.archlinux.org/viewtopic.php?id=282805
 
 # ChatGPT CLI
 
+```
 curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && sudo mv chatgpt /usr/local/bin/
+```
+
+# Joplin
+
+```
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+```

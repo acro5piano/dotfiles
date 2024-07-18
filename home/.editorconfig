@@ -8,7 +8,7 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{py,pl,perl,php,sh,bash,java,rs,gradle}]
+[*.{py,pl,perl,php,sh,bash,java,rs,gradle,fish}]
 indent_size = 4
 
 [Makefile]

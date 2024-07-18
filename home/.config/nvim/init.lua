@@ -14,8 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
-  -- use("acro5piano/nvim-format-buffer")
+  -- { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
+  "acro5piano/nvim-format-buffer",
 
   -- "wbthomason/packer.nvim",
   "ibhagwan/fzf-lua",
@@ -106,6 +106,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.js", "*.ts", "*.tsx" },
+  callback = function()
+    vim.api.nvim_exec(":EslintFixAll", false)
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "Podfile", "Appfile", "Matchfile", "Fastfile" },
   callback = function()
@@ -191,7 +198,7 @@ require("nvim-format-buffer").setup({
     { pattern = { "*.lua" }, command = "stylua -" },
     { pattern = { "*.py" }, command = "black -q - | isort -" },
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
-    { pattern = { "*.sql" }, command = "sql-formatter --config ~/sql-formatter.json" }, -- requires `npm -g i sql-formatter`
+    { pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
     {
       pattern = {
@@ -270,6 +277,7 @@ vim.keymap.set("n", "<Leader>gs", fzf_lua.git_status)
 vim.keymap.set("n", "<Leader>la", fzf_lua.lsp_code_actions)
 vim.keymap.set("n", "<Leader>lq", vim.lsp.buf.references) -- named after "lsp quicifix"
 vim.keymap.set("n", "<Leader>lr", fzf_lua.lsp_references)
+vim.keymap.set("n", "<Leader>l[", vim.lsp.buf.rename)
 vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>ln", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
@@ -492,12 +500,12 @@ if has("lua-language-server") then
 end
 lsp.rust_analyzer.setup({})
 lsp.terraformls.setup({})
-lsp.graphql.setup({
-  filetypes = {
-    "graphql",
-  },
-  cmd = { "graphql-lsp", "server", "-m", "stream" },
-})
+-- lsp.graphql.setup({
+-- 	filetypes = {
+-- 		"graphql",
+-- 	},
+-- 	cmd = { "graphql-lsp", "server", "-m", "stream" },
+-- })
 lsp.eslint.setup({
   filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })

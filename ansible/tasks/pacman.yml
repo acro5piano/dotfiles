@@ -11,12 +11,12 @@
   loop:
     - acpi
     - adobe-source-code-pro-fonts
-    - alsa-lib
-    - alsa-utils
-    - android-udev
+    # - alsa-lib
+    # - alsa-utils
+    # - android-udev
     - arch-install-scripts
     - bat
-    - composer
+    # - composer
     - curl
     - dnsutils
     - docker
@@ -39,9 +39,9 @@
     - github-cli
     - go
     - grim
-    - i3status
+    # - i3status
     - i3status-rust
-    - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
+    # - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
     - jdk8-openjdk
     - jq
@@ -53,10 +53,14 @@
     - libvterm
     - light
     - lua
-    - lua-language-server
-    - luarocks
+    # - lua-language-server
+    # - luarocks
     - make
     - man-db
+    - noto-fonts
+    - noto-fonts-emoji
+    # Noto CJS is suck, prefer ipa
+    # - noto-fonts-cjk
     - neovim
     - ntp
     - onefetch
@@ -65,9 +69,9 @@
     - pavucontrol-qt
     - pcmanfm
     # - peek # The awesome gif screen recorder
-    - php
-    - php-gd
-    - php-sqlite
+    # - php
+    # - php-gd
+    # - php-sqlite
     - pipewire
     - pipewire-alsa
     - pipewire-pulse
