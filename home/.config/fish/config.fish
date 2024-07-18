@@ -2,6 +2,8 @@ function has
     which $1 >/dev/null 2>/dev/null
 end
 
+set -U fish_greeting "🐟"
+
 set -gx ANDROID_HOME /opt/android-sdk
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
 
