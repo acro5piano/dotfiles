@@ -18,6 +18,7 @@ sudo touch /var/run/xl2tpd/l2tp-control
 
 sudo systemctl restart xl2tpd.service
 
+sleep 2
 sudo ipsec restart
 sleep 2
 sudo ipsec up myvpn
