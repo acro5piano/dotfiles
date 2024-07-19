@@ -38,7 +38,6 @@ set -gx LC_CTYPE en_US.UTF-8
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx FZF_DEFAULT_OPTS "--layout reverse"
 
-has fnm && fnm env --use-on-cd | source > /dev/null
 
 function seishin
     set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
@@ -233,3 +232,5 @@ end
 if [ "$TTY" = "/dev/tty1" ]
     XDG_CURRENT_DESKTOP=sway sway
 end
+
+fnm env --use-on-cd | source > /dev/null
