@@ -129,7 +129,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.gql", "*.graphql" },
+  pattern = { "*.gql", "*.graphql", "*.graphqls" },
   callback = function()
     vim.keymap.set(
       "n",
@@ -211,6 +211,7 @@ require("nvim-format-buffer").setup({
         "*.astro",
         "*.gql",
         "*.graphql",
+        "*.graphqls",
         "*.css",
         "*.md",
         "*.html",
