@@ -41,4 +41,19 @@ M.filter_react_dts = function(value)
   return string.match(value.uri, "react/index.d.ts") == nil
 end
 
+-- Function to check if a command exists
+M.command_exists = function(cmd)
+  local exists = false
+  -- Get the list of commands
+  local commands = vim.api.nvim_get_commands({})
+  -- Check if the command is in the list
+  for name, _ in pairs(commands) do
+    if name == cmd then
+      exists = true
+      break
+    end
+  end
+  return exists
+end
+
 return M

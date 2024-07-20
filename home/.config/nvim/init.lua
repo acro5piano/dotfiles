@@ -109,7 +109,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.js", "*.ts", "*.tsx" },
   callback = function()
-    vim.api.nvim_exec(":EslintFixAll", false)
+    if my_util.command_exists("EslintFixAll") then
+      vim.api.nvim_exec(":EslintFixAll", false)
+    end
   end,
 })
 
