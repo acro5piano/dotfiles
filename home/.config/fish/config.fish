@@ -159,7 +159,8 @@ function __copy_command
   echo -n (commandline -b) | cl
 end
 function __fzf_history
-    set -l selected (history search --max=10000 | fzf-tmux --height=80% -p 60%,60%)
+    set query (commandline -b)
+    set -l selected (history search --max=10000 | fzf-tmux --query $query --height=80% -p 60%,60%)
     if test -n "$selected"
         commandline -r "$selected"
         commandline -f repaint
