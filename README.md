@@ -137,6 +137,7 @@ visudo /etc/sudoers.d/admin
 #   %wheel ALL=NOPASSWD: /bin/systemctl restart iwd
 #   %wheel ALL=NOPASSWD: /bin/systemctl restart bluetooth
 #   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn
+#   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn-stop
 
 exit
 ```
