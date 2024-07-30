@@ -193,8 +193,13 @@ function fish_prompt -d 'Write out the prompt'
         "\n~> "
 end
 
+function unzipd
+    unzip -d (echo $argv[1] | string replace .zip '') $argv[1]
+end
+
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
+alias ,w='cd ~/Downloads; ls -la'
 
 alias dc='docker-compose'
 alias grep='grep --color=auto'
