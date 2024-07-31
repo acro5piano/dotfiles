@@ -28,5 +28,5 @@ link .ripgreprc
 link .tmux.conf
 link .xremap
 
-# sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
+sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
 

@@ -160,7 +160,7 @@ function __copy_command
 end
 function __fzf_history
     set query (commandline -b)
-    set -l selected (history search --max=10000 | fzf-tmux --query $query --height=80% -p 60%,60%)
+    set -l selected (history search --max=10000 | grep -v 'history delete' | fzf-tmux --query $query --height=80% -p 60%,60%)
     if test -n "$selected"
         commandline -r "$selected"
         commandline -f repaint
