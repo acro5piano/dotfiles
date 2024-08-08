@@ -590,7 +590,8 @@ require("snippy").setup({
 })
 
 fzf_lua.setup({
-  -- "fzf-tmux",
+  -- Unfortunately fzf-tmux is too slow...
+  -- fzf_bin = "fzf-tmux",
   winopts = {
     height = 0.9, -- window height
     width = 0.9, -- window width
