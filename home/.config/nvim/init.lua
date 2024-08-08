@@ -53,7 +53,8 @@ require("lazy").setup({
 
   -- Themes
   "folke/tokyonight.nvim",
-  "sainnhe/everforest",
+  "neanias/everforest-nvim",
+  "marko-cerovac/material.nvim",
 })
 
 local my_util = require("my-util")
@@ -78,10 +79,23 @@ vim.o.backup = false
 vim.o.swapfile = false
 vim.o.undofile = false
 
-require("tokyonight").setup({
-  transparent = true,
+-- require("tokyonight").setup({
+--   transparent = true,
+-- })
+-- vim.cmd("colorscheme tokyonight")
+
+require("everforest").setup({
+  transparent_background_level = 2,
 })
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme everforest")
+
+-- vim.g.material_style = "deep ocean"
+-- require("material").setup({
+--   disable = {
+--     background = true,
+--   },
+-- })
+-- vim.cmd("colorscheme material")
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
@@ -582,7 +596,7 @@ require("snippy").setup({
 })
 
 fzf_lua.setup({
-  "fzf-tmux",
+  -- "fzf-tmux",
   winopts = {
     height = 0.9, -- window height
     width = 0.9, -- window width
