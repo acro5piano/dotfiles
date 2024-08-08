@@ -582,6 +582,7 @@ require("snippy").setup({
 })
 
 fzf_lua.setup({
+  "fzf-tmux",
   winopts = {
     height = 0.9, -- window height
     width = 0.9, -- window width
