@@ -53,7 +53,6 @@ require("lazy").setup({
 
   -- Themes
   "folke/tokyonight.nvim",
-  "neanias/everforest-nvim",
   "marko-cerovac/material.nvim",
 })
 
@@ -79,15 +78,10 @@ vim.o.backup = false
 vim.o.swapfile = false
 vim.o.undofile = false
 
--- require("tokyonight").setup({
---   transparent = true,
--- })
--- vim.cmd("colorscheme tokyonight")
-
-require("everforest").setup({
-  transparent_background_level = 2,
+require("tokyonight").setup({
+  transparent = true,
 })
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme tokyonight")
 
 -- vim.g.material_style = "deep ocean"
 -- require("material").setup({
