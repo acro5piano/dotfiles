@@ -324,3 +324,11 @@ curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/downl
 ```
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 ```
+
+# pnpm completion
+
+Not works. use Yarn completion for now.
+
+```
+pnpm completion fish > ~/.config/fish/completions/pnpm.fish
+```

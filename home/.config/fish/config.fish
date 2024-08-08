@@ -72,6 +72,7 @@ function g
   end
 end
 complete --command g --wraps git
+complete --command pn --wraps yarn
 
 function gup
   echo $PWD
