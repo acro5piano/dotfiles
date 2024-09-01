@@ -9,8 +9,8 @@ bluetoothctl power on
 sony=90:7A:58:9D:C7:35
 anker=7C:96:D2:9D:7A:BC
 at=00:0A:45:26:45:45
-elecom=DC:AB:B0:CA:9F:00
 jabra=50:C2:75:34:94:89
+logi=DF:BD:FF:42:96:86
 
 # `[c]onnect` | `[d]isconnect`
 operation=${2:-connect}
@@ -22,6 +22,6 @@ case "$1" in
     "sony") bluetoothctl $operation $sony;;
     "anker") bluetoothctl $operation $anker;;
     "at") bluetoothctl $operation $at;;
-    "elecom") bluetoothctl $operation $elecom;;
+    "logi") bluetoothctl $operation $logi;;
     "jabra") bluetoothctl $operation $jabra;;
 esac
