@@ -698,3 +698,15 @@ function Highlight(word)
 end
 
 require("mini.align").setup()
+
+-- Define a command to transform the code
+vim.api.nvim_create_user_command("TransformZodSchemaIntoType", function()
+  local line = vim.api.nvim_get_current_line()
+  local schema_line = line:match("^export const (.+Schema) = ")
+  if schema_line then
+    -- Insert the type definition line above the current line
+    local type_definition = "export type I" .. schema_line .. " = z.infer<typeof " .. schema_line .. ">"
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, { type_definition })
+  end
+end, {})
