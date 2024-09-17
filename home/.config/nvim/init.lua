@@ -50,10 +50,10 @@ require("lazy").setup({
   "stevearc/oil.nvim",
   "mechatroner/rainbow_csv",
   "echasnovski/mini.align",
+  "lewis6991/gitsigns.nvim",
 
   -- Themes
   "folke/tokyonight.nvim",
-  "marko-cerovac/material.nvim",
 })
 
 local my_util = require("my-util")
@@ -82,14 +82,6 @@ require("tokyonight").setup({
   transparent = true,
 })
 vim.cmd("colorscheme tokyonight")
-
--- vim.g.material_style = "deep ocean"
--- require("material").setup({
---   disable = {
---     background = true,
---   },
--- })
--- vim.cmd("colorscheme material")
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
@@ -710,3 +702,5 @@ vim.api.nvim_create_user_command("TransformZodSchemaIntoType", function()
     vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, { type_definition })
   end
 end, {})
+
+require("gitsigns").setup()
