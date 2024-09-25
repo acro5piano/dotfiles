@@ -306,6 +306,7 @@ vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" }
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 vim.keymap.set("n", "&", replace_html_special_chars)
 vim.keymap.set("n", "<F12>", "~W")
+vim.keymap.set("n", "S", "ggVG")
 
 vim.keymap.set("i", "z.", "=>")
 vim.keymap.set("i", "z;", "z.") -- Needed for zod validation. My fingers are too lazy to fix the 5 years mapping - e.g.) z.string().uuid()
