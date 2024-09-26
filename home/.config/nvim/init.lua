@@ -51,6 +51,7 @@ require("lazy").setup({
   "mechatroner/rainbow_csv",
   "echasnovski/mini.align",
   "lewis6991/gitsigns.nvim",
+  "RRethy/vim-illuminate",
 
   -- Themes
   "folke/tokyonight.nvim",
