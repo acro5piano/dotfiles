@@ -29,6 +29,6 @@ link .tmux.conf
 link .xremap
 link .emacs.d
 
-if [ -z $1 ]; then
+if [ "$1" == 'true' ]; then
     sudo rm -rf /etc/keyd && sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
 fi
