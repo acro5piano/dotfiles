@@ -27,5 +27,8 @@ link prettier.config.js
 link .ripgreprc
 link .tmux.conf
 link .xremap
+link .emacs.d
 
-sudo rm -rf /etc/keyd && sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
+if [ -z $1 ]; then
+    sudo rm -rf /etc/keyd && sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd
+fi
