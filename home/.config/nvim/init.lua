@@ -269,6 +269,7 @@ vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
 -- vim.keymap.set("n", "<Leader>b", ":b <TAB>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
+vim.keymap.set("n", "<Leader>c", fzf_lua.resume) -- remember with "continue"
 vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
@@ -596,6 +597,9 @@ fzf_lua.setup({
     fzf = {
       -- Do not delete this empty block!
       -- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
+    },
+    builtin = {
+      ["<Esc>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue
     },
   },
   grep = {
