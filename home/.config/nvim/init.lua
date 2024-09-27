@@ -713,7 +713,3 @@ require("gitsigns").setup()
 require("ibl").setup({
   indent = { char = "|" },
 })
-
-vim.cmd([[highlight SpellBad ctermfg=yellow guifg=yellow]])
-vim.opt.spell = true
-vim.opt.spelllang = "en"
