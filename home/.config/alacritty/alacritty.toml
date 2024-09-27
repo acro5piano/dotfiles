@@ -39,22 +39,28 @@ save_to_clipboard = true
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
-mods = "Alt"
+mods = "Shift|Control"
 
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Alt"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Command"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Command"
+# For emacs keybind works
+# [[keyboard.bindings]]
+# action = "Paste"
+# key = "V"
+# mods = "Alt"
+#
+# [[keyboard.bindings]]
+# action = "Copy"
+# key = "C"
+# mods = "Alt"
+#
+# [[keyboard.bindings]]
+# action = "Paste"
+# key = "V"
+# mods = "Command"
+#
+# [[keyboard.bindings]]
+# action = "Copy"
+# key = "C"
+# mods = "Command"
 
 [[keyboard.bindings]]
 action = "Paste"
