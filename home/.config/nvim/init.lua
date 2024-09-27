@@ -288,6 +288,8 @@ vim.keymap.set("n", "<Leader>l[", vim.lsp.buf.rename)
 vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>ln", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]a", vim.diagnostic.goto_next) -- inspired with the spellcheck
+vim.keymap.set("n", "[a", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
 vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>pb", ":.!clp<CR>")
@@ -692,12 +694,6 @@ require("oil").setup({
   },
 })
 
--- TODO: how to create a custom command shortcut in lua
-function Highlight(word)
-  vim.api.match("Todo", word)
-  -- :match Todo /c7745532-196c-4c67-a7c4-2ff5d2fbb005/
-end
-
 require("mini.align").setup()
 
 -- Define a command to transform the code
@@ -717,3 +713,7 @@ require("gitsigns").setup()
 require("ibl").setup({
   indent = { char = "|" },
 })
+
+vim.cmd([[highlight SpellBad ctermfg=yellow guifg=yellow]])
+vim.opt.spell = true
+vim.opt.spelllang = "en"
