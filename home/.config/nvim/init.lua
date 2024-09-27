@@ -51,6 +51,7 @@ require("lazy").setup({
   "mechatroner/rainbow_csv",
   "echasnovski/mini.align",
   "lewis6991/gitsigns.nvim",
+  "lukas-reineke/indent-blankline.nvim",
 
   -- Themes
   "folke/tokyonight.nvim",
@@ -711,3 +712,7 @@ vim.api.nvim_create_user_command("TransformZodSchemaIntoType", function()
 end, {})
 
 require("gitsigns").setup()
+
+require("ibl").setup({
+  indent = { char = "|" },
+})
