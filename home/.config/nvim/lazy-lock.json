@@ -19,6 +19,7 @@
   "mini.align": { "branch": "main", "commit": "b54d88b16bfac62ca6b3d699566135639a3ca4fa" },
   "nvim-cmp": { "branch": "main", "commit": "ae644feb7b67bf1ce4260c231d1d4300b19c6f30" },
   "nvim-comment": { "branch": "main", "commit": "e9ac16ab056695cad6461173693069ec070d2b23" },
+  "nvim-cursorword": { "branch": "master", "commit": "c0f2958ec729b47be2dba0d79ef43d005dac9f4e" },
   "nvim-format-buffer": { "branch": "main", "commit": "7cc2214a4a2f9772426a21b32bec9d87cd89dfa8" },
   "nvim-lspconfig": { "branch": "master", "commit": "911167921d49cd5c1c9b2436031d0da3945e787f" },
   "nvim-snippy": { "branch": "master", "commit": "32252e1450b1c8a27a4a61cdfde60791192a1d0c" },

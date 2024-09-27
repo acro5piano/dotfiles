@@ -51,6 +51,7 @@ require("lazy").setup({
   "mechatroner/rainbow_csv",
   "echasnovski/mini.align",
   "lewis6991/gitsigns.nvim",
+  "xiyaowong/nvim-cursorword",
   "lukas-reineke/indent-blankline.nvim",
 
   -- Themes
