@@ -546,10 +546,6 @@ cmp.setup({
       name = "rg",
       keyword_length = 3,
     },
-    {
-      name = "mozc",
-      keyword_length = 3,
-    },
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
