@@ -62,6 +62,8 @@ cfdisk /dev/nvme0n1
 
 Swap is required for hibernation.
 
+![image](https://github.com/user-attachments/assets/9a2e3df2-d1c4-43ce-b94f-a3535c473800)
+
 ```sh
 # UEFI
 mkfs.fat -F32 /dev/nvme0n1p1
