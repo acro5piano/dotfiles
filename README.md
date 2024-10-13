@@ -50,12 +50,14 @@ cfdisk /dev/nvme0n1
 ```
 
 - Create a partition for UEFI `/dev/nvme0n1p1`
-  - create a new partition and set maximum size for it
+  - create a new partition and set `1G` size for it
+  - Set the type to `EFI System`
 - Create a partition for swap (for hibernation) `/dev/nvme0n1p2`
-  - create a new partition and set `40G` size for it
-  - Set the type for `Linux swap`
+  - create a new partition and set `40G` size for it (I have 24GB machine)
+  - Set the type to `Linux swap`
 - Create a partition for main `/dev/nvme0n1p3`
   - create a new partition and set maximum size for it
+  - Set the type to `Linux Filesystem`
 - write out
 
 Swap is required for hibernation.
