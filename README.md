@@ -71,8 +71,8 @@ mkswap /dev/nvme0n1p2
 swapon /dev/nvme0n1p2
 mkfs.ext4 /dev/nvme0n1p3
 mount /dev/nvme0n1p3 /mnt
-mkdir /mnt/efi
-mount /dev/nvme0n1p1 /mnt/efi
+mkdir /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot
 ```
 
 ### Install base system
@@ -96,11 +96,11 @@ EOF
 # Connect to a Network
 iwctl
 
-# install /efi
+# install /boot
 bootctl install
 ```
 
-Create `/efi/loader/entries/arch.conf`
+Create `/boot/loader/entries/arch.conf`
 
 ```
 title Arch Linux Zen
@@ -212,13 +212,13 @@ And use this commands for the initial setup, replacing `systemd-boot` thing (as 
 
 ```sh
 # systemd-boot
-mkdir /efi
-mount /dev/sda1 /efi
+mkdir /boot
+mount /dev/sda1 /boot
 
 # Grub
 os-prober
 grub-install
-grub-mkconfig -o /efi/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 
 # Grub options
 nvim /etc/default/grub # Enable this line: GRUB_DISABLE_OS_PROBER=false
@@ -280,7 +280,7 @@ sudo mkinitcpio -p linux
 Add resume to the kernel parameter:
 
 ```
-# /efi/loader/entries/arch.conf
+# /boot/loader/entries/arch.conf
 
 options root=UUID=63f7f18e-xxxx-xxxx-xxxx-e3fc0e2e4666 resume=UUID=7efab515-xxxx-xxxx-xxxx-7e17afceeacb acpi_backlight=native rw
 ```
@@ -311,7 +311,7 @@ sudo pacman -U /var/cache/pacman/pkg/bluez-5.72-2-x86_64.pkg.tar.zst /var/cache/
 If `light` does not work properly, try to modify the kernel parameter:
 
 ```
-~> cat /efi/loader/entries/arch.conf
+~> cat /boot/loader/entries/arch.conf
 options root=UUID=... acpi_backlight=native rw
 ```
 
