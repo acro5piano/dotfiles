@@ -475,7 +475,7 @@ lsp.denols.setup({
     end
   end,
 })
-lsp.tsserver.setup({
+lsp.ts_ls.setup({
   root_dir = lsp.util.root_pattern("package.json"),
   handlers = {
     ["textDocument/definition"] = shrink_lsp_definition_result,
