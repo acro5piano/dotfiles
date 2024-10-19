@@ -16,6 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- { dir = "/home/kazuya/ghq/github.com/acro5piano/nvim-format-buffer" },
   "acro5piano/nvim-format-buffer",
+  -- { dir = "/home/kazuya/ghq/github.com/acro5piano/cmp-path-chdir" },
+  "acro5piano/cmp-path-chdir",
 
   -- "wbthomason/packer.nvim",
   "ibhagwan/fzf-lua",
@@ -540,6 +542,7 @@ cmp.setup({
       },
     },
     { name = "path" },
+    { name = "path_chdir" },
     -- { name = "cmdline" },
     { name = "snippy" },
     {
