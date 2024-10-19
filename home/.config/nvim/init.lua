@@ -543,7 +543,7 @@ cmp.setup({
     },
     { name = "path" },
     { name = "path_chdir" },
-    -- { name = "cmdline" },
+
     { name = "snippy" },
     {
       name = "rg",
@@ -565,6 +565,7 @@ cmp.setup({
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
       before = function(_, vim_item)
+        vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
         return vim_item
       end,
     }),
