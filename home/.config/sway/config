@@ -53,7 +53,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+o focus right
-bindsym $mod+i focus left
+# mod+o is enough
+# bindsym $mod+i focus left
 bindsym $mod+Return exec $term
 bindsym $mod+Ctrl+s exec systemctl suspend
 bindsym $mod+Shift+s exec systemctl hibernate
@@ -80,6 +81,18 @@ bindsym $mod+l workspace number 3
 bindsym $mod+m workspace number 4
 bindsym $mod+comma workspace number 5
 bindsym $mod+period workspace number 6
+bindsym $mod+u workspace number 7
+bindsym $mod+i workspace number 8
+
+# Needs for left hand navigation
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
 
 bindsym $mod+Shift+j move container to workspace number 1
 bindsym $mod+Shift+k move container to workspace number 2

@@ -70,7 +70,7 @@ snippet mai
 snippet ulo
   const [pathname, navigate] = useLocation();
 snippet ucs
-  type `!lua vim.fn.expand('%:t:r'):gsub("^%l", string.upper)`Args = {
+  type Args = {
 
   }
 
@@ -83,3 +83,17 @@ snippet itd
 
 snippet fac
   import * as factory from 'integration-tests/factories'
+
+# Bun Specific
+snippet btss
+  import { expect, test, } from 'bun:test'
+
+  test('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', () => {
+    expect(1).toBe(1)
+  })
+snippet btsa
+  import { beforeEach, expect, mock, test } from 'bun:test'
+
+  test('${1:`substitute(expand('%:t:r'), '.test', '', 'g')`}', async () => {
+    expect(1).toBe(1)
+  })
