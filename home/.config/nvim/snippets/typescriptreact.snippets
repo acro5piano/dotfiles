@@ -69,12 +69,20 @@ snippet mai
   <span className="material-icons">${1}</span>
 snippet ulo
   const [pathname, navigate] = useLocation();
+snippet ucsf
+  type `!lua vim.fn.expand('%:t:r'):gsub("^%l", string.upper)`Args = {
+
+  }
+
+  export async function `expand('%:t:r')`({}: `!lua vim.fn.expand('%:t:r'):gsub("^%l", string.upper)`Args) {
+
+  }
 snippet ucs
   type Args = {
 
   }
 
-  export async function `expand('%:t:r')`({}: `!lua vim.fn.expand('%:t:r'):gsub("^%l", string.upper)`Args) {
+  export async function `expand('%:t:r')`({}: Args) {
 
   }
 snippet itd

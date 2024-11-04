@@ -260,6 +260,7 @@ vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l><C-6>")
 vim.keymap.set("n", "<C-w>-", "<C-w>s<C-w><C-j><C-6>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
 vim.keymap.set("n", "gh", vim.lsp.buf.definition)
+vim.keymap.set("n", "<Enter>", vim.lsp.buf.definition)
 -- vim.keymap.set("n", "g/", fzf_lua.blines)
 vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
 vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
