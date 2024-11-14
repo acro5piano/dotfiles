@@ -200,6 +200,7 @@ end
 
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
+alias ,s='cd ~/.ssh'
 alias ,w='cd ~/Downloads; ls -la'
 
 alias dc='docker-compose'
