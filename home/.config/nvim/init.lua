@@ -291,8 +291,8 @@ vim.keymap.set("n", "<Leader>l[", vim.lsp.buf.rename)
 vim.keymap.set("n", "<Leader>lh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>ln", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]a", vim.diagnostic.goto_next) -- inspired with the spellcheck
-vim.keymap.set("n", "[a", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "[[", vim.diagnostic.goto_prev) -- inspired with the spellcheck and markdown
+vim.keymap.set("n", "]]", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
 vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>pb", ":.!clp<CR>")
