@@ -6,5 +6,6 @@
   loop:
     - slurp
     - sway
+    - swaybg
     - wl-clipboard
     - bemenu-wayland
