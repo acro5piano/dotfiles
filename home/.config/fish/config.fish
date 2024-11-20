@@ -22,6 +22,7 @@ set -gx PATH \
             $HOME/go/bin \
             $HOME/.local/bin \
             $HOME/.pulumi/bin \
+            $HOME/.deno/bin \
             $PNPM_HOME \
             $PATH
 set -gx EDITOR nvim

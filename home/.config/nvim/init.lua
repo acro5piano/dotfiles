@@ -476,12 +476,15 @@ lsp.denols.setup({
     end
   end,
 })
+
+-- require("lspconfig").denols.setup({})
 lsp.ts_ls.setup({
   root_dir = lsp.util.root_pattern("package.json"),
   handlers = {
     ["textDocument/definition"] = shrink_lsp_definition_result,
   },
 })
+
 lsp.solargraph.setup({
   settings = {
     solargraph = {
