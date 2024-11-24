@@ -138,12 +138,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.gql", "*.graphql", "*.graphqls" },
   callback = function()
-    vim.keymap.set(
-      "n",
-      "gh",
-      "/\\(\\(type\\)\\|\\(input\\)\\|\\(enum\\)\\|\\(scalar\\)\\) <C-r><C-w>[\\n| ]<CR>:nohl<CR>",
-      { buffer = true }
-    )
+    for _, key in ipairs({ "gh", "m" }) do
+      vim.keymap.set(
+        "n",
+        key,
+        "/\\(\\(type\\)\\|\\(input\\)\\|\\(enum\\)\\|\\(scalar\\)\\) <C-r><C-w>[\\n| ]<CR>:nohl<CR>",
+        { buffer = true }
+      )
+    end
     vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
   end,
 })
