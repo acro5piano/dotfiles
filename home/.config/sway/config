@@ -102,6 +102,8 @@ bindsym $mod+Shift+l move container to workspace number 3
 bindsym $mod+Shift+m move container to workspace number 4
 bindsym $mod+Shift+comma move container to workspace number 5
 bindsym $mod+Shift+period move container to workspace number 6
+bindsym $mod+Shift+u move container to workspace number 7
+bindsym $mod+Shift+i move container to workspace number 8
 
 assign [class="Pcmanfm"] workspace 2
 for_window [class="pavucontrol"] move container to workspace 6
