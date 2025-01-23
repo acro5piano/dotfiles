@@ -164,6 +164,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*.prql" },
+  callback = function()
+    vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
+  end,
+})
+
 -- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 --   pattern = { "*.md" },
 --   callback = function()
@@ -209,6 +216,7 @@ require("nvim-format-buffer").setup({
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
     { pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
+    { pattern = { "*.prql" }, command = "prqlc fmt -" },
     {
       pattern = {
         "*.js",
