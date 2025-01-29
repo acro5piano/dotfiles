@@ -615,6 +615,7 @@ fzf_lua.setup({
     fzf = {
       -- Do not delete this empty block!
       -- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
+      "--color=hl:-1:reverse,hl+:-1:reverse",
     },
     builtin = {
       ["<Esc>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue

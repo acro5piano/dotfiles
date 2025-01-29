@@ -16,7 +16,7 @@ font pango:monospace 0.001
 titlebar_padding 1
 titlebar_border_thickness 0
 
-output "*" bg ~/.dotfiles/wallpapers/autumn-load.jpg fill
+output "*" bg ~/.dotfiles/wallpapers/tsuyu-chan.jpg fill
 
 bar {
     font pango:monospace 9
