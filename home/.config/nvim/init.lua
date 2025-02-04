@@ -56,12 +56,37 @@ require("lazy").setup({
   "xiyaowong/nvim-cursorword",
   "lukas-reineke/indent-blankline.nvim",
 
+  -- {
+  --   "sourcegraph/sg.nvim",
+  --   event = "LspAttach",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   init = function()
+  --     require("sg").setup()
+  --   end,
+  -- },
+
   {
-    "sourcegraph/sg.nvim",
+    "yetone/avante.nvim",
     event = "LspAttach",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
     init = function()
-      require("sg").setup()
+      require("avante").setup({
+        ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+        provider = "openai", -- Recommend using Claude
+        auto_suggestions_provider = "openai",
+        behaviour = {
+          auto_suggestions = false, -- Experimental stage
+        },
+        hints = { enabled = false },
+        -- mappings = {
+        --   sidebar = {
+        --     apply_all = "<CR>",
+        --     apply_cursor = "a",
+        --     switch_windows = "<Tab>",
+        --     reverse_switch_windows = "<S-Tab>",
+        --   },
+        -- },
+      })
     end,
   },
 
@@ -572,7 +597,7 @@ cmp.setup({
       name = "rg",
       keyword_length = 3,
     },
-    { name = "cody", keyword_length = 3 },
+    -- { name = "cody", keyword_length = 3 },
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
