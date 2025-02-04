@@ -56,6 +56,15 @@ require("lazy").setup({
   "xiyaowong/nvim-cursorword",
   "lukas-reineke/indent-blankline.nvim",
 
+  {
+    "sourcegraph/sg.nvim",
+    event = "LspAttach",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    init = function()
+      require("sg").setup()
+    end,
+  },
+
   -- Themes
   "folke/tokyonight.nvim",
 })
@@ -563,6 +572,7 @@ cmp.setup({
       name = "rg",
       keyword_length = 3,
     },
+    { name = "cody", keyword_length = 3 },
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
