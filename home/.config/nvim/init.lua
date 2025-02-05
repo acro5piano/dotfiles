@@ -100,11 +100,25 @@ require("lazy").setup({
     init = function()
       require("codecompanion").setup({
         strategies = {
+          chat = { adapter = "openai" },
+          inline = { adapter = "openai" },
+        },
+        adapters = {
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              schema = {
+                model = {
+                  default = "gpt-4o-mini",
+                },
+              },
+            })
+          end,
+        },
+        display = {
           chat = {
-            adapter = "openai",
-          },
-          inline = {
-            adapter = "openai",
+            window = {
+              position = "right", -- left|right|top|bottom (nil will default depending on vim.opt.plitright|vim.opt.splitbelow)
+            },
           },
         },
       })
