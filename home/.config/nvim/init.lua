@@ -65,27 +65,48 @@ require("lazy").setup({
   --   end,
   -- },
 
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "LspAttach",
+  --   dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+  --   init = function()
+  --     require("avante").setup({
+  --       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+  --       provider = "openai", -- Recommend using Claude
+  --       auto_suggestions_provider = "openai",
+  --       behaviour = {
+  --         auto_suggestions = false, -- Experimental stage
+  --       },
+  --       hints = { enabled = false },
+  --       -- mappings = {
+  --       --   sidebar = {
+  --       --     apply_all = "<CR>",
+  --       --     apply_cursor = "a",
+  --       --     switch_windows = "<Tab>",
+  --       --     reverse_switch_windows = "<S-Tab>",
+  --       --   },
+  --       -- },
+  --     })
+  --   end,
+  -- },
+
   {
-    "yetone/avante.nvim",
-    event = "LspAttach",
-    dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
     init = function()
-      require("avante").setup({
-        ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-        provider = "openai", -- Recommend using Claude
-        auto_suggestions_provider = "openai",
-        behaviour = {
-          auto_suggestions = false, -- Experimental stage
+      require("codecompanion").setup({
+        strategies = {
+          chat = {
+            adapter = "openai",
+          },
+          inline = {
+            adapter = "openai",
+          },
         },
-        hints = { enabled = false },
-        -- mappings = {
-        --   sidebar = {
-        --     apply_all = "<CR>",
-        --     apply_cursor = "a",
-        --     switch_windows = "<Tab>",
-        --     reverse_switch_windows = "<S-Tab>",
-        --   },
-        -- },
       })
     end,
   },
