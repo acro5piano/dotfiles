@@ -41,7 +41,6 @@ set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 # 'hl:-1:reverse,hl+:-1:reverse' marks more readable for matching string
 set -gx FZF_DEFAULT_OPTS "--layout reverse --color='hl:-1:reverse,hl+:-1:reverse'"
 
-
 function seishin
     set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
     mkdir -p $dir
@@ -245,3 +244,5 @@ if [ "$TTY" = "/dev/tty1" ]
 end
 
 fnm env --use-on-cd | source > /dev/null
+
+which chatgpt > /dev/null && chatgpt --set-completions fish | source
