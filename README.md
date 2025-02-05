@@ -6,7 +6,9 @@ Core technologies:
 
 - Arch Linux
 - Sway
+- Neovim
 - Alacritty
+- keyd/Xremap
 - Brave Browser
 
 <table>
