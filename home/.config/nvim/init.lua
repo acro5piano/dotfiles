@@ -250,7 +250,8 @@ require("nvim-format-buffer").setup({
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
     { pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
-    { pattern = { "*.prql" }, command = "prqlc fmt -" },
+    -- It removes comment, so disabled for now
+    -- { pattern = { "*.prql" }, command = "prqlc fmt -" },
     {
       pattern = {
         "*.js",

@@ -229,6 +229,7 @@ alias tsv='column -ts \t'
 alias restart-xremap="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xremap.log &"
 alias feh="feh --scale-down --offset +0+0"
 alias pn="pnpm"
+alias c='chatgpt'
 
 set TTY (tty)
 
