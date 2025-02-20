@@ -116,6 +116,7 @@ vim.o.mouse = ""
 vim.o.backup = false
 vim.o.swapfile = false
 vim.o.undofile = false
+vim.o.autochdir = false
 
 require("tokyonight").setup({
   transparent = true,
