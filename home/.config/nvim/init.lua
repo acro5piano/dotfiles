@@ -74,6 +74,7 @@ require("lazy").setup({
               schema = {
                 model = {
                   default = "gpt-4o-mini",
+                  -- default = "o1-mini",
                 },
               },
             })
@@ -319,7 +320,7 @@ vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
 -- vim.keymap.set("n", "<Leader>b", ":b <TAB>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
-vim.keymap.set("n", "<Leader>c", fzf_lua.resume) -- remember with "continue"
+vim.keymap.set("n", "<Leader>c", ":CodeCompanion") -- remember with "continue"
 vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")

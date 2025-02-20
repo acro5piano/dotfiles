@@ -338,3 +338,10 @@ Not works. use Yarn completion for now.
 ```
 pnpm completion fish > ~/.config/fish/completions/pnpm.fish
 ```
+
+# Aider
+
+```
+pipx install aider-install
+aider-install
+```
