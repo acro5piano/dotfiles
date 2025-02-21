@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+cd $AIDER_CWD
+$argv
