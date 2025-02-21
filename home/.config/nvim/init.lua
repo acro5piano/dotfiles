@@ -1,5 +1,3 @@
-local os = require("os")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -358,6 +356,10 @@ vim.keymap.set("n", "|", "x~f_")
 vim.keymap.set("n", "<Leader>d", require("oil").open)
 vim.keymap.set("n", "<Backspace>", require("oil").open)
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+vim.keymap.set("n", "<C-g>", function()
+  vim.cmd("cd .")
+  vim.cmd("normal! \x07") -- \x07 is Ctrl+G
+end)
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
 vim.keymap.set("n", "&", replace_html_special_chars)
 vim.keymap.set("n", "<F12>", "~W")
