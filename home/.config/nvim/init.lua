@@ -361,6 +361,28 @@ vim.keymap.set("n", "<C-g>", function()
   vim.cmd("normal! \x07") -- \x07 is Ctrl+G
 end)
 vim.keymap.set("n", "<C-S-G>", ':let @+=fnamemodify(expand("%"), ":~:.")<CR> | :echo "filepath copied!"<CR>')
+vim.keymap.set("n", "gy", function()
+  -- Get the file path relative to git root
+  local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
+  if not handle then
+    vim.notify("Failed to execute git command", vim.log.levels.ERROR)
+    return
+  end
+
+  local git_root = handle:read("*l")
+  handle:close()
+
+  if not git_root then
+    vim.notify("Not in a git repository", vim.log.levels.WARN)
+    return
+  end
+
+  local current_file = vim.fn.expand("%:p")
+  local relative_path = string.sub(current_file, string.len(git_root) + 2) -- +2 to remove the trailing slash
+
+  vim.fn.setreg("+", relative_path)
+  vim.notify("Git relative path copied: " .. relative_path, vim.log.levels.INFO)
+end)
 vim.keymap.set("n", "&", replace_html_special_chars)
 vim.keymap.set("n", "<F12>", "~W")
 vim.keymap.set("n", "S", "ggVG")
