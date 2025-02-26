@@ -231,7 +231,7 @@ alias feh="feh --scale-down --offset +0+0"
 alias pn="pnpm"
 alias c='chatgpt'
 alias c='chatgpt'
-alias ai='AIDER_CWD=$PWD aider --subtree-only --user-input-color "#ffff00" --no-auto-commits --dark-mode'
+alias ai='aider --subtree-only --no-auto-commits --dark-mode'
 
 set TTY (tty)
 
