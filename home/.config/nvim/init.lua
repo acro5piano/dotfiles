@@ -695,6 +695,9 @@ fzf_lua.setup({
     -- this is temporary fix until .po file freeze problem in nvim-treesitter
     preview = { default = "bat_native" },
   },
+  lines = {
+    previewer = false,
+  },
 })
 
 require("hop").setup()
