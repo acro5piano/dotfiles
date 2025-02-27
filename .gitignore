@@ -20,3 +20,7 @@ home/.config/fish/fishd.tmp.*
 
 home/.config/alacritty/themes/
 .aider*
+
+home/bin/copyright.pandoc
+home/bin/pandoc
+

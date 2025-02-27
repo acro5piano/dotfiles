@@ -202,8 +202,8 @@ end
 
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
-alias ,s='cd ~/.ssh'
-alias ,w='cd ~/Downloads; ls -la'
+alias ,s='cd ~/.ssh; nvim'
+alias ,w='cd ~/Downloads; nvim'
 
 alias dc='docker-compose'
 alias grep='grep --color=auto'
@@ -231,7 +231,9 @@ alias feh="feh --scale-down --offset +0+0"
 alias pn="pnpm"
 alias c='chatgpt'
 alias c='chatgpt'
-alias ai='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode'
+alias ai='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode --model claude-3-7-sonnet-20250219'
+alias aiopen='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode --model gpt-4o'
+alias ar='airun'
 
 set TTY (tty)
 
