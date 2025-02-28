@@ -106,15 +106,18 @@ bindsym $mod+Shift+u move container to workspace number 7
 bindsym $mod+Shift+i move container to workspace number 8
 
 assign [class="Pcmanfm"] workspace 2
-for_window [class="pavucontrol"] move container to workspace 6
-for_window [class="pavucontrol-qt"] move container to workspace 6
-for_window [class="Joplin"] move container to workspace 5
 for_window [class="electron-shogi"] move container to workspace 4
+for_window [class="Joplin"] move container to workspace 5
+for_window [class="pavucontrol-qt"] move container to workspace 6
+for_window [class="pavucontrol"] move container to workspace 6
+for_window [class="NoiseTorch"] move container to workspace 6
 
 exec start-fcitx &
 exec xremap ~/.xremap &
 exec dunst &
 exec wl-paste -t text --watch ~/go/bin/clipman store --max-items=50 --no-persist &
+exec noisetorch &
+
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
