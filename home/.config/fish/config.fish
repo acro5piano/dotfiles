@@ -172,6 +172,7 @@ end
 
 bind \ew __copy_command
 bind \cr __fzf_history
+bind ctrl-alt-h backward-kill-word
 
 function __parse_git_branch
     git status >/dev/null 2>/dev/null || return
