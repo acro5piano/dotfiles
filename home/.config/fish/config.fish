@@ -204,8 +204,8 @@ end
 
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
-alias ,s='cd ~/.ssh; nvim'
-alias ,w='cd ~/Downloads; nvim'
+alias ,s='cd ~/.ssh; nvim .'
+alias ,w='cd ~/Downloads; nvim .'
 
 alias dc='docker-compose'
 alias grep='grep --color=auto'
