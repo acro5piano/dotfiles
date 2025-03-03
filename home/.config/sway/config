@@ -23,8 +23,10 @@ bar {
     position top
     status_command i3status-rs
     colors {
-    # text-slate-600 (Tailwind)
-        background #475569
+        # text-slate-600 (Tailwind)
+        # background #475569
+        # Adjusted with the wallpaper
+        background #27184d
     }
 }
 
