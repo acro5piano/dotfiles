@@ -5,7 +5,6 @@ set -ue
 bluetoothctl power on
 # bluetoothctl select 00:1B:DC:FC:94:C8
 
-
 sony=90:7A:58:9D:C7:35
 anker=7C:96:D2:9D:7A:BC
 at=00:0A:45:26:45:45
