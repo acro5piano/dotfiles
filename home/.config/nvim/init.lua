@@ -54,41 +54,6 @@ require("lazy").setup({
   "xiyaowong/nvim-cursorword",
   "lukas-reineke/indent-blankline.nvim",
 
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    init = function()
-      require("codecompanion").setup({
-        strategies = {
-          chat = { adapter = "openai" },
-          inline = { adapter = "openai" },
-        },
-        adapters = {
-          openai = function()
-            return require("codecompanion.adapters").extend("openai", {
-              schema = {
-                model = {
-                  default = "gpt-4o-mini",
-                  -- default = "o1-mini",
-                },
-              },
-            })
-          end,
-        },
-        display = {
-          chat = {
-            window = {
-              position = "right", -- left|right|top|bottom (nil will default depending on vim.opt.plitright|vim.opt.splitbelow)
-            },
-          },
-        },
-      })
-    end,
-  },
-
   -- Themes
   "folke/tokyonight.nvim",
 })
@@ -319,7 +284,7 @@ vim.keymap.set("n", "<Leader>aw", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
 -- vim.keymap.set("n", "<Leader>b", ":b <TAB>")
 vim.keymap.set("n", "<Leader>fe", ":e!<CR>")
-vim.keymap.set("n", "<Leader>c", ":CodeCompanion") -- remember with "continue"
+vim.keymap.set("n", "<Leader>c", fzf_lua.resume) -- remember with "continue"
 vim.keymap.set("n", "<Leader>fl", fzf_lua.quickfix)
 vim.keymap.set("n", "<Leader>fr", fzf_lua.oldfiles)
 vim.keymap.set("n", "<Leader>fs", ":w!<CR>")
