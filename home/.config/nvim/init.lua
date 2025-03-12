@@ -634,14 +634,15 @@ fzf_lua.setup({
   -- Unfortunately fzf-tmux is too slow...
   -- fzf_bin = "fzf-tmux",
   winopts = {
-    height = 0.9, -- window height
-    width = 0.9, -- window width
     hl = { border = "Normal" },
+    fullscreen = true, -- start fullscreen?
+    preview = {
+      horizontal = "right:50%", -- right|left:size
+      -- default = "bat_native",
+    },
   },
   keymap = {
     fzf = {
-      -- Do not delete this empty block!
-      -- or, fzf-lua don't respect fzf built-in keymap for c-f and c-b.
       "--color=hl:-1:reverse,hl+:-1:reverse",
     },
     builtin = {
@@ -655,10 +656,6 @@ fzf_lua.setup({
     git_diff = {
       pager = "delta --true-color=never", -- I don't know why, but --true-color=never is needed in nvim + tmux environment
     },
-  },
-  winopts = {
-    -- this is temporary fix until .po file freeze problem in nvim-treesitter
-    preview = { default = "bat_native" },
   },
   lines = {
     previewer = false,
