@@ -634,7 +634,7 @@ fzf_lua.setup({
   -- Unfortunately fzf-tmux is too slow...
   -- fzf_bin = "fzf-tmux",
   winopts = {
-    hl = { border = "Normal" },
+    -- hl = { border = "Normal" },
     fullscreen = true, -- start fullscreen?
     preview = {
       horizontal = "right:50%", -- right|left:size
