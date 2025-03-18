@@ -113,12 +113,15 @@ for_window [class="Joplin"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="NoiseTorch"] move container to workspace 6
+for_window [con="Easy Effects"] move container to workspace 6
+for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
+
 
 exec start-fcitx &
 exec xremap ~/.xremap &
 exec dunst &
 exec wl-paste -t text --watch ~/go/bin/clipman store --max-items=50 --no-persist &
-exec noisetorch &
+exec easyeffects &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
