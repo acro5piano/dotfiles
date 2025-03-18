@@ -10,6 +10,7 @@
     state: latest
   loop:
     - acpi
+    - audacity
     - adobe-source-code-pro-fonts
     # - alsa-lib
     # - alsa-utils
@@ -39,9 +40,7 @@
     - github-cli
     - go
     - grim
-    # - i3status
     - i3status-rust
-    # - i3-wm # Some features are not available on wayland, so rely on i3 when needed. e.g.) ZOOM meeting with screen sharing
     - imagemagick
     - jdk8-openjdk
     - jq
@@ -68,7 +67,6 @@
     - openssl
     - pavucontrol-qt
     - pcmanfm
-    # - peek # The awesome gif screen recorder
     # - php
     # - php-gd
     # - php-sqlite

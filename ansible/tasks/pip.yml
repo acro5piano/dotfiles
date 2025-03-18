@@ -6,8 +6,9 @@
   pip:
     name: "{{ item }}"
     state: latest
-    executable: pip3
+    executable: pipx
   loop:
+    - aider-install # Brand new tool!
     - awscli
     - black
     - flake8
