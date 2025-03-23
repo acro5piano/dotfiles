@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import readline
+import atexit
+import os
+
+HISTORY_FILE = os.path.expanduser("~/.calc_history")
+
+# 履歴ファイルの読み込み
+if os.path.exists(HISTORY_FILE):
+    readline.read_history_file(HISTORY_FILE)
+
+# 終了時に履歴を保存
+atexit.register(readline.write_history_file, HISTORY_FILE)
+
+# カラーコード
+GREEN = "\033[92m"
+RESET = "\033[0m"
+
+# 前回の結果を保持
+last_result = None
+
+while True:
+    try:
+        expr = input(">>> ").replace(',', '').strip()
+        if not expr:
+            continue
+
+        # "_" を前回の結果に置き換え
+        if "_" in expr and last_result is not None:
+            expr = expr.replace("_", str(last_result))
+
+        result = eval(expr)
+        last_result = result
+        print(f"{GREEN}{result:,}{RESET}")
+    except (KeyboardInterrupt, EOFError):
+        print("\nThank you")
+        break
+    except Exception as e:
+        print("Error:", e)
+
