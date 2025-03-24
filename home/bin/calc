@@ -15,6 +15,7 @@ atexit.register(readline.write_history_file, HISTORY_FILE)
 
 # カラーコード
 GREEN = "\033[92m"
+RED = "\033[91m"
 RESET = "\033[0m"
 
 # 前回の結果を保持
@@ -32,10 +33,15 @@ while True:
 
         result = eval(expr)
         last_result = result
-        print(f"{GREEN}{result:,}{RESET}")
-    except (KeyboardInterrupt, EOFError):
+
+        color = RED if isinstance(result, (int, float)) and result < 0 else GREEN
+        print(f"{color}{result:,}{RESET}")
+    except KeyboardInterrupt:
+        print()  # 単に改行して戻る（入力キャンセル）
+        continue
+    except EOFError:
         print("\nThank you")
         break
     except Exception as e:
-        print("Error:", e)
+        print(f"{RED}Error:{RESET}", e)
 
