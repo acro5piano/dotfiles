@@ -19,6 +19,7 @@
     - bat
     # - composer
     - curl
+    - code
     - dnsutils
     - docker
     - docker-compose
