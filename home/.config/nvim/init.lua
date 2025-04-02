@@ -645,7 +645,7 @@ fzf_lua.setup({
     -- hl = { border = "Normal" },
     fullscreen = true, -- start fullscreen?
     preview = {
-      horizontal = "right:50%", -- right|left:size
+      horizontal = "right:60%", -- right|left:size
       -- default = "bat_native",
     },
   },
