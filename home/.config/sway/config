@@ -18,6 +18,9 @@ titlebar_border_thickness 0
 
 output "*" bg ~/.dotfiles/wallpapers/starry-night.jpeg fill
 
+# Disable internal display when HDMI is connected
+exec_always ~/.config/sway/disable-internal-display.sh
+
 bar {
     font pango:monospace 9
     position top
