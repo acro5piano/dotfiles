@@ -113,7 +113,7 @@ for_window [class="electron-shogi"] move container to workspace 4
 for_window [class="Joplin"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="pavucontrol"] move container to workspace 6
-for_window [class="NoiseTorch"] move container to workspace 6
+for_window [class="code-oss"] move container to workspace 7
 for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
