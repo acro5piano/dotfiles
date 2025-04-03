@@ -178,6 +178,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { ".clinerules" },
+  callback = function()
+    vim.api.nvim_exec("setlocal ft=markdown", false)
+    vim.api.nvim_exec("setlocal wrap", false)
+  end,
+})
+
 -- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 --   pattern = { "*.md" },
 --   callback = function()
@@ -223,6 +231,7 @@ require("nvim-format-buffer").setup({
     { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
     { pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
+    { pattern = { ".clinerules" }, command = "prettier --parser markdown" },
     -- It removes comment, so disabled for now
     -- { pattern = { "*.prql" }, command = "prqlc fmt -" },
     {
