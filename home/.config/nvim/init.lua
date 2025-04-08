@@ -89,6 +89,8 @@ vim.o.swapfile = false
 vim.o.undofile = false
 vim.o.autochdir = false
 
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+
 require("tokyonight").setup({
   transparent = true,
   style = "moon",
