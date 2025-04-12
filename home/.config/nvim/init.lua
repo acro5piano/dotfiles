@@ -147,7 +147,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.gql", "*.graphql", "*.graphqls" },
   callback = function()
-    for _, key in ipairs({ "gh", "m" }) do
+    for _, key in ipairs({ "m" }) do
       vim.keymap.set(
         "n",
         key,
@@ -288,7 +288,6 @@ vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C
 vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l><C-6>")
 vim.keymap.set("n", "<C-w>-", "<C-w>s<C-w><C-j><C-6>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
-vim.keymap.set("n", "gh", vim.lsp.buf.definition)
 vim.keymap.set("n", "m", vim.lsp.buf.definition)
 -- vim.keymap.set("n", "g/", fzf_lua.blines)
 vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
@@ -499,9 +498,10 @@ require("nvim_comment").setup({ create_mappings = false })
 -- Without this, nvim-cmp shows a quickfix list to select a code position to jump, which is really annoying.
 local shrink_lsp_definition_result = function(err, result, method, ...)
   if vim.tbl_islist(result) and #result > 1 then
-    return vim.lsp.handlers["textDocument/definition"](err, { result[1] }, method, ...)
+    vim.lsp.handlers["textDocument/definition"](err, { result[1] }, method, ...)
+  else
+    vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
   end
-  vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
 end
 
 local lsp = require("lspconfig")
