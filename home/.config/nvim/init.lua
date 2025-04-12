@@ -494,14 +494,14 @@ require("lualine").setup({
 })
 require("nvim_comment").setup({ create_mappings = false })
 
--- This handler function forces to select the first element of lsp definitions if multiple candidates exist.
--- Without this, nvim-cmp shows a quickfix list to select a code position to jump, which is really annoying.
-local shrink_lsp_definition_result = function(err, result, method, ...)
-  if vim.tbl_islist(result) and #result > 1 then
-    vim.lsp.handlers["textDocument/definition"](err, { result[1] }, method, ...)
-  else
-    vim.lsp.handlers["textDocument/definition"](err, result, method, ...)
+vim.lsp.handlers["textDocument/definition"] = function(err, result, method, ...)
+  if not result then
+    return
   end
+  if vim.tbl_islist(result) and #result > 1 then
+    result = { result[1] }
+  end
+  vim.lsp.util.jump_to_location(result[1] or result, "utf-8", true)
 end
 
 local lsp = require("lspconfig")
@@ -535,9 +535,6 @@ lsp.denols.setup({
 -- require("lspconfig").denols.setup({})
 lsp.ts_ls.setup({
   root_dir = lsp.util.root_pattern("package.json"),
-  handlers = {
-    ["textDocument/definition"] = shrink_lsp_definition_result,
-  },
 })
 
 lsp.solargraph.setup({
@@ -564,9 +561,6 @@ if has("lua-language-server") then
           library = vim.api.nvim_get_runtime_file("", true),
         },
       },
-    },
-    handlers = {
-      ["textDocument/definition"] = shrink_lsp_definition_result,
     },
   })
 end
