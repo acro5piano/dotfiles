@@ -276,6 +276,24 @@ function replace_html_special_chars()
   vim.api.nvim_set_current_line(replaced_line)
 end
 
+local function go_to_first_definition()
+  vim.lsp.buf.definition({
+    on_list = function(options)
+      -- Jump to first item
+      if options.items and #options.items > 1 then
+        vim.fn.setqflist({}, " ", options) -- Close quicifix list
+        vim.cmd("cfirst") -- Jump to first
+      elseif options.items and #options.items == 1 then
+        local item = options.items[1]
+        vim.fn.setqflist({ item }, "r")
+        vim.cmd("cfirst")
+      else
+        print("No definition found")
+      end
+    end,
+  })
+end
+
 -- TODO: make this to lua
 vim.api.nvim_exec("command! -nargs=+ -complete=file Ripgrep :call ripgrep#search(<q-args>)", false)
 
@@ -288,7 +306,7 @@ vim.keymap.set("n", "<C-w><CR>", string.rep("<C-w><C-w>:q<CR>", 3)) -- maps to C
 vim.keymap.set("n", "<C-w>/", ":vsplit<CR><C-w><C-l><C-6>")
 vim.keymap.set("n", "<C-w>-", "<C-w>s<C-w><C-j><C-6>")
 vim.keymap.set("n", "<ESC><ESC>", ":nohl<CR>")
-vim.keymap.set("n", "m", vim.lsp.buf.definition)
+vim.keymap.set("n", "m", go_to_first_definition)
 -- vim.keymap.set("n", "g/", fzf_lua.blines)
 vim.keymap.set("n", "g/", fzf_lua.lines) -- experimental: try something new!
 vim.keymap.set("n", "gp", ":YankyRingHistory<CR>")
