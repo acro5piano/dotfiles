@@ -279,8 +279,8 @@ end
 local function go_to_first_definition()
   vim.lsp.buf.definition({
     on_list = function(options)
-      -- Jump to first item
       if options.items and #options.items > 1 then
+        -- Jump to the first item if there are multiple items
         vim.fn.setqflist({}, " ", options) -- Close quicifix list
         vim.cmd("cfirst") -- Jump to first
       elseif options.items and #options.items == 1 then
