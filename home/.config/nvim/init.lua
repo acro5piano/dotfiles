@@ -279,13 +279,19 @@ end
 local function go_to_first_definition()
   vim.lsp.buf.definition({
     on_list = function(options)
-      if options.items and #options.items > 1 then
-        -- Jump to the first item if there are multiple items
-        vim.fn.setqflist({}, " ", options) -- Close quicifix list
-        vim.cmd("cfirst") -- Jump to first
-      elseif options.items and #options.items == 1 then
-        local item = options.items[1]
-        vim.fn.setqflist({ item }, "r")
+      if options.items and #options.items > 0 then
+        local filtered = {}
+        for _, item in ipairs(options.items) do
+          -- Filter out items whose filename contains 'node_modules'
+          if not (item.filename and string.match(item.filename, "node_modules")) then
+            table.insert(filtered, item)
+          end
+        end
+        if #filtered == 0 then
+          -- If all definitions are in node_modules, pick the first item.
+          table.insert(filtered, options.items[1])
+        end
+        vim.fn.setqflist(filtered, "r")
         vim.cmd("cfirst")
       else
         print("No definition found")
