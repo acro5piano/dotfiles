@@ -233,9 +233,8 @@ alias feh="feh --scale-down --offset +0+0"
 alias pn="pnpm"
 alias c='chatgpt'
 alias c='chatgpt'
-alias ai='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode --model claude-3-7-sonnet-20250219'
-# alias ai='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode --model claude-3-5-sonnet-latest'
-alias aio='AIDER_CWD=$PWD aider --subtree-only --no-auto-commits --dark-mode --model gpt-4.1'
+alias ai='aider --model claude-3-7-sonnet-20250219'
+alias aio='aider --model gpt-4.1'
 alias ar='airun'
 
 set TTY (tty)
