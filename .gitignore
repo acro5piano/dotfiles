@@ -20,6 +20,7 @@ home/.config/fish/fishd.tmp.*
 
 home/.config/alacritty/themes/
 .aider*
+!.aider.conf.yml
 
 home/bin/copyright.pandoc
 home/bin/pandoc
