@@ -11,6 +11,7 @@ anker=04:57:91:4D:1E:38
 at=00:0A:45:26:45:45
 jabra=50:C2:75:34:94:89
 logi=DF:BD:FF:42:96:86
+jis=DB:BA:FA:B1:78:B1
 
 # `[c]onnect` | `[d]isconnect`
 operation=${2:-connect}
