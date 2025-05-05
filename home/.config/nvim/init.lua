@@ -817,11 +817,8 @@ require("blink.cmp").setup({
     keymap = { preset = "inherit" },
     completion = {
       menu = { auto_show = true },
-      selection = {
-        -- When `true`, will automatically select the first item in the completion list
-        preselect = false,
-        -- When `true`, inserts the completion item automatically when selecting it
-        auto_insert = false,
+      list = {
+        selection = { preselect = false, auto_insert = true },
       },
     },
   },
