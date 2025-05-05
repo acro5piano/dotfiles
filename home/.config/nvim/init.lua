@@ -61,6 +61,11 @@ require("lazy").setup({
       vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
     end,
   },
+  {
+    "Saghen/blink.cmp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    version = "1.*", -- use a release tag to download pre-built binaries
+  },
 
   -- Themes
   "folke/tokyonight.nvim",
@@ -602,61 +607,61 @@ lsp.eslint.setup({
 lsp.astro.setup({})
 -- lsp.emmet_language_server.setup({})
 
-local cmp = require("cmp")
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require("snippy").expand_snippet(args.body) -- For `snippy` users.
-    end,
-  },
-  preselect = cmp.PreselectMode.None, -- https://github.com/hrsh7th/nvim-cmp/issues/355#issuecomment-944910279
-  sources = {
-    { name = "nvim_lsp" },
-    {
-      name = "buffer",
-      options = {
-        get_bufnrs = vim.api.nvim_list_bufs,
-      },
-    },
-    { name = "path" },
-    { name = "path_chdir" },
-
-    { name = "snippy" },
-    {
-      name = "rg",
-      keyword_length = 3,
-    },
-    -- { name = "cody", keyword_length = 3 },
-  },
-  mapping = {
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-l>"] = cmp.mapping.complete(),
-    ["<C-j>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
-  },
-  formatting = {
-    format = require("lspkind").cmp_format({
-      mode = "text_symbol",
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(_, vim_item)
-        vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
-        return vim_item
-      end,
-    }),
-  },
-})
-
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "path" },
-    { name = "cmdline" },
-  },
-})
+-- local cmp = require("cmp")
+-- cmp.setup({
+--   snippet = {
+--     expand = function(args)
+--       require("snippy").expand_snippet(args.body) -- For `snippy` users.
+--     end,
+--   },
+--   preselect = cmp.PreselectMode.None, -- https://github.com/hrsh7th/nvim-cmp/issues/355#issuecomment-944910279
+--   sources = {
+--     { name = "nvim_lsp" },
+--     {
+--       name = "buffer",
+--       options = {
+--         get_bufnrs = vim.api.nvim_list_bufs,
+--       },
+--     },
+--     { name = "path" },
+--     { name = "path_chdir" },
+--
+--     { name = "snippy" },
+--     {
+--       name = "rg",
+--       keyword_length = 3,
+--     },
+--     -- { name = "cody", keyword_length = 3 },
+--   },
+--   mapping = {
+--     ["<C-p>"] = cmp.mapping.select_prev_item(),
+--     ["<C-n>"] = cmp.mapping.select_next_item(),
+--     ["<C-l>"] = cmp.mapping.complete(),
+--     ["<C-j>"] = cmp.mapping.confirm({ select = true }), -- To enable auto-import
+--   },
+--   formatting = {
+--     format = require("lspkind").cmp_format({
+--       mode = "text_symbol",
+--       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+--       ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+--
+--       -- The function below will be called before any actual modifications from lspkind
+--       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+--       before = function(_, vim_item)
+--         vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
+--         return vim_item
+--       end,
+--     }),
+--   },
+-- })
+--
+-- cmp.setup.cmdline(":", {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = "path" },
+--     { name = "cmdline" },
+--   },
+-- })
 
 require("snippy").setup({
   mappings = {
@@ -792,4 +797,32 @@ require("gitsigns").setup()
 require("ibl").setup({
   indent = { char = "|" },
   scope = { enabled = false },
+})
+
+require("blink.cmp").setup({
+  signature = { enabled = true },
+  completion = {
+    list = { selection = { preselect = false, auto_insert = true } },
+    menu = {
+      draw = {
+        columns = {
+          { "label", "label_description", gap = 1 },
+          { "kind_icon", "kind" },
+        },
+      },
+    },
+    documentation = { auto_show = true, auto_show_delay_ms = 100 },
+  },
+  cmdline = {
+    keymap = { preset = "inherit" },
+    completion = {
+      menu = { auto_show = true },
+      selection = {
+        -- When `true`, will automatically select the first item in the completion list
+        preselect = false,
+        -- When `true`, inserts the completion item automatically when selecting it
+        auto_insert = false,
+      },
+    },
+  },
 })
