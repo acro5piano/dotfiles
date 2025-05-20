@@ -319,12 +319,6 @@ options root=UUID=... acpi_backlight=native rw
 
 ref: https://bbs.archlinux.org/viewtopic.php?id=282805
 
-# ChatGPT CLI
-
-```
-curl -L -o chatgpt https://github.com/kardolus/chatgpt-cli/releases/latest/download/chatgpt-linux-amd64 && chmod +x chatgpt && mv chatgpt ~/.local/bin
-```
-
 # Joplin
 
 ```
@@ -344,4 +338,12 @@ pnpm completion fish > ~/.config/fish/completions/pnpm.fish
 ```
 pipx install aider-install
 aider-install
+```
+
+# Disable Logi Bold wakeup from sleep
+
+/etc/udev/rules.d/99-logibolt-power.rules
+
+```
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c548", TEST=="power/wakeup", ATTR{power/wakeup}="disabled"
 ```
