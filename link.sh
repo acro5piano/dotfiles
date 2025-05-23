@@ -29,6 +29,7 @@ link .tmux.conf
 link .xremap
 link .emacs.d
 link .aider.conf.yml
+link .claude.json
 
 if [ "$1" == 'true' ]; then
     sudo rm -rf /etc/keyd && sudo ln -svf $HOME/.dotfiles/etc/keyd /etc/keyd

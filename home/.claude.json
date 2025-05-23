@@ -1,0 +1,13 @@
+{
+  "allowedTools": [
+    "Edit",
+    "Bash(\"pnpm.*\")",
+    "Bash(\"git commit.*\")",
+    "Edit",
+    "Write",
+    "NotebookEdit",
+    "WebFetch",
+    "mcp__puppeteer__.*"
+  ]
+}
+
