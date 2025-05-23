@@ -236,6 +236,7 @@ alias c='chatgpt'
 # alias ai='aider --model claude-3-7-sonnet-20250219'
 alias ai='aider --model anthropic/claude-opus-4-20250514'
 alias aio='aider --model gpt-4.1'
+alias aic='aider --commit'
 alias ar='airun'
 
 set TTY (tty)
