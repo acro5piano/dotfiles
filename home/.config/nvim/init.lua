@@ -793,3 +793,5 @@ require("ibl").setup({
   indent = { char = "|" },
   scope = { enabled = false },
 })
+
+require("fzf-lua").register_ui_select()
