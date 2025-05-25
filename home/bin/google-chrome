@@ -2,4 +2,4 @@
 
 # Alias for MCP server
 
-chromium
+chromium $@
