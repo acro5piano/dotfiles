@@ -17,7 +17,7 @@ M.git_files_cwd_aware = function()
   if relative_path == "" then
     require("fzf-lua").git_files()
   else
-    require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path .. " " } })
+    require("fzf-lua").git_files({ fzf_opts = { ["--query"] = relative_path .. "/ " } })
   end
 end
 
