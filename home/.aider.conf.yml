@@ -4,3 +4,4 @@ auto-commits: false
 auto-test: true
 dark-mode: true
 yes-always: true
+disable-playwright: true
