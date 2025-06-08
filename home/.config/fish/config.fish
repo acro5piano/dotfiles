@@ -110,6 +110,13 @@ function clp
 		wl-paste
 end
 
+function pia -d 'Paste clipboard Image to tmp file and copy the pAth'
+    set file (mktemp).png
+    wl-paste > $file
+    wl-copy $file
+    echo $file
+end
+
 function grep-replace
     git ls-files -z | xargs -0 perl -i -pe "s#$argv[1]#$argv[2]#g"
 end
@@ -229,10 +236,9 @@ alias csv='column -ts ,'
 alias tsv='column -ts \t'
 
 alias restart-xremap="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xremap.log &"
-alias feh="feh --scale-down --offset +0+0"
+# --image-bg black disables repetion
+alias feh="feh --scale-down --offset +0+0 --image-bg black"
 alias pn="pnpm"
-alias c='chatgpt'
-alias c='chatgpt'
 # alias ai='aider --model claude-3-7-sonnet-20250219'
 # alias ai='aider --model anthropic/claude-opus-4-20250514'
 alias ai='aider --model anthropic/claude-sonnet-4-20250514'
