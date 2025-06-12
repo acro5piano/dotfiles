@@ -209,6 +209,14 @@ function unzipd
     unzip -d (echo $argv[1] | string replace .zip '') $argv[1]
 end
 
+
+function ghrw
+    while :
+        clear; gh run list; sleep 8
+    end
+end
+
+
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
 alias ,s='cd ~/.ssh; nvim .'
@@ -224,7 +232,6 @@ alias t='toggl'
 alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\'' # '
 
 alias rg="rg --hidden --glob '!.git'"
-alias ghrw="watch -n 5 gh run list"
 
 alias v="vim"
 alias nv="nvim"
