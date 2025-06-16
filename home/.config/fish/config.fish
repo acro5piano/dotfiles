@@ -249,7 +249,7 @@ alias pn="pnpm"
 alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --commit'
-alias codex='fnm exec --using 22 codex --full-auto'
+alias cod='fnm exec --using 22 codex --full-auto'
 
 set TTY (tty)
 
