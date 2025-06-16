@@ -246,12 +246,10 @@ alias restart-xremap="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xrema
 # --image-bg black disables repetion
 alias feh="feh --scale-down --offset +0+0 --image-bg black"
 alias pn="pnpm"
-# alias ai='aider --model claude-3-7-sonnet-20250219'
-# alias ai='aider --model anthropic/claude-opus-4-20250514'
 alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --commit'
-alias ar='airun'
+alias codex='fnm exec --using 22 codex --full-auto'
 
 set TTY (tty)
 
