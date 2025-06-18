@@ -347,6 +347,8 @@ vim.keymap.set("n", "[[", vim.diagnostic.goto_prev) -- inspired with the spellch
 vim.keymap.set("n", "]]", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lw", fzf_lua.lsp_workspace_diagnostics)
 vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
+vim.keymap.set("n", "<Leader>m", ":TmpMarkdown<CR>")
+vim.keymap.set("n", "gb", ":PasteBuffers<CR>")
 vim.keymap.set("n", "<Leader>pb", ":.!clp<CR>")
 vim.keymap.set("n", "<Leader>wp", ":set wrap!<CR>")
 vim.keymap.set("n", "<Leader>!", ":qa!<CR>")
@@ -784,6 +786,47 @@ vim.api.nvim_create_user_command("TransformZodSchemaIntoType", function()
     local type_definition = "export type I" .. schema_line .. " = z.infer<typeof " .. schema_line .. ">"
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, { type_definition })
+  end
+end, {})
+
+-- TmpMarkdown command
+vim.api.nvim_create_user_command("TmpMarkdown", function()
+  local timestamp = os.date("%Y%m%d_%H%M%S")
+  local filename = timestamp .. ".md"
+  local filepath = os.getenv("HOME") .. "/tmp-markdown/" .. filename
+
+  -- Create directory if it doesn't exist
+  vim.fn.mkdir(os.getenv("HOME") .. "/tmp-markdown", "p")
+
+  -- Open the file in a new buffer
+  vim.cmd("edit " .. filepath)
+  vim.cmd("PasteBuffers")
+end, {})
+
+-- PasteBuffers command
+vim.api.nvim_create_user_command("PasteBuffers", function()
+  local cwd = vim.fn.getcwd()
+  local buffers = vim.api.nvim_list_bufs()
+  local filenames = {}
+
+  for _, buf in ipairs(buffers) do
+    if vim.api.nvim_buf_is_loaded(buf) then
+      local filepath = vim.api.nvim_buf_get_name(buf)
+      if filepath ~= "" then
+        -- Check if file is under current working directory
+        if string.sub(filepath, 1, string.len(cwd)) == cwd then
+          -- Get relative path from cwd
+          local relative_path = string.sub(filepath, string.len(cwd) + 2) -- +2 to remove leading slash
+          table.insert(filenames, relative_path)
+        end
+      end
+    end
+  end
+
+  -- Insert filenames at cursor position
+  if #filenames > 0 then
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.api.nvim_buf_set_lines(0, row, row, false, filenames)
   end
 end, {})
 
