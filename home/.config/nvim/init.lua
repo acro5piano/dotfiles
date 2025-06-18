@@ -817,7 +817,7 @@ vim.api.nvim_create_user_command("PasteBuffers", function()
         if string.sub(filepath, 1, string.len(cwd)) == cwd then
           -- Get relative path from cwd
           local relative_path = string.sub(filepath, string.len(cwd) + 2) -- +2 to remove leading slash
-          table.insert(filenames, relative_path)
+          table.insert(filenames, "- " .. relative_path)
         end
       end
     end
