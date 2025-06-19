@@ -221,6 +221,7 @@ alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
 alias ,s='cd ~/.ssh; nvim .'
 alias ,w='cd ~/Downloads; nvim .'
+alias ,a='cd ~/ghq/github.com/acro5piano/daily-ai; nvim prompts'
 
 alias dc='docker-compose'
 alias grep='grep --color=auto'
