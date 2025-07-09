@@ -29,6 +29,7 @@ family = "Source Code Pro"
 
 [selection]
 save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [[keyboard.bindings]]
 action = "Paste"
