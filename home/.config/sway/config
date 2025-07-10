@@ -56,13 +56,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+c reload
+bindsym $mod+Delete reload
 bindsym $mod+o focus right
 # mod+o is enough
 # bindsym $mod+i focus left
 bindsym $mod+Return exec $term
-bindsym $mod+Ctrl+s exec systemctl suspend
-bindsym $mod+Shift+s exec systemctl hibernate
+bindsym $mod+F1 exec systemctl suspend
+bindsym $mod+F2 exec systemctl hibernate
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
@@ -128,7 +128,7 @@ exec easyeffects &
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
 exec swaymsg 'workspace 1; exec alacritty'
-exec sleep 1 && swaymsg 'workspace 2; exec brave'
+exec sleep 2 && swaymsg 'workspace 2; exec brave' &
 
 # Disable internal display when HDMI is connected
 exec_always ~/.config/sway/disable-internal-display.sh
