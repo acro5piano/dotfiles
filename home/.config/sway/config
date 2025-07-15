@@ -56,6 +56,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 6
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 6
 
 bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
 bindsym $mod+Delete reload
 bindsym $mod+o focus right
 # mod+o is enough
