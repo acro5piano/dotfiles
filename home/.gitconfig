@@ -24,7 +24,7 @@
 	default = matching
 [core]
 	quotepath = false
-  ; pager = delta
+  pager = delta
 [http]
 	postBuffer = 1048576000
 [pull]
@@ -33,7 +33,7 @@
 	defaultBranch = main
 
 [interactive]
-    ; diffFilter = delta --color-only --true-color=never
+    diffFilter = delta --color-only --true-color=never
 
 [delta]
     navigate = false  # use n and N to move between diff sections

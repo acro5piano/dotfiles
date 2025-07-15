@@ -38,6 +38,8 @@ set -gx LC_CTYPE en_US.UTF-8
 
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 
+set -gx BAT_STYLE "full,-numbers"
+
 # 'hl:-1:reverse,hl+:-1:reverse' marks more readable for matching string
 set -gx FZF_DEFAULT_OPTS "--layout reverse --color='hl:-1:reverse,hl+:-1:reverse'"
 
