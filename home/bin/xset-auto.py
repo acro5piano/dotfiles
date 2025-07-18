@@ -13,7 +13,6 @@ def main():
     monitor.start()
 
     for device in iter(monitor.poll, None):
-
         dt = device.get("DEVTYPE")
 
         if dt == "usb_device" or dt == "link":

@@ -3,6 +3,7 @@
 
 import re
 
+
 def imgs_to_table(img_lines: str) -> str:
     """
     Convert multiple <img ... /> lines into a single HTML table row,
@@ -15,7 +16,7 @@ def imgs_to_table(img_lines: str) -> str:
         str: HTML table with one empty row and one row of images.
     """
     # Only keep lines that look like <img ... />
-    img_tag_pattern = re.compile(r'^\s*<img\b[^>]*\/?>\s*$', re.IGNORECASE)
+    img_tag_pattern = re.compile(r"^\s*<img\b[^>]*\/?>\s*$", re.IGNORECASE)
     imgs = [
         line.strip()
         for line in img_lines.strip().splitlines()
@@ -25,12 +26,8 @@ def imgs_to_table(img_lines: str) -> str:
     img_tds = ["        <td>{}</td>".format(img) for img in imgs]
     table = (
         "<table>\n"
-        "    <tr>\n"
-        + "\n".join(empty_tds)
-        + "\n    </tr>\n"
-        "    <tr>\n"
-        + "\n".join(img_tds)
-        + "\n    </tr>\n"
+        "    <tr>\n" + "\n".join(empty_tds) + "\n    </tr>\n"
+        "    <tr>\n" + "\n".join(img_tds) + "\n    </tr>\n"
         "</table>"
     )
     return table
