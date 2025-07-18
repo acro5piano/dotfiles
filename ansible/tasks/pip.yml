@@ -10,7 +10,6 @@
   loop:
     - aider-install # Brand new tool!
     - awscli
-    - black
     - flake8
     - ipython
     - iredis
@@ -19,8 +18,8 @@
     - pgcli
     - poetry
     - pyright
-    # - toml # required by yapf
     - virtualenv
     - pyudev # required by xset-auto
+    - ruff
+    - uv
     # - wayremap # I use xremap
-    # - yapf # I use black
