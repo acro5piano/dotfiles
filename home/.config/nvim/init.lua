@@ -703,6 +703,7 @@ require("hop").setup()
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
+  ignore_install = { "ipk", "ipkg" },
   highlight = {
     enable = true,
     disable = function(lang)
