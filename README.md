@@ -142,6 +142,8 @@ visudo /etc/sudoers.d/admin
 #   %wheel ALL=(ALL) ALL
 #   %wheel ALL=NOPASSWD: /bin/systemctl restart iwd
 #   %wheel ALL=NOPASSWD: /bin/systemctl restart bluetooth
+#   %wheel ALL=NOPASSWD: /bin/systemctl suspend
+#   %wheel ALL=NOPASSWD: /bin/systemctl hibernate
 #   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn
 #   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn-stop
 
