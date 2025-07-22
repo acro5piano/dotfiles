@@ -68,7 +68,9 @@
     - wireplumber
     - postgresql-client
     - python
-    # - python-pip # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
+    # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
+    # 2025-07-22: `python -m ensurepip` finally deprecated.
+    - python-pip
     - ripgrep
     - rsync
     - ruby
