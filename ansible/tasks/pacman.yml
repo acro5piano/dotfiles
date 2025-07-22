@@ -19,7 +19,6 @@
     - bat
     # - composer
     - curl
-    - code
     - dnsutils
     - docker
     - docker-compose
@@ -30,7 +29,6 @@
     - fcitx5-mozc
     - fd
     - feh
-    - firefox-developer-edition
     - fish
     - fzf
     - gcc
@@ -43,14 +41,8 @@
     - grim
     - i3status-rust
     - imagemagick
-    - jdk8-openjdk
     - jq
     - lapack
-    - ldns
-    - libevent
-    - libpng
-    - libuv
-    - libvterm
     - light
     - lua
     # - lua-language-server
@@ -63,7 +55,6 @@
     # - noto-fonts-cjk
     - neovim
     - ntp
-    - onefetch
     - openssh
     - openssl
     - pavucontrol-qt
@@ -84,7 +75,6 @@
     - rubygems
     # - rust # 2022-06-27: It make static link error. use `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` instead.
     # - rust-analyzer
-    - screenfetch
     - stylua
     - terraform
     - tmux
@@ -93,7 +83,7 @@
     - vim
     - xcolor
     - xorg-xinit
-    - xorg-xserver
+    - xorg-xwayland
     - xclip
     - clipmenu
     - zip
