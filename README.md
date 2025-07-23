@@ -340,3 +340,10 @@ tar -xvf google-cloud-cli-linux-x86_64.tar.gz
 
 # That's it! no need to run `./google-cloud-sdk/install.sh`
 ```
+
+# Enable monitor backlight config
+
+```
+sudo pacman -S ddcutil
+echo i2c_dev | sudo tee -a /etc/modules
+```
