@@ -321,3 +321,10 @@ ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c548"
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+# Toggl CLI
+
+```bash
+curl -L https://github.com/acro5piano/toggl-cli-rs/releases/latest/download/toggl-cli-rs -o ~/.local/bin/toggl
+chmod +x ~/.local/bin/toggl
+```
