@@ -347,3 +347,11 @@ tar -xvf google-cloud-cli-linux-x86_64.tar.gz
 sudo pacman -S ddcutil
 echo i2c_dev | sudo tee -a /etc/modules
 ```
+
+# Clipman
+
+```
+wget https://github.com/acro5piano/clipman/releases/download/1.6.2/clipman
+chmod +x clipman
+mv clipman ~/.local/bin/clipman
+```
