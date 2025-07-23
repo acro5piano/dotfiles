@@ -90,5 +90,6 @@
     - clipmenu
     - fuse2 # Required by Joplin
     - zip
+    - xh
     - ttf-sourcecodepro-nerd
     - xdg-desktop-portal-wlr # Required for screen sharing
