@@ -73,7 +73,7 @@ bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
 
 # requires `go install github.com/chmouel/clipman@latest`
-bindsym $mod+y exec ~/.local/bin/clipman pick -t rofi -T'-i'
+bindsym $mod+y exec ~/go/bin/clipman pick -t rofi -T'-i'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -122,7 +122,7 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 exec start-fcitx &
 exec xremap ~/.xremap &
 exec dunst &
-exec wl-paste -t text --watch ~/.local/bin/clipman store --max-items=50 --no-persist &
+exec wl-paste -t text --watch ~/go/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &
 
 # exec light -S 1
