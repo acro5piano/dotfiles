@@ -280,6 +280,6 @@ end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/kazuya/var/google-cloud-sdk/path.fish.inc' ]
-    . '/home/kazuya/var/google-cloud-sdk/path.fish.inc'
     set -gx CLOUDSDK_PYTHON python3.13
+    . '/home/kazuya/var/google-cloud-sdk/path.fish.inc'
 end

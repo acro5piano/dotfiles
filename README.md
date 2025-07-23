@@ -328,3 +328,15 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 curl -L https://github.com/acro5piano/toggl-cli-rs/releases/latest/download/toggl-cli-rs -o ~/.local/bin/toggl
 chmod +x ~/.local/bin/toggl
 ```
+
+# gcloud CLI
+
+```bash
+cd ~
+mkdir -p var
+cd var
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+tar -xvf google-cloud-cli-linux-x86_64.tar.gz
+
+# That's it! no need to run `./google-cloud-sdk/install.sh`
+```
