@@ -10,8 +10,6 @@
     state: latest
   loop:
     - acpi
-    - audacity
-    - adobe-source-code-pro-fonts
     # - alsa-lib
     # - alsa-utils
     # - android-udev
@@ -23,10 +21,6 @@
     - docker
     - docker-compose
     - dunst
-    - fcitx5
-    - fcitx5-configtool
-    - fcitx5-gtk
-    - fcitx5-mozc
     - fd
     - feh
     - fish
@@ -38,8 +32,6 @@
     - git-delta
     - github-cli
     - go
-    - grim
-    - i3status-rust
     - imagemagick
     - jq
     - lapack
@@ -49,23 +41,15 @@
     # - luarocks
     - make
     - man-db
-    - noto-fonts
-    - noto-fonts-emoji
     # Noto CJS is suck, prefer ipa
     # - noto-fonts-cjk
     - neovim
     - ntp
     - openssh
     - openssl
-    - pavucontrol-qt
-    - pcmanfm
     # - php
     # - php-gd
     # - php-sqlite
-    - pipewire
-    - pipewire-alsa
-    - pipewire-pulse
-    - wireplumber
     - postgresql-client
     - python
     # 2021-07-19: It breks python dependency, so use `python -m ensurepip` instead.
@@ -83,13 +67,5 @@
     - tree
     - unzip
     - vim
-    - xcolor
-    - xorg-xinit
-    - xorg-xwayland
-    - xclip
-    - clipmenu
-    - fuse2 # Required by Joplin
     - zip
     - xh
-    - ttf-sourcecodepro-nerd
-    - xdg-desktop-portal-wlr # Required for screen sharing

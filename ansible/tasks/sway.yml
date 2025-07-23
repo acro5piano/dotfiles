@@ -4,8 +4,33 @@
     name: "{{ item }}"
     state: latest
   loop:
+    - adobe-source-code-pro-fonts
+    - audacity
+    - clipmenu
+    - easyeffects
+    - fcitx5
+    - fcitx5-configtool
+    - fcitx5-gtk
+    - fcitx5-mozc
+    - fuse2 # Required by Joplin
+    - grim
+    - i3status-rust
+    - noto-fonts
+    - noto-fonts-emoji
+    - pavucontrol-qt
+    - pcmanfm
+    - pipewire
+    - pipewire-alsa
+    - pipewire-pulse
+    - rofi
     - slurp
     - sway
     - swaybg
+    - ttf-sourcecodepro-nerd
+    - wireplumber
     - wl-clipboard
-    - rofi
+    - xclip
+    - xcolor
+    - xdg-desktop-portal-wlr # Required for screen sharing
+    - xorg-xinit
+    - xorg-xwayland
