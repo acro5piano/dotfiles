@@ -267,7 +267,7 @@ if [ "$TTY" = "/dev/tty1" ]
     XDG_CURRENT_DESKTOP=sway sway
 end
 
-# fnm env --use-on-cd | source > /dev/null
+fnm env --use-on-cd | source > /dev/null
 
 # which chatgpt > /dev/null && chatgpt --set-completions fish | source
 
