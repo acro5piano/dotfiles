@@ -342,8 +342,8 @@ vim.keymap.set("n", "<Leader>l[", vim.lsp.buf.rename)
 vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>n", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>lp", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "[[", vim.diagnostic.goto_prev) -- inspired with the spellcheck and markdown
-vim.keymap.set("n", "]]", vim.diagnostic.goto_next)
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev) -- inspired with the spellcheck and markdown
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<Leader>li", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>m", ":TmpMarkdown<CR>")
 vim.keymap.set("n", "<Leader>p", ":PasteBuffers<CR>")
