@@ -272,14 +272,19 @@ fnm env --use-on-cd | source > /dev/null
 # which chatgpt > /dev/null && chatgpt --set-completions fish | source
 
 # pnpm
-set -gx PNPM_HOME "/home/kazuya/.local/share/pnpm"
+set -gx PNPM_HOME "~/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/kazuya/var/google-cloud-sdk/path.fish.inc' ]
+if [ -f ~/var/google-cloud-sdk/path.fish.inc ]
     set -gx CLOUDSDK_PYTHON python3.13
-    . '/home/kazuya/var/google-cloud-sdk/path.fish.inc'
+    . ~/var/google-cloud-sdk/path.fish.inc
+end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -e ~/ghq/github.com/acro5piano/daily-ai/config.fish ]
+    . ~/ghq/github.com/acro5piano/daily-ai/config.fish
 end
