@@ -272,7 +272,7 @@ fnm env --use-on-cd | source > /dev/null
 # which chatgpt > /dev/null && chatgpt --set-completions fish | source
 
 # pnpm
-set -gx PNPM_HOME "~/.local/share/pnpm"
+set -gx PNPM_HOME ~/.local/share/pnpm
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
