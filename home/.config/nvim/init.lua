@@ -827,6 +827,9 @@ vim.api.nvim_create_user_command("PasteBuffers", function()
     end
   end
 
+  -- Sort filenames alphabetically
+  table.sort(filenames)
+  
   -- Insert filenames at cursor position
   if #filenames > 0 then
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
