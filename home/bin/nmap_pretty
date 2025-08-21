@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo nmap -sn "$1" -oG - \
-  | awk '
+sudo nmap -sn "$1" | awk '
   BEGIN{ printf "%-15s %-8s %-17s %s\n","IP","LAT","MAC","VENDOR" }
   /^Nmap scan report for /{
     # 直前のホストがまだ出力されていなければ出力（MACが無かったケースのため）
