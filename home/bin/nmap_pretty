@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo nmap -sn "$1" -oG - \
+  | awk 'BEGIN{printf "%-15s %-17s %s\n","IP","MAC","VENDOR"} /Host:/{ip=$2} /MAC:/{mac=$3; vendor=substr($0,index($0,"(")+1); vendor=substr(vendor,1,length(vendor)-1); printf "%-15s %-17s %s\n", ip, mac, vendor}'
