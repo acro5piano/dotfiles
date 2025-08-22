@@ -36,6 +36,7 @@
     - jq
     - lapack
     - light
+    - lynis
     - lua
     # - lua-language-server
     # - luarocks
