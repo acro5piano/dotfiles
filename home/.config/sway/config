@@ -67,7 +67,15 @@ bindsym $mod+F2 exec systemctl hibernate
 bindsym $mod+z fullscreen
 bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
-bindsym $mod+a exec 'alacritty --command fish -c "whis --transcribe"'
+
+# Floating Alacritty utility
+bindsym $mod+a exec 'alacritty --class float-term --command fish -c "whis --transcribe"'
+for_window [app_id="float-term"]  {
+  floating enable
+  resize set 200 200
+  move position 0 0
+  order pixel 1
+}
 
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
