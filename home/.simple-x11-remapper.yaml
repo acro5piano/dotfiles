@@ -1,7 +1,6 @@
 windows:
   - class_only:
       - 'chromium'
-      - 'firefox'
       - 'joplin'
       - 'brave'
     remaps:
@@ -24,3 +23,27 @@ windows:
       - 'C-s': 'Ctrl-f'
       - 'M-n': 'Ctrl-Tab'
       - 'M-p': 'Ctrl-Shift-Tab'
+
+      # Alternative remapping to keep original function available
+      - 'M-e': 'Ctrl-e'
+      - 'M-s': 'Ctrl-s'
+      - 'M-a': 'Ctrl-a'
+      - 'M-r': 'Ctrl-r'
+      - 'C-M-d': 'Ctrl-d'
+      - 'C-M-s': 'Ctrl-f'
+      - 'C-M-b': 'Ctrl-b'
+      - 'C-M-n': 'Ctrl-n'
+      - 'C-M-c': 'Alt-n'
+      - 'C-M-k': 'Alt-k'
+      - 'C-M-j': 'Alt-j'
+
+      # OSX-like bindings
+      - 'M-c': 'Ctrl-c'
+      - 'M-x': 'Ctrl-x'
+      - 'M-v': 'Ctrl-v'
+      - 'M-z': 'Ctrl-z'
+      - 'M-k': 'Ctrl-k'
+      - 'M-h': 'Ctrl-h'
+      - 'M-w': 'Ctrl-w'
+      - 'M-l': 'Ctrl-l'
+      - 'M-t': 'Ctrl-t'
