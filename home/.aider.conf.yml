@@ -5,3 +5,4 @@ auto-test: true
 dark-mode: true
 yes-always: true
 disable-playwright: true
+git-commit-verify: true
