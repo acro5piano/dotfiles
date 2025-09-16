@@ -1,0 +1,26 @@
+windows:
+  - class_only:
+      - 'chromium'
+      - 'firefox'
+      - 'joplin'
+      - 'brave'
+    remaps:
+      - 'C-b': 'Left'
+      - 'C-f': 'Right'
+      - 'C-p': 'Up'
+      - 'C-n': 'Down'
+      - 'C-a': 'Home'
+      - 'C-e': 'End'
+      - 'C-M-a': 'Ctrl-Home'
+      - 'C-M-e': 'Ctrl-End'
+      - 'C-h': 'BackSpace'
+      - 'C-d': 'Delete'
+      - 'M-d': 'Ctrl-Delete'
+      - 'C-M-h': 'Ctrl-BackSpace'
+      - 'C-y': 'Ctrl-v'
+      - 'M-b': 'Ctrl-Left'
+      - 'M-f': 'Ctrl-Right'
+      - 'C-k': ['Shift-End', 'Ctrl-x']
+      - 'C-s': 'Ctrl-f'
+      - 'M-n': 'Ctrl-Tab'
+      - 'M-p': 'Ctrl-Shift-Tab'
