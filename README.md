@@ -355,3 +355,15 @@ wget https://github.com/acro5piano/clipman/releases/download/1.6.2/clipman
 chmod +x clipman
 mv clipman ~/.local/bin/clipman
 ```
+
+# Xwayland
+
+Force run chromium and xwayland
+
+```
+cp /usr/share/applications/chromium.desktop ~/.local/share/applications/
+cp /usr/share/applications/brave-browser.desktop ~/.local/share/applications/
+
+# udpate `Exec` entry
+Exec=/usr/bin/chromium --ozone-platform=x11
+```
