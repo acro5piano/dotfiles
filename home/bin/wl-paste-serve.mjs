@@ -9,7 +9,7 @@ const log = (t) =>
 
 createServer((req, res) => {
   log({ headers: req.headers, ip: req.socket.remoteAddress })
-  exec('wl-paste -t text', (_err, stdout) => {
+  exec('wl-paste', (_err, stdout) => {
     const pasted = String(stdout).trim()
     log({ pasted })
     res.setHeader('Content-Type', 'text/plain; charset=UTF-8')
