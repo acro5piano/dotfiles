@@ -31,6 +31,12 @@ interval = 60
 if_command = "test -e /sys/class/power_supply/BAT*"
 
 [[block]]
+block = "custom"
+command = "show-toggle-timer"
+interval = 60
+format = " 🈺 $text |"
+
+[[block]]
 block = "time"
 interval = 30
 format = " $icon $timestamp.datetime(f:'%a, %Y/%m/%d %R') "
