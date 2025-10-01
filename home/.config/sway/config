@@ -136,7 +136,7 @@ exec easyeffects &
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
 exec swaymsg 'workspace 1; exec alacritty'
-exec sleep 2 && swaymsg 'workspace 2; exec brave' &
+exec sleep 2 && swaymsg 'workspace 2; exec brave --ozone-platform=x11' &
 
 # Disable internal display when HDMI is connected
 exec_always ~/.config/sway/disable-internal-display.sh
