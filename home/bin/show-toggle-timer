@@ -1,8 +1,7 @@
 #!/bin/bash
 
-one_min_ago=`date -d '1 minutes ago' '+%s'`
-
 if [ -e /tmp/__show-toggle-timer-cache ]; then
+  one_min_ago=`date -d '1 minutes ago' '+%s'`
   last_modified=`date -r /tmp/__show-toggle-timer-cache '+%s'`
   # Cache five minutes.
   if [ $last_modified -gt $one_min_ago ]; then
@@ -11,7 +10,7 @@ if [ -e /tmp/__show-toggle-timer-cache ]; then
   fi
 fi
 
-raw_string=$(
+raw_project_name=$(
   toggl view-timer \
     | head -1 \
     | cut -d, -f 8 \
@@ -21,6 +20,6 @@ raw_string=$(
     | tee /tmp/__show-toggle-timer-cache
 )
 
-if [ $raw_string != "no" ]; then
-  echo '🈺' $raw_string
+if [ $raw_project_name != "no" ]; then
+  echo '🈺' $raw_project_name
 fi
