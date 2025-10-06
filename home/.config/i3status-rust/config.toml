@@ -34,7 +34,7 @@ if_command = "test -e /sys/class/power_supply/BAT*"
 block = "custom"
 command = "show-toggle-timer"
 interval = 60
-format = "$text |"
+format = " $text |"
 
 [[block]]
 block = "time"
