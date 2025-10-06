@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if [ -e /tmp/__show-toggle-timer-cache ]; then
+CACHE_FILE=/tmp/__show-toggle-timer-cache
+
+if [ -e $CACHE_FILE ]; then
   one_min_ago=`date -d '1 minutes ago' '+%s'`
-  last_modified=`date -r /tmp/__show-toggle-timer-cache '+%s'`
+  last_modified=`date -r $CACHE_FILE '+%s'`
   # Cache five minutes.
   if [ $last_modified -gt $one_min_ago ]; then
-    cat /tmp/__show-toggle-timer-cache
+    echo '🈺' `cat $CACHE_FILE`
     exit 0
   fi
 fi
