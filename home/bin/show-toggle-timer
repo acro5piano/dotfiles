@@ -1,18 +1,26 @@
 #!/bin/bash
 
 one_min_ago=`date -d '1 minutes ago' '+%s'`
-last_modified=`date -r /tmp/__show-toggle-timer-cache '+%s'`
 
-# Cache five minutes.
-if [ $last_modified -gt $one_min_ago ]; then
-  cat /tmp/__show-toggle-timer-cache
-  exit 0
+if [ -e /tmp/__show-toggle-timer-cache ]; then
+  last_modified=`date -r /tmp/__show-toggle-timer-cache '+%s'`
+  # Cache five minutes.
+  if [ $last_modified -gt $one_min_ago ]; then
+    cat /tmp/__show-toggle-timer-cache
+    exit 0
+  fi
 fi
 
-toggl view-timer \
-  | head -1 \
-  | cut -d, -f 8 \
-  | awk '{print $2}' \
-  | perl -pe 's/"//g' \
-  | cut -b 1-64 \
-  | tee /tmp/__show-toggle-timer-cache
+raw_string=$(
+  toggl view-timer \
+    | head -1 \
+    | cut -d, -f 8 \
+    | awk '{print $2}' \
+    | perl -pe 's/"//g' \
+    | cut -b 1-64 \
+    | tee /tmp/__show-toggle-timer-cache
+)
+
+if [ $raw_string != "no" ]; then
+  echo '🈺' $raw_string
+fi
