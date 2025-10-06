@@ -2,12 +2,18 @@
 
 CACHE_FILE=/tmp/__show-toggle-timer-cache
 
+function print() {
+  if [ $1 != "no" ]; then
+    echo '🈺' $1
+  fi
+}
+
 if [ -e $CACHE_FILE ]; then
   one_min_ago=`date -d '1 minutes ago' '+%s'`
   last_modified=`date -r $CACHE_FILE '+%s'`
   # Cache five minutes.
   if [ $last_modified -gt $one_min_ago ]; then
-    echo '🈺' `cat $CACHE_FILE`
+    print `cat $CACHE_FILE`
     exit 0
   fi
 fi
@@ -22,6 +28,4 @@ raw_project_name=$(
     | tee /tmp/__show-toggle-timer-cache
 )
 
-if [ $raw_project_name != "no" ]; then
-  echo '🈺' $raw_project_name
-fi
+print $raw_project_name
