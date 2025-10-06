@@ -528,48 +528,59 @@ vim.lsp.handlers["textDocument/definition"] = function(err, result, method, ...)
   vim.lsp.util.jump_to_location(result[1] or result, "utf-8", true)
 end
 
-local lsp = require("lspconfig")
-lsp.pyright.setup({})
-lsp.denols.setup({
-  root_dir = lsp.util.root_pattern("deno.json"),
-  init_options = {
-    lint = true,
-    unstable = true,
-    suggest = {
-      imports = {
-        hosts = {
-          ["https://deno.land"] = true,
-          ["https://cdn.nest.land"] = true,
-          ["https://crux.land"] = true,
+vim.lsp.enable("pyright")
+
+vim.lsp.config("denols", {
+  root_markers = { "deno.json" },
+  settings = {
+    deno = {
+      enable = true,
+      lint = true,
+      unstable = true,
+      suggest = {
+        imports = {
+          hosts = {
+            ["https://deno.land"] = true,
+            ["https://cdn.nest.land"] = true,
+            ["https://crux.land"] = true,
+          },
         },
       },
     },
   },
   on_attach = function()
-    local active_clients = vim.lsp.get_active_clients()
-    for _, client in pairs(active_clients) do
-      -- stop tsserver if denols is already active
-      if client.name == "tsserver" then
+    for _, client in pairs(vim.lsp.get_clients()) do
+      -- Stop TypeScript servers when denols is active.
+      if client.name == "tsserver" or client.name == "ts_ls" then
         client.stop()
       end
     end
   end,
 })
+vim.lsp.enable("denols")
 
--- require("lspconfig").denols.setup({})
-lsp.ts_ls.setup({
-  root_dir = lsp.util.root_pattern("package.json"),
+vim.lsp.config("ts_ls", {
+  root_dir = function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, { "package.json" })
+    if root then
+      on_dir(root)
+      return root
+    end
+  end,
 })
+vim.lsp.enable("ts_ls")
 
-lsp.solargraph.setup({
+vim.lsp.config("solargraph", {
   settings = {
     solargraph = {
       diagnostics = false,
     },
   },
 })
+vim.lsp.enable("solargraph")
+
 if has("lua-language-server") then
-  lsp.lua_ls.setup({
+  vim.lsp.config("lua_ls", {
     settings = {
       Lua = {
         runtime = {
@@ -587,20 +598,17 @@ if has("lua-language-server") then
       },
     },
   })
+  vim.lsp.enable("lua_ls")
 end
-lsp.rust_analyzer.setup({})
--- lsp.terraformls.setup({})
--- lsp.graphql.setup({
--- 	filetypes = {
--- 		"graphql",
--- 	},
--- 	cmd = { "graphql-lsp", "server", "-m", "stream" },
--- })
-lsp.eslint.setup({
+
+vim.lsp.enable("rust_analyzer")
+-- vim.lsp.enable("terraformls")
+-- vim.lsp.enable("graphql")
+vim.lsp.config("eslint", {
   filetypes = { "typescript", "typescriptreact", "javascriptreact" },
 })
-lsp.astro.setup({})
--- lsp.emmet_language_server.setup({})
+vim.lsp.enable("eslint")
+vim.lsp.enable("astro")
 
 local cmp = require("cmp")
 cmp.setup({
@@ -829,7 +837,7 @@ vim.api.nvim_create_user_command("PasteBuffers", function()
 
   -- Sort filenames alphabetically
   table.sort(filenames)
-  
+
   -- Insert filenames at cursor position
   if #filenames > 0 then
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
