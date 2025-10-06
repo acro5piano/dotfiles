@@ -123,8 +123,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.js", "*.ts", "*.tsx" },
   callback = function()
-    if my_util.command_exists("EslintFixAll") then
-      vim.api.nvim_exec(":EslintFixAll", false)
+    if my_util.command_exists("LspEslintFixAll") then
+      vim.api.nvim_exec(":LspEslintFixAll", false)
     end
   end,
 })
@@ -529,35 +529,6 @@ vim.lsp.handlers["textDocument/definition"] = function(err, result, method, ...)
 end
 
 vim.lsp.enable("pyright")
-
-vim.lsp.config("denols", {
-  root_markers = { "deno.json" },
-  settings = {
-    deno = {
-      enable = true,
-      lint = true,
-      unstable = true,
-      suggest = {
-        imports = {
-          hosts = {
-            ["https://deno.land"] = true,
-            ["https://cdn.nest.land"] = true,
-            ["https://crux.land"] = true,
-          },
-        },
-      },
-    },
-  },
-  on_attach = function()
-    for _, client in pairs(vim.lsp.get_clients()) do
-      -- Stop TypeScript servers when denols is active.
-      if client.name == "tsserver" or client.name == "ts_ls" then
-        client.stop()
-      end
-    end
-  end,
-})
-vim.lsp.enable("denols")
 
 vim.lsp.config("ts_ls", {
   root_dir = function(bufnr, on_dir)
