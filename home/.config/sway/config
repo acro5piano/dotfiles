@@ -127,8 +127,8 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
 exec start-fcitx &
-# exec simple-x11-remapper ~/.simple-x11-remapper.yaml &
-exec xremap ~/.xremap &
+exec simple-x11-remapper ~/.simple-x11-remapper.yaml &
+# exec xremap ~/.xremap &
 exec dunst &
 exec wl-paste -t text --watch ~/.local/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &
