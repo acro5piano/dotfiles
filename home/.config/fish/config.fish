@@ -233,6 +233,7 @@ alias justnow='date +%Y%m%d_%H%M%S'
 alias tree='tree --charset XXX -I .git -I vendor -I node_modules'
 alias t='toggl'
 alias decode-jwt='jq -R \'split(".") | .[1] | @base64d | fromjson\'' # '
+alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
 
 alias rg="rg --hidden --glob '!.git'"
 
