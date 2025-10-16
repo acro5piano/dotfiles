@@ -188,10 +188,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   pattern = { "*.md" },
   callback = function()
     vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
   end,
 })
 
