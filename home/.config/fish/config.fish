@@ -76,7 +76,8 @@ function g
   end
 end
 complete --command g --wraps git
-complete --command pn --wraps yarn
+complete --command bun -e && complete --command bun --wraps yarn
+complete --command pnpm -e && complete --command pnpm --wraps yarn
 
 function gup
   echo $PWD
