@@ -9,10 +9,10 @@ function print() {
 }
 
 if [ -e $CACHE_FILE ]; then
-  one_min_ago=`date -d '1 minutes ago' '+%s'`
+  ttl=`date -d '3 minutes ago' '+%s'`
   last_modified=`date -r $CACHE_FILE '+%s'`
   # Cache five minutes.
-  if [ $last_modified -gt $one_min_ago ]; then
+  if [ $last_modified -gt $ttl ]; then
     print `cat $CACHE_FILE`
     exit 0
   fi
