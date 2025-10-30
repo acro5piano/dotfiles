@@ -1,3 +1,4 @@
 #!/bin/bash
 
-tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1
+LENGTH=${1:-30}
+tr -cd '[:alnum:]' < /dev/urandom | fold -w"$LENGTH" | head -n1
