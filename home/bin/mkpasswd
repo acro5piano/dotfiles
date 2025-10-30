@@ -1,4 +1,34 @@
 #!/bin/bash
 
+# > is `/dev/urandom` safe?
+#
+# /dev/urandom is safe and appropriate for generating passwords. Here's why:
+#
+# Security perspective:
+#
+# 1. Cryptographically secure - /dev/urandom is a cryptographically secure pseudorandom
+# number generator (CSPRNG) on modern Linux systems. It's suitable for generating
+# passwords, keys, and other security-sensitive random data.
+# 2. Non-blocking - Unlike /dev/random, it doesn't block when entropy is low, making it
+# practical for scripts while still being secure.
+# 3. Modern Linux kernels - Since Linux 4.8+ (2016), /dev/urandom uses the same CSPRNG
+# as /dev/random and is considered safe even for cryptographic purposes.
+#
+# For your use case (password generation):
+# - Perfectly safe for generating passwords
+# - The tr -cd '[:alnum:]' filters it to alphanumeric characters (a-z, A-Z, 0-9)
+# - Provides 62 possible characters per position (26 lowercase + 26 uppercase + 10
+# digits)
+# - A 30-character password has 62^30 possible combinations (~10^54), which is
+# astronomically secure
+#
+# Alternative consideration:
+# If you wanted to be extra cautious or include special characters, you could use:
+# tr -cd '[:graph:]' < /dev/urandom | fold -w"$LENGTH" | head -n1
+# This uses all printable characters except space.
+#
+# Bottom line: Your current script using /dev/urandom is safe and follows best practices
+#  for password generation on Linux systems.
+
 LENGTH=${1:-30}
 tr -cd '[:alnum:]' < /dev/urandom | fold -w"$LENGTH" | head -n1
