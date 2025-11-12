@@ -325,7 +325,6 @@ vim.keymap.set("n", "'", ":w<CR>", { nowait = true })
 vim.keymap.set("n", "<Leader>g", ":Ripgrep ")
 vim.keymap.set("n", "<Leader>w", ":Ripgrep <C-r><C-w>")
 vim.keymap.set("n", "<Leader>b", fzf_lua.buffers)
-vim.keymap.set("n", ";", fzf_lua.buffers)
 vim.keymap.set("n", "<Leader>e", ":e!<CR>")
 vim.keymap.set("n", "<Leader>c", fzf_lua.resume) -- remember with "continue". TODO: this is not used anymore, let's assign more good one
 vim.keymap.set("n", "gl", fzf_lua.quickfix)
