@@ -21,6 +21,7 @@
   "nvim-cmp": { "branch": "main", "commit": "b5311ab3ed9c846b585c0c15b7559be131ec4be9" },
   "nvim-comment": { "branch": "main", "commit": "e9ac16ab056695cad6461173693069ec070d2b23" },
   "nvim-cursorword": { "branch": "master", "commit": "c0f2958ec729b47be2dba0d79ef43d005dac9f4e" },
+  "nvim-early-retirement": { "branch": "main", "commit": "cd29cf40af7473530a8598245ba1d348fd5e1fa0" },
   "nvim-format-buffer": { "branch": "main", "commit": "7cc2214a4a2f9772426a21b32bec9d87cd89dfa8" },
   "nvim-lspconfig": { "branch": "master", "commit": "e688b486fe9291f151eae7e5c0b5a5c4ef980847" },
   "nvim-snippy": { "branch": "master", "commit": "504ab14eeb14301d9b2a858a2a6cf99ccc8d60d0" },
