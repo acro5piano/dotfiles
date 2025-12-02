@@ -219,6 +219,11 @@ function ghrw
     end
 end
 
+function tl
+  commandline -r "t start-timer -n "
+  __fzf_history
+end
+
 
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
