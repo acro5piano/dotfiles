@@ -205,6 +205,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = { "*.astro" },
+  callback = function()
+    vim.opt_local.iskeyword:remove("-")
+  end,
+})
+
 local function has(command)
   -- We need redirect because stderr is annoying
   -- https://github.com/neovim/neovim/issues/21376
@@ -742,7 +749,14 @@ require("nvim-surround").setup({
       add = { "**", "**" },
     },
     ["D"] = {
-      add = { '<div className="">', "</div>" },
+      add = function()
+        local is_astro = vim.bo.filetype == "astro"
+        if is_astro then
+          return { '<div class="">', "</div>" }
+        else
+          return { '<div className="">', "</div>" }
+        end
+      end,
     },
     ["T"] = {
       add = { "{t`", "`}" },
