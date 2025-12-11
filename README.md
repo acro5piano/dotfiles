@@ -367,3 +367,11 @@ cp /usr/share/applications/brave-browser.desktop ~/.local/share/applications/
 # udpate `Exec` entry
 Exec=/usr/bin/chromium --ozone-platform=x11
 ```
+
+# Sync GoPro photo and video
+
+```
+cd var/gopro
+sudo mount -o uid=1000,gid=1000 /dev/mmcblk0p1 /mnt
+cp /mnt/DCIM/100GOPRO/*.{THM,LRV} .
+```
