@@ -18,6 +18,7 @@ link .config/fish/conf.d/wi.fish
 link .config/fish/config.fish
 link .config/gh/config.yml
 link .config/i3status-rust
+link .config/mimeapps.list
 link .config/joplin-desktop/userchrome.css
 link .config/nvim
 link .config/sway
