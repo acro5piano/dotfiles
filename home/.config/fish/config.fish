@@ -260,6 +260,7 @@ alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --model gpt-4.1-mini --commit'
 alias cod='fnm exec --using 22 codex --full-auto'
+alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
 
 set TTY (tty)
 
