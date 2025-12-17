@@ -692,6 +692,12 @@ fzf_lua.setup({
   lines = {
     previewer = false,
   },
+  buffers = {
+    fzf_opts = {
+      ["--delimiter"] = require("fzf-lua").utils.nbsp,
+      ["--with-nth"] = "-2..", -- shows icon + path, hides buffer number and flags
+    },
+  },
 })
 
 require("hop").setup()
