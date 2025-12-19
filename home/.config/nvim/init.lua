@@ -698,6 +698,12 @@ fzf_lua.setup({
       ["--with-nth"] = "-2..", -- shows icon + path, hides buffer number and flags
     },
   },
+  oldfiles = {
+    prompt = "History❯ ",
+    cwd_only = true,
+    stat_file = true, -- verify files exist on disk
+    include_current_session = false, -- include bufs from current session
+  },
 })
 
 require("hop").setup()
