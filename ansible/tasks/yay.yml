@@ -1,14 +1,14 @@
-- name: Get executable yay
-  ansible.builtin.unarchive:
-    src: https://github.com/Jguer/yay/releases/download/v12.5.0/yay_12.5.0_x86_64.tar.gz
-    dest: ~/
-    remote_src: yes
-- name: Install Yay
-  become: yes
-  ansible.builtin.copy:
-    src: ~/yay_12.5.0_x86_64/yay
-    dest: /bin/yay
-    mode: 0755
+# - name: Get executable yay
+#   ansible.builtin.unarchive:
+#     src: https://github.com/Jguer/yay/releases/download/v12.5.0/yay_12.5.0_x86_64.tar.gz
+#     dest: ~/
+#     remote_src: yes
+# - name: Install Yay
+#   become: yes
+#   ansible.builtin.copy:
+#     src: ~/yay_12.5.0_x86_64/yay
+#     dest: /bin/yay
+#     mode: 0755
 - name: Install keyring before anything
   become: yes
   community.general.pacman:
