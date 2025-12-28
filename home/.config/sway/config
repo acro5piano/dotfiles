@@ -128,7 +128,7 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
 exec start-fcitx &
-exec simple-x11-remapper ~/.simple-x11-remapper.yaml &
+exec xremap ~/.dotfiles/home/.config/xremap/orz-layout.yml &
 # exec xremap ~/.xremap &
 exec dunst &
 exec wl-paste -t text --watch ~/.local/bin/clipman store --max-items=50 --no-persist &
@@ -138,7 +138,7 @@ exec easyeffects &
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
 exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
 exec swaymsg 'workspace 1; exec alacritty'
-exec sleep 2 && swaymsg 'workspace 2; exec brave --ozone-platform=x11' &
+exec sleep 2 && swaymsg 'workspace 2; exec brave' &
 
 # Disable internal display when HDMI is connected
 exec_always ~/.config/sway/disable-internal-display.sh
