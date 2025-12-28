@@ -10,9 +10,15 @@
 
   # Packages from yay.yml
   home.packages = with pkgs; [
-    ipaexfont
     brave
     chromium
+    delta
+    fzf
+    ipaexfont
+    ripgrep
+    ruff
+    stylua
+    terraform
   ];
 
   # mise (runtime version manager)
@@ -21,7 +27,14 @@
     globalConfig = {
       tools = {
         node = "24";
-        "npm:@anthropic-ai/claude-code" = "latest";
+        pnpm = "latest";
+        "npm:@anthropic-ai/claude-code" = "2.0.59";
+        "npm:prettier" = "latest";
+        "npm:pyright" = "latest";
+        "npm:typescript-language-server" = "latest";
+        "npm:@astrojs/language-server" = "latest";
+        "cargo:rust-analyzer" = "latest";
+        "ubi:LuaLS/lua-language-server" = "latest";
       };
     };
   };
@@ -32,27 +45,6 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-
-    # Dependencies for plugins and formatters used in init.lua
-    extraPackages = with pkgs; [
-      # LSP servers
-      pyright
-      typescript-language-server
-      lua-language-server
-      rust-analyzer
-      solargraph
-      astro-language-server
-
-      # Formatters
-      stylua
-      ruff
-      terraform
-
-      # Tools
-      ripgrep
-      fzf
-      delta # for git diff preview
-    ];
   };
 
   # Link existing Neovim config
