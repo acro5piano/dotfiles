@@ -9,7 +9,6 @@ home/bin/php
 *.tgz
 *.backup
 
-*.lock
 .luarc.json
 
 home/.emacs.d/*
