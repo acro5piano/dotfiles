@@ -259,7 +259,6 @@ alias pn="pnpm"
 alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --model gpt-4.1-mini --commit'
-alias cod='fnm exec --using 22 codex --full-auto'
 alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
 
 set TTY (tty)
@@ -274,8 +273,6 @@ end
 if [ "$TTY" = "/dev/tty1" ]
     XDG_CURRENT_DESKTOP=sway sway
 end
-
-fnm env --use-on-cd | source > /dev/null
 
 # which chatgpt > /dev/null && chatgpt --set-completions fish | source
 

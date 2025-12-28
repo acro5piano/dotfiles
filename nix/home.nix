@@ -11,14 +11,15 @@
   # Packages from yay.yml
   home.packages = with pkgs; [
     # Fonts
-    ipaexfont # otf-ipaexfont equivalent
+    ipaexfont
 
     # Browsers
-    brave # brave-bin equivalent
+    brave
+    chromium
 
-    # Android SDK - uncomment if needed
-    # androidenv.androidPkgs.platform-tools
-    # androidenv.androidPkgs.build-tools
+    # Development
+    nodejs_24
+    pnpm
   ];
 
   # Neovim configuration
