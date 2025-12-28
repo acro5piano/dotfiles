@@ -1,5 +1,5 @@
-# xremap equivalent of keyd orz-layout.conf
-# Run with: xremap --watch=device ~/.config/xremap/orz-layout.yml
+# sudo gpasswd -a kazuya input
+# echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 
 modmap:
   - name: ORZ Layout Modmap
@@ -92,7 +92,52 @@ keymap:
       not: [Alacritty]
     remap:
       C-i: Tab       # Since we remap Tab to ESC, use C-i as Tab
-      C-b: Left
-      C-n: Down
 
-      # TODO: add more Emacs-like keymaps
+      # Emacs navigation
+      C-b: Left
+      C-f: Right
+      C-p: Up
+      C-n: Down
+      C-a: Home
+      C-e: End
+      C-Alt-a: C-Home
+      C-Alt-e: C-End
+
+      # Emacs editing
+      C-h: BackSpace
+      C-d: Delete
+      Alt-d: C-Delete
+      C-Alt-h: C-BackSpace
+      C-y: C-v            # Yank (paste)
+      Alt-b: C-Left       # Word backward
+      Alt-f: C-Right      # Word forward
+      C-k: [Shift-End, C-x]  # Kill line
+      C-s: C-f            # Search
+
+      # Tab switching
+      Alt-n: C-Tab
+      Alt-p: C-Shift-Tab
+
+      # Alternative remapping to keep original function available
+      Alt-e: C-e
+      Alt-s: C-s
+      Alt-a: C-a
+      Alt-r: C-r
+      C-Alt-d: C-d
+      C-Alt-s: C-f
+      C-Alt-b: C-b
+      C-Alt-n: C-n
+      C-Alt-c: Alt-n
+      C-Alt-k: Alt-k
+      C-Alt-j: Alt-j
+
+      # OSX-like bindings
+      Alt-c: C-c
+      Alt-x: C-x
+      Alt-v: C-v
+      Alt-z: C-z
+      Alt-k: C-k
+      Alt-h: C-h
+      Alt-w: C-w
+      Alt-l: C-l
+      Alt-t: C-t
