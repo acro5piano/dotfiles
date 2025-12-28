@@ -25,3 +25,6 @@ home/.config/alacritty/themes/
 home/bin/copyright.pandoc
 home/bin/pandoc
 
+# Nix local settings
+local.nix
+
