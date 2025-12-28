@@ -1,0 +1,98 @@
+# xremap equivalent of keyd orz-layout.conf
+# Run with: xremap --watch=device ~/.config/xremap/orz-layout.yml
+
+modmap:
+  - name: ORZ Layout Modmap
+    device:
+      only:
+        - "Logitech USB Receiver"
+    remap:
+      Tab: Esc
+      CapsLock: Ctrl_L
+      Alt_L: Super_L
+      Ctrl_L:
+        held: Ctrl_L
+        alone: Tab
+        alone_timeout_millis: 200
+      Muhenkan:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Henkan:
+        held: Alt_L
+        alone: Henkan
+        alone_timeout_millis: 200
+      KatakanaHiragana:
+        held: Ctrl_L
+        alone: Tab
+        alone_timeout_millis: 200
+      Shift_R:
+        held: Shift_R
+        alone: RightBrace
+        alone_timeout_millis: 200
+
+      # ORZ layout #############################
+      # Right-shifted number row
+      KEY_8: KEY_7
+      KEY_9: KEY_8
+      KEY_0: KEY_9
+      Minus: KEY_0
+      Equal: Minus
+      Yen: Equal
+
+      # Top row: right-shifted
+      KEY_U: KEY_Y
+      KEY_I: KEY_U
+      KEY_O: KEY_I
+      KEY_P: KEY_O
+      LeftBrace: KEY_P
+      RightBrace: LeftBrace
+
+      # Home row: right-shifted
+      KEY_J: KEY_H
+      KEY_K: KEY_J
+      KEY_L: KEY_K
+      Semicolon: KEY_L
+      Apostrophe: Semicolon
+      Backslash: Apostrophe
+
+      # Bottom row: right-shifted
+      KEY_N: KEY_B
+      KEY_M: KEY_N
+      Comma: KEY_M
+      Dot: Comma
+      Slash: Dot
+      Ro: Slash
+
+      # Empty center key - H becomes backslash
+      KEY_H: Backslash
+      # ORZ layout end ##########################
+
+keymap:
+  - name: Global keymap
+    remap:
+      # fn_layer (super as modifier)
+      Super-x: C-PageUp
+      Super-c: C-PageDown
+      Super-Left: C-PageUp
+      Super-Right: C-PageDown
+      Super-Up: PageUp
+      Super-Down: PageDown
+      Super-F4: BrightnessDown
+      Super-F5: BrightnessUp
+
+      # fn_layer (rightalt as modifier)
+      Alt_R-Left: C-PageUp
+      Alt_R-Right: C-PageDown
+      Alt_R-Up: PageUp
+      Alt_R-Down: PageDown
+
+  - name: Emacs-like keymap
+    application:
+      not: [Alacritty]
+    remap:
+      C-i: Tab       # Since we remap Tab to ESC, use C-i as Tab
+      C-b: Left
+      C-n: Down
+
+      # TODO: add more Emacs-like keymaps
