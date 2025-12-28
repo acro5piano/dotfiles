@@ -20,6 +20,8 @@
     ruff
     stylua
     terraform
+    lua
+    lua-language-server
   ];
 
   # mise (runtime version manager)
@@ -35,7 +37,18 @@
         "npm:pyright" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
-        "ubi:LuaLS/lua-language-server" = "latest";
+
+        python = "latest";
+        # Python tools (from pip.yml)
+        uv = "latest";
+        "pipx:aider-install" = "latest";
+        "pipx:awscli" = "latest";
+        "pipx:ipython" = "latest";
+        "pipx:iredis" = "latest";
+        "pipx:litecli" = "latest";
+        "pipx:mycli" = "latest";
+        "pipx:pgcli" = "latest";
+        "pipx:virtualenv" = "latest";
       };
     };
   };
@@ -56,10 +69,8 @@
     "prettier.config.js".source = ../home/prettier.config.js;
     ".ripgreprc".source = ../home/.ripgreprc;
     ".tmux.conf".source = ../home/.tmux.conf;
-    ".xremap".source = ../home/.xremap;
     ".emacs.d".source = ../home/.emacs.d;
     ".aider.conf.yml".source = ../home/.aider.conf.yml;
-    ".simple-x11-remapper.yaml".source = ../home/.simple-x11-remapper.yaml;
   };
 
   xdg.configFile = {
