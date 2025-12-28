@@ -21,7 +21,6 @@
     nodejs_24
     pnpm
     nodePackages.prettier
-    claude-code
   ];
 
   # Neovim configuration
