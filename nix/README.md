@@ -13,6 +13,6 @@ nix-shell '<home-manager>' -A install
 
 ```bash
 mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-home-manager switch --flake .#$USER --impure
+echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+home-manager switch --flake .
 ```

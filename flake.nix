@@ -13,8 +13,8 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # Read from $USER env var (requires --impure flag)
-      username = builtins.getEnv "USER";
+      # Change if you want to use another username
+      username = "kazuya";
     in
     {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
