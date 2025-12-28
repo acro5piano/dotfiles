@@ -1,9 +1,0 @@
-[Unit]
-Description=disable wlan0 because it is no longer working
-
-[Service]
-Type=oneshot
-ExecStart=/bin/iwctl device wlan0 set-property Powered off
-
-[Install]
-WantedBy=network.target
