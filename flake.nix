@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    allowUnfree = true;
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,15 +14,15 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # Import local settings (gitignored)
-      local = import ./nix/local.nix;
+      # Read from $USER env var (requires --impure flag)
+      username = builtins.getEnv "USER";
     in
     {
-      homeConfigurations.${local.username} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./nix/home.nix ];
         extraSpecialArgs = {
-          inherit (local) username;
+          inherit username;
         };
       };
     };
