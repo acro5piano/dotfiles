@@ -16,6 +16,7 @@
     fzf
     ipaexfont
     ripgrep
+    rust-analyzer
     ruff
     stylua
     terraform
@@ -28,12 +29,12 @@
       tools = {
         node = "24";
         pnpm = "latest";
+        rust = "stable";
         "npm:@anthropic-ai/claude-code" = "2.0.59";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
-        "cargo:rust-analyzer" = "latest";
         "ubi:LuaLS/lua-language-server" = "latest";
       };
     };
