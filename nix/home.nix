@@ -10,18 +10,21 @@
 
   # Packages from yay.yml
   home.packages = with pkgs; [
-    # Fonts
     ipaexfont
-
-    # Browsers
     brave
     chromium
-
-    # Development
-    nodejs_24
-    pnpm
-    nodePackages.prettier
   ];
+
+  # mise (runtime version manager)
+  programs.mise = {
+    enable = true;
+    globalConfig = {
+      tools = {
+        node = "24";
+        "npm:@anthropic-ai/claude-code" = "latest";
+      };
+    };
+  };
 
   # Neovim configuration
   programs.neovim = {
@@ -38,14 +41,11 @@
       lua-language-server
       rust-analyzer
       solargraph
-      nodePackages.vscode-langservers-extracted # eslint, html, css, json
       astro-language-server
 
       # Formatters
       stylua
       ruff
-      nodePackages.prettier
-      nodePackages.sql-formatter
       terraform
 
       # Tools

@@ -293,3 +293,5 @@ end
 if [ -e ~/ghq/github.com/acro5piano/daily-ai/config.fish ]
     . ~/ghq/github.com/acro5piano/daily-ai/config.fish
 end
+
+~/.nix-profile/bin/mise activate fish | source
