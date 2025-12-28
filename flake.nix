@@ -14,12 +14,12 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       # Import local settings (gitignored)
-      local = import ./local.nix;
+      local = import ./nix/local.nix;
     in
     {
       homeConfigurations.${local.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ ./nix/home.nix ];
         extraSpecialArgs = {
           inherit (local) username;
         };

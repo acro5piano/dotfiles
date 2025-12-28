@@ -14,4 +14,7 @@ nix-shell '<home-manager>' -A install
 ```bash
 cp local.nix.example local.nix
 nvim local.nix                     # Replace with your own username
+mkdir -p ~/.config/nix
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+home-manager switch --flake .#kazuya
 ```
