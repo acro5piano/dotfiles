@@ -48,9 +48,29 @@
     vimAlias = true;
   };
 
-  # Link existing Neovim config
+  # Dotfiles from link.sh
+  home.file = {
+    "bin".source = ../home/bin;
+    ".editorconfig".source = ../home/.editorconfig;
+    ".gitconfig".source = ../home/.gitconfig;
+    "prettier.config.js".source = ../home/prettier.config.js;
+    ".ripgreprc".source = ../home/.ripgreprc;
+    ".tmux.conf".source = ../home/.tmux.conf;
+    ".xremap".source = ../home/.xremap;
+    ".emacs.d".source = ../home/.emacs.d;
+    ".aider.conf.yml".source = ../home/.aider.conf.yml;
+    ".simple-x11-remapper.yaml".source = ../home/.simple-x11-remapper.yaml;
+  };
+
   xdg.configFile = {
-    "nvim/init.lua".source = ../home/.config/nvim/init.lua;
-    "nvim/lua".source = ../home/.config/nvim/lua;
+    "alacritty".source = ../home/.config/alacritty;
+    "fish/conf.d/wi.fish".source = ../home/.config/fish/conf.d/wi.fish;
+    "fish/config.fish".source = ../home/.config/fish/config.fish;
+    "gh/config.yml".source = ../home/.config/gh/config.yml;
+    "i3status-rust".source = ../home/.config/i3status-rust;
+    "mimeapps.list".source = ../home/.config/mimeapps.list;
+    "joplin-desktop/userchrome.css".source = ../home/.config/joplin-desktop/userchrome.css;
+    "nvim".source = ../home/.config/nvim;
+    "sway".source = ../home/.config/sway;
   };
 }
