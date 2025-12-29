@@ -10,45 +10,70 @@
 
   # User-level packages
   home.packages = with pkgs; [
-    # CLI tools (from pacman.yml)
+    # CLI tools
+    acpi
     bat
     delta
+    dnsutils
     fd
     fzf
     gh
     ghostscript
     imagemagick
     jq
+    light
+    man-db
     ripgrep
+    rsync
+    tree
+    unzip
     xh
+    zip
 
-    # Development tools
+    # Development tools (moved from pacman)
+    gfortran
+    git
+    gnumake
+    lapack
     lua
     lua-language-server
+    lynis
+    openssl
+    postgresql
     ruff
     rust-analyzer
     stylua
     terraform
+    tmux
 
     # Fonts (from sway.yml)
     ipaexfont
+    nerd-fonts.sauce-code-pro
     noto-fonts
     noto-fonts-color-emoji
     source-code-pro
-    nerd-fonts.sauce-code-pro
 
-    # Browsers
+    # Desktop apps and browsers
+    audacity
     brave
     chromium
-
-    # Desktop apps
-    audacity
-    pcmanfm
-    rofi
+    clipmenu
+    ddcutil
+    dunst
+    easyeffects
     fcitx5
-    qt6Packages.fcitx5-configtool
     fcitx5-gtk
     fcitx5-mozc
+    feh
+    grim
+    i3status-rust
+    lxqt.pavucontrol-qt
+    pcmanfm
+    qt6Packages.fcitx5-configtool
+    rofi
+    slurp
+    swaybg
+    wl-clipboard
   ];
 
   # mise (runtime version manager)

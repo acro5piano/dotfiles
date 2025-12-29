@@ -10,66 +10,41 @@ set -euo pipefail
 # ==============================================================================
 
 SYSTEM_PACKAGES=(
-    # Core system (from pacman.yml)
+    # Core system (require root or system-level integration)
     acpi
     arch-install-scripts
     archlinux-keyring
+    base
+    base-devel
+    # linux
+    # linux-headers
+    # linux-zen
+    # linux-zen-headers
     curl
-    dnsutils
     fish
-    gcc
-    gcc-fortran
-    git
-    lapack
-    light
     lynis
-    make
-    man-db
     ntp
     openssh
-    openssl
-    postgresql-client
-    python
-    python-pip
-    rsync
-    ruby
-    rubygems
-    tmux
-    tree
-    unzip
     vim
-    zip
 
-    # Docker
+    # Docker (daemon requires system integration)
     docker
     docker-compose
 
-    # Desktop environment (from sway.yml)
-    clipmenu
-    ddcutil
-    dunst
-    easyeffects
-    feh
+    # Desktop environment (Wayland/X11 require system integration)
     fuse2
-    grim
-    i3status-rust
-    pavucontrol-qt
     pipewire
     pipewire-alsa
     pipewire-pulse
-    slurp
+    portaudio
     sway
-    swaybg
     wireplumber
-    wl-clipboard
-    xclip
-    xcolor
+    polkit
     xdg-desktop-portal-wlr
+
+    # Outdated x11 things
     xorg-xinit
     xorg-xwayland
-
-
-    portaudio
 )
 
 echo "Installing system packages..."
