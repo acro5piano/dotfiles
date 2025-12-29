@@ -8,20 +8,47 @@
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 
-  # Packages from yay.yml
+  # User-level packages
   home.packages = with pkgs; [
-    brave
-    chromium
+    # CLI tools (from pacman.yml)
+    bat
     delta
+    fd
     fzf
-    ipaexfont
+    gh
+    ghostscript
+    imagemagick
+    jq
     ripgrep
-    rust-analyzer
-    ruff
-    stylua
-    terraform
+    xh
+
+    # Development tools
     lua
     lua-language-server
+    ruff
+    rust-analyzer
+    stylua
+    terraform
+
+    # Fonts (from sway.yml)
+    ipaexfont
+    noto-fonts
+    noto-fonts-color-emoji
+    source-code-pro
+    nerd-fonts.sauce-code-pro
+
+    # Browsers
+    brave
+    chromium
+
+    # Desktop apps
+    audacity
+    pcmanfm
+    rofi
+    fcitx5
+    qt6Packages.fcitx5-configtool
+    fcitx5-gtk
+    fcitx5-mozc
   ];
 
   # mise (runtime version manager)
@@ -35,6 +62,7 @@
         "npm:@anthropic-ai/claude-code" = "2.0.59";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
+        "npm:typescript" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
 

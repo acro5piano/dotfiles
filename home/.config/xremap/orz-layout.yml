@@ -89,7 +89,7 @@ keymap:
 
   - name: Emacs-like keymap
     application:
-      not: [Alacritty]
+      not: [Alacritty, float-term]
     remap:
       C-i: Tab       # Since we remap Tab to ESC, use C-i as Tab
 
