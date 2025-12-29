@@ -11,7 +11,6 @@ set -euo pipefail
 
 SYSTEM_PACKAGES=(
     # Core system (require root or system-level integration)
-    acpi
     arch-install-scripts
     archlinux-keyring
     base
