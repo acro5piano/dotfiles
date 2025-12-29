@@ -40,6 +40,9 @@ SYSTEM_PACKAGES=(
     wireplumber
     polkit
     xdg-desktop-portal-wlr
+    fcitx5
+    fcitx5-gtk
+    fcitx5-mozc
 
     # Outdated x11 things
     xorg-xinit

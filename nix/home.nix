@@ -61,9 +61,6 @@
     ddcutil
     dunst
     easyeffects
-    fcitx5
-    fcitx5-gtk
-    fcitx5-mozc
     feh
     grim
     i3status-rust
