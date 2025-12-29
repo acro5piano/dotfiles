@@ -31,6 +31,7 @@ SYSTEM_PACKAGES=(
     docker-compose
 
     # Desktop environment (Wayland/X11 require system integration)
+    easyeffects
     fuse2
     pipewire
     pipewire-alsa

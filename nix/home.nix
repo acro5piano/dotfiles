@@ -22,7 +22,6 @@
     imagemagick
     jq
     light
-    man-db
     ripgrep
     rsync
     tree
@@ -60,7 +59,6 @@
     clipmenu
     ddcutil
     dunst
-    easyeffects
     feh
     grim
     i3status-rust
