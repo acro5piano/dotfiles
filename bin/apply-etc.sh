@@ -20,6 +20,7 @@ SYSTEM_PACKAGES=(
     # linux-zen
     # linux-zen-headers
     curl
+    chromium
     fish
     lynis
     ntp

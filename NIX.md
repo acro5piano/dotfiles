@@ -149,8 +149,9 @@ Files live under `etc/` in this repository and are copied into place via scripts
 
 A simple shellscript is used as executable documentation.
 
-- `./apply.sh`: apply nix and mise config
-- `./etc-apply.sh`: apply system-wide config using sudo
+- `./bin/apply-nix.sh`: apply nix and mise config
+- `./bin/apply-aur.sh`: apply aur package installation
+- `./bin/apply-etc.sh`: apply system-wide config and pacman using sudo
 
 ### Purpose
 

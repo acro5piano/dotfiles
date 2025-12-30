@@ -22,6 +22,7 @@
     imagemagick
     jq
     light
+    paru
     ripgrep
     rsync
     tree
@@ -52,10 +53,8 @@
     noto-fonts-color-emoji
     source-code-pro
 
-    # Desktop apps and browsers
+    # Desktop apps
     audacity
-    brave
-    chromium
     clipmenu
     ddcutil
     dunst
