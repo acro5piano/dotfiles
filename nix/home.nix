@@ -1,5 +1,36 @@
 { config, pkgs, username, ... }:
 
+let
+  toggl-cli = pkgs.stdenv.mkDerivation rec {
+    pname = "toggl-cli";
+    version = "latest";
+    src = pkgs.fetchurl {
+      url = "https://github.com/acro5piano/toggl-cli-rs/releases/latest/download/toggl-cli-rs";
+      sha256 = "sha256-4nEzLWg1obU13nXmInIURdiOcWPkKN6KUUI/YJGwL58=";
+    };
+    dontUnpack = true;
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src $out/bin/toggl
+      chmod +x $out/bin/toggl
+    '';
+  };
+
+  clipman = pkgs.stdenv.mkDerivation rec {
+    pname = "clipman";
+    version = "1.6.2";
+    src = pkgs.fetchurl {
+      url = "https://github.com/acro5piano/clipman/releases/download/${version}/clipman";
+      sha256 = "sha256-v6jg+07JxYGFqSWQiQYN1hDseoQfc7H8gtcNF1DB5so=";
+    };
+    dontUnpack = true;
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src $out/bin/clipman
+      chmod +x $out/bin/clipman
+    '';
+  };
+in
 {
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -54,8 +85,11 @@
 
     # Desktop apps
     audacity
-    clipmenu
+    clipman
+    google-cloud-sdk
+    joplin-desktop
     libnotify
+    toggl-cli
     dunst
     feh
     grim
