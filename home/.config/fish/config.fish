@@ -284,12 +284,9 @@ end
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/var/google-cloud-sdk/path.fish.inc ]
-    set -gx CLOUDSDK_PYTHON python3.13
-    . ~/var/google-cloud-sdk/path.fish.inc
-end
+set -gx CLOUDSDK_PYTHON python3.13
 
-# The next line updates PATH for the Google Cloud SDK.
+# Use my own AI tool from another repo
 if [ -e ~/ghq/github.com/acro5piano/daily-ai/config.fish ]
     . ~/ghq/github.com/acro5piano/daily-ai/config.fish
 end
