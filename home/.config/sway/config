@@ -80,8 +80,7 @@ for_window [app_id="float-term"]  {
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
 
-# requires clipman. see README.md for installation
-bindsym $mod+y exec ~/.local/bin/clipman pick -t rofi -T'-i'
+bindsym $mod+y exec ~/.nix-profile/bin/clipman pick -t rofi -T'-i'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -132,12 +131,12 @@ exec start-fcitx &
 exec xremap ~/.dotfiles/home/.config/xremap/orz-layout.yml &
 # exec xremap ~/.xremap &
 exec dunst &
-exec wl-paste -t text --watch ~/.local/bin/clipman store --max-items=50 --no-persist &
+exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
+exec swaymsg 'workspace 5; exec joplin-desktop --ozone-platform=wayland'
 exec swaymsg 'workspace 1; exec alacritty'
 exec sleep 2 && swaymsg 'workspace 2; exec brave' &
 
