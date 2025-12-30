@@ -118,7 +118,8 @@ bindsym $mod+Shift+period move container to workspace number 6
 bindsym $mod+Shift+u move container to workspace number 7
 bindsym $mod+Shift+i move container to workspace number 8
 
-assign [class="Pcmanfm"] workspace 2
+assign [app_id="pcmanfm"] workspace 2
+for_window [app_id="pcmanfm"] move container to workspace 2
 for_window [class="electron-shogi"] move container to workspace 4
 for_window [class="Joplin"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6

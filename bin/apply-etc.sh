@@ -26,6 +26,8 @@ SYSTEM_PACKAGES=(
     ntp
     openssh
     vim
+    ddcutil
+    light
 
     # Docker (daemon requires system integration)
     docker
@@ -34,6 +36,7 @@ SYSTEM_PACKAGES=(
     # Desktop environment (Wayland/X11 require system integration)
     easyeffects
     fuse2
+    pavucontrol-qt
     pipewire
     pipewire-alsa
     pipewire-pulse
@@ -45,6 +48,7 @@ SYSTEM_PACKAGES=(
     fcitx5
     fcitx5-gtk
     fcitx5-mozc
+    fcitx5-configtool
 
     # Outdated x11 things
     xorg-xinit

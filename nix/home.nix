@@ -21,7 +21,6 @@
     ghostscript
     imagemagick
     jq
-    light
     paru
     ripgrep
     rsync
@@ -56,14 +55,13 @@
     # Desktop apps
     audacity
     clipmenu
-    ddcutil
+    libnotify
     dunst
     feh
     grim
     i3status-rust
     lxqt.pavucontrol-qt
     pcmanfm
-    qt6Packages.fcitx5-configtool
     rofi
     slurp
     swaybg
