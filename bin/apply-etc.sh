@@ -15,6 +15,7 @@ SYSTEM_PACKAGES=(
     archlinux-keyring
     base
     base-devel
+    brightnessctl
     # linux
     # linux-headers
     # linux-zen
@@ -82,5 +83,6 @@ sudo cp -v ./etc/systemd/network/20-wlan.network /etc/systemd/network/20-wlan.ne
 
 sudo localectl set-locale en_US.UTF-8
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
 echo "Done! System configuration applied."

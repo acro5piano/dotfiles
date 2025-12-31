@@ -30,6 +30,23 @@ let
       chmod +x $out/bin/clipman
     '';
   };
+
+  xremap = pkgs.stdenv.mkDerivation rec {
+    pname = "xremap";
+    version = "v0.14.8";
+    src = pkgs.fetchurl {
+      url = "https://github.com/xremap/xremap/releases/download/${version}/xremap-linux-x86_64-wlroots.zip";
+      sha256 = "sha256-1AXd6bxmxX9D4jwK7j2gOw6Tj6lYZRezpKOAp1eQktU=";
+    };
+    nativeBuildInputs = [ pkgs.unzip ];
+    sourceRoot = ".";
+    installPhase = ''
+      mkdir -p $out/bin
+      cp xremap $out/bin/xremap
+      chmod +x $out/bin/xremap
+    '';
+  };
+
 in
 {
   home.username = username;
@@ -58,6 +75,7 @@ in
     tree
     unzip
     xh
+    xremap
     zip
 
     # Development tools (moved from pacman)

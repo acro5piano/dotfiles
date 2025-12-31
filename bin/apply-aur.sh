@@ -6,8 +6,6 @@ set -euo pipefail
 
 AUR_PACKAGES=(
     brave-bin
-    light
-    xremap-x11-bin
 )
 
 echo "Installing aur packages..."
