@@ -88,4 +88,12 @@ sudo localectl set-locale en_US.UTF-8
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
+# ==============================================================================
+# System configuration files for userland
+# ==============================================================================
+
+systemctl --user enable --now pipewire
+systemctl --user enable --now wireplumber
+systemctl --user enable --now pipewire-pulse
+
 echo "Done! System configuration applied."
