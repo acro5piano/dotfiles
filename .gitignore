@@ -9,7 +9,6 @@ home/bin/php
 *.tgz
 *.backup
 
-*.lock
 .luarc.json
 
 home/.emacs.d/*
@@ -24,4 +23,5 @@ home/.config/alacritty/themes/
 
 home/bin/copyright.pandoc
 home/bin/pandoc
+
 

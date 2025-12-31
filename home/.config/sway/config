@@ -80,8 +80,7 @@ for_window [app_id="float-term"]  {
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
 
-# requires clipman. see README.md for installation
-bindsym $mod+y exec ~/.local/bin/clipman pick -t rofi -T'-i'
+bindsym $mod+y exec ~/.nix-profile/bin/clipman pick -t rofi -T'-i'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -118,7 +117,8 @@ bindsym $mod+Shift+period move container to workspace number 6
 bindsym $mod+Shift+u move container to workspace number 7
 bindsym $mod+Shift+i move container to workspace number 8
 
-assign [class="Pcmanfm"] workspace 2
+assign [app_id="pcmanfm"] workspace 2
+for_window [app_id="pcmanfm"] move container to workspace 2
 for_window [class="electron-shogi"] move container to workspace 4
 for_window [class="Joplin"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
@@ -128,17 +128,17 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
 exec start-fcitx &
-exec simple-x11-remapper ~/.simple-x11-remapper.yaml &
+exec xremap ~/.dotfiles/home/.config/xremap/orz-layout.yml --watch &
 # exec xremap ~/.xremap &
 exec dunst &
-exec wl-paste -t text --watch ~/.local/bin/clipman store --max-items=50 --no-persist &
+exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 5; exec ~/.joplin/Joplin.AppImage'
+exec swaymsg 'workspace 5; exec joplin-desktop --ozone-platform=wayland'
 exec swaymsg 'workspace 1; exec alacritty'
-exec sleep 2 && swaymsg 'workspace 2; exec brave --ozone-platform=x11' &
+exec sleep 2 && swaymsg 'workspace 2; exec brave' &
 
 # Disable internal display when HDMI is connected
 exec_always ~/.config/sway/disable-internal-display.sh

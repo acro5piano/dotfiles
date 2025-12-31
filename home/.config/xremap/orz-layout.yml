@@ -1,0 +1,159 @@
+# sudo gpasswd -a kazuya input
+# echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+
+modmap:
+  - name: Basic modmap
+    remap:
+      Tab: Esc
+      CapsLock: Ctrl_L
+
+  - name: US keyboard
+    device:
+      only:
+        - "AT Translated Set 2 keyboard"
+    remap:
+      Alt_L:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Alt_R:
+        held: Alt_L
+        alone: Henkan
+        alone_timeout_millis: 200
+
+  - name: ORZ Layout Modmap
+    device:
+      only:
+        - "Logitech USB Receiver"
+        - "MX Keys Mini"
+    remap:
+      Alt_L: Super_L
+      Ctrl_L:
+        held: Ctrl_L
+        alone: Tab
+        alone_timeout_millis: 200
+      Muhenkan:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Henkan:
+        held: Alt_L
+        alone: Henkan
+        alone_timeout_millis: 200
+      KatakanaHiragana:
+        held: Ctrl_L
+        alone: Tab
+        alone_timeout_millis: 200
+      Shift_R:
+        held: Shift_R
+        alone: RightBrace
+        alone_timeout_millis: 200
+
+      # ORZ layout #############################
+      # Right-shifted number row
+      KEY_8: KEY_7
+      KEY_9: KEY_8
+      KEY_0: KEY_9
+      Minus: KEY_0
+      Equal: Minus
+      Yen: Equal
+
+      # Top row: right-shifted
+      KEY_U: KEY_Y
+      KEY_I: KEY_U
+      KEY_O: KEY_I
+      KEY_P: KEY_O
+      LeftBrace: KEY_P
+      RightBrace: LeftBrace
+
+      # Home row: right-shifted
+      KEY_J: KEY_H
+      KEY_K: KEY_J
+      KEY_L: KEY_K
+      Semicolon: KEY_L
+      Apostrophe: Semicolon
+      Backslash: Apostrophe
+
+      # Bottom row: right-shifted
+      KEY_N: KEY_B
+      KEY_M: KEY_N
+      Comma: KEY_M
+      Dot: Comma
+      Slash: Dot
+      Ro: Slash
+
+      # Empty center key - H becomes backslash
+      KEY_H: Backslash
+      # ORZ layout end ##########################
+
+keymap:
+  - name: Global keymap
+    remap:
+      # fn_layer (super as modifier)
+      Super-x: C-PageUp
+      Super-c: C-PageDown
+      Super-Left: C-PageUp
+      Super-Right: C-PageDown
+      Super-Up: PageUp
+      Super-Down: PageDown
+      Super-F4: BrightnessDown
+      Super-F5: BrightnessUp
+
+      # fn_layer (rightalt as modifier)
+      Alt_R-Left: C-PageUp
+      Alt_R-Right: C-PageDown
+      Alt_R-Up: PageUp
+      Alt_R-Down: PageDown
+
+  - name: Emacs-like keymap
+    application:
+      not: [Alacritty, float-term]
+    remap:
+      # Since we remap Tab to ESC, use C-i as Tab
+      C-i: { with_mark: Tab }
+
+      # Emacs navigation
+      C-b: { with_mark: Left }
+      C-f: { with_mark: Right }
+      C-p: { with_mark: Up }
+      C-n: { with_mark: Down }
+      C-a: { with_mark: home }
+      C-e: { with_mark: End }
+      C-Alt-a: { with_mark: C-Home }
+      C-Alt-e: { with_mark: C-End }
+
+      # Emacs editing
+      C-h: { with_mark: BackSpace }
+      C-d: { with_mark: Delete }
+      Alt-d: { with_mark: C-Delete }
+      C-Alt-h: { with_mark: C-BackSpace }
+      Alt-b: { with_mark: C-Left }
+      Alt-f: { with_mark: C-Right }
+      C-k: [Shift-End, C-x]
+      C-s: { with_mark: C-f }
+      C-y: { with_mark: C-v }
+
+      # Tab switching
+      Alt-n: C-Tab
+      Alt-p: C-Shift-Tab
+
+      # Alternative remapping to keep original function available
+      Alt-e: C-e
+      Alt-s: C-s
+      Alt-a: C-a
+      Alt-r: C-r
+      C-Alt-d: C-d
+      C-Alt-s: C-f
+      C-Alt-b: C-b
+      C-Alt-n: C-n
+      C-Alt-c: Alt-n
+      C-Alt-k: Alt-k
+      C-Alt-j: Alt-j
+
+      # OSX-like bindings
+      Alt-c: C-c
+      Alt-x: C-x
+      Alt-v: C-v
+      Alt-z: C-z
+      Alt-k: C-k
+      Alt-h: C-h

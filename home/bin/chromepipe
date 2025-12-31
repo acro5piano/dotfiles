@@ -1,5 +1,0 @@
-#!/bin/bash
-
-fileName=$(mktemp)
-cat > $fileName
-chromium $fileName

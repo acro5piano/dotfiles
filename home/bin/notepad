@@ -1,3 +1,0 @@
-#!/bin/bash
-
-brave --new-window chrome-extension://dcieocifpjgoigblofimlgcpffccefij/newtab.html

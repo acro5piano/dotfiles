@@ -259,7 +259,6 @@ alias pn="pnpm"
 alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --model gpt-4.1-mini --commit'
-alias cod='fnm exec --using 22 codex --full-auto'
 alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
 
 set TTY (tty)
@@ -275,8 +274,6 @@ if [ "$TTY" = "/dev/tty1" ]
     XDG_CURRENT_DESKTOP=sway sway
 end
 
-fnm env --use-on-cd | source > /dev/null
-
 # which chatgpt > /dev/null && chatgpt --set-completions fish | source
 
 # pnpm
@@ -287,12 +284,11 @@ end
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/var/google-cloud-sdk/path.fish.inc ]
-    set -gx CLOUDSDK_PYTHON python3.13
-    . ~/var/google-cloud-sdk/path.fish.inc
-end
+set -gx CLOUDSDK_PYTHON python3.13
 
-# The next line updates PATH for the Google Cloud SDK.
+# Use my own AI tool from another repo
 if [ -e ~/ghq/github.com/acro5piano/daily-ai/config.fish ]
     . ~/ghq/github.com/acro5piano/daily-ai/config.fish
 end
+
+~/.nix-profile/bin/mise activate fish | source
