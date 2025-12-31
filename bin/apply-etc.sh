@@ -80,4 +80,7 @@ sudo cp -v ./etc/modules-load.d/i2c_dev.conf /etc/modules-load.d/i2c_dev.conf
 sudo cp -v ./etc/iwd/main.conf /etc/iwd/main.conf
 sudo cp -v ./etc/systemd/network/20-wlan.network /etc/systemd/network/20-wlan.network
 
+sudo localectl set-locale en_US.UTF-8
+echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+
 echo "Done! System configuration applied."
