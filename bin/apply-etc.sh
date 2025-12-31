@@ -15,6 +15,7 @@ SYSTEM_PACKAGES=(
     archlinux-keyring
     base
     base-devel
+    brightnessctl
     # linux
     # linux-headers
     # linux-zen
@@ -27,7 +28,6 @@ SYSTEM_PACKAGES=(
     openssh
     vim
     ddcutil
-    light
 
     # Docker (daemon requires system integration)
     docker
@@ -80,5 +80,9 @@ sudo cp -v ./etc/modules-load.d/uinput.conf /etc/modules-load.d/uinput.conf
 sudo cp -v ./etc/modules-load.d/i2c_dev.conf /etc/modules-load.d/i2c_dev.conf
 sudo cp -v ./etc/iwd/main.conf /etc/iwd/main.conf
 sudo cp -v ./etc/systemd/network/20-wlan.network /etc/systemd/network/20-wlan.network
+
+sudo localectl set-locale en_US.UTF-8
+echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
 echo "Done! System configuration applied."
