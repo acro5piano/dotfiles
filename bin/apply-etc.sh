@@ -9,6 +9,9 @@ set -euo pipefail
 # These require root or system-level integration
 # ==============================================================================
 
+# sudo pacman-key --populate archlinux
+# sudo pacman-key --refresh-keys
+
 SYSTEM_PACKAGES=(
     # Core system (require root or system-level integration)
     arch-install-scripts
@@ -84,5 +87,13 @@ sudo cp -v ./etc/systemd/network/20-wlan.network /etc/systemd/network/20-wlan.ne
 sudo localectl set-locale en_US.UTF-8
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 echo uinput | sudo tee /etc/modules-load.d/uinput.conf
+
+# ==============================================================================
+# System configuration files for userland
+# ==============================================================================
+
+systemctl --user enable --now pipewire
+systemctl --user enable --now wireplumber
+systemctl --user enable --now pipewire-pulse
 
 echo "Done! System configuration applied."
