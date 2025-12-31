@@ -33,4 +33,18 @@ home-manager switch --flake .
 echo "==> Installing devtools using mise..."
 mise install
 
+# Clone private repositories
+repos=(
+    "acro5piano/dotfiles-private"
+    "acro5piano/daily-ai"
+)
+for repo in "${repos[@]}"; do
+    dest="$HOME/ghq/github.com/$repo"
+    if [ ! -d "$dest" ]; then
+        echo "==> Cloning $repo..."
+        mkdir -p "$(dirname "$dest")"
+        git clone "git@github.com:$repo.git" "$dest"
+    fi
+done
+
 echo "==> Done."
