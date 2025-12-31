@@ -27,7 +27,6 @@ SYSTEM_PACKAGES=(
     openssh
     vim
     ddcutil
-    light
 
     # Docker (daemon requires system integration)
     docker

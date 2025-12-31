@@ -6,6 +6,7 @@ set -euo pipefail
 
 AUR_PACKAGES=(
     brave-bin
+    light
 )
 
 echo "Installing aur packages..."
