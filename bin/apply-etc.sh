@@ -9,6 +9,9 @@ set -euo pipefail
 # These require root or system-level integration
 # ==============================================================================
 
+# sudo pacman-key --populate archlinux
+# sudo pacman-key --refresh-keys
+
 SYSTEM_PACKAGES=(
     # Core system (require root or system-level integration)
     arch-install-scripts
