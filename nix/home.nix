@@ -60,6 +60,7 @@ in
   home.packages = with pkgs; [
     # CLI tools
     acpi
+    aider-chat
     bat
     delta
     dnsutils
@@ -138,7 +139,6 @@ in
         python = "latest";
         # Python tools (from pip.yml)
         uv = "latest";
-        "pipx:aider-install" = "latest";
         "pipx:awscli" = "latest";
         "pipx:ipython" = "latest";
         "pipx:iredis" = "latest";

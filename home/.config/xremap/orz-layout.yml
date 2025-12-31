@@ -2,13 +2,31 @@
 # echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 
 modmap:
+  - name: Basic modmap
+    remap:
+      Tab: Esc
+      CapsLock: Ctrl_L
+
+  - name: US keyboard
+    device:
+      only:
+        - "AT Translated Set 2 keyboard"
+    remap:
+      Alt_L:
+        held: Alt_L
+        alone: Muhenkan
+        alone_timeout_millis: 200
+      Alt_R:
+        held: Alt_L
+        alone: Henkan
+        alone_timeout_millis: 200
+
   - name: ORZ Layout Modmap
     device:
       only:
         - "Logitech USB Receiver"
+        - "MX Keys Mini"
     remap:
-      Tab: Esc
-      CapsLock: Ctrl_L
       Alt_L: Super_L
       Ctrl_L:
         held: Ctrl_L
