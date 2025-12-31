@@ -91,28 +91,29 @@ keymap:
     application:
       not: [Alacritty, float-term]
     remap:
-      C-i: Tab       # Since we remap Tab to ESC, use C-i as Tab
+      # Since we remap Tab to ESC, use C-i as Tab
+      C-i: { with_mark: Tab }
 
       # Emacs navigation
-      C-b: Left
-      C-f: Right
-      C-p: Up
-      C-n: Down
-      C-a: Home
-      C-e: End
-      C-Alt-a: C-Home
-      C-Alt-e: C-End
+      C-b: { with_mark: Left }
+      C-f: { with_mark: Right }
+      C-p: { with_mark: Up }
+      C-n: { with_mark: Down }
+      C-a: { with_mark: home }
+      C-e: { with_mark: End }
+      C-Alt-a: { with_mark: C-Home }
+      C-Alt-e: { with_mark: C-End }
 
       # Emacs editing
-      C-h: BackSpace
-      C-d: Delete
-      Alt-d: C-Delete
-      C-Alt-h: C-BackSpace
-      C-y: C-v            # Yank (paste)
-      Alt-b: C-Left       # Word backward
-      Alt-f: C-Right      # Word forward
-      C-k: [Shift-End, C-x]  # Kill line
-      C-s: C-f            # Search
+      C-h: { with_mark: BackSpace }
+      C-d: { with_mark: Delete }
+      Alt-d: { with_mark: C-Delete }
+      C-Alt-h: { with_mark: C-BackSpace }
+      Alt-b: { with_mark: C-Left }
+      Alt-f: { with_mark: C-Right }
+      C-k: [Shift-End, C-x]
+      C-s: { with_mark: C-f }
+      C-y: { with_mark: C-v }
 
       # Tab switching
       Alt-n: C-Tab
@@ -138,6 +139,3 @@ keymap:
       Alt-z: C-z
       Alt-k: C-k
       Alt-h: C-h
-      Alt-w: C-w
-      Alt-l: C-l
-      Alt-t: C-t
