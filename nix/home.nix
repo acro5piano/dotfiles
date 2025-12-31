@@ -73,6 +73,7 @@ in
     paru
     ripgrep
     rsync
+    transcrypt
     tree
     unzip
     xh
