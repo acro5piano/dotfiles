@@ -191,4 +191,13 @@ in
     "nvim".source = ../home/.config/nvim;
     "sway".source = ../home/.config/sway;
   };
+
+  xdg.desktopEntries.joplin = {
+    name = "Joplin";
+    exec = "${joplin}/bin/joplin";
+    icon = "joplin";
+    comment = "An open source note taking and to-do application";
+    categories = [ "Office" "TextEditor" "Utility" ];
+    terminal = false;
+  };
 }
