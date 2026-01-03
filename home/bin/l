@@ -4,5 +4,5 @@ if swaymsg -t get_outputs | grep -q HDMI; then
   # Required sudo pacman -S ddcutil && sudo modprobe i2c-dev
   ddcutil setvcp 10 $1
 else
-  light -S $1
+  brightnessctl set $1
 fi
