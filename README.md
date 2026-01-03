@@ -117,7 +117,7 @@ Then exit and reboot.
 
 Notes:
 
-- If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix dns to `8.8.8.8`.
+- If you have any problems on resolving name, edit `/etc/systemd/resolved.conf` and fix `DNS=8.8.8.8` then restart systemd-resolved.
 - systemd-boot is pre-installed and simple to use than Grub unless dual boot with Windows.
 
 ## Add user
@@ -125,7 +125,7 @@ Notes:
 Run the following commands as root:
 
 ```sh
-visudo /etc/sudoers.d/admin
+visudo
 
 # Recommended config:
 #   %wheel ALL=(ALL) ALL
@@ -135,8 +135,6 @@ visudo /etc/sudoers.d/admin
 #   %wheel ALL=NOPASSWD: /bin/systemctl hibernate
 #   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn
 #   %wheel ALL=NOPASSWD: /home/kazuya/bin/connect-client-vpn-stop
-
-exit
 ```
 
 and login as kazuya:
@@ -158,10 +156,6 @@ cd $HOME/.dotfiles
 ./bin/apply-aur.sh
 ./bin/apply-nix.sh
 ```
-
-For groups, please take a look at:
-
-https://github.com//acro5piano/dotfiles/blob/e0ef379e4326bd102abddc28bd5946b52cbeee06/pkg_init/arch#L1
 
 ## Bluetooth
 
