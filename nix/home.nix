@@ -127,7 +127,7 @@ in
     enable = true;
     globalConfig = {
       tools = {
-        node = "24";
+        node = ["24" "22"];
         pnpm = "latest";
         rust = "stable";
         "npm:@anthropic-ai/claude-code" = "2.0.59";
