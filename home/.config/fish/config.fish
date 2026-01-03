@@ -43,6 +43,9 @@ set -gx BAT_STYLE "full,-numbers"
 # 'hl:-1:reverse,hl+:-1:reverse' marks more readable for matching string
 set -gx FZF_DEFAULT_OPTS "--layout reverse --color='hl:-1:reverse,hl+:-1:reverse'"
 
+# prevent claude code auto updates
+set -gx DISABLE_AUTOUPDATER 1
+
 function seishin
     set dir ~/sandbox/(date +%Y%m%d_%H%M%S)
     mkdir -p $dir
