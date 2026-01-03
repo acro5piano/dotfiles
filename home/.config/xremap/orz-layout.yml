@@ -6,6 +6,7 @@ modmap:
     remap:
       Tab: Esc
       CapsLock: Ctrl_L
+      F1: BTN_LEFT
 
   - name: US keyboard
     device:
