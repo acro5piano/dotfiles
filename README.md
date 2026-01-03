@@ -83,7 +83,7 @@ mount /dev/nvme0n1p1 /mnt/boot
 # Connect to a Network
 iwctl
 
-pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd git vim
+pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch
