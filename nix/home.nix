@@ -47,6 +47,15 @@ let
     '';
   };
 
+  joplin = pkgs.appimageTools.wrapType2 {
+    pname = "joplin";
+    version = "3.5.9";
+    src = pkgs.fetchurl {
+      url = "https://github.com/acro5piano/joplin/releases/download/v3.5.9@no-menubar/Joplin-3.5.9.AppImage";
+      sha256 = "sha256-5TbJyonLBkAfMVaVp6jN5jJmrb26ZtR2VOPPFraSPK8=";
+    };
+  };
+
 in
 {
   home.username = username;
@@ -107,7 +116,7 @@ in
     audacity
     clipman
     google-cloud-sdk
-    joplin-desktop
+    joplin
     libnotify
     toggl-cli
     dunst
