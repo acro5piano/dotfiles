@@ -80,6 +80,7 @@ in
     imagemagick
     jq
     paru
+    pgcli
     ripgrep
     rsync
     transcrypt
@@ -154,7 +155,6 @@ in
         "pipx:iredis" = "latest";
         "pipx:litecli" = "latest";
         "pipx:mycli" = "latest";
-        "pipx:pgcli" = "latest";
         "pipx:virtualenv" = "latest";
       };
     };
