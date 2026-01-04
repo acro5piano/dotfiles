@@ -130,8 +130,7 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
 exec start-fcitx &
-exec xremap ~/.dotfiles/home/.config/xremap/orz-layout.yml --watch &
-# exec xremap ~/.xremap &
+# xremap is managed by systemd user service (see home.nix)
 exec dunst &
 exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &

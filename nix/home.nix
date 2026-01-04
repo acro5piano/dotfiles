@@ -190,6 +190,7 @@ in
     "joplin-desktop/userchrome.css".source = ../home/.config/joplin-desktop/userchrome.css;
     "nvim".source = ../home/.config/nvim;
     "sway".source = ../home/.config/sway;
+    "xremap".source = ../home/.config/xremap;
   };
 
   xdg.desktopEntries.joplin = {
@@ -199,5 +200,21 @@ in
     comment = "An open source note taking and to-do application";
     categories = [ "Office" "TextEditor" "Utility" ];
     terminal = false;
+  };
+
+  # xremap systemd user service
+  systemd.user.services.xremap = {
+    Unit = {
+      Description = "xremap keyboard remapper";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${xremap}/bin/xremap %h/.config/xremap/orz-layout.yml --watch";
+      Restart = "always";
+      RestartSec = 3;
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
   };
 }
