@@ -123,6 +123,7 @@ assign [app_id="pcmanfm"] workspace 2
 for_window [app_id="pcmanfm"] move container to workspace 2
 for_window [class="electron-shogi"] move container to workspace 4
 for_window [class="Joplin"] move container to workspace 5
+for_window [app_id="@joplin/app-desktop"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="code-oss"] move container to workspace 7
@@ -137,7 +138,7 @@ exec easyeffects &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 5; exec joplin-desktop --ozone-platform=wayland'
+exec swaymsg 'workspace 5; exec joplin'
 exec swaymsg 'workspace 1; exec alacritty'
 exec sleep 2 && swaymsg 'workspace 2; exec brave' &
 
