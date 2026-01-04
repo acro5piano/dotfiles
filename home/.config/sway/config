@@ -35,8 +35,7 @@ input type:touchpad {
   tap enabled
   natural_scroll enabled
   dwt enabled
-  tap_drag enabled
-  tap_drag_lock disabled
+  drag_lock disabled
 }
 
 input type:pointer {
