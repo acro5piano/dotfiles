@@ -88,6 +88,8 @@ sudo localectl set-locale en_US.UTF-8
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
+sudo systemctl enable --now docker
+
 # ==============================================================================
 # System configuration files for userland
 # ==============================================================================
