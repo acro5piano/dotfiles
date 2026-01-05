@@ -186,7 +186,7 @@ in
 
   xdg.desktopEntries.joplin = {
     name = "Joplin";
-    exec = "${config.home.homeDirectory}/bin/joplin";
+    exec = "${config.home.homeDirectory}/.local/bin/joplin";
     icon = "joplin";
     comment = "An open source note taking and to-do application";
     categories = [ "Office" "TextEditor" "Utility" ];
