@@ -100,8 +100,8 @@ in
 
     # Fonts (from sway.yml)
     ipaexfont
-    nerd-fonts.sauce-code-pro
     noto-fonts
+    noto-fonts-cjk
     noto-fonts-color-emoji
     source-code-pro
 
