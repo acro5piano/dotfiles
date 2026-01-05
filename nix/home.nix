@@ -182,6 +182,7 @@ in
     "nvim".source = ../home/.config/nvim;
     "sway".source = ../home/.config/sway;
     "xremap".source = ../home/.config/xremap;
+    "wireplumber".source = ../home/.config/wireplumber;
   };
 
   xdg.desktopEntries.joplin = {
