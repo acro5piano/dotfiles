@@ -41,10 +41,6 @@ modmap:
         held: Alt_L
         alone: Henkan
         alone_timeout_millis: 200
-      KatakanaHiragana:
-        held: Ctrl_L
-        alone: Tab
-        alone_timeout_millis: 200
       Shift_R:
         held: Shift_R
         alone: RightBrace
@@ -90,6 +86,7 @@ modmap:
 keymap:
   - name: Global keymap
     remap:
+      KatakanaHiragana: C-i
       # fn_layer (super as modifier)
       Super-x: C-PageUp
       Super-c: C-PageDown

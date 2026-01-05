@@ -202,10 +202,12 @@ in
     terminal = false;
   };
 
-  # xremap systemd user service
+  # xremap systemd user service (started after sway via graphical-session.target)
   systemd.user.services.xremap = {
     Unit = {
       Description = "xremap keyboard remapper";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
     };
     Service = {
       Type = "simple";
@@ -214,7 +216,7 @@ in
       RestartSec = 3;
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }

@@ -130,7 +130,8 @@ for_window [app_id="com.github.wwmm.easyeffects"] move workspace number 6
 
 
 exec start-fcitx &
-# xremap is managed by systemd user service (see home.nix)
+# Activate graphical-session.target for systemd user services (e.g., xremap)
+exec systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK && systemctl --user start graphical-session.target
 exec dunst &
 exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
 exec easyeffects &
