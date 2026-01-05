@@ -47,4 +47,9 @@ for repo in "${repos[@]}"; do
     fi
 done
 
+echo "==> Installing joplin noteapp custom fork..."
+mkdir -p ~/.local/bin
+curl -SsL https://github.com/acro5piano/joplin/releases/download/v3.5.9%40no-menubar/Joplin-3.5.9.AppImage > ~/.local/bin/joplin
+chmod +x ~/.local/bin/joplin
+
 echo "==> Done."

@@ -47,14 +47,6 @@ let
     '';
   };
 
-  joplin = pkgs.appimageTools.wrapType2 {
-    pname = "joplin";
-    version = "3.5.9";
-    src = pkgs.fetchurl {
-      url = "https://github.com/acro5piano/joplin/releases/download/v3.5.9@no-menubar/Joplin-3.5.9.AppImage";
-      sha256 = "sha256-5TbJyonLBkAfMVaVp6jN5jJmrb26ZtR2VOPPFraSPK8=";
-    };
-  };
 
 in
 {
@@ -117,7 +109,6 @@ in
     audacity
     clipman
     google-cloud-sdk
-    joplin
     libnotify
     toggl-cli
     dunst
@@ -195,7 +186,7 @@ in
 
   xdg.desktopEntries.joplin = {
     name = "Joplin";
-    exec = "${joplin}/bin/joplin";
+    exec = "${config.home.homeDirectory}/bin/joplin";
     icon = "joplin";
     comment = "An open source note taking and to-do application";
     categories = [ "Office" "TextEditor" "Utility" ];
