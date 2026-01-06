@@ -10,6 +10,7 @@ set $term alacritty
 # see: https://github.com/swaywm/sway/issues/7383
 # Maybe libinput's annoying "drag-locking" feature causes this issue: https://lists.freedesktop.org/archives/wayland-devel/2024-November/043860.html
 # seat * hide_cursor when-typing enable
+seat * hide_cursor when-typing disable
 
 hide_edge_borders smart
 
