@@ -6,7 +6,10 @@ set $mod Mod4
 set $term alacritty
 
 # Also alacritty hides cursor
-seat * hide_cursor when-typing enable
+# 2026-01-06: disabled this option because it will break drag-and-drop operation
+# see: https://github.com/swaywm/sway/issues/7383
+# Maybe libinput's annoying "drag-locking" feature causes this issue: https://lists.freedesktop.org/archives/wayland-devel/2024-November/043860.html
+# seat * hide_cursor when-typing enable
 
 hide_edge_borders smart
 

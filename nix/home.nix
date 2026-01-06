@@ -101,7 +101,6 @@ in
     # Fonts (from sway.yml)
     ipaexfont
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-color-emoji
     source-code-pro
 
