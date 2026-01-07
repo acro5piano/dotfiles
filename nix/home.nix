@@ -183,6 +183,7 @@ in
     "sway".source = ../home/.config/sway;
     "xremap".source = ../home/.config/xremap;
     "wireplumber".source = ../home/.config/wireplumber;
+    "pipewire/pipewire.conf.d".source = ../home/.config/pipewire/pipewire.conf.d;
   };
 
   xdg.desktopEntries.joplin = {

@@ -44,6 +44,7 @@ SYSTEM_PACKAGES=(
     pipewire-alsa
     pipewire-pulse
     portaudio
+    noise-suppression-for-voice
     sway
     wireplumber
     polkit
