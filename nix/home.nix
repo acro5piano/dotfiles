@@ -80,6 +80,7 @@ in
     unzip
     xh
     xremap
+    zola
     zip
 
     # Development tools (moved from pacman)
