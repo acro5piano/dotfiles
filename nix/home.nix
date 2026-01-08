@@ -185,6 +185,9 @@ in
     "xremap".source = ../home/.config/xremap;
     "wireplumber".source = ../home/.config/wireplumber;
     "pipewire/pipewire.conf.d".source = ../home/.config/pipewire/pipewire.conf.d;
+    "gtk-3.0/bookmarks".text = ''
+        file://${config.home.homeDirectory}/Downloads
+    '';
   };
 
   xdg.desktopEntries.joplin = {
