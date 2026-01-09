@@ -84,6 +84,9 @@ mount /dev/nvme0n1p1 /mnt/boot
 iwctl
 
 pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-firmware iwd
+# Or, for note PC:
+# pacstrap /mnt base base-devel linux linux-headers linux-firmware iwd
+
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Enter new arch

@@ -19,18 +19,15 @@ SYSTEM_PACKAGES=(
     base
     base-devel
     brightnessctl
-    # linux
-    # linux-headers
-    # linux-zen
-    # linux-zen-headers
-    curl
     chromium
+    curl
+    ddcutil
     fish
     lynis
     ntp
     openssh
     vim
-    ddcutil
+    wget
 
     # Docker (daemon requires system integration)
     docker
