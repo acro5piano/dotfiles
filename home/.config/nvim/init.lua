@@ -33,7 +33,6 @@ require("lazy").setup({
   "dcampos/cmp-snippy",
   "ruanyl/vim-gh-line",
   "kyoh86/vim-ripgrep",
-  "gpanders/editorconfig.nvim",
   "aklt/plantuml-syntax",
   "preservim/vim-markdown",
   "phaazon/hop.nvim",
@@ -150,58 +149,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   callback = function()
     vim.keymap.set("n", "p", "<CR>zz<C-w>p", { buffer = true })
     vim.keymap.set("n", "P", "<CR>zz<C-w>pj", { buffer = true })
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.gql", "*.graphql", "*.graphqls" },
-  callback = function()
-    for _, key in ipairs({ "m" }) do
-      vim.keymap.set(
-        "n",
-        key,
-        "/\\(\\(type\\)\\|\\(input\\)\\|\\(enum\\)\\|\\(scalar\\)\\) <C-r><C-w>[\\n| ]<CR>:nohl<CR>",
-        { buffer = true }
-      )
-    end
-    vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.tf", "*.hcl" },
-  callback = function()
-    vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.sql" },
-  callback = function()
-    vim.api.nvim_buf_set_option(0, "commentstring", "-- %s")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.prql" },
-  callback = function()
-    vim.api.nvim_buf_set_option(0, "commentstring", "# %s")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { ".clinerules" },
-  callback = function()
-    vim.api.nvim_exec("setlocal ft=markdown", false)
-    vim.api.nvim_exec("setlocal wrap", false)
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-  pattern = { "*.md" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.linebreak = false
   end,
 })
 
@@ -372,7 +319,7 @@ vim.keymap.set({ "n", "v" }, "<S-y>", '"+y')
 vim.keymap.set("n", "gr", ":%s/", { nowait = true })
 vim.keymap.set("n", "<Leader><Space>", fzf_lua.command_history)
 vim.keymap.set("n", "<Leader>wq", ":wq<CR>")
-vim.keymap.set({ "n", "v" }, "<Leader>/", ":CommentToggle<CR>")
+vim.keymap.set({ "n", "v" }, "<Leader>/", "gc")
 vim.keymap.set("n", "<Leader>x", fzf_lua.commands)
 vim.keymap.set("n", "Q", "@q") -- qq to record, Q to replay
 vim.keymap.set("n", "|", "x~f_")
@@ -532,7 +479,6 @@ require("lualine").setup({
     lualine_z = { "location" },
   },
 })
-require("nvim_comment").setup({ create_mappings = false })
 
 vim.lsp.handlers["textDocument/definition"] = function(err, result, method, ...)
   if not result then
