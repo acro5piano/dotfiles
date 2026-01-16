@@ -29,6 +29,7 @@ step_width = 5
 block = "battery"
 interval = 60
 if_command = "test -e /sys/class/power_supply/BAT*"
+empty_format = " $icon $percentage "
 
 [[block]]
 block = "custom"
