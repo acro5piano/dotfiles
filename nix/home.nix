@@ -184,8 +184,6 @@ in
     "nvim/lua".source = ../home/.config/nvim/lua;
     "nvim/snippets".source = ../home/.config/nvim/snippets;
     "nvim/.luarc.json".source = ../home/.config/nvim/.luarc.json;
-    # lazy-lock.json needs to be writable for lazy.nvim to update it
-    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home/.config/nvim/lazy-lock.json";
     "sway".source = ../home/.config/sway;
     "xremap".source = ../home/.config/xremap;
     "wireplumber".source = ../home/.config/wireplumber;

@@ -54,4 +54,7 @@ if [ ! -e ~/.local/bin/joplin ]; then
     chmod +x ~/.local/bin/joplin
 fi
 
+echo "==> Creating lazy-lock.json symlink..."
+ln -svf $PWD/home/.config/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
+
 echo "==> Done."
