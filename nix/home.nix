@@ -133,6 +133,7 @@ in
         pnpm = "latest";
         rust = "stable";
         "npm:@anthropic-ai/claude-code" = "2.0.59";
+        "npm:@openai/codex" = "latest";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
         "npm:typescript" = "latest";
