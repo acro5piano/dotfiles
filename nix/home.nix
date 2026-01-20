@@ -132,7 +132,7 @@ in
         node = ["24" "22"];
         pnpm = "latest";
         rust = "stable";
-        "npm:@anthropic-ai/claude-code" = "2.0.59";
+        "npm:@anthropic-ai/claude-code" = "latest";
         "npm:@openai/codex" = "latest";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
