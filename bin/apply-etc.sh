@@ -49,6 +49,7 @@ SYSTEM_PACKAGES=(
     fcitx5-gtk
     fcitx5-mozc
     fcitx5-configtool
+    mpv
 
     # Outdated x11 things
     xorg-xinit
