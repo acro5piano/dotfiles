@@ -103,13 +103,14 @@ keymap:
       Alt_R-Up: PageUp
       Alt_R-Down: PageDown
 
+      # Since we remap Tab to ESC, use C-i as Tab
+      C-i: { with_mark: Tab }
+      C-Shift-i: { with_mark: Shift-Tab }
+
   - name: Emacs-like keymap
     application:
       not: [Alacritty, float-term]
     remap:
-      # Since we remap Tab to ESC, use C-i as Tab
-      C-i: { with_mark: Tab }
-
       # Emacs navigation
       C-b: { with_mark: Left }
       C-f: { with_mark: Right }
