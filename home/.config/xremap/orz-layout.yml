@@ -114,6 +114,7 @@ keymap:
       C-b: { with_mark: Left }
       C-f: { with_mark: Right }
       C-p: { with_mark: Up }
+      C-Shift-n: C-Shift-n # Private window in browsers
       C-n: { with_mark: Down }
       C-a: { with_mark: home }
       C-e: { with_mark: End }
