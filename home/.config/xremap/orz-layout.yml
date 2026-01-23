@@ -146,9 +146,9 @@ keymap:
       C-Alt-s: C-f
       C-Alt-b: C-b
       C-Alt-n: C-n
-      C-Alt-c: Alt-n
-      C-Alt-k: Alt-k
-      C-Alt-j: Alt-j
+      # C-Alt-c: Alt-n
+      C-Alt-k: C-Alt-k
+      # C-Alt-j: Alt-j
 
       # OSX-like bindings
       Alt-c: C-c
