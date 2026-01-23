@@ -61,6 +61,7 @@ in
   home.packages = with pkgs; [
     # CLI tools
     acpi
+    ansible
     aider-chat
     bat
     delta
