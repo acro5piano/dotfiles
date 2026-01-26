@@ -66,7 +66,7 @@ require("lazy").setup({
     "chrisgrieser/nvim-early-retirement",
     config = function()
       require("early-retirement").setup({
-        retirementAgeMins = 10,
+        retirementAgeMins = 20,
       })
     end,
   },
