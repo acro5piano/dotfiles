@@ -140,6 +140,7 @@ in
         "npm:typescript" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
+        "npm:snyk" = "latest";
 
         python = "latest";
         # Python tools (from pip.yml)
