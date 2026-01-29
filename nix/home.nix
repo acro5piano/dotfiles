@@ -84,7 +84,7 @@ in
     zola
     zip
 
-    # Development tools (moved from pacman)
+    # Development tools
     gfortran
     git
     gnumake
@@ -100,7 +100,7 @@ in
     terraform
     tmux
 
-    # Fonts (from sway.yml)
+    # Fonts
     ipaexfont
     noto-fonts
     noto-fonts-color-emoji

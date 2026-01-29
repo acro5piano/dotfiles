@@ -19,15 +19,17 @@ SYSTEM_PACKAGES=(
     base
     base-devel
     brightnessctl
-    chromium
     curl
     ddcutil
-    fish
-    lynis
     ntp
     openssh
     vim
     wget
+
+    # Not core, but requires root or system-wide install
+    chromium
+    fish
+    lynis
 
     # Docker (daemon requires system integration)
     docker
