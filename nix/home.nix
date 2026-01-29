@@ -141,6 +141,7 @@ in
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
+        "npm:md-to-pdf" = "latest";
 
         python = "latest";
         uv = "latest";
