@@ -143,14 +143,15 @@ in
         "npm:snyk" = "latest";
 
         python = "latest";
-        # Python tools (from pip.yml)
         uv = "latest";
+        pipx = "latest";
         "pipx:awscli" = "latest";
         "pipx:ipython" = "latest";
         "pipx:iredis" = "latest";
         "pipx:litecli" = "latest";
         "pipx:mycli" = "latest";
         "pipx:virtualenv" = "latest";
+        "pipx:markitdown[all]" = "latest";
       };
     };
   };
