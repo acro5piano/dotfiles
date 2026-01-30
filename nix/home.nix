@@ -198,6 +198,39 @@ in
     '';
   };
 
+  xdg.desktopEntries.brave-browser-x11 = {
+    name = "Brave (X11)";
+    genericName = "Web Browser";
+    comment = "Access the Internet (X11 mode)";
+    exec = "brave --ozone-platform=x11 %U";
+    icon = "brave-desktop";
+    terminal = false;
+    categories = [ "Network" "WebBrowser" ];
+    startupNotify = true;
+    settings.StartupWMClass = "brave-browser";
+    mimeType = [ "text/html" "text/xml" "application/xhtml+xml" "x-scheme-handler/http" "x-scheme-handler/https" ];
+    actions = {
+      new-window = { name = "New Window"; exec = "brave --ozone-platform=x11"; };
+      new-private-window = { name = "New Incognito Window"; exec = "brave --ozone-platform=x11 --incognito"; };
+    };
+  };
+
+  xdg.desktopEntries.chromium-x11 = {
+    name = "Chromium (X11)";
+    genericName = "Web Browser";
+    comment = "Access the Internet (X11 mode)";
+    exec = "/usr/bin/chromium --ozone-platform=x11 %U";
+    icon = "chromium";
+    terminal = false;
+    categories = [ "Network" "WebBrowser" ];
+    startupNotify = true;
+    mimeType = [ "text/html" "text/xml" "application/xhtml+xml" "x-scheme-handler/http" "x-scheme-handler/https" ];
+    actions = {
+      new-window = { name = "New Window"; exec = "/usr/bin/chromium --ozone-platform=x11"; };
+      new-private-window = { name = "New Incognito Window"; exec = "/usr/bin/chromium --ozone-platform=x11 --incognito"; };
+    };
+  };
+
   xdg.desktopEntries.joplin = {
     name = "Joplin";
     exec = "${config.home.homeDirectory}/.local/bin/joplin";
