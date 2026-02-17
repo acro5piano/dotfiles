@@ -81,7 +81,6 @@ for_window [app_id="float-term"]  {
   floating enable
   resize set 300 80
   border pixel 2
-  sticky enable
   move absolute position 0 0
 }
 
