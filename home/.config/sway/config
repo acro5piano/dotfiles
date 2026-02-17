@@ -64,6 +64,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Delete reload
 bindsym $mod+o focus right
+bindsym $mod+f focus floating
 # mod+o is enough
 # bindsym $mod+i focus left
 bindsym $mod+Return exec $term
@@ -80,6 +81,8 @@ for_window [app_id="float-term"]  {
   floating enable
   resize set 300 80
   border pixel 2
+  sticky enable
+  move absolute position 0 0
 }
 
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
