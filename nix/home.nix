@@ -6,7 +6,7 @@ let
     version = "latest";
     src = pkgs.fetchurl {
       url = "https://github.com/acro5piano/toggl-cli-rs/releases/latest/download/toggl-cli-rs";
-      sha256 = "sha256-4nEzLWg1obU13nXmInIURdiOcWPkKN6KUUI/YJGwL58=";
+      sha256 = "sha256-EJYN+J0Q+FOheQKZ9iATyHEF6T3lVkNQ4ZvimOcDksc=";
     };
     dontUnpack = true;
     installPhase = ''
