@@ -133,7 +133,7 @@ in
         node = ["24" "22"];
         pnpm = "latest";
         rust = "stable";
-        "npm:@anthropic-ai/claude-code" = "latest";
+        "npm:@anthropic-ai/claude-code" = "2.1.59";
         "npm:@openai/codex" = "latest";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
@@ -142,6 +142,7 @@ in
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:md-to-pdf" = "latest";
+        "npm:openclaw" = "2026.3.7";
 
         python = "latest";
         uv = "latest";
