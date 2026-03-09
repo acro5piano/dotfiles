@@ -142,7 +142,6 @@ in
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:md-to-pdf" = "latest";
-        "npm:openclaw" = "2026.3.7";
 
         python = "latest";
         uv = "latest";
