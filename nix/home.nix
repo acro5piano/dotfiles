@@ -142,6 +142,7 @@ in
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:md-to-pdf" = "latest";
+        "npm:@googleworkspace/cli" = "latest";
 
         python = "latest";
         uv = "latest";
