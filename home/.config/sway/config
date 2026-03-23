@@ -141,7 +141,6 @@ exec sleep 1 && systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG
 exec sleep 2 && systemctl --user start xremap
 exec dunst &
 exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
-exec easyeffects &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
