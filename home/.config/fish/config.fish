@@ -230,9 +230,9 @@ end
 
 alias ..='cd ..'
 alias ,d='cd ~/.dotfiles; nvim'
-alias ,s='cd ~/.ssh; nvim .'
+alias ,s='cd ~/.ssh; nvim conf.d'
 alias ,w='cd ~/Downloads; nvim .'
-alias ,a='cd ~/ghq/github.com/acro5piano/daily-ai; nvim prompts'
+alias ,a='cd ~/ghq/github.com/acro5piano/daily-ai; nvim .'
 
 alias dc='docker-compose'
 alias grep='grep --color=auto'
