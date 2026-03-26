@@ -86,6 +86,7 @@ for_window [app_id="float-term"]  {
 
 bindsym Print exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
+bindsym $mod+F12 exec grim -| wl-copy
 
 bindsym $mod+y exec ~/.nix-profile/bin/clipman pick -t rofi -T'-i'
 
