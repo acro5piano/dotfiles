@@ -168,6 +168,7 @@ in
 
   # Dotfiles from link.sh
   home.file = {
+    "screenshots/.keep".text = "";
     "bin".source = ../home/bin;
     ".editorconfig".source = ../home/.editorconfig;
     ".gitconfig".source = ../home/.gitconfig;
