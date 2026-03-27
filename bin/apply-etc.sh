@@ -46,7 +46,9 @@ SYSTEM_PACKAGES=(
     sway
     wireplumber
     polkit
+    xdg-desktop-portal
     xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
     fcitx5
     fcitx5-gtk
     fcitx5-mozc
