@@ -183,46 +183,6 @@ function __fzf_history
     end
 end
 
-function __accept_autosuggestion_fix_case
-    commandline -f end-of-line
-    set -l cmd (commandline -b)
-    set -l tokens (string split ' ' -- $cmd)
-    if test (count $tokens) -lt 2
-        return
-    end
-    set -l last_token $tokens[-1]
-    set -l expanded (string replace '~' $HOME -- $last_token)
-    # If the path already exists with this case, nothing to fix
-    set -l check_path (string replace -r '/\$' '' -- $expanded)
-    if test -e $check_path
-        return
-    end
-    # Resolve: find the correct-cased path via the parent
-    set -l parent (dirname $check_path)
-    set -l base (basename $check_path)
-    if not test -d $parent
-        return
-    end
-    for entry in $parent/* $parent/.*
-        if string match -qi -- $base (basename $entry)
-            set -l fixed $entry
-            # Restore ~ prefix if original had it
-            if string match -q '~*' -- $last_token
-                set fixed (string replace $HOME '~' -- $fixed)
-            end
-            # Restore trailing slash if original had it
-            if string match -q '*/' -- $last_token
-                set fixed "$fixed/"
-            end
-            set tokens[-1] $fixed
-            commandline -r (string join ' ' -- $tokens)
-            return
-        end
-    end
-end
-
-bind \ce __accept_autosuggestion_fix_case
-
 bind \ew __copy_command
 bind \cr __fzf_history
 bind ctrl-alt-h backward-kill-word
