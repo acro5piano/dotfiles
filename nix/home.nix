@@ -152,6 +152,7 @@ in
         "pipx:iredis" = "latest";
         "pipx:litecli" = "latest";
         "pipx:mycli" = "latest";
+        "pipx:athenacli" = "latest";
         "pipx:virtualenv" = "latest";
         "pipx:markitdown[all]" = "latest";
       };
