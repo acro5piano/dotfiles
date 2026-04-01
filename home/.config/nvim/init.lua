@@ -39,7 +39,7 @@ require("lazy").setup({
   "phaazon/hop.nvim",
   "windwp/nvim-ts-autotag",
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  -- "nvim-treesitter/nvim-treesitter-textobjects",
+  { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
   "goolord/alpha-nvim",
   "lukas-reineke/cmp-rg",
   "gbprod/yanky.nvim",
