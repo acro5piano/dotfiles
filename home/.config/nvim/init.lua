@@ -39,7 +39,7 @@ require("lazy").setup({
   "phaazon/hop.nvim",
   "windwp/nvim-ts-autotag",
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  -- "nvim-treesitter/nvim-treesitter-textobjects",
   "goolord/alpha-nvim",
   "lukas-reineke/cmp-rg",
   "gbprod/yanky.nvim",
@@ -708,39 +708,30 @@ fzf_lua.setup({
 
 require("hop").setup()
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
   ensure_installed = "all",
   ignore_install = { "ipk", "ipkg" },
-  highlight = {
-    enable = true,
-    disable = function(lang)
-      local buf_name = vim.fn.expand("%")
-      if lang == "csv" or lang == "po" then
-        return true
-      end
-    end,
-  },
-  indent = { enable = true },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.outer",
-        ["as"] = "@scope",
-      },
-      selection_modes = {
-        ["@parameter.outer"] = "v", -- charwise
-        ["@function.outer"] = "V", -- linewise
-        ["@class.outer"] = "<c-v>", -- blockwise
-      },
-      include_surrounding_whitespace = true,
-    },
-  },
 })
+
+-- require("nvim-treesitter-textobjects").setup({
+--   select = {
+--     enable = true,
+--     lookahead = true,
+--     keymaps = {
+--       ["af"] = "@function.outer",
+--       ["if"] = "@function.inner",
+--       ["ac"] = "@class.outer",
+--       ["ic"] = "@class.outer",
+--       ["as"] = "@scope",
+--     },
+--     selection_modes = {
+--       ["@parameter.outer"] = "v", -- charwise
+--       ["@function.outer"] = "V", -- linewise
+--       ["@class.outer"] = "<c-v>", -- blockwise
+--     },
+--     include_surrounding_whitespace = true,
+--   },
+-- })
 
 require("nvim-ts-autotag").setup({})
 
