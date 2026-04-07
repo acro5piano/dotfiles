@@ -84,7 +84,7 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     config = function()
       require("kanagawa").setup({
-        -- compile = true, -- enable compiling the colorscheme
+        compile = true, -- enable compiling the colorscheme. Run ":KanagawaCompile" after code change
         commentStyle = { italic = true },
         functionStyle = { italic = false },
         keywordStyle = { italic = false },
