@@ -69,9 +69,17 @@ require("lazy").setup({
   },
 
   -- Themes
-  -- "folke/tokyonight.nvim",
   -- "marko-cerovac/material.nvim",
-
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   config = function()
+  --     require("tokyonight").setup({
+  --       transparent = true,
+  --       style = "storm",
+  --     })
+  --     vim.cmd("colorscheme tokyonight")
+  --   end,
+  -- },
   {
     "rebelot/kanagawa.nvim",
     config = function()
