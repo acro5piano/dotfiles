@@ -17,7 +17,6 @@ require("lazy").setup({
   -- { dir = "/home/kazuya/ghq/github.com/acro5piano/cmp-path-chdir" },
   "acro5piano/cmp-path-chdir",
 
-  -- "wbthomason/packer.nvim",
   "ibhagwan/fzf-lua",
   "kyazdani42/nvim-web-devicons",
   "terrortylor/nvim-comment",
@@ -38,7 +37,6 @@ require("lazy").setup({
   "preservim/vim-markdown",
   "phaazon/hop.nvim",
   "windwp/nvim-ts-autotag",
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "goolord/alpha-nvim",
   "lukas-reineke/cmp-rg",
   "gbprod/yanky.nvim",
@@ -72,21 +70,25 @@ require("lazy").setup({
 
   -- Themes
   -- "folke/tokyonight.nvim",
-  "marko-cerovac/material.nvim",
+  -- "marko-cerovac/material.nvim",
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+      require("rose-pine").setup({
+        variant = "main",
+        styles = {
+          bold = true,
+          italic = false,
+          transparency = true,
+        },
+      })
+    end,
+  },
 })
 
 local my_util = require("my-util")
-
--- vim.g.material_style = "palenight"
-require("material").setup({
-  plugins = {
-    "nvim-cmp",
-  },
-  disable = {
-    background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-  },
-})
-vim.cmd("colorscheme material")
 
 vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
@@ -718,11 +720,6 @@ fzf_lua.setup({
 })
 
 require("hop").setup()
-
-require("nvim-treesitter").setup({
-  ensure_installed = "all",
-  ignore_install = { "ipk", "ipkg" },
-})
 
 require("nvim-ts-autotag").setup({})
 
