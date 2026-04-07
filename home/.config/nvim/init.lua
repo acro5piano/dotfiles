@@ -71,10 +71,22 @@ require("lazy").setup({
   },
 
   -- Themes
-  "folke/tokyonight.nvim",
+  -- "folke/tokyonight.nvim",
+  "marko-cerovac/material.nvim",
 })
 
 local my_util = require("my-util")
+
+-- vim.g.material_style = "palenight"
+require("material").setup({
+  plugins = {
+    "nvim-cmp",
+  },
+  disable = {
+    background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+  },
+})
+vim.cmd("colorscheme material")
 
 vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
@@ -99,11 +111,11 @@ vim.o.autochdir = false
 
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 
-require("tokyonight").setup({
-  transparent = true,
-  style = "moon",
-})
-vim.cmd("colorscheme tokyonight")
+-- require("tokyonight").setup({
+--   transparent = true,
+--   style = "moon",
+-- })
+-- vim.cmd("colorscheme tokyonight")
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
