@@ -71,19 +71,23 @@ require("lazy").setup({
   -- Themes
   -- "folke/tokyonight.nvim",
   -- "marko-cerovac/material.nvim",
+
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "rebelot/kanagawa.nvim",
     config = function()
-      vim.cmd("colorscheme rose-pine")
-      require("rose-pine").setup({
-        variant = "main",
-        styles = {
-          bold = true,
-          italic = false,
-          transparency = true,
+      require("kanagawa").setup({
+        -- compile = true, -- enable compiling the colorscheme
+        commentStyle = { italic = true },
+        functionStyle = { italic = false },
+        keywordStyle = { italic = false },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = true,
+        colors = {
+          theme = { all = { ui = { bg_gutter = "none" } } },
         },
       })
+      vim.cmd("colorscheme kanagawa")
     end,
   },
 })
