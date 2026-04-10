@@ -117,7 +117,8 @@ in
     grim
     i3status-rust
     lxqt.pavucontrol-qt
-    pcmanfm
+    xfce.thunar
+    xfce.tumbler
     rofi
     slurp
     swaybg
