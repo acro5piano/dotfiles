@@ -272,7 +272,7 @@ require("nvim-format-buffer").setup({
   format_rules = {
     { pattern = { "*.lua" }, command = "stylua -" },
     { pattern = { "*.py" }, command = "ruff format - | isort -" },
-    { pattern = { "*.rs" }, command = "rustfmt --edition 2021" },
+    { pattern = { "*.rs" }, command = "rustfmt --edition 2024" },
     { pattern = { "*.sql" }, command = "sql-formatter" }, -- requires `npm -g i sql-formatter`
     { pattern = { "*.tf" }, command = "terraform fmt -" },
     { pattern = { ".clinerules" }, command = "prettier --parser markdown" },
