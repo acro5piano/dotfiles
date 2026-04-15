@@ -34,6 +34,10 @@ while True:
         result = eval(expr)
         last_result = result
 
+        # Drop .0 for clean integer results (e.g. 10.0 -> 10)
+        if isinstance(result, float) and result == int(result):
+            result = int(result)
+
         color = RED if isinstance(result, (int, float)) and result < 0 else GREEN
         print(f"{color}{result:,}{RESET}")
     except KeyboardInterrupt:
