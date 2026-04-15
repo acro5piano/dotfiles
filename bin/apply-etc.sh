@@ -54,6 +54,8 @@ SYSTEM_PACKAGES=(
     fcitx5-mozc
     fcitx5-configtool
     mpv
+    thunar
+    tumbler
 
     # Outdated x11 things
     xorg-xinit
