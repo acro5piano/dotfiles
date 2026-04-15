@@ -263,7 +263,14 @@ alias ai='aider --model anthropic/claude-sonnet-4-20250514'
 alias aio='aider --model gpt-4.1'
 alias aic='aider --model gpt-4.1-mini --commit'
 alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
-alias tp='t start-timer -n moncargo -d (wl-paste)'
+# Start toggl timer with clipboard, then save in the shell history (selectable with `tl`)
+function tp
+    set -l clip (wl-paste)
+    set -l cmd "t start-timer -n moncargo -d '$clip'"
+    builtin history merge
+    builtin history add -- $cmd
+    eval $cmd
+end
 
 set TTY (tty)
 
