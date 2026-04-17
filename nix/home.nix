@@ -132,15 +132,14 @@ in
         node = ["24" "22"];
         pnpm = "latest";
         rust = "stable";
-        "npm:@anthropic-ai/claude-code" = "2.1.92";
-        "npm:@openai/codex" = "latest";
+        "npm:@anthropic-ai/claude-code" = "2.1.112";
+        "npm:@openai/codex" = "0.121.0";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
         "npm:typescript" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
-        "npm:md-to-pdf" = "latest";
         "npm:@googleworkspace/cli" = "latest";
 
         python = "latest";
