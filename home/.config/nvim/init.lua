@@ -159,29 +159,29 @@ require("lazy").setup({
   },
 
   -- Themes
-  {
-    "marko-cerovac/material.nvim",
-    config = function()
-      require("material").setup({
-        disable = {
-          background = true,
-        },
-      })
-      vim.g.material_style = "deep ocean"
-      vim.cmd("colorscheme material")
-    end,
-  },
-
   -- {
-  --   "folke/tokyonight.nvim",
+  --   "marko-cerovac/material.nvim",
   --   config = function()
-  --     require("tokyonight").setup({
-  --       transparent = true,
-  --       style = "storm",
+  --     require("material").setup({
+  --       disable = {
+  --         background = true,
+  --       },
   --     })
-  --     vim.cmd("colorscheme tokyonight")
+  --     vim.g.material_style = "deep ocean"
+  --     vim.cmd("colorscheme material")
   --   end,
   -- },
+
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      require("tokyonight").setup({
+        transparent = true,
+        style = "storm",
+      })
+      vim.cmd("colorscheme tokyonight")
+    end,
+  },
 
   -- {
   --   "rebelot/kanagawa.nvim",
