@@ -101,6 +101,7 @@ in
     stylua
     terraform
     tmux
+    tree-sitter
 
     # Fonts
     ipaexfont
@@ -165,6 +166,8 @@ in
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
   };
 
   # Dotfiles from link.sh

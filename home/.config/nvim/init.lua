@@ -60,6 +60,98 @@ require("lazy").setup({
   },
 
   {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = function()
+      require("nvim-treesitter").update()
+    end,
+    config = function()
+      local ts = require("nvim-treesitter")
+      ts.setup({
+        install_dir = vim.fn.stdpath("data") .. "/site",
+      })
+
+      ts.install({
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "regex",
+        "typescript",
+        "tsx",
+        "javascript",
+        "jsdoc",
+        "graphql",
+        "rust",
+        "ron",
+        "toml",
+        "nix",
+        "bash",
+        "fish",
+        "dockerfile",
+        "json",
+        "jsonc",
+        "yaml",
+        "html",
+        "css",
+        "scss",
+        "markdown",
+        "markdown_inline",
+        "sql",
+        "gitcommit",
+        "gitignore",
+        "git_config",
+        "gitattributes",
+        "diff",
+      })
+
+      local filetypes = {
+        "lua",
+        "vim",
+        "help",
+        "query",
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "graphql",
+        "rust",
+        "toml",
+        "nix",
+        "bash",
+        "fish",
+        "sh",
+        "zsh",
+        "json",
+        "jsonc",
+        "yaml",
+        "html",
+        "css",
+        "scss",
+        "markdown",
+        "dockerfile",
+        "gitcommit",
+        "gitconfig",
+        "gitignore",
+        "diff",
+        "sql",
+      }
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = filetypes,
+        callback = function(args)
+          pcall(vim.treesitter.start)
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          vim.wo.foldmethod = "expr"
+          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          vim.wo.foldenable = false
+        end,
+      })
+    end,
+  },
+
+  {
     "chrisgrieser/nvim-early-retirement",
     config = function()
       require("early-retirement").setup({
@@ -69,7 +161,19 @@ require("lazy").setup({
   },
 
   -- Themes
-  -- "marko-cerovac/material.nvim",
+  {
+    "marko-cerovac/material.nvim",
+    config = function()
+      require("material").setup({
+        disable = {
+          background = true,
+        },
+      })
+      vim.g.material_style = "deep ocean"
+      vim.cmd("colorscheme material")
+    end,
+  },
+
   -- {
   --   "folke/tokyonight.nvim",
   --   config = function()
@@ -80,24 +184,25 @@ require("lazy").setup({
   --     vim.cmd("colorscheme tokyonight")
   --   end,
   -- },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        compile = true, -- enable compiling the colorscheme. Run ":KanagawaCompile" after code change
-        commentStyle = { italic = true },
-        functionStyle = { italic = false },
-        keywordStyle = { italic = false },
-        statementStyle = { bold = true },
-        typeStyle = {},
-        transparent = true,
-        colors = {
-          theme = { all = { ui = { bg_gutter = "none" } } },
-        },
-      })
-      vim.cmd("colorscheme kanagawa")
-    end,
-  },
+
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     require("kanagawa").setup({
+  --       compile = true, -- enable compiling the colorscheme. Run ":KanagawaCompile" after code change
+  --       commentStyle = { italic = true },
+  --       functionStyle = { italic = false },
+  --       keywordStyle = { italic = false },
+  --       statementStyle = { bold = true },
+  --       typeStyle = {},
+  --       transparent = true,
+  --       colors = {
+  --         theme = { all = { ui = { bg_gutter = "none" } } },
+  --       },
+  --     })
+  --     vim.cmd("colorscheme kanagawa")
+  --   end,
+  -- },
 })
 
 local my_util = require("my-util")
