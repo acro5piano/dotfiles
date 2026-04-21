@@ -47,6 +47,8 @@ let
     '';
   };
 
+  dotfiles = "${config.home.homeDirectory}/.dotfiles/home";
+  link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
 
 in
 {
@@ -168,32 +170,32 @@ in
   # Dotfiles from link.sh
   home.file = {
     "screenshots/.keep".text = "";
-    "bin".source = ../home/bin;
-    ".editorconfig".source = ../home/.editorconfig;
-    ".gitconfig".source = ../home/.gitconfig;
-    "prettier.config.js".source = ../home/prettier.config.js;
-    ".ripgreprc".source = ../home/.ripgreprc;
-    ".tmux.conf".source = ../home/.tmux.conf;
-    ".emacs.d".source = ../home/.emacs.d;
-    ".aider.conf.yml".source = ../home/.aider.conf.yml;
+    "bin".source = link "bin";
+    ".editorconfig".source = link ".editorconfig";
+    ".gitconfig".source = link ".gitconfig";
+    "prettier.config.js".source = link "prettier.config.js";
+    ".ripgreprc".source = link ".ripgreprc";
+    ".tmux.conf".source = link ".tmux.conf";
+    ".emacs.d".source = link ".emacs.d";
+    ".aider.conf.yml".source = link ".aider.conf.yml";
   };
 
   xdg.configFile = {
-    "alacritty".source = ../home/.config/alacritty;
-    "fish/conf.d/wi.fish".source = ../home/.config/fish/conf.d/wi.fish;
-    "fish/config.fish".source = ../home/.config/fish/config.fish;
-    "gh/config.yml".source = ../home/.config/gh/config.yml;
-    "i3status-rust".source = ../home/.config/i3status-rust;
-    "mimeapps.list".source = ../home/.config/mimeapps.list;
-    "joplin-desktop/userchrome.css".source = ../home/.config/joplin-desktop/userchrome.css;
-    "nvim/init.lua".source = ../home/.config/nvim/init.lua;
-    "nvim/lua".source = ../home/.config/nvim/lua;
-    "nvim/snippets".source = ../home/.config/nvim/snippets;
-    "nvim/.luarc.json".source = ../home/.config/nvim/.luarc.json;
-    "sway".source = ../home/.config/sway;
-    "xremap".source = ../home/.config/xremap;
-    "wireplumber".source = ../home/.config/wireplumber;
-    "pipewire/pipewire.conf.d".source = ../home/.config/pipewire/pipewire.conf.d;
+    "alacritty".source = link ".config/alacritty";
+    "fish/conf.d/wi.fish".source = link ".config/fish/conf.d/wi.fish";
+    "fish/config.fish".source = link ".config/fish/config.fish";
+    "gh/config.yml".source = link ".config/gh/config.yml";
+    "i3status-rust".source = link ".config/i3status-rust";
+    "mimeapps.list".source = link ".config/mimeapps.list";
+    "joplin-desktop/userchrome.css".source = link ".config/joplin-desktop/userchrome.css";
+    "nvim/init.lua".source = link ".config/nvim/init.lua";
+    "nvim/lua".source = link ".config/nvim/lua";
+    "nvim/snippets".source = link ".config/nvim/snippets";
+    "nvim/.luarc.json".source = link ".config/nvim/.luarc.json";
+    "sway".source = link ".config/sway";
+    "xremap".source = link ".config/xremap";
+    "wireplumber".source = link ".config/wireplumber";
+    "pipewire/pipewire.conf.d".source = link ".config/pipewire/pipewire.conf.d";
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
     '';
