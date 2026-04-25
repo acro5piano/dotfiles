@@ -302,3 +302,6 @@ if [ -e ~/ghq/github.com/acro5piano/daily-ai/config.fish ]
 end
 
 ~/.nix-profile/bin/mise activate fish | source
+
+# opencode
+fish_add_path /home/kazuya/.opencode/bin
