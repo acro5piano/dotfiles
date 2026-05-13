@@ -9,6 +9,10 @@ format = "$title.str(max_w:80) |"
 
 [[block]]
 block = "disk_space"
+info_type = "available"
+alert_unit = "GB"
+warning = 20
+alert = 10
 
 [[block]]
 block = "memory"

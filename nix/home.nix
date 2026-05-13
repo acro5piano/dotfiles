@@ -135,8 +135,8 @@ in
         node = ["24" "22"];
         pnpm = "latest";
         rust = "stable";
-        "npm:@anthropic-ai/claude-code" = "2.1.112";
-        "npm:@openai/codex" = "0.121.0";
+        "npm:@anthropic-ai/claude-code" = "2.1.140";
+        "npm:@openai/codex" = "0.130.0";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
         "npm:typescript" = "latest";
