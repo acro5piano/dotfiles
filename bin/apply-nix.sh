@@ -47,6 +47,7 @@ for repo in "${repos[@]}"; do
     fi
 done
 
+# Managing joplin with Nix makes filesystem trouble, so we use simple curl script here
 if [ ! -e ~/.local/bin/joplin ]; then
     echo "==> Installing joplin noteapp custom fork..."
     mkdir -p ~/.local/bin
