@@ -64,7 +64,6 @@ in
     # CLI tools
     acpi
     ansible
-    aider-chat
     bat
     delta
     dnsutils
@@ -180,7 +179,6 @@ in
     ".ripgreprc".source = link ".ripgreprc";
     ".tmux.conf".source = link ".tmux.conf";
     ".emacs.d".source = link ".emacs.d";
-    ".aider.conf.yml".source = link ".aider.conf.yml";
   };
 
   xdg.configFile = {
