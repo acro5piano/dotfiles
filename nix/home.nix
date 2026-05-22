@@ -101,6 +101,7 @@ in
     terraform
     tmux
     tree-sitter
+    csvlens
 
     # Fonts
     ipaexfont
