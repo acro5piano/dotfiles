@@ -267,6 +267,7 @@ alias restart-xremap="killall xremap && nohup xremap ~/.xremap 2>&1 > /tmp/xrema
 alias feh="feh --scale-down --offset +0+0 --image-bg black"
 alias pn="pnpm"
 alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles/spotify.txt | fzf | cut -d" " -f1)'
+alias o='opencode'
 
 set TTY (tty)
 
