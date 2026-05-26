@@ -143,7 +143,7 @@ in
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
-        "npm:@googleworkspace/cli" = "latest";
+        "npm:opencode-ai" = "1.15.10";
 
         python = "latest";
         uv = "latest";
