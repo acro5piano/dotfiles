@@ -144,6 +144,7 @@ in
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:opencode-ai" = "1.15.10";
+        "npm:@earendil-works/pi-coding-agent" = "0.75.5";
 
         python = "latest";
         uv = "latest";
