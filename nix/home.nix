@@ -198,6 +198,7 @@ in
     "xremap".source = link ".config/xremap";
     "wireplumber".source = link ".config/wireplumber";
     "pipewire/pipewire.conf.d".source = link ".config/pipewire/pipewire.conf.d";
+    "opencode/tui.json".source = link ".config/opencode/tui.json";
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
     '';

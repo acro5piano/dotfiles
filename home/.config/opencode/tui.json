@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "command_list": "ctrl+shift+p",
+    "input_move_up": "ctrl+p",
+    "input_move_down": "ctrl+n"
+  }
+}
