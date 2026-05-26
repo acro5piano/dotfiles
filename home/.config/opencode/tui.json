@@ -3,6 +3,7 @@
   "keybinds": {
     "command_list": "ctrl+space",
     "input_move_up": "ctrl+p",
-    "input_move_down": "ctrl+n"
+    "input_move_down": "ctrl+n",
+    "input_delete_word_backward": "ctrl+w,ctrl+backspace,alt+backspace,ctrl+alt+h"
   }
 }
