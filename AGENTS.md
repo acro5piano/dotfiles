@@ -1,7 +1,3 @@
-# AGENTS.md
-
-> Highest-priority guidance for OpenCode sessions in this repo.
-
 ## Quick Reference
 
 ### Nix + mise (critical)
