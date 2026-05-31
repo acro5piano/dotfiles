@@ -134,7 +134,7 @@ in
       tools = {
         node = ["24" "22"];
         rust = "stable";
-        "npm:pnpm" = "latest"; # To prevent mise ERROR Failed to install aqua:pnpm/pnpm@latest: no asset found: pnpm-linux-x64
+        "npm:pnpm" = "10.34.1"; # To prevent mise ERROR Failed to install aqua:pnpm/pnpm@latest: no asset found: pnpm-linux-x64
         "npm:@anthropic-ai/claude-code" = "2.1.158";
         "npm:@openai/codex" = "0.130.0";
         "npm:prettier" = "latest";
