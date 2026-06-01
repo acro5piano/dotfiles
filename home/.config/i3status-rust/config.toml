@@ -37,9 +37,9 @@ empty_format = " $icon $percentage "
 
 [[block]]
 block = "custom"
-command = "show-toggle-timer"
-interval = 60
-format = " $text |"
+command = "toggl view-timer 2>/dev/null | grep -oP 'description: \"\\K[^\"]+' | sed 's/^./🈺 &/'"
+interval = 180
+format = " $text.str(max_w:64) |"
 
 [[block]]
 block = "pomodoro"
