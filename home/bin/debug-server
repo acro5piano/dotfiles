@@ -1,0 +1,38 @@
+#!/usr/bin/env bun
+
+// Throwaway HTTP server that logs each request (time, method, url, headers,
+// body) in human-readable form. JSON bodies are pretty-printed.
+//
+// Usage: debug-server [port]   (default 8080)
+
+const port = Number(Bun.argv[2] ?? 8080)
+
+Bun.serve({
+  port,
+  hostname: "0.0.0.0",
+  async fetch(req) {
+    const url = new URL(req.url)
+    const body = await req.text()
+    const time = new Date().toLocaleTimeString()
+
+    console.log(`\n=== ${time}  ${req.method} ${url.pathname}${url.search} ===`)
+    for (const [k, v] of req.headers) console.log(`${k}: ${v}`)
+
+    if (body) {
+      const ct = req.headers.get("content-type") ?? ""
+      try {
+        if (ct.includes("json")) {
+          console.log("\n" + JSON.stringify(JSON.parse(body), null, 2))
+        } else {
+          console.log("\n" + body)
+        }
+      } catch {
+        console.log("\n" + body)
+      }
+    }
+
+    return new Response("ok")
+  },
+})
+
+console.log(`debug server on http://0.0.0.0:${port}`)
