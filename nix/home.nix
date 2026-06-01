@@ -1,52 +1,6 @@
 { config, pkgs, username, ... }:
 
 let
-  toggl-cli = pkgs.stdenv.mkDerivation rec {
-    pname = "toggl-cli";
-    version = "latest";
-    src = pkgs.fetchurl {
-      url = "https://github.com/acro5piano/toggl-cli-rs/releases/latest/download/toggl-cli-rs";
-      sha256 = "sha256-EJYN+J0Q+FOheQKZ9iATyHEF6T3lVkNQ4ZvimOcDksc=";
-    };
-    dontUnpack = true;
-    installPhase = ''
-      mkdir -p $out/bin
-      cp $src $out/bin/toggl
-      chmod +x $out/bin/toggl
-    '';
-  };
-
-  clipman = pkgs.stdenv.mkDerivation rec {
-    pname = "clipman";
-    version = "1.6.2";
-    src = pkgs.fetchurl {
-      url = "https://github.com/acro5piano/clipman/releases/download/${version}/clipman";
-      sha256 = "sha256-v6jg+07JxYGFqSWQiQYN1hDseoQfc7H8gtcNF1DB5so=";
-    };
-    dontUnpack = true;
-    installPhase = ''
-      mkdir -p $out/bin
-      cp $src $out/bin/clipman
-      chmod +x $out/bin/clipman
-    '';
-  };
-
-  xremap = pkgs.stdenv.mkDerivation rec {
-    pname = "xremap";
-    version = "v0.14.8";
-    src = pkgs.fetchurl {
-      url = "https://github.com/xremap/xremap/releases/download/${version}/xremap-linux-x86_64-wlroots.zip";
-      sha256 = "sha256-1AXd6bxmxX9D4jwK7j2gOw6Tj6lYZRezpKOAp1eQktU=";
-    };
-    nativeBuildInputs = [ pkgs.unzip ];
-    sourceRoot = ".";
-    installPhase = ''
-      mkdir -p $out/bin
-      cp xremap $out/bin/xremap
-      chmod +x $out/bin/xremap
-    '';
-  };
-
   dotfiles = "${config.home.homeDirectory}/.dotfiles/home";
   link = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${path}";
 
@@ -81,7 +35,6 @@ in
     tree
     unzip
     xh
-    xremap
     zola
     zip
 
@@ -111,10 +64,8 @@ in
 
     # Desktop apps
     audacity
-    clipman
     google-cloud-sdk
     libnotify
-    toggl-cli
     dunst
     feh
     grim
@@ -143,7 +94,6 @@ in
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
-        "npm:opencode-ai" = "1.15.12";
         "npm:@earendil-works/pi-coding-agent" = "0.75.5";
 
         python = "latest";
@@ -156,7 +106,31 @@ in
         "pipx:mycli" = "latest";
         "pipx:athenacli" = "latest";
         "pipx:virtualenv" = "latest";
-        "pipx:markitdown[all]" = "latest";
+
+        "http:pinact" = {
+          version = "4.0.0";
+          url = "https://github.com/suzuki-shunsuke/pinact/releases/download/v4.0.0/pinact_linux_amd64.tar.gz";
+          sha256 = "f8ce19b1f85c9754482e1e95d6344727a99d0362cb53860c688b540183034623";
+        };
+
+        "http:toggl" = {
+          version = "0.1.6";
+          url = "https://github.com/acro5piano/toggl-cli-rs/releases/download/v0.1.6/toggl-cli-rs";
+          sha256 = "10960df89d10f853a1790299f62013c87105e93de5564350e19be298e70392c7";
+          bin = "toggl";
+        };
+
+        "http:clipman" = {
+          version = "1.6.2";
+          url = "https://github.com/acro5piano/clipman/releases/download/1.6.2/clipman";
+          sha256 = "bfa8e0fb4ec9c58185a9259089060dd610ec7a841f73b1fc82d70d1750c1e6ca";
+        };
+
+        "http:xremap" = {
+          version = "0.14.8";
+          url = "https://github.com/xremap/xremap/releases/download/v0.14.8/xremap-linux-x86_64-wlroots.zip";
+          sha256 = "d405dde9bc66c57f43e23c0aee3da03b0e938fa9586517b3a4a380a7579092d5";
+        };
       };
     };
   };
@@ -256,7 +230,7 @@ in
     };
     Service = {
       Type = "simple";
-      ExecStart = "${xremap}/bin/xremap %h/.config/xremap/orz-layout.yml --watch";
+      ExecStart = "%h/.local/share/mise/shims/xremap %h/.config/xremap/orz-layout.yml --watch";
       Restart = "always";
       RestartSec = 3;
     };
