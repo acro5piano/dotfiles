@@ -87,7 +87,7 @@ for_window [app_id="float-term"]  {
 bindsym $mod+s exec grim -g "$(slurp)" -| wl-copy
 bindsym $mod+F12 exec grim ~/screenshots/$(date +%Y%m%d_%H%M%S).png && grim -| wl-copy
 
-bindsym $mod+y exec ~/.nix-profile/bin/clipman pick -t rofi -T'-i'
+bindsym $mod+y exec ~/.local/share/mise/shims/clipman pick -t rofi -T'-i'
 
 mode "resize" {
     bindsym j resize shrink width 30px
@@ -139,7 +139,7 @@ exec start-fcitx &
 exec sleep 1 && systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP && systemctl --user start graphical-session.target
 exec sleep 2 && systemctl --user start xremap
 exec dunst &
-exec wl-paste -t text --watch ~/.nix-profile/bin/clipman store --max-items=50 --no-persist &
+exec wl-paste -t text --watch ~/.local/share/mise/shims/clipman store --max-items=50 --no-persist &
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
