@@ -21,7 +21,7 @@
     show-merge = !git diff $(git show | grep Merge | head -1 | awk '{print $2"..."$3}')
 
 [push]
-	default = matching
+	default = current
 [core]
 	quotepath = false
   pager = delta
