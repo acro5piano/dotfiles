@@ -19,12 +19,15 @@ in
     acpi
     ansible
     bat
+    csvlens
     delta
     dnsutils
     fd
     fzf
     gh
     ghostscript
+    google-cloud-sdk
+    htmlq
     imagemagick
     jq
     paru
@@ -35,8 +38,8 @@ in
     tree
     unzip
     xh
-    zola
     zip
+    zola
 
     # Development tools
     gfortran
@@ -54,7 +57,6 @@ in
     terraform
     tmux
     tree-sitter
-    csvlens
 
     # Fonts
     ipaexfont
@@ -64,12 +66,11 @@ in
 
     # Desktop apps
     audacity
-    google-cloud-sdk
-    libnotify
     dunst
     feh
     grim
     i3status-rust
+    libnotify
     lxqt.pavucontrol-qt
     rofi
     slurp
