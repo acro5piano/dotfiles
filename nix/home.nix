@@ -96,6 +96,7 @@ in
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:@earendil-works/pi-coding-agent" = "0.75.5";
+        "npm:opencode-ai" = "1.17.8";
 
         python = "latest";
         uv = "latest";
@@ -156,6 +157,7 @@ in
     ".ripgreprc".source = link ".ripgreprc";
     ".tmux.conf".source = link ".tmux.conf";
     ".emacs.d".source = link ".emacs.d";
+    ".pi/agent/keybindings.json".source = link ".pi/agent/keybindings.json";
   };
 
   xdg.configFile = {
