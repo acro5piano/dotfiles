@@ -20,10 +20,10 @@ if [ ! -e "$SRC" ]; then
 fi
 
 for f in "$SRC"/*.MP4; do
-  month=$(date -r "$f" +%Y%m)
+  datedir=$(date -r "$f" +%Y/%m/%d)
   timestamp=$(date -r "$f" +%Y%m%d-%H%M%S)
-  out="$DST/$month/${timestamp}.mp4"
-  mkdir -p "$DST/$month"
+  out="$DST/$datedir/${timestamp}.mp4"
+  mkdir -p "$DST/$datedir"
 
   if [ -f "$out" ]; then
     echo "SKIP (exists): $out"
