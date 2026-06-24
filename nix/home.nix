@@ -27,6 +27,7 @@ in
     gh
     ghostscript
     google-cloud-sdk
+    gost
     htmlq
     imagemagick
     jq
