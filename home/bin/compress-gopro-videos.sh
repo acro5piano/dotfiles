@@ -12,6 +12,8 @@ elif [ -e /dev/mmcblk0p1 ]; then
     sudo mount -o uid=1000,gid=1000 /dev/mmcblk0p1 /mnt
 elif [ -e /dev/sda1 ]; then
     sudo mount -o uid=1000,gid=1000 /dev/sda1 /mnt
+elif [ -e /dev/sdb1 ]; then
+    sudo mount -o uid=1000,gid=1000 /dev/sda1 /mnt
 fi
 
 if [ ! -e "$SRC" ]; then
