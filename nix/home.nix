@@ -134,6 +134,11 @@ in
           url = "https://github.com/xremap/xremap/releases/download/v0.14.8/xremap-linux-x86_64-wlroots.zip";
           sha256 = "d405dde9bc66c57f43e23c0aee3da03b0e938fa9586517b3a4a380a7579092d5";
         };
+
+        "http:gitleaks" = {
+          version = "8.30.1";
+          url = "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz";
+        };
       };
     };
   };
