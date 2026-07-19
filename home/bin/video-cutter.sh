@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Usage:
+#   video-cutter.sh /mnt/DCIM/100GOPRO/GX010499.MP4 8:53 9:03
+
 set -euo pipefail
 
 file=$1
