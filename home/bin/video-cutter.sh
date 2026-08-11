@@ -9,7 +9,7 @@ file=$1
 start=$2
 end=$3
 
-output="${file%.*}-sliced.mp4"
+output="${file%.*}-slice-${start}-${end}.mp4"
 
 ffmpeg \
   -ss "$start" \
