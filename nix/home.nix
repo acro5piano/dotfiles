@@ -169,6 +169,7 @@ in
   xdg.configFile = {
     "alacritty".source = link ".config/alacritty";
     "fish/conf.d/wi.fish".source = link ".config/fish/conf.d/wi.fish";
+    "fish/conf.d/cc-sessions.fish".source = link ".config/fish/conf.d/cc-sessions.fish";
     "fish/config.fish".source = link ".config/fish/config.fish";
     "gh/config.yml".source = link ".config/gh/config.yml";
     "i3status-rust".source = link ".config/i3status-rust";
@@ -185,6 +186,7 @@ in
     "opencode/tui.json".source = link ".config/opencode/tui.json";
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
+        file:///mnt/DCIM/100GOPRO
     '';
   };
 

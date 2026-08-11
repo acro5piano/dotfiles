@@ -4,3 +4,4 @@ fish_variables
 fishfile
 conf.d/*
 !conf.d/wi.fish
+!conf.d/cc-sessions.fish
