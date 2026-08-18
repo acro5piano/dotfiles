@@ -42,11 +42,6 @@ interval = 180
 format = " $text.str(max_w:64) |"
 
 [[block]]
-block = "pomodoro"
-notify_cmd = "notify-send '{msg}'"
-blocking_cmd = false
-
-[[block]]
 block = "time"
 interval = 30
 format = " $icon $timestamp.datetime(f:'%a, %Y/%m/%d %R') "
