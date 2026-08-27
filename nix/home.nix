@@ -14,70 +14,14 @@ in
   programs.home-manager.enable = true;
 
   # User-level packages
+  #
+  # Policy (see AGENTS.md): anything the Arch repos or the AUR carry is
+  # installed with pacman/paru via bin/packages.sh. Nix is for configuration
+  # (home.file / xdg.* / systemd.user below) plus the tail Arch does not
+  # package at all. Keep this list small on purpose.
   home.packages = with pkgs; [
-    # CLI tools
-    acpi
-    ansible
-    bat
-    csvlens
-    delta
-    dnsutils
-    fd
-    fzf
-    gh
-    ghostscript
-    google-cloud-sdk
-    gost
-    htmlq
-    imagemagick
-    jq
-    paru
-    pgcli
-    ripgrep
-    rsync
-    transcrypt
-    tree
-    unzip
-    xh
-    zip
-    zola
-
-    # Development tools
-    gfortran
-    git
-    gnumake
-    lapack
-    lua
-    lua-language-server
-    lynis
-    openssl
-    postgresql
-    ruff
-    rust-analyzer
-    stylua
-    terraform
-    tmux
-    tree-sitter
-
-    # Fonts
-    ipaexfont
-    noto-fonts
-    noto-fonts-color-emoji
-    source-code-pro
-
-    # Desktop apps
-    audacity
-    dunst
-    feh
-    grim
-    i3status-rust
-    libnotify
-    lxqt.pavucontrol-qt
-    rofi
-    slurp
-    swaybg
-    tigervnc
-    wl-clipboard
+    google-cloud-sdk # AUR only, and the AUR package is a slow source build
+    transcrypt # AUR only
   ];
 
   # mise (runtime version manager)
