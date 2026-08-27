@@ -30,6 +30,7 @@ SYSTEM_PACKAGES=(
     chromium
     fish
     lynis
+    libmtp gvfs-mtp # To copy files from Android
 
     # Docker (daemon requires system integration)
     docker
@@ -54,7 +55,7 @@ SYSTEM_PACKAGES=(
     fcitx5-mozc
     fcitx5-configtool
     mpv
-    thunar
+    thunar thunar-volman
     tumbler
 
     # Outdated x11 things
