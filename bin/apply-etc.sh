@@ -4,67 +4,18 @@
 # This is impossible using nix because I'm using arch linux rather than NixOS
 set -euo pipefail
 
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
+source "$DOTFILES_DIR/bin/packages.sh"
+
 # ==============================================================================
-# System packages (pacman)
-# These require root or system-level integration
+# Packages (pacman)
 # ==============================================================================
 
 # sudo pacman-key --populate archlinux
 # sudo pacman-key --refresh-keys
 
-SYSTEM_PACKAGES=(
-    # Core system (require root or system-level integration)
-    arch-install-scripts
-    archlinux-keyring
-    base
-    base-devel
-    brightnessctl
-    curl
-    ddcutil
-    ntp
-    openssh
-    vim
-    wget
-
-    # Not core, but requires root or system-wide install
-    chromium
-    fish
-    lynis
-    libmtp gvfs-mtp # To copy files from Android
-
-    # Docker (daemon requires system integration)
-    docker
-    docker-compose
-
-    # Desktop environment (Wayland/X11 require system integration)
-    fuse2
-    pavucontrol-qt
-    pipewire
-    pipewire-alsa
-    pipewire-pulse
-    portaudio
-    noise-suppression-for-voice
-    sway
-    wireplumber
-    polkit
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-gtk
-    fcitx5
-    fcitx5-gtk
-    fcitx5-mozc
-    fcitx5-configtool
-    mpv
-    thunar thunar-volman
-    tumbler
-
-    # Outdated x11 things
-    xorg-xinit
-    xorg-xwayland
-)
-
-echo "Installing system packages..."
-sudo pacman -S --needed --noconfirm "${SYSTEM_PACKAGES[@]}"
+echo "Installing packages..."
+sudo pacman -S --needed --noconfirm "${SYSTEM_PACKAGES[@]}" "${USER_PACKAGES[@]}"
 
 # ==============================================================================
 # User and group configuration (from user.yml)
@@ -103,5 +54,33 @@ sudo systemctl enable --now docker
 systemctl --user enable --now pipewire
 systemctl --user enable --now wireplumber
 systemctl --user enable --now pipewire-pulse
+
+# ==============================================================================
+# Drift check
+#
+# pacman has no equivalent of `home-manager switch`: deleting a line from
+# packages.sh does not uninstall anything. Remember what we declared last time
+# so that a package dropped from the lists gets reported instead of silently
+# living on forever.
+# ==============================================================================
+
+STATE_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles/pacman-managed.txt"
+mkdir -p "$(dirname "$STATE_FILE")"
+
+declared="$(printf '%s\n' "${SYSTEM_PACKAGES[@]}" "${USER_PACKAGES[@]}" "${AUR_PACKAGES[@]}" | sort -u)"
+
+if [ -f "$STATE_FILE" ]; then
+    dropped="$(comm -23 "$STATE_FILE" <(printf '%s\n' "$declared") | grep -xFf <(pacman -Qqe) || true)"
+    if [ -n "$dropped" ]; then
+        echo
+        echo "==> WARNING: dropped from packages.sh but still installed:"
+        printf '      %s\n' $dropped
+        echo "    Remove them with:"
+        echo "      sudo pacman -Rns $(echo $dropped | tr '\n' ' ')"
+        echo
+    fi
+fi
+
+printf '%s\n' "$declared" > "$STATE_FILE"
 
 echo "Done! System configuration applied."
