@@ -29,8 +29,8 @@ SYSTEM_PACKAGES=(
     # Not core, but requires root or system-wide install
     chromium
     fish
-    lynis
-    libmtp gvfs-mtp # To copy files from Android
+    libmtp
+    gvfs-mtp # To copy files from Android
 
     # Docker (daemon requires system integration)
     docker
@@ -38,7 +38,6 @@ SYSTEM_PACKAGES=(
 
     # Desktop environment (Wayland/X11 require system integration)
     fuse2
-    pavucontrol-qt
     pipewire
     pipewire-alsa
     pipewire-pulse
@@ -55,7 +54,8 @@ SYSTEM_PACKAGES=(
     fcitx5-mozc
     fcitx5-configtool
     mpv
-    thunar thunar-volman
+    thunar
+    thunar-volman
     tumbler
 
     # Outdated x11 things
