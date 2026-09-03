@@ -232,6 +232,14 @@ in
     terminal = false;
   };
 
+  # Automount removable devices (USB sticks etc.) to /run/media/$USER/<label>
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true; # via dunst
+    tray = "never"; # swaybar has no SNI tray host
+  };
+
   # xremap systemd user service (started after sway via graphical-session.target)
   systemd.user.services.xremap = {
     Unit = {
