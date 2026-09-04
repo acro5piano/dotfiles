@@ -186,7 +186,8 @@ in
     "opencode/tui.json".source = link ".config/opencode/tui.json";
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
-        file:///mnt/DCIM/100GOPRO
+        file:///run/media/kazuya/775A-8CB3/DCIM/100GOPRO/
+        file:///run/media/kazuya/1C79-7DB3/OKB0437258ZUTP/video/
     '';
   };
 
