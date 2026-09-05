@@ -12,3 +12,4 @@ image/jpeg=feh.desktop
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 image/jpeg=feh.desktop;
+text/plain=brave-browser-x11.desktop;Alacritty.desktop;nvim.desktop;
