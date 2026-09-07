@@ -6,10 +6,11 @@ text/html=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 image/png=feh.desktop
+application/pdf=brave-browser.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 image/jpeg=feh.desktop
 
 [Added Associations]
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=brave-browser.desktop;org.gnome.Evince.desktop;
 image/jpeg=feh.desktop;
 text/plain=brave-browser-x11.desktop;Alacritty.desktop;nvim.desktop;
