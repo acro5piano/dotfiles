@@ -98,6 +98,7 @@ in
         "npm:snyk" = "latest";
         "npm:@earendil-works/pi-coding-agent" = "0.85.1";
         "npm:opencode-ai" = "1.17.8";
+        "npm:@brave/brave-search-cli" = "1.7.0";
 
         python = "latest";
         uv = "latest";
