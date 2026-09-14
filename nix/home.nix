@@ -96,7 +96,7 @@ in
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
-        "npm:@earendil-works/pi-coding-agent" = "0.75.5";
+        "npm:@earendil-works/pi-coding-agent" = "0.85.1";
         "npm:opencode-ai" = "1.17.8";
 
         python = "latest";
