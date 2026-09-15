@@ -1,12 +1,15 @@
 {
   "lastChangelogVersion": "0.85.1",
-  "defaultProvider": "openai",
+  "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "high",
   "theme": "dark",
   "enabledModels": [
-    "openai/gpt-5.6-sol",
-    "openai/gpt-6-astra",
-    "openai/gpt-5.6-terra"
+    "github-copilot/gpt-5.6-sol",
+    "github-copilot/gpt-6-astra",
+    "github-copilot/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-5.6-terra"
   ]
 }
