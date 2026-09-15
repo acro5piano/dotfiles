@@ -168,6 +168,8 @@ in
     ".pi/agent/settings.json".source = link ".pi/agent/settings.json";
     ".pi/agent/skills".source = link ".pi/agent/skills";
     ".pi/agent/extensions".source = link ".pi/agent/extensions";
+    # .claude is managed by another repo
+    ".pi/agent/prompts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/commands";
   };
 
   xdg.configFile = {
