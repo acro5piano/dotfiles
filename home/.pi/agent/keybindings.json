@@ -1,6 +1,8 @@
 {
-  "tui.editor.cursorUp": ["up", "ctrl+p"],
-  "tui.editor.cursorDown": ["down", "ctrl+n"],
+  "tui.editor.historyPrevious": "up",
+  "tui.editor.historyNext": "down",
+  "tui.editor.cursorUp": "ctrl+p",
+  "tui.editor.cursorDown": "ctrl+n",
   "tui.editor.cursorLeft": ["left", "ctrl+b"],
   "tui.editor.cursorRight": ["right", "ctrl+f"],
   "tui.editor.cursorWordLeft": ["alt+left", "alt+b"],
