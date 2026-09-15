@@ -165,6 +165,7 @@ in
     ".tmux.conf".source = link ".tmux.conf";
     ".emacs.d".source = link ".emacs.d";
     ".pi/agent/keybindings.json".source = link ".pi/agent/keybindings.json";
+    ".pi/agent/settings.json".source = link ".pi/agent/settings.json";
     ".pi/agent/skills".source = link ".pi/agent/skills";
     ".pi/agent/extensions".source = link ".pi/agent/extensions";
   };
