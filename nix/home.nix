@@ -164,7 +164,9 @@ in
     ".ripgreprc".source = link ".ripgreprc";
     ".tmux.conf".source = link ".tmux.conf";
     ".emacs.d".source = link ".emacs.d";
-    ".pi/agent".source = link ".pi/agent";
+    ".pi/agent/keybindings.json".source = link ".pi/agent/keybindings.json";
+    ".pi/agent/skills".source = link ".pi/agent/skills";
+    ".pi/agent/extensions".source = link ".pi/agent/extensions";
   };
 
   xdg.configFile = {
