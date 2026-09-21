@@ -180,6 +180,7 @@ in
     "gh/config.yml".source = link ".config/gh/config.yml";
     "i3status-rust".source = link ".config/i3status-rust";
     "mimeapps.list".source = link ".config/mimeapps.list";
+    "mpv/mpv.conf".source = link ".config/mpv/mpv.conf";
     "joplin-desktop/userchrome.css".source = link ".config/joplin-desktop/userchrome.css";
     "nvim/init.lua".source = link ".config/nvim/init.lua";
     "nvim/lua".source = link ".config/nvim/lua";
