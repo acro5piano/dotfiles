@@ -21,7 +21,7 @@ else
 fi
 
 selected_files=$(
-	fd --type f |
+	fd --type f --hidden |
 		fzf --multi \
 			--reverse \
 			--preview 'bat --style=numbers --color=always {}' |
