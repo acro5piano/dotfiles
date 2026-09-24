@@ -127,7 +127,7 @@ bindsym $mod+Shift+i move container to workspace number 8
 for_window [app_id="thunar"] move container to workspace 2
 for_window [class="electron-shogi"] move container to workspace 4
 for_window [class="Joplin"] move container to workspace 5
-for_window [app_id="@joplin/app-desktop"] move container to workspace 5
+for_window [app_id="appimagekit-joplin"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="code-oss"] move container to workspace 7
