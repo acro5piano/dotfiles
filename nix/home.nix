@@ -141,6 +141,12 @@ in
           version = "8.30.1";
           url = "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz";
         };
+
+        "http:mcp" = {
+          version = "0.1.0";
+          url = "https://github.com/acro5piano/mcp-cli/releases/download/v0.1.0/mcp-x86_64-unknown-linux-musl";
+          sha256 = "ca6c4663333067c33475b3f1af62a95fb6e7a5dede47936f8e94ed028f3ae802";
+        };
       };
     };
   };
