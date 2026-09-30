@@ -174,8 +174,8 @@ in
     ".pi/agent/settings.json".source = link ".pi/agent/settings.json";
     ".pi/agent/skills".source = link ".pi/agent/skills";
     ".pi/agent/extensions".source = link ".pi/agent/extensions";
-    # .claude is managed by another repo
-    ".pi/agent/prompts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/commands";
+    ".claude/commands".source = link ".claude/commands";
+    ".pi/agent/prompts".source = link ".claude/commands";
   }
   # Share pi skills with Claude Code. Link each skill individually because
   # ~/.claude/skills also holds Claude-managed skills (e.g. synced/).
@@ -202,6 +202,7 @@ in
     "wireplumber".source = link ".config/wireplumber";
     "pipewire/pipewire.conf.d".source = link ".config/pipewire/pipewire.conf.d";
     "opencode/tui.json".source = link ".config/opencode/tui.json";
+    "opencode/commands".source = link ".claude/commands";
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
         file:///run/media/kazuya/1C79-7DB3/DCIM/100GOPRO/
