@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, lib, pkgs, username, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/.dotfiles/home";
@@ -176,7 +176,12 @@ in
     ".pi/agent/extensions".source = link ".pi/agent/extensions";
     # .claude is managed by another repo
     ".pi/agent/prompts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/commands";
-  };
+  }
+  # Share pi skills with Claude Code. Link each skill individually because
+  # ~/.claude/skills also holds Claude-managed skills (e.g. synced/).
+  // lib.mapAttrs' (name: _: lib.nameValuePair ".claude/skills/${name}" {
+    source = link ".pi/agent/skills/${name}";
+  }) (lib.filterAttrs (_: type: type == "directory") (builtins.readDir ../home/.pi/agent/skills));
 
   xdg.configFile = {
     "alacritty".source = link ".config/alacritty";
