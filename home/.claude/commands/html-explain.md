@@ -81,6 +81,6 @@ highlight.js を利用して。末尾にこれを挿入:
 
 # 出力先
 
-`$HOME/ai-html-notes`
+`$HOME/ai-html-notes/<name>.html`
 
 ディレクトリが無ければ新規作成して

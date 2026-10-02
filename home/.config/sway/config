@@ -139,6 +139,7 @@ exec start-fcitx &
 exec sleep 1 && systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP && systemctl --user start graphical-session.target
 exec sleep 2 && systemctl --user start xremap
 exec dunst &
+exec python -m http.server -d $HOME/ai-html-notes/ 18768 &
 exec wl-paste -t text --watch ~/.local/share/mise/shims/clipman store --max-items=50 --no-persist &
 
 # exec light -S 1
