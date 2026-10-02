@@ -78,3 +78,9 @@ highlight.js を利用して。末尾にこれを挿入:
 <meta property="og:description" content={description} />
 <link rel="icon" href="/favicon.ico" />
 ```
+
+# 出力先
+
+`$HOME/ai-html-notes`
+
+ディレクトリが無ければ新規作成して
