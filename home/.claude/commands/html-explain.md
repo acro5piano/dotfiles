@@ -81,6 +81,10 @@ highlight.js を利用して。末尾にこれを挿入:
 
 # 出力先
 
-`$HOME/ai-html-notes/<name>.html`
+`$HOME/ai-html-notes/<YYYYMMDD-HHMM>-<english-slug>.html`
+
+- `<YYYYMMDD-HHMM>` は作成時のローカル時刻（`date +%Y%m%d-%H%M`）
+- `<english-slug>` は内容を表す短い英語の kebab-case（小文字・ハイフン区切り）
+- 例: `20260921-1855-ai-learn-switch-stronger.html`
 
 ディレクトリが無ければ新規作成して
