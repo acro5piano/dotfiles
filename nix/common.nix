@@ -27,6 +27,7 @@
         "npm:@earendil-works/pi-coding-agent" = "0.87.1";
         "npm:@brave/brave-search-cli" = "1.7.0";
         "npm:@playwright/cli" = "0.1.21";
+        "npm:wrangler" = "latest";
 
         python = "latest";
         uv = "latest";
