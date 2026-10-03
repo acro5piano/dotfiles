@@ -3,8 +3,9 @@
 ### Nix + mise (critical)
 
 - **New dev tools / CLIs** (`pinact`, `uv`, npm CLIs, etc.):
-  - Add to `nix/home.nix:134` in `programs.mise.globalConfig.tools`
+  - Add to `nix/common.nix` in `programs.mise.globalConfig.tools`
   - Examples: `pinact = "latest";`, `node = ["24" "22"];`, `"npm:opencode-ai" = "1.15.10";`, `"pipx:ipython" = "latest";`
+- Module split: `nix/common.nix` (all machines, incl. mise tools), `nix/claude.nix` (Claude Code commands/skills), `nix/home.nix` (desktop only). Flake outputs: default (all three) and `.#server` (common + claude).
 - **Never** add dev runtimes/languages to `home.packages`.
   - Use Nix packages **only** for the few custom derivations at top of `nix/home.nix` (toggl-cli, clipman, xremap) or true system/OS tools.
 - After **any** change to `nix/home.nix`:
@@ -22,7 +23,7 @@
 
 ### Key Gotchas
 
-- Mise config lives in `nix/home.nix:131` — `~/.config/mise/config.toml` is a Nix-managed symlink.
+- Mise config lives in `nix/common.nix` — `~/.config/mise/config.toml` is a Nix-managed symlink.
 - Fish shell activates mise via `~/.config/fish/config.fish`.
 - Preserve exact structure of `tools` map and custom derivations.
 - All future tool additions (including opencode skills/agents) must follow the mise pattern unless they require custom Nix packaging.

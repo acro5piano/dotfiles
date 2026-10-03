@@ -15,14 +15,18 @@
       pkgs = nixpkgs.legacyPackages.${system};
       # Change if you want to use another username
       username = "kazuya";
-    in
-    {
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./nix/home.nix ];
+      mkHome = modules: home-manager.lib.homeManagerConfiguration {
+        inherit pkgs modules;
         extraSpecialArgs = {
           inherit username;
         };
       };
+    in
+    {
+      # Desktop: home-manager switch --flake .
+      homeConfigurations.${username} = mkHome [ ./nix/home.nix ];
+
+      # Home server (Claude Code only): home-manager switch --flake .#server
+      homeConfigurations.server = mkHome [ ./nix/common.nix ./nix/claude.nix ];
     };
 }
