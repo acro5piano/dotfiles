@@ -1,0 +1,25 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+t"
+split_vertical = "alt+/"
+split_horizontal = "alt+minus"
+previous_tab = "alt+p"
+next_tab = "alt+n"
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+copy_mode = ["alt+[", "alt+u"]
+resize_pane_left = ["alt+left", "prefix+ctrl+left"]
+resize_pane_down = ["alt+down", "prefix+ctrl+down"]
+resize_pane_up = ["alt+up", "prefix+ctrl+up"]
+resize_pane_right = ["alt+right", "prefix+ctrl+right"]
+zoom = "alt+z"
+new_tab = "alt+o"
+switch_workspace = "prefix+shift+1..9"
+focus_agent = "prefix+alt+1..9"
+edit_scrollback = "prefix+ctrl+e"
+
+[ui]
+prompt_new_tab_name = false

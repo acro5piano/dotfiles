@@ -113,6 +113,7 @@ in
     "fish/conf.d/cc-sessions.fish".source = link ".config/fish/conf.d/cc-sessions.fish";
     "fish/config.fish".source = link ".config/fish/config.fish";
     "gh/config.yml".source = link ".config/gh/config.yml";
+    "herdr/config.toml".source = link ".config/herdr/config.toml";
     "i3status-rust".source = link ".config/i3status-rust";
     "mimeapps.list".source = link ".config/mimeapps.list";
     "mpv/mpv.conf".source = link ".config/mpv/mpv.conf";
