@@ -2,10 +2,17 @@ onboarding = false
 
 [keys]
 prefix = "ctrl+t"
+new_workspace = "ctrl+shift+n"
+new_worktree = "ctrl+shift+b"
+goto = "ctrl+space"
 split_vertical = "alt+/"
 split_horizontal = "alt+minus"
 previous_tab = "alt+p"
 next_tab = "alt+n"
+previous_workspace = "ctrl+alt+p"
+next_workspace = "ctrl+alt+n"
+previous_agent = "ctrl+alt+k"
+next_agent = "ctrl+alt+j"
 focus_pane_left = "alt+h"
 focus_pane_down = "alt+j"
 focus_pane_up = "alt+k"
