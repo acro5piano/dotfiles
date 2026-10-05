@@ -29,6 +29,7 @@
         "npm:@playwright/cli" = "0.1.21";
         "npm:wrangler" = "latest";
 
+        herdr = "latest";
         python = "latest";
         uv = "latest";
         pipx = "latest";
