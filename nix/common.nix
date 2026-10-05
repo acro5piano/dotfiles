@@ -30,6 +30,7 @@
         "npm:wrangler" = "latest";
 
         herdr = "latest";
+        process-compose = "latest";
         python = "latest";
         uv = "latest";
         pipx = "latest";
