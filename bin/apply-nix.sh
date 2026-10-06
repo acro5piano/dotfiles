@@ -5,7 +5,7 @@ set -euo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 
-if [ `hostname` = "chuwi" ]; then
+if [ `hostnamectl hostname` = "chuwi" ]; then
     echo "==> Do not use this script under chuwi server"
     echo "==> Instead run: home-manager switch --flake .#server"
     exit 1
