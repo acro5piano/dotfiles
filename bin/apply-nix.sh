@@ -5,6 +5,12 @@ set -euo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 
+if [ `hostname` = "chuwi" ]; then
+    echo "==> Do not use this script under chuwi server"
+    echo "==> Instead run: home-manager switch --flake .#server"
+    exit 1
+fi
+
 
 echo "==> Applying home-manager configuration..."
 cd "$DOTFILES_DIR"
@@ -16,7 +22,6 @@ mise install
 # Clone private repositories
 repos=(
     "acro5piano/dotfiles-private"
-    "acro5piano/daily-ai"
 )
 for repo in "${repos[@]}"; do
     dest="$HOME/ghq/github.com/$repo"
