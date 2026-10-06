@@ -9,6 +9,7 @@ in
 {
   home.file = {
     ".claude/commands".source = link ".claude/commands";
+    ".claude/settings.json".source = link ".claude/settings.json";
   }
   # Share pi skills with Claude Code. Link each skill individually because
   # ~/.claude/skills also holds Claude-managed skills (e.g. synced/).
