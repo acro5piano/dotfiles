@@ -63,10 +63,18 @@ The worker must use the same agent kind as the boss:
 
    Do not create a duplicate workspace for a branch that is already open. If the requested branch is already being worked on by another agent, stop and report its workspace and agent instead of taking it over.
 
-5. Create the worktree without stealing focus while setup is in progress:
+5. Choose human-readable names for the Herdr UI based on what the task is about:
+
+   - Derive a concise, meaningful label from the task's title or intent, not from its ticket ID, branch name, or worktree directory. Aim for 2–5 words, such as `Fix login timeout`.
+   - If the task only gives an external issue reference, including a Linear issue ID or URL, look up the issue and use its title. If its title cannot be retrieved, ask the user for a short description instead of using the issue ID as the name.
+   - Create the worker name by slugifying that label, for example `fix-login-timeout`. It must match `[a-z][a-z0-9_-]{0,31}`.
+   - Check `herdr agent list` and, on collision, append a short numeric suffix while keeping the descriptive portion intact.
+   - Never use only a ticket ID or an opaque branch name for either the label or worker name.
+
+6. Create the worktree without stealing focus while setup is in progress. Use the descriptive label chosen above:
 
    ```bash
-   herdr worktree create --cwd <repo-root> --branch <branch> --base <base-ref> --label <short-label> --no-focus
+   herdr worktree create --cwd <repo-root> --branch <branch> --base <base-ref> --label <short-descriptive-label> --no-focus
    ```
 
    Parse the returned JSON. Use these exact values from the response rather than predicting them:
@@ -77,9 +85,7 @@ The worker must use the same agent kind as the boss:
 
    Do not add `--trust-repository` unless the user has explicitly verified and approved the repository.
 
-6. Create a unique worker name matching `[a-z][a-z0-9_-]{0,31}`. Base it on the branch or ticket and check `herdr agent list` to avoid collisions.
-
-7. Start the same kind of agent in the worktree's root shell pane:
+7. Start the same kind of agent in the worktree's root shell pane using the descriptive worker name:
 
    ```bash
    herdr agent start <worker-name> --kind <boss-agent-kind> --pane <root-pane-id>
