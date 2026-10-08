@@ -226,7 +226,8 @@ vim.o.swapfile = false
 vim.o.undofile = false
 vim.o.autochdir = false
 
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+vim.o.splitright = true -- https://github.com/stevearc/oil.nvim/issues/304 - Make oil opens preview right
 
 -- require("tokyonight").setup({
 --   transparent = true,
