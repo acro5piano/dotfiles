@@ -17,7 +17,7 @@
         rust = "stable";
         bun = "latest";
         "npm:pnpm" = "10.34.1"; # To prevent mise ERROR Failed to install aqua:pnpm/pnpm@latest: no asset found: pnpm-linux-x64
-        "npm:@anthropic-ai/claude-code" = "2.1.282";
+        "npm:@anthropic-ai/claude-code" = "2.1.296";
         "npm:@openai/codex" = "0.157.0";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
@@ -25,7 +25,7 @@
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
-        "npm:@earendil-works/pi-coding-agent" = "0.87.1";
+        "npm:@earendil-works/pi-coding-agent" = "1.1.0";
         "npm:@brave/brave-search-cli" = "1.7.0";
         "npm:@playwright/cli" = "0.1.21";
         "npm:wrangler" = "latest";

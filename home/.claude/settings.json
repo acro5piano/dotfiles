@@ -32,5 +32,10 @@
   "skipDangerousModePermissionPrompt": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": false,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  }
 }
