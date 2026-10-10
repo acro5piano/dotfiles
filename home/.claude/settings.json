@@ -3,7 +3,7 @@
     "DISABLE_AUTOUPDATER": "1",
     "CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN": "1"
   },
-  "model": "claude-fable-5-1",
+  "model": "sonnet",
   "hooks": {
     "SessionStart": [
       {
@@ -24,6 +24,14 @@
     "pyright-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "tui": "fullscreen",
   "voice": {
     "enabled": true,
@@ -32,10 +40,5 @@
   "skipDangerousModePermissionPrompt": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": false,
-  "voiceEnabled": true,
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "medium"
-    }
-  }
+  "voiceEnabled": true
 }
