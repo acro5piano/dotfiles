@@ -14,11 +14,12 @@
     dw = diff -w --word-diff
     f = fetch
     ls = ls-files
-    pl = !git pull origin $(git branch --contains=HEAD | awk '{print $2}')
-    ps = !git push origin $(git branch --contains=HEAD | awk '{print $2}')
+    pl = !git pull origin $(git branch --contains=HEAD | grep '^*' | awk '{print $2}')
+    ps = !git push origin $(git branch --contains=HEAD | grep '^*' | awk '{print $2}')
     re = remote -v
     td = log --stat --oneline --since='12 hour ago'
     show-merge = !git diff $(git show | grep Merge | head -1 | awk '{print $2"..."$3}')
+    prd = diff origin/main...HEAD
 
 [push]
 	default = current
