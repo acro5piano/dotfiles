@@ -176,6 +176,18 @@ in
     terminal = false;
   };
 
+  xdg.desktopEntries.markbrain = {
+    name = "markbrain";
+    exec = "${config.home.homeDirectory}/.local/bin/markbrain";
+    icon = "markbrain";
+    comment = "Markdown notes synced to GitHub";
+    categories = [ "Office" "TextEditor" "Utility" ];
+    terminal = false;
+    settings.StartupWMClass = "markbrain";
+  };
+
+  xdg.dataFile."icons/hicolor/512x512/apps/markbrain.png".source = link ".local/share/icons/hicolor/512x512/apps/markbrain.png";
+
   # Automount removable devices (USB sticks etc.) to /run/media/$USER/<label>
   services.udiskie = {
     enable = true;

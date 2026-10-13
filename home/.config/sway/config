@@ -126,8 +126,7 @@ bindsym $mod+Shift+i move container to workspace number 8
 
 for_window [app_id="thunar"] move container to workspace 2
 for_window [class="electron-shogi"] move container to workspace 4
-for_window [class="Joplin"] move container to workspace 5
-for_window [app_id="appimagekit-joplin"] move container to workspace 5
+for_window [app_id="markbrain"] move container to workspace 5
 for_window [class="pavucontrol-qt"] move container to workspace 6
 for_window [class="pavucontrol"] move container to workspace 6
 for_window [class="code-oss"] move container to workspace 7
@@ -144,7 +143,7 @@ exec wl-paste -t text --watch ~/.local/share/mise/shims/clipman store --max-item
 
 # exec light -S 1
 exec swaymsg 'workspace 6; exec pavucontrol-qt'
-exec swaymsg 'workspace 5; exec joplin'
+exec swaymsg 'workspace 5; exec markbrain'
 exec swaymsg 'workspace 1; exec alacritty'
 exec sleep 2 && swaymsg 'workspace 2; exec brave --ozone-platform=wayland' &
 
