@@ -3,7 +3,6 @@ description: Explain things in HTML format
 ---
 
 やったことを高校生でもわかるように1枚のHTMLで図解して。
-完了したら、 `python -m http.server <directory> <port>` して、 `brave http://0.0.0.0:<port>` コマンドで開いて。サーバーを起動するのは、 Chrome 拡張機能を有効にするため。
 
 説明する対象が指定されていない場合は、現在のプルリクエストもしくは今までの実装について図解して。
 
@@ -81,10 +80,14 @@ highlight.js を利用して。末尾にこれを挿入:
 
 # 出力先
 
-`$HOME/ai-html-notes/<YYYYMMDD-HHMM>-<english-slug>.html`
+`$HOME/.local/share/io.github.acro5piano.markbrain/notes/ai-html/<YYYYMMDD-HHMM>-<english-slug>.html`
 
 - `<YYYYMMDD-HHMM>` は作成時のローカル時刻（`date +%Y%m%d-%H%M`）
 - `<english-slug>` は内容を表す短い英語の kebab-case（小文字・ハイフン区切り）
 - 例: `20260921-1855-ai-learn-switch-stronger.html`
 
 ディレクトリが無ければ新規作成して
+
+完了したら、 `python -m http.server <directory> 18768` して、 `brave http://0.0.0.0:18768/<slug>.html` コマンドで開いて。
+サーバーを起動するのは、 Chrome 拡張機能を有効にするため。
+既にサーバーが起動していたら、改めて起動する必要は無い。
