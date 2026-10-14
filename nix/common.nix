@@ -26,7 +26,7 @@
         "npm:@astrojs/language-server" = "latest";
         "npm:snyk" = "latest";
         "npm:@earendil-works/pi-coding-agent" = "1.1.0";
-        "npm:@brave/brave-search-cli" = "1.7.0";
+        "npm:@brave/brave-search-cli" = { version = "1.7.0"; allow_low_downloads = true; };
         "npm:@playwright/cli" = "0.1.21";
         "npm:wrangler" = "latest";
 
