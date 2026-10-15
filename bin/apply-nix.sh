@@ -40,6 +40,14 @@ if [ ! -e ~/.local/bin/joplin ]; then
     chmod +x ~/.local/bin/joplin
 fi
 
+# markbrain app data dir -> notes repo (used by /html-explain etc.)
+markbrain_notes="$HOME/.local/share/io.github.acro5piano.markbrain/notes"
+if [ ! -e "$markbrain_notes" ] && [ -d "$HOME/projects/markbrain-notes" ]; then
+    echo "==> Linking markbrain notes..."
+    mkdir -p "$(dirname "$markbrain_notes")"
+    ln -sv "$HOME/projects/markbrain-notes" "$markbrain_notes"
+fi
+
 echo "==> Creating lazy-lock.json symlink..."
 ln -svf $PWD/home/.config/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
 
