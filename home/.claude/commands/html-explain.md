@@ -88,6 +88,17 @@ highlight.js を利用して。末尾にこれを挿入:
 
 ディレクトリが無ければ新規作成して
 
+# git 管理されている場合は commit & push
+
+出力ディレクトリが git 管理下（`git -C <出力ディレクトリ> rev-parse --is-inside-work-tree` が成功）なら、HTML 保存後に確認なしで自動的に commit & push して。
+
+- 出力ディレクトリがシンボリックリンクでも、`git -C <出力ディレクトリ>` でリンク先のリポジトリを対象にする
+- `git add` は今回作成したHTMLファイルだけ（`git add -A` は使わない）
+- コミットメッセージは `add: <english-slug>` のように簡潔に
+- push は `git push origin <現在のブランチ>`（`git push` 単体は使わない）
+- git 管理されていなければ何もしない
+- push に失敗したら、握りつぶさずに理由を報告する
+
 完了したら、 `python -m http.server 18768 --directory <保存先ディレクトリ>` して、 `brave http://0.0.0.0:18768/<slug>.html` コマンドで開いて。
 サーバーを起動するのは、 Chrome 拡張機能を有効にするため。
 既にサーバーが起動していたら、改めて起動する必要は無い。
