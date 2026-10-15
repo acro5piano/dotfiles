@@ -80,14 +80,19 @@ highlight.js を利用して。末尾にこれを挿入:
 
 # 出力先
 
+`$HOME/.local/share/io.github.acro5piano.markbrain/notes/` が存在する場合（markbrain デスクトップアプリがインストール済み）:
+
 `$HOME/.local/share/io.github.acro5piano.markbrain/notes/ai-html/<YYYYMMDD-HHMM>-<english-slug>.html`
+
+存在しない場合（アプリ未インストール。例: markbrain-notes リポジトリを直接 clone しているだけの環境）は、このディレクトリを新規作成せず、現在のディレクトリ（cwd）に直接保存する:
+
+`./<YYYYMMDD-HHMM>-<english-slug>.html`
 
 - `<YYYYMMDD-HHMM>` は作成時のローカル時刻（`date +%Y%m%d-%H%M`）
 - `<english-slug>` は内容を表す短い英語の kebab-case（小文字・ハイフン区切り）
 - 例: `20260921-1855-ai-learn-switch-stronger.html`
+- `notes/` が存在する場合に限り、`ai-html/` が無ければ新規作成する
 
-ディレクトリが無ければ新規作成して
-
-完了したら、 `python -m http.server <directory> 18768` して、 `brave http://0.0.0.0:18768/<slug>.html` コマンドで開いて。
+完了したら、 `python -m http.server 18768 --directory <保存先ディレクトリ>` して、 `brave http://0.0.0.0:18768/<slug>.html` コマンドで開いて。
 サーバーを起動するのは、 Chrome 拡張機能を有効にするため。
 既にサーバーが起動していたら、改めて起動する必要は無い。
