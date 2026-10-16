@@ -1,4 +1,3 @@
-
 [mouse]
 hide_when_typing = true
 
@@ -58,6 +57,12 @@ key = "Paste"
 [[keyboard.bindings]]
 action = "Copy"
 key = "Copy"
+
+# Disable default SearchBackward
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "B"
+mods = "Control|Shift"
 
 [general]
 # mkdir -p ~/.config/alacritty/themes
