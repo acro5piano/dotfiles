@@ -3,7 +3,7 @@
     "DISABLE_AUTOUPDATER": "1",
     "CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN": "1"
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -26,7 +26,7 @@
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "medium"
+      "effortLevel": "xhigh"
     },
     "claude-sonnet-5-5": {
       "effortLevel": "xhigh"
