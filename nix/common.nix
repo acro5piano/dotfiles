@@ -17,8 +17,8 @@
         rust = "stable";
         bun = "latest";
         "npm:pnpm" = "10.34.1"; # To prevent mise ERROR Failed to install aqua:pnpm/pnpm@latest: no asset found: pnpm-linux-x64
-        "npm:@anthropic-ai/claude-code" = "2.1.296";
-        "npm:@openai/codex" = "0.157.0";
+        "npm:@anthropic-ai/claude-code" = "2.1.303";
+        "npm:@openai/codex" = "0.163.0";
         "npm:prettier" = "latest";
         "npm:pyright" = "latest";
         "npm:typescript" = "latest";
