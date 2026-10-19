@@ -91,6 +91,12 @@ The worker must use the same agent kind as the boss:
    herdr agent start <worker-name> --kind <boss-agent-kind> --pane <root-pane-id>
    ```
 
+   For a Claude worker, pass `--dangerously-skip-permissions` after `--`:
+
+   ```bash
+   herdr agent start <worker-name> --kind claude --pane <root-pane-id> -- --dangerously-skip-permissions
+   ```
+
    The root pane already has the worktree as its working directory. Do not start the worker with raw pane input or `herdr pane run`.
 
 8. Hand off the complete original task to the worker. Include the branch and worktree path for clarity, and instruct it to inspect repository guidance, implement the task, run relevant checks, and report completion:
