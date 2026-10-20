@@ -4,6 +4,8 @@ import re
 import readline
 import atexit
 import os
+import shutil
+import subprocess
 
 HISTORY_FILE = os.path.expanduser("~/.calc_history")
 
@@ -19,12 +21,54 @@ GREEN = "\033[92m"
 RED = "\033[91m"
 RESET = "\033[0m"
 
+# Alt-w: copy the last result. The macro cuts the current line, submits
+# COPY_CMD, then yanks the line back ("x" keeps the cut buffer non-empty).
+COPY_CMD = ":copy"
+if "libedit" in readline.__doc__:
+    readline.parse_and_bind(f'bind -s ^[w "^Ex^A^K{COPY_CMD}^J^Y^H"')
+else:
+    readline.parse_and_bind(f'"\\ew": "\\C-ex\\C-a\\C-k{COPY_CMD}\\n\\C-y\\C-h"')
+
 # 前回の結果を保持
 last_result = None
 
+
+def normalize(result):
+    # Hide float noise (e.g. 100.01 + 0.01 -> 100.02, not 100.02000000000001)
+    if isinstance(result, float):
+        result = float(f"{result:.15g}")
+        # Drop .0 for clean integer results (e.g. 10.0 -> 10)
+        if result.is_integer():
+            result = int(result)
+    return result
+
+
+def copy_to_clipboard(text):
+    if os.environ.get("WAYLAND_DISPLAY") and shutil.which("wl-copy"):
+        cmd = ["wl-copy", "-n"]
+    elif shutil.which("xclip"):
+        cmd = ["xclip", "-selection", "clipboard"]
+    else:
+        raise RuntimeError("no clipboard command found (wl-copy or xclip)")
+    subprocess.run(cmd, input=text.encode(), check=True)
+
+
 while True:
     try:
-        expr = re.sub(r'[^\d+\-*/().%_ \t]', '', input(">>> ")).strip()
+        line = input(">>> ")
+        if line == COPY_CMD:
+            # Keep the internal command out of history
+            readline.remove_history_item(readline.get_current_history_length() - 1)
+            # Overwrite the echoed ">>> :copy" line
+            print("\033[F\033[K", end="")
+            if last_result is None:
+                print(f"{RED}Nothing to copy{RESET}")
+            else:
+                copy_to_clipboard(str(last_result))
+                print(f"Copied {last_result}")
+            continue
+
+        expr = re.sub(r'[^\d+\-*/().%_ \t]', '', line).strip()
         if not expr:
             continue
 
@@ -32,12 +76,8 @@ while True:
         if "_" in expr and last_result is not None:
             expr = expr.replace("_", str(last_result))
 
-        result = eval(expr)
+        result = normalize(eval(expr))
         last_result = result
-
-        # Drop .0 for clean integer results (e.g. 10.0 -> 10)
-        if isinstance(result, float) and result == int(result):
-            result = int(result)
 
         color = RED if isinstance(result, (int, float)) and result < 0 else GREEN
         print(f"{color}{result:,}{RESET}")
