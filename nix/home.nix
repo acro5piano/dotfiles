@@ -131,6 +131,7 @@ in
     "gtk-3.0/bookmarks".text = ''
         file://${config.home.homeDirectory}/Downloads
         file:///run/media/kazuya/1C79-7DB3/DCIM/100GOPRO/
+        file://${config.home.homeDirectory}/.local/share/io.github.acro5piano.markbrain/notes/ai-html
     '';
   };
 
