@@ -3,7 +3,6 @@ onboarding = false
 [keys]
 prefix = "ctrl+t"
 new_tab = "alt+o"
-new_workspace = "alt+ctrl+o"
 new_worktree = "ctrl+shift+b"
 goto = "ctrl+space"
 split_vertical = "alt+/"
@@ -25,6 +24,12 @@ resize_pane_up = ["alt+up"]
 resize_pane_right = ["alt+right"]
 zoom = "alt+z"
 edit_scrollback = "prefix+ctrl+e"
+
+[[keys.command]]
+key = "alt+ctrl+o"
+type = "shell"
+command = '"$HERDR_BIN_PATH" workspace create --cwd "$HOME" --focus'
+description = "new workspace in home"
 
 [ui]
 prompt_new_tab_name = false
