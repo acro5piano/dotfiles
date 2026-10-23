@@ -28,6 +28,7 @@
         "npm:typescript" = "latest";
         "npm:typescript-language-server" = "latest";
         "npm:@astrojs/language-server" = "latest";
+        "npm:vscode-langservers-extracted" = "latest"; # eslint, html, css, json LSPs
         "npm:snyk" = "latest";
         "npm:@earendil-works/pi-coding-agent" = "1.1.0";
         "npm:@brave/brave-search-cli" = { version = "1.7.0"; allow_low_downloads = true; };
