@@ -38,7 +38,7 @@
     "mode": "hold"
   },
   "skipDangerousModePermissionPrompt": true,
-  "remoteControlAtStartup": true,
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": false,
   "voiceEnabled": true
 }
