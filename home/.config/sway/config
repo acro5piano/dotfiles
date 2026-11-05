@@ -75,8 +75,9 @@ bindsym $mod+r mode "resize"
 bindsym $mod+p exec rofi -show drun -i
 
 # Floating Alacritty utility
-bindsym $mod+a exec 'alacritty --class float-term --command fish -c "whis --transcribe"'
-bindsym $mod+shift+a exec 'alacritty --class float-term --command fish -c "whis --transcribe --language ja"'
+# bindsym $mod+a exec 'alacritty --class float-term --command fish -c "whis --transcribe"'
+# bindsym $mod+shift+a exec 'alacritty --class float-term --command fish -c "whis --transcribe --language ja"'
+bindsym $mod+a exec '~/.local/share/mise/shims/uv --project /home/kazuya/ghq/github.com/acro5piano/dotfiles-private/whis run whis-tmux toggle'
 for_window [app_id="float-term"]  {
   floating enable
   resize set 300 80
