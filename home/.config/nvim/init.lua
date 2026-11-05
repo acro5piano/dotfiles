@@ -1,3 +1,8 @@
+-- Experimental message UI: no hit-enter prompt; messages show in an auto-hiding float (`g<` to review)
+require("vim._core.ui2").enable({
+  msg = { targets = "msg" },
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -675,16 +680,41 @@ end
 
 vim.lsp.enable("pyright")
 
+-- TypeScript 7+ (native port) ships no tsserver; its own `tsc --lsp` is the language server
+local function find_native_tsc(root)
+  for dir in vim.fs.parents(root .. "/package.json") do
+    if vim.uv.fs_stat(dir .. "/node_modules/typescript/package.json") then
+      if vim.uv.fs_stat(dir .. "/node_modules/typescript/lib/tsserver.js") then
+        return nil
+      end
+      return dir .. "/node_modules/.bin/tsc"
+    end
+  end
+end
+
 vim.lsp.config("ts_ls", {
   root_dir = function(bufnr, on_dir)
     local root = vim.fs.root(bufnr, { "package.json" })
-    if root then
+    if root and not find_native_tsc(root) then
       on_dir(root)
       return root
     end
   end,
 })
 vim.lsp.enable("ts_ls")
+
+vim.lsp.config("tsgo", {
+  cmd = function(dispatchers, config)
+    return vim.lsp.rpc.start({ find_native_tsc(config.root_dir), "--lsp", "--stdio" }, dispatchers)
+  end,
+  root_dir = function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, { "package.json" })
+    if root and find_native_tsc(root) then
+      on_dir(root)
+    end
+  end,
+})
+vim.lsp.enable("tsgo")
 
 vim.lsp.config("solargraph", {
   settings = {
