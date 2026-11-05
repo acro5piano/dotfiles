@@ -12,6 +12,6 @@
   "tui.input.newLine": ["shift+enter", "ctrl+j"],
   "tui.editor.cursorLineStart": ["home", "ctrl+a"],
   "tui.editor.cursorLineEnd": ["end", "ctrl+e"],
-  "tui.editor.deleteWordBackward": ["ctrl+alt+h"],
+  "tui.editor.deleteWordBackward": ["ctrl+alt+h", "ctrl+w"],
   "app.model.cycleForward": []
 }

@@ -271,13 +271,6 @@ alias s='spotify play --shuffle off --repeat context --playlist (cat ~/.dotfiles
 
 set TTY (tty)
 
-# Run tmux if not running
-if string match -q '/dev/pts/*' "$TTY"
-	if ! tmux list-sessions | grep -q ''
-		tmux
-	end
-end
-
 if [ "$TTY" = "/dev/tty1" ]
     XDG_CURRENT_DESKTOP=sway sway
 end

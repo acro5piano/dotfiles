@@ -12,5 +12,6 @@
     "openai-codex/gpt-5.6-sol",
     "openai-codex/gpt-6-astra",
     "openai-codex/gpt-5.6-terra"
-  ]
+  ],
+  "packages": []
 }
