@@ -4,8 +4,8 @@ end
 
 set -U fish_greeting "🐟"
 
-set -gx ANDROID_HOME /opt/android-sdk
-set -gx ANDROID_SDK_ROOT /opt/android-sdk
+set -gx ANDROID_HOME $HOME/Android/Sdk
+set -gx ANDROID_SDK_ROOT $HOME/Android/Sdk
 
 set -gx PNPM_HOME "/home/kazuya/.local/share/pnpm"
 set --export BUN_INSTALL "$HOME/.bun"
@@ -296,3 +296,4 @@ end
 
 # opencode
 fish_add_path /home/kazuya/.opencode/bin
+
