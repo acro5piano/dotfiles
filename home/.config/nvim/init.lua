@@ -1,7 +1,5 @@
--- Experimental message UI: no hit-enter prompt; messages show in an auto-hiding float (`g<` to review)
-require("vim._core.ui2").enable({
-  msg = { targets = "msg" },
-})
+-- No hit-enter prompt: multi-line messages show for 1s, then go away (`:messages` to review)
+vim.o.messagesopt = "wait:1000,history:1000"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
