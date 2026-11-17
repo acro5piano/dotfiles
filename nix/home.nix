@@ -35,6 +35,7 @@ in
     pgcli
     ripgrep
     rsync
+    ssm-session-manager-plugin
     transcrypt
     tree
     unzip
