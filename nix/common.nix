@@ -36,6 +36,7 @@
         "npm:wrangler" = "latest";
 
         herdr = "latest";
+        cloudflared = "latest";
         process-compose = "latest";
         python = "latest";
         uv = "latest";
